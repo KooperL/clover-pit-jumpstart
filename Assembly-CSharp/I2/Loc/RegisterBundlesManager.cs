@@ -21,7 +21,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000DFD RID: 3581 RVA: 0x000569E9 File Offset: 0x00054BE9
-		public virtual Object LoadFromBundle(string path, Type assetType)
+		public virtual global::UnityEngine.Object LoadFromBundle(string path, Type assetType)
 		{
 			return null;
 		}

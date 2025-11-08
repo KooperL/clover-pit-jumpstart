@@ -99,23 +99,23 @@ namespace Panik
 		// Token: 0x06000AE3 RID: 2787 RVA: 0x00049CD1 File Offset: 0x00047ED1
 		public static Music.MusicCapsule Play(string musicName)
 		{
-			return Music._Play(AssetMaster.GetMusic(musicName), false, Vector3.zero, 10f, 1, 1f, true);
+			return Music._Play(AssetMaster.GetMusic(musicName), false, Vector3.zero, 10f, AudioRolloffMode.Linear, 1f, true);
 		}
 
 		// Token: 0x06000AE4 RID: 2788 RVA: 0x00049CF0 File Offset: 0x00047EF0
 		public static Music.MusicCapsule Play_Unpausable(string musicName)
 		{
-			return Music._Play(AssetMaster.GetMusic(musicName), false, Vector3.zero, 10f, 1, 1f, false);
+			return Music._Play(AssetMaster.GetMusic(musicName), false, Vector3.zero, 10f, AudioRolloffMode.Linear, 1f, false);
 		}
 
 		// Token: 0x06000AE5 RID: 2789 RVA: 0x00049D0F File Offset: 0x00047F0F
-		public static Music.MusicCapsule Play3D(string musicName, Vector3 position, float distance3D, AudioRolloffMode rollOffMode = 1)
+		public static Music.MusicCapsule Play3D(string musicName, Vector3 position, float distance3D, AudioRolloffMode rollOffMode = AudioRolloffMode.Linear)
 		{
 			return Music._Play(AssetMaster.GetSound(musicName), true, position, distance3D, rollOffMode, 1f, true);
 		}
 
 		// Token: 0x06000AE6 RID: 2790 RVA: 0x00049D26 File Offset: 0x00047F26
-		public static Music.MusicCapsule Play3D_Unpausable(string musicName, Vector3 position, float distance3D, AudioRolloffMode rollOffMode = 1)
+		public static Music.MusicCapsule Play3D_Unpausable(string musicName, Vector3 position, float distance3D, AudioRolloffMode rollOffMode = AudioRolloffMode.Linear)
 		{
 			return Music._Play(AssetMaster.GetSound(musicName), true, position, distance3D, rollOffMode, 1f, false);
 		}
@@ -418,7 +418,7 @@ namespace Panik
 			{
 				if (this.myGameObject != null)
 				{
-					Object.Destroy(this.myGameObject);
+					global::UnityEngine.Object.Destroy(this.myGameObject);
 				}
 			}
 

@@ -345,14 +345,14 @@ public class DrawersScript : MonoBehaviour
 			yield return null;
 		}
 		this.keyTransforms[keyIndex].SetLocalZ(0.7f);
-		Sound.Play3D("SoundDrawerKeyEnter", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundDrawerKeyEnter", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		float timer = 0.25f;
 		while (timer > 0f)
 		{
 			timer -= Tick.Time;
 			yield return null;
 		}
-		Sound.Play3D("SoundDrawerKeyTurn", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundDrawerKeyTurn", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		while (this.keyTransforms[keyIndex].GetLocalXAngle() < -1f)
 		{
 			this.keyTransforms[keyIndex].AddLocalXAngle((0f - this.keyTransforms[keyIndex].GetLocalXAngle()) * Tick.Time * 10f);
@@ -492,12 +492,12 @@ public class DrawersScript : MonoBehaviour
 	// Token: 0x06000455 RID: 1109 RVA: 0x0001CDC0 File Offset: 0x0001AFC0
 	public static void TryPuttingEasterEgg()
 	{
-		int num = Random.Range(0, 4);
+		int num = global::UnityEngine.Random.Range(0, 4);
 		for (int i = 0; i < 4; i++)
 		{
 			if (DrawersScript.IsDrawerUnlocked(num) && !(PowerupScript.array_InDrawer[num] != null))
 			{
-				DrawersScript.SetEasterEgg((DrawersScript.EasterEgg)Random.Range(0, 5), num);
+				DrawersScript.SetEasterEgg((DrawersScript.EasterEgg)global::UnityEngine.Random.Range(0, 5), num);
 				DrawersScript.hasSeenEasterEgg = false;
 				return;
 			}
@@ -730,7 +730,7 @@ public class DrawersScript : MonoBehaviour
 			Animator componentInChildren = this.fliesGameObjects[i].GetComponentInChildren<Animator>(true);
 			if (componentInChildren != null)
 			{
-				componentInChildren.speed = Random.Range(0.8f, 1.2f);
+				componentInChildren.speed = global::UnityEngine.Random.Range(0.8f, 1.2f);
 			}
 		}
 	}
@@ -771,7 +771,7 @@ public class DrawersScript : MonoBehaviour
 				if (this.shakeSoundCounter >= 2)
 				{
 					this.shakeSoundCounter = 0;
-					Sound.Play3D("SoundDrawerWithItem", base.transform.position, 8f, 1f, 1f, 1);
+					Sound.Play3D("SoundDrawerWithItem", base.transform.position, 8f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 			}
 		}
@@ -790,8 +790,8 @@ public class DrawersScript : MonoBehaviour
 			if (!flag3 && PowerupScript.GetDrawerPowerup(j) != null)
 			{
 				float num = Mathf.Max(this.shakeTimer, 0f) * 0.2f;
-				transform.SetLocalX(Random.Range(-num, num));
-				transform.SetLocalY(Random.Range(-num, num));
+				transform.SetLocalX(global::UnityEngine.Random.Range(-num, num));
+				transform.SetLocalY(global::UnityEngine.Random.Range(-num, num));
 			}
 			else
 			{
@@ -881,7 +881,7 @@ public class DrawersScript : MonoBehaviour
 		{
 			if (this.myFliesSound == null || !Sound.IsPlaying("SoundDrawerFlies"))
 			{
-				this.myFliesSound = Sound.Play3D("SoundDrawerFlies", base.transform.position + new Vector3(0f, 4f, 0f), 10f, this.fliesVolume, 1f, 1);
+				this.myFliesSound = Sound.Play3D("SoundDrawerFlies", base.transform.position + new Vector3(0f, 4f, 0f), 10f, this.fliesVolume, 1f, AudioRolloffMode.Linear);
 				this.fliesVolume -= 0.1f;
 				this.fliesVolume = Mathf.Max(this.fliesVolume, 0.2f);
 				return;

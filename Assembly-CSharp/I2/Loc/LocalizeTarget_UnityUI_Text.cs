@@ -13,7 +13,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000FCE RID: 4046 RVA: 0x00063035 File Offset: 0x00061235
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<Text, LocalizeTarget_UnityUI_Text>
@@ -106,27 +106,27 @@ namespace I2.Loc
 			{
 				switch (alignment)
 				{
-				case 0:
-					alignLTR = 2;
+				case TextAnchor.UpperLeft:
+					alignLTR = TextAnchor.UpperRight;
 					return;
-				case 1:
-				case 4:
-				case 7:
+				case TextAnchor.UpperCenter:
+				case TextAnchor.MiddleCenter:
+				case TextAnchor.LowerCenter:
 					break;
-				case 2:
-					alignLTR = 0;
+				case TextAnchor.UpperRight:
+					alignLTR = TextAnchor.UpperLeft;
 					return;
-				case 3:
-					alignLTR = 5;
+				case TextAnchor.MiddleLeft:
+					alignLTR = TextAnchor.MiddleRight;
 					return;
-				case 5:
-					alignLTR = 3;
+				case TextAnchor.MiddleRight:
+					alignLTR = TextAnchor.MiddleLeft;
 					return;
-				case 6:
-					alignLTR = 8;
+				case TextAnchor.LowerLeft:
+					alignLTR = TextAnchor.LowerRight;
 					return;
-				case 8:
-					alignLTR = 6;
+				case TextAnchor.LowerRight:
+					alignLTR = TextAnchor.LowerLeft;
 					return;
 				default:
 					return;
@@ -136,27 +136,27 @@ namespace I2.Loc
 			{
 				switch (alignment)
 				{
-				case 0:
-					alignRTL = 2;
+				case TextAnchor.UpperLeft:
+					alignRTL = TextAnchor.UpperRight;
 					return;
-				case 1:
-				case 4:
-				case 7:
+				case TextAnchor.UpperCenter:
+				case TextAnchor.MiddleCenter:
+				case TextAnchor.LowerCenter:
 					break;
-				case 2:
-					alignRTL = 0;
+				case TextAnchor.UpperRight:
+					alignRTL = TextAnchor.UpperLeft;
 					return;
-				case 3:
-					alignRTL = 5;
+				case TextAnchor.MiddleLeft:
+					alignRTL = TextAnchor.MiddleRight;
 					return;
-				case 5:
-					alignRTL = 3;
+				case TextAnchor.MiddleRight:
+					alignRTL = TextAnchor.MiddleLeft;
 					return;
-				case 6:
-					alignRTL = 8;
+				case TextAnchor.LowerLeft:
+					alignRTL = TextAnchor.LowerRight;
 					break;
-				case 8:
-					alignRTL = 6;
+				case TextAnchor.LowerRight:
+					alignRTL = TextAnchor.LowerLeft;
 					return;
 				default:
 					return;
@@ -164,7 +164,7 @@ namespace I2.Loc
 			}
 		}
 
-		private TextAnchor mAlignment_RTL = 2;
+		private TextAnchor mAlignment_RTL = TextAnchor.UpperRight;
 
 		private TextAnchor mAlignment_LTR;
 

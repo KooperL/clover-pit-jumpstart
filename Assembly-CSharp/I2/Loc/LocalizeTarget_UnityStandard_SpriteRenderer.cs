@@ -12,7 +12,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F9C RID: 3996 RVA: 0x00062B31 File Offset: 0x00060D31
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<SpriteRenderer, LocalizeTarget_UnityStandard_SpriteRenderer>

@@ -11,8 +11,7 @@ namespace Panik
 		// Token: 0x06000C62 RID: 3170 RVA: 0x00051730 File Offset: 0x0004F930
 		public Vector2 GetMouseSpeedMultiplier_FromResolution()
 		{
-			Vector2 vector;
-			vector..ctor((float)Display.main.systemWidth, (float)Display.main.systemHeight);
+			Vector2 vector = new Vector2((float)Display.main.systemWidth, (float)Display.main.systemHeight);
 			return new Vector2(vector.x / this.referenceResolution.x, vector.y / this.referenceResolution.y);
 		}
 
@@ -270,8 +269,7 @@ namespace Panik
 			{
 				return Vector2.zero;
 			}
-			Vector2 vector;
-			vector..ctor((float)Screen.width, (float)Screen.height);
+			Vector2 vector = new Vector2((float)Screen.width, (float)Screen.height);
 			Vector2 anchoredPosition = VirtualCursors.instance.cursorImages[playerIndex].rectTransform.anchoredPosition;
 			anchoredPosition.x = anchoredPosition.x / vector.x + 0.5f;
 			anchoredPosition.y = anchoredPosition.y / vector.y + 0.5f;
@@ -295,8 +293,7 @@ namespace Panik
 			{
 				return Vector2.zero;
 			}
-			Vector2 vector;
-			vector..ctor((float)Screen.width, (float)Screen.height);
+			Vector2 vector = new Vector2((float)Screen.width, (float)Screen.height);
 			Vector2 anchoredPosition = VirtualCursors.instance.cursorImages[playerIndex].rectTransform.anchoredPosition;
 			anchoredPosition.x += vector.x / 2f;
 			anchoredPosition.y += vector.y / 2f;
@@ -354,8 +351,7 @@ namespace Panik
 			{
 				return;
 			}
-			Vector2 vector;
-			vector..ctor((float)Screen.width, (float)Screen.height);
+			Vector2 vector = new Vector2((float)Screen.width, (float)Screen.height);
 			Vector2 vector2;
 			vector2.x = normalizedPosition.x * vector.x;
 			vector2.y = normalizedPosition.y * vector.y;
@@ -530,16 +526,16 @@ namespace Panik
 		{
 			if (VirtualCursors.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			VirtualCursors.instance = this;
 			Cursor.visible = false;
-			Cursor.lockState = 1;
+			Cursor.lockState = CursorLockMode.Locked;
 			int num = 1;
 			while (this.cursorImages.Count < num)
 			{
-				Image component = Object.Instantiate<GameObject>(this.cursorImageTemplate.gameObject, base.transform).GetComponent<Image>();
+				Image component = global::UnityEngine.Object.Instantiate<GameObject>(this.cursorImageTemplate.gameObject, base.transform).GetComponent<Image>();
 				this.cursorImages.Add(component);
 				component.rectTransform.anchoredPosition = Vector2.zero;
 			}
@@ -594,8 +590,7 @@ namespace Panik
 		// Token: 0x06000C99 RID: 3225 RVA: 0x000523B0 File Offset: 0x000505B0
 		private void Update()
 		{
-			Vector2 vector;
-			vector..ctor((float)Screen.width, (float)Screen.height);
+			Vector2 vector = new Vector2((float)Screen.width, (float)Screen.height);
 			for (int i = 0; i < this.cursorImages.Count; i++)
 			{
 				int num = i;
@@ -660,7 +655,7 @@ namespace Panik
 						UnityAction unityAction = this.onSmartVisibilitySwitch_On;
 						if (unityAction != null)
 						{
-							unityAction.Invoke();
+							unityAction();
 						}
 					}
 					else if (Controls.MenuDirectionalAny_PressedGet(num) || (flag && (flag5 || flag4)) || flag6)
@@ -669,7 +664,7 @@ namespace Panik
 						UnityAction unityAction2 = this.onSmartVisibilitySwitch_Off;
 						if (unityAction2 != null)
 						{
-							unityAction2.Invoke();
+							unityAction2();
 						}
 					}
 				}

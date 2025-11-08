@@ -19,12 +19,10 @@ public class ScreenColliderController : MonoBehaviour
 		{
 			return false;
 		}
-		Vector2 vector;
-		vector..ctor(-1f, -1f);
+		Vector2 vector = new Vector2(-1f, -1f);
 		if (flag)
 		{
-			Vector2 vector2;
-			vector2..ctor((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
+			Vector2 vector2 = new Vector2((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
 			vector = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector2);
 			vector.x += 0.5f;
 			vector.y += 0.5f;
@@ -78,7 +76,7 @@ public class ScreenColliderController : MonoBehaviour
 			}
 			Spawn.FromPool("Effect Star Screen", this._mouseOverPosition, Pool.instance.transform);
 			CameraGame.Shake(0.5f);
-			Sound.Play("SoundSlotMachineScreenTick", 1f, Random.Range(0.9f, 1.1f) - (flag2 ? 0.5f : 0f));
+			Sound.Play("SoundSlotMachineScreenTick", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f) - (flag2 ? 0.5f : 0f));
 		}
 	}
 

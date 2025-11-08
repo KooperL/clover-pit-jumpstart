@@ -23,7 +23,7 @@ namespace Panik
 			}
 			else
 			{
-				Pool.gameObjAppoggio = Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName));
+				Pool.gameObjAppoggio = global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName));
 				Pool.gameObjAppoggio.name = prefabName;
 			}
 			if (!Pool.gameObjAppoggio.activeSelf && automaticallyEnable)
@@ -84,7 +84,7 @@ namespace Panik
 				this.poolDict.Add(prefabName, new Pool.PoolCapsule(prefabName));
 			}
 			Pool.poolCapsAppoggio = this.poolDict[prefabName];
-			Pool.gameObjAppoggio = Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName));
+			Pool.gameObjAppoggio = global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName));
 			Pool.gameObjAppoggio.SetActive(false);
 			Pool.gameObjAppoggio.name = prefabName;
 			Pool.poolCapsAppoggio.availableGameObjects.Add(Pool.gameObjAppoggio);

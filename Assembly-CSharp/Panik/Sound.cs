@@ -105,23 +105,23 @@ namespace Panik
 		// Token: 0x06000B12 RID: 2834 RVA: 0x0004A9BC File Offset: 0x00048BBC
 		public static Sound.SoundCapsule Play(string soundName, float vol = 1f, float pitch = 1f)
 		{
-			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, 1, vol, pitch, true);
+			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, AudioRolloffMode.Linear, vol, pitch, true);
 		}
 
 		// Token: 0x06000B13 RID: 2835 RVA: 0x0004A9D8 File Offset: 0x00048BD8
 		public static Sound.SoundCapsule Play_Unpausable(string soundName, float vol = 1f, float pitch = 1f)
 		{
-			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, 1, vol, pitch, false);
+			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, AudioRolloffMode.Linear, vol, pitch, false);
 		}
 
 		// Token: 0x06000B14 RID: 2836 RVA: 0x0004A9F4 File Offset: 0x00048BF4
-		public static Sound.SoundCapsule Play3D(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = 1)
+		public static Sound.SoundCapsule Play3D(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = AudioRolloffMode.Linear)
 		{
 			return Sound._Play(AssetMaster.GetSound(soundName), true, position, distance3D, rollOffMode, vol, pitch, true);
 		}
 
 		// Token: 0x06000B15 RID: 2837 RVA: 0x0004AA0A File Offset: 0x00048C0A
-		public static Sound.SoundCapsule Play3D_Unpausable(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = 1)
+		public static Sound.SoundCapsule Play3D_Unpausable(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = AudioRolloffMode.Linear)
 		{
 			return Sound._Play(AssetMaster.GetSound(soundName), true, position, distance3D, rollOffMode, vol, pitch, false);
 		}
@@ -426,7 +426,7 @@ namespace Panik
 			{
 				if (this.myGameObject != null)
 				{
-					Object.Destroy(this.myGameObject);
+					global::UnityEngine.Object.Destroy(this.myGameObject);
 				}
 			}
 

@@ -41,7 +41,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.uiHolder.SetActive(false);
 		this.twitchLabelHolder.SetActive(false);
 		this.phoneHolder.transform.SetLocalY(-640f);
-		Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		while (this.phoneHolder.transform.localPosition.y < -1f)
 		{
 			this.phoneHolder.transform.AddLocalY((0f - this.phoneHolder.transform.GetLocalY()) * 20f * Tick.Time);
@@ -50,7 +50,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.phoneHolder.transform.SetLocalY(0f);
 		if (hasNoDialogue)
 		{
-			Sound.Play3D("SoundPhoneNoLine", PhoneScript.instance.transform.position, 20f, 1f, 1f, 1);
+			Sound.Play3D("SoundPhoneNoLine", PhoneScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 			float timer = 3f;
 			while (timer > 0f)
 			{
@@ -93,7 +93,7 @@ public class PhoneUiScript : MonoBehaviour
 				{
 					this.uiHolder.SetActive(false);
 					this.phoneHolder.transform.SetLocalY(-640f);
-					Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 					while (this.phoneHolder.transform.localPosition.y < -1f)
 					{
 						this.phoneHolder.transform.AddLocalY((0f - this.phoneHolder.transform.GetLocalY()) * 20f * Tick.Time);
@@ -169,7 +169,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.uiHolder.SetActive(false);
 		this.twitchLabelHolder.SetActive(false);
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
-		Sound.Play3D("SoundWooshOut", this.phoneHolder.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundWooshOut", this.phoneHolder.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		while (this.phoneHolder.transform.localPosition.y > -639f && !PhoneUiScript.IsForceClosing())
 		{
 			this.phoneHolder.transform.AddLocalY((-640f - this.phoneHolder.transform.GetLocalY()) * 20f * Tick.Time);
@@ -399,26 +399,26 @@ public class PhoneUiScript : MonoBehaviour
 		case AbilityScript.Category.normal:
 			if (useReplyVersion)
 			{
-				Sound.Play("SoundVoiceNormal_Reply", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundVoiceNormal_Reply", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				return;
 			}
-			Sound.Play("SoundVoiceNormal", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundVoiceNormal", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			return;
 		case AbilityScript.Category.evil:
 			if (useReplyVersion)
 			{
-				Sound.Play("SoundVoiceEvil_Reply", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundVoiceEvil_Reply", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				return;
 			}
-			Sound.Play("SoundVoiceEvil", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundVoiceEvil", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			return;
 		case AbilityScript.Category.good:
 			if (useReplyVersion)
 			{
-				Sound.Play("SoundVoiceGood_Reply", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundVoiceGood_Reply", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				return;
 			}
-			Sound.Play("SoundVoiceGood", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundVoiceGood", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			return;
 		default:
 			Debug.LogError("PhoneUiScript: Undefined category for abilities.");
@@ -460,8 +460,8 @@ public class PhoneUiScript : MonoBehaviour
 		}
 		else
 		{
-			Vector2 zero = Vector2.zero;
-			Vector2 zero2 = Vector2.zero;
+			global::UnityEngine.Vector2 zero = global::UnityEngine.Vector2.zero;
+			global::UnityEngine.Vector2 zero2 = global::UnityEngine.Vector2.zero;
 			zero2.x = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveRight, Controls.InputAction.menuMoveLeft, true);
 			zero2.y = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveUp, Controls.InputAction.menuMoveDown, true);
 			if (zero2.x > 0.35f && this.inputAxisRawPrev.x <= 0.35f)
@@ -738,18 +738,18 @@ public class PhoneUiScript : MonoBehaviour
 		}
 		float num = Util.AngleSin(Tick.PassedTime * 90f) * 5f;
 		float num2 = Util.AngleSin(Tick.PassedTime * 60f + 90f) * 5f;
-		this.phoneRotatorHolder.transform.eulerAngles = new Vector3(0f, num, num2);
+		this.phoneRotatorHolder.transform.eulerAngles = new global::UnityEngine.Vector3(0f, num, num2);
 		if (GameplayData.NineNineNine_IsTime() && this.cornettaMeshRenderer.material != this.cornettaMaterial_999)
 		{
 			this.cornettaMeshRenderer.material = this.cornettaMaterial_999;
 		}
-		Vector2 vector = this.dialogueImageStartPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		global::UnityEngine.Vector2 vector = this.dialogueImageStartPos + new global::UnityEngine.Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			vector = this.dialogueImageStartPos;
 		}
 		this.dialogueImage.rectTransform.anchoredPosition = vector;
-		vector = this.twitchImageStartPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		vector = this.twitchImageStartPos + new global::UnityEngine.Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			vector = this.twitchImageStartPos;
@@ -782,7 +782,7 @@ public class PhoneUiScript : MonoBehaviour
 
 	public Image dialogueImage;
 
-	private Vector2 dialogueImageStartPos;
+	private global::UnityEngine.Vector2 dialogueImageStartPos;
 
 	public TextAnimator phoneDialogueTextAnimator;
 
@@ -800,7 +800,7 @@ public class PhoneUiScript : MonoBehaviour
 
 	public Image twitchLabelImage;
 
-	private Vector2 twitchImageStartPos;
+	private global::UnityEngine.Vector2 twitchImageStartPos;
 
 	private Coroutine mainCoroutine;
 
@@ -808,7 +808,7 @@ public class PhoneUiScript : MonoBehaviour
 
 	private int selectionIndex = -1;
 
-	private Vector2 inputAxisRawPrev = Vector2.zero;
+	private global::UnityEngine.Vector2 inputAxisRawPrev = global::UnityEngine.Vector2.zero;
 
 	private bool forceClose_Death;
 

@@ -9,13 +9,13 @@ namespace Panik
 		// Token: 0x06000D84 RID: 3460 RVA: 0x00055841 File Offset: 0x00053A41
 		public static T Choose<T>(params T[] elements)
 		{
-			return elements[Random.Range(0, elements.Length)];
+			return elements[global::UnityEngine.Random.Range(0, elements.Length)];
 		}
 
 		// Token: 0x06000D85 RID: 3461 RVA: 0x00055852 File Offset: 0x00053A52
 		public static T Choose<T>(List<T> elements)
 		{
-			return elements[Random.Range(0, elements.Count)];
+			return elements[global::UnityEngine.Random.Range(0, elements.Count)];
 		}
 
 		// Token: 0x06000D86 RID: 3462 RVA: 0x00055866 File Offset: 0x00053A66

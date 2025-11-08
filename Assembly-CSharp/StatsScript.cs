@@ -147,11 +147,11 @@ public class StatsScript : MonoBehaviour
 		}
 		if (this.promptTime)
 		{
-			this.textAnimator_StatsText.tmproText.verticalAlignment = 256;
+			this.textAnimator_StatsText.tmproText.verticalAlignment = VerticalAlignmentOptions.Top;
 		}
 		else
 		{
-			this.textAnimator_StatsText.tmproText.verticalAlignment = 512;
+			this.textAnimator_StatsText.tmproText.verticalAlignment = VerticalAlignmentOptions.Middle;
 		}
 		this.textAnimator_StatsText.tmproText.text = this.sb.ToString();
 		this.textAnimator_StatsText.tmproText.ForceMeshUpdate(false, false);
@@ -206,7 +206,7 @@ public class StatsScript : MonoBehaviour
 		this.textAnimator_PhoneTitle.tmproText.alpha = 0f;
 		this.noCharmsText.alpha = 0f;
 		this.noPhoneText.alpha = 0f;
-		this.statsScaler.localScale = Vector3.one * 1.5f;
+		this.statsScaler.localScale = global::UnityEngine.Vector3.one * 1.5f;
 		this.UpdateTextString();
 		float showTimer = 0f;
 		while (showTimer < 1f)
@@ -215,7 +215,7 @@ public class StatsScript : MonoBehaviour
 			showTimer = Mathf.Clamp01(showTimer);
 			this.textAnimator_StatsText.tmproText.alpha = showTimer * showTimer;
 			this.textAnimator_Prompt.tmproText.alpha = showTimer * showTimer;
-			this.statsScaler.localScale = Vector3.Lerp(this.statsScaler.localScale, Vector3.one, showTimer);
+			this.statsScaler.localScale = global::UnityEngine.Vector3.Lerp(this.statsScaler.localScale, global::UnityEngine.Vector3.one, showTimer);
 			yield return null;
 		}
 		float timer = 0f;
@@ -310,11 +310,11 @@ public class StatsScript : MonoBehaviour
 		}
 		if (powerups.Count > 20)
 		{
-			this.charmsArea.anchoredPosition -= new Vector2(0f, 30f);
+			this.charmsArea.anchoredPosition -= new global::UnityEngine.Vector2(0f, 30f);
 		}
 		else if (powerups.Count <= 15)
 		{
-			this.charmsArea.anchoredPosition += new Vector2(0f, 30f);
+			this.charmsArea.anchoredPosition += new global::UnityEngine.Vector2(0f, 30f);
 		}
 		float scaleMult = ((powerups.Count < 3) ? 1.25f : ((powerups.Count < 5) ? 1f : ((powerups.Count <= 20) ? 0.8f : 0.7f)));
 		float xSize = 60f * scaleMult;
@@ -327,9 +327,9 @@ public class StatsScript : MonoBehaviour
 			CharmUiRenderer charmUiRenderer = CharmUiRenderer.PoolSpawn(powerupScript.identifier, CameraUiGlobal.instance.gameObject.layer, this.charmsArea, true, scaleMult = scaleMult, 0.5f, true, drawersPowerups.Contains(powerupScript), null, null);
 			float num = (float)(-(float)Mathf.Min(powerups.Count - 1, 4)) * xSize * 0.5f;
 			float num2 = (float)Mathf.Min(Mathf.Max(0, powerups.Count / 5 - 1), 4) * ySize * 0.5f - 30f;
-			charmUiRenderer.transform.localPosition = new Vector3(num + (float)(i % 5) * xSize, num2 - (float)(i / 5) * ySize, 0f);
-			charmUiRenderer.transform.localScale = Vector3.one * 60f * 3f;
-			charmUiRenderer.transform.eulerAngles = Vector3.zero;
+			charmUiRenderer.transform.localPosition = new global::UnityEngine.Vector3(num + (float)(i % 5) * xSize, num2 - (float)(i / 5) * ySize, 0f);
+			charmUiRenderer.transform.localScale = global::UnityEngine.Vector3.one * 60f * 3f;
+			charmUiRenderer.transform.eulerAngles = global::UnityEngine.Vector3.zero;
 			while (timer < timeToWait)
 			{
 				timer += Tick.Time;
@@ -360,11 +360,11 @@ public class StatsScript : MonoBehaviour
 		}
 		if (abilities.Count > 20)
 		{
-			this.phoneAbilitiesArea.anchoredPosition -= new Vector2(0f, 30f);
+			this.phoneAbilitiesArea.anchoredPosition -= new global::UnityEngine.Vector2(0f, 30f);
 		}
 		else if (abilities.Count <= 15)
 		{
-			this.phoneAbilitiesArea.anchoredPosition += new Vector2(0f, 30f);
+			this.phoneAbilitiesArea.anchoredPosition += new global::UnityEngine.Vector2(0f, 30f);
 		}
 		base.StartCoroutine(this.AbilityImagesAnimationCoroutine());
 		float scaleMult = ((abilities.Count < 3) ? 1f : ((abilities.Count < 20) ? 0.75f : ((abilities.Count < 40) ? 0.5f : 0.25f)));
@@ -375,7 +375,7 @@ public class StatsScript : MonoBehaviour
 		for (int i = 0; i < abilities.Count; i = num3 + 1)
 		{
 			AbilityScript abilityScript = AbilityScript.AbilityGet(abilities[i]);
-			Image component = Object.Instantiate<GameObject>(this.phoneAbilityTemplate.gameObject, this.phoneAbilitiesArea).GetComponent<Image>();
+			Image component = global::UnityEngine.Object.Instantiate<GameObject>(this.phoneAbilityTemplate.gameObject, this.phoneAbilitiesArea).GetComponent<Image>();
 			component.sprite = abilityScript.SpriteGet();
 			component.gameObject.SetActive(true);
 			StatsScript.AbilityImageAnimation abilityImageAnimation = default(StatsScript.AbilityImageAnimation);
@@ -384,9 +384,9 @@ public class StatsScript : MonoBehaviour
 			this.abilityImagesAngularSpeed.Add(abilityImageAnimation);
 			float num = (float)(-(float)Mathf.Min(abilities.Count - 1, 4)) * xSize * 0.5f;
 			float num2 = (float)Mathf.Min(Mathf.Max(0, abilities.Count / 5 - 1), 4) * ySize * 0.5f;
-			component.transform.localPosition = new Vector3(num + (float)(i % 5) * xSize, num2 - (float)(i / 5) * ySize, 0f);
-			component.transform.localScale = Vector3.one * scaleMult;
-			component.transform.eulerAngles = Vector3.zero;
+			component.transform.localPosition = new global::UnityEngine.Vector3(num + (float)(i % 5) * xSize, num2 - (float)(i / 5) * ySize, 0f);
+			component.transform.localScale = global::UnityEngine.Vector3.one * scaleMult;
+			component.transform.eulerAngles = global::UnityEngine.Vector3.zero;
 			while (timer < timeToWait)
 			{
 				timer += Tick.Time;

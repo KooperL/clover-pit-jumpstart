@@ -92,8 +92,7 @@ public class SlotSideUIScript : MonoBehaviour
 		{
 			return;
 		}
-		Vector2 zero;
-		zero..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 zero = new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			zero = Vector2.zero;

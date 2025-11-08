@@ -129,8 +129,8 @@ public class PlayerScript : MonoBehaviour
 				this.stepTimer -= Tick.Time * num2;
 				if (this.stepTimer <= 0f)
 				{
-					this.stepTimer = this.stepTimerMax + Random.Range(-this.stepTimerRnd, this.stepTimerRnd);
-					Sound.Play3D(this.GetStepSound(), base.transform.position, 10f, 1f, Random.Range(0.9f, 1.1f), 1);
+					this.stepTimer = this.stepTimerMax + global::UnityEngine.Random.Range(-this.stepTimerRnd, this.stepTimerRnd);
+					Sound.Play3D(this.GetStepSound(), base.transform.position, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 				}
 				return;
 			}

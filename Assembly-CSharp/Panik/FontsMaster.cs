@@ -103,7 +103,7 @@ namespace Panik
 		{
 			if (FontsMaster.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			FontsMaster.instance = this;

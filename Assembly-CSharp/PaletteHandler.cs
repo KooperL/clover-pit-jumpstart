@@ -39,7 +39,7 @@ public class PaletteHandler : MonoBehaviour
 	// Token: 0x06000018 RID: 24 RVA: 0x00002868 File Offset: 0x00000A68
 	private void Reset()
 	{
-		this.currentPalette = Object.FindObjectOfType<Colors>().defaultSpritePalette;
+		this.currentPalette = global::UnityEngine.Object.FindObjectOfType<Colors>().defaultSpritePalette;
 		if (this.currentPalette == null)
 		{
 			Debug.LogError("Please define a default palette sprite inside the game master->child called 'Colors'");
@@ -61,7 +61,7 @@ public class PaletteHandler : MonoBehaviour
 			DPSpritePaletteUI component = base.GetComponent<DPSpritePaletteUI>();
 			if (component != null)
 			{
-				Object.DestroyImmediate(component);
+				global::UnityEngine.Object.DestroyImmediate(component);
 			}
 			if (flag)
 			{

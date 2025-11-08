@@ -13,7 +13,7 @@ public class TestScript : MonoBehaviour
 		this.graphsCounter = new int[100];
 		for (int i = 0; i < this.graphColumns.Length; i++)
 		{
-			this.graphColumns[i] = Object.Instantiate<GameObject>(this.InstanceToClone, null).transform;
+			this.graphColumns[i] = global::UnityEngine.Object.Instantiate<GameObject>(this.InstanceToClone, null).transform;
 		}
 		this.GraphShow();
 	}
@@ -124,21 +124,21 @@ public class TestScript : MonoBehaviour
 	// Token: 0x06000836 RID: 2102 RVA: 0x00035BAC File Offset: 0x00033DAC
 	private void Update()
 	{
-		if (Input.GetKeyDown(43) || Input.GetKeyDown(270))
+		if (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus))
 		{
-			this.seed = Random.Range(int.MinValue, int.MaxValue);
+			this.seed = global::UnityEngine.Random.Range(int.MinValue, int.MaxValue);
 			this.GraphShow();
 		}
-		if (Input.GetKeyDown(114))
+		if (Input.GetKeyDown(KeyCode.R))
 		{
 			this.GraphShow();
 		}
-		if (Input.GetKeyDown(105))
+		if (Input.GetKeyDown(KeyCode.I))
 		{
 			this.iterateSlowly = !this.iterateSlowly;
 			this.GraphShow();
 		}
-		if (Input.GetKeyDown(102))
+		if (Input.GetKeyDown(KeyCode.F))
 		{
 			Debug.Log("Value: " + this.randomInst.Value.ToString());
 		}

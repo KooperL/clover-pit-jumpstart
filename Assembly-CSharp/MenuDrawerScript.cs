@@ -154,10 +154,10 @@ public class MenuDrawerScript : MonoBehaviour
 			this._openedOld = this.opened;
 			if (this.opened)
 			{
-				Sound.Play3D("SoundDrawerOpenMetal", this.soundTransform.position, 10f, 1f, Random.Range(0.9f, 1.1f), 1);
+				Sound.Play3D("SoundDrawerOpenMetal", this.soundTransform.position, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 				return;
 			}
-			Sound.Play3D("SoundDrawerCloseMetal", this.soundTransform.position, 10f, 1f, Random.Range(0.9f, 1.1f), 1);
+			Sound.Play3D("SoundDrawerCloseMetal", this.soundTransform.position, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 		}
 	}
 

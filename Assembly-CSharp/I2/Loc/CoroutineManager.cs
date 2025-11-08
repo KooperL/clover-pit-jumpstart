@@ -14,11 +14,11 @@ namespace I2.Loc
 				if (CoroutineManager.mInstance == null)
 				{
 					GameObject gameObject = new GameObject("_Coroutiner");
-					gameObject.hideFlags = 61;
+					gameObject.hideFlags = HideFlags.HideAndDontSave;
 					CoroutineManager.mInstance = gameObject.AddComponent<CoroutineManager>();
 					if (Application.isPlaying)
 					{
-						Object.DontDestroyOnLoad(gameObject);
+						global::UnityEngine.Object.DontDestroyOnLoad(gameObject);
 					}
 				}
 				return CoroutineManager.mInstance;
@@ -30,7 +30,7 @@ namespace I2.Loc
 		{
 			if (Application.isPlaying)
 			{
-				Object.DontDestroyOnLoad(base.gameObject);
+				global::UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
 			}
 		}
 

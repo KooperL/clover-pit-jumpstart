@@ -93,7 +93,7 @@ public class MemoryPackDealUI : MonoBehaviour
 			{
 				this.showCards = false;
 				float scale = 0f;
-				this.packCenterer.localScale = Vector3.zero;
+				this.packCenterer.localScale = global::UnityEngine.Vector3.zero;
 				this.packHolder.transform.SetLocalY(1024f);
 				this.packHolder.SetActive(false);
 				this.packParticles.SetActive(false);
@@ -107,11 +107,11 @@ public class MemoryPackDealUI : MonoBehaviour
 				while (scale < 0.95f)
 				{
 					scale = Mathf.Lerp(scale, 1f, Tick.Time * 20f);
-					this.packCenterer.localScale = Vector3.one * scale * 500f;
+					this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
 					yield return null;
 				}
 				scale = 1f;
-				this.packCenterer.localScale = Vector3.one * scale * 500f;
+				this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
 				FlashScreen.SpawnCamera(Color.black, 0.5f, 1f, CameraUiGlobal.instance.myCamera, 100f);
 				while (DialogueScript.IsEnabled())
 				{
@@ -143,9 +143,9 @@ public class MemoryPackDealUI : MonoBehaviour
 				CardScript card0 = CardScript.PoolSpawn(RunModifierScript.CardGetFromPack(), 500f, this.cardsHolder);
 				CardScript card = CardScript.PoolSpawn(RunModifierScript.CardGetFromPack(), 500f, this.cardsHolder);
 				CardScript card2 = CardScript.PoolSpawn(RunModifierScript.CardGetFromPack(), 500f, this.cardsHolder);
-				card0.rectTransform.anchoredPosition = Vector2.zero;
-				card.rectTransform.anchoredPosition = Vector2.zero;
-				card2.rectTransform.anchoredPosition = Vector2.zero;
+				card0.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
+				card.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
+				card2.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
 				card0.rectTransform.SetLocalZ(0f);
 				card.rectTransform.SetLocalZ(0f);
 				card2.rectTransform.SetLocalZ(0f);
@@ -208,7 +208,7 @@ public class MemoryPackDealUI : MonoBehaviour
 							forceNoCardTimer = 0.5f;
 						}
 						float axisX = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveRight, Controls.InputAction.menuMoveLeft, true);
-						Vector2 vector = VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(0, this.canvasScaler.referenceResolution);
+						global::UnityEngine.Vector2 vector = VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(0, this.canvasScaler.referenceResolution);
 						bool flag2 = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true);
 						bool flag3 = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuBack, true);
 						bool flag4 = false;
@@ -285,7 +285,7 @@ public class MemoryPackDealUI : MonoBehaviour
 						if (hoveredCard != null && hoveredCard.IsFaceDown() && flag2 && !flag4)
 						{
 							hoveredCard.Bounce();
-							Sound.Play("SoundCardSelect", 1f, Random.Range(0.9f, 1.1f));
+							Sound.Play("SoundCardSelect", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 							timer = 0.15f;
 							if (RunModifierScript.RarityGet(hoveredCard.identifier) == RunModifierScript.Rarity.rare)
 							{
@@ -448,10 +448,10 @@ public class MemoryPackDealUI : MonoBehaviour
 		while (scale > 0f)
 		{
 			scale -= Tick.Time * 4f;
-			this.packCenterer.localScale = Vector3.one * scale * 500f;
+			this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
 			yield return null;
 		}
-		this.packCenterer.localScale = Vector3.zero;
+		this.packCenterer.localScale = global::UnityEngine.Vector3.zero;
 		this.coroutineHidePack = null;
 		yield break;
 	}
@@ -469,9 +469,9 @@ public class MemoryPackDealUI : MonoBehaviour
 		while (c0 != null && c1 != null && c2 != null)
 		{
 			lerpSpeed = Mathf.Min(1f, lerpSpeed + Tick.Time * 1f);
-			Vector2 vector;
-			Vector2 vector2;
-			Vector2 vector3;
+			global::UnityEngine.Vector2 vector;
+			global::UnityEngine.Vector2 vector2;
+			global::UnityEngine.Vector2 vector3;
 			if (this.showCards)
 			{
 				vector.x = -212f + Util.AngleSin(Tick.PassedTime * 45f) * 8f;
@@ -495,21 +495,21 @@ public class MemoryPackDealUI : MonoBehaviour
 			float num3 = Util.AngleSin(Tick.PassedTime * 30f + 180f) * 5f;
 			if (c0 != null)
 			{
-				c0.rectTransform.anchoredPosition = Vector2.Lerp(c0.rectTransform.anchoredPosition, vector, Tick.Time * 10f * lerpSpeed);
+				c0.rectTransform.anchoredPosition = global::UnityEngine.Vector2.Lerp(c0.rectTransform.anchoredPosition, vector, Tick.Time * 10f * lerpSpeed);
 				c0.rectTransform.SetLocalXAngle(0f);
 				c0.rectTransform.SetLocalYAngle(0f);
 				c0.rectTransform.SetLocalZAngle(num);
 			}
 			if (c1 != null)
 			{
-				c1.rectTransform.anchoredPosition = Vector2.Lerp(c1.rectTransform.anchoredPosition, vector2, Tick.Time * 10f * lerpSpeed);
+				c1.rectTransform.anchoredPosition = global::UnityEngine.Vector2.Lerp(c1.rectTransform.anchoredPosition, vector2, Tick.Time * 10f * lerpSpeed);
 				c1.rectTransform.SetLocalXAngle(0f);
 				c1.rectTransform.SetLocalYAngle(0f);
 				c1.rectTransform.SetLocalZAngle(num2);
 			}
 			if (c2 != null)
 			{
-				c2.rectTransform.anchoredPosition = Vector2.Lerp(c2.rectTransform.anchoredPosition, vector3, Tick.Time * 10f * lerpSpeed);
+				c2.rectTransform.anchoredPosition = global::UnityEngine.Vector2.Lerp(c2.rectTransform.anchoredPosition, vector3, Tick.Time * 10f * lerpSpeed);
 				c2.rectTransform.SetLocalXAngle(0f);
 				c2.rectTransform.SetLocalYAngle(0f);
 				c2.rectTransform.SetLocalZAngle(num3);
@@ -551,16 +551,15 @@ public class MemoryPackDealUI : MonoBehaviour
 		{
 			return;
 		}
-		Vector2 vector;
+		global::UnityEngine.Vector2 vector;
 		vector.x = Util.AngleSin(Tick.PassedTime * 65f) * 16f;
 		vector.y = Util.AngleSin(Tick.PassedTime * 135f) * 12f + (DialogueScript.IsEnabled() ? 48f : 0f);
-		Vector3 vector2;
-		vector2..ctor(vector.x, vector.y, 75f);
-		this.packHolder.transform.localPosition = Vector3.Lerp(this.packHolder.transform.localPosition, vector2, Tick.Time * 20f);
-		Vector2 vector3;
+		global::UnityEngine.Vector3 vector2 = new global::UnityEngine.Vector3(vector.x, vector.y, 75f);
+		this.packHolder.transform.localPosition = global::UnityEngine.Vector3.Lerp(this.packHolder.transform.localPosition, vector2, Tick.Time * 20f);
+		global::UnityEngine.Vector2 vector3;
 		vector3.x = Util.AngleSin(Tick.PassedTime * 45f) * 30f;
 		vector3.y = Util.AngleSin(Tick.PassedTime * 90f) * 15f;
-		this.packCenterer.localEulerAngles = new Vector3(vector3.x, vector3.y, 0f);
+		this.packCenterer.localEulerAngles = new global::UnityEngine.Vector3(vector3.x, vector3.y, 0f);
 		this.backImage.color = Color.Lerp(this.backImage.color, this.backTargetColor, Tick.Time * 10f);
 	}
 

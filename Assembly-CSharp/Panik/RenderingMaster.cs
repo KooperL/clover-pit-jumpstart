@@ -133,16 +133,16 @@ namespace Panik
 				if (flag)
 				{
 					RenderTexture renderTexture = new RenderTexture(num6, num7, 24);
-					renderTexture.filterMode = 0;
+					renderTexture.filterMode = FilterMode.Point;
 					renderTexture.useMipMap = false;
 					renderTexture.autoGenerateMips = false;
 					renderTexture.anisoLevel = 0;
-					renderTexture.wrapMode = 1;
+					renderTexture.wrapMode = TextureWrapMode.Clamp;
 					renderTexture.Create();
 					RenderingMaster.renderTextureCurrent.Release();
 					if (RenderingMaster.renderTextureCurrent != this.renderTextureInitial && RenderingMaster.renderTextureCurrent != null)
 					{
-						Object.Destroy(RenderingMaster.renderTextureCurrent);
+						global::UnityEngine.Object.Destroy(RenderingMaster.renderTextureCurrent);
 					}
 					RenderingMaster.renderTextureCurrent = renderTexture;
 					this.renderingRawImage.texture = RenderingMaster.renderTextureCurrent;
@@ -158,7 +158,7 @@ namespace Panik
 						}
 						else
 						{
-							Screen.fullScreenMode = 3;
+							Screen.fullScreenMode = FullScreenMode.Windowed;
 						}
 					}
 					else
@@ -243,7 +243,7 @@ namespace Panik
 		{
 			if (RenderingMaster.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			RenderingMaster.instance = this;
@@ -331,7 +331,7 @@ namespace Panik
 
 		public RectTransform tateModeTransform;
 
-		public const FilterMode RENDER_TEXTURE_FILTER_MODE = 0;
+		public const FilterMode RENDER_TEXTURE_FILTER_MODE = FilterMode.Point;
 
 		public const bool RENDER_TEXTURE_USE_MIP_MAPS = false;
 
@@ -339,7 +339,7 @@ namespace Panik
 
 		public const int RENDER_TEXTURE_ANISO_LEVEL = 0;
 
-		public const TextureWrapMode RENDER_TEXTURE_WRAP_MODE = 1;
+		public const TextureWrapMode RENDER_TEXTURE_WRAP_MODE = TextureWrapMode.Clamp;
 
 		private Vector2Int displayOldSize = Vector2Int.zero;
 

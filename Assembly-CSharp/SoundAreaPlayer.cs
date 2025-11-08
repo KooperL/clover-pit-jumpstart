@@ -19,7 +19,7 @@ public class SoundAreaPlayer : MonoBehaviour
 		{
 			return;
 		}
-		Sound.Play3D(this.clip.name, base.transform.position + this.soundOffset, this.distance, 1f, 1f + Random.Range(-this.pitchVariance / 2f, this.pitchVariance / 2f), 1);
+		Sound.Play3D(this.clip.name, base.transform.position + this.soundOffset, this.distance, 1f, 1f + global::UnityEngine.Random.Range(-this.pitchVariance / 2f, this.pitchVariance / 2f), AudioRolloffMode.Linear);
 		this.playedOnce = true;
 	}
 

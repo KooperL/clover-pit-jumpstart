@@ -20,7 +20,7 @@ public class TrapdoorScript : MonoBehaviour
 		else
 		{
 			TrapdoorScript.instance.animator.SetTrigger("shake");
-			Sound.Play("SoundTrapdoorShake", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundTrapdoorShake", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			Controls.VibrationSet_PreferMax(TrapdoorScript.instance.player, 0.75f);
 			if (!TrapdoorScript.instance.heartbeatScarePlayed)
 			{

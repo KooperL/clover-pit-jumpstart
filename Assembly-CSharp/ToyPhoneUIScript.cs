@@ -48,7 +48,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		this.cursorPreviousState = VirtualCursors.CursorDesiredVisibilityGet(0);
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 		this.visualsAndButtonnsHolder.SetActive(false);
-		Sound.Play3D("SoundToyPhonePickup", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundToyPhonePickup", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		while (!CameraController.IsCameraNearPositionAndAngle(0.1f) && !ToyPhoneUIScript.IsForceClosing())
 		{
 			yield return null;
@@ -106,7 +106,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 							{
 								onSelect.Invoke();
 							}
-							Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
+							Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 						}
 					}
 				}
@@ -141,7 +141,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 					}
 					if (toyPhoneUIButtonScript != this.backButton)
 					{
-						Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
+						Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 					}
 				}
 			}
@@ -155,7 +155,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 			}
 			yield return null;
 		}
-		Sound.Play3D("SoundToyPhoneHangUp", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundToyPhoneHangUp", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		GameplayMaster.instance.FCAll_ToyPhone_Hangup();
 		VirtualCursors.CursorDesiredVisibilitySet(0, this.cursorPreviousState);
 		this._forceClose_Death = false;
@@ -320,7 +320,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 	{
 		for (int i = 0; i < this.imagesToShake.Length; i++)
 		{
-			Vector2 vector = this.imagesToShake_StartingPositions[i] + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+			Vector2 vector = this.imagesToShake_StartingPositions[i] + new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 			if (Data.settings.dyslexicFontEnabled)
 			{
 				vector = this.imagesToShake_StartingPositions[i];

@@ -5,6 +5,6 @@ namespace I2.Loc
 {
 	public interface IResourceManager_Bundles
 	{
-		Object LoadFromBundle(string path, Type assetType);
+		global::UnityEngine.Object LoadFromBundle(string path, Type assetType);
 	}
 }

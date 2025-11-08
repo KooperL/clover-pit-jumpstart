@@ -12,7 +12,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F90 RID: 3984 RVA: 0x000629AC File Offset: 0x00060BAC
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Prefab
@@ -94,7 +94,7 @@ namespace I2.Loc
 				Transform child = transform.GetChild(i);
 				if (child != transform2)
 				{
-					Object.Destroy(child.gameObject);
+					global::UnityEngine.Object.Destroy(child.gameObject);
 				}
 			}
 		}
@@ -108,7 +108,7 @@ namespace I2.Loc
 				return null;
 			}
 			GameObject mTarget = this.mTarget;
-			this.mTarget = Object.Instantiate<GameObject>(gameObject);
+			this.mTarget = global::UnityEngine.Object.Instantiate<GameObject>(gameObject);
 			if (this.mTarget == null)
 			{
 				return null;

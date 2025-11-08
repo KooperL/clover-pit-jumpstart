@@ -41,7 +41,7 @@ public class SlotMachineScript : MonoBehaviour
 	// Token: 0x060006F6 RID: 1782 RVA: 0x0002C97C File Offset: 0x0002AB7C
 	private void ReplacementSquaresInit()
 	{
-		this.replacementSquaresStartingAnchoredPosition = new Vector2[this.replacementSquaresRectTr.Length];
+		this.replacementSquaresStartingAnchoredPosition = new global::UnityEngine.Vector2[this.replacementSquaresRectTr.Length];
 		for (int i = 0; i < this.replacementSquaresRectTr.Length; i++)
 		{
 			this.replacementSquaresStartingAnchoredPosition[i] = this.replacementSquaresRectTr[i].anchoredPosition;
@@ -50,7 +50,7 @@ public class SlotMachineScript : MonoBehaviour
 	}
 
 	// (get) Token: 0x060006F7 RID: 1783 RVA: 0x0002C9DB File Offset: 0x0002ABDB
-	private Vector3 Audio3dPosition
+	private global::UnityEngine.Vector3 Audio3dPosition
 	{
 		get
 		{
@@ -59,7 +59,7 @@ public class SlotMachineScript : MonoBehaviour
 	}
 
 	// (get) Token: 0x060006F8 RID: 1784 RVA: 0x0002C9F3 File Offset: 0x0002ABF3
-	private Vector3 Audio3dPositionLow
+	private global::UnityEngine.Vector3 Audio3dPositionLow
 	{
 		get
 		{
@@ -153,7 +153,7 @@ public class SlotMachineScript : MonoBehaviour
 		GameplayData.RoundEarnedCoinsReset();
 		this.SetTopScreenText(Translation.Get("SLOT_TOP_SCREEN_LETS_GO_GAMBLING"), false);
 		this.onTopText_LoopsAround_Temp = (SlotMachineScript.Event)Delegate.Combine(this.onTopText_LoopsAround_Temp, new SlotMachineScript.Event(this.TopTextSet_666Or999_ChancesShow));
-		Sound.Play3D("SoundSlotMachineStartupJingle", this.Audio3dPosition, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundSlotMachineStartupJingle", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		this.myMenuController.OpenMe();
 		if (this.bootUpCoroutine == null)
 		{
@@ -187,7 +187,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 		if (obj2 != null)
 		{
-			Sound.Play3D("SoundSlotMachineTurnOff", this.Audio3dPosition, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundSlotMachineTurnOff", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		if (obj2 != null)
 		{
@@ -252,8 +252,8 @@ public class SlotMachineScript : MonoBehaviour
 		Pool.Destroy(this.Symbol_GetInstanceAtPosition(columnX, lineY).gameObject, null);
 		while (Sound.IsPlaying("SoundSlotMachineSymbolReplacement"))
 		{
-			Vector2 vector = this.replacementSquaresStartingAnchoredPosition[columnX + lineY * 5];
-			this.replacementSquaresRectTr[columnX + lineY * 5].anchoredPosition = vector + new Vector2(Random.Range(-0.01f, 0.01f), Random.Range(-0.01f, 0.01f));
+			global::UnityEngine.Vector2 vector = this.replacementSquaresStartingAnchoredPosition[columnX + lineY * 5];
+			this.replacementSquaresRectTr[columnX + lineY * 5].anchoredPosition = vector + new global::UnityEngine.Vector2(global::UnityEngine.Random.Range(-0.01f, 0.01f), global::UnityEngine.Random.Range(-0.01f, 0.01f));
 			yield return null;
 		}
 		this.Symbol_SpawnInstance(true, newKind, modifier, columnX, lineY, pickRandomModifier);
@@ -736,7 +736,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield return this.WaitForTriggerAnimation();
 		this.TopTextSet_666Or999_ChancesShow();
 		this.leverButtonVisualizer.Press();
-		Sound.Play("SoundSlotLever", 1f, Random.Range(0.9f, 1.1f));
+		Sound.Play("SoundSlotLever", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 		bool flag3 = false;
 		int num12 = 0;
 		SymbolScript.Kind kind2 = this.Symbol_GetAtPosition(0, num12);
@@ -794,8 +794,8 @@ public class SlotMachineScript : MonoBehaviour
 		{
 			lastWheelIsSlow = true;
 		}
-		Sound.Play3D("SoundSlotMachineRollingTick", this.Audio3dPosition, 10f, 1f, Random.Range(0.95f, 1.05f), 1);
-		Sound.Play3D("SoundSlotMachineFanfare", this.Audio3dPosition, 10f, Mathf.Min(0.75f, (float)(GameplayData.SpinsLeftGet() + 1) * 0.075f), 1f, 1);
+		Sound.Play3D("SoundSlotMachineRollingTick", this.Audio3dPosition, 10f, 1f, global::UnityEngine.Random.Range(0.95f, 1.05f), AudioRolloffMode.Linear);
+		Sound.Play3D("SoundSlotMachineFanfare", this.Audio3dPosition, 10f, Mathf.Min(0.75f, (float)(GameplayData.SpinsLeftGet() + 1) * 0.075f), 1f, AudioRolloffMode.Linear);
 		int symbolsPerColumn = this._SymbolsSpawn(false, lastWheelIsSlow);
 		for (int num13 = 0; num13 < this.spinOffsetPerColumn.Length; num13++)
 		{
@@ -860,8 +860,8 @@ public class SlotMachineScript : MonoBehaviour
 					this.spinOffsetPerColumn[num16] = 1f;
 				}
 				float num20 = this.spinAnimationCurve.Evaluate(this.spinOffsetPerColumn[num16]) * (float)(symbolsPerColumn - linesN) * 0.5f;
-				Vector2 anchoredPosition = rectTransform.anchoredPosition;
-				rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, num20);
+				global::UnityEngine.Vector2 anchoredPosition = rectTransform.anchoredPosition;
+				rectTransform.anchoredPosition = new global::UnityEngine.Vector2(rectTransform.anchoredPosition.x, num20);
 			}
 			yield return null;
 		}
@@ -1215,32 +1215,32 @@ public class SlotMachineScript : MonoBehaviour
 			float num31 = 1f + (float)(jackpotsPerformed - 1) * 0.1f;
 			if (isJackpot)
 			{
-				Sound.Play3D("SoundSlotMachineJackpot", this.Audio3dPosition, 10f, 1f, num31, 1);
-				Sound.Play3D("SoundSlotMachineJackpotBell", this.Audio3dPosition, 10f, Mathf.Max(0f, 1f - (float)(jackpotsPerformed - 1) * 0.1f), 1f, 1);
+				Sound.Play3D("SoundSlotMachineJackpot", this.Audio3dPosition, 10f, 1f, num31, AudioRolloffMode.Linear);
+				Sound.Play3D("SoundSlotMachineJackpotBell", this.Audio3dPosition, 10f, Mathf.Max(0f, 1f - (float)(jackpotsPerformed - 1) * 0.1f), 1f, AudioRolloffMode.Linear);
 			}
 			else if (is666)
 			{
-				Sound.Play3D("SoundSlotMachineScored666", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSlotMachineScored666", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 			else if (is667)
 			{
-				Sound.Play3D("SoundSlotMachineScored999", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSlotMachineScored999", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 			else
 			{
 				if (hasJackpot)
 				{
-					Sound.Play3D("SoundSlotMachineScoredWithJackpot", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, 1);
+					Sound.Play3D("SoundSlotMachineScoredWithJackpot", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, AudioRolloffMode.Linear);
 				}
 				else
 				{
-					Sound.Play3D("SoundSlotMachineScored", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, 1);
+					Sound.Play3D("SoundSlotMachineScored", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, AudioRolloffMode.Linear);
 				}
 				scoredSoundPitch = Mathf.Min(scoredSoundPitch + 0.1f, 1.6f);
 			}
 			if (isRepeatingPattern)
 			{
-				Sound.Play3D("SoundSlotMachineAgainScore", this.Audio3dPosition, 10f, 1f, againSoundPitch, 1);
+				Sound.Play3D("SoundSlotMachineAgainScore", this.Audio3dPosition, 10f, 1f, againSoundPitch, AudioRolloffMode.Linear);
 				againSoundPitch = Mathf.Min(againSoundPitch + 0.1f, 1.6f);
 			}
 			else
@@ -1282,25 +1282,25 @@ public class SlotMachineScript : MonoBehaviour
 			switch (patternInfos.patternKind)
 			{
 			case PatternScript.Kind.triangle:
-				Sound.Play3D("SoundSpecialPattern_Light", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSpecialPattern_Light", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				SlotMachineScript.ShowSpecialPatternImage(PatternScript.Kind.triangle);
 				break;
 			case PatternScript.Kind.triangleInverted:
-				Sound.Play3D("SoundSpecialPattern_Dark", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSpecialPattern_Dark", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				SlotMachineScript.ShowSpecialPatternImage(PatternScript.Kind.triangleInverted);
 				break;
 			case PatternScript.Kind.eye:
-				Sound.Play3D("SoundSpecialPattern_Mistery", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSpecialPattern_Mistery", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				SlotMachineScript.ShowSpecialPatternImage(PatternScript.Kind.eye);
 				break;
 			}
 			if (is666)
 			{
 				FlashScreenSlot.Flash(Color.white, 10f, 0f);
-				FlashScreenSlot.SetTexture(AssetMaster.GetTexture2D("TextureSlotMachineFire"), new Vector2(0f, -1f));
+				FlashScreenSlot.SetTexture(AssetMaster.GetTexture2D("TextureSlotMachineFire"), new global::UnityEngine.Vector2(0f, -1f));
 				if (debtIndex >= GameplayData.SuperSixSixSix_GetMinimumDebtIndex())
 				{
-					FlashScreenSlot.SetSecondTexture(AssetMaster.GetTexture2D("TextureSlotMachineFireSuper"), new Vector2(0f, -2f));
+					FlashScreenSlot.SetSecondTexture(AssetMaster.GetTexture2D("TextureSlotMachineFireSuper"), new global::UnityEngine.Vector2(0f, -2f));
 				}
 				Controls.VibrationSet_PreferMax(this.player, 0.5f);
 				SlotMachineScript.PatternEvent on = this.On666;
@@ -1313,7 +1313,7 @@ public class SlotMachineScript : MonoBehaviour
 			if (is667)
 			{
 				FlashScreenSlot.Flash(Color.white, 10f, 0f);
-				FlashScreenSlot.SetTexture(AssetMaster.GetTexture2D("TextureSlotMachine999"), new Vector2(0f, -1f));
+				FlashScreenSlot.SetTexture(AssetMaster.GetTexture2D("TextureSlotMachine999"), new global::UnityEngine.Vector2(0f, -1f));
 				Controls.VibrationSet_PreferMax(this.player, 0.5f);
 				SlotMachineScript.PatternEvent on2 = this.On999;
 				if (on2 != null)
@@ -1656,14 +1656,14 @@ public class SlotMachineScript : MonoBehaviour
 						break;
 					}
 					scTxt.text = text2;
-					Sound.Play3D("SoundSlotMachineModifierScore", this.Audio3dPosition, 10f, 1f, num44, 1);
+					Sound.Play3D("SoundSlotMachineModifierScore", this.Audio3dPosition, 10f, 1f, num44, AudioRolloffMode.Linear);
 					Controls.VibrationSet_PreferMax(this.player, 0.25f);
 				}
 				scTxt.ForceMeshUpdate(false, false);
 				scTxt.gameObject.SetActive(true);
-				Vector3 scoringPosition_World = patternInfos.GetScoringPosition_World();
-				scTxt.transform.position = scoringPosition_World + new Vector3(0f, 0.75f, -10f);
-				Vector2 anchoredPosition2 = scTxt.rectTransform.anchoredPosition;
+				global::UnityEngine.Vector3 scoringPosition_World = patternInfos.GetScoringPosition_World();
+				scTxt.transform.position = scoringPosition_World + new global::UnityEngine.Vector3(0f, 0.75f, -10f);
+				global::UnityEngine.Vector2 anchoredPosition2 = scTxt.rectTransform.anchoredPosition;
 				float preferredWidth = scTxt.preferredWidth;
 				float preferredHeight = scTxt.preferredHeight;
 				anchoredPosition2.x = Mathf.Clamp(anchoredPosition2.x, -1.1f + preferredWidth / 2f, 1.1f - preferredWidth / 2f);
@@ -1671,11 +1671,11 @@ public class SlotMachineScript : MonoBehaviour
 				scTxt.rectTransform.anchoredPosition = anchoredPosition2;
 				if (isJackpot)
 				{
-					scTxt.transform.localScale = Vector2.one * (1f + Mathf.Min((float)(jackpotsPerformed - 1) * 0.05f, 0.25f));
+					scTxt.transform.localScale = global::UnityEngine.Vector2.one * (1f + Mathf.Min((float)(jackpotsPerformed - 1) * 0.05f, 0.25f));
 				}
 				else
 				{
-					scTxt.transform.localScale = Vector2.one;
+					scTxt.transform.localScale = global::UnityEngine.Vector2.one;
 				}
 				if (is666)
 				{
@@ -1697,55 +1697,55 @@ public class SlotMachineScript : MonoBehaviour
 					case SlotMachineScript.SensationalLevel.noone:
 						break;
 					case SlotMachineScript.SensationalLevel.lowNice:
-						Spawn.FromPool("Effect Small Coin 1", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Small Coin 1", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.lowGreat:
-						Spawn.FromPool("Effect Small Coin 2", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Small Coin 2", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.lowFantastic:
-						Spawn.FromPool("Effect Small Coin 3", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Small Coin 3", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.lowJackpot:
-						Spawn.FromPool("Effect Small Coin Jackpot", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Small Coin Jackpot", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.mediumNice:
-						Spawn.FromPool("Effect Slot Stars 1", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Slot Stars 1", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.mediumGreat:
-						Spawn.FromPool("Effect Slot Stars 2", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Slot Stars 2", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.mediumFantastic:
-						Spawn.FromPool("Effect Slot Stars 3", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Slot Stars 3", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.mediumJackpot:
-						Spawn.FromPool("Effect Slot Stars Jackpot", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Slot Stars Jackpot", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						break;
 					case SlotMachineScript.SensationalLevel.highNice:
-						Spawn.FromPool("Effect Coins 1", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Coins 1", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						if (hasJackpot)
 						{
-							Spawn.FromPool("Effect Slot Stars 1", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+							Spawn.FromPool("Effect Slot Stars 1", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						}
 						break;
 					case SlotMachineScript.SensationalLevel.highGreat:
-						Spawn.FromPool("Effect Coins 2", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Coins 2", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						if (hasJackpot)
 						{
-							Spawn.FromPool("Effect Slot Stars 2", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+							Spawn.FromPool("Effect Slot Stars 2", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						}
 						break;
 					case SlotMachineScript.SensationalLevel.highFantastic:
-						Spawn.FromPool("Effect Coins 3", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Coins 3", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						if (hasJackpot)
 						{
-							Spawn.FromPool("Effect Slot Stars 3", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+							Spawn.FromPool("Effect Slot Stars 3", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						}
 						break;
 					case SlotMachineScript.SensationalLevel.highJackpot:
-						Spawn.FromPool("Effect Coins Jackpot", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+						Spawn.FromPool("Effect Coins Jackpot", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						if (hasJackpot)
 						{
-							Spawn.FromPool("Effect Slot Stars Jackpot", symbolScript_ByScoringPosition3.transform.position + new Vector3(0f, 0.3f, 5f), Pool.instance.transform);
+							Spawn.FromPool("Effect Slot Stars Jackpot", symbolScript_ByScoringPosition3.transform.position + new global::UnityEngine.Vector3(0f, 0.3f, 5f), Pool.instance.transform);
 						}
 						break;
 					default:
@@ -1772,7 +1772,7 @@ public class SlotMachineScript : MonoBehaviour
 					if (playLastPatternAnticipationSound && !lastPatternAnticipationSoundPlayed)
 					{
 						lastPatternAnticipationSoundPlayed = true;
-						Sound.Play3D("SoundSlotMachineLongStreakEndAnticipation", this.Audio3dPosition, 10f, 1f, 1f, 1);
+						Sound.Play3D("SoundSlotMachineLongStreakEndAnticipation", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 					}
 					if (jackpotsPerformed > 0)
 					{
@@ -1801,7 +1801,7 @@ public class SlotMachineScript : MonoBehaviour
 					CameraGame.Shake(num49);
 					if (isJackpot && playLastPatternAnticipationSound)
 					{
-						Sound.Play3D("SoundSlotMachineApplause", this.Audio3dPosition, 10f, 1f, 1f, 1);
+						Sound.Play3D("SoundSlotMachineApplause", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 						this.confettiHolder.SetActive(true);
 						timer = (num47 - 1f) / 2f;
 						timer = Mathf.Min(timer, 0.5f);
@@ -2250,7 +2250,7 @@ public class SlotMachineScript : MonoBehaviour
 				}
 				if (text3 == null)
 				{
-					Sound.Play3D("SoundCoinsMultipleFall", this.Audio3dPositionLow, 10f, 1f, Random.Range(0.9f, 1.1f), 1);
+					Sound.Play3D("SoundCoinsMultipleFall", this.Audio3dPositionLow, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 				}
 				CoinVisualizerScript.ArrayCheckShow(this.coinsVisualizers, animCoinsRewardInt - 1, 0.05f, 0.01f, text3);
 				timer = 0.5f;
@@ -2261,7 +2261,7 @@ public class SlotMachineScript : MonoBehaviour
 				}
 				if (animCoinsRewardInt > 0)
 				{
-					Sound.Play3D("SoundInterestRetrieved", this.Audio3dPositionLow, 10f, 1f, 1f, 1);
+					Sound.Play3D("SoundInterestRetrieved", this.Audio3dPositionLow, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 				CoinVisualizerScript.HideAll(this.coinsVisualizers);
 				timer = 0.25f;
@@ -2298,8 +2298,7 @@ public class SlotMachineScript : MonoBehaviour
 		int num = 0;
 		List<SymbolScript.Kind> list = GameplayData.SymbolsAvailable_GetAll(false);
 		this.elementsInColumn.Clear();
-		Vector3 vector;
-		vector..ctor(0f, 0f, 100f);
+		global::UnityEngine.Vector3 vector = new global::UnityEngine.Vector3(0f, 0f, 100f);
 		for (int i = 0; i < 5; i++)
 		{
 			RectTransform rectTransform = this.columnsRectTr[i];
@@ -2338,8 +2337,8 @@ public class SlotMachineScript : MonoBehaviour
 				for (int m = 0; m < 3; m++)
 				{
 					GameObject gameObject = Spawn.FromPool(SymbolScript.GetPrefabName(this.linesOld[m][i]), vector, rectTransform);
-					gameObject.transform.localPosition = new Vector3(0f, (float)(-(float)this.elementsInColumn.Count) * 0.5f, 0f);
-					gameObject.transform.localScale = Vector3.one;
+					gameObject.transform.localPosition = new global::UnityEngine.Vector3(0f, (float)(-(float)this.elementsInColumn.Count) * 0.5f, 0f);
+					gameObject.transform.localScale = global::UnityEngine.Vector3.one;
 					this.elementsInColumn.Add(gameObject.transform);
 				}
 				num = Mathf.Max(num, this.elementsInColumn.Count);
@@ -2351,12 +2350,11 @@ public class SlotMachineScript : MonoBehaviour
 	// Token: 0x06000723 RID: 1827 RVA: 0x0002D48C File Offset: 0x0002B68C
 	public SymbolScript Symbol_SpawnInstance(bool isScoringSymbol, SymbolScript.Kind kind, SymbolScript.Modifier modifier, int columnX, int lineY, bool pickRandomModifier)
 	{
-		Vector3 vector;
-		vector..ctor(0f, 0f, 100f);
+		global::UnityEngine.Vector3 vector = new global::UnityEngine.Vector3(0f, 0f, 100f);
 		RectTransform rectTransform = this.columnsRectTr[columnX];
 		GameObject gameObject = Spawn.FromPool(SymbolScript.GetPrefabName(kind), vector, rectTransform);
-		gameObject.transform.localPosition = new Vector3(0f, (float)(-(float)lineY) * 0.5f, 0f);
-		gameObject.transform.localScale = Vector3.one;
+		gameObject.transform.localPosition = new global::UnityEngine.Vector3(0f, (float)(-(float)lineY) * 0.5f, 0f);
+		gameObject.transform.localScale = global::UnityEngine.Vector3.one;
 		SymbolScript component = gameObject.GetComponent<SymbolScript>();
 		if (isScoringSymbol)
 		{
@@ -3158,7 +3156,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.SpinWinText_StopIfAny();
 		this.spinWinScreenHolder.SetActive(true);
 		this.textSpinWin.text = Translation.Get("SLOT_MAIN_TOTAL_SPIN_WIN") + "\n" + coins.ToStringSmart();
-		Sound.Play3D("SoundSlotMachineSpinWin", this.Audio3dPosition, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundSlotMachineSpinWin", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		this.bounceScript.SetBounceScale(0.015f);
 		Controls.VibrationSet_PreferMax(this.player, 0.25f);
 		this.spinWinTextCoroutine = base.StartCoroutine(this._SpinWinTextCoroutine());
@@ -3201,8 +3199,8 @@ public class SlotMachineScript : MonoBehaviour
 	{
 		if (this.scoreTextsPool.Count == 0)
 		{
-			TextMeshProUGUI textMeshProUGUI = Object.Instantiate<TextMeshProUGUI>(this.templateSlotScoreText, this.slotMachineCanvas.transform);
-			textMeshProUGUI.transform.localScale = Vector3.one;
+			TextMeshProUGUI textMeshProUGUI = global::UnityEngine.Object.Instantiate<TextMeshProUGUI>(this.templateSlotScoreText, this.slotMachineCanvas.transform);
+			textMeshProUGUI.transform.localScale = global::UnityEngine.Vector3.one;
 			textMeshProUGUI.text = textStr;
 			textMeshProUGUI.gameObject.SetActive(true);
 			this.scoreTextsActive.Add(textMeshProUGUI);
@@ -3544,7 +3542,7 @@ public class SlotMachineScript : MonoBehaviour
 		{
 			return;
 		}
-		Sound.Play3D("SoundSpark", SlotMachineScript.instance.effect_LeverSparks.transform.position, 5f, 1f, 1f, 1);
+		Sound.Play3D("SoundSpark", SlotMachineScript.instance.effect_LeverSparks.transform.position, 5f, 1f, 1f, AudioRolloffMode.Linear);
 		SlotMachineScript.instance.effect_LeverSparks.SetActive(true);
 	}
 
@@ -3555,7 +3553,7 @@ public class SlotMachineScript : MonoBehaviour
 		{
 			return;
 		}
-		SlotMachineScript.instance.specialPatternImagesHolder.localScale = Vector3.one;
+		SlotMachineScript.instance.specialPatternImagesHolder.localScale = global::UnityEngine.Vector3.one;
 		SpriteRenderer spriteRenderer;
 		switch (patternKind)
 		{
@@ -3593,13 +3591,13 @@ public class SlotMachineScript : MonoBehaviour
 		while (scale < 1f)
 		{
 			scale += Tick.Time * 4f;
-			this.specialPatternImagesHolder.localScale = Vector3.one * (1f + scale * 0.1f);
+			this.specialPatternImagesHolder.localScale = global::UnityEngine.Vector3.one * (1f + scale * 0.1f);
 			c.a = 1f - scale;
 			choosenSpriteRenderer.color = c;
 			yield return null;
 		}
 		scale = Mathf.Min(scale, 1f);
-		this.specialPatternImagesHolder.localScale = Vector3.one * (1f + scale * 0.1f);
+		this.specialPatternImagesHolder.localScale = global::UnityEngine.Vector3.one * (1f + scale * 0.1f);
 		c.a = 1f - scale;
 		choosenSpriteRenderer.color = c;
 		this.SpecialPatternImageReset();
@@ -3622,7 +3620,7 @@ public class SlotMachineScript : MonoBehaviour
 			this.shrinkCoroutine = null;
 		}
 		this.jackpotGlowHolder.SetActive(true);
-		this.jackpotGlowScaler.localScale = Vector3.one;
+		this.jackpotGlowScaler.localScale = global::UnityEngine.Vector3.one;
 		for (int i = 0; i < this.jackpotGlowParticleHolders.Length; i++)
 		{
 			bool flag = i <= particlesIntensity_0To2;
@@ -3686,7 +3684,7 @@ public class SlotMachineScript : MonoBehaviour
 		repeatN = Mathf.Clamp(repeatN, 0, this.allArroundSparks.Length);
 		for (int i = 0; i < repeatN; i++)
 		{
-			this.allArroundSparks[Random.Range(0, this.allArroundSparks.Length)].SetActive(true);
+			this.allArroundSparks[global::UnityEngine.Random.Range(0, this.allArroundSparks.Length)].SetActive(true);
 		}
 	}
 
@@ -3817,7 +3815,7 @@ public class SlotMachineScript : MonoBehaviour
 				this.steamOffParticles[i].SetActive(flag);
 			}
 			FlashScreen.SpawnCamera(Color.white, 0.5f, 2f, CameraGame.firstInstance.myCamera, 0.5f);
-			Sound.Play3D("SoundSlotMachineSteamOff", this.Audio3dPosition, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundSlotMachineSteamOff", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		GameObject[] array = this.steamBurningParticles;
 		for (int j = 0; j < array.Length; j++)
@@ -3920,8 +3918,8 @@ public class SlotMachineScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.UpdateTopText_BetCost));
 		for (int i = 0; i < this.materialBurningKnob.Length; i++)
 		{
-			Object.Destroy(this.materialBurningKnob[i]);
-			Object.Destroy(this.materialBurningKnob_GoldenKnobAlt[i]);
+			global::UnityEngine.Object.Destroy(this.materialBurningKnob[i]);
+			global::UnityEngine.Object.Destroy(this.materialBurningKnob_GoldenKnobAlt[i]);
 		}
 	}
 
@@ -3994,7 +3992,7 @@ public class SlotMachineScript : MonoBehaviour
 			{
 				this.titleScreenRawImage.enabled = flag3;
 			}
-			this.titleScreenRawImage.rectTransform.anchoredPosition = new Vector2(0f, Util.AngleSin(this.titleScreenTimer * 180f) * 0.025f);
+			this.titleScreenRawImage.rectTransform.anchoredPosition = new global::UnityEngine.Vector2(0f, Util.AngleSin(this.titleScreenTimer * 180f) * 0.025f);
 		}
 		else if (this._state == SlotMachineScript.State.bootingUp)
 		{
@@ -4003,7 +4001,7 @@ public class SlotMachineScript : MonoBehaviour
 			{
 				this.titleScreenRawImage.enabled = flag4;
 			}
-			this.titleScreenRawImage.rectTransform.anchoredPosition = Vector2.zero;
+			this.titleScreenRawImage.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
 		}
 		else if (this.titleScreenRawImage.enabled)
 		{
@@ -4089,7 +4087,7 @@ public class SlotMachineScript : MonoBehaviour
 
 	private const int MAX_COLUMNS = 5;
 
-	private readonly Vector2 COLUMNS_END_POS = new Vector2(0f, 0f);
+	private readonly global::UnityEngine.Vector2 COLUMNS_END_POS = new global::UnityEngine.Vector2(0f, 0f);
 
 	private const float COLUMN_VERTICAL_UNIT = 0.5f;
 
@@ -4171,7 +4169,7 @@ public class SlotMachineScript : MonoBehaviour
 
 	public RectTransform[] replacementSquaresRectTr;
 
-	private Vector2[] replacementSquaresStartingAnchoredPosition;
+	private global::UnityEngine.Vector2[] replacementSquaresStartingAnchoredPosition;
 
 	public GameObject effect_LeverSparks;
 
@@ -4215,7 +4213,7 @@ public class SlotMachineScript : MonoBehaviour
 
 	public GameObject[] jackpotGalaxyParticles;
 
-	private Vector3 audio3dOffset = new Vector3(0f, 1f, 0f);
+	private global::UnityEngine.Vector3 audio3dOffset = new global::UnityEngine.Vector3(0f, 1f, 0f);
 
 	private SlotMachineScript.State _state;
 
@@ -4422,7 +4420,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 
 		// Token: 0x0600115B RID: 4443 RVA: 0x0006A5E4 File Offset: 0x000687E4
-		public Vector3 GetScoringPosition_World()
+		public global::UnityEngine.Vector3 GetScoringPosition_World()
 		{
 			switch (this.patternKind)
 			{
@@ -4460,14 +4458,14 @@ public class SlotMachineScript : MonoBehaviour
 				return SlotMachineScript.instance.Symbol_GetInstanceAtPosition(2, 1).transform.position;
 			default:
 				Debug.LogError("PatternInfos.GetScoringPosition_World() - Pattern kind not implemented yet! Pattern kind: " + this.patternKind.ToString());
-				return Vector3.zero;
+				return global::UnityEngine.Vector3.zero;
 			}
 		}
 
 		// Token: 0x0600115C RID: 4444 RVA: 0x0006AA34 File Offset: 0x00068C34
-		public Vector3 GetMedianPlatePosition()
+		public global::UnityEngine.Vector3 GetMedianPlatePosition()
 		{
-			Vector3 zero = Vector3.zero;
+			global::UnityEngine.Vector3 zero = global::UnityEngine.Vector3.zero;
 			for (int i = 0; i < this.positions.Count; i++)
 			{
 				zero.x += (float)this.positions[i].x;

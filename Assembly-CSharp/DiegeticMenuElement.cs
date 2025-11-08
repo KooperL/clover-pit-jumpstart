@@ -37,12 +37,10 @@ public class DiegeticMenuElement : MonoBehaviour
 		{
 			return false;
 		}
-		Vector2 vector;
-		vector..ctor(0.5f, 0.5f);
+		Vector2 vector = new Vector2(0.5f, 0.5f);
 		if (flag)
 		{
-			Vector2 vector2;
-			vector2..ctor((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
+			Vector2 vector2 = new Vector2((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
 			vector = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector2);
 			vector.x += 0.5f;
 			vector.y += 0.5f;
@@ -99,7 +97,7 @@ public class DiegeticMenuElement : MonoBehaviour
 		}
 		if (this.soundOnSelect != null && !Sound.IsPlaying(this.soundOnSelect.name))
 		{
-			Sound.Play(this.soundOnSelect.name, 1f, Random.Range(this.audioPitchMin, this.audioPitchMax));
+			Sound.Play(this.soundOnSelect.name, 1f, global::UnityEngine.Random.Range(this.audioPitchMin, this.audioPitchMax));
 		}
 		this.justSelectedAnimationTimer = 0.2f;
 		if (this.vibration_Select)
@@ -207,7 +205,7 @@ public class DiegeticMenuElement : MonoBehaviour
 			}
 			if (flag2 && this.soundOnHover != null && !CameraDebug.IsEnabled())
 			{
-				Sound.Play(this.soundOnHover.name, 1f, Random.Range(this.audioPitchMin, this.audioPitchMax));
+				Sound.Play(this.soundOnHover.name, 1f, global::UnityEngine.Random.Range(this.audioPitchMin, this.audioPitchMax));
 			}
 			if (flag2 && this.vibration_Hover)
 			{

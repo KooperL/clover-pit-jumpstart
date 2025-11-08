@@ -246,7 +246,7 @@ public class PromptsMaster : MonoBehaviour
 	{
 		if (PromptsMaster.instance != null)
 		{
-			Object.Destroy(base.gameObject);
+			global::UnityEngine.Object.Destroy(base.gameObject);
 			return;
 		}
 		PromptsMaster.instance = this;

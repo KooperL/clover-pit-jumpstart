@@ -13,7 +13,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000FC4 RID: 4036 RVA: 0x00062F81 File Offset: 0x00061181
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<RawImage, LocalizeTarget_UnityUI_RawImage>

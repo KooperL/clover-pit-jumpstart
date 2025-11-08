@@ -1068,8 +1068,8 @@ public class GameplayMaster : MonoBehaviour
 			yield return null;
 		}
 		PlayerScript.instanceP1.transform.position = EndingAreaScript.instance.spawnPoint.position;
-		CameraController.instance.freeCamTransform.position = EndingAreaScript.instance.spawnPoint.position + new Vector3(0f, 6f, 0f);
-		CameraController.SetFreeCameraRotation(new Vector3(0f, 0f, 0f));
+		CameraController.instance.freeCamTransform.position = EndingAreaScript.instance.spawnPoint.position + new global::UnityEngine.Vector3(0f, 6f, 0f);
+		CameraController.SetFreeCameraRotation(new global::UnityEngine.Vector3(0f, 0f, 0f));
 		CameraController.SetPosition(CameraController.PositionKind.Free, true, 1f);
 		CameraController.DisableReason_Add("endHold");
 		RenderSettings.fogColor = Colors.GetColor("ending_atmo");
@@ -1631,7 +1631,7 @@ public class GameplayMaster : MonoBehaviour
 			{
 				if (this.leverButton == null)
 				{
-					foreach (DiegeticMenuElement diegeticMenuElement in Object.FindObjectsOfType<DiegeticMenuElement>())
+					foreach (DiegeticMenuElement diegeticMenuElement in global::UnityEngine.Object.FindObjectsOfType<DiegeticMenuElement>())
 					{
 						if (diegeticMenuElement.promptGuideType == PromptGuideScript.GuideType.slot_Spin)
 						{
@@ -1641,14 +1641,14 @@ public class GameplayMaster : MonoBehaviour
 					}
 				}
 				this.leverButton.GetComponent<ButtonVisualizerScript>().Press();
-				Sound.Play3D("SoundSlotLever", SlotMachineScript.instance.transform.position + new Vector3(0f, 1f, 0f), 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSlotLever", SlotMachineScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 1f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 			GameplayData.SpinConsume();
 			GeneralUiScript.CoinsTextForceUpdate();
 			SlotMachineScript.instance.Spin();
 			return;
 		}
-		Sound.Play3D("SoundMenuError", SlotMachineScript.instance.transform.position + new Vector3(0f, 1f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundMenuError", SlotMachineScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 1f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(1f);
 	}
 
@@ -1677,7 +1677,7 @@ public class GameplayMaster : MonoBehaviour
 		{
 			DialogueScript.SetDialogue(true, new string[] { "DIALOGUE_DOOR_CLOSED_0" });
 		}
-		Sound.Play3D("SoundDoorLocked", this.doorGameObject.transform.position + new Vector3(0f, 4f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundDoorLocked", this.doorGameObject.transform.position + new global::UnityEngine.Vector3(0f, 4f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 	}
 
 	// Token: 0x0600032D RID: 813 RVA: 0x000140F8 File Offset: 0x000122F8
@@ -1715,7 +1715,7 @@ public class GameplayMaster : MonoBehaviour
 				GameplayData.CoinsAdd(-bigInteger2, false);
 				GameplayData.DepositAdd(bigInteger2);
 				GeneralUiScript.CoinsTextInstantUpdate();
-				Sound.Play3D("SoundCoinDeposit", ATMScript.instance.transform.position + new Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundCoinDeposit", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 				ATMScript.instance.InsertCoinAnimation();
 				PromptGuideScript.ResetGuide();
 				PromptGuideScript.SetGuideType(PromptGuideScript.GuideType.atm_insertCoin);
@@ -1732,7 +1732,7 @@ public class GameplayMaster : MonoBehaviour
 				return;
 			}
 		}
-		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(1f);
 	}
 
@@ -1742,12 +1742,12 @@ public class GameplayMaster : MonoBehaviour
 		if (GameplayData.InterestEarnedGet() > 0L)
 		{
 			GameplayData.InterestPickUp();
-			Sound.Play3D("SoundInterestRetrieved", ATMScript.instance.transform.position + new Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundInterestRetrieved", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 			PromptGuideScript.ResetGuide();
 			PromptGuideScript.SetGuideType(PromptGuideScript.GuideType.atm_GetRevenue);
 			return;
 		}
-		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(1f);
 	}
 
@@ -2073,7 +2073,7 @@ public class GameplayMaster : MonoBehaviour
 			return;
 		}
 		TerminalScript.SetState(TerminalScript.State.turnedOn_Request);
-		Sound.Play3D("SoundTerminalLogin", TerminalScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundTerminalLogin", TerminalScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		Controls.VibrationSet_PreferMax(this.player, 0.5f);
 		MemoScript.Close(false);
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.terminal, false, null);
@@ -2085,7 +2085,7 @@ public class GameplayMaster : MonoBehaviour
 	public void FCall_Terminal_Logout()
 	{
 		TerminalScript.SetState(TerminalScript.State.turnedOff_Request);
-		Sound.Play3D("SoundTerminalTurnOff", TerminalScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundTerminalTurnOff", TerminalScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		Controls.VibrationSet_PreferMax(this.player, 0.5f);
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.preparation, false, null);
 		CameraController.SetPosition(CameraController.PositionKind.Free, false, 1f);
@@ -2196,7 +2196,7 @@ public class GameplayMaster : MonoBehaviour
 		if (GameplayMaster.instance != null)
 		{
 			Debug.LogError("GameplayMaster instance already exists");
-			Object.Destroy(this);
+			global::UnityEngine.Object.Destroy(this);
 			return;
 		}
 		GameplayMaster.instance = this;

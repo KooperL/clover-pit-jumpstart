@@ -152,10 +152,8 @@ public class CameraDebug : MonoBehaviour
 		}
 		else
 		{
-			Vector3 vector;
-			vector..ctor(freePositions[this.trackIndex_Positions].x, freePositions[this.trackIndex_Positions].y, freePositions[this.trackIndex_Positions].z);
-			Vector3 vector2;
-			vector2..ctor(freePositions[this.trackIndex_Positions + 1].x, freePositions[this.trackIndex_Positions + 1].y, freePositions[this.trackIndex_Positions + 1].z);
+			Vector3 vector = new Vector3(freePositions[this.trackIndex_Positions].x, freePositions[this.trackIndex_Positions].y, freePositions[this.trackIndex_Positions].z);
+			Vector3 vector2 = new Vector3(freePositions[this.trackIndex_Positions + 1].x, freePositions[this.trackIndex_Positions + 1].y, freePositions[this.trackIndex_Positions + 1].z);
 			float w = freePositions[this.trackIndex_Positions + 1].w;
 			this.trackTimer_Positions += Tick.Time * this.speedMultiplier / w;
 			if (this.trackTimer_Positions >= 1f)
@@ -178,10 +176,8 @@ public class CameraDebug : MonoBehaviour
 		}
 		else
 		{
-			Vector3 vector3;
-			vector3..ctor(freeRotations[this.trackIndex_Rotations].x, freeRotations[this.trackIndex_Rotations].y, freeRotations[this.trackIndex_Rotations].z);
-			Vector3 vector4;
-			vector4..ctor(freeRotations[this.trackIndex_Rotations + 1].x, freeRotations[this.trackIndex_Rotations + 1].y, freeRotations[this.trackIndex_Rotations + 1].z);
+			Vector3 vector3 = new Vector3(freeRotations[this.trackIndex_Rotations].x, freeRotations[this.trackIndex_Rotations].y, freeRotations[this.trackIndex_Rotations].z);
+			Vector3 vector4 = new Vector3(freeRotations[this.trackIndex_Rotations + 1].x, freeRotations[this.trackIndex_Rotations + 1].y, freeRotations[this.trackIndex_Rotations + 1].z);
 			if (vector4.x > vector3.x + 180f)
 			{
 				vector4.x -= 360f;
@@ -401,11 +397,10 @@ public class CameraDebug : MonoBehaviour
 		{
 			Vector3 vector2;
 			Vector3 vector = (vector2 = new Vector3(this.positionsAndTime_0[i].x, this.positionsAndTime_0[i].y, this.positionsAndTime_0[i].z));
-			Vector3 vector3;
-			vector3..ctor(this.rotationsAndTime_0[i].x, this.rotationsAndTime_0[i].y, this.rotationsAndTime_0[i].z);
+			Vector3 vector3 = new Vector3(this.rotationsAndTime_0[i].x, this.rotationsAndTime_0[i].y, this.rotationsAndTime_0[i].z);
 			if (i < this.positionsAndTime_0.Length - 1)
 			{
-				vector2..ctor(this.positionsAndTime_0[i + 1].x, this.positionsAndTime_0[i + 1].y, this.positionsAndTime_0[i + 1].z);
+				vector2 = new Vector3(this.positionsAndTime_0[i + 1].x, this.positionsAndTime_0[i + 1].y, this.positionsAndTime_0[i + 1].z);
 			}
 			Gizmos.DrawSphere(vector, 0.1f);
 			Gizmos.DrawLine(vector, vector2);
@@ -416,11 +411,10 @@ public class CameraDebug : MonoBehaviour
 		{
 			Vector3 vector5;
 			Vector3 vector4 = (vector5 = new Vector3(this.positionsAndTime_1[j].x, this.positionsAndTime_1[j].y, this.positionsAndTime_1[j].z));
-			Vector3 vector6;
-			vector6..ctor(this.rotationsAndTime_1[j].x, this.rotationsAndTime_1[j].y, this.rotationsAndTime_1[j].z);
+			Vector3 vector6 = new Vector3(this.rotationsAndTime_1[j].x, this.rotationsAndTime_1[j].y, this.rotationsAndTime_1[j].z);
 			if (j < this.positionsAndTime_1.Length - 1)
 			{
-				vector5..ctor(this.positionsAndTime_1[j + 1].x, this.positionsAndTime_1[j + 1].y, this.positionsAndTime_1[j + 1].z);
+				vector5 = new Vector3(this.positionsAndTime_1[j + 1].x, this.positionsAndTime_1[j + 1].y, this.positionsAndTime_1[j + 1].z);
 			}
 			Gizmos.DrawSphere(vector4, 0.1f);
 			Gizmos.DrawLine(vector4, vector5);
@@ -431,11 +425,10 @@ public class CameraDebug : MonoBehaviour
 		{
 			Vector3 vector8;
 			Vector3 vector7 = (vector8 = new Vector3(this.positionsAndTime_2[k].x, this.positionsAndTime_2[k].y, this.positionsAndTime_2[k].z));
-			Vector3 vector9;
-			vector9..ctor(this.rotationsAndTime_2[k].x, this.rotationsAndTime_2[k].y, this.rotationsAndTime_2[k].z);
+			Vector3 vector9 = new Vector3(this.rotationsAndTime_2[k].x, this.rotationsAndTime_2[k].y, this.rotationsAndTime_2[k].z);
 			if (k < this.positionsAndTime_2.Length - 1)
 			{
-				vector8..ctor(this.positionsAndTime_2[k + 1].x, this.positionsAndTime_2[k + 1].y, this.positionsAndTime_2[k + 1].z);
+				vector8 = new Vector3(this.positionsAndTime_2[k + 1].x, this.positionsAndTime_2[k + 1].y, this.positionsAndTime_2[k + 1].z);
 			}
 			Gizmos.DrawSphere(vector7, 0.1f);
 			Gizmos.DrawLine(vector7, vector8);
@@ -446,11 +439,10 @@ public class CameraDebug : MonoBehaviour
 		{
 			Vector3 vector11;
 			Vector3 vector10 = (vector11 = new Vector3(this.positionsAndTime_3[l].x, this.positionsAndTime_3[l].y, this.positionsAndTime_3[l].z));
-			Vector3 vector12;
-			vector12..ctor(this.rotationsAndTime_3[l].x, this.rotationsAndTime_3[l].y, this.rotationsAndTime_3[l].z);
+			Vector3 vector12 = new Vector3(this.rotationsAndTime_3[l].x, this.rotationsAndTime_3[l].y, this.rotationsAndTime_3[l].z);
 			if (l < this.positionsAndTime_3.Length - 1)
 			{
-				vector11..ctor(this.positionsAndTime_3[l + 1].x, this.positionsAndTime_3[l + 1].y, this.positionsAndTime_3[l + 1].z);
+				vector11 = new Vector3(this.positionsAndTime_3[l + 1].x, this.positionsAndTime_3[l + 1].y, this.positionsAndTime_3[l + 1].z);
 			}
 			Gizmos.DrawSphere(vector10, 0.1f);
 			Gizmos.DrawLine(vector10, vector11);

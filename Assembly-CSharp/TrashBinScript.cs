@@ -14,7 +14,7 @@ public class TrashBinScript : MonoBehaviour
 		TrashBinScript.instance.bounceScript.SetBounceScale(0.01f);
 		if (playSound)
 		{
-			Sound.Play3D("SoundTrashHorror", TrashBinScript.instance.transform.position + new Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundTrashHorror", TrashBinScript.instance.transform.position + new Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 	}
 

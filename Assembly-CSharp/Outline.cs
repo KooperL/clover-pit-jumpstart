@@ -73,8 +73,8 @@ public class Outline : MonoBehaviour
 				this.renderersList.Remove(this.renderersToExclude[j]);
 			}
 		}
-		this.outlineMaskMaterial = Object.Instantiate<Material>(Resources.Load<Material>("Materials/OutlineMask"));
-		this.outlineFillMaterial = Object.Instantiate<Material>(Resources.Load<Material>("Materials/OutlineFill"));
+		this.outlineMaskMaterial = global::UnityEngine.Object.Instantiate<Material>(Resources.Load<Material>("Materials/OutlineMask"));
+		this.outlineFillMaterial = global::UnityEngine.Object.Instantiate<Material>(Resources.Load<Material>("Materials/OutlineFill"));
 		this.outlineMaskMaterial.name = "OutlineMask (Instance)";
 		this.outlineFillMaterial.name = "OutlineFill (Instance)";
 		this.LoadSmoothNormals();
@@ -133,8 +133,8 @@ public class Outline : MonoBehaviour
 	// Token: 0x0600000C RID: 12 RVA: 0x00002320 File Offset: 0x00000520
 	private void OnDestroy()
 	{
-		Object.Destroy(this.outlineMaskMaterial);
-		Object.Destroy(this.outlineFillMaterial);
+		global::UnityEngine.Object.Destroy(this.outlineMaskMaterial);
+		global::UnityEngine.Object.Destroy(this.outlineFillMaterial);
 	}
 
 	// Token: 0x0600000D RID: 13 RVA: 0x00002338 File Offset: 0x00000538

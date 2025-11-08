@@ -343,9 +343,8 @@ public class TerminalScript : MonoBehaviour
 		}
 		if (VirtualCursors.IsCursorVisible(0, true))
 		{
-			Vector2 vector;
-			vector..ctor((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
-			Vector2 vector2 = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector);
+			global::UnityEngine.Vector2 vector = new global::UnityEngine.Vector2((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
+			global::UnityEngine.Vector2 vector2 = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector);
 			if (Controls.MouseButton_PressedGet(0, Controls.MouseElement.LeftButton) && (vector2.x < -0.35f || vector2.x > 0.35f))
 			{
 				flag2 = true;
@@ -392,7 +391,7 @@ public class TerminalScript : MonoBehaviour
 				flag = true;
 			}
 		}
-		Vector2 zero = Vector2.zero;
+		global::UnityEngine.Vector2 zero = global::UnityEngine.Vector2.zero;
 		zero.x += Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveRight, Controls.InputAction.menuMoveLeft, true);
 		zero.x += Controls.ActionAxisPair_GetValue(0, Controls.InputAction.scrollUp, Controls.InputAction.scrollDown, true);
 		zero.y += Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveUp, Controls.InputAction.menuMoveDown, true);
@@ -554,11 +553,11 @@ public class TerminalScript : MonoBehaviour
 				}
 				if ((terminalPowerupState2 == TerminalScript.TerminalPowerupState.owned || terminalPowerupState2 == TerminalScript.TerminalPowerupState.justUnlocked) && !this.hoveredPowerup.IsBaseSet())
 				{
-					this.inspector_UnlockInfosText.fontStyle = 64;
+					this.inspector_UnlockInfosText.fontStyle = FontStyles.Strikethrough;
 				}
 				else
 				{
-					this.inspector_UnlockInfosText.fontStyle = 0;
+					this.inspector_UnlockInfosText.fontStyle = FontStyles.Normal;
 				}
 				this.inspector_UnlockInfosText.text = text3;
 				if (terminalPowerupState2 == TerminalScript.TerminalPowerupState.offered)
@@ -598,13 +597,13 @@ public class TerminalScript : MonoBehaviour
 				}
 				if (this.player.lastInputKindUsed == Controls.InputKind.Joystick)
 				{
-					this.buyText.rectTransform.sizeDelta = new Vector2(0.4f, this.buyText.rectTransform.sizeDelta.y);
-					this.buyText.rectTransform.anchoredPosition = new Vector2(0.348f, this.buyText.rectTransform.anchoredPosition.y);
+					this.buyText.rectTransform.sizeDelta = new global::UnityEngine.Vector2(0.4f, this.buyText.rectTransform.sizeDelta.y);
+					this.buyText.rectTransform.anchoredPosition = new global::UnityEngine.Vector2(0.348f, this.buyText.rectTransform.anchoredPosition.y);
 				}
 				else
 				{
-					this.buyText.rectTransform.sizeDelta = new Vector2(0.25f, this.buyText.rectTransform.sizeDelta.y);
-					this.buyText.rectTransform.anchoredPosition = new Vector2(0.194f, this.buyText.rectTransform.anchoredPosition.y);
+					this.buyText.rectTransform.sizeDelta = new global::UnityEngine.Vector2(0.25f, this.buyText.rectTransform.sizeDelta.y);
+					this.buyText.rectTransform.anchoredPosition = new global::UnityEngine.Vector2(0.194f, this.buyText.rectTransform.anchoredPosition.y);
 				}
 				if (terminalPowerupState2 == TerminalScript.TerminalPowerupState.offered && this.player.lastInputKindUsed != Controls.InputKind.Joystick)
 				{
@@ -841,7 +840,7 @@ public class TerminalScript : MonoBehaviour
 				}
 				if (this.youGotMailTimer <= 0f)
 				{
-					Sound.Play3D("SoundTerminalYouGotMail", base.transform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D("SoundTerminalYouGotMail", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 			}
 			break;
@@ -938,7 +937,7 @@ public class TerminalScript : MonoBehaviour
 		bool flag6 = TerminalScript.IsLoggedIn();
 		if (flag6 && !Sound.IsPlaying("SoundTerminalFanLoop"))
 		{
-			Sound.Play3D("SoundTerminalFanLoop", base.transform.position, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundTerminalFanLoop", base.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		if (!flag6 && this.powerupStealedMeshes.Count > 0)
 		{
@@ -1049,7 +1048,7 @@ public class TerminalScript : MonoBehaviour
 
 	private Coroutine offerNotificationCoroutine;
 
-	private Vector2 axisPrevious;
+	private global::UnityEngine.Vector2 axisPrevious;
 
 	private int pageIndex;
 

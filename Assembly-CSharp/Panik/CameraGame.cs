@@ -72,7 +72,7 @@ namespace Panik
 		private void ScreenshakeUpdate()
 		{
 			this.shakeMagnitude = Mathf.Max(0f, this.shakeMagnitude - this.shakeMagnitudeDecaySpeed * Tick.Time);
-			base.transform.SetLocalZAngle(Random.Range(-this.shakeMagnitude, this.shakeMagnitude));
+			base.transform.SetLocalZAngle(global::UnityEngine.Random.Range(-this.shakeMagnitude, this.shakeMagnitude));
 		}
 
 		// Token: 0x06000B41 RID: 2881 RVA: 0x0004B346 File Offset: 0x00049546

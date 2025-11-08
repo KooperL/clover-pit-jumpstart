@@ -734,16 +734,15 @@ public class PromptGuideScript : MonoBehaviour
 		{
 			this.holder.SetActive(flag2);
 		}
-		Vector2 zero;
-		zero..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		global::UnityEngine.Vector2 zero = new global::UnityEngine.Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
-			zero = Vector2.zero;
+			zero = global::UnityEngine.Vector2.zero;
 		}
-		this.textBackImage.rectTransform.sizeDelta = new Vector2(this.text.preferredWidth + 40f, this.text.preferredHeight + 20f);
+		this.textBackImage.rectTransform.sizeDelta = new global::UnityEngine.Vector2(this.text.preferredWidth + 40f, this.text.preferredHeight + 20f);
 		this.textBackImage.rectTransform.anchoredPosition = this.imageStartingPos + zero;
 		this.holderRect.sizeDelta = this.textBackImage.rectTransform.sizeDelta;
-		this.holderRect.anchoredPosition = new Vector2(this.myRect.sizeDelta.x / 2f, this.myRect.anchoredPosition.y + 8f);
+		this.holderRect.anchoredPosition = new global::UnityEngine.Vector2(this.myRect.sizeDelta.x / 2f, this.myRect.anchoredPosition.y + 8f);
 		if (this.currentType == PromptGuideScript.GuideType.atm_insertCoin)
 		{
 			BigInteger bigInteger = GameplayData.NextDepositAmmountGet(false);
@@ -860,7 +859,7 @@ public class PromptGuideScript : MonoBehaviour
 
 	private PromptGuideScript.GuideType currentType = PromptGuideScript.GuideType.Undefined;
 
-	private Vector2 imageStartingPos;
+	private global::UnityEngine.Vector2 imageStartingPos;
 
 	private Dictionary<PromptGuideScript.GuideType, float> flashingTimers = new Dictionary<PromptGuideScript.GuideType, float>();
 

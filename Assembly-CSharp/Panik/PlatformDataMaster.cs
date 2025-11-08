@@ -150,7 +150,7 @@ namespace Panik
 				{
 					ConsolePrompt.LogError(text, "", 0f);
 				}
-				Debug.LogError(text);
+				global::UnityEngine.Debug.LogError(text);
 			}
 			return t;
 		}
@@ -247,7 +247,7 @@ namespace Panik
 				}
 				catch
 				{
-					Debug.LogWarning("PlatformDataMaster.EnumListFromString(): Failed parsing of string to enum. String: " + array[i]);
+					global::UnityEngine.Debug.LogWarning("PlatformDataMaster.EnumListFromString(): Failed parsing of string to enum. String: " + array[i]);
 				}
 			}
 		}
@@ -300,12 +300,12 @@ namespace Panik
 		{
 			if (string.IsNullOrEmpty(data))
 			{
-				Debug.LogWarning("Encrypting empty data. Returning empty string.");
+				global::UnityEngine.Debug.LogWarning("Encrypting empty data. Returning empty string.");
 				return "";
 			}
 			if (string.IsNullOrEmpty(password))
 			{
-				Debug.LogWarning("Encrypting with empty password. Returning empty string.");
+				global::UnityEngine.Debug.LogWarning("Encrypting with empty password. Returning empty string.");
 				return "";
 			}
 			int length = data.Length;
@@ -340,12 +340,12 @@ namespace Panik
 		{
 			if (string.IsNullOrEmpty(cryptedData))
 			{
-				Debug.LogWarning("Decrypting empty data. Returning empty string.");
+				global::UnityEngine.Debug.LogWarning("Decrypting empty data. Returning empty string.");
 				return "";
 			}
 			if (string.IsNullOrEmpty(password))
 			{
-				Debug.LogWarning("Decrypting with empty password. Returning empty string.");
+				global::UnityEngine.Debug.LogWarning("Decrypting with empty password. Returning empty string.");
 				return "";
 			}
 			int length = cryptedData.Length;
@@ -469,12 +469,12 @@ namespace Panik
 			if (PlatformDataMaster.IsSaving())
 			{
 				flag = true;
-				Debug.LogWarning("EndGameCheck: There is a saving operation going on but we are closing the game! Data might not be saved.");
+				global::UnityEngine.Debug.LogWarning("EndGameCheck: There is a saving operation going on but we are closing the game! Data might not be saved.");
 			}
 			if (PlatformDataMaster.IsDeleting())
 			{
 				flag = true;
-				Debug.LogWarning("EndGameCheck: There is a deleting operation going on but we are closing the game! Data might not be deleted.");
+				global::UnityEngine.Debug.LogWarning("EndGameCheck: There is a deleting operation going on but we are closing the game! Data might not be deleted.");
 			}
 			return flag;
 		}
@@ -743,7 +743,7 @@ namespace Panik
 		{
 			if (PlatformDataMaster.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			PlatformDataMaster.instance = this;

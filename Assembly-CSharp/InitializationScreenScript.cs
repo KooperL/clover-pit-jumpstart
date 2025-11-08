@@ -11,7 +11,7 @@ public class InitializationScreenScript : MonoBehaviour
 	{
 		if (InitializationScreenScript.instance != null)
 		{
-			Object.Destroy(base.gameObject);
+			global::UnityEngine.Object.Destroy(base.gameObject);
 			return;
 		}
 		InitializationScreenScript.instance = this;
@@ -29,7 +29,7 @@ public class InitializationScreenScript : MonoBehaviour
 			}
 			if (PlatformMaster.IsInitialized())
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 			}
 			yield return null;
 		}

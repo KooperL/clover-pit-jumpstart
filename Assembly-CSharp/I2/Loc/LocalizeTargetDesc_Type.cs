@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace I2.Loc
 {
-	public class LocalizeTargetDesc_Type<T, G> : LocalizeTargetDesc<G> where T : Object where G : LocalizeTarget<T>
+	public class LocalizeTargetDesc_Type<T, G> : LocalizeTargetDesc<G> where T : global::UnityEngine.Object where G : LocalizeTarget<T>
 	{
 		// Token: 0x06000F51 RID: 3921 RVA: 0x00061E9D File Offset: 0x0006009D
 		public override bool CanLocalize(Localize cmp)

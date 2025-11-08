@@ -13,7 +13,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F63 RID: 3939 RVA: 0x0006241E File Offset: 0x0006061E
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<TextMeshProUGUI, LocalizeTarget_TextMeshPro_UGUI>
@@ -117,9 +117,9 @@ namespace I2.Loc
 			}
 		}
 
-		public TextAlignmentOptions mAlignment_RTL = 516;
+		public TextAlignmentOptions mAlignment_RTL = TextAlignmentOptions.Right;
 
-		public TextAlignmentOptions mAlignment_LTR = 513;
+		public TextAlignmentOptions mAlignment_LTR = TextAlignmentOptions.Left;
 
 		public bool mAlignmentWasRTL;
 

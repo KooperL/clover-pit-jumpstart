@@ -189,7 +189,7 @@ namespace I2.Loc
 			}
 			if (this.mLocalizeTarget != null)
 			{
-				Object.DestroyImmediate(this.mLocalizeTarget);
+				global::UnityEngine.Object.DestroyImmediate(this.mLocalizeTarget);
 				this.mLocalizeTarget = null;
 				this.mLocalizeTargetName = null;
 			}
@@ -305,7 +305,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000EE7 RID: 3815 RVA: 0x00060058 File Offset: 0x0005E258
-		internal T GetSecondaryTranslatedObj<T>(ref string mainTranslation, ref string secondaryTranslation) where T : Object
+		internal T GetSecondaryTranslatedObj<T>(ref string mainTranslation, ref string secondaryTranslation) where T : global::UnityEngine.Object
 		{
 			string text;
 			string text2;
@@ -330,13 +330,13 @@ namespace I2.Loc
 		// Token: 0x06000EE8 RID: 3816 RVA: 0x000600B8 File Offset: 0x0005E2B8
 		public void UpdateAssetDictionary()
 		{
-			this.TranslatedObjects.RemoveAll((Object x) => x == null);
-			this.mAssetDictionary = (from o in this.TranslatedObjects.Distinct<Object>()
-				group o by o.name).ToDictionary((IGrouping<string, Object> g) => g.Key, (IGrouping<string, Object> g) => g.First<Object>());
+			this.TranslatedObjects.RemoveAll((global::UnityEngine.Object x) => x == null);
+			this.mAssetDictionary = (from o in this.TranslatedObjects.Distinct<global::UnityEngine.Object>()
+				group o by o.name).ToDictionary((IGrouping<string, global::UnityEngine.Object> g) => g.Key, (IGrouping<string, global::UnityEngine.Object> g) => g.First<global::UnityEngine.Object>());
 		}
 
 		// Token: 0x06000EE9 RID: 3817 RVA: 0x00060168 File Offset: 0x0005E368
-		internal T GetObject<T>(string Translation) where T : Object
+		internal T GetObject<T>(string Translation) where T : global::UnityEngine.Object
 		{
 			if (string.IsNullOrEmpty(Translation))
 			{
@@ -346,7 +346,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000EEA RID: 3818 RVA: 0x0006018E File Offset: 0x0005E38E
-		private T GetTranslatedObject<T>(string Translation) where T : Object
+		private T GetTranslatedObject<T>(string Translation) where T : global::UnityEngine.Object
 		{
 			return this.FindTranslatedObject<T>(Translation);
 		}
@@ -369,7 +369,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000EEC RID: 3820 RVA: 0x000601F0 File Offset: 0x0005E3F0
-		public T FindTranslatedObject<T>(string value) where T : Object
+		public T FindTranslatedObject<T>(string value) where T : global::UnityEngine.Object
 		{
 			if (string.IsNullOrEmpty(value))
 			{
@@ -380,7 +380,7 @@ namespace I2.Loc
 			{
 				this.UpdateAssetDictionary();
 			}
-			foreach (KeyValuePair<string, Object> keyValuePair in this.mAssetDictionary)
+			foreach (KeyValuePair<string, global::UnityEngine.Object> keyValuePair in this.mAssetDictionary)
 			{
 				if (keyValuePair.Value is T && value.EndsWith(keyValuePair.Key, StringComparison.OrdinalIgnoreCase) && string.Compare(value, keyValuePair.Key, StringComparison.OrdinalIgnoreCase) == 0)
 				{
@@ -396,13 +396,13 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000EED RID: 3821 RVA: 0x000602E0 File Offset: 0x0005E4E0
-		public bool HasTranslatedObject(Object Obj)
+		public bool HasTranslatedObject(global::UnityEngine.Object Obj)
 		{
 			return this.TranslatedObjects.Contains(Obj) || ResourceManager.pInstance.HasAsset(Obj);
 		}
 
 		// Token: 0x06000EEE RID: 3822 RVA: 0x000602FD File Offset: 0x0005E4FD
-		public void AddTranslatedObject(Object Obj)
+		public void AddTranslatedObject(global::UnityEngine.Object Obj)
 		{
 			if (this.TranslatedObjects.Contains(Obj))
 			{
@@ -454,10 +454,10 @@ namespace I2.Loc
 
 		public bool AllowParameters = true;
 
-		public List<Object> TranslatedObjects = new List<Object>();
+		public List<global::UnityEngine.Object> TranslatedObjects = new List<global::UnityEngine.Object>();
 
 		[NonSerialized]
-		public Dictionary<string, Object> mAssetDictionary = new Dictionary<string, Object>(StringComparer.Ordinal);
+		public Dictionary<string, global::UnityEngine.Object> mAssetDictionary = new Dictionary<string, global::UnityEngine.Object>(StringComparer.Ordinal);
 
 		public UnityEvent LocalizeEvent = new UnityEvent();
 

@@ -460,7 +460,7 @@ public class GeneralUiScript : MonoBehaviour
 		{
 			this.holder.SetActive(flag);
 		}
-		this.titleScreenRectTransform.anchoredPosition = new Vector2(0f, Util.AngleSin(Tick.PassedTime * 45f) * 5f);
+		this.titleScreenRectTransform.anchoredPosition = new global::UnityEngine.Vector2(0f, Util.AngleSin(Tick.PassedTime * 45f) * 5f);
 		bool flag2 = false;
 		if (MainMenuScript.IsEnabled())
 		{
@@ -596,7 +596,7 @@ public class GeneralUiScript : MonoBehaviour
 			}
 		}
 		this.coinsScreenKeepTimer -= Tick.Time;
-		Vector2 coins_HOLDER_DEFAULT_POSITION = this.COINS_HOLDER_DEFAULT_POSITION;
+		global::UnityEngine.Vector2 coins_HOLDER_DEFAULT_POSITION = this.COINS_HOLDER_DEFAULT_POSITION;
 		bool flag4 = true;
 		bool flag5 = gamePhase == GameplayMaster.GamePhase.intro || gamePhase == GameplayMaster.GamePhase.closingGame || gamePhase == GameplayMaster.GamePhase.endingWithoutDeath;
 		bool flag6 = !GameplayMaster.IsIntroDialogueFinished() && !TutorialScript.IsEnabled();
@@ -612,24 +612,23 @@ public class GeneralUiScript : MonoBehaviour
 			flag4 = false;
 			coins_HOLDER_DEFAULT_POSITION.y = 100f;
 		}
-		this.coinsHolder.anchoredPosition = Vector2.Lerp(this.coinsHolder.anchoredPosition, coins_HOLDER_DEFAULT_POSITION, Tick.Time * 10f);
+		this.coinsHolder.anchoredPosition = global::UnityEngine.Vector2.Lerp(this.coinsHolder.anchoredPosition, coins_HOLDER_DEFAULT_POSITION, Tick.Time * 10f);
 		if (flag4 && this.coinsScreenKeepTimer < -0.5f)
 		{
 			this.coinsScreenKeepTimer = 3f;
 		}
-		Vector2 vector;
+		global::UnityEngine.Vector2 vector;
 		vector.x = this.textCoin.renderedWidth + 40f;
 		vector.y = this.textCoin.preferredHeight + 20f;
-		this.coinsTextBackImage.rectTransform.sizeDelta = Vector2.Lerp(this.coinsTextBackImage.rectTransform.sizeDelta, vector, Tick.Time * 20f);
-		Vector2 zero;
-		zero..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		this.coinsTextBackImage.rectTransform.sizeDelta = global::UnityEngine.Vector2.Lerp(this.coinsTextBackImage.rectTransform.sizeDelta, vector, Tick.Time * 20f);
+		global::UnityEngine.Vector2 zero = new global::UnityEngine.Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
-			zero = Vector2.zero;
+			zero = global::UnityEngine.Vector2.zero;
 		}
 		this.coinsTextBackImage.rectTransform.anchoredPosition = zero;
-		this.coinsTextOffset = Vector2.Lerp(this.coinsTextOffset, this.COINS_TEXT_OFFSET, Tick.Time * 10f);
-		this.textCoin.rectTransform.anchoredPosition = new Vector2(this.coinsTextOffset.x - zero.x, this.coinsTextOffset.y - zero.y);
+		this.coinsTextOffset = global::UnityEngine.Vector2.Lerp(this.coinsTextOffset, this.COINS_TEXT_OFFSET, Tick.Time * 10f);
+		this.textCoin.rectTransform.anchoredPosition = new global::UnityEngine.Vector2(this.coinsTextOffset.x - zero.x, this.coinsTextOffset.y - zero.y);
 		bool flag10 = InspectorScript.IsEnabled();
 		if (this.textCoin.enableAutoSizing != flag10)
 		{
@@ -722,7 +721,7 @@ public class GeneralUiScript : MonoBehaviour
 			}
 		}
 		this.ticketsScreenKeepTimer -= Tick.Time;
-		Vector2 tickets_HOLDER_DEFAULT_POSITION = this.TICKETS_HOLDER_DEFAULT_POSITION;
+		global::UnityEngine.Vector2 tickets_HOLDER_DEFAULT_POSITION = this.TICKETS_HOLDER_DEFAULT_POSITION;
 		bool flag11 = true;
 		bool flag12 = gamePhase == GameplayMaster.GamePhase.gambling && (!CameraController.SlotMachineLookingFrontOrUndefined() || (SlotMachineScript.instance.leverMenuElement.IsHovered() && !SlotMachineScript.IsSpinning()));
 		if (flag5 || flag7 || flag12 || flag9)
@@ -734,24 +733,23 @@ public class GeneralUiScript : MonoBehaviour
 			flag11 = false;
 			tickets_HOLDER_DEFAULT_POSITION.y = 100f;
 		}
-		this.ticketsHolder.anchoredPosition = Vector2.Lerp(this.ticketsHolder.anchoredPosition, tickets_HOLDER_DEFAULT_POSITION, Tick.Time * 10f);
+		this.ticketsHolder.anchoredPosition = global::UnityEngine.Vector2.Lerp(this.ticketsHolder.anchoredPosition, tickets_HOLDER_DEFAULT_POSITION, Tick.Time * 10f);
 		if (flag11 && this.ticketsScreenKeepTimer < -0.5f)
 		{
 			this.ticketsScreenKeepTimer = 3f;
 		}
-		Vector2 vector2;
+		global::UnityEngine.Vector2 vector2;
 		vector2.x = this.textTickets.renderedWidth + 40f;
 		vector2.y = this.textTickets.preferredHeight + 20f;
-		this.ticketsTextBackImage.rectTransform.sizeDelta = Vector2.Lerp(this.ticketsTextBackImage.rectTransform.sizeDelta, vector2, Tick.Time * 20f);
-		Vector2 zero2;
-		zero2..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		this.ticketsTextBackImage.rectTransform.sizeDelta = global::UnityEngine.Vector2.Lerp(this.ticketsTextBackImage.rectTransform.sizeDelta, vector2, Tick.Time * 20f);
+		global::UnityEngine.Vector2 zero2 = new global::UnityEngine.Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
-			zero2 = Vector2.zero;
+			zero2 = global::UnityEngine.Vector2.zero;
 		}
 		this.ticketsTextBackImage.rectTransform.anchoredPosition = zero2;
-		this.ticketsTextOffset = Vector2.Lerp(this.ticketsTextOffset, this.TICKETS_TEXT_OFFSET, Tick.Time * 10f);
-		this.textTickets.rectTransform.anchoredPosition = new Vector2(this.ticketsTextOffset.x - zero2.x, this.ticketsTextOffset.y - zero2.y);
+		this.ticketsTextOffset = global::UnityEngine.Vector2.Lerp(this.ticketsTextOffset, this.TICKETS_TEXT_OFFSET, Tick.Time * 10f);
+		this.textTickets.rectTransform.anchoredPosition = new global::UnityEngine.Vector2(this.ticketsTextOffset.x - zero2.x, this.ticketsTextOffset.y - zero2.y);
 		bool flag13 = InspectorScript.IsEnabled();
 		if (this.textTickets.enableAutoSizing != flag13)
 		{
@@ -775,17 +773,17 @@ public class GeneralUiScript : MonoBehaviour
 
 	private const float COINS_UPDATE_TIMER_RESET_LONG = 0.1f;
 
-	private Vector2 COINS_HOLDER_DEFAULT_POSITION = new Vector2(10f, -10f);
+	private global::UnityEngine.Vector2 COINS_HOLDER_DEFAULT_POSITION = new global::UnityEngine.Vector2(10f, -10f);
 
-	private Vector2 COINS_TEXT_OFFSET = new Vector2(20f, -13f);
+	private global::UnityEngine.Vector2 COINS_TEXT_OFFSET = new global::UnityEngine.Vector2(20f, -13f);
 
 	private const float TICKETS_SCREEN_KEEP_TIME = 3f;
 
 	private const float TICKETS_UPDATE_TIMER_RESET = 0.05f;
 
-	private Vector2 TICKETS_HOLDER_DEFAULT_POSITION = new Vector2(-10f, -10f);
+	private global::UnityEngine.Vector2 TICKETS_HOLDER_DEFAULT_POSITION = new global::UnityEngine.Vector2(-10f, -10f);
 
-	private Vector2 TICKETS_TEXT_OFFSET = new Vector2(-18f, -13f);
+	private global::UnityEngine.Vector2 TICKETS_TEXT_OFFSET = new global::UnityEngine.Vector2(-18f, -13f);
 
 	private Controls.PlayerExt player;
 
@@ -843,7 +841,7 @@ public class GeneralUiScript : MonoBehaviour
 
 	private bool coinsUpdateAgain;
 
-	private Vector2 coinsTextOffset = Vector2.zero;
+	private global::UnityEngine.Vector2 coinsTextOffset = global::UnityEngine.Vector2.zero;
 
 	private float coinsScreenKeepTimer;
 
@@ -855,7 +853,7 @@ public class GeneralUiScript : MonoBehaviour
 
 	private bool ticketsUpdateAgain;
 
-	private Vector2 ticketsTextOffset = Vector2.zero;
+	private global::UnityEngine.Vector2 ticketsTextOffset = global::UnityEngine.Vector2.zero;
 
 	private float ticketsScreenKeepTimer;
 }

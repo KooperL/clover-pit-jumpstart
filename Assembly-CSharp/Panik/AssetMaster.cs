@@ -77,7 +77,7 @@ namespace Panik
 		}
 
 		// Token: 0x06000ACB RID: 2763 RVA: 0x0004918C File Offset: 0x0004738C
-		public static T GetGeneric<T>(string assetName) where T : Object
+		public static T GetGeneric<T>(string assetName) where T : global::UnityEngine.Object
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
 			{
@@ -206,7 +206,7 @@ namespace Panik
 		}
 
 		// Token: 0x06000AD1 RID: 2769 RVA: 0x00049550 File Offset: 0x00047750
-		public static void AddGeneric<T>(T assetToAdd, bool addToIndestructibleList = false) where T : Object
+		public static void AddGeneric<T>(T assetToAdd, bool addToIndestructibleList = false) where T : global::UnityEngine.Object
 		{
 			int i = 0;
 			while (i < AssetMaster.list.Count)
@@ -317,11 +317,11 @@ namespace Panik
 				{
 					if (AssetMaster.list[i].name == base.name)
 					{
-						Object.Destroy(base.gameObject);
+						global::UnityEngine.Object.Destroy(base.gameObject);
 						return;
 					}
 				}
-				Object.DontDestroyOnLoad(base.gameObject);
+				global::UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
 			}
 			for (int j = 0; j < this.sounds.Count; j++)
 			{
@@ -375,7 +375,7 @@ namespace Panik
 
 		private static Sprite spriteAppoggioVar;
 
-		private static Object objAppoggioVar;
+		private static global::UnityEngine.Object objAppoggioVar;
 
 		public List<AudioClip> sounds = new List<AudioClip>();
 
@@ -387,7 +387,7 @@ namespace Panik
 
 		public List<Sprite> sprites = new List<Sprite>();
 
-		public List<Object> genericsList = new List<Object>();
+		public List<global::UnityEngine.Object> genericsList = new List<global::UnityEngine.Object>();
 
 		private const int DICT_INIT_SIZE = 250;
 
@@ -401,6 +401,6 @@ namespace Panik
 
 		public Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>(250);
 
-		public Dictionary<string, Object> genericsDict = new Dictionary<string, Object>(250);
+		public Dictionary<string, global::UnityEngine.Object> genericsDict = new Dictionary<string, global::UnityEngine.Object>(250);
 	}
 }

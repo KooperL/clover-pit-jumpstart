@@ -7,11 +7,11 @@ namespace I2.Loc
 	public class EventCallback
 	{
 		// Token: 0x06000E25 RID: 3621 RVA: 0x00057424 File Offset: 0x00055624
-		public void Execute(Object Sender = null)
+		public void Execute(global::UnityEngine.Object Sender = null)
 		{
 			if (this.HasCallback() && Application.isPlaying)
 			{
-				this.Target.gameObject.SendMessage(this.MethodName, Sender, 1);
+				this.Target.gameObject.SendMessage(this.MethodName, Sender, SendMessageOptions.DontRequireReceiver);
 			}
 		}
 

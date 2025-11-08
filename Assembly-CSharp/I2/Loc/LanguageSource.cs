@@ -122,7 +122,7 @@ namespace I2.Loc
 
 		public bool GoogleLiveSyncIsUptoDate = true;
 
-		public List<Object> Assets = new List<Object>();
+		public List<global::UnityEngine.Object> Assets = new List<global::UnityEngine.Object>();
 
 		public string Google_WebServiceURL;
 

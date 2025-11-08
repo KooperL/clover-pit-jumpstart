@@ -137,7 +137,7 @@ public class DialogueScript : MonoBehaviour
 		}
 		else
 		{
-			Sound.Play3D_Unpausable("SoundDialogueClose", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
+			Sound.Play3D_Unpausable("SoundDialogueClose", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		Controls.VibrationSet_PreferMax(DialogueScript.instance.player, 0.25f);
 	}
@@ -163,7 +163,7 @@ public class DialogueScript : MonoBehaviour
 				}
 				else
 				{
-					Sound.Play3D_Unpausable("SoundDialogueStart", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D_Unpausable("SoundDialogueStart", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 			}
 		}
@@ -173,7 +173,7 @@ public class DialogueScript : MonoBehaviour
 		}
 		else
 		{
-			Sound.Play3D_Unpausable("SoundDialogueNext", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
+			Sound.Play3D_Unpausable("SoundDialogueNext", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		DialogueScript.AnswerCallback answerCallback = this.onDialogueNext;
 		if (answerCallback == null)
@@ -249,7 +249,7 @@ public class DialogueScript : MonoBehaviour
 				}
 				else
 				{
-					Sound.Play3D_Unpausable("SoundMenuSelectionChange", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D_Unpausable("SoundMenuSelectionChange", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 			}
 			switch (this.questionAnswer)
@@ -436,7 +436,7 @@ public class DialogueScript : MonoBehaviour
 				DialogueScript.Close();
 			}
 		}
-		Vector2 vector = this.backImageStartingLocalPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 vector = this.backImageStartingLocalPos + new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			vector = this.backImageStartingLocalPos;

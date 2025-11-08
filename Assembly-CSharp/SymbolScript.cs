@@ -324,7 +324,7 @@ public class SymbolScript : MonoBehaviour
 			this.spinScaling = state;
 			if (!this.spinScaling)
 			{
-				base.transform.localScale = Vector3.one;
+				base.transform.localScale = global::UnityEngine.Vector3.one;
 				return;
 			}
 			this.spinScalingOldY = base.transform.position.y;
@@ -337,9 +337,9 @@ public class SymbolScript : MonoBehaviour
 		this.animator = base.GetComponentInChildren<Animator>();
 		this.mainSkinnedMeshRenderer = base.GetComponentInChildren<SkinnedMeshRenderer>();
 		this.matDefault = this.mainSkinnedMeshRenderer.sharedMaterial;
-		GameObject gameObject = Object.Instantiate<GameObject>(this.animator.gameObject);
+		GameObject gameObject = global::UnityEngine.Object.Instantiate<GameObject>(this.animator.gameObject);
 		gameObject.transform.SetParent(this.animator.transform.parent);
-		gameObject.transform.localPosition = this.animator.transform.localPosition + new Vector3(0f, 0f, 2.5f);
+		gameObject.transform.localPosition = this.animator.transform.localPosition + new global::UnityEngine.Vector3(0f, 0f, 2.5f);
 		gameObject.transform.localEulerAngles = this.animator.transform.eulerAngles;
 		gameObject.transform.localScale = this.animator.transform.localScale;
 		this.outlineAnimator = gameObject.GetComponent<Animator>();
@@ -362,7 +362,7 @@ public class SymbolScript : MonoBehaviour
 	{
 		SymbolScript.allEnabled.Add(this);
 		this.ModifierSet(SymbolScript.Modifier.none);
-		base.transform.localScale = Vector3.one;
+		base.transform.localScale = global::UnityEngine.Vector3.one;
 	}
 
 	// Token: 0x06000795 RID: 1941 RVA: 0x00031C95 File Offset: 0x0002FE95
@@ -387,7 +387,7 @@ public class SymbolScript : MonoBehaviour
 		}
 		if (flag)
 		{
-			Vector2 vector;
+			global::UnityEngine.Vector2 vector;
 			vector.x = Util.AngleCos(this.animationTimer * 720f) * 0.025f;
 			vector.y = Util.AngleSin(this.animationTimer * 720f) * 0.025f;
 			this.outlineAnimator.transform.SetLocalX(vector.x);
@@ -406,7 +406,7 @@ public class SymbolScript : MonoBehaviour
 		{
 			float num = base.transform.position.y - this.spinScalingOldY;
 			this.spinScalingOldY = base.transform.position.y;
-			Vector2 vector2 = base.transform.localScale;
+			global::UnityEngine.Vector2 vector2 = base.transform.localScale;
 			vector2.x = Mathf.Clamp(1f + 0.005f * num / Tick.Time, 0.8f, 1.2f);
 			vector2.y = Mathf.Clamp(1f + 0.005f * -num / Tick.Time, 0.8f, 1.4000001f);
 			base.transform.SetLocalXScale(vector2.x);

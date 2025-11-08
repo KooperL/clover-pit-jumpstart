@@ -289,7 +289,7 @@ public class CameraController : MonoBehaviour
 			if (this.lookDown_Timer > 0.5f && !this.lookdDown_ScarySoundPlayed)
 			{
 				this.lookdDown_ScarySoundPlayed = true;
-				Sound.Play3D("SoundScaryPit" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString(), new Vector3(0f, -2.5f, 0f), 30f, 1f, 1f, 1);
+				Sound.Play3D("SoundScaryPit" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString(), new Vector3(0f, -2.5f, 0f), 30f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 		}
 		else
@@ -312,7 +312,7 @@ public class CameraController : MonoBehaviour
 			if (this.lookUp_Timer > 2f && !this.lookdUp_ScarySoundPlayed)
 			{
 				this.lookdUp_ScarySoundPlayed = true;
-				Sound.Play3D("SoundScaryCeiling", new Vector3(0f, 15f, 0f), 30f, 1f, 1f, 1);
+				Sound.Play3D("SoundScaryCeiling", new Vector3(0f, 15f, 0f), 30f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 		}
 		else
@@ -641,7 +641,7 @@ public class CameraController : MonoBehaviour
 	private void Awake()
 	{
 		CameraController.instance = this;
-		this.myCamera = Object.FindObjectOfType<CameraGame>();
+		this.myCamera = global::UnityEngine.Object.FindObjectOfType<CameraGame>();
 		if (CameraController.fogStartDist_Default == -1f)
 		{
 			CameraController.fogStartDist_Default = RenderSettings.fogStartDistance;
@@ -733,8 +733,7 @@ public class CameraController : MonoBehaviour
 			num3 = 0.5f;
 		}
 		Vector2 vector = Data.settings.CameraSensitivityGet(0);
-		Vector2 vector2;
-		vector2..ctor((float)this.myCamera.myCamera.pixelWidth, (float)this.myCamera.myCamera.pixelHeight);
+		Vector2 vector2 = new Vector2((float)this.myCamera.myCamera.pixelWidth, (float)this.myCamera.myCamera.pixelHeight);
 		Vector2 vector3 = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector2);
 		vector3.x = Mathf.Clamp(vector3.x, -0.5f, 0.5f);
 		vector3.y = Mathf.Clamp(vector3.y, -0.5f, 0.5f);
@@ -1065,7 +1064,7 @@ public class CameraController : MonoBehaviour
 				this.offsetEulers = new Vector3(-zero.y * vector.x * 15f, zero.x * vector.y * 15f, 0f);
 				goto IL_0D1F;
 			case CameraController.PositionKind.TrapDoor:
-				this.offsetPosition = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+				this.offsetPosition = new Vector3(global::UnityEngine.Random.Range(-0.1f, 0.1f), global::UnityEngine.Random.Range(-0.1f, 0.1f), global::UnityEngine.Random.Range(-0.1f, 0.1f));
 				goto IL_0D1F;
 			case CameraController.PositionKind.Falling:
 			{

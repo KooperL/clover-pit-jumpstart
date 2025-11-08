@@ -133,13 +133,13 @@ public class TwitchMaster : MonoBehaviour
 	{
 		if (!PlatformMaster.PlatformIsComputer())
 		{
-			Object.Destroy(base.gameObject);
+			global::UnityEngine.Object.Destroy(base.gameObject);
 			Debug.Log("Cannot use Twitch on this platform. Removing Twitch Master!");
 			return;
 		}
 		if (TwitchMaster.instance != null)
 		{
-			Object.Destroy(base.gameObject);
+			global::UnityEngine.Object.Destroy(base.gameObject);
 			return;
 		}
 		TwitchMaster.instance = this;

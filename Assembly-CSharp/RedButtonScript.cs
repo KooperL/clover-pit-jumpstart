@@ -447,7 +447,7 @@ public class RedButtonScript : MonoBehaviour
 				{
 					num = 0.5f;
 				}
-				Sound.Play3D("SoundRedButtonTwitching", base.transform.position, 3f, num, Random.Range(0.9f, 1.1f), 1);
+				Sound.Play3D("SoundRedButtonTwitching", base.transform.position, 3f, num, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 			}
 		}
 		else
@@ -527,7 +527,7 @@ public class RedButtonScript : MonoBehaviour
 		if (this._uiIsShowing)
 		{
 			float num5 = 0.001f;
-			this.uiBaloonShakerTransform.localPosition = new Vector3(Random.Range(-num5, num5), Random.Range(-num5, num5), Random.Range(-num5, num5));
+			this.uiBaloonShakerTransform.localPosition = new Vector3(global::UnityEngine.Random.Range(-num5, num5), global::UnityEngine.Random.Range(-num5, num5), global::UnityEngine.Random.Range(-num5, num5));
 		}
 		if (this.stackRequestUpdate)
 		{
