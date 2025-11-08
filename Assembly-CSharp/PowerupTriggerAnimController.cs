@@ -79,7 +79,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 	{
 		if (!PowerupTriggerAnimController.ShouldHide())
 		{
-			Sound.Play("SoundPowerupTriggerExit", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundPowerupTriggerExit", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 		}
 	}
 
@@ -138,7 +138,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 			switch (this.currentlyAnimatedCapsule.animationKind)
 			{
 			case PowerupTriggerAnimController.AnimationCapsule.AnimationKind.normalTrigger:
-				Sound.Play("SoundPowerupTriggerEntrance", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundPowerupTriggerEntrance", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				break;
 			case PowerupTriggerAnimController.AnimationCapsule.AnimationKind.unlock:
 				Sound.Play("SoundPowerupUnlock", 1f, 1f);
@@ -147,13 +147,13 @@ public class PowerupTriggerAnimController : MonoBehaviour
 				Sound.Play("SoundPowerupThrowAway", 1f, 1f);
 				break;
 			case PowerupTriggerAnimController.AnimationCapsule.AnimationKind.recharge_RedButton:
-				Sound.Play("SoundPowerupRecharge", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundPowerupRecharge", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				break;
 			case PowerupTriggerAnimController.AnimationCapsule.AnimationKind.powerDown:
-				Sound.Play("SoundPowerupPowerDown", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundPowerupPowerDown", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				break;
 			case PowerupTriggerAnimController.AnimationCapsule.AnimationKind.card:
-				Sound.Play("SoundCardAnimationTrigger", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundCardAnimationTrigger", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 				break;
 			}
 		}
@@ -259,7 +259,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 			}
 			else
 			{
-				meshCopyCapsule = new PowerupTriggerAnimController.MeshCopyCapsule(Object.Instantiate<GameObject>(meshRenderer.gameObject).GetComponent<MeshRenderer>(), null, animation.powerup.MaterialDefault_Get());
+				meshCopyCapsule = new PowerupTriggerAnimController.MeshCopyCapsule(global::UnityEngine.Object.Instantiate<GameObject>(meshRenderer.gameObject).GetComponent<MeshRenderer>(), null, animation.powerup.MaterialDefault_Get());
 				this.powerupCopies_MeshRenderer.Add(animation.powerup.identifier, meshCopyCapsule);
 			}
 			Vector3 boundingBoxSizeNormalized = animation.powerup.GetBoundingBoxSizeNormalized();
@@ -289,7 +289,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 			}
 			else
 			{
-				meshCopyCapsule = new PowerupTriggerAnimController.MeshCopyCapsule(null, Object.Instantiate<GameObject>(skinnedMeshRenderer.transform.parent.gameObject).GetComponentInChildren<SkinnedMeshRenderer>(), animation.powerup.MaterialDefault_Get());
+				meshCopyCapsule = new PowerupTriggerAnimController.MeshCopyCapsule(null, global::UnityEngine.Object.Instantiate<GameObject>(skinnedMeshRenderer.transform.parent.gameObject).GetComponentInChildren<SkinnedMeshRenderer>(), animation.powerup.MaterialDefault_Get());
 				this.powerupCopies_SkinnedMeshRenderer.Add(animation.powerup.identifier, meshCopyCapsule);
 			}
 			Vector3 boundingBoxSizeNormalized2 = animation.powerup.GetBoundingBoxSizeNormalized();
@@ -367,7 +367,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 			Debug.LogError("PowerupTriggerAnimationController.MeshRemove(): powerup currently animated is null");
 		}
 		this.AnimationParticlesReset();
-		Object @object = this.currentlyAnimatedCapsule.powerup.MeshRendererGet();
+		global::UnityEngine.Object @object = this.currentlyAnimatedCapsule.powerup.MeshRendererGet();
 		SkinnedMeshRenderer skinnedMeshRenderer = this.currentlyAnimatedCapsule.powerup.SkinnedMeshRendererGet();
 		if (@object != null)
 		{
@@ -770,15 +770,15 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		{
 			if (this.materialDiscard != null)
 			{
-				Object.Destroy(this.materialDiscard);
+				global::UnityEngine.Object.Destroy(this.materialDiscard);
 			}
 			if (this.materialRecharge != null)
 			{
-				Object.Destroy(this.materialRecharge);
+				global::UnityEngine.Object.Destroy(this.materialRecharge);
 			}
 			if (this.materialPowerDown != null)
 			{
-				Object.Destroy(this.materialPowerDown);
+				global::UnityEngine.Object.Destroy(this.materialPowerDown);
 			}
 		}
 

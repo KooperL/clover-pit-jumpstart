@@ -331,7 +331,7 @@ public class ConsolePrompt : MonoBehaviour
 			return;
 		}
 		ConsolePrompt._registeredDebugInterception = true;
-		Application.logMessageReceived += new Application.LogCallback(this.OnDebugCallback);
+		Application.logMessageReceived += this.OnDebugCallback;
 	}
 
 	// Token: 0x060000C1 RID: 193 RVA: 0x00008424 File Offset: 0x00006624
@@ -341,7 +341,7 @@ public class ConsolePrompt : MonoBehaviour
 		{
 			return;
 		}
-		if (type == null || type == 4)
+		if (type == LogType.Error || type == LogType.Exception)
 		{
 			string text = "<color=red>Error: </color> " + condition + "\n" + stackTrace;
 			if (text.Length > this.LOG_INTERCEPTION_MAX_CHARACTERS)
@@ -353,7 +353,7 @@ public class ConsolePrompt : MonoBehaviour
 			ConsolePrompt.LogError(text, "", 0f);
 			return;
 		}
-		if (type == 2)
+		if (type == LogType.Warning)
 		{
 			string text2 = "<color=yellow>Warning: </color> " + condition;
 			if (text2.Length > this.LOG_INTERCEPTION_MAX_CHARACTERS)
@@ -380,7 +380,7 @@ public class ConsolePrompt : MonoBehaviour
 	{
 		if (ConsolePrompt.instance != null)
 		{
-			Object.Destroy(base.gameObject);
+			global::UnityEngine.Object.Destroy(base.gameObject);
 			return;
 		}
 		ConsolePrompt.instance = this;
@@ -412,10 +412,10 @@ public class ConsolePrompt : MonoBehaviour
 				this.fpsText.text = "FPS: " + (1f / Time.deltaTime).ToString("0.0");
 			}
 		}
-		bool flag2 = Input.GetKey(306) || Input.GetKey(99);
+		bool flag2 = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.C);
 		if (!this._enabled)
 		{
-			if (Input.GetKeyDown(9) && flag2)
+			if (Input.GetKeyDown(KeyCode.Tab) && flag2)
 			{
 				ConsolePrompt.ConsoleEnable();
 			}
@@ -426,7 +426,7 @@ public class ConsolePrompt : MonoBehaviour
 			this.autoCloseTimer = 0f;
 			return;
 		}
-		if (Input.GetKeyDown(9) && flag2 && !flag)
+		if (Input.GetKeyDown(KeyCode.Tab) && flag2 && !flag)
 		{
 			ConsolePrompt.ConsoleDisable();
 		}
@@ -434,21 +434,21 @@ public class ConsolePrompt : MonoBehaviour
 		{
 			this.consoleHolder.SetActive(true);
 		}
-		if (Input.GetKeyDown(273) && !flag2)
+		if (Input.GetKeyDown(KeyCode.UpArrow) && !flag2)
 		{
 			this.autoCloseTimer = 0f;
 			this.inputString = this.inputStringOld;
 		}
-		if (Input.GetKey(306))
+		if (Input.GetKey(KeyCode.LeftControl))
 		{
-			if (Input.GetKeyDown(273))
+			if (Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				this.autoCloseTimer = 0f;
 				this.outputCutStringsN++;
 				this.outputCutStringsN = Mathf.Min(this.outputStringList.Count - 1, this.outputCutStringsN);
 				this.outputCutStringsN = Mathf.Max(0, this.outputCutStringsN);
 			}
-			else if (Input.GetKeyDown(274))
+			else if (Input.GetKeyDown(KeyCode.DownArrow))
 			{
 				this.autoCloseTimer = 0f;
 				this.outputCutStringsN--;
@@ -457,23 +457,23 @@ public class ConsolePrompt : MonoBehaviour
 					this.outputCutStringsN = 0;
 				}
 			}
-			if (Input.GetKeyDown(280))
+			if (Input.GetKeyDown(KeyCode.PageUp))
 			{
 				this.autoCloseTimer = 0f;
 				this.outputCutStringsN = this.outputStringList.Count - 1;
 				this.outputCutStringsN = Mathf.Max(0, this.outputCutStringsN);
 			}
-			else if (Input.GetKeyDown(281))
+			else if (Input.GetKeyDown(KeyCode.PageDown))
 			{
 				this.autoCloseTimer = 0f;
 				this.outputCutStringsN = 0;
 			}
 		}
-		bool flag3 = Input.GetKey(306) || Input.GetKey(305);
+		bool flag3 = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 		if (Input.anyKeyDown && Input.inputString.Length > 0)
 		{
 			char c = Input.inputString[Input.inputString.Length - 1];
-			if (Input.GetKeyDown(8))
+			if (Input.GetKeyDown(KeyCode.Backspace))
 			{
 				if (this.inputString.Length > 0)
 				{
@@ -487,11 +487,11 @@ public class ConsolePrompt : MonoBehaviour
 					}
 				}
 			}
-			else if (Input.GetKeyDown(127))
+			else if (Input.GetKeyDown(KeyCode.Delete))
 			{
 				this.inputString = "";
 			}
-			else if (c == '\n' || c == '\r' || Input.GetKeyDown(13))
+			else if (c == '\n' || c == '\r' || Input.GetKeyDown(KeyCode.Return))
 			{
 				this.TryExecuteCommand();
 			}
@@ -531,7 +531,7 @@ public class ConsolePrompt : MonoBehaviour
 
 	public static ConsolePrompt instance;
 
-	public const KeyCode enableDisableKey = 9;
+	public const KeyCode enableDisableKey = KeyCode.Tab;
 
 	public int LOG_INTERCEPTION_MAX_CHARACTERS = 512;
 
@@ -602,7 +602,7 @@ public class ConsolePrompt : MonoBehaviour
 		{
 			if (this.action != null)
 			{
-				this.action.Invoke();
+				this.action();
 				return true;
 			}
 			return false;

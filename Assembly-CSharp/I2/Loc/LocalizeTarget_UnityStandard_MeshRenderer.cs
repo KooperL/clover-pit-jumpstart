@@ -12,7 +12,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F84 RID: 3972 RVA: 0x00062857 File Offset: 0x00060A57
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<MeshRenderer, LocalizeTarget_UnityStandard_MeshRenderer>

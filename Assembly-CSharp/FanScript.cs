@@ -24,7 +24,7 @@ public class FanScript : MonoBehaviour
 		float fanVolume = Data.settings.fanVolume;
 		if (!flag)
 		{
-			Sound.Play3D("SoundFan", base.transform.position, 20f, Mathf.Min(1f, volumeFade * fanVolume), 1f, 1);
+			Sound.Play3D("SoundFan", base.transform.position, 20f, Mathf.Min(1f, volumeFade * fanVolume), 1f, AudioRolloffMode.Linear);
 		}
 	}
 }

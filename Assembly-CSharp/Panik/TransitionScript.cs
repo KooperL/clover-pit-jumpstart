@@ -12,7 +12,7 @@ namespace Panik
 			{
 				return TransitionScript.instance;
 			}
-			TransitionScript.instance = Object.Instantiate<GameObject>(AssetMaster.GetPrefab("Transition")).GetComponent<TransitionScript>();
+			TransitionScript.instance = global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab("Transition")).GetComponent<TransitionScript>();
 			TransitionScript.instance.targetSceneIndex = sceneIndex;
 			TransitionScript.instance.skipLoadingScreen = skipLoadingScreen;
 			return TransitionScript.instance;
@@ -25,20 +25,20 @@ namespace Panik
 			{
 				return TransitionScript.instance;
 			}
-			TransitionScript.instance = Object.Instantiate<GameObject>(AssetMaster.GetPrefab("Transition")).GetComponent<TransitionScript>();
+			TransitionScript.instance = global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab("Transition")).GetComponent<TransitionScript>();
 			TransitionScript.instance.targetSceneIndex = -1;
 			return TransitionScript.instance;
 		}
 
 		// Token: 0x06000DC5 RID: 3525 RVA: 0x0005602E File Offset: 0x0005422E
-		private void Finalize()
+		private new void Finalize()
 		{
 			if (this.targetSceneIndex >= 0)
 			{
 				Level.GoTo(this.targetSceneIndex, !this.skipLoadingScreen);
 				return;
 			}
-			Object.Destroy(base.gameObject);
+			global::UnityEngine.Object.Destroy(base.gameObject);
 		}
 
 		// Token: 0x06000DC6 RID: 3526 RVA: 0x00056059 File Offset: 0x00054259

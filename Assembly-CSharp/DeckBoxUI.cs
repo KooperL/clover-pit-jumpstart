@@ -36,7 +36,7 @@ public class DeckBoxUI : MonoBehaviour
 		CameraController.SetPosition(CameraController.PositionKind.DeckBox, false, (uiKind == DeckBoxUI.UiKind.pickCardForTheRun) ? 0f : 1f);
 		DeckBoxUI.instance.holder.SetActive(true);
 		DeckBoxUI.instance._TextUpdate(uiKind);
-		Sound.Play3D("SoundDeckBoxOpen", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundDeckBoxOpen", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		DeckBoxUI.instance.uiCoroutine = DeckBoxUI.instance.StartCoroutine(DeckBoxUI.instance.UiCoroutine(uiKind));
 	}
 
@@ -52,7 +52,7 @@ public class DeckBoxUI : MonoBehaviour
 			DeckBoxUI.instance.StopCoroutine(DeckBoxUI.instance.uiCoroutine);
 		}
 		DeckBoxUI.instance.holder.SetActive(false);
-		Sound.Play3D("SoundDeckBoxClose", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundDeckBoxClose", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		if (DeckBoxUI.instance.backupCameraPosition != CameraController.PositionKind.Undefined)
 		{
 			CameraController.SetPosition(DeckBoxUI.instance.backupCameraPosition, false, 1f);
@@ -428,7 +428,7 @@ public class DeckBoxUI : MonoBehaviour
 		for (int i = 0; i < this.imagesStartPositions.Length; i++)
 		{
 			Vector2 vector = this.imagesStartPositions[i];
-			Vector2 vector2 = vector + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+			Vector2 vector2 = vector + new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 			if (Data.settings.dyslexicFontEnabled)
 			{
 				vector2 = vector;

@@ -17,7 +17,7 @@ public class TextRenderingSceneController : MonoBehaviour
 	// Token: 0x06000A88 RID: 2696 RVA: 0x00048118 File Offset: 0x00046318
 	private void Update()
 	{
-		if (Input.GetKeyDown(114))
+		if (Input.GetKeyDown(KeyCode.R))
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
@@ -30,7 +30,7 @@ public class TextRenderingSceneController : MonoBehaviour
 		{
 			float num = this.shakeMultipliers[i];
 			Transform transform = this.shakeThoseTransforms[i];
-			transform.localPosition = this.originalPositions[i] + new Vector3(Random.Range(-this.shakeScale, this.shakeScale) * num, Random.Range(-this.shakeScale, this.shakeScale) * num, transform.localPosition.z);
+			transform.localPosition = this.originalPositions[i] + new Vector3(global::UnityEngine.Random.Range(-this.shakeScale, this.shakeScale) * num, global::UnityEngine.Random.Range(-this.shakeScale, this.shakeScale) * num, transform.localPosition.z);
 		}
 	}
 

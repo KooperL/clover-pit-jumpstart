@@ -4304,7 +4304,7 @@ namespace Panik
 		{
 			if (Controls.instance != null)
 			{
-				Object.Destroy(this);
+				global::UnityEngine.Object.Destroy(this);
 				return;
 			}
 			Controls.instance = this;

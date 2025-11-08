@@ -66,7 +66,7 @@ namespace Wilberforce
 			}
 			return new Material(shader)
 			{
-				hideFlags = 61
+				hideFlags = HideFlags.HideAndDontSave
 			};
 		}
 
@@ -75,7 +75,7 @@ namespace Wilberforce
 		{
 			if (mat)
 			{
-				Object.DestroyImmediate(mat);
+				global::UnityEngine.Object.DestroyImmediate(mat);
 				mat = null;
 			}
 		}

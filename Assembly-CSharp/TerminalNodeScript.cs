@@ -39,7 +39,7 @@ public class TerminalNodeScript : TerminalButton
 		{
 			if (!this.powerupMeshRendererCopies.ContainsKey(powerup))
 			{
-				GameObject gameObject = Object.Instantiate<GameObject>(meshRenderer.gameObject, this.MeshHolder);
+				GameObject gameObject = global::UnityEngine.Object.Instantiate<GameObject>(meshRenderer.gameObject, this.MeshHolder);
 				gameObject.transform.localPosition = Vector3.zero + TerminalNodeScript.PowerupPositionOffset(powerup.identifier);
 				gameObject.transform.localEulerAngles = new Vector3(-110f, 0f, -90f) + TerminalNodeScript.PowerupAngleOffset(powerup.identifier);
 				gameObject.transform.localScale = vector * this.PowerupScaleMultiplier(powerup.identifier);
@@ -55,7 +55,7 @@ public class TerminalNodeScript : TerminalButton
 		{
 			if (!this.powerupSkinnedMeshRendererCopies.ContainsKey(powerup))
 			{
-				GameObject gameObject2 = Object.Instantiate<GameObject>(skinnedMeshRenderer.transform.parent.gameObject, this.MeshHolder);
+				GameObject gameObject2 = global::UnityEngine.Object.Instantiate<GameObject>(skinnedMeshRenderer.transform.parent.gameObject, this.MeshHolder);
 				gameObject2.transform.localPosition = Vector3.zero + TerminalNodeScript.PowerupPositionOffset(powerup.identifier);
 				gameObject2.transform.localEulerAngles = new Vector3(0f, 90f, -20f) + TerminalNodeScript.PowerupAngleOffset(powerup.identifier);
 				gameObject2.transform.localScale = vector * this.PowerupScaleMultiplier(powerup.identifier);

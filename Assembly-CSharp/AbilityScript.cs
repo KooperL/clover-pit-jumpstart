@@ -116,7 +116,7 @@ public class AbilityScript
 		{
 			return null;
 		}
-		return Translation.Get(this.repliesKeys[Random.Range(0, this.repliesKeys.Length)]);
+		return Translation.Get(this.repliesKeys[global::UnityEngine.Random.Range(0, this.repliesKeys.Length)]);
 	}
 
 	// Token: 0x060003CE RID: 974 RVA: 0x0001A067 File Offset: 0x00018267

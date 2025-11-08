@@ -88,8 +88,7 @@ public class SeedMenuButton : MonoBehaviour
 		{
 			this.cursorImage.enabled = flag;
 		}
-		Vector2 vector;
-		vector..ctor(0f, this.hovered ? 5f : 0f);
+		Vector2 vector = new Vector2(0f, this.hovered ? 5f : 0f);
 		this.text.rectTransform.anchoredPosition = Vector2.Lerp(this.text.rectTransform.anchoredPosition, this.textStartingPos + vector, Tick.Time * 10f);
 		this.redTextTimer -= Tick.Time;
 		Color color = ((this.redTextTimer > 0f && Util.AngleSin(Tick.PassedTime * 1440f) > 0f) ? this.redColor : this.originalColor);

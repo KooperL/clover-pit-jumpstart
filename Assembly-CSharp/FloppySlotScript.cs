@@ -135,13 +135,13 @@ public class FloppySlotScript : MonoBehaviour
 				switch (num)
 				{
 				case 1:
-					this.holder.transform.localPosition = new Vector3(Random.Range(-0.01f, 0.01f), Random.Range(-0.01f, 0.01f), Random.Range(-0.01f, 0.01f));
+					this.holder.transform.localPosition = new Vector3(global::UnityEngine.Random.Range(-0.01f, 0.01f), global::UnityEngine.Random.Range(-0.01f, 0.01f), global::UnityEngine.Random.Range(-0.01f, 0.01f));
 					return;
 				case 2:
-					this.holder.transform.localPosition = new Vector3(Random.Range(-0.02f, 0.02f), Random.Range(-0.02f, 0.02f), Random.Range(-0.02f, 0.02f));
+					this.holder.transform.localPosition = new Vector3(global::UnityEngine.Random.Range(-0.02f, 0.02f), global::UnityEngine.Random.Range(-0.02f, 0.02f), global::UnityEngine.Random.Range(-0.02f, 0.02f));
 					return;
 				case 3:
-					this.holder.transform.localPosition = new Vector3(Random.Range(-0.03f, 0.03f), Random.Range(-0.03f, 0.03f), Random.Range(-0.03f, 0.03f));
+					this.holder.transform.localPosition = new Vector3(global::UnityEngine.Random.Range(-0.03f, 0.03f), global::UnityEngine.Random.Range(-0.03f, 0.03f), global::UnityEngine.Random.Range(-0.03f, 0.03f));
 					break;
 				default:
 					return;

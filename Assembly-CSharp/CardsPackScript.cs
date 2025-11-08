@@ -31,7 +31,7 @@ public class CardsPackScript : MonoBehaviour
 	{
 		CameraGame.Shake(1f);
 		FlashScreen.SpawnCamera(Color.red, 0.2f, 2f, CameraUiGlobal.instance.myCamera, 1f);
-		Sound.Play("SoundPackPunch", 1f, Random.Range(0.9f, 1.1f));
+		Sound.Play("SoundPackPunch", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 	}
 
 	private MemoryPackDealUI memPackDealUiScr;

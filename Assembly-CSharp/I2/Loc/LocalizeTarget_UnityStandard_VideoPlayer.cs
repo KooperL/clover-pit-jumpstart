@@ -13,7 +13,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000FB0 RID: 4016 RVA: 0x00062DA6 File Offset: 0x00060FA6
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<VideoPlayer, LocalizeTarget_UnityStandard_VideoPlayer>

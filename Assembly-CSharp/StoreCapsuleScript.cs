@@ -114,10 +114,8 @@ public class StoreCapsuleScript : MonoBehaviour
 	public void RefreshCostText()
 	{
 		BigInteger capsuleCost = this.GetCapsuleCost();
-		Color color;
-		color..ctor(0.7137255f, 0.78431374f, 0.15686275f, 1f);
-		Color color2;
-		color2..ctor(1f, 0.5f, 0f, 1f);
+		Color color = new Color(0.7137255f, 0.78431374f, 0.15686275f, 1f);
+		Color color2 = new Color(1f, 0.5f, 0f, 1f);
 		if (capsuleCost < 0L)
 		{
 			this.costText.color = new Color(1f, 0.5f, 0f, 1f);

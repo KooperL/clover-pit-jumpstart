@@ -61,7 +61,7 @@ public class CharmUiRenderer : MonoBehaviour
 				}
 			}
 		}
-		charmUiRenderer = Object.Instantiate<GameObject>(AssetMaster.GetPrefab("Charms Ui Renderer")).GetComponent<CharmUiRenderer>();
+		charmUiRenderer = global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab("Charms Ui Renderer")).GetComponent<CharmUiRenderer>();
 		if (charmUiRenderer == null)
 		{
 			Debug.LogError("CharmUiRenderer.Spawn(): return instance is null. Seems like the prefab is not well setup");
@@ -71,7 +71,7 @@ public class CharmUiRenderer : MonoBehaviour
 		powerup_Quick2.MeshSteal(charmUiRenderer.meshRotatorTr, normalizeScale, scaleMult);
 		if (charmUiRenderer.meshRotatorTr.childCount > 0)
 		{
-			GameObject gameObject = Object.Instantiate<GameObject>(charmUiRenderer.meshRotatorTr.GetChild(0).gameObject, charmUiRenderer.meshRotatorTr);
+			GameObject gameObject = global::UnityEngine.Object.Instantiate<GameObject>(charmUiRenderer.meshRotatorTr.GetChild(0).gameObject, charmUiRenderer.meshRotatorTr);
 			powerup_Quick2.MeshRestore(true);
 			gameObject.transform.localPosition = Vector3.zero;
 			ParticleSystem[] componentsInChildren = gameObject.GetComponentsInChildren<ParticleSystem>();

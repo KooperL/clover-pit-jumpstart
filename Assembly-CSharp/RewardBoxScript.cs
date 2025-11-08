@@ -43,13 +43,13 @@ public class RewardBoxScript : MonoBehaviour
 		this._isOpening = true;
 		float timer = 0f;
 		this.effectScript.gameObject.SetActive(true);
-		Sound.Play3D("SoundRewardBoxConfetti", base.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundRewardBoxConfetti", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		while (timer < 1f)
 		{
 			timer += Tick.Time;
 			yield return null;
 		}
-		Sound.Play3D("SoundRewardBoxTrigger", base.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundRewardBoxTrigger", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		while (timer < 0.5f)
 		{
 			timer += Tick.Time;
@@ -70,7 +70,7 @@ public class RewardBoxScript : MonoBehaviour
 				int num = bouncedTimes;
 				bouncedTimes = num + 1;
 				animationSpeed = 360f / (float)(bouncedTimes + bouncedTimes);
-				Sound.Play3D("SoundRewardBoxDoorHit", base.transform.position, 20f, 1f - (float)bouncedTimes * 0.2f, 1f, 1);
+				Sound.Play3D("SoundRewardBoxDoorHit", base.transform.position, 20f, 1f - (float)bouncedTimes * 0.2f, 1f, AudioRolloffMode.Linear);
 			}
 			this.doorTr.localEulerAngles = doorEulers;
 			yield return null;
@@ -146,12 +146,12 @@ public class RewardBoxScript : MonoBehaviour
 		}
 		if (RewardBoxScript.IsOpened() || !RewardBoxScript.HasPrize())
 		{
-			RewardBoxScript.instance.monitorText.fontStyle = 64;
+			RewardBoxScript.instance.monitorText.fontStyle = FontStyles.Strikethrough;
 		}
 		RewardBoxScript.instance.monitorText.text = "> " + GameplayData.GetRewardDeadlineDebt().ToStringSmart() + "<sprite name=\"CoinSymbolOrange64\">";
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundRewardBoxTextUpdate", RewardBoxScript.instance.transform.position, 30f, 1f, 1f, 1);
+			Sound.Play3D("SoundRewardBoxTextUpdate", RewardBoxScript.instance.transform.position, 30f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 	}
 

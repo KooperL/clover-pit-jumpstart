@@ -159,8 +159,7 @@ public class ScreenMenuScript : MonoBehaviour
 			break;
 		case ScreenMenuScript.Positioning.down:
 		{
-			Vector2 vector;
-			vector..ctor(0f, -20f - imageSize.y / 2f);
+			Vector2 vector = new Vector2(0f, -20f - imageSize.y / 2f);
 			ScreenMenuScript.instance.positionShifter.anchoredPosition = vector;
 			if (resetCursor)
 			{
@@ -171,8 +170,7 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 		case ScreenMenuScript.Positioning.downDown:
 		{
-			Vector2 vector2;
-			vector2..ctor(0f, -80f - imageSize.y / 2f);
+			Vector2 vector2 = new Vector2(0f, -80f - imageSize.y / 2f);
 			ScreenMenuScript.instance.positionShifter.anchoredPosition = vector2;
 			if (resetCursor)
 			{
@@ -333,8 +331,7 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 		if (VirtualCursors.IsCursorVisible(0, true))
 		{
-			Vector2 vector;
-			vector..ctor(this.canvasScaler.referenceResolution.x, this.canvasScaler.referenceResolution.y);
+			Vector2 vector = new Vector2(this.canvasScaler.referenceResolution.x, this.canvasScaler.referenceResolution.y);
 			Vector2 vector2 = VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(0, vector);
 			bool flag2 = Controls.MouseButton_PressedGet(0, Controls.MouseElement.LeftButton);
 			bool flag3 = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuBack, true);
@@ -427,8 +424,7 @@ public class ScreenMenuScript : MonoBehaviour
 				this.optionsTextArray[j].alpha = 0.25f;
 			}
 		}
-		Vector2 zero;
-		zero..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 zero = new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			zero = Vector2.zero;

@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class ATMScript : MonoBehaviour
 {
 	// (get) Token: 0x0600040E RID: 1038 RVA: 0x0001BA17 File Offset: 0x00019C17
-	public Vector3 Sound3dOffset
+	public global::UnityEngine.Vector3 Sound3dOffset
 	{
 		get
 		{
@@ -116,7 +116,7 @@ public class ATMScript : MonoBehaviour
 		GameplayMaster.GamePhase oldGamePhase = GameplayMaster.GetGamePhase();
 		CameraController.PositionKind oldCameraPosition = CameraController.GetPositionKind();
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.cutscene, false, null);
-		Vector3 backupCameraRotation = CameraController.GetFreeCameraRotation();
+		global::UnityEngine.Vector3 backupCameraRotation = CameraController.GetFreeCameraRotation();
 		CameraController.SetPosition(CameraController.PositionKind.ATM, false, 1f * transitionSpeed);
 		float passedTime = Tick.PassedTime;
 		float timer = 0.75f;
@@ -126,7 +126,7 @@ public class ATMScript : MonoBehaviour
 			yield return null;
 		}
 		this.crownImageGameObject.SetActive(true);
-		Sound.Play3D("SoundATMFanfare", this.Sound3dOffset, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundATMFanfare", this.Sound3dOffset, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		BigInteger debtIndexOld = GameplayData.DebtIndexGet();
 		int num = debtIndexOld.CastToInt();
 		GameplayMaster.FCall_DebtNext(true, lastDemoDeadline);
@@ -499,7 +499,7 @@ public class ATMScript : MonoBehaviour
 		this.buttonParticles.SetActive(true);
 		if (GameplayMaster.GetGamePhase() != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundAtmButtonFlashStart", this.buttonMeshRend.transform.position, 20f, 1f, 1f, 1);
+			Sound.Play3D("SoundAtmButtonFlashStart", this.buttonMeshRend.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		bool flashOld = false;
 		while (GameplayData.RunModifier_DealIsAvailable_Get())
@@ -517,7 +517,7 @@ public class ATMScript : MonoBehaviour
 				bool flag2 = gamePhase == GameplayMaster.GamePhase.preparation || gamePhase == GameplayMaster.GamePhase.cutscene;
 				if (!Sound.IsPlaying("SoundAtmButtonFlashStart") && flag2)
 				{
-					Sound.Play3D("SoundATMButtonFlash", this.buttonMeshRend.transform.position, 5f, 0.6f, flag ? 1.25f : 1f, 1);
+					Sound.Play3D("SoundATMButtonFlash", this.buttonMeshRend.transform.position, 5f, 0.6f, flag ? 1.25f : 1f, AudioRolloffMode.Linear);
 				}
 			}
 			yield return null;
@@ -536,7 +536,7 @@ public class ATMScript : MonoBehaviour
 		this.buttonParticles.SetActive(true);
 		if (GameplayMaster.GetGamePhase() != GameplayMaster.GamePhase.endingWithoutDeath && GameplayMaster.GetGamePhase() != GameplayMaster.GamePhase.death)
 		{
-			Sound.Play3D("SoundAtmButtonFlashEnd", this.buttonMeshRend.transform.position, 20f, 1f, 1f, 1);
+			Sound.Play3D("SoundAtmButtonFlashEnd", this.buttonMeshRend.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		this.buttonMeshRend.sharedMaterial = this.buttonDefaultMaterial;
 		this.buttonDealCoroutine = null;
@@ -607,7 +607,7 @@ public class ATMScript : MonoBehaviour
 			}
 			if (text == null && !GeneralUiScript.instance.IsShowingTitleScreen())
 			{
-				Sound.Play("SoundCoinsMultipleFall", 1f, Random.Range(0.9f, 1.1f));
+				Sound.Play("SoundCoinsMultipleFall", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			}
 			CoinVisualizerScript.ArrayCheckShow(this.coinVisualizerChildren, num - 1, 0.1f, 0.001f, text);
 			if (PromptGuideScript.GetGuideType() == PromptGuideScript.GuideType.atm_GetRevenue)
@@ -616,7 +616,7 @@ public class ATMScript : MonoBehaviour
 			}
 			this.interestAccumulatedOld = bigInteger;
 		}
-		this.insertCoinHolderTr.localPosition = Vector3.Lerp(this.insertCoinHolderTr.localPosition, Vector3.zero, Time.deltaTime * 20f);
+		this.insertCoinHolderTr.localPosition = global::UnityEngine.Vector3.Lerp(this.insertCoinHolderTr.localPosition, global::UnityEngine.Vector3.zero, Time.deltaTime * 20f);
 		this.UpdateTextColor();
 		if (!ATMScript.DebtClearCutsceneIsPlaying() && GameplayData.DepositGet() >= GameplayData.DebtGet() && !DialogueScript.IsEnabled() && gamePhase == GameplayMaster.GamePhase.preparation && !MemoryPackDealUI.IsDealRunnning())
 		{
@@ -665,7 +665,7 @@ public class ATMScript : MonoBehaviour
 
 	public GameObject buttonParticles;
 
-	private Vector3 sound3dOffset = new Vector3(0f, 2f, 0f);
+	private global::UnityEngine.Vector3 sound3dOffset = new global::UnityEngine.Vector3(0f, 2f, 0f);
 
 	private BigInteger roundsLeftOld = -1;
 

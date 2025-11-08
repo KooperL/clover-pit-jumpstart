@@ -12,7 +12,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F6D RID: 3949 RVA: 0x00062687 File Offset: 0x00060887
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<AudioSource, LocalizeTarget_UnityStandard_AudioSource>
@@ -64,7 +64,7 @@ namespace I2.Loc
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			bool flag = (this.mTarget.isPlaying || this.mTarget.loop) && Application.isPlaying;
-			Object clip = this.mTarget.clip;
+			global::UnityEngine.Object clip = this.mTarget.clip;
 			AudioClip audioClip = cmp.FindTranslatedObject<AudioClip>(mainTranslation);
 			if (clip != audioClip)
 			{

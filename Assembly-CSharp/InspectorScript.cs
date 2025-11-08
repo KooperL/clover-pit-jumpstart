@@ -37,8 +37,7 @@ public class InspectorScript : MonoBehaviour
 		InspectorScript.instance.descriptionText.ForceMeshUpdate(false, false);
 		float num = Mathf.Max(InspectorScript.instance.titleText.renderedWidth, InspectorScript.instance.descriptionText.renderedWidth);
 		num = Mathf.Min(num, 460f);
-		Vector2 vector;
-		vector..ctor(num + 40f, 50f + InspectorScript.instance.descriptionText.renderedHeight + 10f);
+		Vector2 vector = new Vector2(num + 40f, 50f + InspectorScript.instance.descriptionText.renderedHeight + 10f);
 		InspectorScript.instance.textBackImage.rectTransform.sizeDelta = vector;
 	}
 
@@ -231,8 +230,7 @@ public class InspectorScript : MonoBehaviour
 		{
 			return;
 		}
-		Vector2 zero;
-		zero..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 zero = new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			zero = Vector2.zero;

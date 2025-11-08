@@ -76,7 +76,7 @@ namespace Panik
 			AudioListener component = base.GetComponent<AudioListener>();
 			if (component != null)
 			{
-				Object.Destroy(component);
+				global::UnityEngine.Object.Destroy(component);
 			}
 			this.CullingMaskUpdate();
 			int num = this.CameraIndex();

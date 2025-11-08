@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
@@ -15,11 +14,11 @@ namespace I2.Loc
 	public class LanguageSourceData
 	{
 		// (get) Token: 0x06000E7F RID: 3711 RVA: 0x0005CC8B File Offset: 0x0005AE8B
-		public Object ownerObject
+		public global::UnityEngine.Object ownerObject
 		{
 			get
 			{
-				return this.owner as Object;
+				return this.owner as global::UnityEngine.Object;
 			}
 		}
 
@@ -113,12 +112,12 @@ namespace I2.Loc
 		// Token: 0x06000E89 RID: 3721 RVA: 0x0005CE50 File Offset: 0x0005B050
 		public void UpdateAssetDictionary()
 		{
-			this.Assets.RemoveAll((Object x) => x == null);
-			this.mAssetDictionary = this.Assets.Distinct<Object>().GroupBy((Object o) => o.name, StringComparer.Ordinal).ToDictionary((IGrouping<string, Object> g) => g.Key, (IGrouping<string, Object> g) => g.First<Object>(), StringComparer.Ordinal);
+			this.Assets.RemoveAll((global::UnityEngine.Object x) => x == null);
+			this.mAssetDictionary = this.Assets.Distinct<global::UnityEngine.Object>().GroupBy((global::UnityEngine.Object o) => o.name, StringComparer.Ordinal).ToDictionary((IGrouping<string, global::UnityEngine.Object> g) => g.Key, (IGrouping<string, global::UnityEngine.Object> g) => g.First<global::UnityEngine.Object>(), StringComparer.Ordinal);
 		}
 
 		// Token: 0x06000E8A RID: 3722 RVA: 0x0005CF0C File Offset: 0x0005B10C
-		public Object FindAsset(string Name)
+		public global::UnityEngine.Object FindAsset(string Name)
 		{
 			if (this.Assets != null)
 			{
@@ -126,7 +125,7 @@ namespace I2.Loc
 				{
 					this.UpdateAssetDictionary();
 				}
-				Object @object;
+				global::UnityEngine.Object @object;
 				if (this.mAssetDictionary.TryGetValue(Name, out @object))
 				{
 					return @object;
@@ -136,13 +135,13 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000E8B RID: 3723 RVA: 0x0005CF5A File Offset: 0x0005B15A
-		public bool HasAsset(Object Obj)
+		public bool HasAsset(global::UnityEngine.Object Obj)
 		{
 			return this.Assets.Contains(Obj);
 		}
 
 		// Token: 0x06000E8C RID: 3724 RVA: 0x0005CF68 File Offset: 0x0005B168
-		public void AddAsset(Object Obj)
+		public void AddAsset(global::UnityEngine.Object Obj)
 		{
 			if (this.Assets.Contains(Obj))
 			{
@@ -846,12 +845,12 @@ namespace I2.Loc
 			{
 				return null;
 			}
-			string text = (this.owner as Object).name;
+			string text = (this.owner as global::UnityEngine.Object).name;
 			if (!string.IsNullOrEmpty(this.Google_SpreadsheetKey))
 			{
 				text += this.Google_SpreadsheetKey;
 			}
-			if (Array.IndexOf<string>(LocalizationManager.GlobalSources, (this.owner as Object).name) >= 0)
+			if (Array.IndexOf<string>(LocalizationManager.GlobalSources, (this.owner as global::UnityEngine.Object).name) >= 0)
 			{
 				return text;
 			}
@@ -890,7 +889,7 @@ namespace I2.Loc
 					switch (this.GoogleUpdateSynchronization)
 					{
 					case LanguageSourceData.eGoogleUpdateSynchronization.OnSceneLoaded:
-						SceneManager.sceneLoaded += new UnityAction<Scene, LoadSceneMode>(this.ApplyDownloadedDataOnSceneLoaded);
+						SceneManager.sceneLoaded += this.ApplyDownloadedDataOnSceneLoaded;
 						break;
 					case LanguageSourceData.eGoogleUpdateSynchronization.AsSoonAsDownloaded:
 						this.ApplyDownloadedDataFromGoogle();
@@ -910,7 +909,7 @@ namespace I2.Loc
 		// Token: 0x06000EA3 RID: 3747 RVA: 0x0005E10E File Offset: 0x0005C30E
 		private void ApplyDownloadedDataOnSceneLoaded(Scene scene, LoadSceneMode mode)
 		{
-			SceneManager.sceneLoaded -= new UnityAction<Scene, LoadSceneMode>(this.ApplyDownloadedDataOnSceneLoaded);
+			SceneManager.sceneLoaded -= this.ApplyDownloadedDataOnSceneLoaded;
 			this.ApplyDownloadedDataFromGoogle();
 		}
 
@@ -1785,10 +1784,10 @@ namespace I2.Loc
 
 		public float GoogleUpdateDelay;
 
-		public List<Object> Assets = new List<Object>();
+		public List<global::UnityEngine.Object> Assets = new List<global::UnityEngine.Object>();
 
 		[NonSerialized]
-		public Dictionary<string, Object> mAssetDictionary = new Dictionary<string, Object>(StringComparer.Ordinal);
+		public Dictionary<string, global::UnityEngine.Object> mAssetDictionary = new Dictionary<string, global::UnityEngine.Object>(StringComparer.Ordinal);
 
 		private string mDelayedGoogleData;
 

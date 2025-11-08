@@ -1102,7 +1102,7 @@ public class PowerupScript : MonoBehaviour
 	}
 
 	// Token: 0x060004A7 RID: 1191 RVA: 0x0001F8C4 File Offset: 0x0001DAC4
-	public Vector3 GetBoundingBoxCenter()
+	public global::UnityEngine.Vector3 GetBoundingBoxCenter()
 	{
 		Bounds? boundingBox = this.GetBoundingBox();
 		if (boundingBox == null)
@@ -1113,24 +1113,24 @@ public class PowerupScript : MonoBehaviour
 	}
 
 	// Token: 0x060004A8 RID: 1192 RVA: 0x0001F8FC File Offset: 0x0001DAFC
-	public Vector3 GetBoundingBoxSize()
+	public global::UnityEngine.Vector3 GetBoundingBoxSize()
 	{
 		Bounds? boundingBox = this.GetBoundingBox();
 		if (boundingBox == null)
 		{
-			return Vector3.one * 0.5f;
+			return global::UnityEngine.Vector3.one * 0.5f;
 		}
 		return boundingBox.Value.size;
 	}
 
 	// Token: 0x060004A9 RID: 1193 RVA: 0x0001F938 File Offset: 0x0001DB38
-	public Vector3 GetBoundingBoxSizeNormalized()
+	public global::UnityEngine.Vector3 GetBoundingBoxSizeNormalized()
 	{
 		if (this._boundsSize == null)
 		{
-			this._boundsSize = new Vector3?(this.GetBoundingBoxSize());
+			this._boundsSize = new global::UnityEngine.Vector3?(this.GetBoundingBoxSize());
 		}
-		return Vector3.one / Mathf.Max(new float[]
+		return global::UnityEngine.Vector3.one / Mathf.Max(new float[]
 		{
 			this._boundsSize.Value.x,
 			this._boundsSize.Value.y,
@@ -1142,11 +1142,11 @@ public class PowerupScript : MonoBehaviour
 	public void MeshSteal(Transform targetParent, bool normalizeScale, float scaleMult)
 	{
 		this.meshIsStolen = true;
-		Vector3 boundingBoxSizeNormalized = this.GetBoundingBoxSizeNormalized();
+		global::UnityEngine.Vector3 boundingBoxSizeNormalized = this.GetBoundingBoxSizeNormalized();
 		this.meshHolder.transform.SetParent(targetParent);
-		this.meshHolder.transform.localPosition = Vector3.zero;
-		this.meshHolder.transform.localRotation = Quaternion.identity;
-		this.meshHolder.transform.localScale = (normalizeScale ? boundingBoxSizeNormalized : Vector3.one) * scaleMult;
+		this.meshHolder.transform.localPosition = global::UnityEngine.Vector3.zero;
+		this.meshHolder.transform.localRotation = global::UnityEngine.Quaternion.identity;
+		this.meshHolder.transform.localScale = (normalizeScale ? boundingBoxSizeNormalized : global::UnityEngine.Vector3.one) * scaleMult;
 	}
 
 	// Token: 0x060004AB RID: 1195 RVA: 0x0001FA2C File Offset: 0x0001DC2C
@@ -1157,9 +1157,9 @@ public class PowerupScript : MonoBehaviour
 			return;
 		}
 		this.meshHolder.transform.SetParent(base.transform);
-		this.meshHolder.transform.localPosition = Vector3.zero;
-		this.meshHolder.transform.localRotation = Quaternion.identity;
-		this.meshHolder.transform.localScale = Vector3.one;
+		this.meshHolder.transform.localPosition = global::UnityEngine.Vector3.zero;
+		this.meshHolder.transform.localRotation = global::UnityEngine.Quaternion.identity;
+		this.meshHolder.transform.localScale = global::UnityEngine.Vector3.one;
 		if (resetMaterial)
 		{
 			this.MaterialColorReset();
@@ -1668,14 +1668,14 @@ public class PowerupScript : MonoBehaviour
 		float zoomLevel = 0f;
 		CameraController.DisableReason_Add("PIn");
 		CameraController.DollyZoomEnable(false);
-		Vector3 camera_OldEulers = CameraGame.firstInstance.transform.rotation.eulerAngles;
-		Vector3 zero = Vector3.zero;
+		global::UnityEngine.Vector3 camera_OldEulers = CameraGame.firstInstance.transform.rotation.eulerAngles;
+		global::UnityEngine.Vector3 zero = global::UnityEngine.Vector3.zero;
 		if (InspectorScript.instance.textBackImage.rectTransform.sizeDelta.y > 198f)
 		{
 			zero.y = 0.175f;
 		}
 		CameraGame.firstInstance.transform.LookAt(this.GetBoundingBoxCenter() + zero);
-		Vector3 camera_TargetEulers = CameraGame.firstInstance.transform.eulerAngles;
+		global::UnityEngine.Vector3 camera_TargetEulers = CameraGame.firstInstance.transform.eulerAngles;
 		CameraGame.firstInstance.transform.eulerAngles = camera_OldEulers;
 		if (camera_TargetEulers.x > CameraGame.firstInstance.transform.eulerAngles.x + 180f)
 		{
@@ -1716,7 +1716,7 @@ public class PowerupScript : MonoBehaviour
 			}
 			zoomLevel = Mathf.Lerp(zoomLevel, 1f, Time.unscaledDeltaTime * 20f);
 			CameraGame.FieldOfViewExtraSet("pzct", -zoomLevel * 20f);
-			CameraGame.firstInstance.transform.eulerAngles = Vector3.Lerp(camera_OldEulers, camera_TargetEulers, zoomLevel);
+			CameraGame.firstInstance.transform.eulerAngles = global::UnityEngine.Vector3.Lerp(camera_OldEulers, camera_TargetEulers, zoomLevel);
 			yield return null;
 		}
 		while (zoomLevel > 0f && !PowerupScript.ForceClosingInspection())
@@ -1727,7 +1727,7 @@ public class PowerupScript : MonoBehaviour
 				zoomLevel = 0f;
 			}
 			CameraGame.FieldOfViewExtraSet("pzct", -zoomLevel * 20f);
-			CameraGame.firstInstance.transform.eulerAngles = Vector3.Lerp(camera_OldEulers, camera_TargetEulers, zoomLevel);
+			CameraGame.firstInstance.transform.eulerAngles = global::UnityEngine.Vector3.Lerp(camera_OldEulers, camera_TargetEulers, zoomLevel);
 			yield return null;
 		}
 		goto IL_0380;
@@ -1891,7 +1891,7 @@ public class PowerupScript : MonoBehaviour
 			return;
 		}
 		this.glowHolder.SetActive(true);
-		this.glowHolder.transform.localScale = Vector3.one;
+		this.glowHolder.transform.localScale = global::UnityEngine.Vector3.one;
 		this.justEquippedGlowTimer = 60f;
 	}
 
@@ -1967,7 +1967,7 @@ public class PowerupScript : MonoBehaviour
 	private void PlaceFarAway()
 	{
 		base.transform.SetParent(null);
-		base.transform.position = new Vector3(0f, 0f, 25f + (float)this.identifier * 2.5f);
+		base.transform.position = new global::UnityEngine.Vector3(0f, 0f, 25f + (float)this.identifier * 2.5f);
 		base.transform.localScale = PowerupScript.PowerupScaleGet_NotEquipped(this);
 		this.myOutline.enabled = false;
 	}
@@ -1995,8 +1995,8 @@ public class PowerupScript : MonoBehaviour
 			else
 			{
 				powerupScript.transform.SetParent(ItemOrganizerScript.GetDollTransform(i));
-				powerupScript.transform.localPosition = Vector3.zero;
-				powerupScript.transform.localRotation = Quaternion.identity;
+				powerupScript.transform.localPosition = global::UnityEngine.Vector3.zero;
+				powerupScript.transform.localRotation = global::UnityEngine.Quaternion.identity;
 				powerupScript.transform.localScale = PowerupScript.PowerupScaleGet_Equipped(powerupScript);
 			}
 		}
@@ -2016,8 +2016,8 @@ public class PowerupScript : MonoBehaviour
 			else
 			{
 				powerupScript.transform.SetParent(ItemOrganizerScript.GetOrganizerTransform(i));
-				powerupScript.transform.localPosition = Vector3.zero;
-				powerupScript.transform.localRotation = Quaternion.identity;
+				powerupScript.transform.localPosition = global::UnityEngine.Vector3.zero;
+				powerupScript.transform.localRotation = global::UnityEngine.Quaternion.identity;
 				powerupScript.transform.localScale = PowerupScript.PowerupScaleGet_Equipped(powerupScript);
 			}
 		}
@@ -2032,8 +2032,8 @@ public class PowerupScript : MonoBehaviour
 			if (!(powerupScript == null))
 			{
 				powerupScript.transform.SetParent(ItemOrganizerScript.GetDrawerTransform(i));
-				powerupScript.transform.localPosition = Vector3.zero;
-				powerupScript.transform.localRotation = Quaternion.identity;
+				powerupScript.transform.localPosition = global::UnityEngine.Vector3.zero;
+				powerupScript.transform.localRotation = global::UnityEngine.Quaternion.identity;
 				powerupScript.transform.localScale = PowerupScript.PowerupScaleGet_InDrawer(powerupScript);
 			}
 		}
@@ -2048,8 +2048,8 @@ public class PowerupScript : MonoBehaviour
 			if (!(powerupScript == null))
 			{
 				powerupScript.transform.SetParent(ItemOrganizerScript.GetStoreTransform(i));
-				powerupScript.transform.localPosition = Vector3.zero;
-				powerupScript.transform.localRotation = Quaternion.identity;
+				powerupScript.transform.localPosition = global::UnityEngine.Vector3.zero;
+				powerupScript.transform.localRotation = global::UnityEngine.Quaternion.identity;
 				powerupScript.transform.localScale = PowerupScript.PowerupScaleGet_Store(powerupScript);
 			}
 		}
@@ -2067,31 +2067,31 @@ public class PowerupScript : MonoBehaviour
 	}
 
 	// Token: 0x060004D7 RID: 1239 RVA: 0x00020EA6 File Offset: 0x0001F0A6
-	public static Vector3 PowerupScaleGet_Equipped(PowerupScript powerup)
+	public static global::UnityEngine.Vector3 PowerupScaleGet_Equipped(PowerupScript powerup)
 	{
-		return Vector3.one;
+		return global::UnityEngine.Vector3.one;
 	}
 
 	// Token: 0x060004D8 RID: 1240 RVA: 0x00020EAD File Offset: 0x0001F0AD
-	public static Vector3 PowerupScaleGet_InDrawer(PowerupScript powerup)
+	public static global::UnityEngine.Vector3 PowerupScaleGet_InDrawer(PowerupScript powerup)
 	{
 		if (powerup.category == PowerupScript.Category.skeleton)
 		{
-			return Vector3.one * 1.5f;
+			return global::UnityEngine.Vector3.one * 1.5f;
 		}
-		return Vector3.one;
+		return global::UnityEngine.Vector3.one;
 	}
 
 	// Token: 0x060004D9 RID: 1241 RVA: 0x00020ECC File Offset: 0x0001F0CC
-	public static Vector3 PowerupScaleGet_Store(PowerupScript powerup)
+	public static global::UnityEngine.Vector3 PowerupScaleGet_Store(PowerupScript powerup)
 	{
-		return Vector3.one;
+		return global::UnityEngine.Vector3.one;
 	}
 
 	// Token: 0x060004DA RID: 1242 RVA: 0x00020ED3 File Offset: 0x0001F0D3
-	public static Vector3 PowerupScaleGet_NotEquipped(PowerupScript powerup)
+	public static global::UnityEngine.Vector3 PowerupScaleGet_NotEquipped(PowerupScript powerup)
 	{
-		return Vector3.one;
+		return global::UnityEngine.Vector3.one;
 	}
 
 	// Token: 0x060004DB RID: 1243 RVA: 0x00020EDA File Offset: 0x0001F0DA
@@ -6824,7 +6824,7 @@ public class PowerupScript : MonoBehaviour
 	// Token: 0x060006A5 RID: 1701 RVA: 0x00026224 File Offset: 0x00024424
 	public static PowerupScript Spawn(PowerupScript.Identifier identifier)
 	{
-		return Object.Instantiate<GameObject>(PowerupScript.GetPrefab(identifier)).GetComponent<PowerupScript>();
+		return global::UnityEngine.Object.Instantiate<GameObject>(PowerupScript.GetPrefab(identifier)).GetComponent<PowerupScript>();
 	}
 
 	// Token: 0x060006A6 RID: 1702 RVA: 0x00026238 File Offset: 0x00024438
@@ -6901,16 +6901,16 @@ public class PowerupScript : MonoBehaviour
 		if (this.meshRenderer != null)
 		{
 			this.modEffetctsHolder.SetParent(this.meshRenderer.transform);
-			this.modEffetctsHolder.localPosition = Vector3.zero;
-			this.modEffetctsHolder.localScale = Vector3.one;
-			this.modEffetctsHolder.eulerAngles = Vector3.zero;
+			this.modEffetctsHolder.localPosition = global::UnityEngine.Vector3.zero;
+			this.modEffetctsHolder.localScale = global::UnityEngine.Vector3.one;
+			this.modEffetctsHolder.eulerAngles = global::UnityEngine.Vector3.zero;
 		}
 		if (this.skinnedMeshRenderer != null)
 		{
 			this.modEffetctsHolder.SetParent(this.skinnedMeshRenderer.transform);
-			this.modEffetctsHolder.localPosition = Vector3.zero;
-			this.modEffetctsHolder.localScale = Vector3.one;
-			this.modEffetctsHolder.eulerAngles = Vector3.zero;
+			this.modEffetctsHolder.localPosition = global::UnityEngine.Vector3.zero;
+			this.modEffetctsHolder.localScale = global::UnityEngine.Vector3.one;
+			this.modEffetctsHolder.eulerAngles = global::UnityEngine.Vector3.zero;
 		}
 	}
 
@@ -7204,7 +7204,7 @@ public class PowerupScript : MonoBehaviour
 	private void Awake()
 	{
 		PowerupScript.all.Add(this);
-		this.myOutline = base.GetComponent<Outline>();
+		this.myOutline = base.GetComponent<global::Outline>();
 		this.meshFilter = this.meshHolder.GetComponentInChildren<MeshFilter>(true);
 		this.meshRenderer = this.meshHolder.GetComponentInChildren<MeshRenderer>(true);
 		this.skinnedMeshRenderer = this.meshHolder.GetComponentInChildren<SkinnedMeshRenderer>(true);
@@ -7264,11 +7264,11 @@ public class PowerupScript : MonoBehaviour
 		{
 			Debug.LogError("PowerupScript: descriptionKey is null or empty! GameObject: " + base.gameObject.name);
 		}
-		if (this.meshHolder.transform.localPosition != Vector3.zero)
+		if (this.meshHolder.transform.localPosition != global::UnityEngine.Vector3.zero)
 		{
 			Debug.LogError("PowerupScript: Mesh holder is not at zero local position! This will cause problems with 'triggered animations' GameObject: " + base.gameObject.name);
 		}
-		this.updateTimer = Random.value;
+		this.updateTimer = global::UnityEngine.Random.value;
 		this.glowHolder.SetActive(false);
 		this.sacredGlowHolder.SetActive(this.equippedChached && this.archetype == PowerupScript.Archetype.sacred);
 		this.redButtonUiHolder.SetActive(false);
@@ -7321,7 +7321,7 @@ public class PowerupScript : MonoBehaviour
 			if (this.justEquippedGlowTimer <= 0f || this.diegeticMenuElement.IsHovered())
 			{
 				this.justEquippedGlowTimer = 0f;
-				this.glowHolder.transform.localScale = Vector3.Lerp(this.glowHolder.transform.localScale, Vector3.zero, Tick.Time * 10f);
+				this.glowHolder.transform.localScale = global::UnityEngine.Vector3.Lerp(this.glowHolder.transform.localScale, global::UnityEngine.Vector3.zero, Tick.Time * 10f);
 				if (this.glowHolder.transform.localScale.x < 0.1f)
 				{
 					this.glowHolder.SetActive(false);
@@ -7391,7 +7391,7 @@ public class PowerupScript : MonoBehaviour
 				this.redButtonUiText.text = this._redButton_TextString;
 				this.redButtonUiText.ForceMeshUpdate(false, false);
 			}
-			this.redButtonUiHolder.transform.eulerAngles = new Vector3(0f, CameraGame.firstInstance.transform.eulerAngles.y, 0f);
+			this.redButtonUiHolder.transform.eulerAngles = new global::UnityEngine.Vector3(0f, CameraGame.firstInstance.transform.eulerAngles.y, 0f);
 			this.redButtonUiCanvas.transform.SetXAngle(CameraGame.firstInstance.transform.eulerAngles.x);
 		}
 	}
@@ -8236,7 +8236,7 @@ public class PowerupScript : MonoBehaviour
 
 	public GameObject modEffect_Devious;
 
-	private Outline myOutline;
+	private global::Outline myOutline;
 
 	public GameObject glowHolder;
 
@@ -8295,7 +8295,7 @@ public class PowerupScript : MonoBehaviour
 
 	private static bool _suppressThrowAwayAnimation = false;
 
-	private Vector3? _boundsSize;
+	private global::UnityEngine.Vector3? _boundsSize;
 
 	private bool meshIsStolen;
 

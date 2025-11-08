@@ -68,7 +68,7 @@ public class CoinVisualizerScript : MonoBehaviour
 		this.meshHolderTr.gameObject.SetActive(true);
 		if (!string.IsNullOrEmpty(audioClipName) && !GeneralUiScript.instance.IsShowingTitleScreen())
 		{
-			Sound.PlayDelayed(audioClipName, soundDelay, 1f, Random.Range(0.9f, 1.1f) + extraPitch);
+			Sound.PlayDelayed(audioClipName, soundDelay, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f) + extraPitch);
 		}
 		this.SetToFirst();
 	}

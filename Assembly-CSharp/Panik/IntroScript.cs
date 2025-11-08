@@ -194,7 +194,7 @@ namespace Panik
 						bool cursorOldState = Cursor.visible;
 						CursorLockMode oldLockState = Cursor.lockState;
 						Cursor.visible = true;
-						Cursor.lockState = 0;
+						Cursor.lockState = CursorLockMode.None;
 						yield return null;
 						try
 						{
@@ -466,7 +466,7 @@ namespace Panik
 						this.popupQuestionAnswer = 1;
 						if (onNo != null)
 						{
-							onNo.Invoke();
+							onNo();
 						}
 					}
 				}
@@ -475,7 +475,7 @@ namespace Panik
 					this.popupQuestionAnswer = 0;
 					if (onYes != null)
 					{
-						onYes.Invoke();
+						onYes();
 					}
 				}
 				Sound.Play("SoundMenuSelect", 1f, 1f);

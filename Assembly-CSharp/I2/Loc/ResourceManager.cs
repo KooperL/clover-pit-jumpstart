@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace I2.Loc
@@ -16,18 +15,18 @@ namespace I2.Loc
 				bool flag = ResourceManager.mInstance == null;
 				if (ResourceManager.mInstance == null)
 				{
-					ResourceManager.mInstance = (ResourceManager)Object.FindObjectOfType(typeof(ResourceManager));
+					ResourceManager.mInstance = (ResourceManager)global::UnityEngine.Object.FindObjectOfType(typeof(ResourceManager));
 				}
 				if (ResourceManager.mInstance == null)
 				{
 					GameObject gameObject = new GameObject("I2ResourceManager", new Type[] { typeof(ResourceManager) });
-					gameObject.hideFlags |= 61;
+					gameObject.hideFlags |= HideFlags.HideAndDontSave;
 					ResourceManager.mInstance = gameObject.GetComponent<ResourceManager>();
-					SceneManager.sceneLoaded += new UnityAction<Scene, LoadSceneMode>(ResourceManager.MyOnLevelWasLoaded);
+					SceneManager.sceneLoaded += ResourceManager.MyOnLevelWasLoaded;
 				}
 				if (flag && Application.isPlaying)
 				{
-					Object.DontDestroyOnLoad(ResourceManager.mInstance.gameObject);
+					global::UnityEngine.Object.DontDestroyOnLoad(ResourceManager.mInstance.gameObject);
 				}
 				return ResourceManager.mInstance;
 			}
@@ -41,7 +40,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06001018 RID: 4120 RVA: 0x00064180 File Offset: 0x00062380
-		public T GetAsset<T>(string Name) where T : Object
+		public T GetAsset<T>(string Name) where T : global::UnityEngine.Object
 		{
 			T t = this.FindAsset(Name) as T;
 			if (t != null)
@@ -52,7 +51,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06001019 RID: 4121 RVA: 0x000641B8 File Offset: 0x000623B8
-		private Object FindAsset(string Name)
+		private global::UnityEngine.Object FindAsset(string Name)
 		{
 			if (this.Assets != null)
 			{
@@ -71,18 +70,18 @@ namespace I2.Loc
 		}
 
 		// Token: 0x0600101A RID: 4122 RVA: 0x00064211 File Offset: 0x00062411
-		public bool HasAsset(Object Obj)
+		public bool HasAsset(global::UnityEngine.Object Obj)
 		{
-			return this.Assets != null && Array.IndexOf<Object>(this.Assets, Obj) >= 0;
+			return this.Assets != null && Array.IndexOf<global::UnityEngine.Object>(this.Assets, Obj) >= 0;
 		}
 
 		// Token: 0x0600101B RID: 4123 RVA: 0x00064230 File Offset: 0x00062430
-		public T LoadFromResources<T>(string Path) where T : Object
+		public T LoadFromResources<T>(string Path) where T : global::UnityEngine.Object
 		{
 			T t;
 			try
 			{
-				Object @object;
+				global::UnityEngine.Object @object;
 				if (string.IsNullOrEmpty(Path))
 				{
 					t = default(T);
@@ -143,7 +142,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x0600101C RID: 4124 RVA: 0x000643BC File Offset: 0x000625BC
-		public T LoadFromBundle<T>(string path) where T : Object
+		public T LoadFromBundle<T>(string path) where T : global::UnityEngine.Object
 		{
 			int i = 0;
 			int count = this.mBundleManagers.Count;
@@ -177,8 +176,8 @@ namespace I2.Loc
 
 		public List<IResourceManager_Bundles> mBundleManagers = new List<IResourceManager_Bundles>();
 
-		public Object[] Assets;
+		public global::UnityEngine.Object[] Assets;
 
-		private readonly Dictionary<string, Object> mResourcesCache = new Dictionary<string, Object>(StringComparer.Ordinal);
+		private readonly Dictionary<string, global::UnityEngine.Object> mResourcesCache = new Dictionary<string, global::UnityEngine.Object>(StringComparer.Ordinal);
 	}
 }

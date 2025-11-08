@@ -479,7 +479,7 @@ namespace I2.Loc
 		// Token: 0x06000F15 RID: 3861 RVA: 0x00060FBC File Offset: 0x0005F1BC
 		public static void AutoLoadGlobalParamManagers()
 		{
-			foreach (LocalizationParamsManager localizationParamsManager in Object.FindObjectsOfType<LocalizationParamsManager>())
+			foreach (LocalizationParamsManager localizationParamsManager in global::UnityEngine.Object.FindObjectsOfType<LocalizationParamsManager>())
 			{
 				if (localizationParamsManager._IsGlobalManager && !LocalizationManager.ParamManagers.Contains(localizationParamsManager))
 				{
@@ -858,13 +858,13 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F2A RID: 3882 RVA: 0x00061770 File Offset: 0x0005F970
-		public static Object FindAsset(string value)
+		public static global::UnityEngine.Object FindAsset(string value)
 		{
 			int i = 0;
 			int count = LocalizationManager.Sources.Count;
 			while (i < count)
 			{
-				Object @object = LocalizationManager.Sources[i].FindAsset(value);
+				global::UnityEngine.Object @object = LocalizationManager.Sources[i].FindAsset(value);
 				if (@object)
 				{
 					return @object;
@@ -977,7 +977,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F34 RID: 3892 RVA: 0x00061A00 File Offset: 0x0005FC00
-		public static T GetTranslatedObject<T>(string AssetName, Localize optionalLocComp = null) where T : Object
+		public static T GetTranslatedObject<T>(string AssetName, Localize optionalLocComp = null) where T : global::UnityEngine.Object
 		{
 			if (optionalLocComp != null)
 			{
@@ -992,7 +992,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000F35 RID: 3893 RVA: 0x00061A4B File Offset: 0x0005FC4B
-		public static T GetTranslatedObjectByTermName<T>(string Term, Localize optionalLocComp = null) where T : Object
+		public static T GetTranslatedObjectByTermName<T>(string Term, Localize optionalLocComp = null) where T : global::UnityEngine.Object
 		{
 			return LocalizationManager.GetTranslatedObject<T>(LocalizationManager.GetTranslation(Term, false, 0, true, false, null, null, true), null);
 		}

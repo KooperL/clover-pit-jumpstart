@@ -945,8 +945,7 @@ public class MainMenuScript : MonoBehaviour
 			}
 			this.optionTexts[j].color = (flag3 ? Color.yellow : color);
 		}
-		Vector2 vector;
-		vector..ctor((float)CameraGame.list[0].myCamera.pixelWidth, (float)CameraGame.list[0].myCamera.pixelHeight);
+		Vector2 vector = new Vector2((float)CameraGame.list[0].myCamera.pixelWidth, (float)CameraGame.list[0].myCamera.pixelHeight);
 		Vector2 vector2 = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector);
 		bool flag4 = Controls.GetPlayerByIndex(0).lastInputKindUsed == Controls.InputKind.Mouse && Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true) && (vector2.x < -0.2f || vector2.x > 0.2f);
 		this.LeftRightNavigationUpdate();

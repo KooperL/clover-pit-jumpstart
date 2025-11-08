@@ -147,7 +147,7 @@ public class CardsInspectorScript : MonoBehaviour
 	// Token: 0x06000946 RID: 2374 RVA: 0x0003D770 File Offset: 0x0003B970
 	private void Update()
 	{
-		Vector2 vector = this.imageStartingPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 vector = this.imageStartingPos + new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			vector = this.imageStartingPos;

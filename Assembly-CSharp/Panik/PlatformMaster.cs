@@ -130,7 +130,7 @@ namespace Panik
 			UnityAction unityAction = this.onInitializationBegin;
 			if (unityAction != null)
 			{
-				unityAction.Invoke();
+				unityAction();
 			}
 			SceneMaster.Initialize();
 		}
@@ -163,7 +163,7 @@ namespace Panik
 		{
 			if (PlatformMaster.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			PlatformMaster.instance = this;
@@ -172,7 +172,7 @@ namespace Panik
 			{
 				return;
 			}
-			unityAction.Invoke();
+			unityAction();
 		}
 
 		// Token: 0x06000D42 RID: 3394 RVA: 0x0005436B File Offset: 0x0005256B
@@ -198,7 +198,7 @@ namespace Panik
 			UnityAction unityAction = this.onUpdate;
 			if (unityAction != null)
 			{
-				unityAction.Invoke();
+				unityAction();
 			}
 			PlatformAPI platformAPI = PlatformAPI.instance;
 			if (platformAPI == null)

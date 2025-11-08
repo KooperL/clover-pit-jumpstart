@@ -105,7 +105,7 @@ public class SeedMenuScript : MonoBehaviour
 			zero.x += 1f;
 		}
 		bool flag = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true);
-		bool keyDown = Input.GetKeyDown(8);
+		bool keyDown = Input.GetKeyDown(KeyCode.Backspace);
 		bool flag2 = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuBack, true) && !keyDown;
 		bool flag3 = false;
 		float num = Controls.MouseAxis_ValueGet(0, Controls.MouseElement.axisScrollWheelVertical);

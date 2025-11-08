@@ -77,7 +77,7 @@ namespace Panik
 		{
 			if (Colors.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			Colors.instance = this;

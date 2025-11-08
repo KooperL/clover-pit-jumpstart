@@ -478,8 +478,7 @@ public class TwitchUiScript : MonoBehaviour
 	// Token: 0x06000A84 RID: 2692 RVA: 0x00047FD0 File Offset: 0x000461D0
 	private void Update()
 	{
-		Vector2 zero;
-		zero..ctor(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 zero = new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
 		if (Data.settings.dyslexicFontEnabled)
 		{
 			zero = Vector2.zero;

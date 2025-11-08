@@ -93,7 +93,7 @@ public class TicketMachineScript : MonoBehaviour
 		}
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundTicketMachineRunning", base.transform.position, 10f, 1f, 2f, 1);
+			Sound.Play3D("SoundTicketMachineRunning", base.transform.position, 10f, 1f, 2f, AudioRolloffMode.Linear);
 		}
 		ticketsN = Mathf.Clamp(ticketsN, 1, 10);
 		this.SetAnimation(this.AnimationGetByIndex(ticketsN));
@@ -113,7 +113,7 @@ public class TicketMachineScript : MonoBehaviour
 		}
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundTicketsRetrieve", base.transform.position, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundTicketsRetrieve", base.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		timer = 0.2f;
 		while (timer > 0f)

@@ -60,7 +60,7 @@ namespace Panik
 		{
 			if (Master.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				global::UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			Master.instance = this;

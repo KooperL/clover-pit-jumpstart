@@ -19,12 +19,10 @@ public class TerminalButton : MonoBehaviour
 		{
 			return false;
 		}
-		Vector2 vector;
-		vector..ctor(0.5f, 0.5f);
+		Vector2 vector = new Vector2(0.5f, 0.5f);
 		if (flag)
 		{
-			Vector2 vector2;
-			vector2..ctor((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
+			Vector2 vector2 = new Vector2((float)this.gameCamera.pixelWidth, (float)this.gameCamera.pixelHeight);
 			vector = VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(0, vector2);
 			vector.x += 0.5f;
 			vector.y += 0.5f;

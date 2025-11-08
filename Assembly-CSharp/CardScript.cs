@@ -140,14 +140,14 @@ public class CardScript : MonoBehaviour
 		switch (RunModifierScript.RarityGet(this.identifier))
 		{
 		case RunModifierScript.Rarity.common:
-			Sound.Play("SoundCardFlip_Common", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundCardFlip_Common", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			this.particlesCommon.SetActive(true);
 			this.particlesUncommon.SetActive(false);
 			this.particlesRare.SetActive(false);
 			this.particlesEpic.SetActive(false);
 			break;
 		case RunModifierScript.Rarity.uncommon:
-			Sound.Play("SoundCardFlip_Uncommon", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundCardFlip_Uncommon", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			CameraGame.Shake(1f);
 			CameraGame.ChromaticAberrationIntensitySet(0.5f);
 			this.particlesCommon.SetActive(false);
@@ -156,7 +156,7 @@ public class CardScript : MonoBehaviour
 			this.particlesEpic.SetActive(false);
 			break;
 		case RunModifierScript.Rarity.rare:
-			Sound.Play("SoundCardFlip_Rare", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundCardFlip_Rare", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			CameraGame.Shake(2f);
 			CameraGame.ChromaticAberrationIntensitySet(1f);
 			this.particlesCommon.SetActive(false);
@@ -165,7 +165,7 @@ public class CardScript : MonoBehaviour
 			this.particlesEpic.SetActive(false);
 			break;
 		case RunModifierScript.Rarity.epic:
-			Sound.Play("SoundCardFlip_Epic", 1f, Random.Range(0.9f, 1.1f));
+			Sound.Play("SoundCardFlip_Epic", 1f, global::UnityEngine.Random.Range(0.9f, 1.1f));
 			CameraGame.Shake(4f);
 			CameraGame.ChromaticAberrationIntensitySet(2f);
 			FlashScreen.SpawnCamera(Color.yellow, 2f, 4f, CameraUiGlobal.instance.myCamera, 100f);
@@ -380,7 +380,7 @@ public class CardScript : MonoBehaviour
 	{
 		if (this.materialCopy != null)
 		{
-			Object.Destroy(this.materialCopy);
+			global::UnityEngine.Object.Destroy(this.materialCopy);
 		}
 	}
 

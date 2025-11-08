@@ -396,7 +396,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x0600008D RID: 141 RVA: 0x000070A7 File Offset: 0x000052A7
-	public static Vector2 GetPos2D(this Transform t)
+	public static global::UnityEngine.Vector2 GetPos2D(this Transform t)
 	{
 		ClassExtensions.vec2_0.x = t.position.x;
 		ClassExtensions.vec2_0.y = t.position.y;
@@ -404,7 +404,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x0600008E RID: 142 RVA: 0x000070D8 File Offset: 0x000052D8
-	public static Vector2 SetPos2D(this Transform t, Vector2 newPosition)
+	public static global::UnityEngine.Vector2 SetPos2D(this Transform t, global::UnityEngine.Vector2 newPosition)
 	{
 		ClassExtensions.vec3_0.x = newPosition.x;
 		ClassExtensions.vec3_0.y = newPosition.y;
@@ -416,7 +416,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x0600008F RID: 143 RVA: 0x00007154 File Offset: 0x00005354
-	public static Vector2 SetPos2D(this Transform t, float x, float y)
+	public static global::UnityEngine.Vector2 SetPos2D(this Transform t, float x, float y)
 	{
 		ClassExtensions.vec3_0.x = x;
 		ClassExtensions.vec3_0.y = y;
@@ -428,7 +428,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000090 RID: 144 RVA: 0x000071C8 File Offset: 0x000053C8
-	public static Vector2 AddPos2D(this Transform t, Vector2 value)
+	public static global::UnityEngine.Vector2 AddPos2D(this Transform t, global::UnityEngine.Vector2 value)
 	{
 		ClassExtensions.vec3_0.x = t.position.x + value.x;
 		ClassExtensions.vec3_0.y = t.position.y + value.y;
@@ -440,7 +440,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000091 RID: 145 RVA: 0x0000725C File Offset: 0x0000545C
-	public static Vector2 AddPos2D(this Transform t, float x, float y)
+	public static global::UnityEngine.Vector2 AddPos2D(this Transform t, float x, float y)
 	{
 		ClassExtensions.vec3_0.x = t.position.x + x;
 		ClassExtensions.vec3_0.y = t.position.y + y;
@@ -452,7 +452,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000092 RID: 146 RVA: 0x000072E6 File Offset: 0x000054E6
-	public static Vector2 GetLocalPos2D(this Transform t)
+	public static global::UnityEngine.Vector2 GetLocalPos2D(this Transform t)
 	{
 		ClassExtensions.vec2_0.x = t.localPosition.x;
 		ClassExtensions.vec2_0.y = t.localPosition.y;
@@ -460,7 +460,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000093 RID: 147 RVA: 0x00007318 File Offset: 0x00005518
-	public static Vector2 SetLocalPos2D(this Transform t, Vector2 newPosition)
+	public static global::UnityEngine.Vector2 SetLocalPos2D(this Transform t, global::UnityEngine.Vector2 newPosition)
 	{
 		ClassExtensions.vec3_0.x = newPosition.x;
 		ClassExtensions.vec3_0.y = newPosition.y;
@@ -472,7 +472,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000094 RID: 148 RVA: 0x00007394 File Offset: 0x00005594
-	public static Vector2 SetLocalPos2D(this Transform t, float x, float y)
+	public static global::UnityEngine.Vector2 SetLocalPos2D(this Transform t, float x, float y)
 	{
 		ClassExtensions.vec3_0.x = x;
 		ClassExtensions.vec3_0.y = y;
@@ -484,7 +484,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000095 RID: 149 RVA: 0x00007408 File Offset: 0x00005608
-	public static Vector2 AddLocalPos2D(this Transform t, Vector2 value)
+	public static global::UnityEngine.Vector2 AddLocalPos2D(this Transform t, global::UnityEngine.Vector2 value)
 	{
 		ClassExtensions.vec3_0.x = t.localPosition.x + value.x;
 		ClassExtensions.vec3_0.y = t.localPosition.y + value.y;
@@ -496,7 +496,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x06000096 RID: 150 RVA: 0x0000749C File Offset: 0x0000569C
-	public static Vector2 AddLocalPos2D(this Transform t, float x, float y)
+	public static global::UnityEngine.Vector2 AddLocalPos2D(this Transform t, float x, float y)
 	{
 		ClassExtensions.vec3_0.x = t.localPosition.x + x;
 		ClassExtensions.vec3_0.y = t.localPosition.y + y;
@@ -573,7 +573,7 @@ public static class ClassExtensions
 		ClassExtensions.flt_1 = rb.GetDirection();
 		ClassExtensions.flt_0 = addValue * Mathf.Cos(ClassExtensions.flt_1 * 0.017453292f);
 		ClassExtensions.flt_1 = addValue * Mathf.Sin(ClassExtensions.flt_1 * 0.017453292f);
-		rb.linearVelocity += new Vector2(ClassExtensions.flt_0, ClassExtensions.flt_1);
+		rb.linearVelocity += new global::UnityEngine.Vector2(ClassExtensions.flt_0, ClassExtensions.flt_1);
 		return rb.GetSpeed();
 	}
 
@@ -586,7 +586,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x060000A1 RID: 161 RVA: 0x0000770E File Offset: 0x0000590E
-	public static Vector2 SetDirectionAndSpeed(this Rigidbody2D rb, float direction, float speed)
+	public static global::UnityEngine.Vector2 SetDirectionAndSpeed(this Rigidbody2D rb, float direction, float speed)
 	{
 		rb.linearVelocity = Util.AngleToAxis2D(direction, speed);
 		return rb.linearVelocity;
@@ -671,7 +671,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x060000AB RID: 171 RVA: 0x00007968 File Offset: 0x00005B68
-	public static Vector3 GetEulerFromVelocity(this Rigidbody rb)
+	public static global::UnityEngine.Vector3 GetEulerFromVelocity(this Rigidbody rb)
 	{
 		return Util.AxisToAngle3D(rb.linearVelocity);
 	}
@@ -691,7 +691,7 @@ public static class ClassExtensions
 	}
 
 	// Token: 0x060000AE RID: 174 RVA: 0x000079DE File Offset: 0x00005BDE
-	public static Vector2 SetDirectionAndSpeed(this Rigidbody2D rb, float yAngle, float zAngle, float speed)
+	public static global::UnityEngine.Vector2 SetDirectionAndSpeed(this Rigidbody2D rb, float yAngle, float zAngle, float speed)
 	{
 		ClassExtensions.vec3_0 = Util.AngleToAxis3D(yAngle, zAngle);
 		rb.linearVelocity = ClassExtensions.vec3_0 * speed;
@@ -702,7 +702,7 @@ public static class ClassExtensions
 	public static Texture2D RenderToTexture(this Camera cam, int width, int height)
 	{
 		RenderTexture targetTexture = cam.targetTexture;
-		RenderTexture renderTexture = new RenderTexture(width, height, 24, 0);
+		RenderTexture renderTexture = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
 		cam.targetTexture = renderTexture;
 		RenderTexture active = RenderTexture.active;
 		RenderTexture.active = cam.targetTexture;
@@ -806,13 +806,13 @@ public static class ClassExtensions
 		return n.ToString(defaultFormat, formatProvider);
 	}
 
-	private static Vector2 vec2_0 = Vector2.zero;
+	private static global::UnityEngine.Vector2 vec2_0 = global::UnityEngine.Vector2.zero;
 
-	private static Vector2 vec2_1 = Vector2.zero;
+	private static global::UnityEngine.Vector2 vec2_1 = global::UnityEngine.Vector2.zero;
 
-	private static Vector3 vec3_0 = Vector3.zero;
+	private static global::UnityEngine.Vector3 vec3_0 = global::UnityEngine.Vector3.zero;
 
-	private static Vector3 vec3_1 = Vector3.zero;
+	private static global::UnityEngine.Vector3 vec3_1 = global::UnityEngine.Vector3.zero;
 
 	private static float flt_0 = 0f;
 

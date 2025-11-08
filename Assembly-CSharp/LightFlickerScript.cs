@@ -41,7 +41,7 @@ public class LightFlickerScript : MonoBehaviour
 			flag = true;
 			if (this.flickerTimer > 0.1f)
 			{
-				this.flickerTimer -= Random.Range(0.1f, 0.5f) + Random.Range(0.1f, 4.5f);
+				this.flickerTimer -= global::UnityEngine.Random.Range(0.1f, 0.5f) + global::UnityEngine.Random.Range(0.1f, 4.5f);
 			}
 		}
 		if (this.titleScreenTurnOff && GeneralUiScript.instance.IsShowingTitleScreen())

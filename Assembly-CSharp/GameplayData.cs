@@ -8,7 +8,7 @@ using UnityEngine;
 [Serializable]
 public class GameplayData
 {
-	// (get) Token: 0x060000EF RID: 239 RVA: 0x00009F87 File Offset: 0x00008187
+	// (get) Token: 0x060000EF RID: 239
 	public static GameplayData Instance
 	{
 		get
@@ -21,7 +21,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060000F0 RID: 240 RVA: 0x00009F9C File Offset: 0x0000819C
 	public void Save_Prepare()
 	{
 		for (int i = 0; i < this.equippedPowerups.Length; i++)
@@ -86,7 +85,6 @@ public class GameplayData
 		this._GameStats_PrepareForSerialization();
 	}
 
-	// Token: 0x060000F1 RID: 241 RVA: 0x0000A174 File Offset: 0x00008374
 	public void Load_Format()
 	{
 		this.RngEnsure(false);
@@ -125,7 +123,6 @@ public class GameplayData
 		this._GameStats_RestoreFromSerialization();
 	}
 
-	// Token: 0x060000F2 RID: 242 RVA: 0x0000A26E File Offset: 0x0000846E
 	private BigInteger BigIntegerFromByteArray(byte[] byteArray, BigInteger defaultValue)
 	{
 		if (byteArray == null || byteArray.Length == 0)
@@ -135,7 +132,6 @@ public class GameplayData
 		return new BigInteger(byteArray);
 	}
 
-	// Token: 0x060000F3 RID: 243 RVA: 0x0000A280 File Offset: 0x00008480
 	public static int SeedGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -146,7 +142,6 @@ public class GameplayData
 		return instance.seed;
 	}
 
-	// Token: 0x060000F4 RID: 244 RVA: 0x0000A2A0 File Offset: 0x000084A0
 	public static uint SeedGetAsUInt()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -157,19 +152,17 @@ public class GameplayData
 		return (uint)instance.seed;
 	}
 
-	// Token: 0x060000F5 RID: 245 RVA: 0x0000A2C0 File Offset: 0x000084C0
 	public static string SeedGetAsString()
 	{
 		return GameplayData.SeedGetAsUInt().ToString("0000000000");
 	}
 
-	// Token: 0x060000F6 RID: 246 RVA: 0x0000A2E0 File Offset: 0x000084E0
 	public static void SeedInitRandom()
 	{
-		Random.InitState((int)DateTime.Now.Ticks);
-		uint num = (uint)Random.Range(int.MinValue, int.MaxValue);
+		global::UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
+		uint num = (uint)global::UnityEngine.Random.Range(int.MinValue, int.MaxValue);
 		uint num2 = num;
-		uint num3 = (uint)(5 + Random.Range(0, 5));
+		uint num3 = (uint)(5 + global::UnityEngine.Random.Range(0, 5));
 		int num4 = 0;
 		while ((long)num4 < (long)((ulong)num3))
 		{
@@ -179,7 +172,6 @@ public class GameplayData
 		GameplayData.SeedInitSpecific((int)num);
 	}
 
-	// Token: 0x060000F7 RID: 247 RVA: 0x0000A360 File Offset: 0x00008560
 	public static void SeedInitSpecific(int seed)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -191,7 +183,6 @@ public class GameplayData
 		instance.RngEnsure(true);
 	}
 
-	// Token: 0x060000F8 RID: 248 RVA: 0x0000A388 File Offset: 0x00008588
 	private void RngEnsure(bool resetForNewGame)
 	{
 		if (resetForNewGame || this.rngRunMod == null)
@@ -253,7 +244,6 @@ public class GameplayData
 		this.PowerupsRngEnsure(resetForNewGame);
 	}
 
-	// Token: 0x060000F9 RID: 249 RVA: 0x0000A524 File Offset: 0x00008724
 	public static BigInteger StoreRestockExtraCostGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -264,7 +254,6 @@ public class GameplayData
 		return instance._storeRestockExtraCost;
 	}
 
-	// Token: 0x060000FA RID: 250 RVA: 0x0000A548 File Offset: 0x00008748
 	public static void StoreRestockExtraCostSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -279,7 +268,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060000FB RID: 251 RVA: 0x0000A584 File Offset: 0x00008784
 	public static void StoreRestockExtraCostAdd(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -290,7 +278,6 @@ public class GameplayData
 		GameplayData.StoreRestockExtraCostSet(instance._storeRestockExtraCost + value);
 	}
 
-	// Token: 0x060000FC RID: 252 RVA: 0x0000A5AC File Offset: 0x000087AC
 	public static long StoreFreeRestocksGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -301,7 +288,6 @@ public class GameplayData
 		return instance._storeFreeRestocks;
 	}
 
-	// Token: 0x060000FD RID: 253 RVA: 0x0000A5CC File Offset: 0x000087CC
 	public static void StoreFreeRestocksSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -313,7 +299,6 @@ public class GameplayData
 		StoreCapsuleScript.RefreshCostTextAll();
 	}
 
-	// Token: 0x060000FE RID: 254 RVA: 0x0000A5F0 File Offset: 0x000087F0
 	public static long StoreTemporaryDiscountGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -324,7 +309,6 @@ public class GameplayData
 		return instance.temporaryDiscount;
 	}
 
-	// Token: 0x060000FF RID: 255 RVA: 0x0000A610 File Offset: 0x00008810
 	public static void StoreTemporaryDiscountSet(long value, bool refreshStoreText)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -343,7 +327,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000100 RID: 256 RVA: 0x0000A648 File Offset: 0x00008848
 	public static void StoreTemporaryDiscountAdd(long value, bool refreshStoreText)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -358,7 +341,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000101 RID: 257 RVA: 0x0000A678 File Offset: 0x00008878
 	public static void StoreTemporaryDiscountReset(bool refreshStoreText)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -373,7 +355,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000102 RID: 258 RVA: 0x0000A6A0 File Offset: 0x000088A0
 	public static long StoreTemporaryDiscountPerSlotGet(int slotIndex)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -384,7 +365,6 @@ public class GameplayData
 		return instance.temporaryDiscountPerSlot[slotIndex];
 	}
 
-	// Token: 0x06000103 RID: 259 RVA: 0x0000A6C4 File Offset: 0x000088C4
 	public static void StoreTemporaryDiscountPerSlotSet(int slotIndex, long value, bool refreshStoreText)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -403,7 +383,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000104 RID: 260 RVA: 0x0000A704 File Offset: 0x00008904
 	public static void StoreTemporaryDiscountPerSlotSet_PerPowerup(PowerupScript.Identifier identifier, long value, bool refreshStoreText)
 	{
 		if (GameplayData.Instance == null)
@@ -426,7 +405,6 @@ public class GameplayData
 		GameplayData.StoreTemporaryDiscountPerSlotSet(num, value, refreshStoreText);
 	}
 
-	// Token: 0x06000105 RID: 261 RVA: 0x0000A75C File Offset: 0x0000895C
 	public static void StoreTemporaryDiscountPerSlotAdd(int slotIndex, long value, bool refreshStoreText)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -441,7 +419,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000106 RID: 262 RVA: 0x0000A78C File Offset: 0x0000898C
 	public static void StoreTemporaryDiscountPerSlotAdd_PerPowerup(PowerupScript.Identifier identifier, long value, bool refreshStoreText)
 	{
 		if (GameplayData.Instance == null)
@@ -464,7 +441,6 @@ public class GameplayData
 		GameplayData.StoreTemporaryDiscountPerSlotAdd(num, value, refreshStoreText);
 	}
 
-	// Token: 0x06000107 RID: 263 RVA: 0x0000A7E4 File Offset: 0x000089E4
 	public static void StoreTemporaryDiscountPerSlotResetAll(bool refreshStoreText)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -482,7 +458,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000108 RID: 264 RVA: 0x0000A820 File Offset: 0x00008A20
 	private void _Coins_PrepareForSerialization()
 	{
 		this.coins_ByteArray = this.coins.ToByteArray();
@@ -491,7 +466,6 @@ public class GameplayData
 		this.roundEarnedCoins_ByteArray = this.roundEarnedCoins.ToByteArray();
 	}
 
-	// Token: 0x06000109 RID: 265 RVA: 0x0000A874 File Offset: 0x00008A74
 	private void _Coins_RestoreFromSerialization()
 	{
 		this.coins = this.BigIntegerFromByteArray(this.coins_ByteArray, 13);
@@ -500,7 +474,6 @@ public class GameplayData
 		this.roundEarnedCoins = this.BigIntegerFromByteArray(this.roundEarnedCoins_ByteArray, 0);
 	}
 
-	// Token: 0x0600010A RID: 266 RVA: 0x0000A8E3 File Offset: 0x00008AE3
 	public static BigInteger CoinsGet()
 	{
 		if (GameplayData.Instance == null)
@@ -510,7 +483,6 @@ public class GameplayData
 		return GameplayData.Instance.coins;
 	}
 
-	// Token: 0x0600010B RID: 267 RVA: 0x0000A900 File Offset: 0x00008B00
 	public static void CoinsSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -525,7 +497,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600010C RID: 268 RVA: 0x0000A93C File Offset: 0x00008B3C
 	public static void CoinsAdd(BigInteger value, bool addToStats)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -540,7 +511,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600010D RID: 269 RVA: 0x0000A977 File Offset: 0x00008B77
 	public static BigInteger DepositGet()
 	{
 		if (GameplayData.Instance == null)
@@ -550,7 +520,6 @@ public class GameplayData
 		return GameplayData.Instance.depositedCoins;
 	}
 
-	// Token: 0x0600010E RID: 270 RVA: 0x0000A994 File Offset: 0x00008B94
 	public static void DepositSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -565,7 +534,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600010F RID: 271 RVA: 0x0000A9D0 File Offset: 0x00008BD0
 	public static void DepositAdd(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -576,13 +544,11 @@ public class GameplayData
 		GameplayData.DepositSet(instance.depositedCoins + value);
 	}
 
-	// Token: 0x06000110 RID: 272 RVA: 0x0000A9F8 File Offset: 0x00008BF8
 	public static bool HasDepositedSomething()
 	{
 		return GameplayData.DepositGet() > 30L;
 	}
 
-	// Token: 0x06000111 RID: 273 RVA: 0x0000AA08 File Offset: 0x00008C08
 	public static BigInteger NextDepositAmmountGet(bool forceDefault = false)
 	{
 		BigInteger bigInteger = GameplayData.DebtGet();
@@ -633,7 +599,6 @@ public class GameplayData
 		return bigInteger5;
 	}
 
-	// Token: 0x06000112 RID: 274 RVA: 0x0000AAE2 File Offset: 0x00008CE2
 	public static BigInteger InterestEarnedGet()
 	{
 		if (GameplayData.Instance == null)
@@ -643,7 +608,6 @@ public class GameplayData
 		return GameplayData.Instance.interestEarned;
 	}
 
-	// Token: 0x06000113 RID: 275 RVA: 0x0000AAFC File Offset: 0x00008CFC
 	public static BigInteger InterestEarnedHypotetically()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -654,13 +618,11 @@ public class GameplayData
 		return instance.depositedCoins * (int)GameplayData.InterestRateGet() / 100;
 	}
 
-	// Token: 0x06000114 RID: 276 RVA: 0x0000AB3B File Offset: 0x00008D3B
 	public static void InterestEarnedGrow()
 	{
 		GameplayData.InterestEarnedGrow_Manual(GameplayData.InterestEarnedHypotetically());
 	}
 
-	// Token: 0x06000115 RID: 277 RVA: 0x0000AB48 File Offset: 0x00008D48
 	public static void InterestEarnedGrow_Manual(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -675,7 +637,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000116 RID: 278 RVA: 0x0000AB8C File Offset: 0x00008D8C
 	public static void InterestPickUp()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -687,7 +648,6 @@ public class GameplayData
 		instance.interestEarned = 0;
 	}
 
-	// Token: 0x06000117 RID: 279 RVA: 0x0000ABBC File Offset: 0x00008DBC
 	public static float InterestRateGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -705,7 +665,6 @@ public class GameplayData
 		return Mathf.Clamp(num, 0f, 100f);
 	}
 
-	// Token: 0x06000118 RID: 280 RVA: 0x0000AC48 File Offset: 0x00008E48
 	public static void InterestRateSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -724,7 +683,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000119 RID: 281 RVA: 0x0000AC98 File Offset: 0x00008E98
 	public static void InterestRateAdd(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -735,7 +693,6 @@ public class GameplayData
 		GameplayData.InterestRateSet(instance.interestRate + value);
 	}
 
-	// Token: 0x0600011A RID: 282 RVA: 0x0000ACBC File Offset: 0x00008EBC
 	public static BigInteger RoundEarnedCoinsGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -746,7 +703,6 @@ public class GameplayData
 		return instance.roundEarnedCoins;
 	}
 
-	// Token: 0x0600011B RID: 283 RVA: 0x0000ACE0 File Offset: 0x00008EE0
 	public static void RoundEarnedCoinsSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -757,7 +713,6 @@ public class GameplayData
 		instance.roundEarnedCoins = value;
 	}
 
-	// Token: 0x0600011C RID: 284 RVA: 0x0000AD00 File Offset: 0x00008F00
 	public static void RoundEarnedCoinsAdd(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -768,13 +723,11 @@ public class GameplayData
 		GameplayData.RoundEarnedCoinsSet(instance.roundEarnedCoins + value);
 	}
 
-	// Token: 0x0600011D RID: 285 RVA: 0x0000AD28 File Offset: 0x00008F28
 	public static void RoundEarnedCoinsReset()
 	{
 		GameplayData.RoundEarnedCoinsSet(0);
 	}
 
-	// Token: 0x0600011E RID: 286 RVA: 0x0000AD38 File Offset: 0x00008F38
 	public static long CloverTicketsGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -785,7 +738,6 @@ public class GameplayData
 		return instance.cloverTickets;
 	}
 
-	// Token: 0x0600011F RID: 287 RVA: 0x0000AD58 File Offset: 0x00008F58
 	public static void CloverTicketsSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -800,7 +752,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000120 RID: 288 RVA: 0x0000AD88 File Offset: 0x00008F88
 	public static void CloverTicketsAdd(long value, bool addToStats)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -815,7 +766,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000121 RID: 289 RVA: 0x0000ADBC File Offset: 0x00008FBC
 	public static long CloverTickets_BonusLittleBet_Get(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -831,7 +781,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x06000122 RID: 290 RVA: 0x0000ADEC File Offset: 0x00008FEC
 	public static void CloverTickets_BonusLittleBet_Set(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -846,7 +795,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000123 RID: 291 RVA: 0x0000AE1C File Offset: 0x0000901C
 	public static void CloverTickets_BonusLittleBet_Add(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -857,7 +805,6 @@ public class GameplayData
 		GameplayData.CloverTickets_BonusLittleBet_Set(instance.cloverTickets_BonusFor_LittleBet + value);
 	}
 
-	// Token: 0x06000124 RID: 292 RVA: 0x0000AE40 File Offset: 0x00009040
 	public static long CloverTickets_BonusBigBet_Get(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -873,7 +820,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x06000125 RID: 293 RVA: 0x0000AE70 File Offset: 0x00009070
 	public static void CloverTickets_BonusBigBet_Set(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -888,7 +834,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000126 RID: 294 RVA: 0x0000AEA0 File Offset: 0x000090A0
 	public static void CloverTickets_BonusBigBet_Add(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -899,7 +844,6 @@ public class GameplayData
 		GameplayData.CloverTickets_BonusBigBet_Set(instance.cloverTickets_BonusFor_BigBet + value);
 	}
 
-	// Token: 0x06000127 RID: 295 RVA: 0x0000AEC4 File Offset: 0x000090C4
 	public static long CloverTickets_BonusRoundsLeft_Get()
 	{
 		if (PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Wolf))
@@ -914,7 +858,6 @@ public class GameplayData
 		return instance.cloverTickets_BonusFor_RoundsLeft;
 	}
 
-	// Token: 0x06000128 RID: 296 RVA: 0x0000AEF0 File Offset: 0x000090F0
 	public static void CloverTickets_BonusRoundsLeft_Set(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -929,7 +872,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000129 RID: 297 RVA: 0x0000AF20 File Offset: 0x00009120
 	public static void CloverTickets_BonusRoundsLeft_Add(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -940,14 +882,12 @@ public class GameplayData
 		GameplayData.CloverTickets_BonusRoundsLeft_Set(instance.cloverTickets_BonusFor_RoundsLeft + value);
 	}
 
-	// Token: 0x0600012A RID: 298 RVA: 0x0000AF44 File Offset: 0x00009144
 	public static bool ATMDeadline_RewardPickupMemo_MessageShownGet()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.atmDeadline_RewardPickupMemo_MessageShown;
 	}
 
-	// Token: 0x0600012B RID: 299 RVA: 0x0000AF64 File Offset: 0x00009164
 	public static void ATMDeadline_RewardPickupMemo_MessageShownSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -958,14 +898,12 @@ public class GameplayData
 		instance.atmDeadline_RewardPickupMemo_MessageShown = true;
 	}
 
-	// Token: 0x0600012C RID: 300 RVA: 0x0000AF84 File Offset: 0x00009184
 	public static BigInteger DeadlineReward_CoinsGet(BigInteger currentDebtIndex)
 	{
 		if (GameplayData.Instance == null)
 		{
 			return 0;
 		}
-		0;
 		if (currentDebtIndex < 0L)
 		{
 			currentDebtIndex = 0;
@@ -973,7 +911,6 @@ public class GameplayData
 		return GameplayData.SpinCostGet_Single(currentDebtIndex + 1) * 3;
 	}
 
-	// Token: 0x0600012D RID: 301 RVA: 0x0000AFD4 File Offset: 0x000091D4
 	public static BigInteger DeadlineReward_CoinsGet()
 	{
 		if (GameplayData.Instance == null)
@@ -983,33 +920,28 @@ public class GameplayData
 		return GameplayData.DeadlineReward_CoinsGet(GameplayData.DebtIndexGet());
 	}
 
-	// Token: 0x0600012E RID: 302 RVA: 0x0000AFEE File Offset: 0x000091EE
 	public static long DeadlineReward_CloverTickets(int extraRounds)
 	{
 		return GameplayData.CloverTickets_BonusRoundsLeft_Get() * (long)extraRounds * (long)PowerupScript.EvilDealBonusMultiplier();
 	}
 
-	// Token: 0x0600012F RID: 303 RVA: 0x0000AFFF File Offset: 0x000091FF
 	public static long DeadlineReward_CloverTickets_Extras()
 	{
 		return ((long)(PowerupScript.ModifiedPowerups_GetTicketsBonus() + PowerupScript.Hourglass_BonusTicketsGet(true)) + PowerupScript.CloverPotTicketsBonus(true) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_Tickets, true) ? 3L : 0L)) * (long)PowerupScript.EvilDealBonusMultiplier();
 	}
 
-	// Token: 0x06000130 RID: 304 RVA: 0x0000B02C File Offset: 0x0000922C
 	private void _Debt_PrepareForSerialization()
 	{
 		this.debtIndex_ByteArray = this.debtIndex.ToByteArray();
 		this.debtOutOfRangeMult_ByteArray = this.debtOutOfRangeMult.ToByteArray();
 	}
 
-	// Token: 0x06000131 RID: 305 RVA: 0x0000B050 File Offset: 0x00009250
 	private void _Debt_RestoreFromSerialization()
 	{
 		this.debtIndex = this.BigIntegerFromByteArray(this.debtIndex_ByteArray, 0);
 		this.debtOutOfRangeMult = this.BigIntegerFromByteArray(this.debtOutOfRangeMult_ByteArray, 6);
 	}
 
-	// Token: 0x06000132 RID: 306 RVA: 0x0000B084 File Offset: 0x00009284
 	public static int RoundDeadlineTrail_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1020,7 +952,6 @@ public class GameplayData
 		return instance.roundDeadlineTrail;
 	}
 
-	// Token: 0x06000133 RID: 307 RVA: 0x0000B0A4 File Offset: 0x000092A4
 	public static void RoundDeadlineTrail_Set(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1035,7 +966,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000134 RID: 308 RVA: 0x0000B0D4 File Offset: 0x000092D4
 	public static void RoundDeadlineTrail_Increment()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1046,7 +976,6 @@ public class GameplayData
 		instance.roundDeadlineTrail++;
 	}
 
-	// Token: 0x06000135 RID: 309 RVA: 0x0000B0FC File Offset: 0x000092FC
 	public static int RoundsReallyPlayedGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1057,7 +986,6 @@ public class GameplayData
 		return instance.roundsReallyPlayed;
 	}
 
-	// Token: 0x06000136 RID: 310 RVA: 0x0000B11C File Offset: 0x0000931C
 	public static void RoundsReallyPlayedIncrement()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1068,7 +996,6 @@ public class GameplayData
 		instance.roundsReallyPlayed++;
 	}
 
-	// Token: 0x06000137 RID: 311 RVA: 0x0000B144 File Offset: 0x00009344
 	public static int RoundDeadlineTrail_AtDeadlineBegin_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1079,7 +1006,6 @@ public class GameplayData
 		return instance.roundDeadlineTrail_AtDeadlineBegin;
 	}
 
-	// Token: 0x06000138 RID: 312 RVA: 0x0000B164 File Offset: 0x00009364
 	public static void RoundDeadlineTrail_AtDeadlineBegin_Set(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1094,13 +1020,11 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000139 RID: 313 RVA: 0x0000B192 File Offset: 0x00009392
 	public static void RoundDeadlineTrail_AtDeadlineBegin_CheckpointSet()
 	{
 		GameplayData.RoundDeadlineTrail_AtDeadlineBegin_Set(GameplayData.RoundDeadlineTrail_Get());
 	}
 
-	// Token: 0x0600013A RID: 314 RVA: 0x0000B1A0 File Offset: 0x000093A0
 	public static int RoundsLeftToDeadline()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1111,7 +1035,6 @@ public class GameplayData
 		return instance.roundOfDeadline - instance.roundDeadlineTrail;
 	}
 
-	// Token: 0x0600013B RID: 315 RVA: 0x0000B1C8 File Offset: 0x000093C8
 	public static int RoundsOfDeadline_TotalGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1122,7 +1045,6 @@ public class GameplayData
 		return instance.roundOfDeadline - instance.roundDeadlineTrail_AtDeadlineBegin;
 	}
 
-	// Token: 0x0600013C RID: 316 RVA: 0x0000B1F0 File Offset: 0x000093F0
 	public static int RoundsOfDeadline_PlayedGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1133,7 +1055,6 @@ public class GameplayData
 		return instance.roundDeadlineTrail - instance.roundDeadlineTrail_AtDeadlineBegin;
 	}
 
-	// Token: 0x0600013D RID: 317 RVA: 0x0000B218 File Offset: 0x00009418
 	public static int RoundOfDeadlineGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1144,7 +1065,6 @@ public class GameplayData
 		return instance.roundOfDeadline;
 	}
 
-	// Token: 0x0600013E RID: 318 RVA: 0x0000B238 File Offset: 0x00009438
 	public static int _GetDebtRoundDeadline_NextIncrement()
 	{
 		RunModifierScript.Identifier identifier = GameplayData.RunModifier_GetCurrent();
@@ -1159,7 +1079,6 @@ public class GameplayData
 		return 3;
 	}
 
-	// Token: 0x0600013F RID: 319 RVA: 0x0000B258 File Offset: 0x00009458
 	public static void DeadlineRoundsIncrement_Manual(int ammount)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1174,7 +1093,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000140 RID: 320 RVA: 0x0000B290 File Offset: 0x00009490
 	public static void DeadlineRoundsIncrement()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1185,7 +1103,6 @@ public class GameplayData
 		GameplayData.DeadlineRoundsIncrement_Set(instance.roundOfDeadline + GameplayData._GetDebtRoundDeadline_NextIncrement());
 	}
 
-	// Token: 0x06000141 RID: 321 RVA: 0x0000B2B8 File Offset: 0x000094B8
 	public static void DeadlineRoundsIncrement_Set(int ammount)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1196,13 +1113,11 @@ public class GameplayData
 		instance.roundOfDeadline = ammount;
 	}
 
-	// Token: 0x06000142 RID: 322 RVA: 0x0000B2D6 File Offset: 0x000094D6
 	public static bool AreWeOverTheDebtRange(BigInteger debtIndex)
 	{
-		return GameplayData.Instance == null || (GameplayData.debtsInRange == null || GameplayData.debtsInRange.Length == 0) || debtIndex >= (long)GameplayData.debtsInRange.Length;
+		return GameplayData.Instance == null || GameplayData.debtsInRange == null || GameplayData.debtsInRange.Length == 0 || debtIndex >= (long)GameplayData.debtsInRange.Length;
 	}
 
-	// Token: 0x06000143 RID: 323 RVA: 0x0000B300 File Offset: 0x00009500
 	public static BigInteger DebtOutOfRangeIndexAmmount(BigInteger debtIndex)
 	{
 		if (GameplayData.Instance == null)
@@ -1221,7 +1136,6 @@ public class GameplayData
 		return bigInteger;
 	}
 
-	// Token: 0x06000144 RID: 324 RVA: 0x0000B358 File Offset: 0x00009558
 	public static BigInteger DebtGetExt(BigInteger debtIndex)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1253,7 +1167,6 @@ public class GameplayData
 		return bigInteger;
 	}
 
-	// Token: 0x06000145 RID: 325 RVA: 0x0000B404 File Offset: 0x00009604
 	public static BigInteger DebtGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1264,7 +1177,6 @@ public class GameplayData
 		return GameplayData.DebtGetExt(instance.debtIndex);
 	}
 
-	// Token: 0x06000146 RID: 326 RVA: 0x0000B434 File Offset: 0x00009634
 	public static BigInteger DebtIndexGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1275,7 +1187,6 @@ public class GameplayData
 		return instance.debtIndex;
 	}
 
-	// Token: 0x06000147 RID: 327 RVA: 0x0000B458 File Offset: 0x00009658
 	public static void DebtIndexSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1286,13 +1197,11 @@ public class GameplayData
 		instance.debtIndex = value;
 	}
 
-	// Token: 0x06000148 RID: 328 RVA: 0x0000B476 File Offset: 0x00009676
 	public static void DebtIndexAdd(BigInteger value)
 	{
 		GameplayData.DebtIndexSet(GameplayData.DebtIndexGet() + value);
 	}
 
-	// Token: 0x06000149 RID: 329 RVA: 0x0000B488 File Offset: 0x00009688
 	public static BigInteger DebtMissingGet()
 	{
 		if (GameplayData.Instance == null)
@@ -1307,7 +1216,6 @@ public class GameplayData
 		return bigInteger;
 	}
 
-	// Token: 0x0600014A RID: 330 RVA: 0x0000B4CC File Offset: 0x000096CC
 	public static BigInteger DebtOutOfRangeMultiplier_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1318,7 +1226,6 @@ public class GameplayData
 		return instance.debtOutOfRangeMult;
 	}
 
-	// Token: 0x0600014B RID: 331 RVA: 0x0000B4F0 File Offset: 0x000096F0
 	public static void DebtOutOfRangeMultiplier_Set(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1329,14 +1236,12 @@ public class GameplayData
 		instance.debtOutOfRangeMult = value;
 	}
 
-	// Token: 0x0600014C RID: 332 RVA: 0x0000B510 File Offset: 0x00009710
 	public static bool SkeletonIsCompletedGet()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.skeletonIsCompleted;
 	}
 
-	// Token: 0x0600014D RID: 333 RVA: 0x0000B530 File Offset: 0x00009730
 	public static void SkeletonIsCompletedSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1347,7 +1252,6 @@ public class GameplayData
 		instance.skeletonIsCompleted = true;
 	}
 
-	// Token: 0x0600014E RID: 334 RVA: 0x0000B550 File Offset: 0x00009750
 	public static int SpinsLeftGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1358,7 +1262,6 @@ public class GameplayData
 		return instance.spinsLeft;
 	}
 
-	// Token: 0x0600014F RID: 335 RVA: 0x0000B570 File Offset: 0x00009770
 	public static void SpinsLeftSet(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1373,7 +1276,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000150 RID: 336 RVA: 0x0000B5A0 File Offset: 0x000097A0
 	public static void SpinsLeftAdd(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1384,13 +1286,11 @@ public class GameplayData
 		GameplayData.SpinsLeftSet(instance.spinsLeft + n);
 	}
 
-	// Token: 0x06000151 RID: 337 RVA: 0x0000B5C4 File Offset: 0x000097C4
 	public static void SpinConsume()
 	{
 		GameplayData.SpinsLeftAdd(-1);
 	}
 
-	// Token: 0x06000152 RID: 338 RVA: 0x0000B5CC File Offset: 0x000097CC
 	public static int SpinsDoneInARun_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1401,7 +1301,6 @@ public class GameplayData
 		return instance.spinsDoneInARun;
 	}
 
-	// Token: 0x06000153 RID: 339 RVA: 0x0000B5EC File Offset: 0x000097EC
 	public static void SpinsDoneInARun_Increment()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1412,7 +1311,6 @@ public class GameplayData
 		instance.spinsDoneInARun++;
 	}
 
-	// Token: 0x06000154 RID: 340 RVA: 0x0000B614 File Offset: 0x00009814
 	public static int ExtraSpinsGet(bool usePowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1440,7 +1338,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x06000155 RID: 341 RVA: 0x0000B668 File Offset: 0x00009868
 	public static void ExtraSpinsSet(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1455,7 +1352,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000156 RID: 342 RVA: 0x0000B698 File Offset: 0x00009898
 	public static void ExtraSpinsAdd(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1466,13 +1362,11 @@ public class GameplayData
 		GameplayData.ExtraSpinsSet(instance.extraSpins + n);
 	}
 
-	// Token: 0x06000157 RID: 343 RVA: 0x0000B6BC File Offset: 0x000098BC
 	public static BigInteger SpinCostGet_Single()
 	{
 		return GameplayData.SpinCostGet_Single(GameplayData.DebtIndexGet());
 	}
 
-	// Token: 0x06000158 RID: 344 RVA: 0x0000B6C8 File Offset: 0x000098C8
 	public static BigInteger SpinCostGet_Single(BigInteger debtIndex)
 	{
 		BigInteger bigInteger = 2 * debtIndex;
@@ -1484,16 +1378,15 @@ public class GameplayData
 		return bigInteger;
 	}
 
-	// Token: 0x06000159 RID: 345 RVA: 0x0000B710 File Offset: 0x00009910
 	public static int GetHypotehticalMaxSpinsBuyable()
 	{
 		if (GameplayData.Instance == null)
 		{
 			return 0;
 		}
-		BigInteger bigInteger = GameplayData.CoinsGet();
+		BigInteger bigInteger4 = GameplayData.CoinsGet();
 		BigInteger bigInteger2 = GameplayData.SpinCostGet_Single();
-		BigInteger bigInteger3 = bigInteger / bigInteger2;
+		BigInteger bigInteger3 = bigInteger4 / bigInteger2;
 		int num = GameplayData.MaxSpins_Get();
 		if (bigInteger3 > (long)num)
 		{
@@ -1502,25 +1395,21 @@ public class GameplayData
 		return bigInteger3.CastToInt();
 	}
 
-	// Token: 0x0600015A RID: 346 RVA: 0x0000B755 File Offset: 0x00009955
 	public static int GetHypotehticalMidSpinsBuyable()
 	{
 		return Mathf.FloorToInt((float)(GameplayData.GetHypotehticalMaxSpinsBuyable() / 2));
 	}
 
-	// Token: 0x0600015B RID: 347 RVA: 0x0000B764 File Offset: 0x00009964
 	public static BigInteger SpinCostMax_Get()
 	{
 		return GameplayData.GetHypotehticalMaxSpinsBuyable() * GameplayData.SpinCostGet_Single();
 	}
 
-	// Token: 0x0600015C RID: 348 RVA: 0x0000B77A File Offset: 0x0000997A
 	public static BigInteger SpinCostMid_Get()
 	{
 		return GameplayData.GetHypotehticalMidSpinsBuyable() * GameplayData.SpinCostGet_Single();
 	}
 
-	// Token: 0x0600015D RID: 349 RVA: 0x0000B790 File Offset: 0x00009990
 	public static void LastBet_IsSmallSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1531,7 +1420,6 @@ public class GameplayData
 		instance.lastBetIsSmall = true;
 	}
 
-	// Token: 0x0600015E RID: 350 RVA: 0x0000B7B0 File Offset: 0x000099B0
 	public static void LastBet_IsBigSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1542,20 +1430,17 @@ public class GameplayData
 		instance.lastBetIsSmall = false;
 	}
 
-	// Token: 0x0600015F RID: 351 RVA: 0x0000B7D0 File Offset: 0x000099D0
 	public static bool LastBet_IsSmallGet()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance == null || instance.lastBetIsSmall;
 	}
 
-	// Token: 0x06000160 RID: 352 RVA: 0x0000B7EE File Offset: 0x000099EE
 	public static bool LastBet_IsBigGet()
 	{
 		return !GameplayData.LastBet_IsSmallGet();
 	}
 
-	// Token: 0x06000161 RID: 353 RVA: 0x0000B7F8 File Offset: 0x000099F8
 	public static int MaxSpins_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1566,7 +1451,6 @@ public class GameplayData
 		return instance.maxSpins;
 	}
 
-	// Token: 0x06000162 RID: 354 RVA: 0x0000B818 File Offset: 0x00009A18
 	public static void MaxSpins_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1581,7 +1465,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000163 RID: 355 RVA: 0x0000B848 File Offset: 0x00009A48
 	public static void MaxSpins_Add(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1592,7 +1475,6 @@ public class GameplayData
 		GameplayData.MaxSpins_Set(instance.maxSpins + n);
 	}
 
-	// Token: 0x06000164 RID: 356 RVA: 0x0000B86C File Offset: 0x00009A6C
 	public static long SmallBetPickCount()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1603,7 +1485,6 @@ public class GameplayData
 		return instance._smallBetsPickedCounter;
 	}
 
-	// Token: 0x06000165 RID: 357 RVA: 0x0000B88C File Offset: 0x00009A8C
 	public static long BigBetPickCount()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1614,7 +1495,6 @@ public class GameplayData
 		return instance._bigBetsPickedCounter;
 	}
 
-	// Token: 0x06000166 RID: 358 RVA: 0x0000B8AC File Offset: 0x00009AAC
 	public static void SmallAndBigBet_CountIncrease(int smallBet_AddThisNum, int bigBet_AddThisNum)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1626,7 +1506,6 @@ public class GameplayData
 		instance._bigBetsPickedCounter += (long)bigBet_AddThisNum;
 	}
 
-	// Token: 0x06000167 RID: 359 RVA: 0x0000B8E4 File Offset: 0x00009AE4
 	public static int SpinsWithoutReward_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1637,7 +1516,6 @@ public class GameplayData
 		return instance.spinsWithoutReward;
 	}
 
-	// Token: 0x06000168 RID: 360 RVA: 0x0000B904 File Offset: 0x00009B04
 	public static void SpinsWithoutReward_Increase()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1648,7 +1526,6 @@ public class GameplayData
 		instance.spinsWithoutReward++;
 	}
 
-	// Token: 0x06000169 RID: 361 RVA: 0x0000B92C File Offset: 0x00009B2C
 	public static void SpinsWithoutReward_Reset()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1659,7 +1536,6 @@ public class GameplayData
 		instance.spinsWithoutReward = 0;
 	}
 
-	// Token: 0x0600016A RID: 362 RVA: 0x0000B94C File Offset: 0x00009B4C
 	public static int ConsecutiveSpinsWithout5PlusPatterns_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1670,7 +1546,6 @@ public class GameplayData
 		return instance.spinsWithout5PlusPatterns;
 	}
 
-	// Token: 0x0600016B RID: 363 RVA: 0x0000B96C File Offset: 0x00009B6C
 	public static void ConsecutiveSpinsWithout5PlusPatterns_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1681,7 +1556,6 @@ public class GameplayData
 		instance.spinsWithout5PlusPatterns = n;
 	}
 
-	// Token: 0x0600016C RID: 364 RVA: 0x0000B98C File Offset: 0x00009B8C
 	public static int ConsecutiveSpinsWithDiamondTreasureOrSeven_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1692,7 +1566,6 @@ public class GameplayData
 		return instance.consecutiveSpinsWithDiamTreasSevens;
 	}
 
-	// Token: 0x0600016D RID: 365 RVA: 0x0000B9AC File Offset: 0x00009BAC
 	public static void ConsecutiveSpinsWithDiamondTreasureOrSeven_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1703,8 +1576,8 @@ public class GameplayData
 		instance.consecutiveSpinsWithDiamTreasSevens = n;
 	}
 
-	// (get) Token: 0x0600016E RID: 366 RVA: 0x0000B9CC File Offset: 0x00009BCC
-	// (set) Token: 0x0600016F RID: 367 RVA: 0x0000B9EC File Offset: 0x00009BEC
+	// (get) Token: 0x0600016E RID: 366
+	// (set) Token: 0x0600016F RID: 367
 	public static long JackpotsScoredCounter
 	{
 		get
@@ -1727,7 +1600,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000170 RID: 368 RVA: 0x0000BA0C File Offset: 0x00009C0C
 	public static long SpinsWithAtLeast1Jackpot_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1738,7 +1610,6 @@ public class GameplayData
 		return instance._spinsWithAtleast1Jackpot;
 	}
 
-	// Token: 0x06000171 RID: 369 RVA: 0x0000BA2C File Offset: 0x00009C2C
 	public static void SpinsWithAtLeast1Jackpot_Set(long n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1749,8 +1620,8 @@ public class GameplayData
 		instance._spinsWithAtleast1Jackpot = n;
 	}
 
-	// (get) Token: 0x06000172 RID: 370 RVA: 0x0000BA4C File Offset: 0x00009C4C
-	// (set) Token: 0x06000173 RID: 371 RVA: 0x0000BA6C File Offset: 0x00009C6C
+	// (get) Token: 0x06000172 RID: 370
+	// (set) Token: 0x06000173 RID: 371
 	public static int SlotInitialLuckRndOffset
 	{
 		get
@@ -1773,8 +1644,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000174 RID: 372 RVA: 0x0000BA8C File Offset: 0x00009C8C
-	// (set) Token: 0x06000175 RID: 373 RVA: 0x0000BAAC File Offset: 0x00009CAC
+	// (get) Token: 0x06000174 RID: 372
+	// (set) Token: 0x06000175 RID: 373
 	public static int SlotOccasionalLuckSpinN
 	{
 		get
@@ -1797,7 +1668,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000176 RID: 374 RVA: 0x0000BACA File Offset: 0x00009CCA
 	public static float LuckGet()
 	{
 		if (GameplayData.Instance == null)
@@ -1807,7 +1677,6 @@ public class GameplayData
 		return 0f + GameplayData.ExtraLuck_GetTotal() + PowerupScript.CrystalLuckIncreaseGet(true);
 	}
 
-	// Token: 0x06000177 RID: 375 RVA: 0x0000BAEC File Offset: 0x00009CEC
 	private static GameplayData.ExtraLuckEntry _ExtraLuckEntryFind(string tag)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1826,7 +1695,6 @@ public class GameplayData
 		return null;
 	}
 
-	// Token: 0x06000178 RID: 376 RVA: 0x0000BB3C File Offset: 0x00009D3C
 	private static GameplayData.ExtraLuckEntry _ExtraLuckEntryFindEmpty()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1845,7 +1713,6 @@ public class GameplayData
 		return null;
 	}
 
-	// Token: 0x06000179 RID: 377 RVA: 0x0000BBA0 File Offset: 0x00009DA0
 	private static void _ExtraLuckEnsureArray(GameplayData _inst)
 	{
 		if (_inst.extraLuckEntries == null)
@@ -1868,7 +1735,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600017A RID: 378 RVA: 0x0000BC20 File Offset: 0x00009E20
 	public static float ExtraLuck_GetTotal()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1888,7 +1754,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x0600017B RID: 379 RVA: 0x0000BC98 File Offset: 0x00009E98
 	public static void ExtraLuck_SetEntry(string tag, float luckValue, int desiredSpinsNumber, bool applyPowerupLuck)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1917,7 +1782,6 @@ public class GameplayData
 		extraLuckEntry.spinsLeftMax = desiredSpinsNumber;
 	}
 
-	// Token: 0x0600017C RID: 380 RVA: 0x0000BCF8 File Offset: 0x00009EF8
 	public static void ExtraLuck_TickDownAll()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1944,7 +1808,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600017D RID: 381 RVA: 0x0000BDDC File Offset: 0x00009FDC
 	public static void ExtraLuck_ResetAll()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1963,7 +1826,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600017E RID: 382 RVA: 0x0000BE5C File Offset: 0x0000A05C
 	public static float PowerupLuckGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1974,7 +1836,6 @@ public class GameplayData
 		return instance.powerupLuck;
 	}
 
-	// Token: 0x0600017F RID: 383 RVA: 0x0000BE80 File Offset: 0x0000A080
 	public static void PowerupLuckSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -1989,7 +1850,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000180 RID: 384 RVA: 0x0000BEB8 File Offset: 0x0000A0B8
 	public static void PowerupLuckAdd(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2000,13 +1860,11 @@ public class GameplayData
 		GameplayData.PowerupLuckSet(instance.powerupLuck + value);
 	}
 
-	// Token: 0x06000181 RID: 385 RVA: 0x0000BEDC File Offset: 0x0000A0DC
 	public static void PowerupLuckReset()
 	{
 		GameplayData.PowerupLuckSet(1f);
 	}
 
-	// Token: 0x06000182 RID: 386 RVA: 0x0000BEE8 File Offset: 0x0000A0E8
 	public static float ActivationLuckGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2017,7 +1875,6 @@ public class GameplayData
 		return instance.activationLuck + PowerupScript.HorseShoesLuckGet() + PowerupScript.GoldenHorseShoe_RandomActivationChanceBonusGet(true);
 	}
 
-	// Token: 0x06000183 RID: 387 RVA: 0x0000BF18 File Offset: 0x0000A118
 	public static void ActivationLuckSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2032,7 +1889,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000184 RID: 388 RVA: 0x0000BF50 File Offset: 0x0000A150
 	public static void ActivationLuckAdd(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2043,13 +1899,11 @@ public class GameplayData
 		GameplayData.ActivationLuckSet(instance.activationLuck + value);
 	}
 
-	// Token: 0x06000185 RID: 389 RVA: 0x0000BF74 File Offset: 0x0000A174
 	public static void ActivationLuckReset()
 	{
 		GameplayData.ActivationLuckSet(1f);
 	}
 
-	// Token: 0x06000186 RID: 390 RVA: 0x0000BF80 File Offset: 0x0000A180
 	public static float StoreLuckGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2060,7 +1914,6 @@ public class GameplayData
 		return instance.storeLuck;
 	}
 
-	// Token: 0x06000187 RID: 391 RVA: 0x0000BFA4 File Offset: 0x0000A1A4
 	public static void StoreLuckSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2075,7 +1928,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000188 RID: 392 RVA: 0x0000BFDC File Offset: 0x0000A1DC
 	public static void StoreLuckAdd(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2086,13 +1938,11 @@ public class GameplayData
 		GameplayData.StoreLuckSet(instance.storeLuck + value);
 	}
 
-	// Token: 0x06000189 RID: 393 RVA: 0x0000C000 File Offset: 0x0000A200
 	public static void StoreLuckReset()
 	{
 		GameplayData.StoreLuckSet(1f);
 	}
 
-	// Token: 0x0600018A RID: 394 RVA: 0x0000C00C File Offset: 0x0000A20C
 	private void _Symbols_PrepareForSerialization()
 	{
 		if (this.symbolsAvailable_AsString == null)
@@ -2119,7 +1969,6 @@ public class GameplayData
 		this.allSymbolsMultiplier_ByteArray = this.allSymbolsMultiplier.ToByteArray();
 	}
 
-	// Token: 0x0600018B RID: 395 RVA: 0x0000C10C File Offset: 0x0000A30C
 	private void _Symbols_RestoreFromSerialization()
 	{
 		if (this.symbolsAvailable_AsString != null && this.symbolsAvailable_AsString.Length != 0)
@@ -2149,7 +1998,6 @@ public class GameplayData
 		this.allSymbolsMultiplier = this.BigIntegerFromByteArray(this.allSymbolsMultiplier_ByteArray, 1);
 	}
 
-	// Token: 0x0600018C RID: 396 RVA: 0x0000C1F0 File Offset: 0x0000A3F0
 	public static List<SymbolScript.Kind> SymbolsAvailable_GetAll(bool sanityCheck)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2194,7 +2042,6 @@ public class GameplayData
 		return instance.symbolsAvailable;
 	}
 
-	// Token: 0x0600018D RID: 397 RVA: 0x0000C2D0 File Offset: 0x0000A4D0
 	public static void SymbolsAvilable_Add(SymbolScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2208,7 +2055,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600018E RID: 398 RVA: 0x0000C304 File Offset: 0x0000A504
 	public static void SymbolsAvilable_Remove(SymbolScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2219,7 +2065,6 @@ public class GameplayData
 		instance.symbolsAvailable.Remove(kind);
 	}
 
-	// Token: 0x0600018F RID: 399 RVA: 0x0000C328 File Offset: 0x0000A528
 	public static void SymbolsAvailable_OrderByBasicCoinsValue()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2232,9 +2077,9 @@ public class GameplayData
 			int num = i + 1;
 			while (num < instance.symbolsAvailable.Count && num < instance.symbolsAvailable.Count)
 			{
-				float num2 = (float)GameplayData.Symbol_CoinsValue_GetBasic(instance.symbolsAvailable[i]);
-				float num3 = (float)GameplayData.Symbol_CoinsValue_GetBasic(instance.symbolsAvailable[num]);
-				if (num2 > num3)
+				float num3 = (float)GameplayData.Symbol_CoinsValue_GetBasic(instance.symbolsAvailable[i]);
+				float num2 = (float)GameplayData.Symbol_CoinsValue_GetBasic(instance.symbolsAvailable[num]);
+				if (num3 > num2)
 				{
 					SymbolScript.Kind kind = instance.symbolsAvailable[i];
 					instance.symbolsAvailable[i] = instance.symbolsAvailable[num];
@@ -2245,7 +2090,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000190 RID: 400 RVA: 0x0000C3E0 File Offset: 0x0000A5E0
 	private static void _EnsureSymbolsArray(GameplayData _inst)
 	{
 		int num = 9;
@@ -2327,7 +2171,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000191 RID: 401 RVA: 0x0000C5D8 File Offset: 0x0000A7D8
 	private static GameplayData.SymbolData _SymbolDataFind(SymbolScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -2343,7 +2186,6 @@ public class GameplayData
 		return instance.symbolsData[(int)kind];
 	}
 
-	// Token: 0x06000192 RID: 402 RVA: 0x0000C614 File Offset: 0x0000A814
 	public static int Symbol_CoinsValue_GetBasic(SymbolScript.Kind kind)
 	{
 		int num;
@@ -2384,7 +2226,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x06000193 RID: 403 RVA: 0x0000C680 File Offset: 0x0000A880
 	public static BigInteger Symbol_CoinsValueExtra_Get(SymbolScript.Kind kind)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(kind);
@@ -2395,7 +2236,6 @@ public class GameplayData
 		return symbolData.extraValue;
 	}
 
-	// Token: 0x06000194 RID: 404 RVA: 0x0000C6A4 File Offset: 0x0000A8A4
 	public static void Symbol_CoinsValueExtra_Set(SymbolScript.Kind kind, BigInteger value)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(kind);
@@ -2411,19 +2251,16 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000195 RID: 405 RVA: 0x0000C6E8 File Offset: 0x0000A8E8
 	public static void Symbol_CoinsValueExtra_Add(SymbolScript.Kind kind, BigInteger value)
 	{
 		GameplayData.Symbol_CoinsValueExtra_Set(kind, GameplayData.Symbol_CoinsValueExtra_Get(kind) + value);
 	}
 
-	// Token: 0x06000196 RID: 406 RVA: 0x0000C6FC File Offset: 0x0000A8FC
 	public static void Symbol_CoinsValueExtra_Reset(SymbolScript.Kind kind)
 	{
 		GameplayData.Symbol_CoinsValueExtra_Set(kind, 0);
 	}
 
-	// Token: 0x06000197 RID: 407 RVA: 0x0000C70C File Offset: 0x0000A90C
 	public static BigInteger Symbol_CoinsOverallValue_Get(SymbolScript.Kind kind)
 	{
 		BigInteger bigInteger = GameplayData.Symbol_CoinsValue_GetBasic(kind) + GameplayData.Symbol_CoinsValueExtra_Get(kind);
@@ -2444,7 +2281,6 @@ public class GameplayData
 		return bigInteger;
 	}
 
-	// Token: 0x06000198 RID: 408 RVA: 0x0000C7DC File Offset: 0x0000A9DC
 	public static float Symbol_Chance_Get(SymbolScript.Kind kind, bool considerPowerups, bool considerScratchAndWin)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(kind);
@@ -2527,7 +2363,6 @@ public class GameplayData
 		return Mathf.Max(0f, num);
 	}
 
-	// Token: 0x06000199 RID: 409 RVA: 0x0000C970 File Offset: 0x0000AB70
 	public static float Symbol_Chance_GetAsPercentage(SymbolScript.Kind kind, bool considerPowerups, bool considerScratchAndWin)
 	{
 		float num = 0f;
@@ -2540,7 +2375,6 @@ public class GameplayData
 		return num2 * 100f / num;
 	}
 
-	// Token: 0x0600019A RID: 410 RVA: 0x0000C9C0 File Offset: 0x0000ABC0
 	public static void Symbol_Chance_Set(SymbolScript.Kind kind, float value)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(kind);
@@ -2555,7 +2389,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600019B RID: 411 RVA: 0x0000C9F8 File Offset: 0x0000ABF8
 	public static void Symbol_Chance_Add(SymbolScript.Kind kind, float value)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(kind);
@@ -2566,7 +2399,6 @@ public class GameplayData
 		GameplayData.Symbol_Chance_Set(kind, symbolData.spawnChance + value);
 	}
 
-	// Token: 0x0600019C RID: 412 RVA: 0x0000CA20 File Offset: 0x0000AC20
 	public static float Symbol_Chance_GetBasic(SymbolScript.Kind kind)
 	{
 		switch (kind)
@@ -2595,7 +2427,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600019D RID: 413 RVA: 0x0000CAB0 File Offset: 0x0000ACB0
 	public static SymbolScript.Kind Symbol_GetRandom_BasedOnSymbolChance()
 	{
 		List<SymbolScript.Kind> list = GameplayData.SymbolsAvailable_GetAll(false);
@@ -2620,7 +2451,6 @@ public class GameplayData
 		return list[R.Rng_SymbolsChance.Range(0, list.Count)];
 	}
 
-	// Token: 0x0600019E RID: 414 RVA: 0x0000CB60 File Offset: 0x0000AD60
 	public static void SymbolsValueList_Order()
 	{
 		GameplayData._symbolsOrderedByHighestValueToLowest.Clear();
@@ -2666,25 +2496,21 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600019F RID: 415 RVA: 0x0000CD3B File Offset: 0x0000AF3B
 	public static List<SymbolScript.Kind> SymbolsValueList_Get()
 	{
 		return GameplayData._symbolsOrderedByHighestValueToLowest;
 	}
 
-	// Token: 0x060001A0 RID: 416 RVA: 0x0000CD42 File Offset: 0x0000AF42
 	public static List<SymbolScript.Kind> MostValuableSymbols_GetList()
 	{
 		return GameplayData._mostValuableSymbols;
 	}
 
-	// Token: 0x060001A1 RID: 417 RVA: 0x0000CD49 File Offset: 0x0000AF49
 	public static List<SymbolScript.Kind> LeastValuableSymbols_GetList()
 	{
 		return GameplayData._leastValuableSymbols;
 	}
 
-	// Token: 0x060001A2 RID: 418 RVA: 0x0000CD50 File Offset: 0x0000AF50
 	public static void SymbolsChanceList_Order()
 	{
 		GameplayData._symbolsOrderedByHighestChanceToLowest.Clear();
@@ -2730,25 +2556,21 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001A3 RID: 419 RVA: 0x0000CF28 File Offset: 0x0000B128
 	public static List<SymbolScript.Kind> SymbolsChanceList_Get()
 	{
 		return GameplayData._symbolsOrderedByHighestChanceToLowest;
 	}
 
-	// Token: 0x060001A4 RID: 420 RVA: 0x0000CF2F File Offset: 0x0000B12F
 	public static List<SymbolScript.Kind> MostProbableSymbols_GetList()
 	{
 		return GameplayData._mostProbableSymbols;
 	}
 
-	// Token: 0x060001A5 RID: 421 RVA: 0x0000CF36 File Offset: 0x0000B136
 	public static List<SymbolScript.Kind> LeastProbableSymbols_GetList()
 	{
 		return GameplayData._leastProbableSymbols;
 	}
 
-	// Token: 0x060001A6 RID: 422 RVA: 0x0000CF40 File Offset: 0x0000B140
 	public static float Symbol_ModifierChance_Get(SymbolScript.Kind symbolKind, SymbolScript.Modifier modifier)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(symbolKind);
@@ -2933,13 +2755,11 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001A7 RID: 423 RVA: 0x0000D51F File Offset: 0x0000B71F
 	public static float Symbol_ModifierChance_GetAsPercentage(SymbolScript.Kind symbolKind, SymbolScript.Modifier modifier)
 	{
 		return GameplayData.Symbol_ModifierChance_Get(symbolKind, modifier) * 100f;
 	}
 
-	// Token: 0x060001A8 RID: 424 RVA: 0x0000D530 File Offset: 0x0000B730
 	public static void Symbol_ModifierChance_Set(SymbolScript.Kind symbolKind, SymbolScript.Modifier modifier, float value)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(symbolKind);
@@ -2965,7 +2785,6 @@ public class GameplayData
 		Debug.LogError("Symbol_ModifierChance_Set: Modifier not recognized: " + modifier.ToString());
 	}
 
-	// Token: 0x060001A9 RID: 425 RVA: 0x0000D5CC File Offset: 0x0000B7CC
 	public static void Symbol_ModifierChance_Add(SymbolScript.Kind symbolKind, SymbolScript.Modifier modifier, float value)
 	{
 		GameplayData.SymbolData symbolData = GameplayData._SymbolDataFind(symbolKind);
@@ -2991,7 +2810,6 @@ public class GameplayData
 		Debug.LogError("Symbol_ModifierChance_Add: Modifier not recognized: " + modifier.ToString());
 	}
 
-	// Token: 0x060001AA RID: 426 RVA: 0x0000D660 File Offset: 0x0000B860
 	public static SymbolScript.Modifier Symbol_Modifier_GetRandom(SymbolScript.Kind symbolKind)
 	{
 		if (symbolKind == SymbolScript.Kind.six)
@@ -3029,7 +2847,6 @@ public class GameplayData
 		return SymbolScript.ModifierFromArrayIndex(num);
 	}
 
-	// Token: 0x060001AB RID: 427 RVA: 0x0000D75C File Offset: 0x0000B95C
 	public static BigInteger AllSymbolsMultiplierGet(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3058,7 +2875,6 @@ public class GameplayData
 		return bigInteger * bigInteger2;
 	}
 
-	// Token: 0x060001AC RID: 428 RVA: 0x0000D878 File Offset: 0x0000BA78
 	public static void AllSymbolsMultiplierSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3073,7 +2889,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001AD RID: 429 RVA: 0x0000D8B4 File Offset: 0x0000BAB4
 	public static void AllSymbolsMultiplierAdd(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3084,13 +2899,11 @@ public class GameplayData
 		GameplayData.AllSymbolsMultiplierSet(instance.allSymbolsMultiplier + value);
 	}
 
-	// Token: 0x060001AE RID: 430 RVA: 0x0000D8DC File Offset: 0x0000BADC
 	public static void allSymbolsMultiplierReset()
 	{
 		GameplayData.AllSymbolsMultiplierSet(1);
 	}
 
-	// Token: 0x060001AF RID: 431 RVA: 0x0000D8EC File Offset: 0x0000BAEC
 	private void _Patterns_PrepareForSerialization()
 	{
 		if (this.patternsAvailable_AsString == null)
@@ -3113,7 +2926,6 @@ public class GameplayData
 		this.allPatternsMultiplier_ByteArray = this.allPatternsMultiplier.ToByteArray();
 	}
 
-	// Token: 0x060001B0 RID: 432 RVA: 0x0000D9BC File Offset: 0x0000BBBC
 	private void _Patterns_RestoreFromSerialization()
 	{
 		if (this.patternsAvailable_AsString != null && this.patternsAvailable_AsString.Length != 0)
@@ -3132,7 +2944,6 @@ public class GameplayData
 		this.allPatternsMultiplier = this.BigIntegerFromByteArray(this.allPatternsMultiplier_ByteArray, 1);
 	}
 
-	// Token: 0x060001B1 RID: 433 RVA: 0x0000DA3C File Offset: 0x0000BC3C
 	public static List<PatternScript.Kind> PatternsAvailable_GetAll()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3143,7 +2954,6 @@ public class GameplayData
 		return instance.patternsAvailable;
 	}
 
-	// Token: 0x060001B2 RID: 434 RVA: 0x0000DA60 File Offset: 0x0000BC60
 	public static void PatternsAvailable_Add(PatternScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3157,7 +2967,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001B3 RID: 435 RVA: 0x0000DA94 File Offset: 0x0000BC94
 	public static void PatternsAvailable_Remove(PatternScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3168,7 +2977,6 @@ public class GameplayData
 		instance.patternsAvailable.Remove(kind);
 	}
 
-	// Token: 0x060001B4 RID: 436 RVA: 0x0000DAB8 File Offset: 0x0000BCB8
 	public static void PatternsAvailable_OrderByValue(bool keepJackpotAsLast)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3181,9 +2989,9 @@ public class GameplayData
 			int num = i + 1;
 			while (num < instance.patternsAvailable.Count && num < instance.patternsAvailable.Count)
 			{
-				double num2 = GameplayData.Pattern_Value_GetBasic(instance.patternsAvailable[i]);
-				double num3 = GameplayData.Pattern_Value_GetBasic(instance.patternsAvailable[num]);
-				if (num2 > num3)
+				double num3 = GameplayData.Pattern_Value_GetBasic(instance.patternsAvailable[i]);
+				double num2 = GameplayData.Pattern_Value_GetBasic(instance.patternsAvailable[num]);
+				if (num3 > num2)
 				{
 					PatternScript.Kind kind = instance.patternsAvailable[i];
 					instance.patternsAvailable[i] = instance.patternsAvailable[num];
@@ -3199,7 +3007,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001B5 RID: 437 RVA: 0x0000DB98 File Offset: 0x0000BD98
 	public static double Pattern_Value_GetBasic(PatternScript.Kind kind)
 	{
 		double num;
@@ -3261,7 +3068,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x060001B6 RID: 438 RVA: 0x0000DCE4 File Offset: 0x0000BEE4
 	private static void _EnsurePatternsArray(GameplayData _inst)
 	{
 		int num = 16;
@@ -3342,7 +3148,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001B7 RID: 439 RVA: 0x0000DED8 File Offset: 0x0000C0D8
 	private static GameplayData.PatternData _PatternDataFind(PatternScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3358,7 +3163,6 @@ public class GameplayData
 		return instance.patternsData[(int)kind];
 	}
 
-	// Token: 0x060001B8 RID: 440 RVA: 0x0000DF14 File Offset: 0x0000C114
 	public static double Pattern_ValueExtra_Get(PatternScript.Kind kind)
 	{
 		GameplayData.PatternData patternData = GameplayData._PatternDataFind(kind);
@@ -3369,7 +3173,6 @@ public class GameplayData
 		return patternData.extraValue;
 	}
 
-	// Token: 0x060001B9 RID: 441 RVA: 0x0000DF3C File Offset: 0x0000C13C
 	public static void Pattern_ValueExtra_Set(PatternScript.Kind kind, double value)
 	{
 		GameplayData.PatternData patternData = GameplayData._PatternDataFind(kind);
@@ -3385,7 +3188,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001BA RID: 442 RVA: 0x0000DF7C File Offset: 0x0000C17C
 	public static void Pattern_ValueExtra_Add(PatternScript.Kind kind, double value)
 	{
 		GameplayData.PatternData patternData = GameplayData._PatternDataFind(kind);
@@ -3396,13 +3198,11 @@ public class GameplayData
 		GameplayData.Pattern_ValueExtra_Set(kind, patternData.extraValue + value);
 	}
 
-	// Token: 0x060001BB RID: 443 RVA: 0x0000DFA2 File Offset: 0x0000C1A2
 	public static void Pattern_ValueExtra_Reset(PatternScript.Kind kind)
 	{
 		GameplayData.Pattern_ValueExtra_Set(kind, 0.0);
 	}
 
-	// Token: 0x060001BC RID: 444 RVA: 0x0000DFB4 File Offset: 0x0000C1B4
 	public static double Pattern_ValueOverall_Get(PatternScript.Kind kind, bool includePowerups)
 	{
 		double num = GameplayData.Pattern_Value_GetBasic(kind);
@@ -3427,7 +3227,6 @@ public class GameplayData
 		return num2;
 	}
 
-	// Token: 0x060001BD RID: 445 RVA: 0x0000E02C File Offset: 0x0000C22C
 	public static void PatternsValueList_Order()
 	{
 		GameplayData._patternsOrderedByHighestValueToLowest.Clear();
@@ -3473,25 +3272,21 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001BE RID: 446 RVA: 0x0000E1FA File Offset: 0x0000C3FA
 	public static List<PatternScript.Kind> PatternsValueList_Get()
 	{
 		return GameplayData._patternsOrderedByHighestValueToLowest;
 	}
 
-	// Token: 0x060001BF RID: 447 RVA: 0x0000E201 File Offset: 0x0000C401
 	public static List<PatternScript.Kind> MostValuablePatterns_GetList()
 	{
 		return GameplayData._mostValuablePatterns;
 	}
 
-	// Token: 0x060001C0 RID: 448 RVA: 0x0000E208 File Offset: 0x0000C408
 	public static List<PatternScript.Kind> LeastValuablePatterns_GetList()
 	{
 		return GameplayData._leastValuablePatterns;
 	}
 
-	// Token: 0x060001C1 RID: 449 RVA: 0x0000E210 File Offset: 0x0000C410
 	public static BigInteger AllPatternsMultiplierGet(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3521,7 +3316,6 @@ public class GameplayData
 		return bigInteger * bigInteger2;
 	}
 
-	// Token: 0x060001C2 RID: 450 RVA: 0x0000E2D4 File Offset: 0x0000C4D4
 	public static void AllPatternsMultiplierSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3536,7 +3330,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001C3 RID: 451 RVA: 0x0000E310 File Offset: 0x0000C510
 	public static void AllPatternsMultiplierAdd(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3547,19 +3340,16 @@ public class GameplayData
 		GameplayData.AllPatternsMultiplierSet(instance.allPatternsMultiplier + value);
 	}
 
-	// Token: 0x060001C4 RID: 452 RVA: 0x0000E338 File Offset: 0x0000C538
 	public static void AllPatternsMultiplierReset()
 	{
 		GameplayData.AllPatternsMultiplierSet(1);
 	}
 
-	// Token: 0x060001C5 RID: 453 RVA: 0x0000E345 File Offset: 0x0000C545
 	public static BigInteger SixSixSix_GetMinimumDebtIndex()
 	{
 		return 2;
 	}
 
-	// Token: 0x060001C6 RID: 454 RVA: 0x0000E34D File Offset: 0x0000C54D
 	public static BigInteger SuperSixSixSix_GetMinimumDebtIndex()
 	{
 		if (RewardBoxScript.GetRewardKind() != RewardBoxScript.RewardKind.DoorKey)
@@ -3569,7 +3359,6 @@ public class GameplayData
 		return 6;
 	}
 
-	// Token: 0x060001C7 RID: 455 RVA: 0x0000E368 File Offset: 0x0000C568
 	public static int SixSixSix_GetSpinCount(bool updateValues)
 	{
 		if (GameplayData.DebtIndexGet() < GameplayData.SixSixSix_GetMinimumDebtIndex())
@@ -3581,14 +3370,14 @@ public class GameplayData
 		{
 			return 0;
 		}
-		bool flag = GameplayData.Powerup_PossessedPhone_TriggersCount_Get() > 0;
+		bool flag3 = GameplayData.Powerup_PossessedPhone_TriggersCount_Get() > 0;
 		bool flag2 = GameplayData.SixSixSix_SuppressedSpinsGet() > 0;
 		if (updateValues)
 		{
 			GameplayData.Powerup_PossessedPhone_TriggersCount_Set(GameplayData.Powerup_PossessedPhone_TriggersCount_Get() - 1);
 			GameplayData.SixSixSix_SuppressedSpinsSet(GameplayData.SixSixSix_SuppressedSpinsGet() - 1);
 		}
-		if (flag)
+		if (flag3)
 		{
 			return 3;
 		}
@@ -3622,7 +3411,6 @@ public class GameplayData
 		return 0;
 	}
 
-	// Token: 0x060001C8 RID: 456 RVA: 0x0000E450 File Offset: 0x0000C650
 	public static float SixSixSix_ChanceGet(bool considerMaximum)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3666,19 +3454,16 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x060001C9 RID: 457 RVA: 0x0000E509 File Offset: 0x0000C709
 	public static float SixSixSix_ChanceGet_AsPercentage(bool considerMaximum)
 	{
 		return GameplayData.SixSixSix_ChanceGet(considerMaximum) * 100f;
 	}
 
-	// Token: 0x060001CA RID: 458 RVA: 0x0000E517 File Offset: 0x0000C717
 	public static void OBSOLETE_SixSixSix_IncrementChance()
 	{
 		GameplayData.OBSOLETE_SixSixSix_IncrementChanceManual(0.0015f);
 	}
 
-	// Token: 0x060001CB RID: 459 RVA: 0x0000E524 File Offset: 0x0000C724
 	public static void OBSOLETE_SixSixSix_IncrementChanceManual(float ammount)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3697,7 +3482,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001CC RID: 460 RVA: 0x0000E57C File Offset: 0x0000C77C
 	public static int SixSixSix_BookedSpinGet()
 	{
 		if (GameplayData.DebtIndexGet() < GameplayData.SixSixSix_GetMinimumDebtIndex())
@@ -3712,7 +3496,6 @@ public class GameplayData
 		return instance._666BookedSpin;
 	}
 
-	// Token: 0x060001CD RID: 461 RVA: 0x0000E5B0 File Offset: 0x0000C7B0
 	public static void SixSixSix_BookedSpinSet(int targetSpinsLeft)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3728,7 +3511,6 @@ public class GameplayData
 		instance._666BookedSpin = targetSpinsLeft;
 	}
 
-	// Token: 0x060001CE RID: 462 RVA: 0x0000E5E8 File Offset: 0x0000C7E8
 	public static void SixSixSix_SuppressedSpinsSet(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3739,7 +3521,6 @@ public class GameplayData
 		instance._666SuppressedSpinsLeft = Mathf.Max(0, n);
 	}
 
-	// Token: 0x060001CF RID: 463 RVA: 0x0000E60C File Offset: 0x0000C80C
 	public static int SixSixSix_SuppressedSpinsGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3750,8 +3531,8 @@ public class GameplayData
 		return instance._666SuppressedSpinsLeft;
 	}
 
-	// (get) Token: 0x060001D0 RID: 464 RVA: 0x0000E62A File Offset: 0x0000C82A
-	// (set) Token: 0x060001D1 RID: 465 RVA: 0x0000E640 File Offset: 0x0000C840
+	// (get) Token: 0x060001D0 RID: 464
+	// (set) Token: 0x060001D1 RID: 465
 	public static bool LastRoundHad666Or999
 	{
 		get
@@ -3769,7 +3550,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001D2 RID: 466 RVA: 0x0000E660 File Offset: 0x0000C860
 	private static int Powerup_RedButtonMaxUses_Init(PowerupScript.Identifier identifier)
 	{
 		if (identifier <= PowerupScript.Identifier.RingBell)
@@ -3843,19 +3623,16 @@ public class GameplayData
 		return 1;
 	}
 
-	// Token: 0x060001D3 RID: 467 RVA: 0x0000E6DA File Offset: 0x0000C8DA
 	private void _PowerupsData_PrepareForSerialization()
 	{
 		GameplayData._EnsurePowerupDataArray(this);
 	}
 
-	// Token: 0x060001D4 RID: 468 RVA: 0x0000E6E2 File Offset: 0x0000C8E2
 	private void _PowerupsData_RestoreFromSerialization()
 	{
 		GameplayData._EnsurePowerupDataArray(this);
 	}
 
-	// Token: 0x060001D5 RID: 469 RVA: 0x0000E6EC File Offset: 0x0000C8EC
 	private static void _EnsurePowerupDataArray(GameplayData _inst)
 	{
 		int num = 164;
@@ -3937,7 +3714,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001D6 RID: 470 RVA: 0x0000E8EC File Offset: 0x0000CAEC
 	private static GameplayData.PowerupData _PowerupDataFind(PowerupScript.Identifier identifier)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3953,7 +3729,6 @@ public class GameplayData
 		return instance.powerupsData[(int)identifier];
 	}
 
-	// Token: 0x060001D7 RID: 471 RVA: 0x0000E928 File Offset: 0x0000CB28
 	public static GameplayData.PowerupData[] PowerupDataGetCapsules()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -3965,7 +3740,6 @@ public class GameplayData
 		return instance.powerupsData;
 	}
 
-	// Token: 0x060001D8 RID: 472 RVA: 0x0000E94C File Offset: 0x0000CB4C
 	public void PowerupsRngEnsure(bool resetForNewGame)
 	{
 		GameplayData.PowerupData[] array = GameplayData.PowerupDataGetCapsules();
@@ -3978,7 +3752,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001D9 RID: 473 RVA: 0x0000E990 File Offset: 0x0000CB90
 	public Rng PowerupRngGet(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -3989,7 +3762,6 @@ public class GameplayData
 		return powerupData.charmSpecificRng;
 	}
 
-	// Token: 0x060001DA RID: 474 RVA: 0x0000E9B0 File Offset: 0x0000CBB0
 	public static int Powerup_BoughtTimes_Get(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4000,7 +3772,6 @@ public class GameplayData
 		return powerupData.boughtTimes;
 	}
 
-	// Token: 0x060001DB RID: 475 RVA: 0x0000E9D0 File Offset: 0x0000CBD0
 	public static void Powerup_BoughtTimes_Increase(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4011,7 +3782,6 @@ public class GameplayData
 		powerupData.boughtTimes++;
 	}
 
-	// Token: 0x060001DC RID: 476 RVA: 0x0000E9F8 File Offset: 0x0000CBF8
 	public static PowerupScript.Modifier Powerup_Modifier_Get(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4022,7 +3792,6 @@ public class GameplayData
 		return powerupData.modifier;
 	}
 
-	// Token: 0x060001DD RID: 477 RVA: 0x0000EA18 File Offset: 0x0000CC18
 	public static void Powerup_Modifier_Set(PowerupScript.Identifier identifier, PowerupScript.Modifier modifier, bool updatePowerup)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4047,7 +3816,6 @@ public class GameplayData
 		PowerupScript.ModifiedPowerups_EquippedCounter_Refresh();
 	}
 
-	// Token: 0x060001DE RID: 478 RVA: 0x0000EA64 File Offset: 0x0000CC64
 	public static int Powerup_ButtonBurnedOut_Get(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4058,7 +3826,6 @@ public class GameplayData
 		return powerupData.buttonBurnOutCounter;
 	}
 
-	// Token: 0x060001DF RID: 479 RVA: 0x0000EA84 File Offset: 0x0000CC84
 	public static void Powerup_ButtonBurnedOut_Set(PowerupScript.Identifier identifier, int n)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4069,13 +3836,11 @@ public class GameplayData
 		powerupData.buttonBurnOutCounter = n;
 	}
 
-	// Token: 0x060001E0 RID: 480 RVA: 0x0000EAA3 File Offset: 0x0000CCA3
 	public static void Powerup_ButtonBurnedOut_Increaase(PowerupScript.Identifier identifier)
 	{
 		GameplayData.Powerup_ButtonBurnedOut_Set(identifier, GameplayData.Powerup_ButtonBurnedOut_Get(identifier) + 1);
 	}
 
-	// Token: 0x060001E1 RID: 481 RVA: 0x0000EAB4 File Offset: 0x0000CCB4
 	public static int Powerup_ButtonChargesUsed_Get(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4086,7 +3851,6 @@ public class GameplayData
 		return powerupData.buttonChargesCounter;
 	}
 
-	// Token: 0x060001E2 RID: 482 RVA: 0x0000EAD4 File Offset: 0x0000CCD4
 	public static int Powerup_ButtonChargesUsed_GetAbsolute(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4097,7 +3861,6 @@ public class GameplayData
 		return powerupData.buttonChargesCounter_Absolute;
 	}
 
-	// Token: 0x060001E3 RID: 483 RVA: 0x0000EAF4 File Offset: 0x0000CCF4
 	public static bool Powerup_ButtonChargesUsed_Reset(PowerupScript.Identifier identifier, bool triggerRechargeAnimation)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4121,7 +3884,6 @@ public class GameplayData
 		return true;
 	}
 
-	// Token: 0x060001E4 RID: 484 RVA: 0x0000EB48 File Offset: 0x0000CD48
 	public static bool Powerup_ButtonChargesUsed_ResetAll(bool triggerRechargeAnimation)
 	{
 		GameplayData.PowerupData[] array = GameplayData.PowerupDataGetCapsules();
@@ -4163,7 +3925,6 @@ public class GameplayData
 		return flag;
 	}
 
-	// Token: 0x060001E5 RID: 485 RVA: 0x0000EBD4 File Offset: 0x0000CDD4
 	public static void Powerup_ButtonChargesUsed_ConsumeAllCharges(PowerupScript.Identifier identifier, bool affectAbsoluteCounter)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4183,13 +3944,11 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001E6 RID: 486 RVA: 0x0000EC39 File Offset: 0x0000CE39
 	public static bool Powerup_ButtonChargesUsed_RestoreChargesN(PowerupScript.Identifier identifier, int value, bool triggerRechargeAnimation)
 	{
 		return GameplayData.Powerup_ButtonChargesUsed_RestoreChargesN_Ext(identifier, value, triggerRechargeAnimation, true);
 	}
 
-	// Token: 0x060001E7 RID: 487 RVA: 0x0000EC44 File Offset: 0x0000CE44
 	public static bool Powerup_ButtonChargesUsed_RestoreChargesN_Ext(PowerupScript.Identifier identifier, int value, bool triggerRechargeAnimation, bool refreshButtonVisuals)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4221,7 +3980,6 @@ public class GameplayData
 		return true;
 	}
 
-	// Token: 0x060001E8 RID: 488 RVA: 0x0000ECD8 File Offset: 0x0000CED8
 	public static int Powerup_ButtonChargesMax_Get(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4237,7 +3995,6 @@ public class GameplayData
 		return buttonChargesMax;
 	}
 
-	// Token: 0x060001E9 RID: 489 RVA: 0x0000ED00 File Offset: 0x0000CF00
 	public static void Powerup_ButtonChargesMax_Set(PowerupScript.Identifier identifier, int value, bool triggerRechargeAnimation, bool refreshButtonVisuals)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4258,7 +4015,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060001EA RID: 490 RVA: 0x0000ED40 File Offset: 0x0000CF40
 	public static int Powerup_ResellBonus_Get(PowerupScript.Identifier identifier)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4269,7 +4025,6 @@ public class GameplayData
 		return powerupData.resellBonus;
 	}
 
-	// Token: 0x060001EB RID: 491 RVA: 0x0000ED60 File Offset: 0x0000CF60
 	public static void Powerup_ResellBonus_Set(PowerupScript.Identifier identifier, int n)
 	{
 		GameplayData.PowerupData powerupData = GameplayData._PowerupDataFind(identifier);
@@ -4280,8 +4035,8 @@ public class GameplayData
 		powerupData.resellBonus = Mathf.Max(0, n);
 	}
 
-	// (get) Token: 0x060001EC RID: 492 RVA: 0x0000ED88 File Offset: 0x0000CF88
-	// (set) Token: 0x060001ED RID: 493 RVA: 0x0000EDA8 File Offset: 0x0000CFA8
+	// (get) Token: 0x060001EC RID: 492
+	// (set) Token: 0x060001ED RID: 493
 	public static int RndActivationFailsafe_ConsolationPrize
 	{
 		get
@@ -4304,8 +4059,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001EE RID: 494 RVA: 0x0000EDC8 File Offset: 0x0000CFC8
-	// (set) Token: 0x060001EF RID: 495 RVA: 0x0000EDE8 File Offset: 0x0000CFE8
+	// (get) Token: 0x060001EE RID: 494
+	// (set) Token: 0x060001EF RID: 495
 	public static int RndActivationFailsafe_BrokenCalculator
 	{
 		get
@@ -4328,8 +4083,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001F0 RID: 496 RVA: 0x0000EE08 File Offset: 0x0000D008
-	// (set) Token: 0x060001F1 RID: 497 RVA: 0x0000EE28 File Offset: 0x0000D028
+	// (get) Token: 0x060001F0 RID: 496
+	// (set) Token: 0x060001F1 RID: 497
 	public static int RndActivationFailsafe_CrankGenerator
 	{
 		get
@@ -4352,8 +4107,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001F2 RID: 498 RVA: 0x0000EE48 File Offset: 0x0000D048
-	// (set) Token: 0x060001F3 RID: 499 RVA: 0x0000EE68 File Offset: 0x0000D068
+	// (get) Token: 0x060001F2 RID: 498
+	// (set) Token: 0x060001F3 RID: 499
 	public static int RndActivationFailsafe_FakeCoin
 	{
 		get
@@ -4376,8 +4131,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001F4 RID: 500 RVA: 0x0000EE88 File Offset: 0x0000D088
-	// (set) Token: 0x060001F5 RID: 501 RVA: 0x0000EEA8 File Offset: 0x0000D0A8
+	// (get) Token: 0x060001F4 RID: 500
+	// (set) Token: 0x060001F5 RID: 501
 	public static int RndActivationFailsafe_RedPepper
 	{
 		get
@@ -4400,8 +4155,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001F6 RID: 502 RVA: 0x0000EEC8 File Offset: 0x0000D0C8
-	// (set) Token: 0x060001F7 RID: 503 RVA: 0x0000EEE8 File Offset: 0x0000D0E8
+	// (get) Token: 0x060001F6 RID: 502
+	// (set) Token: 0x060001F7 RID: 503
 	public static int RndActivationFailsafe_GreenPepper
 	{
 		get
@@ -4424,8 +4179,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001F8 RID: 504 RVA: 0x0000EF08 File Offset: 0x0000D108
-	// (set) Token: 0x060001F9 RID: 505 RVA: 0x0000EF28 File Offset: 0x0000D128
+	// (get) Token: 0x060001F8 RID: 504
+	// (set) Token: 0x060001F9 RID: 505
 	public static int RndActivationFailsafe_GoldenPepper
 	{
 		get
@@ -4448,8 +4203,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001FA RID: 506 RVA: 0x0000EF48 File Offset: 0x0000D148
-	// (set) Token: 0x060001FB RID: 507 RVA: 0x0000EF68 File Offset: 0x0000D168
+	// (get) Token: 0x060001FA RID: 506
+	// (set) Token: 0x060001FB RID: 507
 	public static int RndActivationFailsafe_RottenPepper
 	{
 		get
@@ -4472,8 +4227,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001FC RID: 508 RVA: 0x0000EF88 File Offset: 0x0000D188
-	// (set) Token: 0x060001FD RID: 509 RVA: 0x0000EFA8 File Offset: 0x0000D1A8
+	// (get) Token: 0x060001FC RID: 508
+	// (set) Token: 0x060001FD RID: 509
 	public static int RndActivationFailsafe_BellPepper
 	{
 		get
@@ -4496,8 +4251,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060001FE RID: 510 RVA: 0x0000EFC8 File Offset: 0x0000D1C8
-	// (set) Token: 0x060001FF RID: 511 RVA: 0x0000EFE8 File Offset: 0x0000D1E8
+	// (get) Token: 0x060001FE RID: 510
+	// (set) Token: 0x060001FF RID: 511
 	public static int RndActivationFailsafe_Rosary
 	{
 		get
@@ -4520,8 +4275,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000200 RID: 512 RVA: 0x0000F008 File Offset: 0x0000D208
-	// (set) Token: 0x06000201 RID: 513 RVA: 0x0000F028 File Offset: 0x0000D228
+	// (get) Token: 0x06000200 RID: 512
+	// (set) Token: 0x06000201 RID: 513
 	public static int RndActivationFailsafe_Dice4
 	{
 		get
@@ -4544,8 +4299,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000202 RID: 514 RVA: 0x0000F048 File Offset: 0x0000D248
-	// (set) Token: 0x06000203 RID: 515 RVA: 0x0000F068 File Offset: 0x0000D268
+	// (get) Token: 0x06000202 RID: 514
+	// (set) Token: 0x06000203 RID: 515
 	public static int RndActivationFailsafe_SacredHeart
 	{
 		get
@@ -4568,7 +4323,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000204 RID: 516 RVA: 0x0000F088 File Offset: 0x0000D288
 	private void _PowerupsSpecific_PrepareForSerialization()
 	{
 		this._powerupTarotDeck_Reward_ByteArray = this._powerupTarotDeck_Reward.ToByteArray();
@@ -4583,7 +4337,6 @@ public class GameplayData
 		this.Powerup_Pareidolia_SerializationPrepare();
 	}
 
-	// Token: 0x06000205 RID: 517 RVA: 0x0000F120 File Offset: 0x0000D320
 	private void _PowerupsSpecific_RestoreFromSerialization()
 	{
 		this._powerupTarotDeck_Reward = this.BigIntegerFromByteArray(this._powerupTarotDeck_Reward_ByteArray, 0);
@@ -4597,7 +4350,6 @@ public class GameplayData
 		this.Powerup_Pareidolia_SerializationRestore();
 	}
 
-	// Token: 0x06000206 RID: 518 RVA: 0x0000F1CC File Offset: 0x0000D3CC
 	public static int Powerup_Hourglass_DeadlinesLeftGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4608,7 +4360,6 @@ public class GameplayData
 		return instance._powerupHourglass_DeadlinesLeft;
 	}
 
-	// Token: 0x06000207 RID: 519 RVA: 0x0000F1EC File Offset: 0x0000D3EC
 	public static void Powerup_Hourglass_DeadlinesLeftSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4623,7 +4374,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000208 RID: 520 RVA: 0x0000F21C File Offset: 0x0000D41C
 	public static void Powerup_Hourglass_DeadlinesLeftAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4634,13 +4384,11 @@ public class GameplayData
 		GameplayData.Powerup_Hourglass_DeadlinesLeftSet(instance._powerupHourglass_DeadlinesLeft + value);
 	}
 
-	// Token: 0x06000209 RID: 521 RVA: 0x0000F240 File Offset: 0x0000D440
 	public static void Powerup_Hourglass_DeadlinesLeftReset()
 	{
 		GameplayData.Powerup_Hourglass_DeadlinesLeftSet(3);
 	}
 
-	// Token: 0x0600020A RID: 522 RVA: 0x0000F248 File Offset: 0x0000D448
 	public static int Powerup_FruitsBasket_RoundsLeftGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4651,7 +4399,6 @@ public class GameplayData
 		return instance._powerupFruitsBasket_RoundsLeft;
 	}
 
-	// Token: 0x0600020B RID: 523 RVA: 0x0000F268 File Offset: 0x0000D468
 	public static void Powerup_FruitsBasket_RoundsLeftSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4663,13 +4410,11 @@ public class GameplayData
 		instance._powerupFruitsBasket_RoundsLeft = Mathf.Max(0, instance._powerupFruitsBasket_RoundsLeft);
 	}
 
-	// Token: 0x0600020C RID: 524 RVA: 0x0000F298 File Offset: 0x0000D498
 	public static void Powerup_FruitBasket_RoundsLeftReset()
 	{
 		GameplayData.Powerup_FruitsBasket_RoundsLeftSet(7);
 	}
 
-	// Token: 0x0600020D RID: 525 RVA: 0x0000F2A0 File Offset: 0x0000D4A0
 	public static BigInteger Powerup_TarotDeck_RewardGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4680,7 +4425,6 @@ public class GameplayData
 		return instance._powerupTarotDeck_Reward;
 	}
 
-	// Token: 0x0600020E RID: 526 RVA: 0x0000F2C4 File Offset: 0x0000D4C4
 	public static void Powerup_TarotDeck_RewardSet(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4695,7 +4439,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600020F RID: 527 RVA: 0x0000F300 File Offset: 0x0000D500
 	public static void Powerup_TarotDeck_RewardAdd(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4706,7 +4449,6 @@ public class GameplayData
 		GameplayData.Powerup_TarotDeck_RewardSet(instance._powerupTarotDeck_Reward + value);
 	}
 
-	// Token: 0x06000210 RID: 528 RVA: 0x0000F328 File Offset: 0x0000D528
 	public static BigInteger Powerup_PoopBeetle_SymbolsIncreaseN_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4717,7 +4459,6 @@ public class GameplayData
 		return instance._powerupPoopBeetle_SymbolsIncreaserMult;
 	}
 
-	// Token: 0x06000211 RID: 529 RVA: 0x0000F34C File Offset: 0x0000D54C
 	public static void Powerup_PoopBeetle_SymbolsIncreaseN_Set(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4732,7 +4473,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000212 RID: 530 RVA: 0x0000F388 File Offset: 0x0000D588
 	public static void Powerup_PoopBeetle_SymbolsIncreaseN_Add(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4743,7 +4483,6 @@ public class GameplayData
 		GameplayData.Powerup_PoopBeetle_SymbolsIncreaseN_Set(instance._powerupPoopBeetle_SymbolsIncreaserMult + value);
 	}
 
-	// Token: 0x06000213 RID: 531 RVA: 0x0000F3B0 File Offset: 0x0000D5B0
 	public static int Powerup_GrandmasPurse_ExtraInterestGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4754,7 +4493,6 @@ public class GameplayData
 		return instance._powerupGrandmasPurse_ExtraInterest;
 	}
 
-	// Token: 0x06000214 RID: 532 RVA: 0x0000F3D0 File Offset: 0x0000D5D0
 	public static void Powerup_GrandmasPurse_ExtraInterestSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4769,7 +4507,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000215 RID: 533 RVA: 0x0000F400 File Offset: 0x0000D600
 	public static void Powerup_GrandmasPurse_ExtraInterestAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4780,13 +4517,11 @@ public class GameplayData
 		GameplayData.Powerup_GrandmasPurse_ExtraInterestSet(instance._powerupGrandmasPurse_ExtraInterest + value);
 	}
 
-	// Token: 0x06000216 RID: 534 RVA: 0x0000F424 File Offset: 0x0000D624
 	public static void Powerup_GrandmasPurse_ExtraInterestReset()
 	{
 		GameplayData.Powerup_GrandmasPurse_ExtraInterestSet(15);
 	}
 
-	// Token: 0x06000217 RID: 535 RVA: 0x0000F430 File Offset: 0x0000D630
 	public static int Powerup_OneTrickPony_TargetSpinIndexGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4797,7 +4532,6 @@ public class GameplayData
 		return instance._powerupOneTrickPony_TargetSpinsLeftIndex;
 	}
 
-	// Token: 0x06000218 RID: 536 RVA: 0x0000F450 File Offset: 0x0000D650
 	public static void Powerup_OneTrickPony_TargetSpinIndexSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4812,7 +4546,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000219 RID: 537 RVA: 0x0000F480 File Offset: 0x0000D680
 	public static int Powerup_Pentacle_TriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4823,7 +4556,6 @@ public class GameplayData
 		return instance._powerupPentacleTriggeredTimes;
 	}
 
-	// Token: 0x0600021A RID: 538 RVA: 0x0000F4A0 File Offset: 0x0000D6A0
 	public static void Powerup_Pentacle_TriggeredTimesSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4838,7 +4570,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600021B RID: 539 RVA: 0x0000F4D0 File Offset: 0x0000D6D0
 	public static void Powerup_Pentacle_TriggeredTimesAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4849,7 +4580,6 @@ public class GameplayData
 		GameplayData.Powerup_Pentacle_TriggeredTimesSet(instance._powerupPentacleTriggeredTimes + value);
 	}
 
-	// Token: 0x0600021C RID: 540 RVA: 0x0000F4F4 File Offset: 0x0000D6F4
 	public static BigInteger Powerup_Calendar_SymbolsIncreaseN_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4860,7 +4590,6 @@ public class GameplayData
 		return instance._powerupCalendar_SymbolsIncreaserMult;
 	}
 
-	// Token: 0x0600021D RID: 541 RVA: 0x0000F518 File Offset: 0x0000D718
 	public static void Powerup_Calendar_SymbolsIncreaseN_Set(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4875,7 +4604,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600021E RID: 542 RVA: 0x0000F554 File Offset: 0x0000D754
 	private void Powerup_GigaMushroom_SerializationPrepare()
 	{
 		this._powerupGigaMushroom_SymbLemonsValue_ByteArray = this._powerupGigaMushroom_SymbLemonsValue.ToByteArray();
@@ -4887,7 +4615,6 @@ public class GameplayData
 		this._powerupGigaMushroom_SymbSevensValue_ByteArray = this._powerupGigaMushroom_SymbSevensValue.ToByteArray();
 	}
 
-	// Token: 0x0600021F RID: 543 RVA: 0x0000F5D8 File Offset: 0x0000D7D8
 	private void Powerup_GigaMushroom_SerializationRestore()
 	{
 		this._powerupGigaMushroom_SymbLemonsValue = this.BigIntegerFromByteArray(this._powerupGigaMushroom_SymbLemonsValue_ByteArray, 0);
@@ -4899,7 +4626,6 @@ public class GameplayData
 		this._powerupGigaMushroom_SymbSevensValue = this.BigIntegerFromByteArray(this._powerupGigaMushroom_SymbSevensValue_ByteArray, 0);
 	}
 
-	// Token: 0x06000220 RID: 544 RVA: 0x0000F690 File Offset: 0x0000D890
 	public static BigInteger Powerup_GigaMushroom_SymbolValueGet(SymbolScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4932,7 +4658,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000221 RID: 545 RVA: 0x0000F734 File Offset: 0x0000D934
 	public static void Powerup_GigaMushroom_SymbolValueSet(SymbolScript.Kind kind, BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4972,7 +4697,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000222 RID: 546 RVA: 0x0000F850 File Offset: 0x0000DA50
 	public static int Powerup_GoldenHorseShoe_SpinsLeftGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4983,7 +4707,6 @@ public class GameplayData
 		return instance._powerupGoldenHorseShoe_SpinsLeft;
 	}
 
-	// Token: 0x06000223 RID: 547 RVA: 0x0000F870 File Offset: 0x0000DA70
 	public static void Powerup_GoldenHorseShoe_SpinsLeftSet(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -4994,7 +4717,6 @@ public class GameplayData
 		instance._powerupGoldenHorseShoe_SpinsLeft = Mathf.Max(0, n);
 	}
 
-	// Token: 0x06000224 RID: 548 RVA: 0x0000F894 File Offset: 0x0000DA94
 	public static int Powerup_AncientCoin_SpinsLeftGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5005,7 +4727,6 @@ public class GameplayData
 		return instance._powerupAncientCoin_SpinsLeft;
 	}
 
-	// Token: 0x06000225 RID: 549 RVA: 0x0000F8B4 File Offset: 0x0000DAB4
 	public static void Powerup_AncientCoin_SpinsLeftSet(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5016,7 +4737,6 @@ public class GameplayData
 		instance._powerupAncientCoin_SpinsLeft = Mathf.Max(0, n);
 	}
 
-	// Token: 0x06000226 RID: 550 RVA: 0x0000F8D8 File Offset: 0x0000DAD8
 	public static int Powerup_ChannelerOfFortune_ActivationsCounterGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5027,7 +4747,6 @@ public class GameplayData
 		return instance._powerupChannelerOfFortunes_ActivationsCounter;
 	}
 
-	// Token: 0x06000227 RID: 551 RVA: 0x0000F8F8 File Offset: 0x0000DAF8
 	public static void Powerup_ChannelerOfFortune_ActivationsCounterSet(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5038,7 +4757,6 @@ public class GameplayData
 		instance._powerupChannelerOfFortunes_ActivationsCounter = n;
 	}
 
-	// Token: 0x06000228 RID: 552 RVA: 0x0000F916 File Offset: 0x0000DB16
 	private void PowerupPareidoliaArrayEnsure()
 	{
 		if (this._powerupPareidolia_PatternBonuses == null)
@@ -5051,19 +4769,16 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000229 RID: 553 RVA: 0x0000F946 File Offset: 0x0000DB46
 	private void Powerup_Pareidolia_SerializationPrepare()
 	{
 		this.PowerupPareidoliaArrayEnsure();
 	}
 
-	// Token: 0x0600022A RID: 554 RVA: 0x0000F94E File Offset: 0x0000DB4E
 	private void Powerup_Pareidolia_SerializationRestore()
 	{
 		this.PowerupPareidoliaArrayEnsure();
 	}
 
-	// Token: 0x0600022B RID: 555 RVA: 0x0000F958 File Offset: 0x0000DB58
 	public static double Powerup_PareidoliaMultiplierBonus_Get(PatternScript.Kind kind)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5074,7 +4789,6 @@ public class GameplayData
 		return instance._powerupPareidolia_PatternBonuses[(int)kind];
 	}
 
-	// Token: 0x0600022C RID: 556 RVA: 0x0000F980 File Offset: 0x0000DB80
 	public static void Powerup_PareidoliaMultiplierBonus_Set(PatternScript.Kind kind, double n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5089,7 +4803,6 @@ public class GameplayData
 		instance._powerupPareidolia_PatternBonuses[(int)kind] = n;
 	}
 
-	// Token: 0x0600022D RID: 557 RVA: 0x0000F9B8 File Offset: 0x0000DBB8
 	public static long Powerup_RingBell_Bonus_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5100,7 +4813,6 @@ public class GameplayData
 		return instance._powerupRingBell_BonusCounter;
 	}
 
-	// Token: 0x0600022E RID: 558 RVA: 0x0000F9D8 File Offset: 0x0000DBD8
 	public static void Powerup_RingBell_Bonus_Set(long n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5115,7 +4827,6 @@ public class GameplayData
 		instance._powerupRingBell_BonusCounter = n;
 	}
 
-	// Token: 0x0600022F RID: 559 RVA: 0x0000FA00 File Offset: 0x0000DC00
 	public static long Powerup_ConsolationPrize_Bonus_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5126,7 +4837,6 @@ public class GameplayData
 		return instance._powerupConsolationPrize_BonusCounter;
 	}
 
-	// Token: 0x06000230 RID: 560 RVA: 0x0000FA20 File Offset: 0x0000DC20
 	public static void Powerup_ConsolationPrize_Bonus_Set(long n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5141,7 +4851,6 @@ public class GameplayData
 		instance._powerupConsolationPrize_BonusCounter = n;
 	}
 
-	// Token: 0x06000231 RID: 561 RVA: 0x0000FA48 File Offset: 0x0000DC48
 	public static int Powerup_StepsCounter_TriggersCounter_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5152,7 +4861,6 @@ public class GameplayData
 		return instance._powerupStepsCounter_TriggersCounter;
 	}
 
-	// Token: 0x06000232 RID: 562 RVA: 0x0000FA68 File Offset: 0x0000DC68
 	public static void Powerup_StepsCounter_TriggersCounter_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5167,7 +4875,6 @@ public class GameplayData
 		instance._powerupStepsCounter_TriggersCounter = n;
 	}
 
-	// Token: 0x06000233 RID: 563 RVA: 0x0000FA90 File Offset: 0x0000DC90
 	public static int Powerup_DieselLocomotive_Bonus_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5178,7 +4885,6 @@ public class GameplayData
 		return instance._powerupDieselLocomotiveBonus;
 	}
 
-	// Token: 0x06000234 RID: 564 RVA: 0x0000FAB0 File Offset: 0x0000DCB0
 	public static void Powerup_DieselLocomotive_Bonus_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5193,7 +4899,6 @@ public class GameplayData
 		instance._powerupDieselLocomotiveBonus = n;
 	}
 
-	// Token: 0x06000235 RID: 565 RVA: 0x0000FAD8 File Offset: 0x0000DCD8
 	public static int Powerup_SteamLocomotive_Bonus_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5204,7 +4909,6 @@ public class GameplayData
 		return instance._powerupSteamLocomotiveBonus;
 	}
 
-	// Token: 0x06000236 RID: 566 RVA: 0x0000FAF8 File Offset: 0x0000DCF8
 	public static void Powerup_SteamLocomotive_Bonus_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5219,8 +4923,8 @@ public class GameplayData
 		instance._powerupSteamLocomotiveBonus = n;
 	}
 
-	// (get) Token: 0x06000237 RID: 567 RVA: 0x0000FB20 File Offset: 0x0000DD20
-	// (set) Token: 0x06000238 RID: 568 RVA: 0x0000FB40 File Offset: 0x0000DD40
+	// (get) Token: 0x06000237 RID: 567
+	// (set) Token: 0x06000238 RID: 568
 	public static int Powerup_DiscA_SpinsCounter
 	{
 		get
@@ -5243,8 +4947,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000239 RID: 569 RVA: 0x0000FB60 File Offset: 0x0000DD60
-	// (set) Token: 0x0600023A RID: 570 RVA: 0x0000FB80 File Offset: 0x0000DD80
+	// (get) Token: 0x06000239 RID: 569
+	// (set) Token: 0x0600023A RID: 570
 	public static int Powerup_DiscB_SpinsCounter
 	{
 		get
@@ -5267,8 +4971,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x0600023B RID: 571 RVA: 0x0000FBA0 File Offset: 0x0000DDA0
-	// (set) Token: 0x0600023C RID: 572 RVA: 0x0000FBC0 File Offset: 0x0000DDC0
+	// (get) Token: 0x0600023B RID: 571
+	// (set) Token: 0x0600023C RID: 572
 	public static int Powerup_DiscC_SpinsCounter
 	{
 		get
@@ -5291,8 +4995,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x0600023D RID: 573 RVA: 0x0000FBE0 File Offset: 0x0000DDE0
-	// (set) Token: 0x0600023E RID: 574 RVA: 0x0000FC00 File Offset: 0x0000DE00
+	// (get) Token: 0x0600023D RID: 573
+	// (set) Token: 0x0600023E RID: 574
 	public static int Powerup_WeirdClock_DeadlineUses
 	{
 		get
@@ -5315,8 +5019,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x0600023F RID: 575 RVA: 0x0000FC20 File Offset: 0x0000DE20
-	// (set) Token: 0x06000240 RID: 576 RVA: 0x0000FC40 File Offset: 0x0000DE40
+	// (get) Token: 0x0600023F RID: 575
+	// (set) Token: 0x06000240 RID: 576
 	public static int Powerup_Cigarettes_ActivationsCounter
 	{
 		get
@@ -5339,8 +5043,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000241 RID: 577 RVA: 0x0000FC60 File Offset: 0x0000DE60
-	// (set) Token: 0x06000242 RID: 578 RVA: 0x0000FC80 File Offset: 0x0000DE80
+	// (get) Token: 0x06000241 RID: 577
+	// (set) Token: 0x06000242 RID: 578
 	public static int Powerup_Jimbo_RoundsLeft
 	{
 		get
@@ -5363,7 +5067,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000243 RID: 579 RVA: 0x0000FCA0 File Offset: 0x0000DEA0
 	public static void Powerup_Jimbo_ReshuffleAndReset()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5410,7 +5113,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000244 RID: 580 RVA: 0x0000FDB0 File Offset: 0x0000DFB0
 	public static List<GameplayData.JimboAbility> Powerup_Jimbo_AbilitiesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5421,14 +5123,12 @@ public class GameplayData
 		return instance.jimboAbilities_Selected;
 	}
 
-	// Token: 0x06000245 RID: 581 RVA: 0x0000FDD0 File Offset: 0x0000DFD0
 	public static bool Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility ability, bool considerEquippedState)
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && (!considerEquippedState || PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Jimbo)) && instance.jimboAbilities_Selected.Contains(ability);
 	}
 
-	// Token: 0x06000246 RID: 582 RVA: 0x0000FE08 File Offset: 0x0000E008
 	private static void JimboStringsEnsure()
 	{
 		int num = 18;
@@ -5443,7 +5143,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000247 RID: 583 RVA: 0x0000FE50 File Offset: 0x0000E050
 	public static string JimboDescriptionStringsGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5463,7 +5162,6 @@ public class GameplayData
 		return GameplayData.jimboSB.ToString();
 	}
 
-	// Token: 0x06000248 RID: 584 RVA: 0x0000FF04 File Offset: 0x0000E104
 	public static int Powerup_RedPepper_ActivationsCounterGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5474,7 +5172,6 @@ public class GameplayData
 		return instance._powerupRedPepper_ActivationsCounter;
 	}
 
-	// Token: 0x06000249 RID: 585 RVA: 0x0000FF24 File Offset: 0x0000E124
 	public static void Powerup_RedPepper_ActivationsCounterSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5489,7 +5186,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600024A RID: 586 RVA: 0x0000FF54 File Offset: 0x0000E154
 	public static void Powerup_RedPepper_ActivationsCounterAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5500,7 +5196,6 @@ public class GameplayData
 		GameplayData.Powerup_RedPepper_ActivationsCounterSet(instance._powerupRedPepper_ActivationsCounter + value);
 	}
 
-	// Token: 0x0600024B RID: 587 RVA: 0x0000FF78 File Offset: 0x0000E178
 	public static int Powerup_GreenPepper_ActivationsCounterGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5511,7 +5206,6 @@ public class GameplayData
 		return instance._powerupGreenPepper_ActivationsCounter;
 	}
 
-	// Token: 0x0600024C RID: 588 RVA: 0x0000FF98 File Offset: 0x0000E198
 	public static void Powerup_GreenPepper_ActivationsCounterSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5526,7 +5220,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600024D RID: 589 RVA: 0x0000FFC8 File Offset: 0x0000E1C8
 	public static void Powerup_GreenPepper_ActivationsCounterAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5537,7 +5230,6 @@ public class GameplayData
 		GameplayData.Powerup_GreenPepper_ActivationsCounterSet(instance._powerupGreenPepper_ActivationsCounter + value);
 	}
 
-	// Token: 0x0600024E RID: 590 RVA: 0x0000FFEC File Offset: 0x0000E1EC
 	public static int Powerup_GoldenPepper_LuckBonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5548,7 +5240,6 @@ public class GameplayData
 		return instance._powerupGoldenPepper_LuckBonus;
 	}
 
-	// Token: 0x0600024F RID: 591 RVA: 0x0001000C File Offset: 0x0000E20C
 	public static void Powerup_GoldenPepper_LuckBonusSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5563,7 +5254,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000250 RID: 592 RVA: 0x0001003C File Offset: 0x0000E23C
 	public static int Powerup_RottenPepper_LuckBonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5574,7 +5264,6 @@ public class GameplayData
 		return instance._powerupRottenPepper_LuckBonus;
 	}
 
-	// Token: 0x06000251 RID: 593 RVA: 0x0001005C File Offset: 0x0000E25C
 	public static void Powerup_RottenPepper_LuckBonusSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5589,7 +5278,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000252 RID: 594 RVA: 0x0001008C File Offset: 0x0000E28C
 	public static int Powerup_BellPepper_LuckBonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5600,7 +5288,6 @@ public class GameplayData
 		return instance._powerupBellPepper_LuckBonus;
 	}
 
-	// Token: 0x06000253 RID: 595 RVA: 0x000100AC File Offset: 0x0000E2AC
 	public static void Powerup_BellPepper_LuckBonusSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5615,7 +5302,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000254 RID: 596 RVA: 0x000100DC File Offset: 0x0000E2DC
 	public static long Powerup_DevilHorn_AdditionalMultiplierGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5626,7 +5312,6 @@ public class GameplayData
 		return instance._powerupDevilHorn_AdditionalMultiplier;
 	}
 
-	// Token: 0x06000255 RID: 597 RVA: 0x000100FC File Offset: 0x0000E2FC
 	public static void Powerup_DevilHorn_AdditionalMultiplierSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5641,7 +5326,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000256 RID: 598 RVA: 0x0001012C File Offset: 0x0000E32C
 	public static void Powerup_DevilHorn_AdditionalMultiplierAdd(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5652,7 +5336,6 @@ public class GameplayData
 		GameplayData.Powerup_DevilHorn_AdditionalMultiplierSet(instance._powerupDevilHorn_AdditionalMultiplier + value);
 	}
 
-	// Token: 0x06000257 RID: 599 RVA: 0x00010150 File Offset: 0x0000E350
 	public static int Powerup_Baphomet_ActivationsCounterGet_Above()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5663,7 +5346,6 @@ public class GameplayData
 		return instance._powerupBaphomet_SymbolsBonus;
 	}
 
-	// Token: 0x06000258 RID: 600 RVA: 0x00010170 File Offset: 0x0000E370
 	public static void Powerup_Baphomet_ActivationsCounterSet_Above(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5678,7 +5360,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000259 RID: 601 RVA: 0x000101A0 File Offset: 0x0000E3A0
 	public static int Powerup_Baphomet_ActivationsCounterGet_Below()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5689,7 +5370,6 @@ public class GameplayData
 		return instance._powerupBaphomet_PatternsBonus;
 	}
 
-	// Token: 0x0600025A RID: 602 RVA: 0x000101C0 File Offset: 0x0000E3C0
 	public static void Powerup_Baphomet_ActivationsCounterSet_Below(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5704,7 +5384,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600025B RID: 603 RVA: 0x000101F0 File Offset: 0x0000E3F0
 	public static long Powerup_Cross_TriggersCount_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5715,7 +5394,6 @@ public class GameplayData
 		return instance._powerupCross_Triggers;
 	}
 
-	// Token: 0x0600025C RID: 604 RVA: 0x00010210 File Offset: 0x0000E410
 	public static void Powerup_Cross_TriggersCount_Set(long i)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5726,7 +5404,6 @@ public class GameplayData
 		instance._powerupCross_Triggers = i;
 	}
 
-	// Token: 0x0600025D RID: 605 RVA: 0x00010230 File Offset: 0x0000E430
 	public static int Powerup_PossessedPhone_TriggersCount_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5737,7 +5414,6 @@ public class GameplayData
 		return instance._powerupPossessedPhone_SpinsCount;
 	}
 
-	// Token: 0x0600025E RID: 606 RVA: 0x00010250 File Offset: 0x0000E450
 	public static void Powerup_PossessedPhone_TriggersCount_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5748,7 +5424,6 @@ public class GameplayData
 		instance._powerupPossessedPhone_SpinsCount = Mathf.Max(0, n);
 	}
 
-	// Token: 0x0600025F RID: 607 RVA: 0x00010274 File Offset: 0x0000E474
 	public static float Powerup_GoldenKingMida_ExtraBonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5759,7 +5434,6 @@ public class GameplayData
 		return instance._powerupGoldenKingMida_ExtraBonus;
 	}
 
-	// Token: 0x06000260 RID: 608 RVA: 0x00010298 File Offset: 0x0000E498
 	public static void Powerup_GoldenKingMida_ExtraBonusSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5770,7 +5444,6 @@ public class GameplayData
 		instance._powerupGoldenKingMida_ExtraBonus = value;
 	}
 
-	// Token: 0x06000261 RID: 609 RVA: 0x000102B8 File Offset: 0x0000E4B8
 	public static float Powerup_Dealer_ExtraBonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5781,7 +5454,6 @@ public class GameplayData
 		return instance._powerupDealer_ExtraBonus;
 	}
 
-	// Token: 0x06000262 RID: 610 RVA: 0x000102DC File Offset: 0x0000E4DC
 	public static void Powerup_Dealer_ExtraBonusSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5792,7 +5464,6 @@ public class GameplayData
 		instance._powerupDealer_ExtraBonus = value;
 	}
 
-	// Token: 0x06000263 RID: 611 RVA: 0x000102FC File Offset: 0x0000E4FC
 	public static float Powerup_Capitalist_ExtraBonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5803,7 +5474,6 @@ public class GameplayData
 		return instance._powerupCapitalist_ExtraBonus;
 	}
 
-	// Token: 0x06000264 RID: 612 RVA: 0x00010320 File Offset: 0x0000E520
 	public static void Powerup_Capitalist_ExtraBonusSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5814,7 +5484,6 @@ public class GameplayData
 		instance._powerupCapitalist_ExtraBonus = value;
 	}
 
-	// Token: 0x06000265 RID: 613 RVA: 0x00010340 File Offset: 0x0000E540
 	public static float Powerup_PersonalTrainer_BonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5825,7 +5494,6 @@ public class GameplayData
 		return instance._powerupPersonalTrainer_Bonus;
 	}
 
-	// Token: 0x06000266 RID: 614 RVA: 0x00010364 File Offset: 0x0000E564
 	public static void Powerup_PersonalTrainer_BonusSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5836,13 +5504,11 @@ public class GameplayData
 		instance._powerupPersonalTrainer_Bonus = value;
 	}
 
-	// Token: 0x06000267 RID: 615 RVA: 0x00010382 File Offset: 0x0000E582
 	public static void Powerup_PersonalTrainer_BonusReset()
 	{
 		GameplayData.Powerup_PersonalTrainer_BonusSet(0.25f);
 	}
 
-	// Token: 0x06000268 RID: 616 RVA: 0x00010390 File Offset: 0x0000E590
 	public static float Powerup_Electrician_BonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5853,7 +5519,6 @@ public class GameplayData
 		return instance._powerupElectrician_Bonus;
 	}
 
-	// Token: 0x06000269 RID: 617 RVA: 0x000103B4 File Offset: 0x0000E5B4
 	public static void Powerup_Electrician_BonusSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5864,13 +5529,11 @@ public class GameplayData
 		instance._powerupElectrician_Bonus = value;
 	}
 
-	// Token: 0x0600026A RID: 618 RVA: 0x000103D2 File Offset: 0x0000E5D2
 	public static void Powerup_Electrician_BonusReset()
 	{
 		GameplayData.Powerup_Electrician_BonusSet(0.05f);
 	}
 
-	// Token: 0x0600026B RID: 619 RVA: 0x000103E0 File Offset: 0x0000E5E0
 	public static float Powerup_FortuneTeller_BonusGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5881,7 +5544,6 @@ public class GameplayData
 		return instance._powerupFortuneTeller_Bonus;
 	}
 
-	// Token: 0x0600026C RID: 620 RVA: 0x00010404 File Offset: 0x0000E604
 	public static void Powerup_FortuneTeller_BonusSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5892,13 +5554,11 @@ public class GameplayData
 		instance._powerupFortuneTeller_Bonus = value;
 	}
 
-	// Token: 0x0600026D RID: 621 RVA: 0x00010422 File Offset: 0x0000E622
 	public static void Powerup_FortuneTeller_BonusReset()
 	{
 		GameplayData.Powerup_FortuneTeller_BonusSet(0.25f);
 	}
 
-	// Token: 0x0600026E RID: 622 RVA: 0x00010430 File Offset: 0x0000E630
 	public static long Powerup_AceOfClubs_TicketsSpentGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5909,7 +5569,6 @@ public class GameplayData
 		return instance._powerupAceOfClubs_TicketsSpent;
 	}
 
-	// Token: 0x0600026F RID: 623 RVA: 0x00010450 File Offset: 0x0000E650
 	public static void Powerup_AceOfClubs_TicketsSpentSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5920,7 +5579,6 @@ public class GameplayData
 		instance._powerupAceOfClubs_TicketsSpent = value;
 	}
 
-	// Token: 0x06000270 RID: 624 RVA: 0x00010470 File Offset: 0x0000E670
 	public static long Powerup_AceOfSpades_ActivationsCounterGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5931,7 +5589,6 @@ public class GameplayData
 		return instance._powerupAceOfSpades_ActivationsCounter;
 	}
 
-	// Token: 0x06000271 RID: 625 RVA: 0x00010490 File Offset: 0x0000E690
 	public static void Powerup_AceOfSpades_ActivationsCounterSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5942,7 +5599,6 @@ public class GameplayData
 		instance._powerupAceOfSpades_ActivationsCounter = value;
 	}
 
-	// Token: 0x06000272 RID: 626 RVA: 0x000104B0 File Offset: 0x0000E6B0
 	public static PowerupScript.Identifier PowerupHoleCircle_CharmGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5953,7 +5609,6 @@ public class GameplayData
 		return instance._powerupHoleCircle_CharmIdentifier;
 	}
 
-	// Token: 0x06000273 RID: 627 RVA: 0x000104D0 File Offset: 0x0000E6D0
 	public static void PowerupHoleCircle_CharmSet(PowerupScript.Identifier identifier)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5964,7 +5619,6 @@ public class GameplayData
 		instance._powerupHoleCircle_CharmIdentifier = identifier;
 	}
 
-	// Token: 0x06000274 RID: 628 RVA: 0x000104F0 File Offset: 0x0000E6F0
 	public static PowerupScript.Identifier PowerupHoleRomboid_CharmGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5975,7 +5629,6 @@ public class GameplayData
 		return instance._powerupHoleRomboid_CharmIdentifier;
 	}
 
-	// Token: 0x06000275 RID: 629 RVA: 0x00010510 File Offset: 0x0000E710
 	public static void PowerupHoleRomboid_CharmSet(PowerupScript.Identifier identifier)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5986,7 +5639,6 @@ public class GameplayData
 		instance._powerupHoleRomboid_CharmIdentifier = identifier;
 	}
 
-	// Token: 0x06000276 RID: 630 RVA: 0x00010530 File Offset: 0x0000E730
 	public static AbilityScript.Identifier PowerupHoleCross_AbilityGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -5997,7 +5649,6 @@ public class GameplayData
 		return instance._powerupHoleCross_AbilityIdentifier;
 	}
 
-	// Token: 0x06000277 RID: 631 RVA: 0x00010550 File Offset: 0x0000E750
 	public static void PowerupHoleCross_AbilitySet(AbilityScript.Identifier identifier)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6008,8 +5659,8 @@ public class GameplayData
 		instance._powerupHoleCross_AbilityIdentifier = identifier;
 	}
 
-	// (get) Token: 0x06000278 RID: 632 RVA: 0x00010570 File Offset: 0x0000E770
-	// (set) Token: 0x06000279 RID: 633 RVA: 0x00010590 File Offset: 0x0000E790
+	// (get) Token: 0x06000278 RID: 632
+	// (set) Token: 0x06000279 RID: 633
 	public static int PowerupOphanimWheels_JackpotsCounter
 	{
 		get
@@ -6032,7 +5683,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600027A RID: 634 RVA: 0x000105B4 File Offset: 0x0000E7B4
 	public static int MaxEquippablePowerupsGet(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6050,7 +5700,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x0600027B RID: 635 RVA: 0x000105F4 File Offset: 0x0000E7F4
 	public static void MaxEquippablePowerupsSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6074,7 +5723,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600027C RID: 636 RVA: 0x0001064C File Offset: 0x0000E84C
 	public static void MaxEquippablePowerupsAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6085,19 +5733,16 @@ public class GameplayData
 		GameplayData.MaxEquippablePowerupsSet(instance.maxEquippablePowerups + value);
 	}
 
-	// Token: 0x0600027D RID: 637 RVA: 0x00010670 File Offset: 0x0000E870
 	public static void MaxEquippablePowerupsReset()
 	{
 		GameplayData.MaxEquippablePowerupsSet(7);
 	}
 
-	// Token: 0x0600027E RID: 638 RVA: 0x00010678 File Offset: 0x0000E878
 	private static int _MaxEquippablePowerupsGet_AbsoluteMaximum()
 	{
 		return ItemOrganizerScript.CharmsSlotN();
 	}
 
-	// Token: 0x0600027F RID: 639 RVA: 0x00010680 File Offset: 0x0000E880
 	public static float PowerupCoinsMultiplierGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6108,7 +5753,6 @@ public class GameplayData
 		return instance.powerupCoinsMultiplier;
 	}
 
-	// Token: 0x06000280 RID: 640 RVA: 0x000106A4 File Offset: 0x0000E8A4
 	public static void PowerupCoinsMultiplierSet(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6123,7 +5767,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000281 RID: 641 RVA: 0x000106DC File Offset: 0x0000E8DC
 	public static void PowerupCoinsMultiplierAdd(float value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6134,13 +5777,11 @@ public class GameplayData
 		GameplayData.PowerupCoinsMultiplierSet(instance.powerupCoinsMultiplier + value);
 	}
 
-	// Token: 0x06000282 RID: 642 RVA: 0x00010700 File Offset: 0x0000E900
 	public static void PowerupCoinsMultiplierReset()
 	{
 		GameplayData.PowerupCoinsMultiplierSet(1f);
 	}
 
-	// Token: 0x06000283 RID: 643 RVA: 0x0001070C File Offset: 0x0000E90C
 	public static int RedButtonActivationsMultiplierGet(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6160,7 +5801,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x06000284 RID: 644 RVA: 0x00010744 File Offset: 0x0000E944
 	public static void RedButtonActivationsMultiplierSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6175,7 +5815,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000285 RID: 645 RVA: 0x00010774 File Offset: 0x0000E974
 	public static void RedButtonActivationsMultiplierAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6186,7 +5825,6 @@ public class GameplayData
 		GameplayData.RedButtonActivationsMultiplierSet(instance._redButtonActivationsMultiplier + value);
 	}
 
-	// Token: 0x06000286 RID: 646 RVA: 0x00010798 File Offset: 0x0000E998
 	private void _Phone_PrepareForSerialization()
 	{
 		this.phoneAbilitiesPickHistory_AsString = PlatformDataMaster.EnumListToString<AbilityScript.Identifier>(this.phoneAbilitiesPickHistory, ',');
@@ -6194,7 +5832,6 @@ public class GameplayData
 		this.nineNineNine_TotalRewardEarned_ByteArray = this.nineNineNine_TotalRewardEarned.ToByteArray();
 	}
 
-	// Token: 0x06000287 RID: 647 RVA: 0x000107D1 File Offset: 0x0000E9D1
 	private void _Phone_RestoreFromSerialization()
 	{
 		this.phoneAbilitiesPickHistory = PlatformDataMaster.EnumListFromString<AbilityScript.Identifier>(this.phoneAbilitiesPickHistory_AsString, ',');
@@ -6202,8 +5839,8 @@ public class GameplayData
 		this.nineNineNine_TotalRewardEarned = this.BigIntegerFromByteArray(this.nineNineNine_TotalRewardEarned_ByteArray, 0);
 	}
 
-	// (get) Token: 0x06000288 RID: 648 RVA: 0x00010814 File Offset: 0x0000EA14
-	// (set) Token: 0x06000289 RID: 649 RVA: 0x00010834 File Offset: 0x0000EA34
+	// (get) Token: 0x06000288 RID: 648
+	// (set) Token: 0x06000289 RID: 649
 	public static int AbilityHoly_PatternsRepetitions
 	{
 		get
@@ -6226,7 +5863,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x0600028A RID: 650 RVA: 0x00010858 File Offset: 0x0000EA58
 	public static void Phone_SpeciallCallBooking_Reset()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6237,14 +5873,12 @@ public class GameplayData
 		instance._phone_bookSpecialCall = false;
 	}
 
-	// Token: 0x0600028B RID: 651 RVA: 0x00010878 File Offset: 0x0000EA78
 	public static bool NineNineNine_IsTime()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance._phone_SpecialCalls_Counter > 3 && instance._phone_EvilCallsPicked_Counter <= 0;
 	}
 
-	// Token: 0x0600028C RID: 652 RVA: 0x000108A8 File Offset: 0x0000EAA8
 	public static int Phone_Ignored666CallsLevel_DefineAndReturn()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6265,7 +5899,6 @@ public class GameplayData
 		return Mathf.Clamp(instance._phone_EvilCallsIgnored_Counter, 0, 3);
 	}
 
-	// Token: 0x0600028D RID: 653 RVA: 0x000108F8 File Offset: 0x0000EAF8
 	public static int Phone_Ignored666CallsLevel_JustGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6280,7 +5913,6 @@ public class GameplayData
 		return instance._phone_EvilCallsIgnored_Counter;
 	}
 
-	// Token: 0x0600028E RID: 654 RVA: 0x00010928 File Offset: 0x0000EB28
 	public static int PhoneAbilitiesNumber_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6291,7 +5923,6 @@ public class GameplayData
 		return instance._phoneAbilitiesNumber;
 	}
 
-	// Token: 0x0600028F RID: 655 RVA: 0x00010948 File Offset: 0x0000EB48
 	public static void PhoneAbilitiesNumber_SetToMAX()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6302,7 +5933,6 @@ public class GameplayData
 		instance._phoneAbilitiesNumber = 4;
 	}
 
-	// Token: 0x06000290 RID: 656 RVA: 0x00010968 File Offset: 0x0000EB68
 	public static void PhoneAbilitiesNumber_SetToDefault()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6313,7 +5943,6 @@ public class GameplayData
 		instance._phoneAbilitiesNumber = 3;
 	}
 
-	// Token: 0x06000291 RID: 657 RVA: 0x00010988 File Offset: 0x0000EB88
 	public static long PhoneRerollCostGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6324,7 +5953,6 @@ public class GameplayData
 		return instance._phoneRerollCost;
 	}
 
-	// Token: 0x06000292 RID: 658 RVA: 0x000109A8 File Offset: 0x0000EBA8
 	public static void PhoneRerollCostReset(bool considerDeadline)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6344,7 +5972,6 @@ public class GameplayData
 		instance._phoneRerollCost = 1L + num;
 	}
 
-	// Token: 0x06000293 RID: 659 RVA: 0x000109E8 File Offset: 0x0000EBE8
 	public static void PhoneRerollCostIncrease()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6355,7 +5982,6 @@ public class GameplayData
 		instance._phoneRerollCost += instance._phoneRerollCostIncrease;
 	}
 
-	// Token: 0x06000294 RID: 660 RVA: 0x00010A14 File Offset: 0x0000EC14
 	public static int PhonePickMultiplierGet(bool considerPowerups)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6375,7 +6001,6 @@ public class GameplayData
 		return num;
 	}
 
-	// Token: 0x06000295 RID: 661 RVA: 0x00010A4C File Offset: 0x0000EC4C
 	public static void PhonePickMultiplierSet(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6390,7 +6015,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x06000296 RID: 662 RVA: 0x00010A7C File Offset: 0x0000EC7C
 	public static void PhonePickMultiplierAdd(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6401,7 +6025,6 @@ public class GameplayData
 		GameplayData.PhonePickMultiplierSet(instance._phonePickMultiplier + value);
 	}
 
-	// Token: 0x06000297 RID: 663 RVA: 0x00010AA0 File Offset: 0x0000ECA0
 	public static BigInteger NineNineNne_TotalRewardEarned_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6412,7 +6035,6 @@ public class GameplayData
 		return instance.nineNineNine_TotalRewardEarned;
 	}
 
-	// Token: 0x06000298 RID: 664 RVA: 0x00010AC4 File Offset: 0x0000ECC4
 	public static void NineNineNne_TotalRewardEarned_Set(BigInteger n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6423,7 +6045,6 @@ public class GameplayData
 		instance.nineNineNine_TotalRewardEarned = n;
 	}
 
-	// Token: 0x06000299 RID: 665 RVA: 0x00010AE4 File Offset: 0x0000ECE4
 	public static void PhoneAbilities_GetCount(ref int normalCount, ref int evilCount, ref int goodCount)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6472,7 +6093,6 @@ public class GameplayData
 		goodCount = instance._phoneAbilChache_holyCount;
 	}
 
-	// Token: 0x0600029A RID: 666 RVA: 0x00010BE0 File Offset: 0x0000EDE0
 	public static int PhoneAbilities_GetCount_Normal()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6484,7 +6104,6 @@ public class GameplayData
 		return instance._pTempNormal;
 	}
 
-	// Token: 0x0600029B RID: 667 RVA: 0x00010C18 File Offset: 0x0000EE18
 	public static int PhoneAbilities_GetCount_Evil()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6496,7 +6115,6 @@ public class GameplayData
 		return instance._pTempEvil;
 	}
 
-	// Token: 0x0600029C RID: 668 RVA: 0x00010C50 File Offset: 0x0000EE50
 	public static int PhoneAbilities_GetCount_Good()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6508,7 +6126,6 @@ public class GameplayData
 		return instance._pTempGood;
 	}
 
-	// Token: 0x0600029D RID: 669 RVA: 0x00010C88 File Offset: 0x0000EE88
 	public static int PhoneAbilities_GetSkippedCount_Total()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6519,7 +6136,6 @@ public class GameplayData
 		return instance.phoneEasyCounter_SkippedCalls_Total;
 	}
 
-	// Token: 0x0600029E RID: 670 RVA: 0x00010CA8 File Offset: 0x0000EEA8
 	public static int PhoneAbilities_GetSkippedCount_Normal()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6530,7 +6146,6 @@ public class GameplayData
 		return instance.phoneEasyCounter_SkippedCalls_Normal;
 	}
 
-	// Token: 0x0600029F RID: 671 RVA: 0x00010CC8 File Offset: 0x0000EEC8
 	public static int PhoneAbilities_GetSkippedCount_Evil()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6541,7 +6156,6 @@ public class GameplayData
 		return instance.phoneEasyCounter_SkippedCalls_Evil;
 	}
 
-	// Token: 0x060002A0 RID: 672 RVA: 0x00010CE8 File Offset: 0x0000EEE8
 	public static int PhoneAbilities_GetSkippedCount_Good()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6552,7 +6166,6 @@ public class GameplayData
 		return instance.phoneEasyCounter_SkippedCalls_Good;
 	}
 
-	// Token: 0x060002A1 RID: 673 RVA: 0x00010D08 File Offset: 0x0000EF08
 	public static long PhoneRerollPerformed_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6563,7 +6176,6 @@ public class GameplayData
 		return instance._phoneRerollsPerformed;
 	}
 
-	// Token: 0x060002A2 RID: 674 RVA: 0x00010D28 File Offset: 0x0000EF28
 	public static void PhoneRerollPerformed_Set(long n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6578,8 +6190,8 @@ public class GameplayData
 		instance._phoneRerollsPerformed = n;
 	}
 
-	// (get) Token: 0x060002A3 RID: 675 RVA: 0x00010D50 File Offset: 0x0000EF50
-	// (set) Token: 0x060002A4 RID: 676 RVA: 0x00010D70 File Offset: 0x0000EF70
+	// (get) Token: 0x060002A3 RID: 675
+	// (set) Token: 0x060002A4 RID: 676
 	public static long PhoneRerollPerformed_PerDeadline
 	{
 		get
@@ -6602,7 +6214,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002A5 RID: 677 RVA: 0x00010D8E File Offset: 0x0000EF8E
 	private void RunModifiers_SavePreparing()
 	{
 		if (this.runModifierPicked == RunModifierScript.Identifier.undefined || this.runModifierPicked == RunModifierScript.Identifier.count)
@@ -6612,7 +6223,6 @@ public class GameplayData
 		this.runModifierPicked_AsString = PlatformDataMaster.EnumEntryToString<RunModifierScript.Identifier>(this.runModifierPicked);
 	}
 
-	// Token: 0x060002A6 RID: 678 RVA: 0x00010DBC File Offset: 0x0000EFBC
 	private void RunModifiers_LoadFormat()
 	{
 		this.runModifierPicked = PlatformDataMaster.EnumEntryFromString<RunModifierScript.Identifier>(this.runModifierPicked_AsString, RunModifierScript.Identifier.defaultModifier);
@@ -6622,7 +6232,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002A7 RID: 679 RVA: 0x00010DEC File Offset: 0x0000EFEC
 	public static RunModifierScript.Identifier RunModifier_GetCurrent()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6633,7 +6242,6 @@ public class GameplayData
 		return instance.runModifierPicked;
 	}
 
-	// Token: 0x060002A8 RID: 680 RVA: 0x00010E0C File Offset: 0x0000F00C
 	public static void RunModifier_SetCurrent(RunModifierScript.Identifier identifier, bool setByPlayer)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6666,21 +6274,18 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002A9 RID: 681 RVA: 0x00010E90 File Offset: 0x0000F090
 	public static bool RunModifier_AlreadyPicked()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance._runModifier_AlreadySet;
 	}
 
-	// Token: 0x060002AA RID: 682 RVA: 0x00010EB0 File Offset: 0x0000F0B0
 	public static bool RunModifier_DealIsAvailable_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.runModifier_DealIsAvailable;
 	}
 
-	// Token: 0x060002AB RID: 683 RVA: 0x00010ED0 File Offset: 0x0000F0D0
 	public static void RunModifier_DealIsAvailable_Set(bool value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6691,7 +6296,6 @@ public class GameplayData
 		instance.runModifier_DealIsAvailable = value;
 	}
 
-	// Token: 0x060002AC RID: 684 RVA: 0x00010EF0 File Offset: 0x0000F0F0
 	public static int RunModifier_AcceptedDealsCounter_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6702,7 +6306,6 @@ public class GameplayData
 		return instance.runModifier_AcceptedDealsCounter;
 	}
 
-	// Token: 0x060002AD RID: 685 RVA: 0x00010F10 File Offset: 0x0000F110
 	public static void RunModifier_AcceptedDealsCounter_Set(int n)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6713,36 +6316,31 @@ public class GameplayData
 		instance.runModifier_AcceptedDealsCounter = Mathf.Max(0, n);
 	}
 
-	// Token: 0x060002AE RID: 686 RVA: 0x00010F34 File Offset: 0x0000F134
 	public static int RunModifier_BonusPacksThisTime_Get()
 	{
-		int num = (int)GameplayData.RunModifier_GetCurrent();
+		int num3 = (int)GameplayData.RunModifier_GetCurrent();
 		int num2 = 0;
-		if (num == 10)
+		if (num3 == 10)
 		{
 			num2++;
 		}
 		return GameplayData.RunModifier_AcceptedDealsCounter_Get() + 1 + num2;
 	}
 
-	// Token: 0x060002AF RID: 687 RVA: 0x00010F59 File Offset: 0x0000F159
 	private void _MetaProgression_PrepareForSerialization()
 	{
 	}
 
-	// Token: 0x060002B0 RID: 688 RVA: 0x00010F5B File Offset: 0x0000F15B
 	private void _MetaProgression_RestoreFromSerialization()
 	{
 	}
 
-	// Token: 0x060002B1 RID: 689 RVA: 0x00010F60 File Offset: 0x0000F160
 	public static bool AlreadyBoughtPowerupAtTerminalGet()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance._alreadyBoughtPowerupAtTerminal;
 	}
 
-	// Token: 0x060002B2 RID: 690 RVA: 0x00010F80 File Offset: 0x0000F180
 	public static void AlreadyBoughtPowerupAtTerminalSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6753,14 +6351,12 @@ public class GameplayData
 		instance._alreadyBoughtPowerupAtTerminal = true;
 	}
 
-	// Token: 0x060002B3 RID: 691 RVA: 0x00010FA0 File Offset: 0x0000F1A0
 	public static bool NewGameIntroFinished_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.newGameIntro_Finished;
 	}
 
-	// Token: 0x060002B4 RID: 692 RVA: 0x00010FC0 File Offset: 0x0000F1C0
 	public static void NewGameIntroFinished_Set(bool finished)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6771,19 +6367,16 @@ public class GameplayData
 		instance.newGameIntro_Finished = finished;
 	}
 
-	// Token: 0x060002B5 RID: 693 RVA: 0x00010FDE File Offset: 0x0000F1DE
 	private void _Ending_PrepareForSerialization()
 	{
 		this.rewardBoxDebtIndex_ByteArray = this.rewardBoxDebtIndex.ToByteArray();
 	}
 
-	// Token: 0x060002B6 RID: 694 RVA: 0x00010FF1 File Offset: 0x0000F1F1
 	private void _Ending_RestoreFromSerialization()
 	{
 		this.rewardBoxDebtIndex = this.BigIntegerFromByteArray(this.rewardBoxDebtIndex_ByteArray, -1);
 	}
 
-	// Token: 0x060002B7 RID: 695 RVA: 0x0001100C File Offset: 0x0000F20C
 	public static bool CanGetSkeletonKey()
 	{
 		if (GameplayData.Instance == null)
@@ -6817,7 +6410,6 @@ public class GameplayData
 		return true;
 	}
 
-	// Token: 0x060002B8 RID: 696 RVA: 0x0001109C File Offset: 0x0000F29C
 	public static BigInteger GetRewardBoxDebtIndex()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6859,7 +6451,6 @@ public class GameplayData
 		return instance.rewardBoxDebtIndex;
 	}
 
-	// Token: 0x060002B9 RID: 697 RVA: 0x00011160 File Offset: 0x0000F360
 	public static BigInteger GetRewardDeadlineDebt()
 	{
 		if (GameplayData.Instance == null)
@@ -6869,26 +6460,22 @@ public class GameplayData
 		return GameplayData.DebtGetExt(GameplayData.GetRewardBoxDebtIndex());
 	}
 
-	// Token: 0x060002BA RID: 698 RVA: 0x0001117E File Offset: 0x0000F37E
 	public static bool RewardTimeToShowAmmount()
 	{
 		return GameplayData.Instance != null && GameplayData.DebtIndexGet() >= GameplayData.GetRewardBoxDebtIndex();
 	}
 
-	// Token: 0x060002BB RID: 699 RVA: 0x00011198 File Offset: 0x0000F398
 	public static bool WinConditionAlreadyAchieved()
 	{
 		return GameplayData.Instance != null && (GameplayData.DebtIndexGet() > GameplayData.GetRewardBoxDebtIndex() || RewardBoxScript.IsOpened());
 	}
 
-	// Token: 0x060002BC RID: 700 RVA: 0x000111BC File Offset: 0x0000F3BC
 	public static bool KeptPlayingPastWinConditionGet()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.keptPlayingPastWinCondition;
 	}
 
-	// Token: 0x060002BD RID: 701 RVA: 0x000111DC File Offset: 0x0000F3DC
 	public static void KeptPlayingPastWinConditionSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6899,14 +6486,12 @@ public class GameplayData
 		instance.keptPlayingPastWinCondition = true;
 	}
 
-	// Token: 0x060002BE RID: 702 RVA: 0x000111FC File Offset: 0x0000F3FC
 	public static bool RewardBoxIsOpened()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.rewardBoxWasOpened;
 	}
 
-	// Token: 0x060002BF RID: 703 RVA: 0x0001121C File Offset: 0x0000F41C
 	public static void RewardBoxSetOpened()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6917,14 +6502,12 @@ public class GameplayData
 		instance.rewardBoxWasOpened = true;
 	}
 
-	// Token: 0x060002C0 RID: 704 RVA: 0x0001123C File Offset: 0x0000F43C
 	public static bool RewardBoxHasPrize()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.rewardBoxHasPrize;
 	}
 
-	// Token: 0x060002C1 RID: 705 RVA: 0x0001125C File Offset: 0x0000F45C
 	public static void RewardBoxPickupPrize()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6935,14 +6518,12 @@ public class GameplayData
 		instance.rewardBoxHasPrize = false;
 	}
 
-	// Token: 0x060002C2 RID: 706 RVA: 0x0001127C File Offset: 0x0000F47C
 	public static bool PrizeWasUsedGet()
 	{
 		GameplayData instance = GameplayData.Instance;
 		return instance != null && instance.prizeWasUsed;
 	}
 
-	// Token: 0x060002C3 RID: 707 RVA: 0x0001129C File Offset: 0x0000F49C
 	public static void PrizeWasUsedSet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -6953,13 +6534,11 @@ public class GameplayData
 		instance.prizeWasUsed = true;
 	}
 
-	// Token: 0x060002C4 RID: 708 RVA: 0x000112BA File Offset: 0x0000F4BA
 	public static bool IsInVictoryCondition()
 	{
 		return GameplayData.Instance != null && !GameplayMaster.GameIsResetting() && GameplayData.RewardBoxIsOpened() && !GameplayData.RewardBoxHasPrize() && GameplayData.PrizeWasUsedGet();
 	}
 
-	// Token: 0x060002C5 RID: 709 RVA: 0x000112EA File Offset: 0x0000F4EA
 	public static bool IsInGoodEndingCondition(bool considerKeyState)
 	{
 		if (!considerKeyState)
@@ -6969,7 +6548,6 @@ public class GameplayData
 		return GameplayData.IsInVictoryCondition() && GameplayData.NineNineNine_IsTime();
 	}
 
-	// Token: 0x060002C6 RID: 710 RVA: 0x00011303 File Offset: 0x0000F503
 	public static bool IsInBadEndingCondition(bool considerKeyState)
 	{
 		if (!considerKeyState)
@@ -6979,7 +6557,6 @@ public class GameplayData
 		return GameplayData.IsInVictoryCondition() && !GameplayData.NineNineNine_IsTime();
 	}
 
-	// Token: 0x060002C7 RID: 711 RVA: 0x00011324 File Offset: 0x0000F524
 	private static RewardBoxScript.RewardKind DefaultRewardKind()
 	{
 		switch (DrawersScript.GetDrawersUnlockedNum())
@@ -7000,8 +6577,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060002C8 RID: 712 RVA: 0x00011368 File Offset: 0x0000F568
-	// (set) Token: 0x060002C9 RID: 713 RVA: 0x0001139C File Offset: 0x0000F59C
+	// (get) Token: 0x060002C8 RID: 712
+	// (set) Token: 0x060002C9 RID: 713
 	public static RewardBoxScript.RewardKind RewardKind
 	{
 		get
@@ -7028,7 +6605,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002CA RID: 714 RVA: 0x000113BC File Offset: 0x0000F5BC
 	public static long Stats_ModifiedLemonTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7039,7 +6615,6 @@ public class GameplayData
 		return instance.stats_ModifiedLemonTriggeredTimes;
 	}
 
-	// Token: 0x060002CB RID: 715 RVA: 0x000113DC File Offset: 0x0000F5DC
 	public static void Stats_ModifiedLemonTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7050,7 +6625,6 @@ public class GameplayData
 		instance.stats_ModifiedLemonTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002CC RID: 716 RVA: 0x00011404 File Offset: 0x0000F604
 	public static long Stats_ModifiedCherryTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7061,7 +6635,6 @@ public class GameplayData
 		return instance.stats_ModifiedCherryTriggeredTimes;
 	}
 
-	// Token: 0x060002CD RID: 717 RVA: 0x00011424 File Offset: 0x0000F624
 	public static void Stats_ModifiedCherryTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7072,7 +6645,6 @@ public class GameplayData
 		instance.stats_ModifiedCherryTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002CE RID: 718 RVA: 0x0001144C File Offset: 0x0000F64C
 	public static long Stats_ModifiedCloverTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7083,7 +6655,6 @@ public class GameplayData
 		return instance.stats_ModifiedCloverTriggeredTimes;
 	}
 
-	// Token: 0x060002CF RID: 719 RVA: 0x0001146C File Offset: 0x0000F66C
 	public static void Stats_ModifiedCloverTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7094,7 +6665,6 @@ public class GameplayData
 		instance.stats_ModifiedCloverTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002D0 RID: 720 RVA: 0x00011494 File Offset: 0x0000F694
 	public static long Stats_ModifiedBellTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7105,7 +6675,6 @@ public class GameplayData
 		return instance.stats_ModifiedBellTriggeredTimes;
 	}
 
-	// Token: 0x060002D1 RID: 721 RVA: 0x000114B4 File Offset: 0x0000F6B4
 	public static void Stats_ModifiedBellTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7116,7 +6685,6 @@ public class GameplayData
 		instance.stats_ModifiedBellTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002D2 RID: 722 RVA: 0x000114DC File Offset: 0x0000F6DC
 	public static long Stats_ModifiedDiamondTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7127,7 +6695,6 @@ public class GameplayData
 		return instance.stats_ModifiedDiamondTriggeredTimes;
 	}
 
-	// Token: 0x060002D3 RID: 723 RVA: 0x000114FC File Offset: 0x0000F6FC
 	public static void Stats_ModifiedDiamondTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7138,7 +6705,6 @@ public class GameplayData
 		instance.stats_ModifiedDiamondTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002D4 RID: 724 RVA: 0x00011524 File Offset: 0x0000F724
 	public static long Stats_ModifiedCoinsTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7149,7 +6715,6 @@ public class GameplayData
 		return instance.stats_ModifiedCoinsTriggeredTimes;
 	}
 
-	// Token: 0x060002D5 RID: 725 RVA: 0x00011544 File Offset: 0x0000F744
 	public static void Stats_ModifiedCoinsTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7160,7 +6725,6 @@ public class GameplayData
 		instance.stats_ModifiedCoinsTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002D6 RID: 726 RVA: 0x0001156C File Offset: 0x0000F76C
 	public static long Stats_ModifiedSevenTriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7171,7 +6735,6 @@ public class GameplayData
 		return instance.stats_ModifiedSevenTriggeredTimes;
 	}
 
-	// Token: 0x060002D7 RID: 727 RVA: 0x0001158C File Offset: 0x0000F78C
 	public static void Stats_ModifiedSevenTriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7182,7 +6745,6 @@ public class GameplayData
 		instance.stats_ModifiedSevenTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002D8 RID: 728 RVA: 0x000115B4 File Offset: 0x0000F7B4
 	public static long Stats_ModifiedSymbol_TriggeredTimesGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7193,7 +6755,6 @@ public class GameplayData
 		return instance.stats_ModifiedSymbolTriggeredTimes;
 	}
 
-	// Token: 0x060002D9 RID: 729 RVA: 0x000115D4 File Offset: 0x0000F7D4
 	public static void Stats_ModifiedSymbol_TriggeredTimesAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7204,7 +6765,6 @@ public class GameplayData
 		instance.stats_ModifiedSymbolTriggeredTimes += 1L;
 	}
 
-	// Token: 0x060002DA RID: 730 RVA: 0x000115FC File Offset: 0x0000F7FC
 	public static int Stats_RedButtonEffectiveActivations_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7215,7 +6775,6 @@ public class GameplayData
 		return instance.stats_RedButtonEffectiveActivationsCounter;
 	}
 
-	// Token: 0x060002DB RID: 731 RVA: 0x0001161C File Offset: 0x0000F81C
 	public static void Stats_RedButtonEffectiveActivations_Set(int value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7226,7 +6785,6 @@ public class GameplayData
 		instance.stats_RedButtonEffectiveActivationsCounter = value;
 	}
 
-	// Token: 0x060002DC RID: 732 RVA: 0x0001163C File Offset: 0x0000F83C
 	public static long Stats_RestocksBoughtGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7237,7 +6795,6 @@ public class GameplayData
 		return instance.stats_RestocksBoughtN;
 	}
 
-	// Token: 0x060002DD RID: 733 RVA: 0x0001165C File Offset: 0x0000F85C
 	public static void Stats_RestocksBoughtSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7252,7 +6809,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002DE RID: 734 RVA: 0x0001168C File Offset: 0x0000F88C
 	public static long Stats_RestocksPerformedGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7263,7 +6819,6 @@ public class GameplayData
 		return instance.stats_RestocksPerformed;
 	}
 
-	// Token: 0x060002DF RID: 735 RVA: 0x000116AC File Offset: 0x0000F8AC
 	public static void Stats_RestocksPerformedSet(long value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7278,7 +6833,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002E0 RID: 736 RVA: 0x000116DC File Offset: 0x0000F8DC
 	public static long Stats_PeppersBoughtGet()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7289,7 +6843,6 @@ public class GameplayData
 		return instance.stats_PeppersBought;
 	}
 
-	// Token: 0x060002E1 RID: 737 RVA: 0x000116FC File Offset: 0x0000F8FC
 	public static void Stats_PeppersBoughtAdd()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7300,8 +6853,8 @@ public class GameplayData
 		instance.stats_PeppersBought += 1L;
 	}
 
-	// (get) Token: 0x060002E2 RID: 738 RVA: 0x00011724 File Offset: 0x0000F924
-	// (set) Token: 0x060002E3 RID: 739 RVA: 0x00011744 File Offset: 0x0000F944
+	// (get) Token: 0x060002E2 RID: 738
+	// (set) Token: 0x060002E3 RID: 739
 	public static long Stats_SixSixSix_SeenTimes
 	{
 		get
@@ -7324,19 +6877,16 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002E4 RID: 740 RVA: 0x00011762 File Offset: 0x0000F962
 	private void _GameStats_PrepareForSerialization()
 	{
 		this.stats_CoinsEarned_ByteArray = this.stats_CoinsEarned.ToByteArray();
 	}
 
-	// Token: 0x060002E5 RID: 741 RVA: 0x00011775 File Offset: 0x0000F975
 	private void _GameStats_RestoreFromSerialization()
 	{
 		this.stats_CoinsEarned = this.BigIntegerFromByteArray(this.stats_CoinsEarned_ByteArray, 0);
 	}
 
-	// Token: 0x060002E6 RID: 742 RVA: 0x00011790 File Offset: 0x0000F990
 	public static long Stats_PlayTime_GetSeconds()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7347,7 +6897,6 @@ public class GameplayData
 		return instance.stats_PlayTime_Seconds;
 	}
 
-	// Token: 0x060002E7 RID: 743 RVA: 0x000117B0 File Offset: 0x0000F9B0
 	public static void Stats_PlayTime_AddSeconds(long seconds)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7362,7 +6911,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002E8 RID: 744 RVA: 0x000117E8 File Offset: 0x0000F9E8
 	public static long Stats_DeadlinesCompleted_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7373,7 +6921,6 @@ public class GameplayData
 		return instance.stats_DeadlinesCompleted;
 	}
 
-	// Token: 0x060002E9 RID: 745 RVA: 0x00011808 File Offset: 0x0000FA08
 	public static void Stats_DeadlinesCompleted_Add()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7384,7 +6931,6 @@ public class GameplayData
 		instance.stats_DeadlinesCompleted += 1L;
 	}
 
-	// Token: 0x060002EA RID: 746 RVA: 0x00011830 File Offset: 0x0000FA30
 	public static BigInteger Stats_CoinsEarned_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7395,7 +6941,6 @@ public class GameplayData
 		return instance.stats_CoinsEarned;
 	}
 
-	// Token: 0x060002EB RID: 747 RVA: 0x00011854 File Offset: 0x0000FA54
 	public static void Stats_CoinsEarned_Add(BigInteger value)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7410,7 +6955,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002EC RID: 748 RVA: 0x00011898 File Offset: 0x0000FA98
 	public static long Stats_TicketsEarned_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7421,7 +6965,6 @@ public class GameplayData
 		return instance.stats_TicketsEarned;
 	}
 
-	// Token: 0x060002ED RID: 749 RVA: 0x000118B8 File Offset: 0x0000FAB8
 	public static void Stats_TicketsEarned_Add(long ammount)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7436,7 +6979,6 @@ public class GameplayData
 		}
 	}
 
-	// Token: 0x060002EE RID: 750 RVA: 0x000118F0 File Offset: 0x0000FAF0
 	public static long Stats_CharmsBought_Get()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7447,7 +6989,6 @@ public class GameplayData
 		return instance.stats_CharmsBought;
 	}
 
-	// Token: 0x060002EF RID: 751 RVA: 0x00011910 File Offset: 0x0000FB10
 	public static void Stats_CharmsBought_Add()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -7571,7 +7112,7 @@ public class GameplayData
 	private byte[] _storeRestockExtraCost_ByteArray;
 
 	[SerializeField]
-	private long _storeFreeRestocks;
+	private long _storeFreeRestocks = 1L;
 
 	[SerializeField]
 	private long temporaryDiscount;
@@ -7619,7 +7160,7 @@ public class GameplayData
 	private const long CLOVER_TICKETS_BONUS_FOR_ROUNDS_LEFT = 4L;
 
 	[SerializeField]
-	private long cloverTickets = 2L;
+	private long cloverTickets = 4L;
 
 	[SerializeField]
 	private long cloverTickets_BonusFor_LittleBet = 2L;
@@ -8420,7 +7961,6 @@ public class GameplayData
 	[Serializable]
 	private class SymbolData
 	{
-		// Token: 0x060010CA RID: 4298 RVA: 0x000673DC File Offset: 0x000655DC
 		public bool Initialize(string symbolKindAsString)
 		{
 			if (string.IsNullOrEmpty(symbolKindAsString))
@@ -8463,7 +8003,6 @@ public class GameplayData
 	[Serializable]
 	private class PatternData
 	{
-		// Token: 0x060010CC RID: 4300 RVA: 0x00067463 File Offset: 0x00065663
 		public void Initialize(string patternKindAsString)
 		{
 			if (string.IsNullOrEmpty(patternKindAsString))
@@ -8483,7 +8022,6 @@ public class GameplayData
 	[Serializable]
 	public class PowerupData
 	{
-		// Token: 0x060010CE RID: 4302 RVA: 0x000674A1 File Offset: 0x000656A1
 		public PowerupScript.Identifier IdentifierGetInferred()
 		{
 			if (this._identifier == PowerupScript.Identifier.undefined)
@@ -8493,7 +8031,6 @@ public class GameplayData
 			return this._identifier;
 		}
 
-		// Token: 0x060010CF RID: 4303 RVA: 0x000674C4 File Offset: 0x000656C4
 		public void Initialize(PowerupScript.Identifier identifier, string powerupIdentifierAsString)
 		{
 			if (string.IsNullOrEmpty(powerupIdentifierAsString))

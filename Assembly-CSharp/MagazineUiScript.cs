@@ -23,7 +23,7 @@ public class MagazineUiScript : MonoBehaviour
 			return;
 		}
 		MagazineUiScript.instance.holder.SetActive(true);
-		Sound.Play3D("SoundMagazineOpen", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundMagazineOpen", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraController.DisableReason_Add("mgzn");
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 		VirtualCursors.CursorPositionNormalizedSet(0, Vector2.zero, true);
@@ -100,7 +100,7 @@ public class MagazineUiScript : MonoBehaviour
 			Vector2 zero = Vector2.zero;
 			if (flag7)
 			{
-				zero..ctor(0f, 10f);
+				zero = new Vector2(0f, 10f);
 			}
 			this.adPositionShifter.anchoredPosition = Vector2.Lerp(this.adPositionShifter.anchoredPosition, zero, Tick.Time * 20f);
 			if (flag3 && flag7)
@@ -110,7 +110,7 @@ public class MagazineUiScript : MonoBehaviour
 			}
 			yield return null;
 		}
-		Sound.Play3D("SoundMagazineClose", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundMagazineClose", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		while (MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition.y > -539f && !MagazineUiScript.IsForceClosing())
 		{
 			MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition += (new Vector2(0f, -540f) - MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition) * Tick.Time * 20f;

@@ -55,7 +55,7 @@ namespace Panik
 			{
 				return;
 			}
-			onLanguageChanged.Invoke();
+			onLanguageChanged();
 		}
 
 		// Token: 0x06000D7B RID: 3451 RVA: 0x000554F0 File Offset: 0x000536F0
@@ -136,22 +136,22 @@ namespace Panik
 			if (Translation.currentPlatformKeySuffix == null)
 			{
 				RuntimePlatform platform = Application.platform;
-				if (platform != 25)
+				if (platform != RuntimePlatform.PS4)
 				{
-					if (platform != 27)
+					if (platform != RuntimePlatform.XboxOne)
 					{
 						switch (platform)
 						{
-						case 32:
+						case RuntimePlatform.Switch:
 							Translation.currentPlatformKeySuffix = "_NINTENDO";
 							goto IL_0093;
-						case 36:
+						case RuntimePlatform.GameCoreScarlett:
 							Translation.currentPlatformKeySuffix = "_XBOX";
 							goto IL_0093;
-						case 37:
+						case RuntimePlatform.GameCoreXboxOne:
 							Translation.currentPlatformKeySuffix = "_XBOX";
 							goto IL_0093;
-						case 38:
+						case RuntimePlatform.PS5:
 							Translation.currentPlatformKeySuffix = "_PS";
 							goto IL_0093;
 						}

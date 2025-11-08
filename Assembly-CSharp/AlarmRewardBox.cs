@@ -27,7 +27,7 @@ public class AlarmRewardBox : MonoBehaviour
 	{
 		this._ringing = true;
 		this.myAnimator.SetTrigger("alarm");
-		Sound.Play3D("SoundRewardBoxAlarm", base.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundRewardBoxAlarm", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		float timer = 1f;
 		while (timer > 0f)
 		{

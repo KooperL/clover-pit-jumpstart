@@ -12,7 +12,7 @@ namespace I2.Loc
 		}
 
 		// Token: 0x06000FA6 RID: 4006 RVA: 0x00062BE9 File Offset: 0x00060DE9
-		[RuntimeInitializeOnLoadMethod(1)]
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
 			LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<TextMesh, LocalizeTarget_UnityStandard_TextMesh>
@@ -72,18 +72,18 @@ namespace I2.Loc
 			{
 				this.mInitializeAlignment = false;
 				this.mAlignment_LTR = (this.mAlignment_RTL = this.mTarget.alignment);
-				if (LocalizationManager.IsRight2Left && this.mAlignment_RTL == 2)
+				if (LocalizationManager.IsRight2Left && this.mAlignment_RTL == TextAlignment.Right)
 				{
-					this.mAlignment_LTR = 0;
+					this.mAlignment_LTR = TextAlignment.Left;
 				}
-				if (!LocalizationManager.IsRight2Left && this.mAlignment_LTR == null)
+				if (!LocalizationManager.IsRight2Left && this.mAlignment_LTR == TextAlignment.Left)
 				{
-					this.mAlignment_RTL = 2;
+					this.mAlignment_RTL = TextAlignment.Right;
 				}
 			}
 			if (mainTranslation != null && this.mTarget.text != mainTranslation)
 			{
-				if (cmp.CorrectAlignmentForRTL && this.mTarget.alignment != 1)
+				if (cmp.CorrectAlignmentForRTL && this.mTarget.alignment != TextAlignment.Center)
 				{
 					this.mTarget.alignment = (LocalizationManager.IsRight2Left ? this.mAlignment_RTL : this.mAlignment_LTR);
 				}
@@ -92,7 +92,7 @@ namespace I2.Loc
 			}
 		}
 
-		private TextAlignment mAlignment_RTL = 2;
+		private TextAlignment mAlignment_RTL = TextAlignment.Right;
 
 		private TextAlignment mAlignment_LTR;
 

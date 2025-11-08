@@ -8,7 +8,7 @@ namespace Panik
 		// Token: 0x06000B2E RID: 2862 RVA: 0x0004B059 File Offset: 0x00049259
 		public static GameObject Instance(string prefabName, Vector3 position, Transform parent = null)
 		{
-			return Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName), position, Quaternion.identity, parent);
+			return global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName), position, Quaternion.identity, parent);
 		}
 
 		// Token: 0x06000B2F RID: 2863 RVA: 0x0004B06D File Offset: 0x0004926D

@@ -36,7 +36,7 @@ namespace Panik
 				this.myRbs[i].linearVelocity = Vector3.zero;
 				this.myRbs[i].angularVelocity = Vector3.zero;
 				this.myRbs[i].useGravity = false;
-				this.myRbs[i].constraints = 126;
+				this.myRbs[i].constraints = RigidbodyConstraints.FreezeAll;
 				this.myRbs[i].detectCollisions = false;
 			}
 			for (int j = 0; j < this.myRbs2D.Length; j++)
@@ -47,8 +47,8 @@ namespace Panik
 				this.rbs2DConstraints[j] = this.myRbs2D[j].constraints;
 				this.myRbs2D[j].linearVelocity = Vector2.zero;
 				this.myRbs2D[j].angularVelocity = 0f;
-				this.myRbs2D[j].bodyType = 2;
-				this.myRbs2D[j].constraints = 7;
+				this.myRbs2D[j].bodyType = RigidbodyType2D.Static;
+				this.myRbs2D[j].constraints = RigidbodyConstraints2D.FreezeAll;
 			}
 			for (int k = 0; k < this.myAnimators.Length; k++)
 			{

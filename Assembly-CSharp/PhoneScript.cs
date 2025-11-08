@@ -32,12 +32,12 @@ public class PhoneScript : MonoBehaviour
 				if (!flag && flag2)
 				{
 					PhoneUiScript.Open();
-					Sound.Play3D("SoundPhonePickup", PhoneScript.instance.transform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D("SoundPhonePickup", PhoneScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 					return;
 				}
 				if (flag && !flag2)
 				{
-					Sound.Play3D("SoundPhonePutDown", PhoneScript.instance.transform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D("SoundPhonePutDown", PhoneScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 				return;
 			}
@@ -147,7 +147,7 @@ public class PhoneScript : MonoBehaviour
 		}
 		float num2 = 0.75f - Mathf.Max((float)num - 1f, 0f) / 10f;
 		num2 = Mathf.Max(0.4f, num2);
-		Sound.Play3D("SoundPhoneRing", base.transform.position, 20f, num2, 1f, 1);
+		Sound.Play3D("SoundPhoneRing", base.transform.position, 20f, num2, 1f, AudioRolloffMode.Linear);
 		timer = 2f;
 		while (timer > 0f)
 		{
@@ -175,7 +175,7 @@ public class PhoneScript : MonoBehaviour
 	// Token: 0x0600080B RID: 2059 RVA: 0x00033942 File Offset: 0x00031B42
 	public void Sound_PhoneMemo()
 	{
-		Sound.Play3D("SoundPhoneMemo", base.transform.position, 5f, 1f, 1f, 1);
+		Sound.Play3D("SoundPhoneMemo", base.transform.position, 5f, 1f, 1f, AudioRolloffMode.Linear);
 	}
 
 	// Token: 0x0600080C RID: 2060 RVA: 0x0003396A File Offset: 0x00031B6A
