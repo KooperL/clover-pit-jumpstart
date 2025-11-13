@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class TextAccessibilityController : MonoBehaviour
 {
-	// Token: 0x06000A3C RID: 2620 RVA: 0x000468F8 File Offset: 0x00044AF8
+	// Token: 0x06000A51 RID: 2641 RVA: 0x00047058 File Offset: 0x00045258
 	public void Refresh()
 	{
 		this.textAnimator.BehaviourEffectsEnaabledSet(!Data.settings.dyslexicFontEnabled);
 	}
 
-	// Token: 0x06000A3D RID: 2621 RVA: 0x00046914 File Offset: 0x00044B14
+	// Token: 0x06000A52 RID: 2642 RVA: 0x00047074 File Offset: 0x00045274
 	private void Awake()
 	{
 		this.textAnimator = base.GetComponent<TextAnimator>();
@@ -27,13 +27,13 @@ public class TextAccessibilityController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A3E RID: 2622 RVA: 0x0004698F File Offset: 0x00044B8F
+	// Token: 0x06000A53 RID: 2643 RVA: 0x000470EF File Offset: 0x000452EF
 	private void Start()
 	{
 		this._bookedRefresh = true;
 	}
 
-	// Token: 0x06000A3F RID: 2623 RVA: 0x00046998 File Offset: 0x00044B98
+	// Token: 0x06000A54 RID: 2644 RVA: 0x000470F8 File Offset: 0x000452F8
 	private void OnDestroy()
 	{
 		if (MainMenuScript.instance != null)
@@ -43,7 +43,7 @@ public class TextAccessibilityController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A40 RID: 2624 RVA: 0x000469D0 File Offset: 0x00044BD0
+	// Token: 0x06000A55 RID: 2645 RVA: 0x00047130 File Offset: 0x00045330
 	private void LateUpdate()
 	{
 		bool flag = !Data.settings.dyslexicFontEnabled;

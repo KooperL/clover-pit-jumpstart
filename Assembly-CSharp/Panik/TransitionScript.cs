@@ -5,7 +5,7 @@ namespace Panik
 {
 	public class TransitionScript : MonoBehaviour
 	{
-		// Token: 0x06000DC3 RID: 3523 RVA: 0x00055F9C File Offset: 0x0005419C
+		// Token: 0x06000DDA RID: 3546 RVA: 0x00056778 File Offset: 0x00054978
 		public static TransitionScript To(int sceneIndex, bool skipLoadingScreen = false)
 		{
 			if (TransitionScript.instance != null)
@@ -18,7 +18,7 @@ namespace Panik
 			return TransitionScript.instance;
 		}
 
-		// Token: 0x06000DC4 RID: 3524 RVA: 0x00055FF0 File Offset: 0x000541F0
+		// Token: 0x06000DDB RID: 3547 RVA: 0x000567CC File Offset: 0x000549CC
 		public static TransitionScript In()
 		{
 			if (TransitionScript.instance != null)
@@ -30,7 +30,7 @@ namespace Panik
 			return TransitionScript.instance;
 		}
 
-		// Token: 0x06000DC5 RID: 3525 RVA: 0x0005602E File Offset: 0x0005422E
+		// Token: 0x06000DDC RID: 3548 RVA: 0x0005680A File Offset: 0x00054A0A
 		private new void Finalize()
 		{
 			if (this.targetSceneIndex >= 0)
@@ -41,13 +41,13 @@ namespace Panik
 			global::UnityEngine.Object.Destroy(base.gameObject);
 		}
 
-		// Token: 0x06000DC6 RID: 3526 RVA: 0x00056059 File Offset: 0x00054259
+		// Token: 0x06000DDD RID: 3549 RVA: 0x00056835 File Offset: 0x00054A35
 		private void Awake()
 		{
 			TransitionScript.instance = this;
 		}
 
-		// Token: 0x06000DC7 RID: 3527 RVA: 0x00056061 File Offset: 0x00054261
+		// Token: 0x06000DDE RID: 3550 RVA: 0x0005683D File Offset: 0x00054A3D
 		private void OnDestroy()
 		{
 			if (TransitionScript.instance == this)
@@ -56,7 +56,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DC8 RID: 3528 RVA: 0x00056076 File Offset: 0x00054276
+		// Token: 0x06000DDF RID: 3551 RVA: 0x00056852 File Offset: 0x00054A52
 		private void Update()
 		{
 			this.Finalize();

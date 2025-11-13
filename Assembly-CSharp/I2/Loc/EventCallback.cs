@@ -6,7 +6,7 @@ namespace I2.Loc
 	[Serializable]
 	public class EventCallback
 	{
-		// Token: 0x06000E25 RID: 3621 RVA: 0x00057424 File Offset: 0x00055624
+		// Token: 0x06000E3C RID: 3644 RVA: 0x00057C00 File Offset: 0x00055E00
 		public void Execute(global::UnityEngine.Object Sender = null)
 		{
 			if (this.HasCallback() && Application.isPlaying)
@@ -15,7 +15,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E26 RID: 3622 RVA: 0x0005744D File Offset: 0x0005564D
+		// Token: 0x06000E3D RID: 3645 RVA: 0x00057C29 File Offset: 0x00055E29
 		public bool HasCallback()
 		{
 			return this.Target != null && !string.IsNullOrEmpty(this.MethodName);

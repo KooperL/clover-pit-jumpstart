@@ -6,8 +6,8 @@ namespace Panik
 {
 	public class FrameAnimator : MonoBehaviour
 	{
-		// (get) Token: 0x06000AB8 RID: 2744 RVA: 0x00048B7E File Offset: 0x00046D7E
-		// (set) Token: 0x06000AB9 RID: 2745 RVA: 0x00048B86 File Offset: 0x00046D86
+		// (get) Token: 0x06000ACD RID: 2765 RVA: 0x000492DE File Offset: 0x000474DE
+		// (set) Token: 0x06000ACE RID: 2766 RVA: 0x000492E6 File Offset: 0x000474E6
 		public int FrameIndex
 		{
 			get
@@ -21,8 +21,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000ABA RID: 2746 RVA: 0x00048B95 File Offset: 0x00046D95
-		// (set) Token: 0x06000ABB RID: 2747 RVA: 0x00048B9D File Offset: 0x00046D9D
+		// (get) Token: 0x06000ACF RID: 2767 RVA: 0x000492F5 File Offset: 0x000474F5
+		// (set) Token: 0x06000AD0 RID: 2768 RVA: 0x000492FD File Offset: 0x000474FD
 		public FrameAnimation Animation
 		{
 			get
@@ -42,8 +42,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000ABC RID: 2748 RVA: 0x00048BBD File Offset: 0x00046DBD
-		// (set) Token: 0x06000ABD RID: 2749 RVA: 0x00048BCC File Offset: 0x00046DCC
+		// (get) Token: 0x06000AD1 RID: 2769 RVA: 0x0004931D File Offset: 0x0004751D
+		// (set) Token: 0x06000AD2 RID: 2770 RVA: 0x0004932C File Offset: 0x0004752C
 		public string AnimationName
 		{
 			get
@@ -64,8 +64,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000ABE RID: 2750 RVA: 0x00048C28 File Offset: 0x00046E28
-		// (set) Token: 0x06000ABF RID: 2751 RVA: 0x00048C60 File Offset: 0x00046E60
+		// (get) Token: 0x06000AD3 RID: 2771 RVA: 0x00049388 File Offset: 0x00047588
+		// (set) Token: 0x06000AD4 RID: 2772 RVA: 0x000493C0 File Offset: 0x000475C0
 		public int AnimationIndex
 		{
 			get
@@ -85,13 +85,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AC0 RID: 2752 RVA: 0x00048C70 File Offset: 0x00046E70
+		// Token: 0x06000AD5 RID: 2773 RVA: 0x000493D0 File Offset: 0x000475D0
 		public Sprite GetCurrentSprite()
 		{
 			return this.frameAnimationCurrent.frames[this._frameIndex];
 		}
 
-		// Token: 0x06000AC1 RID: 2753 RVA: 0x00048C84 File Offset: 0x00046E84
+		// Token: 0x06000AD6 RID: 2774 RVA: 0x000493E4 File Offset: 0x000475E4
 		private void UpdateRenderer()
 		{
 			if (this._frameIndex < 0)
@@ -157,7 +157,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AC2 RID: 2754 RVA: 0x00048DCC File Offset: 0x00046FCC
+		// Token: 0x06000AD7 RID: 2775 RVA: 0x0004952C File Offset: 0x0004772C
 		private void Awake()
 		{
 			this.mySpriteRenderer = base.GetComponent<SpriteRenderer>();
@@ -187,7 +187,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AC3 RID: 2755 RVA: 0x00048E80 File Offset: 0x00047080
+		// Token: 0x06000AD8 RID: 2776 RVA: 0x000495E0 File Offset: 0x000477E0
 		private void Update()
 		{
 			if (this.autoPause && !Tick.IsGameRunning)
@@ -213,7 +213,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AC4 RID: 2756 RVA: 0x00048F2B File Offset: 0x0004712B
+		// Token: 0x06000AD9 RID: 2777 RVA: 0x0004968B File Offset: 0x0004788B
 		private void OnDrawGizmosSelected()
 		{
 			if (this.defaultAnimation == null && this.animations.Length != 0)
@@ -257,7 +257,7 @@ namespace Panik
 
 		public FrameAnimator.Ev onAnimationFrameChange;
 
-		// (Invoke) Token: 0x0600128B RID: 4747
+		// (Invoke) Token: 0x060012A2 RID: 4770
 		public delegate void Ev(FrameAnimator self);
 	}
 }

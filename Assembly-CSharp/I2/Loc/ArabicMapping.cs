@@ -4,7 +4,7 @@ namespace I2.Loc
 {
 	internal class ArabicMapping
 	{
-		// Token: 0x06001023 RID: 4131 RVA: 0x000645E9 File Offset: 0x000627E9
+		// Token: 0x0600103A RID: 4154 RVA: 0x00064DC5 File Offset: 0x00062FC5
 		public ArabicMapping(int from, int to)
 		{
 			this.from = from;

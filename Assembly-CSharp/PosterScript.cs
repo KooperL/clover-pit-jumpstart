@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class PosterScript : MonoBehaviour
 {
-	// Token: 0x0600099F RID: 2463 RVA: 0x0003FAC8 File Offset: 0x0003DCC8
+	// Token: 0x060009B3 RID: 2483 RVA: 0x0004012C File Offset: 0x0003E32C
 	private void RefreshText()
 	{
 		PosterScript.PosterKind posterKind = this.posterKind;
@@ -25,7 +25,7 @@ public class PosterScript : MonoBehaviour
 		this._RefreshText_Patterns();
 	}
 
-	// Token: 0x060009A0 RID: 2464 RVA: 0x0003FAF4 File Offset: 0x0003DCF4
+	// Token: 0x060009B4 RID: 2484 RVA: 0x00040158 File Offset: 0x0003E358
 	private void _RefreshText_Symbols()
 	{
 		GameplayData.SymbolsAvailable_OrderByBasicCoinsValue();
@@ -99,7 +99,7 @@ public class PosterScript : MonoBehaviour
 		this.text.text = this._sb.ToString();
 	}
 
-	// Token: 0x060009A1 RID: 2465 RVA: 0x0003FE98 File Offset: 0x0003E098
+	// Token: 0x060009B5 RID: 2485 RVA: 0x000404FC File Offset: 0x0003E6FC
 	private void _RefreshText_Patterns()
 	{
 		GameplayData.PatternsAvailable_OrderByValue(true);
@@ -147,7 +147,7 @@ public class PosterScript : MonoBehaviour
 		this.text.text = this._sbPatterns.ToString();
 	}
 
-	// Token: 0x060009A2 RID: 2466 RVA: 0x00040118 File Offset: 0x0003E318
+	// Token: 0x060009B6 RID: 2486 RVA: 0x0004077C File Offset: 0x0003E97C
 	private string GetColorString_SymbolValue(BigInteger baseValue, BigInteger currentValue)
 	{
 		if (baseValue == currentValue)
@@ -170,7 +170,7 @@ public class PosterScript : MonoBehaviour
 		return "<color=orange>";
 	}
 
-	// Token: 0x060009A3 RID: 2467 RVA: 0x0004018C File Offset: 0x0003E38C
+	// Token: 0x060009B7 RID: 2487 RVA: 0x000407F0 File Offset: 0x0003E9F0
 	private string GetColorString_SymbolChance(float baseValue, float currentValue)
 	{
 		if (Mathf.Abs(baseValue - currentValue) < 0.1f)
@@ -193,7 +193,7 @@ public class PosterScript : MonoBehaviour
 		return "<color=orange>";
 	}
 
-	// Token: 0x060009A4 RID: 2468 RVA: 0x000401E8 File Offset: 0x0003E3E8
+	// Token: 0x060009B8 RID: 2488 RVA: 0x0004084C File Offset: 0x0003EA4C
 	private string GetColorString_PatternValue(double baseValue, double currentValue)
 	{
 		if (currentValue >= baseValue && currentValue < baseValue + 0.1)
@@ -220,7 +220,7 @@ public class PosterScript : MonoBehaviour
 		return "<color=orange>";
 	}
 
-	// Token: 0x060009A5 RID: 2469 RVA: 0x00040268 File Offset: 0x0003E468
+	// Token: 0x060009B9 RID: 2489 RVA: 0x000408CC File Offset: 0x0003EACC
 	private float FontSizePercGet_SymbolsValue(SymbolScript.Kind symbolKind)
 	{
 		List<SymbolScript.Kind> list = GameplayData.SymbolsValueList_Get();
@@ -240,7 +240,7 @@ public class PosterScript : MonoBehaviour
 		return (0.75f + 0.25f * num) * 100f;
 	}
 
-	// Token: 0x060009A6 RID: 2470 RVA: 0x00040310 File Offset: 0x0003E510
+	// Token: 0x060009BA RID: 2490 RVA: 0x00040974 File Offset: 0x0003EB74
 	private float FontSizePercGet_SymbolsChance(SymbolScript.Kind symbolKind)
 	{
 		List<SymbolScript.Kind> list = GameplayData.SymbolsChanceList_Get();
@@ -260,7 +260,7 @@ public class PosterScript : MonoBehaviour
 		return (0.75f + 0.25f * num4) * 100f;
 	}
 
-	// Token: 0x060009A7 RID: 2471 RVA: 0x000403A0 File Offset: 0x0003E5A0
+	// Token: 0x060009BB RID: 2491 RVA: 0x00040A04 File Offset: 0x0003EC04
 	private float FontSizePercGet_PatternsValue(PatternScript.Kind patterndKind)
 	{
 		List<PatternScript.Kind> list = GameplayData.PatternsValueList_Get();
@@ -280,13 +280,13 @@ public class PosterScript : MonoBehaviour
 		return (0.75f + 0.25f * num4) * 100f;
 	}
 
-	// Token: 0x060009A8 RID: 2472 RVA: 0x00040429 File Offset: 0x0003E629
+	// Token: 0x060009BC RID: 2492 RVA: 0x00040A8D File Offset: 0x0003EC8D
 	public static void Initialize()
 	{
 		PosterScript.instance.RefreshText();
 	}
 
-	// Token: 0x060009A9 RID: 2473 RVA: 0x00040435 File Offset: 0x0003E635
+	// Token: 0x060009BD RID: 2493 RVA: 0x00040A99 File Offset: 0x0003EC99
 	private void Awake()
 	{
 		PosterScript.instance = this;
@@ -294,7 +294,7 @@ public class PosterScript : MonoBehaviour
 		this.text.text = "";
 	}
 
-	// Token: 0x060009AA RID: 2474 RVA: 0x00040458 File Offset: 0x0003E658
+	// Token: 0x060009BE RID: 2494 RVA: 0x00040ABC File Offset: 0x0003ECBC
 	private void OnDestroy()
 	{
 		if (PosterScript.instance == this)
@@ -303,7 +303,7 @@ public class PosterScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009AB RID: 2475 RVA: 0x00040470 File Offset: 0x0003E670
+	// Token: 0x060009BF RID: 2495 RVA: 0x00040AD4 File Offset: 0x0003ECD4
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

@@ -12,7 +12,7 @@ namespace Panik
 {
 	public class IntroScript : MonoBehaviour
 	{
-		// Token: 0x06000DBB RID: 3515 RVA: 0x00055E40 File Offset: 0x00054040
+		// Token: 0x06000DD2 RID: 3538 RVA: 0x0005661C File Offset: 0x0005481C
 		private void PromptsUpdate(Controls.InputActionMap map)
 		{
 			this.selectPromptSpriteString = Controls.MapGetLastPrompt_TextSprite(0, Controls.InputAction.menuSelect, true, 0);
@@ -22,7 +22,7 @@ namespace Panik
 			this.popupAnswerPrompt_No.text = Translation.Get("MENU_OPTION_NO");
 		}
 
-		// Token: 0x06000DBC RID: 3516 RVA: 0x00055ED0 File Offset: 0x000540D0
+		// Token: 0x06000DD3 RID: 3539 RVA: 0x000566AC File Offset: 0x000548AC
 		private IEnumerator IntroCoroutine()
 		{
 			this.PromptsUpdate(null);
@@ -370,7 +370,7 @@ namespace Panik
 			goto IL_0E7E;
 		}
 
-		// Token: 0x06000DBD RID: 3517 RVA: 0x00055EE0 File Offset: 0x000540E0
+		// Token: 0x06000DD4 RID: 3540 RVA: 0x000566BC File Offset: 0x000548BC
 		public IEnumerator PopUpShow(string title, string description, float inputDelay, float endDelay, bool isQuestion, UnityAction onYes, UnityAction onNo)
 		{
 			this.popupQuestionAnswer = -1;
@@ -491,7 +491,7 @@ namespace Panik
 			yield break;
 		}
 
-		// Token: 0x06000DBE RID: 3518 RVA: 0x00055F2F File Offset: 0x0005412F
+		// Token: 0x06000DD5 RID: 3541 RVA: 0x0005670B File Offset: 0x0005490B
 		private void Awake()
 		{
 			IntroScript.instance = this;
@@ -499,14 +499,14 @@ namespace Panik
 			this.myCanvasScaler = base.GetComponent<CanvasScaler>();
 		}
 
-		// Token: 0x06000DBF RID: 3519 RVA: 0x00055F4F File Offset: 0x0005414F
+		// Token: 0x06000DD6 RID: 3542 RVA: 0x0005672B File Offset: 0x0005492B
 		private void Start()
 		{
 			base.StartCoroutine(this.IntroCoroutine());
 			VirtualCursors.CursorDesiredVisibilitySet(0, false);
 		}
 
-		// Token: 0x06000DC0 RID: 3520 RVA: 0x00055F65 File Offset: 0x00054165
+		// Token: 0x06000DD7 RID: 3543 RVA: 0x00056741 File Offset: 0x00054941
 		private void OnDestroy()
 		{
 			if (IntroScript.instance == this)
@@ -515,7 +515,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DC1 RID: 3521 RVA: 0x00055F7A File Offset: 0x0005417A
+		// Token: 0x06000DD8 RID: 3544 RVA: 0x00056756 File Offset: 0x00054956
 		private void OnDrawGizmosSelected()
 		{
 			this.myCanvasScaler.referencePixelsPerUnit = 64f;

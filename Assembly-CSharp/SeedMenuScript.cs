@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class SeedMenuScript : MonoBehaviour
 {
-	// Token: 0x06000A09 RID: 2569 RVA: 0x00044B10 File Offset: 0x00042D10
+	// Token: 0x06000A1E RID: 2590 RVA: 0x0004520C File Offset: 0x0004340C
 	public static bool IsEnabled()
 	{
 		return !(SeedMenuScript.instance == null) && SeedMenuScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A0A RID: 2570 RVA: 0x00044B30 File Offset: 0x00042D30
+	// Token: 0x06000A1F RID: 2591 RVA: 0x0004522C File Offset: 0x0004342C
 	public static void Open()
 	{
 		SeedMenuScript.instance.holder.SetActive(true);
@@ -23,7 +23,7 @@ public class SeedMenuScript : MonoBehaviour
 		SeedMenuScript.instance.currentSeedMenuButton = SeedMenuScript.instance.initialButton;
 	}
 
-	// Token: 0x06000A0B RID: 2571 RVA: 0x00044BA0 File Offset: 0x00042DA0
+	// Token: 0x06000A20 RID: 2592 RVA: 0x0004529C File Offset: 0x0004349C
 	private static void Close()
 	{
 		SeedMenuScript.instance.holder.SetActive(false);
@@ -34,32 +34,32 @@ public class SeedMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A0C RID: 2572 RVA: 0x00044BF1 File Offset: 0x00042DF1
+	// Token: 0x06000A21 RID: 2593 RVA: 0x000452ED File Offset: 0x000434ED
 	private void TextUpdate()
 	{
 		this.titleText.text = Translation.Get("MENU_SEED_INPUT_TITLE");
 		this.descriptionText.text = Translation.Get("MENU_SEED_INPUT_DESCRIPTION");
 	}
 
-	// Token: 0x06000A0D RID: 2573 RVA: 0x00044C1D File Offset: 0x00042E1D
+	// Token: 0x06000A22 RID: 2594 RVA: 0x00045319 File Offset: 0x00043519
 	private void Awake()
 	{
 		SeedMenuScript.instance = this;
 	}
 
-	// Token: 0x06000A0E RID: 2574 RVA: 0x00044C25 File Offset: 0x00042E25
+	// Token: 0x06000A23 RID: 2595 RVA: 0x00045321 File Offset: 0x00043521
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A0F RID: 2575 RVA: 0x00044C33 File Offset: 0x00042E33
+	// Token: 0x06000A24 RID: 2596 RVA: 0x0004532F File Offset: 0x0004352F
 	private void OnEnable()
 	{
 		this.TextUpdate();
 	}
 
-	// Token: 0x06000A10 RID: 2576 RVA: 0x00044C3B File Offset: 0x00042E3B
+	// Token: 0x06000A25 RID: 2597 RVA: 0x00045337 File Offset: 0x00043537
 	private void OnDestroy()
 	{
 		if (SeedMenuScript.instance == this)
@@ -68,7 +68,7 @@ public class SeedMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A11 RID: 2577 RVA: 0x00044C50 File Offset: 0x00042E50
+	// Token: 0x06000A26 RID: 2598 RVA: 0x0004534C File Offset: 0x0004354C
 	private void Update()
 	{
 		if (!SeedMenuScript.IsEnabled())
@@ -331,7 +331,7 @@ public class SeedMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A12 RID: 2578 RVA: 0x0004543E File Offset: 0x0004363E
+	// Token: 0x06000A27 RID: 2599 RVA: 0x00045B3A File Offset: 0x00043D3A
 	private bool Back()
 	{
 		Sound.Play_Unpausable("SoundMenuBack", 1f, 1f);
@@ -339,7 +339,7 @@ public class SeedMenuScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000A13 RID: 2579 RVA: 0x0004545C File Offset: 0x0004365C
+	// Token: 0x06000A28 RID: 2600 RVA: 0x00045B58 File Offset: 0x00043D58
 	private void ConfirmSeed()
 	{
 		Sound.Play_Unpausable("SoundMenuSelect", 1f, 1f);

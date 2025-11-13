@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class TicketMachineScript : MonoBehaviour
 {
-	// Token: 0x06000799 RID: 1945 RVA: 0x00031F40 File Offset: 0x00030140
+	// Token: 0x06000799 RID: 1945 RVA: 0x00031FF8 File Offset: 0x000301F8
 	private void SetAnimation(string animTicket)
 	{
 		this.currentAnim = animTicket;
@@ -16,19 +16,19 @@ public class TicketMachineScript : MonoBehaviour
 		this.doneAnimating = animTicket == "Idle";
 	}
 
-	// Token: 0x0600079A RID: 1946 RVA: 0x00031F97 File Offset: 0x00030197
+	// Token: 0x0600079A RID: 1946 RVA: 0x0003204F File Offset: 0x0003024F
 	private bool IsAnimation(string animTicket)
 	{
 		return this.currentAnim == animTicket;
 	}
 
-	// Token: 0x0600079B RID: 1947 RVA: 0x00031FA5 File Offset: 0x000301A5
+	// Token: 0x0600079B RID: 1947 RVA: 0x0003205D File Offset: 0x0003025D
 	private bool IsAnimationDone()
 	{
 		return this.doneAnimating;
 	}
 
-	// Token: 0x0600079C RID: 1948 RVA: 0x00031FB0 File Offset: 0x000301B0
+	// Token: 0x0600079C RID: 1948 RVA: 0x00032068 File Offset: 0x00030268
 	private string AnimationGetByIndex(int index)
 	{
 		switch (index)
@@ -61,13 +61,13 @@ public class TicketMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600079D RID: 1949 RVA: 0x0003204E File Offset: 0x0003024E
+	// Token: 0x0600079D RID: 1949 RVA: 0x00032106 File Offset: 0x00030306
 	public static bool IsTicketMachineRunning()
 	{
 		return !(TicketMachineScript.instance == null) && !TicketMachineScript.instance.IsAnimation("Idle");
 	}
 
-	// Token: 0x0600079E RID: 1950 RVA: 0x00032071 File Offset: 0x00030271
+	// Token: 0x0600079E RID: 1950 RVA: 0x00032129 File Offset: 0x00030329
 	private static void TicketMachineRun(int ticketsN)
 	{
 		if (TicketMachineScript.instance == null)
@@ -82,7 +82,7 @@ public class TicketMachineScript : MonoBehaviour
 		TicketMachineScript.instance.StartCoroutine(TicketMachineScript.instance.TicketMachineRunCoroutine(ticketsN));
 	}
 
-	// Token: 0x0600079F RID: 1951 RVA: 0x000320AF File Offset: 0x000302AF
+	// Token: 0x0600079F RID: 1951 RVA: 0x00032167 File Offset: 0x00030367
 	private IEnumerator TicketMachineRunCoroutine(int ticketsN)
 	{
 		GameplayMaster.GamePhase gamePhase = GameplayMaster.GetGamePhase();
@@ -93,7 +93,7 @@ public class TicketMachineScript : MonoBehaviour
 		}
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundTicketMachineRunning", base.transform.position, 10f, 1f, 2f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundTicketMachineRunning", base.transform.position, 10f, 1f, 2f, 1);
 		}
 		ticketsN = Mathf.Clamp(ticketsN, 1, 10);
 		this.SetAnimation(this.AnimationGetByIndex(ticketsN));
@@ -113,7 +113,7 @@ public class TicketMachineScript : MonoBehaviour
 		}
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundTicketsRetrieve", base.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundTicketsRetrieve", base.transform.position, 10f, 1f, 1f, 1);
 		}
 		timer = 0.2f;
 		while (timer > 0f)
@@ -132,27 +132,27 @@ public class TicketMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007A0 RID: 1952 RVA: 0x000320C5 File Offset: 0x000302C5
+	// Token: 0x060007A0 RID: 1952 RVA: 0x0003217D File Offset: 0x0003037D
 	private void TranslateText()
 	{
 		this.titleText.text = Translation.Get("TICKET_MACHINE_TITLE");
 	}
 
-	// Token: 0x060007A1 RID: 1953 RVA: 0x000320DC File Offset: 0x000302DC
+	// Token: 0x060007A1 RID: 1953 RVA: 0x00032194 File Offset: 0x00030394
 	private void Awake()
 	{
 		TicketMachineScript.instance = this;
 		this.myAnimator = base.GetComponentInChildren<Animator>();
 	}
 
-	// Token: 0x060007A2 RID: 1954 RVA: 0x000320F0 File Offset: 0x000302F0
+	// Token: 0x060007A2 RID: 1954 RVA: 0x000321A8 File Offset: 0x000303A8
 	private void Start()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TranslateText));
 		this.TranslateText();
 	}
 
-	// Token: 0x060007A3 RID: 1955 RVA: 0x00032118 File Offset: 0x00030318
+	// Token: 0x060007A3 RID: 1955 RVA: 0x000321D0 File Offset: 0x000303D0
 	private void OnDestroy()
 	{
 		if (TicketMachineScript.instance == this)
@@ -162,7 +162,7 @@ public class TicketMachineScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslateText));
 	}
 
-	// Token: 0x060007A4 RID: 1956 RVA: 0x00032150 File Offset: 0x00030350
+	// Token: 0x060007A4 RID: 1956 RVA: 0x00032208 File Offset: 0x00030408
 	private void LateUpdate()
 	{
 		if (!Tick.IsGameRunning)

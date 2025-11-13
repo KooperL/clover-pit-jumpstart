@@ -6,7 +6,7 @@ namespace Panik
 {
 	public class CameraUi : MonoBehaviour
 	{
-		// Token: 0x06000B5F RID: 2911 RVA: 0x0004BC6F File Offset: 0x00049E6F
+		// Token: 0x06000B74 RID: 2932 RVA: 0x0004C3CF File Offset: 0x0004A5CF
 		public int CameraIndex()
 		{
 			if (this._myIndex < 0)
@@ -16,7 +16,7 @@ namespace Panik
 			return this._myIndex;
 		}
 
-		// Token: 0x06000B60 RID: 2912 RVA: 0x0004BC91 File Offset: 0x00049E91
+		// Token: 0x06000B75 RID: 2933 RVA: 0x0004C3F1 File Offset: 0x0004A5F1
 		public void UpdateRenderingTexture()
 		{
 			if (!Master.instance.RENDER_TO_TEXTURE)
@@ -27,7 +27,7 @@ namespace Panik
 			this.myCamera.targetTexture = RenderingMaster.renderTextureCurrent;
 		}
 
-		// Token: 0x06000B61 RID: 2913 RVA: 0x0004BCBC File Offset: 0x00049EBC
+		// Token: 0x06000B76 RID: 2934 RVA: 0x0004C41C File Offset: 0x0004A61C
 		public void CullingMaskUpdate()
 		{
 			switch (this.CameraIndex())
@@ -53,12 +53,12 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B62 RID: 2914 RVA: 0x0004BD5E File Offset: 0x00049F5E
+		// Token: 0x06000B77 RID: 2935 RVA: 0x0004C4BE File Offset: 0x0004A6BE
 		public void _SplitScreenUpdate()
 		{
 		}
 
-		// Token: 0x06000B63 RID: 2915 RVA: 0x0004BD60 File Offset: 0x00049F60
+		// Token: 0x06000B78 RID: 2936 RVA: 0x0004C4C0 File Offset: 0x0004A6C0
 		private void Awake()
 		{
 			if (CameraUi.firstInstance == null)
@@ -69,7 +69,7 @@ namespace Panik
 			this.myCamera = base.GetComponent<Camera>();
 		}
 
-		// Token: 0x06000B64 RID: 2916 RVA: 0x0004BD8C File Offset: 0x00049F8C
+		// Token: 0x06000B79 RID: 2937 RVA: 0x0004C4EC File Offset: 0x0004A6EC
 		private void Start()
 		{
 			this._myIndex = -1;
@@ -130,7 +130,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B65 RID: 2917 RVA: 0x0004BF74 File Offset: 0x0004A174
+		// Token: 0x06000B7A RID: 2938 RVA: 0x0004C6D4 File Offset: 0x0004A8D4
 		private void OnDestroy()
 		{
 			if (CameraUi.firstInstance == this)

@@ -6,7 +6,7 @@ namespace I2.Loc
 {
 	public class BaseSpecializationManager
 	{
-		// Token: 0x06000E19 RID: 3609 RVA: 0x00056F98 File Offset: 0x00055198
+		// Token: 0x06000E30 RID: 3632 RVA: 0x00057774 File Offset: 0x00055974
 		public virtual void InitializeSpecializations()
 		{
 			this.mSpecializations = new string[]
@@ -26,7 +26,7 @@ namespace I2.Loc
 			};
 		}
 
-		// Token: 0x06000E1A RID: 3610 RVA: 0x000570A7 File Offset: 0x000552A7
+		// Token: 0x06000E31 RID: 3633 RVA: 0x00057883 File Offset: 0x00055A83
 		public virtual string GetCurrentSpecialization()
 		{
 			if (this.mSpecializations == null)
@@ -36,13 +36,13 @@ namespace I2.Loc
 			return "PC";
 		}
 
-		// Token: 0x06000E1B RID: 3611 RVA: 0x000570BC File Offset: 0x000552BC
+		// Token: 0x06000E32 RID: 3634 RVA: 0x00057898 File Offset: 0x00055A98
 		private bool IsTouchInputSupported()
 		{
 			return Input.touchSupported;
 		}
 
-		// Token: 0x06000E1C RID: 3612 RVA: 0x000570C4 File Offset: 0x000552C4
+		// Token: 0x06000E33 RID: 3635 RVA: 0x000578A0 File Offset: 0x00055AA0
 		public virtual string GetFallbackSpecialization(string specialization)
 		{
 			if (this.mSpecializationsFallbacks == null)

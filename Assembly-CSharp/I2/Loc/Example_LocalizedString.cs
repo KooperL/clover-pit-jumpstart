@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public class Example_LocalizedString : MonoBehaviour
 	{
-		// Token: 0x06000DED RID: 3565 RVA: 0x000564FC File Offset: 0x000546FC
+		// Token: 0x06000E04 RID: 3588 RVA: 0x00056CD8 File Offset: 0x00054ED8
 		public void Start()
 		{
 			Debug.Log(this._MyLocalizedString);

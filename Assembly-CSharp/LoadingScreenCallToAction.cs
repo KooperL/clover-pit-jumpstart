@@ -8,31 +8,31 @@ using UnityEngine.UI;
 
 public class LoadingScreenCallToAction : MonoBehaviour
 {
-	// Token: 0x060008C9 RID: 2249 RVA: 0x0003A112 File Offset: 0x00038312
+	// Token: 0x060008D8 RID: 2264 RVA: 0x0003A42C File Offset: 0x0003862C
 	public static bool IsEnabled()
 	{
 		return !(LoadingScreenCallToAction.instance == null) && LoadingScreenCallToAction.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008CA RID: 2250 RVA: 0x0003A132 File Offset: 0x00038332
+	// Token: 0x060008D9 RID: 2265 RVA: 0x0003A44C File Offset: 0x0003864C
 	private static bool IsBooked()
 	{
 		return LoadingScreenCallToAction.booked;
 	}
 
-	// Token: 0x060008CB RID: 2251 RVA: 0x0003A139 File Offset: 0x00038339
+	// Token: 0x060008DA RID: 2266 RVA: 0x0003A453 File Offset: 0x00038653
 	public static void BookCallToAction()
 	{
 		LoadingScreenCallToAction.booked = true;
 	}
 
-	// Token: 0x060008CC RID: 2252 RVA: 0x0003A141 File Offset: 0x00038341
+	// Token: 0x060008DB RID: 2267 RVA: 0x0003A45B File Offset: 0x0003865B
 	public static bool LoadingShouldWait()
 	{
 		return !(LoadingScreenCallToAction.instance == null) && (LoadingScreenCallToAction.IsBooked() || LoadingScreenCallToAction.IsEnabled());
 	}
 
-	// Token: 0x060008CD RID: 2253 RVA: 0x0003A160 File Offset: 0x00038360
+	// Token: 0x060008DC RID: 2268 RVA: 0x0003A47C File Offset: 0x0003867C
 	private void TranslationUpdate()
 	{
 		this.textSkip.text = Translation.Get("MENU_OPTION_SKIP");
@@ -49,13 +49,13 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		this.textTitle.text = ((Master.instance.GAME_PUBLIC_STATE == Master.GamePublicState.released) ? Translation.Get("LOADING_NOTIFICATION_CALL_TO_ACTION_BUY") : Translation.Get("LOADING_NOTIFICATION_CALL_TO_ACTION_WISHLIST"));
 	}
 
-	// Token: 0x060008CE RID: 2254 RVA: 0x0003A212 File Offset: 0x00038412
+	// Token: 0x060008DD RID: 2269 RVA: 0x0003A52E File Offset: 0x0003872E
 	private void Awake()
 	{
 		LoadingScreenCallToAction.instance = this;
 	}
 
-	// Token: 0x060008CF RID: 2255 RVA: 0x0003A21C File Offset: 0x0003841C
+	// Token: 0x060008DE RID: 2270 RVA: 0x0003A538 File Offset: 0x00038738
 	private void Start()
 	{
 		this.TranslationUpdate();
@@ -67,7 +67,7 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008D0 RID: 2256 RVA: 0x0003A279 File Offset: 0x00038479
+	// Token: 0x060008DF RID: 2271 RVA: 0x0003A595 File Offset: 0x00038795
 	private void OnDestroy()
 	{
 		if (LoadingScreenCallToAction.instance == this)
@@ -77,7 +77,7 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslationUpdate));
 	}
 
-	// Token: 0x060008D1 RID: 2257 RVA: 0x0003A2B0 File Offset: 0x000384B0
+	// Token: 0x060008E0 RID: 2272 RVA: 0x0003A5CC File Offset: 0x000387CC
 	private void Update()
 	{
 		int num = -1;

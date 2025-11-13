@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class PhoneScript : MonoBehaviour
 {
-	// Token: 0x06000803 RID: 2051 RVA: 0x00033690 File Offset: 0x00031890
+	// Token: 0x0600080A RID: 2058 RVA: 0x00033878 File Offset: 0x00031A78
 	public static PhoneScript.State StateGet()
 	{
 		return PhoneScript.instance.state;
 	}
 
-	// Token: 0x06000804 RID: 2052 RVA: 0x0003369C File Offset: 0x0003189C
+	// Token: 0x0600080B RID: 2059 RVA: 0x00033884 File Offset: 0x00031A84
 	public static void StateSet(PhoneScript.State newState)
 	{
 		if (PhoneScript.instance == null)
@@ -32,12 +32,12 @@ public class PhoneScript : MonoBehaviour
 				if (!flag && flag2)
 				{
 					PhoneUiScript.Open();
-					Sound.Play3D("SoundPhonePickup", PhoneScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D("SoundPhonePickup", PhoneScript.instance.transform.position, 20f, 1f, 1f, 1);
 					return;
 				}
 				if (flag && !flag2)
 				{
-					Sound.Play3D("SoundPhonePutDown", PhoneScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D("SoundPhonePutDown", PhoneScript.instance.transform.position, 20f, 1f, 1f, 1);
 				}
 				return;
 			}
@@ -46,19 +46,19 @@ public class PhoneScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000805 RID: 2053 RVA: 0x0003377D File Offset: 0x0003197D
+	// Token: 0x0600080C RID: 2060 RVA: 0x00033965 File Offset: 0x00031B65
 	public static bool IsOn()
 	{
 		return !(PhoneScript.instance == null) && (PhoneScript.instance.state == PhoneScript.State.onIntro || PhoneScript.instance.state == PhoneScript.State.onChoosing || PhoneScript.instance.state == PhoneScript.State.onFinalization);
 	}
 
-	// Token: 0x06000806 RID: 2054 RVA: 0x000337B7 File Offset: 0x000319B7
+	// Token: 0x0600080D RID: 2061 RVA: 0x0003399F File Offset: 0x00031B9F
 	public static bool HasNoDialogue()
 	{
 		return PhoneScript.instance == null || GameplayData.Instance == null || GameplayData.Instance._phone_abilityAlreadyPickedUp;
 	}
 
-	// Token: 0x06000807 RID: 2055 RVA: 0x000337DC File Offset: 0x000319DC
+	// Token: 0x0600080E RID: 2062 RVA: 0x000339C4 File Offset: 0x00031BC4
 	public static void ResetForDeadline()
 	{
 		if (PhoneScript.instance == null)
@@ -104,7 +104,7 @@ public class PhoneScript : MonoBehaviour
 		FloppySlotScript.SixSixSixTextureUpdateToIgnoredCallsLevel(true);
 	}
 
-	// Token: 0x06000808 RID: 2056 RVA: 0x000338BC File Offset: 0x00031ABC
+	// Token: 0x0600080F RID: 2063 RVA: 0x00033AA4 File Offset: 0x00031CA4
 	public static void PhoneRing()
 	{
 		if (PhoneScript.instance == null)
@@ -118,7 +118,7 @@ public class PhoneScript : MonoBehaviour
 		PhoneScript.instance.phoneRingCoroutine = PhoneScript.instance.StartCoroutine(PhoneScript.instance.PhoneRingCoroutine());
 	}
 
-	// Token: 0x06000809 RID: 2057 RVA: 0x00033915 File Offset: 0x00031B15
+	// Token: 0x06000810 RID: 2064 RVA: 0x00033AFD File Offset: 0x00031CFD
 	public IEnumerator PhoneRingCoroutine()
 	{
 		while (PowerupTriggerAnimController.HasAnimations())
@@ -147,7 +147,7 @@ public class PhoneScript : MonoBehaviour
 		}
 		float num2 = 0.75f - Mathf.Max((float)num - 1f, 0f) / 10f;
 		num2 = Mathf.Max(0.4f, num2);
-		Sound.Play3D("SoundPhoneRing", base.transform.position, 20f, num2, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundPhoneRing", base.transform.position, 20f, num2, 1f, 1);
 		timer = 2f;
 		while (timer > 0f)
 		{
@@ -166,19 +166,19 @@ public class PhoneScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600080A RID: 2058 RVA: 0x00033924 File Offset: 0x00031B24
+	// Token: 0x06000811 RID: 2065 RVA: 0x00033B0C File Offset: 0x00031D0C
 	public static bool IsPhoneRinging()
 	{
 		return !(PhoneScript.instance == null) && PhoneScript.instance.phoneRingCoroutine != null;
 	}
 
-	// Token: 0x0600080B RID: 2059 RVA: 0x00033942 File Offset: 0x00031B42
+	// Token: 0x06000812 RID: 2066 RVA: 0x00033B2A File Offset: 0x00031D2A
 	public void Sound_PhoneMemo()
 	{
-		Sound.Play3D("SoundPhoneMemo", base.transform.position, 5f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundPhoneMemo", base.transform.position, 5f, 1f, 1f, 1);
 	}
 
-	// Token: 0x0600080C RID: 2060 RVA: 0x0003396A File Offset: 0x00031B6A
+	// Token: 0x06000813 RID: 2067 RVA: 0x00033B52 File Offset: 0x00031D52
 	private void Awake()
 	{
 		PhoneScript.instance = this;
@@ -186,7 +186,7 @@ public class PhoneScript : MonoBehaviour
 		this.myOutline = base.GetComponentInChildren<Outline>();
 	}
 
-	// Token: 0x0600080D RID: 2061 RVA: 0x0003398A File Offset: 0x00031B8A
+	// Token: 0x06000814 RID: 2068 RVA: 0x00033B72 File Offset: 0x00031D72
 	private void OnDestroy()
 	{
 		if (PhoneScript.instance == this)
@@ -195,7 +195,7 @@ public class PhoneScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600080E RID: 2062 RVA: 0x000339A0 File Offset: 0x00031BA0
+	// Token: 0x06000815 RID: 2069 RVA: 0x00033B88 File Offset: 0x00031D88
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -205,7 +205,7 @@ public class PhoneScript : MonoBehaviour
 		this.lightSprite.enabled = false;
 	}
 
-	// Token: 0x0600080F RID: 2063 RVA: 0x000339F0 File Offset: 0x00031BF0
+	// Token: 0x06000816 RID: 2070 RVA: 0x00033BD8 File Offset: 0x00031DD8
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

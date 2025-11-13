@@ -5,13 +5,13 @@ namespace I2.Loc
 {
 	public class LocalizeTarget_UnityStandard_SpriteRenderer : LocalizeTarget<SpriteRenderer>
 	{
-		// Token: 0x06000F9B RID: 3995 RVA: 0x00062B2A File Offset: 0x00060D2A
+		// Token: 0x06000FB2 RID: 4018 RVA: 0x00063306 File Offset: 0x00061506
 		static LocalizeTarget_UnityStandard_SpriteRenderer()
 		{
 			LocalizeTarget_UnityStandard_SpriteRenderer.AutoRegister();
 		}
 
-		// Token: 0x06000F9C RID: 3996 RVA: 0x00062B31 File Offset: 0x00060D31
+		// Token: 0x06000FB3 RID: 4019 RVA: 0x0006330D File Offset: 0x0006150D
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -22,37 +22,37 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000F9D RID: 3997 RVA: 0x00062B50 File Offset: 0x00060D50
+		// Token: 0x06000FB4 RID: 4020 RVA: 0x0006332C File Offset: 0x0006152C
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.Sprite;
 		}
 
-		// Token: 0x06000F9E RID: 3998 RVA: 0x00062B53 File Offset: 0x00060D53
+		// Token: 0x06000FB5 RID: 4021 RVA: 0x0006332F File Offset: 0x0006152F
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000F9F RID: 3999 RVA: 0x00062B56 File Offset: 0x00060D56
+		// Token: 0x06000FB6 RID: 4022 RVA: 0x00063332 File Offset: 0x00061532
 		public override bool CanUseSecondaryTerm()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FA0 RID: 4000 RVA: 0x00062B59 File Offset: 0x00060D59
+		// Token: 0x06000FB7 RID: 4023 RVA: 0x00063335 File Offset: 0x00061535
 		public override bool AllowMainTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FA1 RID: 4001 RVA: 0x00062B5C File Offset: 0x00060D5C
+		// Token: 0x06000FB8 RID: 4024 RVA: 0x00063338 File Offset: 0x00061538
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FA2 RID: 4002 RVA: 0x00062B60 File Offset: 0x00060D60
+		// Token: 0x06000FB9 RID: 4025 RVA: 0x0006333C File Offset: 0x0006153C
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			Sprite sprite = this.mTarget.sprite;
@@ -60,7 +60,7 @@ namespace I2.Loc
 			secondaryTerm = null;
 		}
 
-		// Token: 0x06000FA3 RID: 4003 RVA: 0x00062B98 File Offset: 0x00060D98
+		// Token: 0x06000FBA RID: 4026 RVA: 0x00063374 File Offset: 0x00061574
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			Sprite sprite = this.mTarget.sprite;

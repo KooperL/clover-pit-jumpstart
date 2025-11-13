@@ -6,13 +6,13 @@ namespace I2.Loc
 	[AddComponentMenu("I2/Localization/SetLanguage Button")]
 	public class SetLanguage : MonoBehaviour
 	{
-		// Token: 0x06001031 RID: 4145 RVA: 0x00065964 File Offset: 0x00063B64
+		// Token: 0x06001048 RID: 4168 RVA: 0x00066140 File Offset: 0x00064340
 		private void OnClick()
 		{
 			this.ApplyLanguage();
 		}
 
-		// Token: 0x06001032 RID: 4146 RVA: 0x0006596C File Offset: 0x00063B6C
+		// Token: 0x06001049 RID: 4169 RVA: 0x00066148 File Offset: 0x00064348
 		public void ApplyLanguage()
 		{
 			if (LocalizationManager.HasLanguage(this._Language, true, true, true))

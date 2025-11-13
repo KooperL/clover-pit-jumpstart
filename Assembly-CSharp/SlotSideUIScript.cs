@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class SlotSideUIScript : MonoBehaviour
 {
-	// Token: 0x06000A15 RID: 2581 RVA: 0x000454D4 File Offset: 0x000436D4
+	// Token: 0x06000A2A RID: 2602 RVA: 0x00045BD0 File Offset: 0x00043DD0
 	public static bool IsEnabled()
 	{
 		return !(SlotSideUIScript.instance == null) && SlotSideUIScript.instance._enabledState;
 	}
 
-	// Token: 0x06000A16 RID: 2582 RVA: 0x000454EF File Offset: 0x000436EF
+	// Token: 0x06000A2B RID: 2603 RVA: 0x00045BEB File Offset: 0x00043DEB
 	private static void SetEnableTime(float time)
 	{
 		if (SlotSideUIScript.instance == null)
@@ -22,13 +22,13 @@ public class SlotSideUIScript : MonoBehaviour
 		SlotSideUIScript.instance.enableTimer = Mathf.Max(SlotSideUIScript.instance.enableTimer, time);
 	}
 
-	// Token: 0x06000A17 RID: 2583 RVA: 0x00045519 File Offset: 0x00043719
+	// Token: 0x06000A2C RID: 2604 RVA: 0x00045C15 File Offset: 0x00043E15
 	public static void ShowTry()
 	{
 		SlotSideUIScript.SetEnableTime(3f);
 	}
 
-	// Token: 0x06000A18 RID: 2584 RVA: 0x00045528 File Offset: 0x00043728
+	// Token: 0x06000A2D RID: 2605 RVA: 0x00045C24 File Offset: 0x00043E24
 	private void Awake()
 	{
 		SlotSideUIScript.instance = this;
@@ -38,14 +38,14 @@ public class SlotSideUIScript : MonoBehaviour
 		this.rightPromptHidePosition = this.rightPromptStartPosition + new Vector2(100f, 0f);
 	}
 
-	// Token: 0x06000A19 RID: 2585 RVA: 0x0004559D File Offset: 0x0004379D
+	// Token: 0x06000A2E RID: 2606 RVA: 0x00045C99 File Offset: 0x00043E99
 	private void Start()
 	{
 		this.leftPromptHolder.anchoredPosition = this.leftPromptHidePosition;
 		this.rightPromptHolder.anchoredPosition = this.rightPromptHidePosition;
 	}
 
-	// Token: 0x06000A1A RID: 2586 RVA: 0x000455C1 File Offset: 0x000437C1
+	// Token: 0x06000A2F RID: 2607 RVA: 0x00045CBD File Offset: 0x00043EBD
 	private void OnDestroy()
 	{
 		if (SlotSideUIScript.instance == this)
@@ -54,7 +54,7 @@ public class SlotSideUIScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A1B RID: 2587 RVA: 0x000455D8 File Offset: 0x000437D8
+	// Token: 0x06000A30 RID: 2608 RVA: 0x00045CD4 File Offset: 0x00043ED4
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

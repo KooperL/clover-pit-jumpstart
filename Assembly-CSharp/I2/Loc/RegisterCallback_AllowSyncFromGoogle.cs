@@ -5,25 +5,25 @@ namespace I2.Loc
 {
 	public class RegisterCallback_AllowSyncFromGoogle : MonoBehaviour
 	{
-		// Token: 0x0600100C RID: 4108 RVA: 0x00064046 File Offset: 0x00062246
+		// Token: 0x06001023 RID: 4131 RVA: 0x00064822 File Offset: 0x00062A22
 		public void Awake()
 		{
 			LocalizationManager.Callback_AllowSyncFromGoogle = new Func<LanguageSourceData, bool>(this.AllowSyncFromGoogle);
 		}
 
-		// Token: 0x0600100D RID: 4109 RVA: 0x0006405A File Offset: 0x0006225A
+		// Token: 0x06001024 RID: 4132 RVA: 0x00064836 File Offset: 0x00062A36
 		public void OnEnable()
 		{
 			LocalizationManager.Callback_AllowSyncFromGoogle = new Func<LanguageSourceData, bool>(this.AllowSyncFromGoogle);
 		}
 
-		// Token: 0x0600100E RID: 4110 RVA: 0x0006406E File Offset: 0x0006226E
+		// Token: 0x06001025 RID: 4133 RVA: 0x0006484A File Offset: 0x00062A4A
 		public void OnDisable()
 		{
 			LocalizationManager.Callback_AllowSyncFromGoogle = null;
 		}
 
-		// Token: 0x0600100F RID: 4111 RVA: 0x00064076 File Offset: 0x00062276
+		// Token: 0x06001026 RID: 4134 RVA: 0x00064852 File Offset: 0x00062A52
 		public virtual bool AllowSyncFromGoogle(LanguageSourceData Source)
 		{
 			return true;

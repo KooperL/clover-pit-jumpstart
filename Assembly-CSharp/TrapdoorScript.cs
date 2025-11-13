@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapdoorScript : MonoBehaviour
 {
-	// Token: 0x060007A6 RID: 1958 RVA: 0x00032200 File Offset: 0x00030400
+	// Token: 0x060007A6 RID: 1958 RVA: 0x000322B8 File Offset: 0x000304B8
 	public static void SetAnimation(TrapdoorScript.AnimationKind kind)
 	{
 		if (kind != TrapdoorScript.AnimationKind.Shake)
@@ -36,20 +36,20 @@ public class TrapdoorScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007A7 RID: 1959 RVA: 0x000322CC File Offset: 0x000304CC
+	// Token: 0x060007A7 RID: 1959 RVA: 0x00032384 File Offset: 0x00030584
 	private void Awake()
 	{
 		TrapdoorScript.instance = this;
 		this.animator = base.GetComponentInChildren<Animator>();
 	}
 
-	// Token: 0x060007A8 RID: 1960 RVA: 0x000322E0 File Offset: 0x000304E0
+	// Token: 0x060007A8 RID: 1960 RVA: 0x00032398 File Offset: 0x00030598
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
 	}
 
-	// Token: 0x060007A9 RID: 1961 RVA: 0x000322EE File Offset: 0x000304EE
+	// Token: 0x060007A9 RID: 1961 RVA: 0x000323A6 File Offset: 0x000305A6
 	private void OnDestroy()
 	{
 		if (TrapdoorScript.instance == this)

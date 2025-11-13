@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ScreenColliderController : MonoBehaviour
 {
-	// Token: 0x060009E6 RID: 2534 RVA: 0x00043B0E File Offset: 0x00041D0E
+	// Token: 0x060009FA RID: 2554 RVA: 0x00044176 File Offset: 0x00042376
 	private void RefreshClickCounts()
 	{
 		this.clicksCount = 0;
 		this.clicksCountLuckValue = 666;
 	}
 
-	// Token: 0x060009E7 RID: 2535 RVA: 0x00043B24 File Offset: 0x00041D24
+	// Token: 0x060009FB RID: 2555 RVA: 0x0004418C File Offset: 0x0004238C
 	private bool IsMouseOver()
 	{
 		bool flag = VirtualCursors.IsCursorVisible(0, true);
@@ -41,13 +41,13 @@ public class ScreenColliderController : MonoBehaviour
 		return flag2;
 	}
 
-	// Token: 0x060009E8 RID: 2536 RVA: 0x00043C1F File Offset: 0x00041E1F
+	// Token: 0x060009FC RID: 2556 RVA: 0x00044287 File Offset: 0x00042487
 	private void Start()
 	{
 		this.gameCamera = CameraGame.list[0].myCamera;
 	}
 
-	// Token: 0x060009E9 RID: 2537 RVA: 0x00043C38 File Offset: 0x00041E38
+	// Token: 0x060009FD RID: 2557 RVA: 0x000442A0 File Offset: 0x000424A0
 	private void Update()
 	{
 		if (PowerupTriggerAnimController.HasAnimations())
@@ -80,13 +80,13 @@ public class ScreenColliderController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009EA RID: 2538 RVA: 0x00043D12 File Offset: 0x00041F12
+	// Token: 0x060009FE RID: 2558 RVA: 0x0004437A File Offset: 0x0004257A
 	private void OnEnable()
 	{
 		this.RefreshClickCounts();
 	}
 
-	// Token: 0x060009EB RID: 2539 RVA: 0x00043D1A File Offset: 0x00041F1A
+	// Token: 0x060009FF RID: 2559 RVA: 0x00044382 File Offset: 0x00042582
 	private void OnDisable()
 	{
 		this.RefreshClickCounts();

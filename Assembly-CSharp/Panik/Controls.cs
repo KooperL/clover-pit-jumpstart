@@ -7,7 +7,7 @@ namespace Panik
 {
 	public class Controls : MonoBehaviour
 	{
-		// Token: 0x06000B68 RID: 2920 RVA: 0x0004BFB8 File Offset: 0x0004A1B8
+		// Token: 0x06000B7D RID: 2941 RVA: 0x0004C718 File Offset: 0x0004A918
 		public static bool MouseMovementSwitchesLastInputGet(int playerIndex)
 		{
 			if (Controls.mouseMovementSwitchesLastInput == null)
@@ -21,7 +21,7 @@ namespace Panik
 			return Controls.mouseMovementSwitchesLastInput[playerIndex];
 		}
 
-		// Token: 0x06000B69 RID: 2921 RVA: 0x0004BFF4 File Offset: 0x0004A1F4
+		// Token: 0x06000B7E RID: 2942 RVA: 0x0004C754 File Offset: 0x0004A954
 		private void PlayersInit()
 		{
 			this._PlayersListUpdate();
@@ -52,7 +52,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B6A RID: 2922 RVA: 0x0004C0B0 File Offset: 0x0004A2B0
+		// Token: 0x06000B7F RID: 2943 RVA: 0x0004C810 File Offset: 0x0004AA10
 		private void _PlayersListUpdate()
 		{
 			if (ReInput.players.playerCount == 0)
@@ -98,7 +98,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B6B RID: 2923 RVA: 0x0004C20C File Offset: 0x0004A40C
+		// Token: 0x06000B80 RID: 2944 RVA: 0x0004C96C File Offset: 0x0004AB6C
 		private void PlayersUpdate()
 		{
 			bool flag = false;
@@ -202,13 +202,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B6C RID: 2924 RVA: 0x0004C598 File Offset: 0x0004A798
+		// Token: 0x06000B81 RID: 2945 RVA: 0x0004CCF8 File Offset: 0x0004AEF8
 		public static int GetPlayersCount()
 		{
 			return Controls.playersExtList.Count;
 		}
 
-		// Token: 0x06000B6D RID: 2925 RVA: 0x0004C5A4 File Offset: 0x0004A7A4
+		// Token: 0x06000B82 RID: 2946 RVA: 0x0004CD04 File Offset: 0x0004AF04
 		public static Controls.PlayerExt GetPlayerByIndex(int index)
 		{
 			if (index < 0)
@@ -224,7 +224,7 @@ namespace Panik
 			return Controls.playersExtList[index];
 		}
 
-		// Token: 0x06000B6E RID: 2926 RVA: 0x0004C5DA File Offset: 0x0004A7DA
+		// Token: 0x06000B83 RID: 2947 RVA: 0x0004CD3A File Offset: 0x0004AF3A
 		public static int GetPlayerIndex(Controls.PlayerExt player)
 		{
 			if (player == null)
@@ -240,43 +240,43 @@ namespace Panik
 			return num;
 		}
 
-		// Token: 0x06000B6F RID: 2927 RVA: 0x0004C604 File Offset: 0x0004A804
+		// Token: 0x06000B84 RID: 2948 RVA: 0x0004CD64 File Offset: 0x0004AF64
 		public static bool PlayerIsUsingKeyboard(Controls.PlayerExt player)
 		{
 			return player.rePlayer.controllers.hasKeyboard && player.lastInputKindUsed == Controls.InputKind.Keyboard;
 		}
 
-		// Token: 0x06000B70 RID: 2928 RVA: 0x0004C623 File Offset: 0x0004A823
+		// Token: 0x06000B85 RID: 2949 RVA: 0x0004CD83 File Offset: 0x0004AF83
 		public static bool PlayerIsUsingKeyboard(int playerIndex)
 		{
 			return Controls.PlayerIsUsingKeyboard(Controls.GetPlayerByIndex(playerIndex));
 		}
 
-		// Token: 0x06000B71 RID: 2929 RVA: 0x0004C630 File Offset: 0x0004A830
+		// Token: 0x06000B86 RID: 2950 RVA: 0x0004CD90 File Offset: 0x0004AF90
 		public static bool PlayerIsUsingMouse(Controls.PlayerExt player)
 		{
 			return player.rePlayer.controllers.hasMouse && player.lastInputKindUsed == Controls.InputKind.Mouse;
 		}
 
-		// Token: 0x06000B72 RID: 2930 RVA: 0x0004C64F File Offset: 0x0004A84F
+		// Token: 0x06000B87 RID: 2951 RVA: 0x0004CDAF File Offset: 0x0004AFAF
 		public static bool PlayerIsUsingMouse(int playerIndex)
 		{
 			return Controls.PlayerIsUsingMouse(Controls.GetPlayerByIndex(playerIndex));
 		}
 
-		// Token: 0x06000B73 RID: 2931 RVA: 0x0004C65C File Offset: 0x0004A85C
+		// Token: 0x06000B88 RID: 2952 RVA: 0x0004CDBC File Offset: 0x0004AFBC
 		public static bool PlayerIsUsingJoystick(Controls.PlayerExt player)
 		{
 			return player.rePlayer.controllers.joystickCount > 0 && player.lastInputKindUsed == Controls.InputKind.Joystick && player.lastUsedJoystickTemplate != null;
 		}
 
-		// Token: 0x06000B74 RID: 2932 RVA: 0x0004C685 File Offset: 0x0004A885
+		// Token: 0x06000B89 RID: 2953 RVA: 0x0004CDE5 File Offset: 0x0004AFE5
 		public static bool PlayerIsUsingJoystick(int playerIndex)
 		{
 			return Controls.PlayerIsUsingJoystick(Controls.GetPlayerByIndex(playerIndex));
 		}
 
-		// Token: 0x06000B75 RID: 2933 RVA: 0x0004C694 File Offset: 0x0004A894
+		// Token: 0x06000B8A RID: 2954 RVA: 0x0004CDF4 File Offset: 0x0004AFF4
 		private void SplitScreenUpdate()
 		{
 			if (Controls.p1 != null && !Controls.p1.isPlaying)
@@ -307,7 +307,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B76 RID: 2934 RVA: 0x0004C7A8 File Offset: 0x0004A9A8
+		// Token: 0x06000B8B RID: 2955 RVA: 0x0004CF08 File Offset: 0x0004B108
 		public static void PlayersJoinSession_Start()
 		{
 			if (Controls.playersCanJoin)
@@ -317,7 +317,7 @@ namespace Panik
 			Controls.playersCanJoin = true;
 		}
 
-		// Token: 0x06000B77 RID: 2935 RVA: 0x0004C7B8 File Offset: 0x0004A9B8
+		// Token: 0x06000B8C RID: 2956 RVA: 0x0004CF18 File Offset: 0x0004B118
 		public static void PlayersJoinSession_End()
 		{
 			if (!Controls.playersCanJoin)
@@ -327,13 +327,13 @@ namespace Panik
 			Controls.playersCanJoin = false;
 		}
 
-		// Token: 0x06000B78 RID: 2936 RVA: 0x0004C7C8 File Offset: 0x0004A9C8
+		// Token: 0x06000B8D RID: 2957 RVA: 0x0004CF28 File Offset: 0x0004B128
 		public static bool PlayersJoinSession_IsRunning()
 		{
 			return Controls.playersCanJoin;
 		}
 
-		// Token: 0x06000B79 RID: 2937 RVA: 0x0004C7D0 File Offset: 0x0004A9D0
+		// Token: 0x06000B8E RID: 2958 RVA: 0x0004CF30 File Offset: 0x0004B130
 		public static bool PlayerJoinTry(Controls.PlayerExt player)
 		{
 			if (!Controls.playersCanJoin)
@@ -362,13 +362,13 @@ namespace Panik
 			return true;
 		}
 
-		// Token: 0x06000B7A RID: 2938 RVA: 0x0004C849 File Offset: 0x0004AA49
+		// Token: 0x06000B8F RID: 2959 RVA: 0x0004CFA9 File Offset: 0x0004B1A9
 		public static bool PlayerJoinTry(int playerIndex)
 		{
 			return Controls.PlayerJoinTry(Controls.GetPlayerByIndex(playerIndex));
 		}
 
-		// Token: 0x06000B7B RID: 2939 RVA: 0x0004C858 File Offset: 0x0004AA58
+		// Token: 0x06000B90 RID: 2960 RVA: 0x0004CFB8 File Offset: 0x0004B1B8
 		public static bool PlayerLeaveTry(Controls.PlayerExt player)
 		{
 			if (!player.isPlaying || !Controls.playersPlaying.Contains(player))
@@ -387,37 +387,37 @@ namespace Panik
 			return true;
 		}
 
-		// Token: 0x06000B7C RID: 2940 RVA: 0x0004C8A7 File Offset: 0x0004AAA7
+		// Token: 0x06000B91 RID: 2961 RVA: 0x0004D007 File Offset: 0x0004B207
 		public static bool PlayerLeaveTry(int playerIndex)
 		{
 			return Controls.PlayerLeaveTry(Controls.GetPlayerByIndex(playerIndex));
 		}
 
-		// Token: 0x06000B7D RID: 2941 RVA: 0x0004C8B4 File Offset: 0x0004AAB4
+		// Token: 0x06000B92 RID: 2962 RVA: 0x0004D014 File Offset: 0x0004B214
 		public static bool PlayerIsPlaying(Controls.PlayerExt player)
 		{
 			return player.isPlaying && Controls.playersPlaying.Contains(player);
 		}
 
-		// Token: 0x06000B7E RID: 2942 RVA: 0x0004C8CB File Offset: 0x0004AACB
+		// Token: 0x06000B93 RID: 2963 RVA: 0x0004D02B File Offset: 0x0004B22B
 		public static bool PlayerIsPlaying(int playerIndex)
 		{
 			return Controls.PlayerIsPlaying(Controls.GetPlayerByIndex(playerIndex));
 		}
 
-		// Token: 0x06000B7F RID: 2943 RVA: 0x0004C8D8 File Offset: 0x0004AAD8
+		// Token: 0x06000B94 RID: 2964 RVA: 0x0004D038 File Offset: 0x0004B238
 		public static int PlayingPlayersCount()
 		{
 			return Controls.playersPlaying.Count;
 		}
 
-		// Token: 0x06000B80 RID: 2944 RVA: 0x0004C8E4 File Offset: 0x0004AAE4
+		// Token: 0x06000B95 RID: 2965 RVA: 0x0004D044 File Offset: 0x0004B244
 		public static List<Controls.PlayerExt> PlayingPlayersGetList()
 		{
 			return Controls.playersPlaying;
 		}
 
-		// Token: 0x06000B81 RID: 2945 RVA: 0x0004C8EC File Offset: 0x0004AAEC
+		// Token: 0x06000B96 RID: 2966 RVA: 0x0004D04C File Offset: 0x0004B24C
 		private Controls.VibrationData VibrationDataGet(Controls.PlayerExt playerExt)
 		{
 			if (this.vibrations.ContainsKey(playerExt))
@@ -429,7 +429,7 @@ namespace Panik
 			return vibrationData;
 		}
 
-		// Token: 0x06000B82 RID: 2946 RVA: 0x0004C92C File Offset: 0x0004AB2C
+		// Token: 0x06000B97 RID: 2967 RVA: 0x0004D08C File Offset: 0x0004B28C
 		private void VibrationUpdate()
 		{
 			foreach (Controls.PlayerExt playerExt in Controls.playersExtList)
@@ -462,19 +462,19 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B83 RID: 2947 RVA: 0x0004CA98 File Offset: 0x0004AC98
+		// Token: 0x06000B98 RID: 2968 RVA: 0x0004D1F8 File Offset: 0x0004B3F8
 		public static void VibrationSetLeft(Controls.PlayerExt player, float force)
 		{
 			Controls.instance.VibrationDataGet(player).motorLevelLeft = force;
 		}
 
-		// Token: 0x06000B84 RID: 2948 RVA: 0x0004CAAB File Offset: 0x0004ACAB
+		// Token: 0x06000B99 RID: 2969 RVA: 0x0004D20B File Offset: 0x0004B40B
 		public static void VibrationSetRight(Controls.PlayerExt player, float force)
 		{
 			Controls.instance.VibrationDataGet(player).motorLevelRight = force;
 		}
 
-		// Token: 0x06000B85 RID: 2949 RVA: 0x0004CABE File Offset: 0x0004ACBE
+		// Token: 0x06000B9A RID: 2970 RVA: 0x0004D21E File Offset: 0x0004B41E
 		public static void VibrationSet(Controls.PlayerExt player, float force)
 		{
 			Controls.VibrationData vibrationData = Controls.instance.VibrationDataGet(player);
@@ -482,7 +482,7 @@ namespace Panik
 			vibrationData.motorLevelRight = force;
 		}
 
-		// Token: 0x06000B86 RID: 2950 RVA: 0x0004CAD8 File Offset: 0x0004ACD8
+		// Token: 0x06000B9B RID: 2971 RVA: 0x0004D238 File Offset: 0x0004B438
 		public static void VibrationSet_PreferMax(Controls.PlayerExt player, float vibration)
 		{
 			Controls.VibrationSet(player, Mathf.Max(new float[]
@@ -493,38 +493,38 @@ namespace Panik
 			}));
 		}
 
-		// Token: 0x06000B87 RID: 2951 RVA: 0x0004CB01 File Offset: 0x0004AD01
+		// Token: 0x06000B9C RID: 2972 RVA: 0x0004D261 File Offset: 0x0004B461
 		public static float VibrationGetLeft(Controls.PlayerExt player)
 		{
 			return Controls.instance.VibrationDataGet(player).motorLevelLeft;
 		}
 
-		// Token: 0x06000B88 RID: 2952 RVA: 0x0004CB13 File Offset: 0x0004AD13
+		// Token: 0x06000B9D RID: 2973 RVA: 0x0004D273 File Offset: 0x0004B473
 		public static float VibrationGetRight(Controls.PlayerExt player)
 		{
 			return Controls.instance.VibrationDataGet(player).motorLevelRight;
 		}
 
-		// Token: 0x06000B89 RID: 2953 RVA: 0x0004CB28 File Offset: 0x0004AD28
+		// Token: 0x06000B9E RID: 2974 RVA: 0x0004D288 File Offset: 0x0004B488
 		public static float VibrationGet(Controls.PlayerExt player)
 		{
 			Controls.VibrationData vibrationData = Controls.instance.VibrationDataGet(player);
 			return Mathf.Max(vibrationData.motorLevelLeft, vibrationData.motorLevelRight);
 		}
 
-		// Token: 0x06000B8A RID: 2954 RVA: 0x0004CB52 File Offset: 0x0004AD52
+		// Token: 0x06000B9F RID: 2975 RVA: 0x0004D2B2 File Offset: 0x0004B4B2
 		public static void VibrationSetDecaySpeedLeft(Controls.PlayerExt player, float speed)
 		{
 			Controls.instance.VibrationDataGet(player).decaySpeedLeft = speed;
 		}
 
-		// Token: 0x06000B8B RID: 2955 RVA: 0x0004CB65 File Offset: 0x0004AD65
+		// Token: 0x06000BA0 RID: 2976 RVA: 0x0004D2C5 File Offset: 0x0004B4C5
 		public static void VibrationSetDecaySpeedRight(Controls.PlayerExt player, float speed)
 		{
 			Controls.instance.VibrationDataGet(player).decaySpeedRight = speed;
 		}
 
-		// Token: 0x06000B8C RID: 2956 RVA: 0x0004CB78 File Offset: 0x0004AD78
+		// Token: 0x06000BA1 RID: 2977 RVA: 0x0004D2D8 File Offset: 0x0004B4D8
 		public static void VibrationSetDecaySpeed(Controls.PlayerExt player, float speed)
 		{
 			Controls.VibrationData vibrationData = Controls.instance.VibrationDataGet(player);
@@ -532,50 +532,50 @@ namespace Panik
 			vibrationData.decaySpeedRight = speed;
 		}
 
-		// Token: 0x06000B8D RID: 2957 RVA: 0x0004CB92 File Offset: 0x0004AD92
+		// Token: 0x06000BA2 RID: 2978 RVA: 0x0004D2F2 File Offset: 0x0004B4F2
 		public static float VibrationGetDecaySpeedLeft(Controls.PlayerExt player)
 		{
 			return Controls.instance.VibrationDataGet(player).decaySpeedLeft;
 		}
 
-		// Token: 0x06000B8E RID: 2958 RVA: 0x0004CBA4 File Offset: 0x0004ADA4
+		// Token: 0x06000BA3 RID: 2979 RVA: 0x0004D304 File Offset: 0x0004B504
 		public static float VibrationGetDecaySpeedRight(Controls.PlayerExt player)
 		{
 			return Controls.instance.VibrationDataGet(player).decaySpeedRight;
 		}
 
-		// Token: 0x06000B8F RID: 2959 RVA: 0x0004CBB8 File Offset: 0x0004ADB8
+		// Token: 0x06000BA4 RID: 2980 RVA: 0x0004D318 File Offset: 0x0004B518
 		public static float VibrationGetDecaySpeed(Controls.PlayerExt player)
 		{
 			Controls.VibrationData vibrationData = Controls.instance.VibrationDataGet(player);
 			return Mathf.Max(vibrationData.decaySpeedLeft, vibrationData.decaySpeedRight);
 		}
 
-		// Token: 0x06000B90 RID: 2960 RVA: 0x0004CBE2 File Offset: 0x0004ADE2
+		// Token: 0x06000BA5 RID: 2981 RVA: 0x0004D342 File Offset: 0x0004B542
 		public static void VibrationSetDecaySpeedMult(Controls.PlayerExt player, float mult)
 		{
 			Controls.instance.VibrationDataGet(player).decaySpeedMult = mult;
 		}
 
-		// Token: 0x06000B91 RID: 2961 RVA: 0x0004CBF5 File Offset: 0x0004ADF5
+		// Token: 0x06000BA6 RID: 2982 RVA: 0x0004D355 File Offset: 0x0004B555
 		public static float VibrationGetDecaySpeedMult(Controls.PlayerExt player)
 		{
 			return Controls.instance.VibrationDataGet(player).decaySpeedMult;
 		}
 
-		// Token: 0x06000B92 RID: 2962 RVA: 0x0004CC07 File Offset: 0x0004AE07
+		// Token: 0x06000BA7 RID: 2983 RVA: 0x0004D367 File Offset: 0x0004B567
 		public static void VibrationSetPausable(Controls.PlayerExt player, bool pausable)
 		{
 			Controls.instance.VibrationDataGet(player).pausable = pausable;
 		}
 
-		// Token: 0x06000B93 RID: 2963 RVA: 0x0004CC1A File Offset: 0x0004AE1A
+		// Token: 0x06000BA8 RID: 2984 RVA: 0x0004D37A File Offset: 0x0004B57A
 		public static bool VibrationGetPausable(Controls.PlayerExt player)
 		{
 			return Controls.instance.VibrationDataGet(player).pausable;
 		}
 
-		// Token: 0x06000B94 RID: 2964 RVA: 0x0004CC2C File Offset: 0x0004AE2C
+		// Token: 0x06000BA9 RID: 2985 RVA: 0x0004D38C File Offset: 0x0004B58C
 		public static string JoystickElementName(Controls.JoystickElement element)
 		{
 			switch (PlatformMaster.PlatformKindGet())
@@ -607,7 +607,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B95 RID: 2965 RVA: 0x0004CCC8 File Offset: 0x0004AEC8
+		// Token: 0x06000BAA RID: 2986 RVA: 0x0004D428 File Offset: 0x0004B628
 		private static string _JoystickElementName_Computer(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -659,7 +659,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B96 RID: 2966 RVA: 0x0004CE20 File Offset: 0x0004B020
+		// Token: 0x06000BAB RID: 2987 RVA: 0x0004D580 File Offset: 0x0004B780
 		private static string _JoystickElementName_Xbox(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -711,7 +711,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B97 RID: 2967 RVA: 0x0004CF78 File Offset: 0x0004B178
+		// Token: 0x06000BAC RID: 2988 RVA: 0x0004D6D8 File Offset: 0x0004B8D8
 		private static string _JoystickElementName_Playstation(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -763,7 +763,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B98 RID: 2968 RVA: 0x0004D0D0 File Offset: 0x0004B2D0
+		// Token: 0x06000BAD RID: 2989 RVA: 0x0004D830 File Offset: 0x0004BA30
 		private static string _JoystickElementName_NintendoSwitch(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -815,7 +815,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B99 RID: 2969 RVA: 0x0004D228 File Offset: 0x0004B428
+		// Token: 0x06000BAE RID: 2990 RVA: 0x0004D988 File Offset: 0x0004BB88
 		private static string _JoystickElementName_Mobile(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -867,7 +867,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B9A RID: 2970 RVA: 0x0004D380 File Offset: 0x0004B580
+		// Token: 0x06000BAF RID: 2991 RVA: 0x0004DAE0 File Offset: 0x0004BCE0
 		private static IControllerTemplateButton _JoystickElementToTemplateButton(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			switch (element)
@@ -907,7 +907,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B9B RID: 2971 RVA: 0x0004D4A8 File Offset: 0x0004B6A8
+		// Token: 0x06000BB0 RID: 2992 RVA: 0x0004DC08 File Offset: 0x0004BE08
 		private static IControllerTemplateAxis _JoystickElementToTemplateAxis(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			switch (element)
@@ -929,7 +929,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B9C RID: 2972 RVA: 0x0004D538 File Offset: 0x0004B738
+		// Token: 0x06000BB1 RID: 2993 RVA: 0x0004DC98 File Offset: 0x0004BE98
 		public static bool JoystickElement_IsButton(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -969,7 +969,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B9D RID: 2973 RVA: 0x0004D5A8 File Offset: 0x0004B7A8
+		// Token: 0x06000BB2 RID: 2994 RVA: 0x0004DD08 File Offset: 0x0004BF08
 		public static bool JoystickElement_IsAxis(Controls.JoystickElement element)
 		{
 			switch (element)
@@ -991,7 +991,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B9E RID: 2974 RVA: 0x0004D5DC File Offset: 0x0004B7DC
+		// Token: 0x06000BB3 RID: 2995 RVA: 0x0004DD3C File Offset: 0x0004BF3C
 		public static bool PickStickAxis_Joystick(int playerIndex, Controls.JoystickElement xElement, Controls.JoystickElement yElement, out Controls.JoystickElement pickedElement)
 		{
 			if (xElement == Controls.JoystickElement.Undefined || yElement == Controls.JoystickElement.Undefined)
@@ -1017,13 +1017,13 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000B9F RID: 2975 RVA: 0x0004D63C File Offset: 0x0004B83C
+		// Token: 0x06000BB4 RID: 2996 RVA: 0x0004DD9C File Offset: 0x0004BF9C
 		public static bool PickStickAxis_Joystick(Controls.PlayerExt player, Controls.JoystickElement xElement, Controls.JoystickElement yElement, out Controls.JoystickElement pickedElement)
 		{
 			return Controls.PickStickAxis_Joystick(Controls.GetPlayerIndex(player), xElement, yElement, out pickedElement);
 		}
 
-		// Token: 0x06000BA0 RID: 2976 RVA: 0x0004D64C File Offset: 0x0004B84C
+		// Token: 0x06000BB5 RID: 2997 RVA: 0x0004DDAC File Offset: 0x0004BFAC
 		public static bool JoystickButton_PressedGet(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			if (player == null)
@@ -1039,13 +1039,13 @@ namespace Panik
 			return controllerTemplateButton != null && controllerTemplateButton.justPressed;
 		}
 
-		// Token: 0x06000BA1 RID: 2977 RVA: 0x0004D685 File Offset: 0x0004B885
+		// Token: 0x06000BB6 RID: 2998 RVA: 0x0004DDE5 File Offset: 0x0004BFE5
 		public static bool JoystickButton_PressedGet(int playerIndex, Controls.JoystickElement element)
 		{
 			return Controls.JoystickButton_PressedGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BA2 RID: 2978 RVA: 0x0004D694 File Offset: 0x0004B894
+		// Token: 0x06000BB7 RID: 2999 RVA: 0x0004DDF4 File Offset: 0x0004BFF4
 		public static bool JoystickButton_HoldGet(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			if (player == null)
@@ -1061,13 +1061,13 @@ namespace Panik
 			return controllerTemplateButton != null && controllerTemplateButton.value;
 		}
 
-		// Token: 0x06000BA3 RID: 2979 RVA: 0x0004D6CD File Offset: 0x0004B8CD
+		// Token: 0x06000BB8 RID: 3000 RVA: 0x0004DE2D File Offset: 0x0004C02D
 		public static bool JoystickButton_HoldGet(int playerIndex, Controls.JoystickElement element)
 		{
 			return Controls.JoystickButton_HoldGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BA4 RID: 2980 RVA: 0x0004D6DC File Offset: 0x0004B8DC
+		// Token: 0x06000BB9 RID: 3001 RVA: 0x0004DE3C File Offset: 0x0004C03C
 		public static bool JoystickButton_ReleasedGet(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			if (player == null)
@@ -1083,13 +1083,13 @@ namespace Panik
 			return controllerTemplateButton != null && controllerTemplateButton.justReleased;
 		}
 
-		// Token: 0x06000BA5 RID: 2981 RVA: 0x0004D715 File Offset: 0x0004B915
+		// Token: 0x06000BBA RID: 3002 RVA: 0x0004DE75 File Offset: 0x0004C075
 		public static bool JoystickButton_ReleasedGet(int playerIndex, Controls.JoystickElement element)
 		{
 			return Controls.JoystickButton_ReleasedGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BA6 RID: 2982 RVA: 0x0004D724 File Offset: 0x0004B924
+		// Token: 0x06000BBB RID: 3003 RVA: 0x0004DE84 File Offset: 0x0004C084
 		public static float JoystickAxis_ValueGet(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			if (player == null)
@@ -1109,13 +1109,13 @@ namespace Panik
 			return controllerTemplateAxis.value;
 		}
 
-		// Token: 0x06000BA7 RID: 2983 RVA: 0x0004D769 File Offset: 0x0004B969
+		// Token: 0x06000BBC RID: 3004 RVA: 0x0004DEC9 File Offset: 0x0004C0C9
 		public static float JoystickAxis_ValueGet(int playerIndex, Controls.JoystickElement element)
 		{
 			return Controls.JoystickAxis_ValueGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BA8 RID: 2984 RVA: 0x0004D778 File Offset: 0x0004B978
+		// Token: 0x06000BBD RID: 3005 RVA: 0x0004DED8 File Offset: 0x0004C0D8
 		public static float JoystickAxis_ValuePreviousGet(Controls.PlayerExt player, Controls.JoystickElement element)
 		{
 			if (player == null)
@@ -1135,13 +1135,13 @@ namespace Panik
 			return controllerTemplateAxis.valuePrev;
 		}
 
-		// Token: 0x06000BA9 RID: 2985 RVA: 0x0004D7BD File Offset: 0x0004B9BD
+		// Token: 0x06000BBE RID: 3006 RVA: 0x0004DF1D File Offset: 0x0004C11D
 		public static float JoystickAxis_ValuePreviousGet(int playerIndex, Controls.JoystickElement element)
 		{
 			return Controls.JoystickAxis_ValuePreviousGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BAA RID: 2986 RVA: 0x0004D7CB File Offset: 0x0004B9CB
+		// Token: 0x06000BBF RID: 3007 RVA: 0x0004DF2B File Offset: 0x0004C12B
 		public static Controls.JoystickElement JoystickSelectionButton_GetByPlatform()
 		{
 			if (PlatformMaster.PlatformKindGet() != PlatformMaster.PlatformKind.NintendoSwitch)
@@ -1151,7 +1151,7 @@ namespace Panik
 			return Controls.JoystickElement.ButtonRight;
 		}
 
-		// Token: 0x06000BAB RID: 2987 RVA: 0x0004D7D9 File Offset: 0x0004B9D9
+		// Token: 0x06000BC0 RID: 3008 RVA: 0x0004DF39 File Offset: 0x0004C139
 		public static Controls.JoystickElement JoystickBackButton_GetByPlatform()
 		{
 			if (PlatformMaster.PlatformKindGet() != PlatformMaster.PlatformKind.NintendoSwitch)
@@ -1161,7 +1161,7 @@ namespace Panik
 			return Controls.JoystickElement.ButtonDown;
 		}
 
-		// Token: 0x06000BAC RID: 2988 RVA: 0x0004D7E8 File Offset: 0x0004B9E8
+		// Token: 0x06000BC1 RID: 3009 RVA: 0x0004DF48 File Offset: 0x0004C148
 		public static string MouseElementName(Controls.MouseElement element)
 		{
 			switch (element)
@@ -1185,7 +1185,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BAD RID: 2989 RVA: 0x0004D86B File Offset: 0x0004BA6B
+		// Token: 0x06000BC2 RID: 3010 RVA: 0x0004DFCB File Offset: 0x0004C1CB
 		public static bool MouseElement_IsButton(Controls.MouseElement element)
 		{
 			switch (element)
@@ -1201,7 +1201,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BAE RID: 2990 RVA: 0x0004D888 File Offset: 0x0004BA88
+		// Token: 0x06000BC3 RID: 3011 RVA: 0x0004DFE8 File Offset: 0x0004C1E8
 		public static bool MouseElement_IsAxis(Controls.MouseElement element)
 		{
 			switch (element)
@@ -1219,7 +1219,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BAF RID: 2991 RVA: 0x0004D8B0 File Offset: 0x0004BAB0
+		// Token: 0x06000BC4 RID: 3012 RVA: 0x0004E010 File Offset: 0x0004C210
 		public static bool PickStickAxis_Mouse(int playerIndex, Controls.MouseElement xElement, Controls.MouseElement yElement, out Controls.MouseElement pickedElement)
 		{
 			if (xElement == Controls.MouseElement.Undefined || yElement == Controls.MouseElement.Undefined)
@@ -1245,13 +1245,13 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000BB0 RID: 2992 RVA: 0x0004D90C File Offset: 0x0004BB0C
+		// Token: 0x06000BC5 RID: 3013 RVA: 0x0004E06C File Offset: 0x0004C26C
 		public static bool PickStickAxis_Mouse(Controls.PlayerExt player, Controls.MouseElement xElement, Controls.MouseElement yElement, out Controls.MouseElement pickedElement)
 		{
 			return Controls.PickStickAxis_Mouse(Controls.GetPlayerIndex(player), xElement, yElement, out pickedElement);
 		}
 
-		// Token: 0x06000BB1 RID: 2993 RVA: 0x0004D91C File Offset: 0x0004BB1C
+		// Token: 0x06000BC6 RID: 3014 RVA: 0x0004E07C File Offset: 0x0004C27C
 		public static bool MouseButton_PressedGet(Controls.PlayerExt player, Controls.MouseElement element)
 		{
 			if (!player.rePlayer.controllers.hasMouse)
@@ -1292,13 +1292,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BB2 RID: 2994 RVA: 0x0004DA8E File Offset: 0x0004BC8E
+		// Token: 0x06000BC7 RID: 3015 RVA: 0x0004E1EE File Offset: 0x0004C3EE
 		public static bool MouseButton_PressedGet(int playerIndex, Controls.MouseElement element)
 		{
 			return Controls.MouseButton_PressedGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BB3 RID: 2995 RVA: 0x0004DA9C File Offset: 0x0004BC9C
+		// Token: 0x06000BC8 RID: 3016 RVA: 0x0004E1FC File Offset: 0x0004C3FC
 		public static bool MouseButton_ReleasedGet(Controls.PlayerExt player, Controls.MouseElement element)
 		{
 			if (!player.rePlayer.controllers.hasMouse)
@@ -1339,13 +1339,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BB4 RID: 2996 RVA: 0x0004DC0E File Offset: 0x0004BE0E
+		// Token: 0x06000BC9 RID: 3017 RVA: 0x0004E36E File Offset: 0x0004C56E
 		public static bool MouseButton_ReleasedGet(int playerIndex, Controls.MouseElement element)
 		{
 			return Controls.MouseButton_ReleasedGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BB5 RID: 2997 RVA: 0x0004DC1C File Offset: 0x0004BE1C
+		// Token: 0x06000BCA RID: 3018 RVA: 0x0004E37C File Offset: 0x0004C57C
 		public static bool MouseButton_HoldGet(Controls.PlayerExt player, Controls.MouseElement element)
 		{
 			if (!player.rePlayer.controllers.hasMouse)
@@ -1373,13 +1373,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BB6 RID: 2998 RVA: 0x0004DD3C File Offset: 0x0004BF3C
+		// Token: 0x06000BCB RID: 3019 RVA: 0x0004E49C File Offset: 0x0004C69C
 		public static bool MouseButton_HoldGet(int playerIndex, Controls.MouseElement element)
 		{
 			return Controls.MouseButton_HoldGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BB7 RID: 2999 RVA: 0x0004DD4C File Offset: 0x0004BF4C
+		// Token: 0x06000BCC RID: 3020 RVA: 0x0004E4AC File Offset: 0x0004C6AC
 		public static float MouseAxis_ValueGet(Controls.PlayerExt player, Controls.MouseElement element)
 		{
 			if (!player.rePlayer.controllers.hasMouse)
@@ -1408,13 +1408,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BB8 RID: 3000 RVA: 0x0004DE6C File Offset: 0x0004C06C
+		// Token: 0x06000BCD RID: 3021 RVA: 0x0004E5CC File Offset: 0x0004C7CC
 		public static float MouseAxis_ValueGet(int playerIndex, Controls.MouseElement element)
 		{
 			return Controls.MouseAxis_ValueGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BB9 RID: 3001 RVA: 0x0004DE7C File Offset: 0x0004C07C
+		// Token: 0x06000BCE RID: 3022 RVA: 0x0004E5DC File Offset: 0x0004C7DC
 		public static float MouseAxis_ValuePreviousGet(Controls.PlayerExt player, Controls.MouseElement element)
 		{
 			if (!player.rePlayer.controllers.hasMouse)
@@ -1442,13 +1442,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BBA RID: 3002 RVA: 0x0004DF95 File Offset: 0x0004C195
+		// Token: 0x06000BCF RID: 3023 RVA: 0x0004E6F5 File Offset: 0x0004C8F5
 		public static float MouseAxis_ValuePreviousGet(int playerIndex, Controls.MouseElement element)
 		{
 			return Controls.MouseAxis_ValuePreviousGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BBB RID: 3003 RVA: 0x0004DFA4 File Offset: 0x0004C1A4
+		// Token: 0x06000BD0 RID: 3024 RVA: 0x0004E704 File Offset: 0x0004C904
 		public static string KeyboardElementName(Controls.KeyboardElement element)
 		{
 			switch (element)
@@ -1720,19 +1720,19 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BBC RID: 3004 RVA: 0x0004E770 File Offset: 0x0004C970
+		// Token: 0x06000BD1 RID: 3025 RVA: 0x0004EED0 File Offset: 0x0004D0D0
 		public static bool KeyboardElement_IsButton(Controls.KeyboardElement element)
 		{
 			return true;
 		}
 
-		// Token: 0x06000BBD RID: 3005 RVA: 0x0004E773 File Offset: 0x0004C973
+		// Token: 0x06000BD2 RID: 3026 RVA: 0x0004EED3 File Offset: 0x0004D0D3
 		public static bool KeyboardElement_IsAxis(Controls.KeyboardElement element)
 		{
 			return false;
 		}
 
-		// Token: 0x06000BBE RID: 3006 RVA: 0x0004E776 File Offset: 0x0004C976
+		// Token: 0x06000BD3 RID: 3027 RVA: 0x0004EED6 File Offset: 0x0004D0D6
 		public static bool KeyboardButton_PressedGet(Controls.PlayerExt player, Controls.KeyboardElement element)
 		{
 			if (player == null)
@@ -1743,13 +1743,13 @@ namespace Panik
 			return player.rePlayer.controllers.hasKeyboard && player.rePlayer.controllers.Keyboard.GetButtonDownById((int)element);
 		}
 
-		// Token: 0x06000BBF RID: 3007 RVA: 0x0004E7B1 File Offset: 0x0004C9B1
+		// Token: 0x06000BD4 RID: 3028 RVA: 0x0004EF11 File Offset: 0x0004D111
 		public static bool KeyboardButton_PressedGet(int playerIndex, Controls.KeyboardElement element)
 		{
 			return Controls.KeyboardButton_PressedGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BC0 RID: 3008 RVA: 0x0004E7BF File Offset: 0x0004C9BF
+		// Token: 0x06000BD5 RID: 3029 RVA: 0x0004EF1F File Offset: 0x0004D11F
 		public static bool KeyboardButton_ReleasedGet(Controls.PlayerExt player, Controls.KeyboardElement element)
 		{
 			if (player == null)
@@ -1760,13 +1760,13 @@ namespace Panik
 			return player.rePlayer.controllers.hasKeyboard && player.rePlayer.controllers.Keyboard.GetButtonUpById((int)element);
 		}
 
-		// Token: 0x06000BC1 RID: 3009 RVA: 0x0004E7FA File Offset: 0x0004C9FA
+		// Token: 0x06000BD6 RID: 3030 RVA: 0x0004EF5A File Offset: 0x0004D15A
 		public static bool KeyboardButton_ReleasedGet(int playerIndex, Controls.KeyboardElement element)
 		{
 			return Controls.KeyboardButton_ReleasedGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BC2 RID: 3010 RVA: 0x0004E808 File Offset: 0x0004CA08
+		// Token: 0x06000BD7 RID: 3031 RVA: 0x0004EF68 File Offset: 0x0004D168
 		public static bool KeyboardButton_HoldGet(Controls.PlayerExt player, Controls.KeyboardElement element)
 		{
 			if (player == null)
@@ -1777,13 +1777,13 @@ namespace Panik
 			return player.rePlayer.controllers.hasKeyboard && player.rePlayer.controllers.Keyboard.GetButtonById((int)element);
 		}
 
-		// Token: 0x06000BC3 RID: 3011 RVA: 0x0004E843 File Offset: 0x0004CA43
+		// Token: 0x06000BD8 RID: 3032 RVA: 0x0004EFA3 File Offset: 0x0004D1A3
 		public static bool KeyboardButton_HoldGet(int playerIndex, Controls.KeyboardElement element)
 		{
 			return Controls.KeyboardButton_HoldGet(Controls.GetPlayerByIndex(playerIndex), element);
 		}
 
-		// Token: 0x06000BC4 RID: 3012 RVA: 0x0004E854 File Offset: 0x0004CA54
+		// Token: 0x06000BD9 RID: 3033 RVA: 0x0004EFB4 File Offset: 0x0004D1B4
 		public static Controls.InputActionMap MapFindInArray(Controls.InputActionMap[] array, Controls.InputAction action)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -1796,31 +1796,31 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000BC5 RID: 3013 RVA: 0x0004E87F File Offset: 0x0004CA7F
+		// Token: 0x06000BDA RID: 3034 RVA: 0x0004EFDF File Offset: 0x0004D1DF
 		public static Controls.InputActionMap MapFind_InUse(int playerIndex, Controls.InputAction action)
 		{
 			return Controls.MapFindInArray(Controls.mapsPerPlayerCollection_InUse[playerIndex].maps, action);
 		}
 
-		// Token: 0x06000BC6 RID: 3014 RVA: 0x0004E893 File Offset: 0x0004CA93
+		// Token: 0x06000BDB RID: 3035 RVA: 0x0004EFF3 File Offset: 0x0004D1F3
 		public static Controls.InputActionMap MapFind_InUse(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapFind_InUse(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BC7 RID: 3015 RVA: 0x0004E8A1 File Offset: 0x0004CAA1
+		// Token: 0x06000BDC RID: 3036 RVA: 0x0004F001 File Offset: 0x0004D201
 		public static Controls.InputActionMap MapFind_Default(int playerIndex, Controls.InputAction action)
 		{
 			return Controls.MapFindInArray(Controls.mapsPerPlayerCollection_Default[playerIndex].maps, action);
 		}
 
-		// Token: 0x06000BC8 RID: 3016 RVA: 0x0004E8B5 File Offset: 0x0004CAB5
+		// Token: 0x06000BDD RID: 3037 RVA: 0x0004F015 File Offset: 0x0004D215
 		public static Controls.InputActionMap MapFind_Default(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapFind_Default(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BC9 RID: 3017 RVA: 0x0004E8C4 File Offset: 0x0004CAC4
+		// Token: 0x06000BDE RID: 3038 RVA: 0x0004F024 File Offset: 0x0004D224
 		public static bool GameActionIsInverted(int playerIndex, Controls.InputAction gameAction)
 		{
 			switch (gameAction)
@@ -1842,7 +1842,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BCA RID: 3018 RVA: 0x0004E940 File Offset: 0x0004CB40
+		// Token: 0x06000BDF RID: 3039 RVA: 0x0004F0A0 File Offset: 0x0004D2A0
 		private void GameControlsInit()
 		{
 			for (int i = 0; i < Controls.mapsPerPlayerCollection_InUse.Length; i++)
@@ -1859,7 +1859,7 @@ namespace Panik
 			Controls.systemReady = true;
 		}
 
-		// Token: 0x06000BCB RID: 3019 RVA: 0x0004E9A8 File Offset: 0x0004CBA8
+		// Token: 0x06000BE0 RID: 3040 RVA: 0x0004F108 File Offset: 0x0004D308
 		private void InputActionsUpdate()
 		{
 			for (int i = 0; i < 1; i++)
@@ -1883,7 +1883,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BCC RID: 3020 RVA: 0x0004EA64 File Offset: 0x0004CC64
+		// Token: 0x06000BE1 RID: 3041 RVA: 0x0004F1C4 File Offset: 0x0004D3C4
 		private void _MappingDefaultGenerate()
 		{
 			if (Controls.mapsPerPlayerCollection_Default == null)
@@ -1909,7 +1909,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BCD RID: 3021 RVA: 0x0004EAF0 File Offset: 0x0004CCF0
+		// Token: 0x06000BE2 RID: 3042 RVA: 0x0004F250 File Offset: 0x0004D450
 		public static void MapsRestoreDefault_AllPlayers(bool affectKeyboard, bool affectMouse, bool affectJoystick)
 		{
 			if (!Controls.systemReady)
@@ -1929,7 +1929,7 @@ namespace Panik
 			mapCallback(null);
 		}
 
-		// Token: 0x06000BCE RID: 3022 RVA: 0x0004EB38 File Offset: 0x0004CD38
+		// Token: 0x06000BE3 RID: 3043 RVA: 0x0004F298 File Offset: 0x0004D498
 		public static void MapRestoreDefault_AllActionsOfPlayer(int playerIndex, bool affectKeyboard, bool affectMouse, bool affectJoystick, bool callback = true)
 		{
 			if (!Controls.systemReady)
@@ -1961,13 +1961,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BCF RID: 3023 RVA: 0x0004EBBE File Offset: 0x0004CDBE
+		// Token: 0x06000BE4 RID: 3044 RVA: 0x0004F31E File Offset: 0x0004D51E
 		public static void MapRestoreDefault_AllActionsOfPlayer(Controls.PlayerExt player, bool affectKeyboard, bool affectMouse, bool affectJoystick)
 		{
 			Controls.MapRestoreDefault_AllActionsOfPlayer(Controls.GetPlayerIndex(player), affectKeyboard, affectMouse, affectJoystick, true);
 		}
 
-		// Token: 0x06000BD0 RID: 3024 RVA: 0x0004EBD0 File Offset: 0x0004CDD0
+		// Token: 0x06000BE5 RID: 3045 RVA: 0x0004F330 File Offset: 0x0004D530
 		public static void MapRestoreDefault_Action(int playerIndex, Controls.InputAction action, bool affectKeyboard, bool affectMouse, bool affectJoystick)
 		{
 			if (!Controls.systemReady)
@@ -1995,13 +1995,13 @@ namespace Panik
 			mapCallback(null);
 		}
 
-		// Token: 0x06000BD1 RID: 3025 RVA: 0x0004EC2A File Offset: 0x0004CE2A
+		// Token: 0x06000BE6 RID: 3046 RVA: 0x0004F38A File Offset: 0x0004D58A
 		public static void MapRestoreDefault_Action(Controls.PlayerExt player, Controls.InputAction action, bool affectKeyboard, bool affectMouse, bool affectJoystick)
 		{
 			Controls.MapRestoreDefault_Action(Controls.GetPlayerIndex(player), action, affectKeyboard, affectMouse, affectJoystick);
 		}
 
-		// Token: 0x06000BD2 RID: 3026 RVA: 0x0004EC3C File Offset: 0x0004CE3C
+		// Token: 0x06000BE7 RID: 3047 RVA: 0x0004F39C File Offset: 0x0004D59C
 		public static string SaveMapsToJson()
 		{
 			if (!Controls.systemReady)
@@ -2017,7 +2017,7 @@ namespace Panik
 			return PlatformDataMaster.ToJson<Controls.PlayerMapCollectionSerializer>(Controls.mapsCollectionSerializer);
 		}
 
-		// Token: 0x06000BD3 RID: 3027 RVA: 0x0004EC8C File Offset: 0x0004CE8C
+		// Token: 0x06000BE8 RID: 3048 RVA: 0x0004F3EC File Offset: 0x0004D5EC
 		public static bool LoadMapsFromJson(string json, bool saveSettingsIfWrongVersion)
 		{
 			if (!Controls.systemReady)
@@ -2044,7 +2044,7 @@ namespace Panik
 			return true;
 		}
 
-		// Token: 0x06000BD4 RID: 3028 RVA: 0x0004ED08 File Offset: 0x0004CF08
+		// Token: 0x06000BE9 RID: 3049 RVA: 0x0004F468 File Offset: 0x0004D668
 		private static bool _IsElementBanned_Keyboard(Controls.KeyboardElement element)
 		{
 			if (Controls.bannedElementsDict_Keyboard == null)
@@ -2058,7 +2058,7 @@ namespace Panik
 			return Controls.bannedElementsDict_Keyboard.ContainsKey(element);
 		}
 
-		// Token: 0x06000BD5 RID: 3029 RVA: 0x0004ED58 File Offset: 0x0004CF58
+		// Token: 0x06000BEA RID: 3050 RVA: 0x0004F4B8 File Offset: 0x0004D6B8
 		private static bool _IsElementBanned_Mouse(Controls.MouseElement element)
 		{
 			if (Controls.bannedElementsDict_Mouse == null)
@@ -2072,7 +2072,7 @@ namespace Panik
 			return Controls.bannedElementsDict_Mouse.ContainsKey(element);
 		}
 
-		// Token: 0x06000BD6 RID: 3030 RVA: 0x0004EDA8 File Offset: 0x0004CFA8
+		// Token: 0x06000BEB RID: 3051 RVA: 0x0004F508 File Offset: 0x0004D708
 		private static bool _IsElementBanned_Joystick(Controls.JoystickElement element)
 		{
 			if (Controls.bannedElementsDict_Joystick == null)
@@ -2086,7 +2086,7 @@ namespace Panik
 			return Controls.bannedElementsDict_Joystick.ContainsKey(element);
 		}
 
-		// Token: 0x06000BD7 RID: 3031 RVA: 0x0004EDF8 File Offset: 0x0004CFF8
+		// Token: 0x06000BEC RID: 3052 RVA: 0x0004F558 File Offset: 0x0004D758
 		public static void RemapStart(int playerIndex, Controls.InputKind remapInputKind, Controls.InputAction action, bool allowButtons, bool allowAxes)
 		{
 			if (Controls.remappingContext.isRunnning)
@@ -2161,7 +2161,7 @@ namespace Panik
 			mapCallback(Controls.remappingContext.mapToRemap);
 		}
 
-		// Token: 0x06000BD8 RID: 3032 RVA: 0x0004EFC8 File Offset: 0x0004D1C8
+		// Token: 0x06000BED RID: 3053 RVA: 0x0004F728 File Offset: 0x0004D928
 		public static void RemapEnd(bool abortRemapping)
 		{
 			if (!Controls.remappingContext.isRunnning)
@@ -2201,13 +2201,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BD9 RID: 3033 RVA: 0x0004F077 File Offset: 0x0004D277
+		// Token: 0x06000BEE RID: 3054 RVA: 0x0004F7D7 File Offset: 0x0004D9D7
 		public static bool RemapIsRunning()
 		{
 			return Controls.remappingContext.isRunnning;
 		}
 
-		// Token: 0x06000BDA RID: 3034 RVA: 0x0004F084 File Offset: 0x0004D284
+		// Token: 0x06000BEF RID: 3055 RVA: 0x0004F7E4 File Offset: 0x0004D9E4
 		private void _RemapContextUpdate()
 		{
 			if (!Controls.remappingContext.isRunnning)
@@ -2230,7 +2230,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BDB RID: 3035 RVA: 0x0004F0D4 File Offset: 0x0004D2D4
+		// Token: 0x06000BF0 RID: 3056 RVA: 0x0004F834 File Offset: 0x0004DA34
 		private void _RemapContextUpdate_Keyboard()
 		{
 			if (!Controls.remappingContext.allowButtons)
@@ -2252,7 +2252,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BDC RID: 3036 RVA: 0x0004F150 File Offset: 0x0004D350
+		// Token: 0x06000BF1 RID: 3057 RVA: 0x0004F8B0 File Offset: 0x0004DAB0
 		private void _RemapContextUpdate_Mouse()
 		{
 			int num = 7;
@@ -2304,7 +2304,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BDD RID: 3037 RVA: 0x0004F270 File Offset: 0x0004D470
+		// Token: 0x06000BF2 RID: 3058 RVA: 0x0004F9D0 File Offset: 0x0004DBD0
 		private void _RemapContextUpdate_Joystick()
 		{
 			int num = 21;
@@ -2365,7 +2365,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BDE RID: 3038 RVA: 0x0004F3C8 File Offset: 0x0004D5C8
+		// Token: 0x06000BF3 RID: 3059 RVA: 0x0004FB28 File Offset: 0x0004DD28
 		public static List<Controls.KeyboardElement> MapGetKeyboardInputs(int playerIndex, Controls.InputActionMap map)
 		{
 			if (map == null)
@@ -2375,26 +2375,26 @@ namespace Panik
 			return map.ElementKeyboard_Get();
 		}
 
-		// Token: 0x06000BDF RID: 3039 RVA: 0x0004F3D5 File Offset: 0x0004D5D5
+		// Token: 0x06000BF4 RID: 3060 RVA: 0x0004FB35 File Offset: 0x0004DD35
 		public static List<Controls.KeyboardElement> MapGetKeyboardInputs(Controls.PlayerExt player, Controls.InputActionMap map)
 		{
 			return Controls.MapGetKeyboardInputs(Controls.GetPlayerIndex(player), map);
 		}
 
-		// Token: 0x06000BE0 RID: 3040 RVA: 0x0004F3E4 File Offset: 0x0004D5E4
+		// Token: 0x06000BF5 RID: 3061 RVA: 0x0004FB44 File Offset: 0x0004DD44
 		public static List<Controls.KeyboardElement> MapGetKeyboardInputs(int playerIndex, Controls.InputAction action)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetKeyboardInputs(playerIndex, inputActionMap);
 		}
 
-		// Token: 0x06000BE1 RID: 3041 RVA: 0x0004F400 File Offset: 0x0004D600
+		// Token: 0x06000BF6 RID: 3062 RVA: 0x0004FB60 File Offset: 0x0004DD60
 		public static List<Controls.KeyboardElement> MapGetKeyboardInputs(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapGetKeyboardInputs(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BE2 RID: 3042 RVA: 0x0004F40E File Offset: 0x0004D60E
+		// Token: 0x06000BF7 RID: 3063 RVA: 0x0004FB6E File Offset: 0x0004DD6E
 		public static List<Controls.MouseElement> MapGetMouseInputs(int playerIndex, Controls.InputActionMap map)
 		{
 			if (map == null)
@@ -2404,26 +2404,26 @@ namespace Panik
 			return map.ElementMouse_Get();
 		}
 
-		// Token: 0x06000BE3 RID: 3043 RVA: 0x0004F41B File Offset: 0x0004D61B
+		// Token: 0x06000BF8 RID: 3064 RVA: 0x0004FB7B File Offset: 0x0004DD7B
 		public static List<Controls.MouseElement> MapGetMouseInputs(Controls.PlayerExt player, Controls.InputActionMap map)
 		{
 			return Controls.MapGetMouseInputs(Controls.GetPlayerIndex(player), map);
 		}
 
-		// Token: 0x06000BE4 RID: 3044 RVA: 0x0004F42C File Offset: 0x0004D62C
+		// Token: 0x06000BF9 RID: 3065 RVA: 0x0004FB8C File Offset: 0x0004DD8C
 		public static List<Controls.MouseElement> MapGetMouseInputs(int playerIndex, Controls.InputAction action)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetMouseInputs(playerIndex, inputActionMap);
 		}
 
-		// Token: 0x06000BE5 RID: 3045 RVA: 0x0004F448 File Offset: 0x0004D648
+		// Token: 0x06000BFA RID: 3066 RVA: 0x0004FBA8 File Offset: 0x0004DDA8
 		public static List<Controls.MouseElement> MapGetMouseInputs(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapGetMouseInputs(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BE6 RID: 3046 RVA: 0x0004F456 File Offset: 0x0004D656
+		// Token: 0x06000BFB RID: 3067 RVA: 0x0004FBB6 File Offset: 0x0004DDB6
 		public static List<Controls.JoystickElement> MapGetJoystickInputs(int playerIndex, Controls.InputActionMap map)
 		{
 			if (map == null)
@@ -2433,26 +2433,26 @@ namespace Panik
 			return map.ElementJoystick_Get();
 		}
 
-		// Token: 0x06000BE7 RID: 3047 RVA: 0x0004F463 File Offset: 0x0004D663
+		// Token: 0x06000BFC RID: 3068 RVA: 0x0004FBC3 File Offset: 0x0004DDC3
 		public static List<Controls.JoystickElement> MapGetJoystickInputs(Controls.PlayerExt player, Controls.InputActionMap map)
 		{
 			return Controls.MapGetJoystickInputs(Controls.GetPlayerIndex(player), map);
 		}
 
-		// Token: 0x06000BE8 RID: 3048 RVA: 0x0004F474 File Offset: 0x0004D674
+		// Token: 0x06000BFD RID: 3069 RVA: 0x0004FBD4 File Offset: 0x0004DDD4
 		public static List<Controls.JoystickElement> MapGetJoystickInputs(int playerIndex, Controls.InputAction action)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetJoystickInputs(playerIndex, inputActionMap);
 		}
 
-		// Token: 0x06000BE9 RID: 3049 RVA: 0x0004F490 File Offset: 0x0004D690
+		// Token: 0x06000BFE RID: 3070 RVA: 0x0004FBF0 File Offset: 0x0004DDF0
 		public static List<Controls.JoystickElement> MapGetJoystickInputs(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapGetJoystickInputs(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BEA RID: 3050 RVA: 0x0004F4A0 File Offset: 0x0004D6A0
+		// Token: 0x06000BFF RID: 3071 RVA: 0x0004FC00 File Offset: 0x0004DE00
 		public static List<string> MapGetKeyboardInputs_Names(int playerIndex, Controls.InputActionMap map)
 		{
 			List<Controls.KeyboardElement> list = Controls.MapGetKeyboardInputs(playerIndex, map);
@@ -2468,26 +2468,26 @@ namespace Panik
 			return list2;
 		}
 
-		// Token: 0x06000BEB RID: 3051 RVA: 0x0004F508 File Offset: 0x0004D708
+		// Token: 0x06000C00 RID: 3072 RVA: 0x0004FC68 File Offset: 0x0004DE68
 		public static List<string> MapGetKeyboardInputs_Names(Controls.PlayerExt player, Controls.InputActionMap map)
 		{
 			return Controls.MapGetKeyboardInputs_Names(Controls.GetPlayerIndex(player), map);
 		}
 
-		// Token: 0x06000BEC RID: 3052 RVA: 0x0004F518 File Offset: 0x0004D718
+		// Token: 0x06000C01 RID: 3073 RVA: 0x0004FC78 File Offset: 0x0004DE78
 		public static List<string> MapGetKeyboardInputs_Names(int playerIndex, Controls.InputAction action)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetKeyboardInputs_Names(playerIndex, inputActionMap);
 		}
 
-		// Token: 0x06000BED RID: 3053 RVA: 0x0004F534 File Offset: 0x0004D734
+		// Token: 0x06000C02 RID: 3074 RVA: 0x0004FC94 File Offset: 0x0004DE94
 		public static List<string> MapGetKeyboardInputs_Names(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapGetKeyboardInputs_Names(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BEE RID: 3054 RVA: 0x0004F544 File Offset: 0x0004D744
+		// Token: 0x06000C03 RID: 3075 RVA: 0x0004FCA4 File Offset: 0x0004DEA4
 		public static List<string> MapGetMouseInputs_Names(int playerIndex, Controls.InputActionMap map)
 		{
 			List<Controls.MouseElement> list = Controls.MapGetMouseInputs(playerIndex, map);
@@ -2503,26 +2503,26 @@ namespace Panik
 			return list2;
 		}
 
-		// Token: 0x06000BEF RID: 3055 RVA: 0x0004F5AC File Offset: 0x0004D7AC
+		// Token: 0x06000C04 RID: 3076 RVA: 0x0004FD0C File Offset: 0x0004DF0C
 		public static List<string> MapGetMouseInputs_Names(Controls.PlayerExt player, Controls.InputActionMap map)
 		{
 			return Controls.MapGetMouseInputs_Names(Controls.GetPlayerIndex(player), map);
 		}
 
-		// Token: 0x06000BF0 RID: 3056 RVA: 0x0004F5BC File Offset: 0x0004D7BC
+		// Token: 0x06000C05 RID: 3077 RVA: 0x0004FD1C File Offset: 0x0004DF1C
 		public static List<string> MapGetMouseInputs_Names(int playerIndex, Controls.InputAction action)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetMouseInputs_Names(playerIndex, inputActionMap);
 		}
 
-		// Token: 0x06000BF1 RID: 3057 RVA: 0x0004F5D8 File Offset: 0x0004D7D8
+		// Token: 0x06000C06 RID: 3078 RVA: 0x0004FD38 File Offset: 0x0004DF38
 		public static List<string> MapGetMouseInputs_Names(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapGetMouseInputs_Names(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BF2 RID: 3058 RVA: 0x0004F5E8 File Offset: 0x0004D7E8
+		// Token: 0x06000C07 RID: 3079 RVA: 0x0004FD48 File Offset: 0x0004DF48
 		public static List<string> MapGetJoystickInputs_Names(int playerIndex, Controls.InputActionMap map)
 		{
 			List<Controls.JoystickElement> list = Controls.MapGetJoystickInputs(playerIndex, map);
@@ -2538,26 +2538,26 @@ namespace Panik
 			return list2;
 		}
 
-		// Token: 0x06000BF3 RID: 3059 RVA: 0x0004F650 File Offset: 0x0004D850
+		// Token: 0x06000C08 RID: 3080 RVA: 0x0004FDB0 File Offset: 0x0004DFB0
 		public static List<string> MapGetJoystickInputs_Names(Controls.PlayerExt player, Controls.InputActionMap map)
 		{
 			return Controls.MapGetJoystickInputs_Names(Controls.GetPlayerIndex(player), map);
 		}
 
-		// Token: 0x06000BF4 RID: 3060 RVA: 0x0004F660 File Offset: 0x0004D860
+		// Token: 0x06000C09 RID: 3081 RVA: 0x0004FDC0 File Offset: 0x0004DFC0
 		public static List<string> MapGetJoystickInputs_Names(int playerIndex, Controls.InputAction action)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetJoystickInputs_Names(playerIndex, inputActionMap);
 		}
 
-		// Token: 0x06000BF5 RID: 3061 RVA: 0x0004F67C File Offset: 0x0004D87C
+		// Token: 0x06000C0A RID: 3082 RVA: 0x0004FDDC File Offset: 0x0004DFDC
 		public static List<string> MapGetJoystickInputs_Names(Controls.PlayerExt player, Controls.InputAction action)
 		{
 			return Controls.MapGetJoystickInputs_Names(Controls.GetPlayerIndex(player), action);
 		}
 
-		// Token: 0x06000BF6 RID: 3062 RVA: 0x0004F68C File Offset: 0x0004D88C
+		// Token: 0x06000C0B RID: 3083 RVA: 0x0004FDEC File Offset: 0x0004DFEC
 		public static List<string> MapGetLastInputs_Names(Controls.PlayerExt player, Controls.InputActionMap map, bool keyboardMouseFallback)
 		{
 			switch (player.lastInputKindUsed)
@@ -2599,26 +2599,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BF7 RID: 3063 RVA: 0x0004F71C File Offset: 0x0004D91C
+		// Token: 0x06000C0C RID: 3084 RVA: 0x0004FE7C File Offset: 0x0004E07C
 		public static List<string> MapGetLastInputs_Names(Controls.PlayerExt player, Controls.InputAction action, bool keyboardMouseFallback)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			return Controls.MapGetLastInputs_Names(player, inputActionMap, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000BF8 RID: 3064 RVA: 0x0004F739 File Offset: 0x0004D939
+		// Token: 0x06000C0D RID: 3085 RVA: 0x0004FE99 File Offset: 0x0004E099
 		public static List<string> MapGetLastInputs_Names(int playerIndex, Controls.InputActionMap actionMap, bool keyboardMouseFallback)
 		{
 			return Controls.MapGetLastInputs_Names(Controls.GetPlayerByIndex(playerIndex), actionMap, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000BF9 RID: 3065 RVA: 0x0004F748 File Offset: 0x0004D948
+		// Token: 0x06000C0E RID: 3086 RVA: 0x0004FEA8 File Offset: 0x0004E0A8
 		public static List<string> MapGetLastInputs_Names(int playerIndex, Controls.InputAction action, bool keyboardMouseFallback)
 		{
 			return Controls.MapGetLastInputs_Names(Controls.GetPlayerByIndex(playerIndex), action, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000BFA RID: 3066 RVA: 0x0004F758 File Offset: 0x0004D958
+		// Token: 0x06000C0F RID: 3087 RVA: 0x0004FEB8 File Offset: 0x0004E0B8
 		public static void MapGetKeyboardPrompts_Sprites(int playerIndex, Controls.InputActionMap map, ref List<Sprite> spritesOut)
 		{
 			if (spritesOut == null)
@@ -2638,26 +2638,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BFB RID: 3067 RVA: 0x0004F7D0 File Offset: 0x0004D9D0
+		// Token: 0x06000C10 RID: 3088 RVA: 0x0004FF30 File Offset: 0x0004E130
 		public static void MapGetKeyboardPrompts_Sprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<Sprite> spritesOut)
 		{
 			Controls.MapGetKeyboardPrompts_Sprites(Controls.GetPlayerIndex(player), map, ref spritesOut);
 		}
 
-		// Token: 0x06000BFC RID: 3068 RVA: 0x0004F7E0 File Offset: 0x0004D9E0
+		// Token: 0x06000C11 RID: 3089 RVA: 0x0004FF40 File Offset: 0x0004E140
 		public static void MapGetKeyboardPrompts_Sprites(int playerIndex, Controls.InputAction action, ref List<Sprite> spritesOut)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			Controls.MapGetKeyboardPrompts_Sprites(playerIndex, inputActionMap, ref spritesOut);
 		}
 
-		// Token: 0x06000BFD RID: 3069 RVA: 0x0004F7FD File Offset: 0x0004D9FD
+		// Token: 0x06000C12 RID: 3090 RVA: 0x0004FF5D File Offset: 0x0004E15D
 		public static void MapGetKeyboardPrompts_Sprites(Controls.PlayerExt player, Controls.InputAction action, ref List<Sprite> spritesOut)
 		{
 			Controls.MapGetKeyboardPrompts_Sprites(Controls.GetPlayerIndex(player), action, ref spritesOut);
 		}
 
-		// Token: 0x06000BFE RID: 3070 RVA: 0x0004F80C File Offset: 0x0004DA0C
+		// Token: 0x06000C13 RID: 3091 RVA: 0x0004FF6C File Offset: 0x0004E16C
 		public static void MapGetMousePrompts_Sprites(int playerIndex, Controls.InputActionMap map, ref List<Sprite> spritesOut)
 		{
 			if (spritesOut == null)
@@ -2677,26 +2677,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000BFF RID: 3071 RVA: 0x0004F884 File Offset: 0x0004DA84
+		// Token: 0x06000C14 RID: 3092 RVA: 0x0004FFE4 File Offset: 0x0004E1E4
 		public static void MapGetMousePrompts_Sprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<Sprite> spritesOut)
 		{
 			Controls.MapGetMousePrompts_Sprites(Controls.GetPlayerIndex(player), map, ref spritesOut);
 		}
 
-		// Token: 0x06000C00 RID: 3072 RVA: 0x0004F894 File Offset: 0x0004DA94
+		// Token: 0x06000C15 RID: 3093 RVA: 0x0004FFF4 File Offset: 0x0004E1F4
 		public static void MapGetMousePrompts_Sprites(int playerIndex, Controls.InputAction action, ref List<Sprite> spritesOut)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			Controls.MapGetMousePrompts_Sprites(playerIndex, inputActionMap, ref spritesOut);
 		}
 
-		// Token: 0x06000C01 RID: 3073 RVA: 0x0004F8B1 File Offset: 0x0004DAB1
+		// Token: 0x06000C16 RID: 3094 RVA: 0x00050011 File Offset: 0x0004E211
 		public static void MapGetMousePrompts_Sprites(Controls.PlayerExt player, Controls.InputAction action, ref List<Sprite> spritesOut)
 		{
 			Controls.MapGetMousePrompts_Sprites(Controls.GetPlayerIndex(player), action, ref spritesOut);
 		}
 
-		// Token: 0x06000C02 RID: 3074 RVA: 0x0004F8C0 File Offset: 0x0004DAC0
+		// Token: 0x06000C17 RID: 3095 RVA: 0x00050020 File Offset: 0x0004E220
 		public static void MapGetJoystickPrompts_Sprites(int playerIndex, Controls.InputActionMap map, ref List<Sprite> spritesOut)
 		{
 			if (spritesOut == null)
@@ -2716,26 +2716,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C03 RID: 3075 RVA: 0x0004F938 File Offset: 0x0004DB38
+		// Token: 0x06000C18 RID: 3096 RVA: 0x00050098 File Offset: 0x0004E298
 		public static void MapGetJoystickPrompts_Sprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<Sprite> spritesOut)
 		{
 			Controls.MapGetJoystickPrompts_Sprites(Controls.GetPlayerIndex(player), map, ref spritesOut);
 		}
 
-		// Token: 0x06000C04 RID: 3076 RVA: 0x0004F948 File Offset: 0x0004DB48
+		// Token: 0x06000C19 RID: 3097 RVA: 0x000500A8 File Offset: 0x0004E2A8
 		public static void MapGetJoystickPrompts_Sprites(int playerIndex, Controls.InputAction action, ref List<Sprite> spritesOut)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			Controls.MapGetJoystickPrompts_Sprites(playerIndex, inputActionMap, ref spritesOut);
 		}
 
-		// Token: 0x06000C05 RID: 3077 RVA: 0x0004F965 File Offset: 0x0004DB65
+		// Token: 0x06000C1A RID: 3098 RVA: 0x000500C5 File Offset: 0x0004E2C5
 		public static void MapGetJoystickPrompts_Sprites(Controls.PlayerExt player, Controls.InputAction action, ref List<Sprite> spritesOut)
 		{
 			Controls.MapGetJoystickPrompts_Sprites(Controls.GetPlayerIndex(player), action, ref spritesOut);
 		}
 
-		// Token: 0x06000C06 RID: 3078 RVA: 0x0004F974 File Offset: 0x0004DB74
+		// Token: 0x06000C1B RID: 3099 RVA: 0x000500D4 File Offset: 0x0004E2D4
 		public static void MapGetLastPrompts_Sprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<Sprite> spritesOut, bool keyboardMouseFallback)
 		{
 			switch (player.lastInputKindUsed)
@@ -2768,26 +2768,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C07 RID: 3079 RVA: 0x0004FA04 File Offset: 0x0004DC04
+		// Token: 0x06000C1C RID: 3100 RVA: 0x00050164 File Offset: 0x0004E364
 		public static void MapGetLastPrompts_Sprites(Controls.PlayerExt player, Controls.InputAction action, ref List<Sprite> spritesOut, bool keyboardMouseFallback)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			Controls.MapGetLastPrompts_Sprites(player, inputActionMap, ref spritesOut, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000C08 RID: 3080 RVA: 0x0004FA22 File Offset: 0x0004DC22
+		// Token: 0x06000C1D RID: 3101 RVA: 0x00050182 File Offset: 0x0004E382
 		public static void MapGetLastPrompts_Sprites(int playerIndex, Controls.InputActionMap map, ref List<Sprite> spritesOut, bool keyboardMouseFallback)
 		{
 			Controls.MapGetLastPrompts_Sprites(Controls.GetPlayerByIndex(playerIndex), map, ref spritesOut, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000C09 RID: 3081 RVA: 0x0004FA32 File Offset: 0x0004DC32
+		// Token: 0x06000C1E RID: 3102 RVA: 0x00050192 File Offset: 0x0004E392
 		public static void MapGetLastPrompts_Sprites(int playerIndex, Controls.InputAction action, ref List<Sprite> spritesOut, bool keyboardMouseFallback)
 		{
 			Controls.MapGetLastPrompts_Sprites(Controls.GetPlayerByIndex(playerIndex), action, ref spritesOut, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000C0A RID: 3082 RVA: 0x0004FA44 File Offset: 0x0004DC44
+		// Token: 0x06000C1F RID: 3103 RVA: 0x000501A4 File Offset: 0x0004E3A4
 		public static void MapGetKeyboardPrompts_TextSprites(int playerIndex, Controls.InputActionMap map, ref List<string> textSpritesOut)
 		{
 			if (textSpritesOut == null)
@@ -2807,26 +2807,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C0B RID: 3083 RVA: 0x0004FABC File Offset: 0x0004DCBC
+		// Token: 0x06000C20 RID: 3104 RVA: 0x0005021C File Offset: 0x0004E41C
 		public static void MapGetKeyboardPrompts_TextSprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<string> textSpritesOut)
 		{
 			Controls.MapGetKeyboardPrompts_TextSprites(Controls.GetPlayerIndex(player), map, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C0C RID: 3084 RVA: 0x0004FACC File Offset: 0x0004DCCC
+		// Token: 0x06000C21 RID: 3105 RVA: 0x0005022C File Offset: 0x0004E42C
 		public static void MapGetKeyboardPrompts_TextSprites(int playerIndex, Controls.InputAction action, ref List<string> textSpritesOut)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			Controls.MapGetKeyboardPrompts_TextSprites(playerIndex, inputActionMap, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C0D RID: 3085 RVA: 0x0004FAE9 File Offset: 0x0004DCE9
+		// Token: 0x06000C22 RID: 3106 RVA: 0x00050249 File Offset: 0x0004E449
 		public static void MapGetKeyboardPrompts_TextSprites(Controls.PlayerExt player, Controls.InputAction action, ref List<string> textSpritesOut)
 		{
 			Controls.MapGetKeyboardPrompts_TextSprites(Controls.GetPlayerIndex(player), action, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C0E RID: 3086 RVA: 0x0004FAF8 File Offset: 0x0004DCF8
+		// Token: 0x06000C23 RID: 3107 RVA: 0x00050258 File Offset: 0x0004E458
 		public static void MapGetMousePrompts_TextSprites(int playerIndex, Controls.InputActionMap map, ref List<string> textSpritesOut)
 		{
 			if (textSpritesOut == null)
@@ -2846,26 +2846,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C0F RID: 3087 RVA: 0x0004FB70 File Offset: 0x0004DD70
+		// Token: 0x06000C24 RID: 3108 RVA: 0x000502D0 File Offset: 0x0004E4D0
 		public static void MapGetMousePrompts_TextSprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<string> textSpritesOut)
 		{
 			Controls.MapGetMousePrompts_TextSprites(Controls.GetPlayerIndex(player), map, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C10 RID: 3088 RVA: 0x0004FB80 File Offset: 0x0004DD80
+		// Token: 0x06000C25 RID: 3109 RVA: 0x000502E0 File Offset: 0x0004E4E0
 		public static void MapGetMousePrompts_TextSprites(int playerIndex, Controls.InputAction action, ref List<string> textSpritesOut)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			Controls.MapGetMousePrompts_TextSprites(playerIndex, inputActionMap, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C11 RID: 3089 RVA: 0x0004FB9D File Offset: 0x0004DD9D
+		// Token: 0x06000C26 RID: 3110 RVA: 0x000502FD File Offset: 0x0004E4FD
 		public static void MapGetMousePrompts_TextSprites(Controls.PlayerExt player, Controls.InputAction action, ref List<string> textSpritesOut)
 		{
 			Controls.MapGetMousePrompts_TextSprites(Controls.GetPlayerIndex(player), action, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C12 RID: 3090 RVA: 0x0004FBAC File Offset: 0x0004DDAC
+		// Token: 0x06000C27 RID: 3111 RVA: 0x0005030C File Offset: 0x0004E50C
 		public static void MapGetJoystickPrompts_TextSprites(int playerIndex, Controls.InputActionMap map, ref List<string> textSpritesOut)
 		{
 			if (textSpritesOut == null)
@@ -2885,26 +2885,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C13 RID: 3091 RVA: 0x0004FC24 File Offset: 0x0004DE24
+		// Token: 0x06000C28 RID: 3112 RVA: 0x00050384 File Offset: 0x0004E584
 		public static void MapGetJoystickPrompts_TextSprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<string> textSpritesOut)
 		{
 			Controls.MapGetJoystickPrompts_TextSprites(Controls.GetPlayerIndex(player), map, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C14 RID: 3092 RVA: 0x0004FC34 File Offset: 0x0004DE34
+		// Token: 0x06000C29 RID: 3113 RVA: 0x00050394 File Offset: 0x0004E594
 		public static void MapGetJoystickPrompts_TextSprites(int playerIndex, Controls.InputAction action, ref List<string> textSpritesOut)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			Controls.MapGetJoystickPrompts_TextSprites(playerIndex, inputActionMap, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C15 RID: 3093 RVA: 0x0004FC51 File Offset: 0x0004DE51
+		// Token: 0x06000C2A RID: 3114 RVA: 0x000503B1 File Offset: 0x0004E5B1
 		public static void MapGetJoystickPrompts_TextSprites(Controls.PlayerExt player, Controls.InputAction action, ref List<string> textSpritesOut)
 		{
 			Controls.MapGetJoystickPrompts_TextSprites(Controls.GetPlayerIndex(player), action, ref textSpritesOut);
 		}
 
-		// Token: 0x06000C16 RID: 3094 RVA: 0x0004FC60 File Offset: 0x0004DE60
+		// Token: 0x06000C2B RID: 3115 RVA: 0x000503C0 File Offset: 0x0004E5C0
 		public static void MapGetLastPrompts_TextSprites(Controls.PlayerExt player, Controls.InputActionMap map, ref List<string> textSpritesOut, bool keyboardMouseFallback)
 		{
 			switch (player.lastInputKindUsed)
@@ -2937,26 +2937,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C17 RID: 3095 RVA: 0x0004FCF0 File Offset: 0x0004DEF0
+		// Token: 0x06000C2C RID: 3116 RVA: 0x00050450 File Offset: 0x0004E650
 		public static void MapGetLastPrompts_TextSprites(Controls.PlayerExt player, Controls.InputAction action, ref List<string> textSpritesOut, bool keyboardMouseFallback)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			Controls.MapGetLastPrompts_TextSprites(player, inputActionMap, ref textSpritesOut, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000C18 RID: 3096 RVA: 0x0004FD0E File Offset: 0x0004DF0E
+		// Token: 0x06000C2D RID: 3117 RVA: 0x0005046E File Offset: 0x0004E66E
 		public static void MapGetLastPrompts_TextSprites(int playerIndex, Controls.InputActionMap map, ref List<string> textSpritesOut, bool keyboardMouseFallback)
 		{
 			Controls.MapGetLastPrompts_TextSprites(Controls.GetPlayerByIndex(playerIndex), map, ref textSpritesOut, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000C19 RID: 3097 RVA: 0x0004FD1E File Offset: 0x0004DF1E
+		// Token: 0x06000C2E RID: 3118 RVA: 0x0005047E File Offset: 0x0004E67E
 		public static void MapGetLastPrompts_TextSprites(int playerIndex, Controls.InputAction action, ref List<string> textSpritesOut, bool keyboardMouseFallback)
 		{
 			Controls.MapGetLastPrompts_TextSprites(Controls.GetPlayerByIndex(playerIndex), action, ref textSpritesOut, keyboardMouseFallback);
 		}
 
-		// Token: 0x06000C1A RID: 3098 RVA: 0x0004FD30 File Offset: 0x0004DF30
+		// Token: 0x06000C2F RID: 3119 RVA: 0x00050490 File Offset: 0x0004E690
 		public static Sprite MapGetKeyboardPrompt_Sprite(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			List<Controls.KeyboardElement> list = Controls.MapGetKeyboardInputs(playerIndex, map);
@@ -2971,26 +2971,26 @@ namespace Panik
 			return PromptsMaster.GetSprite_Keyboard(list[index]);
 		}
 
-		// Token: 0x06000C1B RID: 3099 RVA: 0x0004FD65 File Offset: 0x0004DF65
+		// Token: 0x06000C30 RID: 3120 RVA: 0x000504C5 File Offset: 0x0004E6C5
 		public static Sprite MapGetKeyboardPrompt_Sprite(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetKeyboardPrompt_Sprite(Controls.GetPlayerIndex(player), map, index);
 		}
 
-		// Token: 0x06000C1C RID: 3100 RVA: 0x0004FD74 File Offset: 0x0004DF74
+		// Token: 0x06000C31 RID: 3121 RVA: 0x000504D4 File Offset: 0x0004E6D4
 		public static Sprite MapGetKeyboardPrompt_Sprite(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetKeyboardPrompt_Sprite(playerIndex, inputActionMap, index);
 		}
 
-		// Token: 0x06000C1D RID: 3101 RVA: 0x0004FD91 File Offset: 0x0004DF91
+		// Token: 0x06000C32 RID: 3122 RVA: 0x000504F1 File Offset: 0x0004E6F1
 		public static Sprite MapGetKeyboardPrompt_Sprite(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetKeyboardPrompt_Sprite(Controls.GetPlayerIndex(player), action, index);
 		}
 
-		// Token: 0x06000C1E RID: 3102 RVA: 0x0004FDA0 File Offset: 0x0004DFA0
+		// Token: 0x06000C33 RID: 3123 RVA: 0x00050500 File Offset: 0x0004E700
 		public static Sprite MapGetMousePrompt_Sprite(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			List<Controls.MouseElement> list = Controls.MapGetMouseInputs(playerIndex, map);
@@ -3005,26 +3005,26 @@ namespace Panik
 			return PromptsMaster.GetSprite_Mouse(list[index]);
 		}
 
-		// Token: 0x06000C1F RID: 3103 RVA: 0x0004FDD5 File Offset: 0x0004DFD5
+		// Token: 0x06000C34 RID: 3124 RVA: 0x00050535 File Offset: 0x0004E735
 		public static Sprite MapGetMousePrompt_Sprite(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetMousePrompt_Sprite(Controls.GetPlayerIndex(player), map, index);
 		}
 
-		// Token: 0x06000C20 RID: 3104 RVA: 0x0004FDE4 File Offset: 0x0004DFE4
+		// Token: 0x06000C35 RID: 3125 RVA: 0x00050544 File Offset: 0x0004E744
 		public static Sprite MapGetMousePrompt_Sprite(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetMousePrompt_Sprite(playerIndex, inputActionMap, index);
 		}
 
-		// Token: 0x06000C21 RID: 3105 RVA: 0x0004FE01 File Offset: 0x0004E001
+		// Token: 0x06000C36 RID: 3126 RVA: 0x00050561 File Offset: 0x0004E761
 		public static Sprite MapGetMousePrompt_Sprite(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetMousePrompt_Sprite(Controls.GetPlayerIndex(player), action, index);
 		}
 
-		// Token: 0x06000C22 RID: 3106 RVA: 0x0004FE10 File Offset: 0x0004E010
+		// Token: 0x06000C37 RID: 3127 RVA: 0x00050570 File Offset: 0x0004E770
 		public static Sprite MapGetJoystickPrompt_Sprite(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			List<Controls.JoystickElement> list = Controls.MapGetJoystickInputs(playerIndex, map);
@@ -3039,26 +3039,26 @@ namespace Panik
 			return PromptsMaster.GetSprite_Joystick(list[index]);
 		}
 
-		// Token: 0x06000C23 RID: 3107 RVA: 0x0004FE45 File Offset: 0x0004E045
+		// Token: 0x06000C38 RID: 3128 RVA: 0x000505A5 File Offset: 0x0004E7A5
 		public static Sprite MapGetJoystickPrompt_Sprite(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetJoystickPrompt_Sprite(Controls.GetPlayerIndex(player), map, index);
 		}
 
-		// Token: 0x06000C24 RID: 3108 RVA: 0x0004FE54 File Offset: 0x0004E054
+		// Token: 0x06000C39 RID: 3129 RVA: 0x000505B4 File Offset: 0x0004E7B4
 		public static Sprite MapGetJoystickPrompt_Sprite(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetJoystickPrompt_Sprite(playerIndex, inputActionMap, index);
 		}
 
-		// Token: 0x06000C25 RID: 3109 RVA: 0x0004FE71 File Offset: 0x0004E071
+		// Token: 0x06000C3A RID: 3130 RVA: 0x000505D1 File Offset: 0x0004E7D1
 		public static Sprite MapGetJoystickPrompt_Sprite(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetJoystickPrompt_Sprite(Controls.GetPlayerIndex(player), action, index);
 		}
 
-		// Token: 0x06000C26 RID: 3110 RVA: 0x0004FE80 File Offset: 0x0004E080
+		// Token: 0x06000C3B RID: 3131 RVA: 0x000505E0 File Offset: 0x0004E7E0
 		public static Sprite MapGetLastPrompt_Sprite(Controls.PlayerExt player, Controls.InputActionMap map, bool keyboardMouseFallback, int index = 0)
 		{
 			switch (player.lastInputKindUsed)
@@ -3100,26 +3100,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C27 RID: 3111 RVA: 0x0004FF14 File Offset: 0x0004E114
+		// Token: 0x06000C3C RID: 3132 RVA: 0x00050674 File Offset: 0x0004E874
 		public static Sprite MapGetLastPrompt_Sprite(Controls.PlayerExt player, Controls.InputAction action, bool keyboardMouseFallback, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			return Controls.MapGetLastPrompt_Sprite(player, inputActionMap, keyboardMouseFallback, index);
 		}
 
-		// Token: 0x06000C28 RID: 3112 RVA: 0x0004FF32 File Offset: 0x0004E132
+		// Token: 0x06000C3D RID: 3133 RVA: 0x00050692 File Offset: 0x0004E892
 		public static Sprite MapGetLastPrompt_Sprite(int playerIndex, Controls.InputActionMap map, bool keyboardMouseFallback, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_Sprite(Controls.GetPlayerByIndex(playerIndex), map, keyboardMouseFallback, index);
 		}
 
-		// Token: 0x06000C29 RID: 3113 RVA: 0x0004FF42 File Offset: 0x0004E142
+		// Token: 0x06000C3E RID: 3134 RVA: 0x000506A2 File Offset: 0x0004E8A2
 		public static Sprite MapGetLastPrompt_Sprite(int playerIndex, Controls.InputAction action, bool keyboardMouseFallback, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_Sprite(Controls.GetPlayerByIndex(playerIndex), action, keyboardMouseFallback, index);
 		}
 
-		// Token: 0x06000C2A RID: 3114 RVA: 0x0004FF54 File Offset: 0x0004E154
+		// Token: 0x06000C3F RID: 3135 RVA: 0x000506B4 File Offset: 0x0004E8B4
 		public static string MapGetKeyboardPrompt_TextSprite(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			List<Controls.KeyboardElement> list = Controls.MapGetKeyboardInputs(playerIndex, map);
@@ -3134,26 +3134,26 @@ namespace Panik
 			return PromptsMaster.GetSpriteString_Keyboard(list[index]);
 		}
 
-		// Token: 0x06000C2B RID: 3115 RVA: 0x0004FF89 File Offset: 0x0004E189
+		// Token: 0x06000C40 RID: 3136 RVA: 0x000506E9 File Offset: 0x0004E8E9
 		public static string MapGetKeyboardPrompt_TextSprite(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetKeyboardPrompt_TextSprite(Controls.GetPlayerIndex(player), map, index);
 		}
 
-		// Token: 0x06000C2C RID: 3116 RVA: 0x0004FF98 File Offset: 0x0004E198
+		// Token: 0x06000C41 RID: 3137 RVA: 0x000506F8 File Offset: 0x0004E8F8
 		public static string MapGetKeyboardPrompt_TextSprite(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetKeyboardPrompt_TextSprite(playerIndex, inputActionMap, index);
 		}
 
-		// Token: 0x06000C2D RID: 3117 RVA: 0x0004FFB5 File Offset: 0x0004E1B5
+		// Token: 0x06000C42 RID: 3138 RVA: 0x00050715 File Offset: 0x0004E915
 		public static string MapGetKeyboardPrompt_TextSprite(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetKeyboardPrompt_TextSprite(Controls.GetPlayerIndex(player), action, index);
 		}
 
-		// Token: 0x06000C2E RID: 3118 RVA: 0x0004FFC4 File Offset: 0x0004E1C4
+		// Token: 0x06000C43 RID: 3139 RVA: 0x00050724 File Offset: 0x0004E924
 		public static string MapGetMousePrompt_TextSprite(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			List<Controls.MouseElement> list = Controls.MapGetMouseInputs(playerIndex, map);
@@ -3168,26 +3168,26 @@ namespace Panik
 			return PromptsMaster.GetSpriteString_Mouse(list[index]);
 		}
 
-		// Token: 0x06000C2F RID: 3119 RVA: 0x0004FFF9 File Offset: 0x0004E1F9
+		// Token: 0x06000C44 RID: 3140 RVA: 0x00050759 File Offset: 0x0004E959
 		public static string MapGetMousePrompt_TextSprite(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetMousePrompt_TextSprite(Controls.GetPlayerIndex(player), map, index);
 		}
 
-		// Token: 0x06000C30 RID: 3120 RVA: 0x00050008 File Offset: 0x0004E208
+		// Token: 0x06000C45 RID: 3141 RVA: 0x00050768 File Offset: 0x0004E968
 		public static string MapGetMousePrompt_TextSprite(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetMousePrompt_TextSprite(playerIndex, inputActionMap, index);
 		}
 
-		// Token: 0x06000C31 RID: 3121 RVA: 0x00050025 File Offset: 0x0004E225
+		// Token: 0x06000C46 RID: 3142 RVA: 0x00050785 File Offset: 0x0004E985
 		public static string MapGetMousePrompt_TextSprite(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetMousePrompt_TextSprite(Controls.GetPlayerIndex(player), action, index);
 		}
 
-		// Token: 0x06000C32 RID: 3122 RVA: 0x00050034 File Offset: 0x0004E234
+		// Token: 0x06000C47 RID: 3143 RVA: 0x00050794 File Offset: 0x0004E994
 		public static string MapGetJoystickPrompt_TextSprite(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			List<Controls.JoystickElement> list = Controls.MapGetJoystickInputs(playerIndex, map);
@@ -3202,26 +3202,26 @@ namespace Panik
 			return PromptsMaster.GetSpriteString_Joystick(list[index]);
 		}
 
-		// Token: 0x06000C33 RID: 3123 RVA: 0x00050069 File Offset: 0x0004E269
+		// Token: 0x06000C48 RID: 3144 RVA: 0x000507C9 File Offset: 0x0004E9C9
 		public static string MapGetJoystickPrompt_TextSprite(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetJoystickPrompt_TextSprite(Controls.GetPlayerIndex(player), map, index);
 		}
 
-		// Token: 0x06000C34 RID: 3124 RVA: 0x00050078 File Offset: 0x0004E278
+		// Token: 0x06000C49 RID: 3145 RVA: 0x000507D8 File Offset: 0x0004E9D8
 		public static string MapGetJoystickPrompt_TextSprite(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(playerIndex, action);
 			return Controls.MapGetJoystickPrompt_TextSprite(playerIndex, inputActionMap, index);
 		}
 
-		// Token: 0x06000C35 RID: 3125 RVA: 0x00050095 File Offset: 0x0004E295
+		// Token: 0x06000C4A RID: 3146 RVA: 0x000507F5 File Offset: 0x0004E9F5
 		public static string MapGetJoystickPrompt_TextSprite(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetJoystickPrompt_TextSprite(Controls.GetPlayerIndex(player), action, index);
 		}
 
-		// Token: 0x06000C36 RID: 3126 RVA: 0x000500A4 File Offset: 0x0004E2A4
+		// Token: 0x06000C4B RID: 3147 RVA: 0x00050804 File Offset: 0x0004EA04
 		public static string MapGetLastPrompt_TextSprite(Controls.PlayerExt player, Controls.InputActionMap map, bool keyboardMouseFallback, int index = 0)
 		{
 			switch (player.lastInputKindUsed)
@@ -3263,26 +3263,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C37 RID: 3127 RVA: 0x00050134 File Offset: 0x0004E334
+		// Token: 0x06000C4C RID: 3148 RVA: 0x00050894 File Offset: 0x0004EA94
 		public static string MapGetLastPrompt_TextSprite(Controls.PlayerExt player, Controls.InputAction action, bool keyboardMouseFallback, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			return Controls.MapGetLastPrompt_TextSprite(player, inputActionMap, keyboardMouseFallback, index);
 		}
 
-		// Token: 0x06000C38 RID: 3128 RVA: 0x00050152 File Offset: 0x0004E352
+		// Token: 0x06000C4D RID: 3149 RVA: 0x000508B2 File Offset: 0x0004EAB2
 		public static string MapGetLastPrompt_TextSprite(int playerIndex, Controls.InputActionMap map, bool keyboardMouseFallback, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_TextSprite(Controls.GetPlayerByIndex(playerIndex), map, keyboardMouseFallback, index);
 		}
 
-		// Token: 0x06000C39 RID: 3129 RVA: 0x00050162 File Offset: 0x0004E362
+		// Token: 0x06000C4E RID: 3150 RVA: 0x000508C2 File Offset: 0x0004EAC2
 		public static string MapGetLastPrompt_TextSprite(int playerIndex, Controls.InputAction action, bool keyboardMouseFallback, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_TextSprite(Controls.GetPlayerByIndex(playerIndex), action, keyboardMouseFallback, index);
 		}
 
-		// Token: 0x06000C3A RID: 3130 RVA: 0x00050174 File Offset: 0x0004E374
+		// Token: 0x06000C4F RID: 3151 RVA: 0x000508D4 File Offset: 0x0004EAD4
 		public static string MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			switch (player.lastInputKindUsed)
@@ -3316,26 +3316,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C3B RID: 3131 RVA: 0x000501FC File Offset: 0x0004E3FC
+		// Token: 0x06000C50 RID: 3152 RVA: 0x0005095C File Offset: 0x0004EB5C
 		public static string MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			return Controls.MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(player, inputActionMap, index);
 		}
 
-		// Token: 0x06000C3C RID: 3132 RVA: 0x00050219 File Offset: 0x0004E419
+		// Token: 0x06000C51 RID: 3153 RVA: 0x00050979 File Offset: 0x0004EB79
 		public static string MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(Controls.GetPlayerByIndex(playerIndex), map, index);
 		}
 
-		// Token: 0x06000C3D RID: 3133 RVA: 0x00050228 File Offset: 0x0004E428
+		// Token: 0x06000C52 RID: 3154 RVA: 0x00050988 File Offset: 0x0004EB88
 		public static string MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_TextSprite_FavorMouseOverKeyboard(Controls.GetPlayerByIndex(playerIndex), action, index);
 		}
 
-		// Token: 0x06000C3E RID: 3134 RVA: 0x00050238 File Offset: 0x0004E438
+		// Token: 0x06000C53 RID: 3155 RVA: 0x00050998 File Offset: 0x0004EB98
 		public static string MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(Controls.PlayerExt player, Controls.InputActionMap map, int index = 0)
 		{
 			switch (player.lastInputKindUsed)
@@ -3369,26 +3369,26 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C3F RID: 3135 RVA: 0x000502C0 File Offset: 0x0004E4C0
+		// Token: 0x06000C54 RID: 3156 RVA: 0x00050A20 File Offset: 0x0004EC20
 		public static string MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(Controls.PlayerExt player, Controls.InputAction action, int index = 0)
 		{
 			Controls.InputActionMap inputActionMap = Controls.MapFind_InUse(player, action);
 			return Controls.MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(player, inputActionMap, index);
 		}
 
-		// Token: 0x06000C40 RID: 3136 RVA: 0x000502DD File Offset: 0x0004E4DD
+		// Token: 0x06000C55 RID: 3157 RVA: 0x00050A3D File Offset: 0x0004EC3D
 		public static string MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(int playerIndex, Controls.InputActionMap map, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(Controls.GetPlayerByIndex(playerIndex), map, index);
 		}
 
-		// Token: 0x06000C41 RID: 3137 RVA: 0x000502EC File Offset: 0x0004E4EC
+		// Token: 0x06000C56 RID: 3158 RVA: 0x00050A4C File Offset: 0x0004EC4C
 		public static string MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(int playerIndex, Controls.InputAction action, int index = 0)
 		{
 			return Controls.MapGetLastPrompt_TextSprite_FavorKeyboardOverMouse(Controls.GetPlayerByIndex(playerIndex), action, index);
 		}
 
-		// Token: 0x06000C42 RID: 3138 RVA: 0x000502FC File Offset: 0x0004E4FC
+		// Token: 0x06000C57 RID: 3159 RVA: 0x00050A5C File Offset: 0x0004EC5C
 		private void CallbacksInit()
 		{
 			Controls.onRemap_End_Success = (Controls.MapCallback)Delegate.Combine(Controls.onRemap_End_Success, new Controls.MapCallback(delegate(Controls.InputActionMap map)
@@ -3411,7 +3411,7 @@ namespace Panik
 			}));
 		}
 
-		// Token: 0x06000C43 RID: 3139 RVA: 0x00050370 File Offset: 0x0004E570
+		// Token: 0x06000C58 RID: 3160 RVA: 0x00050AD0 File Offset: 0x0004ECD0
 		private void GameMapsInit()
 		{
 			for (int i = 0; i < 1; i++)
@@ -3422,7 +3422,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C44 RID: 3140 RVA: 0x000503A8 File Offset: 0x0004E5A8
+		// Token: 0x06000C59 RID: 3161 RVA: 0x00050B08 File Offset: 0x0004ED08
 		private static void MenuMapsRedefine(bool generateNew, int playerIndex, Controls.PlayerMapCollection USE_THIS_COLLECTION, bool redefineKeyboard, bool redefineMouse, bool redefineJoystick)
 		{
 			Controls.InputActionMap inputActionMap = (generateNew ? new Controls.InputActionMap(playerIndex, Controls.InputAction.menuMoveUp, Controls.InputActionRange.positive, USE_THIS_COLLECTION, false) : Controls.MapFind_InUse(playerIndex, Controls.InputAction.menuMoveUp));
@@ -3609,7 +3609,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C45 RID: 3141 RVA: 0x00050840 File Offset: 0x0004EA40
+		// Token: 0x06000C5A RID: 3162 RVA: 0x00050FA0 File Offset: 0x0004F1A0
 		private static void GameMapsRedefine(bool generateNew, int playerIndex, Controls.PlayerMapCollection USE_THIS_COLLECTION, bool redefineKeyboard, bool redefineMouse, bool redefineJoystick)
 		{
 			Controls.InputActionMap inputActionMap = (generateNew ? new Controls.InputActionMap(playerIndex, Controls.InputAction.cameraUp, Controls.InputActionRange.positive, USE_THIS_COLLECTION, false) : Controls.MapFind_InUse(playerIndex, Controls.InputAction.cameraUp));
@@ -3746,7 +3746,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C46 RID: 3142 RVA: 0x00050B80 File Offset: 0x0004ED80
+		// Token: 0x06000C5B RID: 3163 RVA: 0x000512E0 File Offset: 0x0004F4E0
 		public static Controls.KeyboardElement KeyboardLayoutGetElement(Controls.InputAction action)
 		{
 			Data.SettingsData.KeyboardLayout keyboardLayout = Data.SettingsData.KeyboardLayout.keyboard_QWERTY;
@@ -4039,7 +4039,7 @@ namespace Panik
 			return Controls.KeyboardElement.Undefined;
 		}
 
-		// Token: 0x06000C47 RID: 3143 RVA: 0x000511A8 File Offset: 0x0004F3A8
+		// Token: 0x06000C5C RID: 3164 RVA: 0x00051908 File Offset: 0x0004FB08
 		public static void KeyboardLayoutNext()
 		{
 			Data.settings.KeyboardLayourNext();
@@ -4051,7 +4051,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C48 RID: 3144 RVA: 0x000511EC File Offset: 0x0004F3EC
+		// Token: 0x06000C5D RID: 3165 RVA: 0x0005194C File Offset: 0x0004FB4C
 		public static void KeyboardLayoutPrevious()
 		{
 			Data.settings.KeyboardLayourPrevious();
@@ -4063,7 +4063,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C49 RID: 3145 RVA: 0x00051230 File Offset: 0x0004F430
+		// Token: 0x06000C5E RID: 3166 RVA: 0x00051990 File Offset: 0x0004FB90
 		public static bool ActionButton_PressedGet(Controls.PlayerExt player, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4078,13 +4078,13 @@ namespace Panik
 			return Controls.playerChachedActionStates[playerIndex]._gameActionState_JustPressed.ContainsKey(action) && Controls.playerChachedActionStates[playerIndex]._gameActionState_JustPressed[action];
 		}
 
-		// Token: 0x06000C4A RID: 3146 RVA: 0x0005127E File Offset: 0x0004F47E
+		// Token: 0x06000C5F RID: 3167 RVA: 0x000519DE File Offset: 0x0004FBDE
 		public static bool ActionButton_PressedGet(int playerIndex, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionButton_PressedGet(Controls.GetPlayerByIndex(playerIndex), action, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C4B RID: 3147 RVA: 0x00051290 File Offset: 0x0004F490
+		// Token: 0x06000C60 RID: 3168 RVA: 0x000519F0 File Offset: 0x0004FBF0
 		public static bool ActionButton_PressedGetAnyPlayer(Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			for (int i = 0; i < 1; i++)
@@ -4097,7 +4097,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000C4C RID: 3148 RVA: 0x000512B8 File Offset: 0x0004F4B8
+		// Token: 0x06000C61 RID: 3169 RVA: 0x00051A18 File Offset: 0x0004FC18
 		public static bool ActionButton_ReleasedGet(Controls.PlayerExt player, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4112,13 +4112,13 @@ namespace Panik
 			return Controls.playerChachedActionStates[playerIndex]._gameActionState_JustReleased.ContainsKey(action) && Controls.playerChachedActionStates[playerIndex]._gameActionState_JustReleased[action];
 		}
 
-		// Token: 0x06000C4D RID: 3149 RVA: 0x00051306 File Offset: 0x0004F506
+		// Token: 0x06000C62 RID: 3170 RVA: 0x00051A66 File Offset: 0x0004FC66
 		public static bool ActionButton_ReleasedGet(int playerIndex, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionButton_ReleasedGet(Controls.GetPlayerByIndex(playerIndex), action, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C4E RID: 3150 RVA: 0x00051318 File Offset: 0x0004F518
+		// Token: 0x06000C63 RID: 3171 RVA: 0x00051A78 File Offset: 0x0004FC78
 		public static bool ActionButton_ReleasedGetAnyPlayer(Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			for (int i = 0; i < 1; i++)
@@ -4131,7 +4131,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000C4F RID: 3151 RVA: 0x00051340 File Offset: 0x0004F540
+		// Token: 0x06000C64 RID: 3172 RVA: 0x00051AA0 File Offset: 0x0004FCA0
 		public static bool ActionButton_HoldGet(Controls.PlayerExt player, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4146,13 +4146,13 @@ namespace Panik
 			return Controls.playerChachedActionStates[playerIndex]._gameActionState_Hold.ContainsKey(action) && Controls.playerChachedActionStates[playerIndex]._gameActionState_Hold[action];
 		}
 
-		// Token: 0x06000C50 RID: 3152 RVA: 0x0005138E File Offset: 0x0004F58E
+		// Token: 0x06000C65 RID: 3173 RVA: 0x00051AEE File Offset: 0x0004FCEE
 		public static bool ActionButton_HoldGet(int playerIndex, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionButton_HoldGet(Controls.GetPlayerByIndex(playerIndex), action, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C51 RID: 3153 RVA: 0x000513A0 File Offset: 0x0004F5A0
+		// Token: 0x06000C66 RID: 3174 RVA: 0x00051B00 File Offset: 0x0004FD00
 		public static bool ActionButton_HoldGetAnyPlayer(Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			for (int i = 0; i < 1; i++)
@@ -4165,7 +4165,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000C52 RID: 3154 RVA: 0x000513C8 File Offset: 0x0004F5C8
+		// Token: 0x06000C67 RID: 3175 RVA: 0x00051B28 File Offset: 0x0004FD28
 		public static bool ActionButton_HoldPreviousGet(Controls.PlayerExt player, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4180,13 +4180,13 @@ namespace Panik
 			return Controls.playerChachedActionStates[playerIndex]._gameActionState_HoldPrevious.ContainsKey(action) && Controls.playerChachedActionStates[playerIndex]._gameActionState_HoldPrevious[action];
 		}
 
-		// Token: 0x06000C53 RID: 3155 RVA: 0x00051416 File Offset: 0x0004F616
+		// Token: 0x06000C68 RID: 3176 RVA: 0x00051B76 File Offset: 0x0004FD76
 		public static bool ActionButton_HoldPreviousGet(int playerIndex, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionButton_HoldPreviousGet(Controls.GetPlayerByIndex(playerIndex), action, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C54 RID: 3156 RVA: 0x00051428 File Offset: 0x0004F628
+		// Token: 0x06000C69 RID: 3177 RVA: 0x00051B88 File Offset: 0x0004FD88
 		public static bool ActionButton_HoldPreviousGetAnyPlayer(Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			for (int i = 0; i < 1; i++)
@@ -4199,7 +4199,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000C55 RID: 3157 RVA: 0x00051450 File Offset: 0x0004F650
+		// Token: 0x06000C6A RID: 3178 RVA: 0x00051BB0 File Offset: 0x0004FDB0
 		public static float ActionAxis_GetValue(Controls.PlayerExt player, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4218,13 +4218,13 @@ namespace Panik
 			return 0f;
 		}
 
-		// Token: 0x06000C56 RID: 3158 RVA: 0x000514AA File Offset: 0x0004F6AA
+		// Token: 0x06000C6B RID: 3179 RVA: 0x00051C0A File Offset: 0x0004FE0A
 		public static float ActionAxis_GetValue(int playerIndex, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionAxis_GetValue(Controls.GetPlayerByIndex(playerIndex), action, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C57 RID: 3159 RVA: 0x000514BC File Offset: 0x0004F6BC
+		// Token: 0x06000C6C RID: 3180 RVA: 0x00051C1C File Offset: 0x0004FE1C
 		public static float ActionAxis_GetValuePrevious(Controls.PlayerExt player, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4243,13 +4243,13 @@ namespace Panik
 			return 0f;
 		}
 
-		// Token: 0x06000C58 RID: 3160 RVA: 0x00051516 File Offset: 0x0004F716
+		// Token: 0x06000C6D RID: 3181 RVA: 0x00051C76 File Offset: 0x0004FE76
 		public static float ActionAxis_GetValuePrevious(int playerIndex, Controls.InputAction action, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionAxis_GetValuePrevious(Controls.GetPlayerByIndex(playerIndex), action, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C59 RID: 3161 RVA: 0x00051528 File Offset: 0x0004F728
+		// Token: 0x06000C6E RID: 3182 RVA: 0x00051C88 File Offset: 0x0004FE88
 		public static float ActionAxisPair_GetValue(Controls.PlayerExt player, Controls.InputAction actionPlus, Controls.InputAction actionMinus, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4265,13 +4265,13 @@ namespace Panik
 			return num + num2;
 		}
 
-		// Token: 0x06000C5A RID: 3162 RVA: 0x00051562 File Offset: 0x0004F762
+		// Token: 0x06000C6F RID: 3183 RVA: 0x00051CC2 File Offset: 0x0004FEC2
 		public static float ActionAxisPair_GetValue(int playerIndex, Controls.InputAction actionPlus, Controls.InputAction actionMinus, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionAxisPair_GetValue(Controls.GetPlayerByIndex(playerIndex), actionPlus, actionMinus, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C5B RID: 3163 RVA: 0x00051574 File Offset: 0x0004F774
+		// Token: 0x06000C70 RID: 3184 RVA: 0x00051CD4 File Offset: 0x0004FED4
 		public static float ActionAxisPair_GetValuePrevious(Controls.PlayerExt player, Controls.InputAction actionPlus, Controls.InputAction actionMinus, bool ignoreIfNotPlaying = true)
 		{
 			if (player == null)
@@ -4287,19 +4287,19 @@ namespace Panik
 			return num + num2;
 		}
 
-		// Token: 0x06000C5C RID: 3164 RVA: 0x000515AE File Offset: 0x0004F7AE
+		// Token: 0x06000C71 RID: 3185 RVA: 0x00051D0E File Offset: 0x0004FF0E
 		public static float ActionAxisPair_GetValuePrevious(int playerIndex, Controls.InputAction actionPlus, Controls.InputAction actionMinus, bool ignoreIfNotPlaying = true)
 		{
 			return Controls.ActionAxisPair_GetValuePrevious(Controls.GetPlayerByIndex(playerIndex), actionPlus, actionMinus, ignoreIfNotPlaying);
 		}
 
-		// Token: 0x06000C5D RID: 3165 RVA: 0x000515BE File Offset: 0x0004F7BE
+		// Token: 0x06000C72 RID: 3186 RVA: 0x00051D1E File Offset: 0x0004FF1E
 		public static bool MenuDirectionalAny_PressedGet(int playerIndex)
 		{
 			return Controls.ActionButton_PressedGet(playerIndex, Controls.InputAction.menuMoveUp, true) || Controls.ActionButton_PressedGet(playerIndex, Controls.InputAction.menuMoveDown, true) || Controls.ActionButton_PressedGet(playerIndex, Controls.InputAction.menuMoveRight, true) || Controls.ActionButton_PressedGet(playerIndex, Controls.InputAction.menuMoveLeft, true);
 		}
 
-		// Token: 0x06000C5E RID: 3166 RVA: 0x000515E8 File Offset: 0x0004F7E8
+		// Token: 0x06000C73 RID: 3187 RVA: 0x00051D48 File Offset: 0x0004FF48
 		private void Awake()
 		{
 			if (Controls.instance != null)
@@ -4313,7 +4313,7 @@ namespace Panik
 			this.CallbacksInit();
 		}
 
-		// Token: 0x06000C5F RID: 3167 RVA: 0x00051616 File Offset: 0x0004F816
+		// Token: 0x06000C74 RID: 3188 RVA: 0x00051D76 File Offset: 0x0004FF76
 		private void Update()
 		{
 			this.PlayersUpdate();
@@ -4494,7 +4494,7 @@ namespace Panik
 
 		private class VibrationData
 		{
-			// Token: 0x06001296 RID: 4758 RVA: 0x000769E0 File Offset: 0x00074BE0
+			// Token: 0x060012AD RID: 4781 RVA: 0x00077274 File Offset: 0x00075474
 			public VibrationData(Controls.PlayerExt myPlayer)
 			{
 				this.myPlayer = myPlayer;
@@ -4708,13 +4708,13 @@ namespace Panik
 		[Serializable]
 		public class InputActionMap
 		{
-			// Token: 0x06001297 RID: 4759 RVA: 0x00076A38 File Offset: 0x00074C38
+			// Token: 0x060012AE RID: 4782 RVA: 0x000772CC File Offset: 0x000754CC
 			public InputActionMap(int playerIndex, Controls.InputAction action, Controls.InputActionRange range, Controls.PlayerMapCollection playerMapCollection, bool updateIfNotPlaying)
 			{
 				this.ConstructorInitialization(playerIndex, action, range, playerMapCollection, updateIfNotPlaying);
 			}
 
-			// Token: 0x06001298 RID: 4760 RVA: 0x00076AB3 File Offset: 0x00074CB3
+			// Token: 0x060012AF RID: 4783 RVA: 0x00077347 File Offset: 0x00075547
 			private void ConstructorInitialization(int playerIndex, Controls.InputAction action, Controls.InputActionRange range, Controls.PlayerMapCollection playerMapCollection, bool updateIfNotPlaying)
 			{
 				this.myPlayerIndex = playerIndex;
@@ -4727,13 +4727,13 @@ namespace Panik
 				this.MapCollectionAssign(playerMapCollection);
 			}
 
-			// Token: 0x06001299 RID: 4761 RVA: 0x00076AEC File Offset: 0x00074CEC
+			// Token: 0x060012B0 RID: 4784 RVA: 0x00077380 File Offset: 0x00075580
 			~InputActionMap()
 			{
 				this.MapCollectionRemoveFrom(this.myPlayerMapCollection);
 			}
 
-			// Token: 0x0600129A RID: 4762 RVA: 0x00076B20 File Offset: 0x00074D20
+			// Token: 0x060012B1 RID: 4785 RVA: 0x000773B4 File Offset: 0x000755B4
 			public Controls.InputActionMap Copy(Controls.PlayerMapCollection newTargetPlayerCollection)
 			{
 				Controls.InputActionMap inputActionMap = new Controls.InputActionMap(this.myPlayerIndex, this.myGameAction, this.myGameActionRange, newTargetPlayerCollection, this.updateIfNotPlaying);
@@ -4749,7 +4749,7 @@ namespace Panik
 				return inputActionMap;
 			}
 
-			// Token: 0x0600129B RID: 4763 RVA: 0x00076BB0 File Offset: 0x00074DB0
+			// Token: 0x060012B2 RID: 4786 RVA: 0x00077444 File Offset: 0x00075644
 			public void CopyTo(Controls.InputActionMap targetMap, bool affectKeyboard, bool affectMouse, bool affectJoystick)
 			{
 				targetMap.updateIfNotPlaying = this.updateIfNotPlaying;
@@ -4775,7 +4775,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x0600129C RID: 4764 RVA: 0x00076C4B File Offset: 0x00074E4B
+			// Token: 0x060012B3 RID: 4787 RVA: 0x000774DF File Offset: 0x000756DF
 			public void ClearMaps(bool affectKeyboard, bool affectMouse, bool affectJoystick)
 			{
 				this.ElementKeyboard_Clear();
@@ -4783,7 +4783,7 @@ namespace Panik
 				this.ElementJoystick_Clear();
 			}
 
-			// Token: 0x0600129D RID: 4765 RVA: 0x00076C60 File Offset: 0x00074E60
+			// Token: 0x060012B4 RID: 4788 RVA: 0x000774F4 File Offset: 0x000756F4
 			public void MapCollectionAssign(Controls.PlayerMapCollection playerMapCollection)
 			{
 				if (this.myPlayerMapCollection != null)
@@ -4804,7 +4804,7 @@ namespace Panik
 				this.myPlayerMapCollection.mapsCount++;
 			}
 
-			// Token: 0x0600129E RID: 4766 RVA: 0x00076D08 File Offset: 0x00074F08
+			// Token: 0x060012B5 RID: 4789 RVA: 0x0007759C File Offset: 0x0007579C
 			public void MapCollectionRemoveFrom(Controls.PlayerMapCollection playerMapCollection)
 			{
 				if (this.myPlayerMapCollection == null)
@@ -4826,7 +4826,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600129F RID: 4767 RVA: 0x00076D79 File Offset: 0x00074F79
+			// (get) Token: 0x060012B6 RID: 4790 RVA: 0x0007760D File Offset: 0x0007580D
 			public Controls.PlayerExt myPlayer
 			{
 				get
@@ -4843,19 +4843,19 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012A0 RID: 4768 RVA: 0x00076DA5 File Offset: 0x00074FA5
+			// Token: 0x060012B7 RID: 4791 RVA: 0x00077639 File Offset: 0x00075839
 			public void MapChangeableSet(bool value)
 			{
 				this._mapCanBeRemapped = value;
 			}
 
-			// Token: 0x060012A1 RID: 4769 RVA: 0x00076DAE File Offset: 0x00074FAE
+			// Token: 0x060012B8 RID: 4792 RVA: 0x00077642 File Offset: 0x00075842
 			public bool MapChangeableGet()
 			{
 				return this._mapCanBeRemapped;
 			}
 
-			// Token: 0x060012A2 RID: 4770 RVA: 0x00076DB8 File Offset: 0x00074FB8
+			// Token: 0x060012B9 RID: 4793 RVA: 0x0007764C File Offset: 0x0007584C
 			public bool ElementKeyboard_Add(Controls.KeyboardElement elementId)
 			{
 				if (this.keyboardElementsCount >= 4)
@@ -4874,7 +4874,7 @@ namespace Panik
 				return true;
 			}
 
-			// Token: 0x060012A3 RID: 4771 RVA: 0x00076E0C File Offset: 0x0007500C
+			// Token: 0x060012BA RID: 4794 RVA: 0x000776A0 File Offset: 0x000758A0
 			public bool ElementMouse_Add(Controls.MouseElement elementId)
 			{
 				if (this.mouseElementsCount >= 4)
@@ -4893,7 +4893,7 @@ namespace Panik
 				return true;
 			}
 
-			// Token: 0x060012A4 RID: 4772 RVA: 0x00076E60 File Offset: 0x00075060
+			// Token: 0x060012BB RID: 4795 RVA: 0x000776F4 File Offset: 0x000758F4
 			public bool ElementJoystick_Add(Controls.JoystickElement elementId)
 			{
 				if (this.joystickElementsCount >= 4)
@@ -4912,7 +4912,7 @@ namespace Panik
 				return true;
 			}
 
-			// Token: 0x060012A5 RID: 4773 RVA: 0x00076EB4 File Offset: 0x000750B4
+			// Token: 0x060012BC RID: 4796 RVA: 0x00077748 File Offset: 0x00075948
 			public void ElementKeyboard_Clear()
 			{
 				for (int i = 0; i < 4; i++)
@@ -4922,7 +4922,7 @@ namespace Panik
 				this.keyboardElementsCount = 0;
 			}
 
-			// Token: 0x060012A6 RID: 4774 RVA: 0x00076EE0 File Offset: 0x000750E0
+			// Token: 0x060012BD RID: 4797 RVA: 0x00077774 File Offset: 0x00075974
 			public void ElementMouse_Clear()
 			{
 				for (int i = 0; i < 4; i++)
@@ -4932,7 +4932,7 @@ namespace Panik
 				this.mouseElementsCount = 0;
 			}
 
-			// Token: 0x060012A7 RID: 4775 RVA: 0x00076F0C File Offset: 0x0007510C
+			// Token: 0x060012BE RID: 4798 RVA: 0x000777A0 File Offset: 0x000759A0
 			public void ElementJoystick_Clear()
 			{
 				for (int i = 0; i < 4; i++)
@@ -4942,7 +4942,7 @@ namespace Panik
 				this.joystickElementsCount = 0;
 			}
 
-			// Token: 0x060012A8 RID: 4776 RVA: 0x00076F38 File Offset: 0x00075138
+			// Token: 0x060012BF RID: 4799 RVA: 0x000777CC File Offset: 0x000759CC
 			public List<Controls.KeyboardElement> ElementKeyboard_Get()
 			{
 				if (this.elementsListChache_Keyboard == null)
@@ -4962,7 +4962,7 @@ namespace Panik
 				return this.elementsListChache_Keyboard;
 			}
 
-			// Token: 0x060012A9 RID: 4777 RVA: 0x00076F9C File Offset: 0x0007519C
+			// Token: 0x060012C0 RID: 4800 RVA: 0x00077830 File Offset: 0x00075A30
 			public List<Controls.MouseElement> ElementMouse_Get()
 			{
 				if (this.elementsListChache_Mouse == null)
@@ -4982,7 +4982,7 @@ namespace Panik
 				return this.elementsListChache_Mouse;
 			}
 
-			// Token: 0x060012AA RID: 4778 RVA: 0x00077000 File Offset: 0x00075200
+			// Token: 0x060012C1 RID: 4801 RVA: 0x00077894 File Offset: 0x00075A94
 			public List<Controls.JoystickElement> ElementJoystick_Get()
 			{
 				if (this.elementsListChache_Joystick == null)
@@ -5002,13 +5002,13 @@ namespace Panik
 				return this.elementsListChache_Joystick;
 			}
 
-			// Token: 0x060012AB RID: 4779 RVA: 0x00077062 File Offset: 0x00075262
+			// Token: 0x060012C2 RID: 4802 RVA: 0x000778F6 File Offset: 0x00075AF6
 			public bool HasNoElements()
 			{
 				return this.keyboardElementsCount == 0 && this.mouseElementsCount == 0 && this.joystickElementsCount == 0;
 			}
 
-			// Token: 0x060012AC RID: 4780 RVA: 0x0007707F File Offset: 0x0007527F
+			// Token: 0x060012C3 RID: 4803 RVA: 0x00077913 File Offset: 0x00075B13
 			public void ResetState(bool forcePreviousValueToZero)
 			{
 				this.justPressd = false;
@@ -5024,7 +5024,7 @@ namespace Panik
 				this.inputValue = 0f;
 			}
 
-			// Token: 0x060012AD RID: 4781 RVA: 0x000770B8 File Offset: 0x000752B8
+			// Token: 0x060012C4 RID: 4804 RVA: 0x0007794C File Offset: 0x00075B4C
 			public void UpdateState()
 			{
 				if (this.myPlayer == null || this._updateNoPlayerErrorShown)
@@ -5226,7 +5226,7 @@ namespace Panik
 		[Serializable]
 		public class PlayerMapCollection
 		{
-			// Token: 0x060012AE RID: 4782 RVA: 0x0007755C File Offset: 0x0007575C
+			// Token: 0x060012C5 RID: 4805 RVA: 0x00077DF0 File Offset: 0x00075FF0
 			public void Init()
 			{
 				if (this.maps == null)
@@ -5239,7 +5239,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012AF RID: 4783 RVA: 0x00077598 File Offset: 0x00075798
+			// Token: 0x060012C6 RID: 4806 RVA: 0x00077E2C File Offset: 0x0007602C
 			public void DeserializationCheck()
 			{
 				if (this.maps.Length != 40)
@@ -5317,7 +5317,7 @@ namespace Panik
 			public Controls.InputActionMap tempMap;
 		}
 
-		// (Invoke) Token: 0x060012B5 RID: 4789
+		// (Invoke) Token: 0x060012CC RID: 4812
 		public delegate void MapCallback(Controls.InputActionMap map);
 
 		public enum InputAction

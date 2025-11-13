@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class MemoScript : MonoBehaviour
 {
-	// Token: 0x0600096C RID: 2412 RVA: 0x0003E30F File Offset: 0x0003C50F
+	// Token: 0x06000980 RID: 2432 RVA: 0x0003E973 File Offset: 0x0003CB73
 	public static bool IsEnabled()
 	{
 		return !(MemoScript.instance == null) && MemoScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x0600096D RID: 2413 RVA: 0x0003E330 File Offset: 0x0003C530
+	// Token: 0x06000981 RID: 2433 RVA: 0x0003E994 File Offset: 0x0003CB94
 	public static void SetMessage(MemoScript.Message message, float time)
 	{
 		if (message != MemoScript.Message.roundsLeft)
@@ -41,7 +41,7 @@ public class MemoScript : MonoBehaviour
 		MemoScript.instance.holder.SetActive(true);
 	}
 
-	// Token: 0x0600096E RID: 2414 RVA: 0x0003E414 File Offset: 0x0003C614
+	// Token: 0x06000982 RID: 2434 RVA: 0x0003EA78 File Offset: 0x0003CC78
 	public static void Close(bool forceClose)
 	{
 		if (!MemoScript.IsEnabled() && !forceClose)
@@ -51,14 +51,14 @@ public class MemoScript : MonoBehaviour
 		MemoScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x0600096F RID: 2415 RVA: 0x0003E431 File Offset: 0x0003C631
+	// Token: 0x06000983 RID: 2435 RVA: 0x0003EA95 File Offset: 0x0003CC95
 	private void Awake()
 	{
 		MemoScript.instance = this;
 		MemoScript.Close(true);
 	}
 
-	// Token: 0x06000970 RID: 2416 RVA: 0x0003E43F File Offset: 0x0003C63F
+	// Token: 0x06000984 RID: 2436 RVA: 0x0003EAA3 File Offset: 0x0003CCA3
 	private void OnDestroy()
 	{
 		if (MemoScript.instance == this)
@@ -67,7 +67,7 @@ public class MemoScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000971 RID: 2417 RVA: 0x0003E454 File Offset: 0x0003C654
+	// Token: 0x06000985 RID: 2437 RVA: 0x0003EAB8 File Offset: 0x0003CCB8
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)

@@ -6,13 +6,13 @@ namespace I2.Loc
 {
 	public class LocalizeTarget_UnityUI_RawImage : LocalizeTarget<RawImage>
 	{
-		// Token: 0x06000FC3 RID: 4035 RVA: 0x00062F7A File Offset: 0x0006117A
+		// Token: 0x06000FDA RID: 4058 RVA: 0x00063756 File Offset: 0x00061956
 		static LocalizeTarget_UnityUI_RawImage()
 		{
 			LocalizeTarget_UnityUI_RawImage.AutoRegister();
 		}
 
-		// Token: 0x06000FC4 RID: 4036 RVA: 0x00062F81 File Offset: 0x00061181
+		// Token: 0x06000FDB RID: 4059 RVA: 0x0006375D File Offset: 0x0006195D
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -23,44 +23,44 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000FC5 RID: 4037 RVA: 0x00062FA0 File Offset: 0x000611A0
+		// Token: 0x06000FDC RID: 4060 RVA: 0x0006377C File Offset: 0x0006197C
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.Texture;
 		}
 
-		// Token: 0x06000FC6 RID: 4038 RVA: 0x00062FA3 File Offset: 0x000611A3
+		// Token: 0x06000FDD RID: 4061 RVA: 0x0006377F File Offset: 0x0006197F
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000FC7 RID: 4039 RVA: 0x00062FA6 File Offset: 0x000611A6
+		// Token: 0x06000FDE RID: 4062 RVA: 0x00063782 File Offset: 0x00061982
 		public override bool CanUseSecondaryTerm()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FC8 RID: 4040 RVA: 0x00062FA9 File Offset: 0x000611A9
+		// Token: 0x06000FDF RID: 4063 RVA: 0x00063785 File Offset: 0x00061985
 		public override bool AllowMainTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FC9 RID: 4041 RVA: 0x00062FAC File Offset: 0x000611AC
+		// Token: 0x06000FE0 RID: 4064 RVA: 0x00063788 File Offset: 0x00061988
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FCA RID: 4042 RVA: 0x00062FAF File Offset: 0x000611AF
+		// Token: 0x06000FE1 RID: 4065 RVA: 0x0006378B File Offset: 0x0006198B
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = (this.mTarget.mainTexture ? this.mTarget.mainTexture.name : "");
 			secondaryTerm = null;
 		}
 
-		// Token: 0x06000FCB RID: 4043 RVA: 0x00062FE4 File Offset: 0x000611E4
+		// Token: 0x06000FE2 RID: 4066 RVA: 0x000637C0 File Offset: 0x000619C0
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			Texture texture = this.mTarget.texture;

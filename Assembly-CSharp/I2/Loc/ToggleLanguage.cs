@@ -6,13 +6,13 @@ namespace I2.Loc
 {
 	public class ToggleLanguage : MonoBehaviour
 	{
-		// Token: 0x06000DFF RID: 3583 RVA: 0x000569F4 File Offset: 0x00054BF4
+		// Token: 0x06000E16 RID: 3606 RVA: 0x000571D0 File Offset: 0x000553D0
 		private void Start()
 		{
 			base.Invoke("test", 3f);
 		}
 
-		// Token: 0x06000E00 RID: 3584 RVA: 0x00056A08 File Offset: 0x00054C08
+		// Token: 0x06000E17 RID: 3607 RVA: 0x000571E4 File Offset: 0x000553E4
 		private void test()
 		{
 			List<string> allLanguages = LocalizationManager.GetAllLanguages(true);

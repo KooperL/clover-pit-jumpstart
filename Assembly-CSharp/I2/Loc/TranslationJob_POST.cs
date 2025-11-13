@@ -8,7 +8,7 @@ namespace I2.Loc
 {
 	public class TranslationJob_POST : TranslationJob_WWW
 	{
-		// Token: 0x06000E60 RID: 3680 RVA: 0x0005C2F8 File Offset: 0x0005A4F8
+		// Token: 0x06000E77 RID: 3703 RVA: 0x0005CAD4 File Offset: 0x0005ACD4
 		public TranslationJob_POST(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
 		{
 			this._requests = requests;
@@ -21,7 +21,7 @@ namespace I2.Loc
 			I2Utils.SendWebRequest(this.www);
 		}
 
-		// Token: 0x06000E61 RID: 3681 RVA: 0x0005C368 File Offset: 0x0005A568
+		// Token: 0x06000E78 RID: 3704 RVA: 0x0005CB44 File Offset: 0x0005AD44
 		public override TranslationJob.eJobState GetState()
 		{
 			if (this.www != null && this.www.isDone)
@@ -33,7 +33,7 @@ namespace I2.Loc
 			return this.mJobState;
 		}
 
-		// Token: 0x06000E62 RID: 3682 RVA: 0x0005C3C4 File Offset: 0x0005A5C4
+		// Token: 0x06000E79 RID: 3705 RVA: 0x0005CBA0 File Offset: 0x0005ADA0
 		public void ProcessResult(byte[] bytes, string errorMsg)
 		{
 			if (!string.IsNullOrEmpty(errorMsg))

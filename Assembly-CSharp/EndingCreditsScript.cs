@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class EndingCreditsScript : MonoBehaviour
 {
-	// Token: 0x060003B1 RID: 945 RVA: 0x000199B2 File Offset: 0x00017BB2
+	// Token: 0x060003AF RID: 943 RVA: 0x00019A76 File Offset: 0x00017C76
 	public static bool IsEnabled()
 	{
 		return !(EndingCreditsScript.instance == null) && EndingCreditsScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060003B2 RID: 946 RVA: 0x000199D4 File Offset: 0x00017BD4
+	// Token: 0x060003B0 RID: 944 RVA: 0x00019A98 File Offset: 0x00017C98
 	public static void Open(bool goodEnding, bool skippable)
 	{
 		EndingCreditsScript.instance.holder.SetActive(true);
@@ -28,13 +28,13 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B3 RID: 947 RVA: 0x00019A46 File Offset: 0x00017C46
+	// Token: 0x060003B1 RID: 945 RVA: 0x00019B0A File Offset: 0x00017D0A
 	private static void Close()
 	{
 		EndingCreditsScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x060003B4 RID: 948 RVA: 0x00019A58 File Offset: 0x00017C58
+	// Token: 0x060003B2 RID: 946 RVA: 0x00019B1C File Offset: 0x00017D1C
 	private void UpdateText()
 	{
 		this.titleText.text = Translation.Get("VARIOUS_MAGAZINE_CREDITS_TITLE");
@@ -43,13 +43,13 @@ public class EndingCreditsScript : MonoBehaviour
 		this.creditsBodyText.ForceMeshUpdate(false, false);
 	}
 
-	// Token: 0x060003B5 RID: 949 RVA: 0x00019AA4 File Offset: 0x00017CA4
+	// Token: 0x060003B3 RID: 947 RVA: 0x00019B68 File Offset: 0x00017D68
 	private void Awake()
 	{
 		EndingCreditsScript.instance = this;
 	}
 
-	// Token: 0x060003B6 RID: 950 RVA: 0x00019AAC File Offset: 0x00017CAC
+	// Token: 0x060003B4 RID: 948 RVA: 0x00019B70 File Offset: 0x00017D70
 	private void OnDestroy()
 	{
 		if (EndingCreditsScript.instance == this)
@@ -58,7 +58,7 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B7 RID: 951 RVA: 0x00019AC4 File Offset: 0x00017CC4
+	// Token: 0x060003B5 RID: 949 RVA: 0x00019B88 File Offset: 0x00017D88
 	private void Start()
 	{
 		this.holder.SetActive(false);
@@ -68,7 +68,7 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B8 RID: 952 RVA: 0x00019B00 File Offset: 0x00017D00
+	// Token: 0x060003B6 RID: 950 RVA: 0x00019BC4 File Offset: 0x00017DC4
 	private void Update()
 	{
 		if (!EndingCreditsScript.IsEnabled())

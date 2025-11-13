@@ -6,7 +6,7 @@ namespace Panik
 {
 	public class AssetMaster : MonoBehaviour
 	{
-		// Token: 0x06000AC6 RID: 2758 RVA: 0x00048F84 File Offset: 0x00047184
+		// Token: 0x06000ADB RID: 2779 RVA: 0x000496E4 File Offset: 0x000478E4
 		public static AudioClip GetSound(string clipName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -20,7 +20,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000AC7 RID: 2759 RVA: 0x00048FEC File Offset: 0x000471EC
+		// Token: 0x06000ADC RID: 2780 RVA: 0x0004974C File Offset: 0x0004794C
 		public static AudioClip GetMusic(string clipName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -34,7 +34,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000AC8 RID: 2760 RVA: 0x00049054 File Offset: 0x00047254
+		// Token: 0x06000ADD RID: 2781 RVA: 0x000497B4 File Offset: 0x000479B4
 		public static GameObject GetPrefab(string prefabName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -48,7 +48,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000AC9 RID: 2761 RVA: 0x000490BC File Offset: 0x000472BC
+		// Token: 0x06000ADE RID: 2782 RVA: 0x0004981C File Offset: 0x00047A1C
 		public static Texture2D GetTexture2D(string textureName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -62,7 +62,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000ACA RID: 2762 RVA: 0x00049124 File Offset: 0x00047324
+		// Token: 0x06000ADF RID: 2783 RVA: 0x00049884 File Offset: 0x00047A84
 		public static Sprite GetSprite(string spriteName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -76,7 +76,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000ACB RID: 2763 RVA: 0x0004918C File Offset: 0x0004738C
+		// Token: 0x06000AE0 RID: 2784 RVA: 0x000498EC File Offset: 0x00047AEC
 		public static T GetGeneric<T>(string assetName) where T : global::UnityEngine.Object
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -90,7 +90,7 @@ namespace Panik
 			return default(T);
 		}
 
-		// Token: 0x06000ACC RID: 2764 RVA: 0x00049208 File Offset: 0x00047408
+		// Token: 0x06000AE1 RID: 2785 RVA: 0x00049968 File Offset: 0x00047B68
 		public static void AddSound(AudioClip soundToAdd, bool addToIndestructibleList = false)
 		{
 			int i = 0;
@@ -113,7 +113,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000ACD RID: 2765 RVA: 0x000492B0 File Offset: 0x000474B0
+		// Token: 0x06000AE2 RID: 2786 RVA: 0x00049A10 File Offset: 0x00047C10
 		public static void AddMusic(AudioClip ostToAdd, bool addToIndestructibleList = false)
 		{
 			int i = 0;
@@ -136,7 +136,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000ACE RID: 2766 RVA: 0x00049358 File Offset: 0x00047558
+		// Token: 0x06000AE3 RID: 2787 RVA: 0x00049AB8 File Offset: 0x00047CB8
 		public static void AddPrefab(GameObject prefabToAdd, bool addToIndestructibleList = false)
 		{
 			int i = 0;
@@ -159,7 +159,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000ACF RID: 2767 RVA: 0x00049400 File Offset: 0x00047600
+		// Token: 0x06000AE4 RID: 2788 RVA: 0x00049B60 File Offset: 0x00047D60
 		public static void AddTexture2D(Texture2D textureToAdd, bool addToIndestructibleList = false)
 		{
 			int i = 0;
@@ -182,7 +182,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD0 RID: 2768 RVA: 0x000494A8 File Offset: 0x000476A8
+		// Token: 0x06000AE5 RID: 2789 RVA: 0x00049C08 File Offset: 0x00047E08
 		public static void AddSprite(Sprite spriteToAdd, bool addToIndestructibleList = false)
 		{
 			int i = 0;
@@ -205,7 +205,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD1 RID: 2769 RVA: 0x00049550 File Offset: 0x00047750
+		// Token: 0x06000AE6 RID: 2790 RVA: 0x00049CB0 File Offset: 0x00047EB0
 		public static void AddGeneric<T>(T assetToAdd, bool addToIndestructibleList = false) where T : global::UnityEngine.Object
 		{
 			int i = 0;
@@ -228,7 +228,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD2 RID: 2770 RVA: 0x0004960C File Offset: 0x0004780C
+		// Token: 0x06000AE7 RID: 2791 RVA: 0x00049D6C File Offset: 0x00047F6C
 		public static bool HasSound(string clipName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -241,7 +241,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000AD3 RID: 2771 RVA: 0x0004964C File Offset: 0x0004784C
+		// Token: 0x06000AE8 RID: 2792 RVA: 0x00049DAC File Offset: 0x00047FAC
 		public static bool HasMusic(string clipName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -254,7 +254,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000AD4 RID: 2772 RVA: 0x0004968C File Offset: 0x0004788C
+		// Token: 0x06000AE9 RID: 2793 RVA: 0x00049DEC File Offset: 0x00047FEC
 		public static bool HasPrefab(string prefabName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -267,7 +267,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000AD5 RID: 2773 RVA: 0x000496CC File Offset: 0x000478CC
+		// Token: 0x06000AEA RID: 2794 RVA: 0x00049E2C File Offset: 0x0004802C
 		public static bool HasTexture2D(string textureName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -280,7 +280,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000AD6 RID: 2774 RVA: 0x0004970C File Offset: 0x0004790C
+		// Token: 0x06000AEB RID: 2795 RVA: 0x00049E6C File Offset: 0x0004806C
 		public static bool HasSprite(string spriteName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -293,7 +293,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000AD7 RID: 2775 RVA: 0x0004974C File Offset: 0x0004794C
+		// Token: 0x06000AEC RID: 2796 RVA: 0x00049EAC File Offset: 0x000480AC
 		public static bool HasGeneric(string assetName)
 		{
 			for (int i = 0; i < AssetMaster.list.Count; i++)
@@ -306,7 +306,7 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000AD8 RID: 2776 RVA: 0x0004978C File Offset: 0x0004798C
+		// Token: 0x06000AED RID: 2797 RVA: 0x00049EEC File Offset: 0x000480EC
 		private void Awake()
 		{
 			if (this.iAmIndestructible)
@@ -349,13 +349,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD9 RID: 2777 RVA: 0x00049994 File Offset: 0x00047B94
+		// Token: 0x06000AEE RID: 2798 RVA: 0x0004A0F4 File Offset: 0x000482F4
 		private void OnEnable()
 		{
 			AssetMaster.list.Add(this);
 		}
 
-		// Token: 0x06000ADA RID: 2778 RVA: 0x000499A1 File Offset: 0x00047BA1
+		// Token: 0x06000AEF RID: 2799 RVA: 0x0004A101 File Offset: 0x00048301
 		private void OnDisable()
 		{
 			AssetMaster.list.Remove(this);

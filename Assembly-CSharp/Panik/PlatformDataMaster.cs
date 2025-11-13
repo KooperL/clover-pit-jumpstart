@@ -10,7 +10,7 @@ namespace Panik
 {
 	public class PlatformDataMaster : MonoBehaviour
 	{
-		// (get) Token: 0x06000CEB RID: 3307 RVA: 0x0005330F File Offset: 0x0005150F
+		// (get) Token: 0x06000D02 RID: 3330 RVA: 0x00053AEA File Offset: 0x00051CEA
 		public static double SaveCooldownTimeGet
 		{
 			get
@@ -19,7 +19,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CEC RID: 3308 RVA: 0x0005331A File Offset: 0x0005151A
+		// (get) Token: 0x06000D03 RID: 3331 RVA: 0x00053AF5 File Offset: 0x00051CF5
 		public static double LoadCooldownTimeGet
 		{
 			get
@@ -28,7 +28,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CED RID: 3309 RVA: 0x00053325 File Offset: 0x00051525
+		// (get) Token: 0x06000D04 RID: 3332 RVA: 0x00053B00 File Offset: 0x00051D00
 		public static double DeleteCooldownTimeGet
 		{
 			get
@@ -37,7 +37,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CEE RID: 3310 RVA: 0x00053330 File Offset: 0x00051530
+		// (get) Token: 0x06000D05 RID: 3333 RVA: 0x00053B0B File Offset: 0x00051D0B
 		public static string ExecutablePath
 		{
 			get
@@ -46,7 +46,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CEF RID: 3311 RVA: 0x00053341 File Offset: 0x00051541
+		// (get) Token: 0x06000D06 RID: 3334 RVA: 0x00053B1C File Offset: 0x00051D1C
 		public static string OutsideExecutablePath
 		{
 			get
@@ -55,7 +55,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CF0 RID: 3312 RVA: 0x00053352 File Offset: 0x00051552
+		// (get) Token: 0x06000D07 RID: 3335 RVA: 0x00053B2D File Offset: 0x00051D2D
 		public static string Mount
 		{
 			get
@@ -64,7 +64,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CF1 RID: 3313 RVA: 0x00053359 File Offset: 0x00051559
+		// (get) Token: 0x06000D08 RID: 3336 RVA: 0x00053B34 File Offset: 0x00051D34
 		public static string CommonPath
 		{
 			get
@@ -73,7 +73,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CF2 RID: 3314 RVA: 0x0005336A File Offset: 0x0005156A
+		// (get) Token: 0x06000D09 RID: 3337 RVA: 0x00053B45 File Offset: 0x00051D45
 		public static string VersionFolderPath
 		{
 			get
@@ -82,7 +82,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CF3 RID: 3315 RVA: 0x0005337B File Offset: 0x0005157B
+		// (get) Token: 0x06000D0A RID: 3338 RVA: 0x00053B56 File Offset: 0x00051D56
 		public static string SettingsFolderPath
 		{
 			get
@@ -91,7 +91,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CF4 RID: 3316 RVA: 0x0005338C File Offset: 0x0005158C
+		// (get) Token: 0x06000D0B RID: 3339 RVA: 0x00053B67 File Offset: 0x00051D67
 		public static string AchievementsFolderPath
 		{
 			get
@@ -100,7 +100,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CF5 RID: 3317 RVA: 0x0005339D File Offset: 0x0005159D
+		// (get) Token: 0x06000D0C RID: 3340 RVA: 0x00053B78 File Offset: 0x00051D78
 		public static string GameFolderPath
 		{
 			get
@@ -109,37 +109,37 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CF6 RID: 3318 RVA: 0x000533AE File Offset: 0x000515AE
+		// Token: 0x06000D0D RID: 3341 RVA: 0x00053B89 File Offset: 0x00051D89
 		public static string PathGet_VersionFile()
 		{
 			return PlatformDataMaster.VersionFolderPath + "VersionDataFull.json";
 		}
 
-		// Token: 0x06000CF7 RID: 3319 RVA: 0x000533BF File Offset: 0x000515BF
+		// Token: 0x06000D0E RID: 3342 RVA: 0x00053B9A File Offset: 0x00051D9A
 		public static string PathGet_SettingsFile()
 		{
 			return PlatformDataMaster.SettingsFolderPath + "SettingsDataFull.json";
 		}
 
-		// Token: 0x06000CF8 RID: 3320 RVA: 0x000533D0 File Offset: 0x000515D0
+		// Token: 0x06000D0F RID: 3343 RVA: 0x00053BAB File Offset: 0x00051DAB
 		public static string PathGet_AchievementsFile()
 		{
 			return PlatformDataMaster.AchievementsFolderPath + "ADFv2.json";
 		}
 
-		// Token: 0x06000CF9 RID: 3321 RVA: 0x000533E1 File Offset: 0x000515E1
+		// Token: 0x06000D10 RID: 3344 RVA: 0x00053BBC File Offset: 0x00051DBC
 		public static string PathGet_GameDataFile(int gameDataIndex, string extraAppendix = "")
 		{
 			return PlatformDataMaster.GameFolderPath + "GameDataFull" + extraAppendix + ".json";
 		}
 
-		// Token: 0x06000CFA RID: 3322 RVA: 0x000533F8 File Offset: 0x000515F8
+		// Token: 0x06000D11 RID: 3345 RVA: 0x00053BD3 File Offset: 0x00051DD3
 		public static string ToJson<T>(T obj)
 		{
 			return JsonUtility.ToJson(obj, true);
 		}
 
-		// Token: 0x06000CFB RID: 3323 RVA: 0x00053408 File Offset: 0x00051608
+		// Token: 0x06000D12 RID: 3346 RVA: 0x00053BE4 File Offset: 0x00051DE4
 		public static T FromJson<T>(string json, out bool error)
 		{
 			string text = null;
@@ -155,7 +155,7 @@ namespace Panik
 			return t;
 		}
 
-		// Token: 0x06000CFC RID: 3324 RVA: 0x00053448 File Offset: 0x00051648
+		// Token: 0x06000D13 RID: 3347 RVA: 0x00053C24 File Offset: 0x00051E24
 		public static T FromJsonExt<T>(string json, out bool error, out string errorMessage)
 		{
 			T t;
@@ -175,7 +175,7 @@ namespace Panik
 			return t;
 		}
 
-		// Token: 0x06000CFD RID: 3325 RVA: 0x000534A0 File Offset: 0x000516A0
+		// Token: 0x06000D14 RID: 3348 RVA: 0x00053C7C File Offset: 0x00051E7C
 		public static string EnumArrayToString<T>(T[] enumArray, char separator = ',')
 		{
 			PlatformDataMaster.enumSB.Clear();
@@ -190,7 +190,7 @@ namespace Panik
 			return PlatformDataMaster.enumSB.ToString();
 		}
 
-		// Token: 0x06000CFE RID: 3326 RVA: 0x00053504 File Offset: 0x00051704
+		// Token: 0x06000D15 RID: 3349 RVA: 0x00053CE0 File Offset: 0x00051EE0
 		public static T[] EnumArrayFromString<T>(string enumArrayString, char separator = ',')
 		{
 			List<T> list = PlatformDataMaster.EnumListFromString<T>(enumArrayString, separator);
@@ -201,7 +201,7 @@ namespace Panik
 			return list.ToArray();
 		}
 
-		// Token: 0x06000CFF RID: 3327 RVA: 0x00053524 File Offset: 0x00051724
+		// Token: 0x06000D16 RID: 3350 RVA: 0x00053D00 File Offset: 0x00051F00
 		public static string EnumListToString<T>(List<T> enumList, char separator = ',')
 		{
 			PlatformDataMaster.enumSB.Clear();
@@ -218,7 +218,7 @@ namespace Panik
 			return PlatformDataMaster.enumSB.ToString();
 		}
 
-		// Token: 0x06000D00 RID: 3328 RVA: 0x00053590 File Offset: 0x00051790
+		// Token: 0x06000D17 RID: 3351 RVA: 0x00053D6C File Offset: 0x00051F6C
 		public static List<T> EnumListFromString<T>(string enumListString, char separator = ',')
 		{
 			List<T> list = new List<T>();
@@ -226,7 +226,7 @@ namespace Panik
 			return list;
 		}
 
-		// Token: 0x06000D01 RID: 3329 RVA: 0x000535B0 File Offset: 0x000517B0
+		// Token: 0x06000D18 RID: 3352 RVA: 0x00053D8C File Offset: 0x00051F8C
 		public static void EnumListFromString<T>(string enumListString, ref List<T> targetEnumList, bool affectListOnlyIfDataAvailable, char separator = ',')
 		{
 			if (string.IsNullOrEmpty(enumListString))
@@ -252,13 +252,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D02 RID: 3330 RVA: 0x00053634 File Offset: 0x00051834
+		// Token: 0x06000D19 RID: 3353 RVA: 0x00053E10 File Offset: 0x00052010
 		public static string EnumEntryToString<T>(T enumEntry)
 		{
 			return enumEntry.ToString();
 		}
 
-		// Token: 0x06000D03 RID: 3331 RVA: 0x00053644 File Offset: 0x00051844
+		// Token: 0x06000D1A RID: 3354 RVA: 0x00053E20 File Offset: 0x00052020
 		public static T EnumEntryFromString<T>(string enumEntryString, T defaultValue)
 		{
 			T t;
@@ -273,7 +273,7 @@ namespace Panik
 			return t;
 		}
 
-		// Token: 0x06000D04 RID: 3332 RVA: 0x00053680 File Offset: 0x00051880
+		// Token: 0x06000D1B RID: 3355 RVA: 0x00053E5C File Offset: 0x0005205C
 		private static int _CryptoShiftsNumber(string password)
 		{
 			int num = 8;
@@ -295,7 +295,7 @@ namespace Panik
 			return num;
 		}
 
-		// Token: 0x06000D05 RID: 3333 RVA: 0x000536C8 File Offset: 0x000518C8
+		// Token: 0x06000D1C RID: 3356 RVA: 0x00053EA4 File Offset: 0x000520A4
 		public static string EncryptCustom(string data, string password)
 		{
 			if (string.IsNullOrEmpty(data))
@@ -335,7 +335,7 @@ namespace Panik
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000D06 RID: 3334 RVA: 0x000537CC File Offset: 0x000519CC
+		// Token: 0x06000D1D RID: 3357 RVA: 0x00053FA8 File Offset: 0x000521A8
 		public static string DecryptCustom(string cryptedData, string password)
 		{
 			if (string.IsNullOrEmpty(cryptedData))
@@ -375,7 +375,7 @@ namespace Panik
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000D07 RID: 3335 RVA: 0x000538D4 File Offset: 0x00051AD4
+		// Token: 0x06000D1E RID: 3358 RVA: 0x000540B0 File Offset: 0x000522B0
 		private static long OperationRecord_Save()
 		{
 			PlatformDataMaster.operationIDCounter_Save += 1L;
@@ -384,19 +384,19 @@ namespace Panik
 			return num;
 		}
 
-		// Token: 0x06000D08 RID: 3336 RVA: 0x00053900 File Offset: 0x00051B00
+		// Token: 0x06000D1F RID: 3359 RVA: 0x000540DC File Offset: 0x000522DC
 		private static bool OperationCanGo_Save(long operationID)
 		{
 			return PlatformDataMaster.bookedSaveOperations.Count > 0 && PlatformDataMaster.bookedSaveOperations[0] == operationID;
 		}
 
-		// Token: 0x06000D09 RID: 3337 RVA: 0x0005391F File Offset: 0x00051B1F
+		// Token: 0x06000D20 RID: 3360 RVA: 0x000540FB File Offset: 0x000522FB
 		private static void OperationDoneSet_Save(long operationID)
 		{
 			PlatformDataMaster.bookedSaveOperations.Remove(operationID);
 		}
 
-		// Token: 0x06000D0A RID: 3338 RVA: 0x00053930 File Offset: 0x00051B30
+		// Token: 0x06000D21 RID: 3361 RVA: 0x0005410C File Offset: 0x0005230C
 		private static long OperationRecord_Load()
 		{
 			PlatformDataMaster.operationIDCounter_Load += 1L;
@@ -405,19 +405,19 @@ namespace Panik
 			return num;
 		}
 
-		// Token: 0x06000D0B RID: 3339 RVA: 0x0005395C File Offset: 0x00051B5C
+		// Token: 0x06000D22 RID: 3362 RVA: 0x00054138 File Offset: 0x00052338
 		private static bool OperationCanGo_Load(long operationID)
 		{
 			return PlatformDataMaster.bookedLoadOperations.Count > 0 && PlatformDataMaster.bookedLoadOperations[0] == operationID;
 		}
 
-		// Token: 0x06000D0C RID: 3340 RVA: 0x0005397B File Offset: 0x00051B7B
+		// Token: 0x06000D23 RID: 3363 RVA: 0x00054157 File Offset: 0x00052357
 		private static void OperationDoneSet_Load(long operationID)
 		{
 			PlatformDataMaster.bookedLoadOperations.Remove(operationID);
 		}
 
-		// Token: 0x06000D0D RID: 3341 RVA: 0x0005398C File Offset: 0x00051B8C
+		// Token: 0x06000D24 RID: 3364 RVA: 0x00054168 File Offset: 0x00052368
 		private static long OperationRecord_Delete()
 		{
 			PlatformDataMaster.operationIDCounter_Delete += 1L;
@@ -426,43 +426,43 @@ namespace Panik
 			return num;
 		}
 
-		// Token: 0x06000D0E RID: 3342 RVA: 0x000539B8 File Offset: 0x00051BB8
+		// Token: 0x06000D25 RID: 3365 RVA: 0x00054194 File Offset: 0x00052394
 		private static bool OperationCanGo_Delete(long operationID)
 		{
 			return PlatformDataMaster.bookedDeleteOperations.Count > 0 && PlatformDataMaster.bookedDeleteOperations[0] == operationID;
 		}
 
-		// Token: 0x06000D0F RID: 3343 RVA: 0x000539D7 File Offset: 0x00051BD7
+		// Token: 0x06000D26 RID: 3366 RVA: 0x000541B3 File Offset: 0x000523B3
 		private static void OperationDoneSet_Delete(long operationID)
 		{
 			PlatformDataMaster.bookedDeleteOperations.Remove(operationID);
 		}
 
-		// Token: 0x06000D10 RID: 3344 RVA: 0x000539E5 File Offset: 0x00051BE5
+		// Token: 0x06000D27 RID: 3367 RVA: 0x000541C1 File Offset: 0x000523C1
 		public static bool IsSaving()
 		{
 			return PlatformDataMaster.bookedSaveOperations.Count > 0;
 		}
 
-		// Token: 0x06000D11 RID: 3345 RVA: 0x000539F4 File Offset: 0x00051BF4
+		// Token: 0x06000D28 RID: 3368 RVA: 0x000541D0 File Offset: 0x000523D0
 		public static bool IsLoading()
 		{
 			return PlatformDataMaster.bookedLoadOperations.Count > 0;
 		}
 
-		// Token: 0x06000D12 RID: 3346 RVA: 0x00053A03 File Offset: 0x00051C03
+		// Token: 0x06000D29 RID: 3369 RVA: 0x000541DF File Offset: 0x000523DF
 		public static bool IsDeleting()
 		{
 			return PlatformDataMaster.bookedDeleteOperations.Count > 0;
 		}
 
-		// Token: 0x06000D13 RID: 3347 RVA: 0x00053A12 File Offset: 0x00051C12
+		// Token: 0x06000D2A RID: 3370 RVA: 0x000541EE File Offset: 0x000523EE
 		public static bool IsSavingOrLoadingOrDeleting()
 		{
 			return PlatformDataMaster.IsSaving() || PlatformDataMaster.IsLoading() || PlatformDataMaster.IsDeleting();
 		}
 
-		// Token: 0x06000D14 RID: 3348 RVA: 0x00053A2C File Offset: 0x00051C2C
+		// Token: 0x06000D2B RID: 3371 RVA: 0x00054208 File Offset: 0x00052408
 		public static bool EndGameDataIsDoneCheck()
 		{
 			bool flag = false;
@@ -479,7 +479,7 @@ namespace Panik
 			return flag;
 		}
 
-		// Token: 0x06000D15 RID: 3349 RVA: 0x00053A64 File Offset: 0x00051C64
+		// Token: 0x06000D2C RID: 3372 RVA: 0x00054240 File Offset: 0x00052440
 		public static UniTask<bool> Save(string operationTag, string path, string data)
 		{
 			PlatformDataMaster.<Save>d__75 <Save>d__;
@@ -491,7 +491,7 @@ namespace Panik
 			return <Save>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D16 RID: 3350 RVA: 0x00053AB0 File Offset: 0x00051CB0
+		// Token: 0x06000D2D RID: 3373 RVA: 0x0005428C File Offset: 0x0005248C
 		private static UniTask<bool> _Save_Desktop(string path, string data)
 		{
 			PlatformDataMaster.<_Save_Desktop>d__76 <_Save_Desktop>d__;
@@ -503,7 +503,7 @@ namespace Panik
 			return <_Save_Desktop>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D17 RID: 3351 RVA: 0x00053AFC File Offset: 0x00051CFC
+		// Token: 0x06000D2E RID: 3374 RVA: 0x000542D8 File Offset: 0x000524D8
 		private static UniTask<bool> _Save_WebGl(string path, string data)
 		{
 			PlatformDataMaster.<_Save_WebGl>d__77 <_Save_WebGl>d__;
@@ -515,7 +515,7 @@ namespace Panik
 			return <_Save_WebGl>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D18 RID: 3352 RVA: 0x00053B48 File Offset: 0x00051D48
+		// Token: 0x06000D2F RID: 3375 RVA: 0x00054324 File Offset: 0x00052524
 		private static UniTask<bool> _Save_NintendoSwitch(string path, string data)
 		{
 			PlatformDataMaster.<_Save_NintendoSwitch>d__78 <_Save_NintendoSwitch>d__;
@@ -525,7 +525,7 @@ namespace Panik
 			return <_Save_NintendoSwitch>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D19 RID: 3353 RVA: 0x00053B84 File Offset: 0x00051D84
+		// Token: 0x06000D30 RID: 3376 RVA: 0x00054360 File Offset: 0x00052560
 		public static UniTask<string> Load(string operationTag, string path)
 		{
 			PlatformDataMaster.<Load>d__79 <Load>d__;
@@ -536,7 +536,7 @@ namespace Panik
 			return <Load>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D1A RID: 3354 RVA: 0x00053BC8 File Offset: 0x00051DC8
+		// Token: 0x06000D31 RID: 3377 RVA: 0x000543A4 File Offset: 0x000525A4
 		private static UniTask<string> _Load_Desktop(string path)
 		{
 			PlatformDataMaster.<_Load_Desktop>d__80 <_Load_Desktop>d__;
@@ -547,7 +547,7 @@ namespace Panik
 			return <_Load_Desktop>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D1B RID: 3355 RVA: 0x00053C0C File Offset: 0x00051E0C
+		// Token: 0x06000D32 RID: 3378 RVA: 0x000543E8 File Offset: 0x000525E8
 		private static UniTask<string> _Load_WebGl(string path)
 		{
 			PlatformDataMaster.<_Load_WebGl>d__81 <_Load_WebGl>d__;
@@ -558,7 +558,7 @@ namespace Panik
 			return <_Load_WebGl>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D1C RID: 3356 RVA: 0x00053C50 File Offset: 0x00051E50
+		// Token: 0x06000D33 RID: 3379 RVA: 0x0005442C File Offset: 0x0005262C
 		private static UniTask<string> _Load_NintendoSwitch(string path)
 		{
 			PlatformDataMaster.<_Load_NintendoSwitch>d__82 <_Load_NintendoSwitch>d__;
@@ -568,7 +568,7 @@ namespace Panik
 			return <_Load_NintendoSwitch>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D1D RID: 3357 RVA: 0x00053C8C File Offset: 0x00051E8C
+		// Token: 0x06000D34 RID: 3380 RVA: 0x00054468 File Offset: 0x00052668
 		public static UniTask<bool> Delete(string path)
 		{
 			PlatformDataMaster.<Delete>d__83 <Delete>d__;
@@ -579,7 +579,7 @@ namespace Panik
 			return <Delete>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D1E RID: 3358 RVA: 0x00053CD0 File Offset: 0x00051ED0
+		// Token: 0x06000D35 RID: 3381 RVA: 0x000544AC File Offset: 0x000526AC
 		private static UniTask<bool> _Delete_Desktop(string path)
 		{
 			PlatformDataMaster.<_Delete_Desktop>d__84 <_Delete_Desktop>d__;
@@ -590,7 +590,7 @@ namespace Panik
 			return <_Delete_Desktop>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D1F RID: 3359 RVA: 0x00053D14 File Offset: 0x00051F14
+		// Token: 0x06000D36 RID: 3382 RVA: 0x000544F0 File Offset: 0x000526F0
 		private static UniTask<bool> _Delete_WebGl(string path)
 		{
 			PlatformDataMaster.<_Delete_WebGl>d__85 <_Delete_WebGl>d__;
@@ -601,7 +601,7 @@ namespace Panik
 			return <_Delete_WebGl>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D20 RID: 3360 RVA: 0x00053D58 File Offset: 0x00051F58
+		// Token: 0x06000D37 RID: 3383 RVA: 0x00054534 File Offset: 0x00052734
 		private static UniTask<bool> _Delete_NintendoSwitch(string path)
 		{
 			PlatformDataMaster.<_Delete_NintendoSwitch>d__86 <_Delete_NintendoSwitch>d__;
@@ -611,7 +611,7 @@ namespace Panik
 			return <_Delete_NintendoSwitch>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D21 RID: 3361 RVA: 0x00053D94 File Offset: 0x00051F94
+		// Token: 0x06000D38 RID: 3384 RVA: 0x00054570 File Offset: 0x00052770
 		public static UniTask<bool> SaveVersionData(string data)
 		{
 			PlatformDataMaster.<SaveVersionData>d__87 <SaveVersionData>d__;
@@ -622,7 +622,7 @@ namespace Panik
 			return <SaveVersionData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D22 RID: 3362 RVA: 0x00053DD8 File Offset: 0x00051FD8
+		// Token: 0x06000D39 RID: 3385 RVA: 0x000545B4 File Offset: 0x000527B4
 		public static UniTask<string> LoadVersionData()
 		{
 			PlatformDataMaster.<LoadVersionData>d__88 <LoadVersionData>d__;
@@ -632,7 +632,7 @@ namespace Panik
 			return <LoadVersionData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D23 RID: 3363 RVA: 0x00053E14 File Offset: 0x00052014
+		// Token: 0x06000D3A RID: 3386 RVA: 0x000545F0 File Offset: 0x000527F0
 		public static UniTask<bool> DeleteVersionData()
 		{
 			PlatformDataMaster.<DeleteVersionData>d__89 <DeleteVersionData>d__;
@@ -642,7 +642,7 @@ namespace Panik
 			return <DeleteVersionData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D24 RID: 3364 RVA: 0x00053E50 File Offset: 0x00052050
+		// Token: 0x06000D3B RID: 3387 RVA: 0x0005462C File Offset: 0x0005282C
 		public static UniTask<bool> SaveSettingsData(string data)
 		{
 			PlatformDataMaster.<SaveSettingsData>d__90 <SaveSettingsData>d__;
@@ -653,7 +653,7 @@ namespace Panik
 			return <SaveSettingsData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D25 RID: 3365 RVA: 0x00053E94 File Offset: 0x00052094
+		// Token: 0x06000D3C RID: 3388 RVA: 0x00054670 File Offset: 0x00052870
 		public static UniTask<string> LoadSettingsData()
 		{
 			PlatformDataMaster.<LoadSettingsData>d__91 <LoadSettingsData>d__;
@@ -663,7 +663,7 @@ namespace Panik
 			return <LoadSettingsData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D26 RID: 3366 RVA: 0x00053ED0 File Offset: 0x000520D0
+		// Token: 0x06000D3D RID: 3389 RVA: 0x000546AC File Offset: 0x000528AC
 		public static UniTask<bool> DeleteSettingsData()
 		{
 			PlatformDataMaster.<DeleteSettingsData>d__92 <DeleteSettingsData>d__;
@@ -673,7 +673,7 @@ namespace Panik
 			return <DeleteSettingsData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D27 RID: 3367 RVA: 0x00053F0C File Offset: 0x0005210C
+		// Token: 0x06000D3E RID: 3390 RVA: 0x000546E8 File Offset: 0x000528E8
 		public static UniTask<bool> SaveAchievementsData(string data)
 		{
 			PlatformDataMaster.<SaveAchievementsData>d__93 <SaveAchievementsData>d__;
@@ -684,7 +684,7 @@ namespace Panik
 			return <SaveAchievementsData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D28 RID: 3368 RVA: 0x00053F50 File Offset: 0x00052150
+		// Token: 0x06000D3F RID: 3391 RVA: 0x0005472C File Offset: 0x0005292C
 		public static UniTask<string> LoadAchievementsData()
 		{
 			PlatformDataMaster.<LoadAchievementsData>d__94 <LoadAchievementsData>d__;
@@ -694,7 +694,7 @@ namespace Panik
 			return <LoadAchievementsData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D29 RID: 3369 RVA: 0x00053F8C File Offset: 0x0005218C
+		// Token: 0x06000D40 RID: 3392 RVA: 0x00054768 File Offset: 0x00052968
 		public static UniTask<bool> DeleteAchievementsData()
 		{
 			PlatformDataMaster.<DeleteAchievementsData>d__95 <DeleteAchievementsData>d__;
@@ -704,7 +704,7 @@ namespace Panik
 			return <DeleteAchievementsData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D2A RID: 3370 RVA: 0x00053FC8 File Offset: 0x000521C8
+		// Token: 0x06000D41 RID: 3393 RVA: 0x000547A4 File Offset: 0x000529A4
 		public static UniTask<bool> SaveGameData(string data, int gameDataIndex)
 		{
 			PlatformDataMaster.<SaveGameData>d__96 <SaveGameData>d__;
@@ -716,7 +716,7 @@ namespace Panik
 			return <SaveGameData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D2B RID: 3371 RVA: 0x00054014 File Offset: 0x00052214
+		// Token: 0x06000D42 RID: 3394 RVA: 0x000547F0 File Offset: 0x000529F0
 		public static UniTask<string> LoadGameData(int gameDataIndex)
 		{
 			PlatformDataMaster.<LoadGameData>d__97 <LoadGameData>d__;
@@ -727,7 +727,7 @@ namespace Panik
 			return <LoadGameData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D2C RID: 3372 RVA: 0x00054058 File Offset: 0x00052258
+		// Token: 0x06000D43 RID: 3395 RVA: 0x00054834 File Offset: 0x00052A34
 		public static UniTask<bool> DeleteGameData(int gameDataIndex)
 		{
 			PlatformDataMaster.<DeleteGameData>d__98 <DeleteGameData>d__;
@@ -738,7 +738,7 @@ namespace Panik
 			return <DeleteGameData>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000D2D RID: 3373 RVA: 0x0005409B File Offset: 0x0005229B
+		// Token: 0x06000D44 RID: 3396 RVA: 0x00054877 File Offset: 0x00052A77
 		private void Awake()
 		{
 			if (PlatformDataMaster.instance != null)
@@ -749,7 +749,7 @@ namespace Panik
 			PlatformDataMaster.instance = this;
 		}
 
-		// Token: 0x06000D2E RID: 3374 RVA: 0x000540BC File Offset: 0x000522BC
+		// Token: 0x06000D45 RID: 3397 RVA: 0x00054898 File Offset: 0x00052A98
 		private void OnDestroy()
 		{
 			if (PlatformDataMaster.instance == this)

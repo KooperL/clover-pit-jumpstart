@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloppySlotScript : MonoBehaviour
 {
-	// Token: 0x06000461 RID: 1121 RVA: 0x0001D6BC File Offset: 0x0001B8BC
+	// Token: 0x06000460 RID: 1120 RVA: 0x0001D7A0 File Offset: 0x0001B9A0
 	public static void SixSixSixTextureUpdateToIgnoredCallsLevel(bool computeCallsNum)
 	{
 		if (FloppySlotScript.instance == null)
@@ -57,7 +57,7 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000462 RID: 1122 RVA: 0x0001D7F6 File Offset: 0x0001B9F6
+	// Token: 0x06000461 RID: 1121 RVA: 0x0001D8DA File Offset: 0x0001BADA
 	public static void Initialize(bool isNewGame)
 	{
 		if (!isNewGame)
@@ -66,13 +66,13 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000463 RID: 1123 RVA: 0x0001D801 File Offset: 0x0001BA01
+	// Token: 0x06000462 RID: 1122 RVA: 0x0001D8E5 File Offset: 0x0001BAE5
 	private void Awake()
 	{
 		FloppySlotScript.instance = this;
 	}
 
-	// Token: 0x06000464 RID: 1124 RVA: 0x0001D809 File Offset: 0x0001BA09
+	// Token: 0x06000463 RID: 1123 RVA: 0x0001D8ED File Offset: 0x0001BAED
 	private void Start()
 	{
 		this.meshRenderer.enabled = false;
@@ -80,7 +80,7 @@ public class FloppySlotScript : MonoBehaviour
 		this.effectsHolderSuper666.SetActive(false);
 	}
 
-	// Token: 0x06000465 RID: 1125 RVA: 0x0001D82F File Offset: 0x0001BA2F
+	// Token: 0x06000464 RID: 1124 RVA: 0x0001D913 File Offset: 0x0001BB13
 	private void OnDestroy()
 	{
 		if (FloppySlotScript.instance == this)
@@ -89,7 +89,7 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000466 RID: 1126 RVA: 0x0001D844 File Offset: 0x0001BA44
+	// Token: 0x06000465 RID: 1125 RVA: 0x0001D928 File Offset: 0x0001BB28
 	private void Update()
 	{
 		int num = GameplayData.Phone_Ignored666CallsLevel_JustGet();

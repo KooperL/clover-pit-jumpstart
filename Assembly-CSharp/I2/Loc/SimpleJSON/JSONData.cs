@@ -5,8 +5,8 @@ namespace I2.Loc.SimpleJSON
 {
 	public class JSONData : JSONNode
 	{
-		// (get) Token: 0x0600108C RID: 4236 RVA: 0x00066BAC File Offset: 0x00064DAC
-		// (set) Token: 0x0600108D RID: 4237 RVA: 0x00066BB4 File Offset: 0x00064DB4
+		// (get) Token: 0x060010A3 RID: 4259 RVA: 0x00067388 File Offset: 0x00065588
+		// (set) Token: 0x060010A4 RID: 4260 RVA: 0x00067390 File Offset: 0x00065590
 		public override string Value
 		{
 			get
@@ -19,49 +19,49 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x0600108E RID: 4238 RVA: 0x00066BBD File Offset: 0x00064DBD
+		// Token: 0x060010A5 RID: 4261 RVA: 0x00067399 File Offset: 0x00065599
 		public JSONData(string aData)
 		{
 			this.m_Data = aData;
 		}
 
-		// Token: 0x0600108F RID: 4239 RVA: 0x00066BCC File Offset: 0x00064DCC
+		// Token: 0x060010A6 RID: 4262 RVA: 0x000673A8 File Offset: 0x000655A8
 		public JSONData(float aData)
 		{
 			this.AsFloat = aData;
 		}
 
-		// Token: 0x06001090 RID: 4240 RVA: 0x00066BDB File Offset: 0x00064DDB
+		// Token: 0x060010A7 RID: 4263 RVA: 0x000673B7 File Offset: 0x000655B7
 		public JSONData(double aData)
 		{
 			this.AsDouble = aData;
 		}
 
-		// Token: 0x06001091 RID: 4241 RVA: 0x00066BEA File Offset: 0x00064DEA
+		// Token: 0x060010A8 RID: 4264 RVA: 0x000673C6 File Offset: 0x000655C6
 		public JSONData(bool aData)
 		{
 			this.AsBool = aData;
 		}
 
-		// Token: 0x06001092 RID: 4242 RVA: 0x00066BF9 File Offset: 0x00064DF9
+		// Token: 0x060010A9 RID: 4265 RVA: 0x000673D5 File Offset: 0x000655D5
 		public JSONData(int aData)
 		{
 			this.AsInt = aData;
 		}
 
-		// Token: 0x06001093 RID: 4243 RVA: 0x00066C08 File Offset: 0x00064E08
+		// Token: 0x060010AA RID: 4266 RVA: 0x000673E4 File Offset: 0x000655E4
 		public override string ToString()
 		{
 			return "\"" + JSONNode.Escape(this.m_Data) + "\"";
 		}
 
-		// Token: 0x06001094 RID: 4244 RVA: 0x00066C24 File Offset: 0x00064E24
+		// Token: 0x060010AB RID: 4267 RVA: 0x00067400 File Offset: 0x00065600
 		public override string ToString(string aPrefix)
 		{
 			return "\"" + JSONNode.Escape(this.m_Data) + "\"";
 		}
 
-		// Token: 0x06001095 RID: 4245 RVA: 0x00066C40 File Offset: 0x00064E40
+		// Token: 0x060010AC RID: 4268 RVA: 0x0006741C File Offset: 0x0006561C
 		public override void Serialize(BinaryWriter aWriter)
 		{
 			JSONData jsondata = new JSONData("");

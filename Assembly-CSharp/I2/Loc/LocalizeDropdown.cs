@@ -9,20 +9,20 @@ namespace I2.Loc
 	[AddComponentMenu("I2/Localization/Localize Dropdown")]
 	public class LocalizeDropdown : MonoBehaviour
 	{
-		// Token: 0x06000EF1 RID: 3825 RVA: 0x000603AC File Offset: 0x0005E5AC
+		// Token: 0x06000F08 RID: 3848 RVA: 0x00060B88 File Offset: 0x0005ED88
 		public void Start()
 		{
 			LocalizationManager.OnLocalizeEvent += this.OnLocalize;
 			this.OnLocalize();
 		}
 
-		// Token: 0x06000EF2 RID: 3826 RVA: 0x000603C5 File Offset: 0x0005E5C5
+		// Token: 0x06000F09 RID: 3849 RVA: 0x00060BA1 File Offset: 0x0005EDA1
 		public void OnDestroy()
 		{
 			LocalizationManager.OnLocalizeEvent -= this.OnLocalize;
 		}
 
-		// Token: 0x06000EF3 RID: 3827 RVA: 0x000603D8 File Offset: 0x0005E5D8
+		// Token: 0x06000F0A RID: 3850 RVA: 0x00060BB4 File Offset: 0x0005EDB4
 		private void OnEnable()
 		{
 			if (this._Terms.Count == 0)
@@ -32,7 +32,7 @@ namespace I2.Loc
 			this.OnLocalize();
 		}
 
-		// Token: 0x06000EF4 RID: 3828 RVA: 0x000603F3 File Offset: 0x0005E5F3
+		// Token: 0x06000F0B RID: 3851 RVA: 0x00060BCF File Offset: 0x0005EDCF
 		public void OnLocalize()
 		{
 			if (!base.enabled || base.gameObject == null || !base.gameObject.activeInHierarchy)
@@ -46,7 +46,7 @@ namespace I2.Loc
 			this.UpdateLocalization();
 		}
 
-		// Token: 0x06000EF5 RID: 3829 RVA: 0x0006042C File Offset: 0x0005E62C
+		// Token: 0x06000F0C RID: 3852 RVA: 0x00060C08 File Offset: 0x0005EE08
 		private void FillValues()
 		{
 			Dropdown component = base.GetComponent<Dropdown>();
@@ -61,7 +61,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EF6 RID: 3830 RVA: 0x000604A8 File Offset: 0x0005E6A8
+		// Token: 0x06000F0D RID: 3853 RVA: 0x00060C84 File Offset: 0x0005EE84
 		public void UpdateLocalization()
 		{
 			Dropdown component = base.GetComponent<Dropdown>();
@@ -79,7 +79,7 @@ namespace I2.Loc
 			component.RefreshShownValue();
 		}
 
-		// Token: 0x06000EF7 RID: 3831 RVA: 0x0006053C File Offset: 0x0005E73C
+		// Token: 0x06000F0E RID: 3854 RVA: 0x00060D18 File Offset: 0x0005EF18
 		public void UpdateLocalizationTMPro()
 		{
 			TMP_Dropdown component = base.GetComponent<TMP_Dropdown>();
@@ -96,7 +96,7 @@ namespace I2.Loc
 			component.RefreshShownValue();
 		}
 
-		// Token: 0x06000EF8 RID: 3832 RVA: 0x000605C8 File Offset: 0x0005E7C8
+		// Token: 0x06000F0F RID: 3855 RVA: 0x00060DA4 File Offset: 0x0005EFA4
 		private void FillValuesTMPro()
 		{
 			TMP_Dropdown component = base.GetComponent<TMP_Dropdown>();

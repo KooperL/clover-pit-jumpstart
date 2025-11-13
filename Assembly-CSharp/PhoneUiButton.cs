@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class PhoneUiButton : MonoBehaviour
 {
-	// Token: 0x0600097C RID: 2428 RVA: 0x0003E6C2 File Offset: 0x0003C8C2
+	// Token: 0x06000990 RID: 2448 RVA: 0x0003ED26 File Offset: 0x0003CF26
 	public bool IsHovered()
 	{
 		return this.mouseOver;
 	}
 
-	// Token: 0x0600097D RID: 2429 RVA: 0x0003E6CC File Offset: 0x0003C8CC
+	// Token: 0x06000991 RID: 2449 RVA: 0x0003ED30 File Offset: 0x0003CF30
 	private bool MouseIsOver()
 	{
 		Vector2 vector;
@@ -22,7 +22,7 @@ public class PhoneUiButton : MonoBehaviour
 		return RectTransformUtility.RectangleContainsScreenPoint(this.myRectTransform, vector2, CameraUiGlobal.instance.myCamera);
 	}
 
-	// Token: 0x0600097E RID: 2430 RVA: 0x0003E74C File Offset: 0x0003C94C
+	// Token: 0x06000992 RID: 2450 RVA: 0x0003EDB0 File Offset: 0x0003CFB0
 	public void Highlight(bool useSoundAndVibration)
 	{
 		if (!this.highlighted && base.gameObject.activeInHierarchy && useSoundAndVibration)
@@ -36,13 +36,13 @@ public class PhoneUiButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600097F RID: 2431 RVA: 0x0003E7B5 File Offset: 0x0003C9B5
+	// Token: 0x06000993 RID: 2451 RVA: 0x0003EE19 File Offset: 0x0003D019
 	public void HighlightOff()
 	{
 		this.highlighted = false;
 	}
 
-	// Token: 0x06000980 RID: 2432 RVA: 0x0003E7C0 File Offset: 0x0003C9C0
+	// Token: 0x06000994 RID: 2452 RVA: 0x0003EE24 File Offset: 0x0003D024
 	public static void InitializeAll()
 	{
 		for (int i = 0; i < PhoneUiButton.allButtons.Count; i++)
@@ -59,7 +59,7 @@ public class PhoneUiButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000981 RID: 2433 RVA: 0x0003E849 File Offset: 0x0003CA49
+	// Token: 0x06000995 RID: 2453 RVA: 0x0003EEAD File Offset: 0x0003D0AD
 	private void Awake()
 	{
 		PhoneUiButton.allButtons.Add(this);
@@ -70,19 +70,19 @@ public class PhoneUiButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000982 RID: 2434 RVA: 0x0003E875 File Offset: 0x0003CA75
+	// Token: 0x06000996 RID: 2454 RVA: 0x0003EED9 File Offset: 0x0003D0D9
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
 	}
 
-	// Token: 0x06000983 RID: 2435 RVA: 0x0003E883 File Offset: 0x0003CA83
+	// Token: 0x06000997 RID: 2455 RVA: 0x0003EEE7 File Offset: 0x0003D0E7
 	private void OnDestroy()
 	{
 		PhoneUiButton.allButtons.Remove(this);
 	}
 
-	// Token: 0x06000984 RID: 2436 RVA: 0x0003E894 File Offset: 0x0003CA94
+	// Token: 0x06000998 RID: 2456 RVA: 0x0003EEF8 File Offset: 0x0003D0F8
 	private void Update()
 	{
 		this.mouseOver = this.MouseIsOver();

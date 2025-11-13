@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class AimCrossScript : MonoBehaviour
 {
-	// Token: 0x06000838 RID: 2104 RVA: 0x00035C54 File Offset: 0x00033E54
+	// Token: 0x0600083F RID: 2111 RVA: 0x00035E3C File Offset: 0x0003403C
 	public static bool IsEnabled()
 	{
 		return AimCrossScript.instance.crossHolder.activeSelf;
 	}
 
-	// Token: 0x06000839 RID: 2105 RVA: 0x00035C65 File Offset: 0x00033E65
+	// Token: 0x06000840 RID: 2112 RVA: 0x00035E4D File Offset: 0x0003404D
 	private void Awake()
 	{
 		AimCrossScript.instance = this;
@@ -19,7 +19,7 @@ public class AimCrossScript : MonoBehaviour
 		this.crossHolder.SetActive(false);
 	}
 
-	// Token: 0x0600083A RID: 2106 RVA: 0x00035C85 File Offset: 0x00033E85
+	// Token: 0x06000841 RID: 2113 RVA: 0x00035E6D File Offset: 0x0003406D
 	private void OnDestroy()
 	{
 		if (AimCrossScript.instance == this)
@@ -28,7 +28,7 @@ public class AimCrossScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600083B RID: 2107 RVA: 0x00035C9C File Offset: 0x00033E9C
+	// Token: 0x06000842 RID: 2114 RVA: 0x00035E84 File Offset: 0x00034084
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)

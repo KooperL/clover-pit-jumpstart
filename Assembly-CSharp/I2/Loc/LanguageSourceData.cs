@@ -13,7 +13,7 @@ namespace I2.Loc
 	[Serializable]
 	public class LanguageSourceData
 	{
-		// (get) Token: 0x06000E7F RID: 3711 RVA: 0x0005CC8B File Offset: 0x0005AE8B
+		// (get) Token: 0x06000E96 RID: 3734 RVA: 0x0005D467 File Offset: 0x0005B667
 		public global::UnityEngine.Object ownerObject
 		{
 			get
@@ -22,11 +22,11 @@ namespace I2.Loc
 			}
 		}
 
-		// (add) Token: 0x06000E80 RID: 3712 RVA: 0x0005CC98 File Offset: 0x0005AE98
-		// (remove) Token: 0x06000E81 RID: 3713 RVA: 0x0005CCD0 File Offset: 0x0005AED0
+		// (add) Token: 0x06000E97 RID: 3735 RVA: 0x0005D474 File Offset: 0x0005B674
+		// (remove) Token: 0x06000E98 RID: 3736 RVA: 0x0005D4AC File Offset: 0x0005B6AC
 		public event LanguageSource.fnOnSourceUpdated Event_OnSourceUpdateFromGoogle;
 
-		// Token: 0x06000E82 RID: 3714 RVA: 0x0005CD05 File Offset: 0x0005AF05
+		// Token: 0x06000E99 RID: 3737 RVA: 0x0005D4E1 File Offset: 0x0005B6E1
 		public void Awake()
 		{
 			LocalizationManager.AddSource(this);
@@ -35,13 +35,13 @@ namespace I2.Loc
 			LocalizationManager.LocalizeAll(true);
 		}
 
-		// Token: 0x06000E83 RID: 3715 RVA: 0x0005CD20 File Offset: 0x0005AF20
+		// Token: 0x06000E9A RID: 3738 RVA: 0x0005D4FC File Offset: 0x0005B6FC
 		public void OnDestroy()
 		{
 			LocalizationManager.RemoveSource(this);
 		}
 
-		// Token: 0x06000E84 RID: 3716 RVA: 0x0005CD28 File Offset: 0x0005AF28
+		// Token: 0x06000E9B RID: 3739 RVA: 0x0005D504 File Offset: 0x0005B704
 		public bool IsEqualTo(LanguageSourceData Source)
 		{
 			if (Source.mLanguages.Count != this.mLanguages.Count)
@@ -72,7 +72,7 @@ namespace I2.Loc
 			return true;
 		}
 
-		// Token: 0x06000E85 RID: 3717 RVA: 0x0005CDD4 File Offset: 0x0005AFD4
+		// Token: 0x06000E9C RID: 3740 RVA: 0x0005D5B0 File Offset: 0x0005B7B0
 		internal bool ManagerHasASimilarSource()
 		{
 			int i = 0;
@@ -89,7 +89,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000E86 RID: 3718 RVA: 0x0005CE17 File Offset: 0x0005B017
+		// Token: 0x06000E9D RID: 3741 RVA: 0x0005D5F3 File Offset: 0x0005B7F3
 		public void ClearAllData()
 		{
 			this.mTerms.Clear();
@@ -98,25 +98,25 @@ namespace I2.Loc
 			this.mAssetDictionary.Clear();
 		}
 
-		// Token: 0x06000E87 RID: 3719 RVA: 0x0005CE45 File Offset: 0x0005B045
+		// Token: 0x06000E9E RID: 3742 RVA: 0x0005D621 File Offset: 0x0005B821
 		public bool IsGlobalSource()
 		{
 			return this.mIsGlobalSource;
 		}
 
-		// Token: 0x06000E88 RID: 3720 RVA: 0x0005CE4D File Offset: 0x0005B04D
+		// Token: 0x06000E9F RID: 3743 RVA: 0x0005D629 File Offset: 0x0005B829
 		public void Editor_SetDirty()
 		{
 		}
 
-		// Token: 0x06000E89 RID: 3721 RVA: 0x0005CE50 File Offset: 0x0005B050
+		// Token: 0x06000EA0 RID: 3744 RVA: 0x0005D62C File Offset: 0x0005B82C
 		public void UpdateAssetDictionary()
 		{
 			this.Assets.RemoveAll((global::UnityEngine.Object x) => x == null);
 			this.mAssetDictionary = this.Assets.Distinct<global::UnityEngine.Object>().GroupBy((global::UnityEngine.Object o) => o.name, StringComparer.Ordinal).ToDictionary((IGrouping<string, global::UnityEngine.Object> g) => g.Key, (IGrouping<string, global::UnityEngine.Object> g) => g.First<global::UnityEngine.Object>(), StringComparer.Ordinal);
 		}
 
-		// Token: 0x06000E8A RID: 3722 RVA: 0x0005CF0C File Offset: 0x0005B10C
+		// Token: 0x06000EA1 RID: 3745 RVA: 0x0005D6E8 File Offset: 0x0005B8E8
 		public global::UnityEngine.Object FindAsset(string Name)
 		{
 			if (this.Assets != null)
@@ -134,13 +134,13 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06000E8B RID: 3723 RVA: 0x0005CF5A File Offset: 0x0005B15A
+		// Token: 0x06000EA2 RID: 3746 RVA: 0x0005D736 File Offset: 0x0005B936
 		public bool HasAsset(global::UnityEngine.Object Obj)
 		{
 			return this.Assets.Contains(Obj);
 		}
 
-		// Token: 0x06000E8C RID: 3724 RVA: 0x0005CF68 File Offset: 0x0005B168
+		// Token: 0x06000EA3 RID: 3747 RVA: 0x0005D744 File Offset: 0x0005B944
 		public void AddAsset(global::UnityEngine.Object Obj)
 		{
 			if (this.Assets.Contains(Obj))
@@ -151,7 +151,7 @@ namespace I2.Loc
 			this.UpdateAssetDictionary();
 		}
 
-		// Token: 0x06000E8D RID: 3725 RVA: 0x0005CF8C File Offset: 0x0005B18C
+		// Token: 0x06000EA4 RID: 3748 RVA: 0x0005D768 File Offset: 0x0005B968
 		private string Export_Language_to_Cache(int langIndex, bool fillTermWithFallback)
 		{
 			if (!this.mLanguages[langIndex].IsLoaded())
@@ -185,7 +185,7 @@ namespace I2.Loc
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000E8E RID: 3726 RVA: 0x0005D05C File Offset: 0x0005B25C
+		// Token: 0x06000EA5 RID: 3749 RVA: 0x0005D838 File Offset: 0x0005BA38
 		public string Export_I2CSV(string Category, char Separator = ',', bool specializationsAsRows = true, bool sortRows = true)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -247,7 +247,7 @@ namespace I2.Loc
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000E8F RID: 3727 RVA: 0x0005D280 File Offset: 0x0005B480
+		// Token: 0x06000EA6 RID: 3750 RVA: 0x0005DA5C File Offset: 0x0005BC5C
 		private static void AppendI2Term(StringBuilder Builder, int nLanguages, string Term, TermData termData, char Separator, string forceSpecialization)
 		{
 			LanguageSourceData.AppendI2Text(Builder, Term);
@@ -273,7 +273,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E90 RID: 3728 RVA: 0x0005D352 File Offset: 0x0005B552
+		// Token: 0x06000EA7 RID: 3751 RVA: 0x0005DB2E File Offset: 0x0005BD2E
 		private static void AppendI2Text(StringBuilder Builder, string text)
 		{
 			if (string.IsNullOrEmpty(text))
@@ -287,7 +287,7 @@ namespace I2.Loc
 			Builder.Append(text);
 		}
 
-		// Token: 0x06000E91 RID: 3729 RVA: 0x0005D38C File Offset: 0x0005B58C
+		// Token: 0x06000EA8 RID: 3752 RVA: 0x0005DB68 File Offset: 0x0005BD68
 		public string Export_CSV(string Category, char Separator = ',', bool specializationsAsRows = true, bool sortRows = true)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -339,7 +339,7 @@ namespace I2.Loc
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000E92 RID: 3730 RVA: 0x0005D580 File Offset: 0x0005B780
+		// Token: 0x06000EA9 RID: 3753 RVA: 0x0005DD5C File Offset: 0x0005BF5C
 		private static void AppendTerm(StringBuilder Builder, int nLanguages, string Term, TermData termData, string specialization, char Separator)
 		{
 			LanguageSourceData.AppendString(Builder, Term, Separator);
@@ -364,7 +364,7 @@ namespace I2.Loc
 			Builder.Append("\n");
 		}
 
-		// Token: 0x06000E93 RID: 3731 RVA: 0x0005D648 File Offset: 0x0005B848
+		// Token: 0x06000EAA RID: 3754 RVA: 0x0005DE24 File Offset: 0x0005C024
 		private static void AppendString(StringBuilder Builder, string Text, char Separator)
 		{
 			if (string.IsNullOrEmpty(Text))
@@ -381,7 +381,7 @@ namespace I2.Loc
 			Builder.Append(Text);
 		}
 
-		// Token: 0x06000E94 RID: 3732 RVA: 0x0005D6B8 File Offset: 0x0005B8B8
+		// Token: 0x06000EAB RID: 3755 RVA: 0x0005DE94 File Offset: 0x0005C094
 		private static void AppendTranslation(StringBuilder Builder, string Text, char Separator, string tags)
 		{
 			if (string.IsNullOrEmpty(Text))
@@ -399,7 +399,7 @@ namespace I2.Loc
 			Builder.Append(Text);
 		}
 
-		// Token: 0x06000E95 RID: 3733 RVA: 0x0005D730 File Offset: 0x0005B930
+		// Token: 0x06000EAC RID: 3756 RVA: 0x0005DF0C File Offset: 0x0005C10C
 		public UnityWebRequest Export_Google_CreateWWWcall(eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace)
 		{
 			string text = this.Export_Google_CreateData();
@@ -413,7 +413,7 @@ namespace I2.Loc
 			return unityWebRequest;
 		}
 
-		// Token: 0x06000E96 RID: 3734 RVA: 0x0005D7A4 File Offset: 0x0005B9A4
+		// Token: 0x06000EAD RID: 3757 RVA: 0x0005DF80 File Offset: 0x0005C180
 		private string Export_Google_CreateData()
 		{
 			List<string> categories = this.GetCategories(true, null);
@@ -439,21 +439,21 @@ namespace I2.Loc
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000E97 RID: 3735 RVA: 0x0005D848 File Offset: 0x0005BA48
+		// Token: 0x06000EAE RID: 3758 RVA: 0x0005E024 File Offset: 0x0005C224
 		public string Import_CSV(string Category, string CSVstring, eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace, char Separator = ',')
 		{
 			List<string[]> list = LocalizationReader.ReadCSV(CSVstring, Separator);
 			return this.Import_CSV(Category, list, UpdateMode);
 		}
 
-		// Token: 0x06000E98 RID: 3736 RVA: 0x0005D868 File Offset: 0x0005BA68
+		// Token: 0x06000EAF RID: 3759 RVA: 0x0005E044 File Offset: 0x0005C244
 		public string Import_I2CSV(string Category, string I2CSVstring, eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace)
 		{
 			List<string[]> list = LocalizationReader.ReadI2CSV(I2CSVstring);
 			return this.Import_CSV(Category, list, UpdateMode);
 		}
 
-		// Token: 0x06000E99 RID: 3737 RVA: 0x0005D888 File Offset: 0x0005BA88
+		// Token: 0x06000EB0 RID: 3760 RVA: 0x0005E064 File Offset: 0x0005C264
 		public string Import_CSV(string Category, List<string[]> CSV, eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace)
 		{
 			string[] array = CSV[0];
@@ -633,7 +633,7 @@ namespace I2.Loc
 			return "Bad Spreadsheet Format.\nFirst columns should be 'Key', 'Type' and 'Desc'";
 		}
 
-		// Token: 0x06000E9A RID: 3738 RVA: 0x0005DCA0 File Offset: 0x0005BEA0
+		// Token: 0x06000EB1 RID: 3761 RVA: 0x0005E47C File Offset: 0x0005C67C
 		private bool ArrayContains(string MainText, params string[] texts)
 		{
 			int i = 0;
@@ -649,7 +649,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000E9B RID: 3739 RVA: 0x0005DCD0 File Offset: 0x0005BED0
+		// Token: 0x06000EB2 RID: 3762 RVA: 0x0005E4AC File Offset: 0x0005C6AC
 		public static eTermType GetTermType(string type)
 		{
 			int i = 0;
@@ -666,7 +666,7 @@ namespace I2.Loc
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000E9C RID: 3740 RVA: 0x0005DD08 File Offset: 0x0005BF08
+		// Token: 0x06000EB3 RID: 3763 RVA: 0x0005E4E4 File Offset: 0x0005C6E4
 		private void Import_Language_from_Cache(int langIndex, string langData, bool useFallback, bool onlyCurrentSpecialization)
 		{
 			int num;
@@ -705,7 +705,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E9D RID: 3741 RVA: 0x0005DDC4 File Offset: 0x0005BFC4
+		// Token: 0x06000EB4 RID: 3764 RVA: 0x0005E5A0 File Offset: 0x0005C7A0
 		public static void FreeUnusedLanguages()
 		{
 			LanguageSourceData languageSourceData = LocalizationManager.Sources[0];
@@ -723,7 +723,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E9E RID: 3742 RVA: 0x0005DE34 File Offset: 0x0005C034
+		// Token: 0x06000EB5 RID: 3765 RVA: 0x0005E610 File Offset: 0x0005C810
 		public void Import_Google_FromCache()
 		{
 			if (this.GoogleUpdateFrequency == LanguageSourceData.eGoogleUpdateFrequency.Never)
@@ -765,7 +765,7 @@ namespace I2.Loc
 			this.Import_Google_Result(text, eSpreadsheetUpdateMode.Replace, false);
 		}
 
-		// Token: 0x06000E9F RID: 3743 RVA: 0x0005DF2C File Offset: 0x0005C12C
+		// Token: 0x06000EB6 RID: 3766 RVA: 0x0005E708 File Offset: 0x0005C908
 		private bool IsNewerVersion(string currentVersion, string newVersion)
 		{
 			long num;
@@ -773,7 +773,7 @@ namespace I2.Loc
 			return !string.IsNullOrEmpty(newVersion) && (string.IsNullOrEmpty(currentVersion) || (!long.TryParse(newVersion, out num) || !long.TryParse(currentVersion, out num2)) || num > num2);
 		}
 
-		// Token: 0x06000EA0 RID: 3744 RVA: 0x0005DF68 File Offset: 0x0005C168
+		// Token: 0x06000EB7 RID: 3767 RVA: 0x0005E744 File Offset: 0x0005C944
 		public void Import_Google(bool ForceUpdate, bool justCheck)
 		{
 			if (!ForceUpdate && this.GoogleUpdateFrequency == LanguageSourceData.eGoogleUpdateFrequency.Never)
@@ -838,7 +838,7 @@ namespace I2.Loc
 			CoroutineManager.Start(this.Import_Google_Coroutine(ForceUpdate, justCheck));
 		}
 
-		// Token: 0x06000EA1 RID: 3745 RVA: 0x0005E078 File Offset: 0x0005C278
+		// Token: 0x06000EB8 RID: 3768 RVA: 0x0005E854 File Offset: 0x0005CA54
 		private string GetSourcePlayerPrefName()
 		{
 			if (this.owner == null)
@@ -857,7 +857,7 @@ namespace I2.Loc
 			return SceneManager.GetActiveScene().name + "_" + text;
 		}
 
-		// Token: 0x06000EA2 RID: 3746 RVA: 0x0005E0F1 File Offset: 0x0005C2F1
+		// Token: 0x06000EB9 RID: 3769 RVA: 0x0005E8CD File Offset: 0x0005CACD
 		private IEnumerator Import_Google_Coroutine(bool forceUpdate, bool JustCheck)
 		{
 			UnityWebRequest www = this.Import_Google_CreateWWWcall(forceUpdate, JustCheck);
@@ -906,14 +906,14 @@ namespace I2.Loc
 			yield break;
 		}
 
-		// Token: 0x06000EA3 RID: 3747 RVA: 0x0005E10E File Offset: 0x0005C30E
+		// Token: 0x06000EBA RID: 3770 RVA: 0x0005E8EA File Offset: 0x0005CAEA
 		private void ApplyDownloadedDataOnSceneLoaded(Scene scene, LoadSceneMode mode)
 		{
 			SceneManager.sceneLoaded -= this.ApplyDownloadedDataOnSceneLoaded;
 			this.ApplyDownloadedDataFromGoogle();
 		}
 
-		// Token: 0x06000EA4 RID: 3748 RVA: 0x0005E128 File Offset: 0x0005C328
+		// Token: 0x06000EBB RID: 3771 RVA: 0x0005E904 File Offset: 0x0005CB04
 		public void ApplyDownloadedDataFromGoogle()
 		{
 			if (string.IsNullOrEmpty(this.mDelayedGoogleData))
@@ -937,7 +937,7 @@ namespace I2.Loc
 			Debug.Log("Done Google Sync: source was up-to-date");
 		}
 
-		// Token: 0x06000EA5 RID: 3749 RVA: 0x0005E1A8 File Offset: 0x0005C3A8
+		// Token: 0x06000EBC RID: 3772 RVA: 0x0005E984 File Offset: 0x0005CB84
 		public UnityWebRequest Import_Google_CreateWWWcall(bool ForceUpdate, bool justCheck)
 		{
 			if (!this.HasGoogleSpreadsheet())
@@ -958,13 +958,13 @@ namespace I2.Loc
 			return unityWebRequest;
 		}
 
-		// Token: 0x06000EA6 RID: 3750 RVA: 0x0005E232 File Offset: 0x0005C432
+		// Token: 0x06000EBD RID: 3773 RVA: 0x0005EA0E File Offset: 0x0005CC0E
 		public bool HasGoogleSpreadsheet()
 		{
 			return !string.IsNullOrEmpty(this.Google_WebServiceURL) && !string.IsNullOrEmpty(this.Google_SpreadsheetKey) && !string.IsNullOrEmpty(LocalizationManager.GetWebServiceURL(this));
 		}
 
-		// Token: 0x06000EA7 RID: 3751 RVA: 0x0005E260 File Offset: 0x0005C460
+		// Token: 0x06000EBE RID: 3774 RVA: 0x0005EA3C File Offset: 0x0005CC3C
 		public string Import_Google_Result(string JsonString, eSpreadsheetUpdateMode UpdateMode, bool saveInPlayerPrefs = false)
 		{
 			string text;
@@ -1053,7 +1053,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000EA8 RID: 3752 RVA: 0x0005E494 File Offset: 0x0005C694
+		// Token: 0x06000EBF RID: 3775 RVA: 0x0005EC70 File Offset: 0x0005CE70
 		public int GetLanguageIndex(string language, bool AllowDiscartingRegion = true, bool SkipDisabled = true)
 		{
 			int i = 0;
@@ -1093,7 +1093,7 @@ namespace I2.Loc
 			return -1;
 		}
 
-		// Token: 0x06000EA9 RID: 3753 RVA: 0x0005E554 File Offset: 0x0005C754
+		// Token: 0x06000EC0 RID: 3776 RVA: 0x0005ED30 File Offset: 0x0005CF30
 		public LanguageData GetLanguageData(string language, bool AllowDiscartingRegion = true)
 		{
 			int languageIndex = this.GetLanguageIndex(language, AllowDiscartingRegion, false);
@@ -1104,13 +1104,13 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06000EAA RID: 3754 RVA: 0x0005E57D File Offset: 0x0005C77D
+		// Token: 0x06000EC1 RID: 3777 RVA: 0x0005ED59 File Offset: 0x0005CF59
 		public bool IsCurrentLanguage(int languageIndex)
 		{
 			return LocalizationManager.CurrentLanguage == this.mLanguages[languageIndex].Name;
 		}
 
-		// Token: 0x06000EAB RID: 3755 RVA: 0x0005E59C File Offset: 0x0005C79C
+		// Token: 0x06000EC2 RID: 3778 RVA: 0x0005ED78 File Offset: 0x0005CF78
 		public int GetLanguageIndexFromCode(string Code, bool exactMatch = true, bool ignoreDisabled = false)
 		{
 			int i = 0;
@@ -1139,7 +1139,7 @@ namespace I2.Loc
 			return -1;
 		}
 
-		// Token: 0x06000EAC RID: 3756 RVA: 0x0005E644 File Offset: 0x0005C844
+		// Token: 0x06000EC3 RID: 3779 RVA: 0x0005EE20 File Offset: 0x0005D020
 		public static int GetCommonWordInLanguageNames(string Language1, string Language2)
 		{
 			if (string.IsNullOrEmpty(Language1) || string.IsNullOrEmpty(Language2))
@@ -1167,7 +1167,7 @@ namespace I2.Loc
 			return num;
 		}
 
-		// Token: 0x06000EAD RID: 3757 RVA: 0x0005E6F3 File Offset: 0x0005C8F3
+		// Token: 0x06000EC4 RID: 3780 RVA: 0x0005EECF File Offset: 0x0005D0CF
 		public static bool AreTheSameLanguage(string Language1, string Language2)
 		{
 			Language1 = LanguageSourceData.GetLanguageWithoutRegion(Language1);
@@ -1175,7 +1175,7 @@ namespace I2.Loc
 			return string.Compare(Language1, Language2, StringComparison.OrdinalIgnoreCase) == 0;
 		}
 
-		// Token: 0x06000EAE RID: 3758 RVA: 0x0005E710 File Offset: 0x0005C910
+		// Token: 0x06000EC5 RID: 3781 RVA: 0x0005EEEC File Offset: 0x0005D0EC
 		public static string GetLanguageWithoutRegion(string Language)
 		{
 			int num = Language.IndexOfAny("(/\\[,{".ToCharArray());
@@ -1186,13 +1186,13 @@ namespace I2.Loc
 			return Language.Substring(0, num).Trim();
 		}
 
-		// Token: 0x06000EAF RID: 3759 RVA: 0x0005E741 File Offset: 0x0005C941
+		// Token: 0x06000EC6 RID: 3782 RVA: 0x0005EF1D File Offset: 0x0005D11D
 		public void AddLanguage(string LanguageName)
 		{
 			this.AddLanguage(LanguageName, GoogleLanguages.GetLanguageCode(LanguageName, false));
 		}
 
-		// Token: 0x06000EB0 RID: 3760 RVA: 0x0005E754 File Offset: 0x0005C954
+		// Token: 0x06000EC7 RID: 3783 RVA: 0x0005EF30 File Offset: 0x0005D130
 		public void AddLanguage(string LanguageName, string LanguageCode)
 		{
 			if (this.GetLanguageIndex(LanguageName, false, true) >= 0)
@@ -1215,7 +1215,7 @@ namespace I2.Loc
 			this.Editor_SetDirty();
 		}
 
-		// Token: 0x06000EB1 RID: 3761 RVA: 0x0005E7E8 File Offset: 0x0005C9E8
+		// Token: 0x06000EC8 RID: 3784 RVA: 0x0005EFC4 File Offset: 0x0005D1C4
 		public void RemoveLanguage(string LanguageName)
 		{
 			int languageIndex = this.GetLanguageIndex(LanguageName, false, false);
@@ -1241,7 +1241,7 @@ namespace I2.Loc
 			this.Editor_SetDirty();
 		}
 
-		// Token: 0x06000EB2 RID: 3762 RVA: 0x0005E8D8 File Offset: 0x0005CAD8
+		// Token: 0x06000EC9 RID: 3785 RVA: 0x0005F0B4 File Offset: 0x0005D2B4
 		public List<string> GetLanguages(bool skipDisabled = true)
 		{
 			List<string> list = new List<string>();
@@ -1258,7 +1258,7 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000EB3 RID: 3763 RVA: 0x0005E934 File Offset: 0x0005CB34
+		// Token: 0x06000ECA RID: 3786 RVA: 0x0005F110 File Offset: 0x0005D310
 		public List<string> GetLanguagesCode(bool allowRegions = true, bool skipDisabled = true)
 		{
 			List<string> list = new List<string>();
@@ -1283,14 +1283,14 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000EB4 RID: 3764 RVA: 0x0005E9B8 File Offset: 0x0005CBB8
+		// Token: 0x06000ECB RID: 3787 RVA: 0x0005F194 File Offset: 0x0005D394
 		public bool IsLanguageEnabled(string Language)
 		{
 			int languageIndex = this.GetLanguageIndex(Language, false, true);
 			return languageIndex >= 0 && this.mLanguages[languageIndex].IsEnabled();
 		}
 
-		// Token: 0x06000EB5 RID: 3765 RVA: 0x0005E9E8 File Offset: 0x0005CBE8
+		// Token: 0x06000ECC RID: 3788 RVA: 0x0005F1C4 File Offset: 0x0005D3C4
 		public void EnableLanguage(string Language, bool bEnabled)
 		{
 			int languageIndex = this.GetLanguageIndex(Language, false, false);
@@ -1300,13 +1300,13 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EB6 RID: 3766 RVA: 0x0005EA15 File Offset: 0x0005CC15
+		// Token: 0x06000ECD RID: 3789 RVA: 0x0005F1F1 File Offset: 0x0005D3F1
 		public bool AllowUnloadingLanguages()
 		{
 			return this._AllowUnloadingLanguages > LanguageSourceData.eAllowUnloadLanguages.Never;
 		}
 
-		// Token: 0x06000EB7 RID: 3767 RVA: 0x0005EA20 File Offset: 0x0005CC20
+		// Token: 0x06000ECE RID: 3790 RVA: 0x0005F1FC File Offset: 0x0005D3FC
 		private string GetSavedLanguageFileName(int languageIndex)
 		{
 			if (languageIndex < 0)
@@ -1323,7 +1323,7 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000EB8 RID: 3768 RVA: 0x0005EA74 File Offset: 0x0005CC74
+		// Token: 0x06000ECF RID: 3791 RVA: 0x0005F250 File Offset: 0x0005D450
 		public void LoadLanguage(int languageIndex, bool UnloadOtherLanguages, bool useFallback, bool onlyCurrentSpecialization, bool forceLoad)
 		{
 			if (!this.AllowUnloadingLanguages())
@@ -1356,7 +1356,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EB9 RID: 3769 RVA: 0x0005EB10 File Offset: 0x0005CD10
+		// Token: 0x06000ED0 RID: 3792 RVA: 0x0005F2EC File Offset: 0x0005D4EC
 		public void LoadAllLanguages(bool forceLoad = false)
 		{
 			for (int i = 0; i < this.mLanguages.Count; i++)
@@ -1365,7 +1365,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EBA RID: 3770 RVA: 0x0005EB40 File Offset: 0x0005CD40
+		// Token: 0x06000ED1 RID: 3793 RVA: 0x0005F31C File Offset: 0x0005D51C
 		public void UnloadLanguage(int languageIndex)
 		{
 			if (!this.AllowUnloadingLanguages())
@@ -1387,7 +1387,7 @@ namespace I2.Loc
 			this.mLanguages[languageIndex].SetLoaded(false);
 		}
 
-		// Token: 0x06000EBB RID: 3771 RVA: 0x0005EC00 File Offset: 0x0005CE00
+		// Token: 0x06000ED2 RID: 3794 RVA: 0x0005F3DC File Offset: 0x0005D5DC
 		public void SaveLanguages(bool unloadAll, PersistentStorage.eFileType fileLocation = PersistentStorage.eFileType.Temporal)
 		{
 			if (!this.AllowUnloadingLanguages())
@@ -1425,7 +1425,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EBC RID: 3772 RVA: 0x0005ECB8 File Offset: 0x0005CEB8
+		// Token: 0x06000ED3 RID: 3795 RVA: 0x0005F494 File Offset: 0x0005D694
 		public bool HasUnloadedLanguages()
 		{
 			for (int i = 0; i < this.mLanguages.Count; i++)
@@ -1438,7 +1438,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000EBD RID: 3773 RVA: 0x0005ECF4 File Offset: 0x0005CEF4
+		// Token: 0x06000ED4 RID: 3796 RVA: 0x0005F4D0 File Offset: 0x0005D6D0
 		public List<string> GetCategories(bool OnlyMainCategory = false, List<string> Categories = null)
 		{
 			if (Categories == null)
@@ -1457,7 +1457,7 @@ namespace I2.Loc
 			return Categories;
 		}
 
-		// Token: 0x06000EBE RID: 3774 RVA: 0x0005ED6C File Offset: 0x0005CF6C
+		// Token: 0x06000ED5 RID: 3797 RVA: 0x0005F548 File Offset: 0x0005D748
 		public static string GetKeyFromFullTerm(string FullTerm, bool OnlyMainCategory = false)
 		{
 			int num = (OnlyMainCategory ? FullTerm.IndexOfAny(LanguageSourceData.CategorySeparators) : FullTerm.LastIndexOfAny(LanguageSourceData.CategorySeparators));
@@ -1468,7 +1468,7 @@ namespace I2.Loc
 			return FullTerm;
 		}
 
-		// Token: 0x06000EBF RID: 3775 RVA: 0x0005EDA4 File Offset: 0x0005CFA4
+		// Token: 0x06000ED6 RID: 3798 RVA: 0x0005F580 File Offset: 0x0005D780
 		public static string GetCategoryFromFullTerm(string FullTerm, bool OnlyMainCategory = false)
 		{
 			int num = (OnlyMainCategory ? FullTerm.IndexOfAny(LanguageSourceData.CategorySeparators) : FullTerm.LastIndexOfAny(LanguageSourceData.CategorySeparators));
@@ -1479,7 +1479,7 @@ namespace I2.Loc
 			return LanguageSourceData.EmptyCategory;
 		}
 
-		// Token: 0x06000EC0 RID: 3776 RVA: 0x0005EDE0 File Offset: 0x0005CFE0
+		// Token: 0x06000ED7 RID: 3799 RVA: 0x0005F5BC File Offset: 0x0005D7BC
 		public static void DeserializeFullTerm(string FullTerm, out string Key, out string Category, bool OnlyMainCategory = false)
 		{
 			int num = (OnlyMainCategory ? FullTerm.IndexOfAny(LanguageSourceData.CategorySeparators) : FullTerm.LastIndexOfAny(LanguageSourceData.CategorySeparators));
@@ -1493,7 +1493,7 @@ namespace I2.Loc
 			Key = FullTerm.Substring(num + 1);
 		}
 
-		// Token: 0x06000EC1 RID: 3777 RVA: 0x0005EE30 File Offset: 0x0005D030
+		// Token: 0x06000ED8 RID: 3800 RVA: 0x0005F60C File Offset: 0x0005D80C
 		public void UpdateDictionary(bool force = false)
 		{
 			if (!force && this.mDictionary != null && this.mDictionary.Count == this.mTerms.Count)
@@ -1525,7 +1525,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EC2 RID: 3778 RVA: 0x0005EF0C File Offset: 0x0005D10C
+		// Token: 0x06000ED9 RID: 3801 RVA: 0x0005F6E8 File Offset: 0x0005D8E8
 		public string GetTranslation(string term, string overrideLanguage = null, string overrideSpecialization = null, bool skipDisabled = false, bool allowCategoryMistmatch = false)
 		{
 			string text;
@@ -1533,7 +1533,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000EC3 RID: 3779 RVA: 0x0005EF2C File Offset: 0x0005D12C
+		// Token: 0x06000EDA RID: 3802 RVA: 0x0005F708 File Offset: 0x0005D908
 		public bool TryGetTranslation(string term, out string Translation, string overrideLanguage = null, string overrideSpecialization = null, bool skipDisabled = false, bool allowCategoryMistmatch = false)
 		{
 			int languageIndex = this.GetLanguageIndex((overrideLanguage == null) ? LocalizationManager.CurrentLanguage : overrideLanguage, true, false);
@@ -1579,7 +1579,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000EC4 RID: 3780 RVA: 0x0005F020 File Offset: 0x0005D220
+		// Token: 0x06000EDB RID: 3803 RVA: 0x0005F7FC File Offset: 0x0005D9FC
 		private bool TryGetFallbackTranslation(TermData termData, out string Translation, int langIndex, string overrideSpecialization = null, bool skipDisabled = false)
 		{
 			string text = this.mLanguages[langIndex].Code;
@@ -1616,13 +1616,13 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000EC5 RID: 3781 RVA: 0x0005F12F File Offset: 0x0005D32F
+		// Token: 0x06000EDC RID: 3804 RVA: 0x0005F90B File Offset: 0x0005DB0B
 		public TermData AddTerm(string term)
 		{
 			return this.AddTerm(term, eTermType.Text, true);
 		}
 
-		// Token: 0x06000EC6 RID: 3782 RVA: 0x0005F13C File Offset: 0x0005D33C
+		// Token: 0x06000EDD RID: 3805 RVA: 0x0005F918 File Offset: 0x0005DB18
 		public TermData GetTermData(string term, bool allowCategoryMistmatch = false)
 		{
 			if (string.IsNullOrEmpty(term))
@@ -1658,13 +1658,13 @@ namespace I2.Loc
 			return termData2;
 		}
 
-		// Token: 0x06000EC7 RID: 3783 RVA: 0x0005F1EC File Offset: 0x0005D3EC
+		// Token: 0x06000EDE RID: 3806 RVA: 0x0005F9C8 File Offset: 0x0005DBC8
 		public bool ContainsTerm(string term)
 		{
 			return this.GetTermData(term, false) != null;
 		}
 
-		// Token: 0x06000EC8 RID: 3784 RVA: 0x0005F1FC File Offset: 0x0005D3FC
+		// Token: 0x06000EDF RID: 3807 RVA: 0x0005F9D8 File Offset: 0x0005DBD8
 		public List<string> GetTermsList(string Category = null)
 		{
 			if (this.mDictionary.Count != this.mTerms.Count)
@@ -1687,7 +1687,7 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000EC9 RID: 3785 RVA: 0x0005F28C File Offset: 0x0005D48C
+		// Token: 0x06000EE0 RID: 3808 RVA: 0x0005FA68 File Offset: 0x0005DC68
 		public TermData AddTerm(string NewTerm, eTermType termType, bool SaveSource = true)
 		{
 			LanguageSourceData.ValidateFullTerm(ref NewTerm);
@@ -1710,7 +1710,7 @@ namespace I2.Loc
 			return termData;
 		}
 
-		// Token: 0x06000ECA RID: 3786 RVA: 0x0005F32C File Offset: 0x0005D52C
+		// Token: 0x06000EE1 RID: 3809 RVA: 0x0005FB08 File Offset: 0x0005DD08
 		public void RemoveTerm(string term)
 		{
 			int i = 0;
@@ -1727,7 +1727,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000ECB RID: 3787 RVA: 0x0005F384 File Offset: 0x0005D584
+		// Token: 0x06000EE2 RID: 3810 RVA: 0x0005FB60 File Offset: 0x0005DD60
 		public static void ValidateFullTerm(ref string Term)
 		{
 			Term = Term.Replace('\\', '/');

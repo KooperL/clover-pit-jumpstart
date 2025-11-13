@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class TerminalScript : MonoBehaviour
 {
-	// Token: 0x06000813 RID: 2067 RVA: 0x00033BEC File Offset: 0x00031DEC
+	// Token: 0x0600081A RID: 2074 RVA: 0x00033DD4 File Offset: 0x00031FD4
 	public static void SetState(TerminalScript.State state)
 	{
 		if (TerminalScript.instance == null)
@@ -108,7 +108,7 @@ public class TerminalScript : MonoBehaviour
 		TerminalScript.instance.state = state;
 	}
 
-	// Token: 0x06000814 RID: 2068 RVA: 0x00033EBC File Offset: 0x000320BC
+	// Token: 0x0600081B RID: 2075 RVA: 0x000340A4 File Offset: 0x000322A4
 	public static bool IsLoggedIn()
 	{
 		if (TerminalScript.instance == null)
@@ -130,7 +130,7 @@ public class TerminalScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000815 RID: 2069 RVA: 0x00033F10 File Offset: 0x00032110
+	// Token: 0x0600081C RID: 2076 RVA: 0x000340F8 File Offset: 0x000322F8
 	public void PowerupMesh_Steal(PowerupScript powerupScript, Transform targetParent, bool normalizeScale, float scaleMult)
 	{
 		powerupScript.MeshSteal(targetParent, normalizeScale, scaleMult);
@@ -138,7 +138,7 @@ public class TerminalScript : MonoBehaviour
 		this.powerupStealedMeshes.Add(powerupScript);
 	}
 
-	// Token: 0x06000816 RID: 2070 RVA: 0x00033F2E File Offset: 0x0003212E
+	// Token: 0x0600081D RID: 2077 RVA: 0x00034116 File Offset: 0x00032316
 	public void PowerupMesh_Restore(PowerupScript powerupScript)
 	{
 		powerupScript.MeshRestore(true);
@@ -146,7 +146,7 @@ public class TerminalScript : MonoBehaviour
 		this.powerupStealedMeshes.Remove(powerupScript);
 	}
 
-	// Token: 0x06000817 RID: 2071 RVA: 0x00033F4C File Offset: 0x0003214C
+	// Token: 0x0600081E RID: 2078 RVA: 0x00034134 File Offset: 0x00032334
 	public void PowerupMeshes_RestoreAll()
 	{
 		foreach (PowerupScript powerupScript in this.powerupStealedMeshes)
@@ -157,13 +157,13 @@ public class TerminalScript : MonoBehaviour
 		this.powerupStealedMeshes.Clear();
 	}
 
-	// Token: 0x06000818 RID: 2072 RVA: 0x00033FB0 File Offset: 0x000321B0
+	// Token: 0x0600081F RID: 2079 RVA: 0x00034198 File Offset: 0x00032398
 	public bool IsPowerupBuyable(PowerupScript.Identifier powerupIdentifier)
 	{
 		return this.buyablePowerups.Contains(powerupIdentifier);
 	}
 
-	// Token: 0x06000819 RID: 2073 RVA: 0x00033FC0 File Offset: 0x000321C0
+	// Token: 0x06000820 RID: 2080 RVA: 0x000341A8 File Offset: 0x000323A8
 	private TerminalScript.TerminalPowerupState PowerupState_Get(PowerupScript powerup)
 	{
 		if (powerup == null)
@@ -192,19 +192,19 @@ public class TerminalScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600081A RID: 2074 RVA: 0x00034018 File Offset: 0x00032218
+	// Token: 0x06000821 RID: 2081 RVA: 0x00034200 File Offset: 0x00032400
 	private void OffTranslations()
 	{
 		this.offerNotificationText.text = Translation.Get("TERMINAL_OFFER_NOTIFICATION_TEXT");
 	}
 
-	// Token: 0x0600081B RID: 2075 RVA: 0x0003402F File Offset: 0x0003222F
+	// Token: 0x06000822 RID: 2082 RVA: 0x00034217 File Offset: 0x00032417
 	public static void NotificationSet(PowerupScript.Identifier powerupIdentifier)
 	{
 		Data.game.TerminalNotification_Set(new Data.GameData.TerminalNotification(powerupIdentifier, "TERMINAL_NOTIFICATION_TITLE_CONGRATULATIONS", "TERMINAL_NOTIFICATION_BODY_YOU_UNLOCKED"));
 	}
 
-	// Token: 0x0600081C RID: 2076 RVA: 0x0003404B File Offset: 0x0003224B
+	// Token: 0x06000823 RID: 2083 RVA: 0x00034233 File Offset: 0x00032433
 	public IEnumerator NotificationsCoroutine()
 	{
 		yield return null;
@@ -257,7 +257,7 @@ public class TerminalScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600081D RID: 2077 RVA: 0x0003405A File Offset: 0x0003225A
+	// Token: 0x06000824 RID: 2084 RVA: 0x00034242 File Offset: 0x00032442
 	public IEnumerator OfferNotificationCoroutine()
 	{
 		yield return null;
@@ -286,7 +286,7 @@ public class TerminalScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600081E RID: 2078 RVA: 0x0003406C File Offset: 0x0003226C
+	// Token: 0x06000825 RID: 2085 RVA: 0x00034254 File Offset: 0x00032454
 	public void Buttons_EnableStateSet(bool state)
 	{
 		TerminalNodeScript[] array = this.navigationButtons_PowerupNodes;
@@ -298,7 +298,7 @@ public class TerminalScript : MonoBehaviour
 		this.navigationButton_PageDown.enabled = state;
 	}
 
-	// Token: 0x0600081F RID: 2079 RVA: 0x000340AF File Offset: 0x000322AF
+	// Token: 0x06000826 RID: 2086 RVA: 0x00034297 File Offset: 0x00032497
 	public static PowerupScript HoveredPowerupGet()
 	{
 		if (TerminalScript.instance == null)
@@ -308,7 +308,7 @@ public class TerminalScript : MonoBehaviour
 		return TerminalScript.instance.hoveredPowerup;
 	}
 
-	// Token: 0x06000820 RID: 2080 RVA: 0x000340CA File Offset: 0x000322CA
+	// Token: 0x06000827 RID: 2087 RVA: 0x000342B2 File Offset: 0x000324B2
 	public int MaxPowerupsPerPage(int pageIndex)
 	{
 		if (pageIndex == this.pagesCount - 1)
@@ -318,7 +318,7 @@ public class TerminalScript : MonoBehaviour
 		return this.navigationButtons_PowerupNodes.Length;
 	}
 
-	// Token: 0x06000821 RID: 2081 RVA: 0x000340F4 File Offset: 0x000322F4
+	// Token: 0x06000828 RID: 2088 RVA: 0x000342DC File Offset: 0x000324DC
 	private void NavigationReset()
 	{
 		this.pageIndex = 0;
@@ -327,7 +327,7 @@ public class TerminalScript : MonoBehaviour
 		this.nodeIndexOld = -1;
 	}
 
-	// Token: 0x06000822 RID: 2082 RVA: 0x00034114 File Offset: 0x00032314
+	// Token: 0x06000829 RID: 2089 RVA: 0x000342FC File Offset: 0x000324FC
 	private void NavigationRoutine()
 	{
 		this.hoveredPowerup = null;
@@ -553,11 +553,11 @@ public class TerminalScript : MonoBehaviour
 				}
 				if ((terminalPowerupState2 == TerminalScript.TerminalPowerupState.owned || terminalPowerupState2 == TerminalScript.TerminalPowerupState.justUnlocked) && !this.hoveredPowerup.IsBaseSet())
 				{
-					this.inspector_UnlockInfosText.fontStyle = FontStyles.Strikethrough;
+					this.inspector_UnlockInfosText.fontStyle = 64;
 				}
 				else
 				{
-					this.inspector_UnlockInfosText.fontStyle = FontStyles.Normal;
+					this.inspector_UnlockInfosText.fontStyle = 0;
 				}
 				this.inspector_UnlockInfosText.text = text3;
 				if (terminalPowerupState2 == TerminalScript.TerminalPowerupState.offered)
@@ -657,7 +657,7 @@ public class TerminalScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000823 RID: 2083 RVA: 0x00034D60 File Offset: 0x00032F60
+	// Token: 0x0600082A RID: 2090 RVA: 0x00034F48 File Offset: 0x00033148
 	public static void Initialize()
 	{
 		if (TerminalScript.instance == null)
@@ -763,13 +763,13 @@ public class TerminalScript : MonoBehaviour
 		TerminalScript.instance.pagesCount = Mathf.CeilToInt((float)TerminalScript.instance.allPowerups.Count / (float)TerminalScript.instance.navigationButtons_PowerupNodes.Length);
 	}
 
-	// Token: 0x06000824 RID: 2084 RVA: 0x000351C9 File Offset: 0x000333C9
+	// Token: 0x0600082B RID: 2091 RVA: 0x000353B1 File Offset: 0x000335B1
 	private void Awake()
 	{
 		TerminalScript.instance = this;
 	}
 
-	// Token: 0x06000825 RID: 2085 RVA: 0x000351D4 File Offset: 0x000333D4
+	// Token: 0x0600082C RID: 2092 RVA: 0x000353BC File Offset: 0x000335BC
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -787,7 +787,7 @@ public class TerminalScript : MonoBehaviour
 		this.OffTranslations();
 	}
 
-	// Token: 0x06000826 RID: 2086 RVA: 0x00035267 File Offset: 0x00033467
+	// Token: 0x0600082D RID: 2093 RVA: 0x0003544F File Offset: 0x0003364F
 	private void OnDestroy()
 	{
 		if (TerminalScript.instance == this)
@@ -797,7 +797,7 @@ public class TerminalScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.OffTranslations));
 	}
 
-	// Token: 0x06000827 RID: 2087 RVA: 0x0003529C File Offset: 0x0003349C
+	// Token: 0x0600082E RID: 2094 RVA: 0x00035484 File Offset: 0x00033684
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -840,7 +840,7 @@ public class TerminalScript : MonoBehaviour
 				}
 				if (this.youGotMailTimer <= 0f)
 				{
-					Sound.Play3D("SoundTerminalYouGotMail", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D("SoundTerminalYouGotMail", base.transform.position, 20f, 1f, 1f, 1);
 				}
 			}
 			break;
@@ -937,7 +937,7 @@ public class TerminalScript : MonoBehaviour
 		bool flag6 = TerminalScript.IsLoggedIn();
 		if (flag6 && !Sound.IsPlaying("SoundTerminalFanLoop"))
 		{
-			Sound.Play3D("SoundTerminalFanLoop", base.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundTerminalFanLoop", base.transform.position, 10f, 1f, 1f, 1);
 		}
 		if (!flag6 && this.powerupStealedMeshes.Count > 0)
 		{

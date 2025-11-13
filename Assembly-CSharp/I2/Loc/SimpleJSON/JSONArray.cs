@@ -40,7 +40,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x06001073 RID: 4211 RVA: 0x00066549 File Offset: 0x00064749
+		// (get) Token: 0x0600108A RID: 4234 RVA: 0x00066D25 File Offset: 0x00064F25
 		public override int Count
 		{
 			get
@@ -49,13 +49,13 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x06001074 RID: 4212 RVA: 0x00066556 File Offset: 0x00064756
+		// Token: 0x0600108B RID: 4235 RVA: 0x00066D32 File Offset: 0x00064F32
 		public override void Add(string aKey, JSONNode aItem)
 		{
 			this.m_List.Add(aItem);
 		}
 
-		// Token: 0x06001075 RID: 4213 RVA: 0x00066564 File Offset: 0x00064764
+		// Token: 0x0600108C RID: 4236 RVA: 0x00066D40 File Offset: 0x00064F40
 		public override JSONNode Remove(int aIndex)
 		{
 			if (aIndex < 0 || aIndex >= this.m_List.Count)
@@ -67,14 +67,14 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// Token: 0x06001076 RID: 4214 RVA: 0x00066592 File Offset: 0x00064792
+		// Token: 0x0600108D RID: 4237 RVA: 0x00066D6E File Offset: 0x00064F6E
 		public override JSONNode Remove(JSONNode aNode)
 		{
 			this.m_List.Remove(aNode);
 			return aNode;
 		}
 
-		// (get) Token: 0x06001077 RID: 4215 RVA: 0x000665A2 File Offset: 0x000647A2
+		// (get) Token: 0x0600108E RID: 4238 RVA: 0x00066D7E File Offset: 0x00064F7E
 		public override IEnumerable<JSONNode> Childs
 		{
 			get
@@ -89,7 +89,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x06001078 RID: 4216 RVA: 0x000665B2 File Offset: 0x000647B2
+		// Token: 0x0600108F RID: 4239 RVA: 0x00066D8E File Offset: 0x00064F8E
 		public IEnumerator GetEnumerator()
 		{
 			foreach (JSONNode jsonnode in this.m_List)
@@ -101,7 +101,7 @@ namespace I2.Loc.SimpleJSON
 			yield break;
 		}
 
-		// Token: 0x06001079 RID: 4217 RVA: 0x000665C4 File Offset: 0x000647C4
+		// Token: 0x06001090 RID: 4240 RVA: 0x00066DA0 File Offset: 0x00064FA0
 		public override string ToString()
 		{
 			string text = "[ ";
@@ -117,7 +117,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x0600107A RID: 4218 RVA: 0x00066648 File Offset: 0x00064848
+		// Token: 0x06001091 RID: 4241 RVA: 0x00066E24 File Offset: 0x00065024
 		public override string ToString(string aPrefix)
 		{
 			string text = "[ ";
@@ -134,7 +134,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x0600107B RID: 4219 RVA: 0x000666EC File Offset: 0x000648EC
+		// Token: 0x06001092 RID: 4242 RVA: 0x00066EC8 File Offset: 0x000650C8
 		public override void Serialize(BinaryWriter aWriter)
 		{
 			aWriter.Write(1);

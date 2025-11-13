@@ -6,7 +6,7 @@ namespace Panik
 {
 	public class RenderingMaster : MonoBehaviour
 	{
-		// Token: 0x06000D45 RID: 3397 RVA: 0x000543C7 File Offset: 0x000525C7
+		// Token: 0x06000D5C RID: 3420 RVA: 0x00054BA3 File Offset: 0x00052DA3
 		private void ReferencesRefresh()
 		{
 			if (this.myCanvas == null)
@@ -19,7 +19,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D46 RID: 3398 RVA: 0x00054400 File Offset: 0x00052600
+		// Token: 0x06000D5D RID: 3421 RVA: 0x00054BDC File Offset: 0x00052DDC
 		public static Vector2 GetRawImageSize()
 		{
 			if (RenderingMaster.instance == null)
@@ -29,7 +29,7 @@ namespace Panik
 			return new Vector2(RenderingMaster.instance.renderingRawImage.rectTransform.sizeDelta.x, RenderingMaster.instance.renderingRawImage.rectTransform.sizeDelta.y);
 		}
 
-		// Token: 0x06000D47 RID: 3399 RVA: 0x00054464 File Offset: 0x00052664
+		// Token: 0x06000D5E RID: 3422 RVA: 0x00054C40 File Offset: 0x00052E40
 		public static bool CanSplitScreen(ref string warningString)
 		{
 			bool flag = true;
@@ -60,7 +60,7 @@ namespace Panik
 			return flag;
 		}
 
-		// Token: 0x06000D48 RID: 3400 RVA: 0x000544D0 File Offset: 0x000526D0
+		// Token: 0x06000D5F RID: 3423 RVA: 0x00054CAC File Offset: 0x00052EAC
 		public static void SplitScreenUpdate()
 		{
 			string text = "";
@@ -88,13 +88,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D49 RID: 3401 RVA: 0x000545AC File Offset: 0x000527AC
+		// Token: 0x06000D60 RID: 3424 RVA: 0x00054D88 File Offset: 0x00052F88
 		public static void RenderingRefresh(bool applyScreenRes)
 		{
 			RenderingMaster.instance._RenderingRefresh(applyScreenRes);
 		}
 
-		// Token: 0x06000D4A RID: 3402 RVA: 0x000545BC File Offset: 0x000527BC
+		// Token: 0x06000D61 RID: 3425 RVA: 0x00054D98 File Offset: 0x00052F98
 		private void _RenderingRefresh(bool applyScreenRes)
 		{
 			if (!Master.instance.RENDER_TO_TEXTURE)
@@ -238,7 +238,7 @@ namespace Panik
 			RenderingMaster.firstBootUpdated = true;
 		}
 
-		// Token: 0x06000D4B RID: 3403 RVA: 0x00054AE4 File Offset: 0x00052CE4
+		// Token: 0x06000D62 RID: 3426 RVA: 0x000552C0 File Offset: 0x000534C0
 		private void Awake()
 		{
 			if (RenderingMaster.instance != null)
@@ -251,7 +251,7 @@ namespace Panik
 			RenderingMaster.renderTextureCurrent = this.renderTextureInitial;
 		}
 
-		// Token: 0x06000D4C RID: 3404 RVA: 0x00054B16 File Offset: 0x00052D16
+		// Token: 0x06000D63 RID: 3427 RVA: 0x000552F2 File Offset: 0x000534F2
 		private void Start()
 		{
 			if (Master.instance.RENDER_TO_TEXTURE)
@@ -267,7 +267,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D4D RID: 3405 RVA: 0x00054B53 File Offset: 0x00052D53
+		// Token: 0x06000D64 RID: 3428 RVA: 0x0005532F File Offset: 0x0005352F
 		private void OnDestroy()
 		{
 			if (RenderingMaster.instance == this)
@@ -276,7 +276,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D4E RID: 3406 RVA: 0x00054B68 File Offset: 0x00052D68
+		// Token: 0x06000D65 RID: 3429 RVA: 0x00055344 File Offset: 0x00053544
 		private void Update()
 		{
 			if (Master.instance.RENDER_TO_TEXTURE)
@@ -302,13 +302,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D4F RID: 3407 RVA: 0x00054C3C File Offset: 0x00052E3C
+		// Token: 0x06000D66 RID: 3430 RVA: 0x00055418 File Offset: 0x00053618
 		public void _OnRenderImage(RenderTexture src, RenderTexture dest)
 		{
 			Graphics.Blit(src, dest, this.crtMaterial);
 		}
 
-		// Token: 0x06000D50 RID: 3408 RVA: 0x00054C4B File Offset: 0x00052E4B
+		// Token: 0x06000D67 RID: 3431 RVA: 0x00055427 File Offset: 0x00053627
 		private void OnDrawGizmosSelected()
 		{
 			this.ReferencesRefresh();

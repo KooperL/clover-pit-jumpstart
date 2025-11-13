@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PhoneAbilityUiScript : MonoBehaviour
 {
-	// Token: 0x06000973 RID: 2419 RVA: 0x0003E4D8 File Offset: 0x0003C6D8
+	// Token: 0x06000987 RID: 2439 RVA: 0x0003EB3C File Offset: 0x0003CD3C
 	private void SetAbility(AbilityScript ability)
 	{
 		base.gameObject.SetActive(true);
@@ -28,13 +28,13 @@ public class PhoneAbilityUiScript : MonoBehaviour
 		this.titleText.color = ability.ColorGet();
 	}
 
-	// Token: 0x06000974 RID: 2420 RVA: 0x0003E5AA File Offset: 0x0003C7AA
+	// Token: 0x06000988 RID: 2440 RVA: 0x0003EC0E File Offset: 0x0003CE0E
 	public static void SetAbility(int abilityIndex, AbilityScript ability)
 	{
 		PhoneAbilityUiScript.allAbilities[abilityIndex].SetAbility(ability);
 	}
 
-	// Token: 0x06000975 RID: 2421 RVA: 0x0003E5C0 File Offset: 0x0003C7C0
+	// Token: 0x06000989 RID: 2441 RVA: 0x0003EC24 File Offset: 0x0003CE24
 	public static void InitializeAll()
 	{
 		for (int i = 0; i < PhoneAbilityUiScript.allAbilities.Count; i++)
@@ -51,25 +51,25 @@ public class PhoneAbilityUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000976 RID: 2422 RVA: 0x0003E649 File Offset: 0x0003C849
+	// Token: 0x0600098A RID: 2442 RVA: 0x0003ECAD File Offset: 0x0003CEAD
 	private void Awake()
 	{
 		PhoneAbilityUiScript.allAbilities.Add(this);
 	}
 
-	// Token: 0x06000977 RID: 2423 RVA: 0x0003E656 File Offset: 0x0003C856
+	// Token: 0x0600098B RID: 2443 RVA: 0x0003ECBA File Offset: 0x0003CEBA
 	private void OnDestroy()
 	{
 		PhoneAbilityUiScript.allAbilities.Remove(this);
 	}
 
-	// Token: 0x06000978 RID: 2424 RVA: 0x0003E664 File Offset: 0x0003C864
+	// Token: 0x0600098C RID: 2444 RVA: 0x0003ECC8 File Offset: 0x0003CEC8
 	private void OnEnable()
 	{
 		PhoneAbilityUiScript.allEnabled.Add(this);
 	}
 
-	// Token: 0x06000979 RID: 2425 RVA: 0x0003E671 File Offset: 0x0003C871
+	// Token: 0x0600098D RID: 2445 RVA: 0x0003ECD5 File Offset: 0x0003CED5
 	private void OnDisable()
 	{
 		PhoneAbilityUiScript.allEnabled.Remove(this);

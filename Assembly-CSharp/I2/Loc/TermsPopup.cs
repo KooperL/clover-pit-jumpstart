@@ -5,14 +5,14 @@ namespace I2.Loc
 {
 	public class TermsPopup : PropertyAttribute
 	{
-		// Token: 0x06000FE2 RID: 4066 RVA: 0x00063512 File Offset: 0x00061712
+		// Token: 0x06000FF9 RID: 4089 RVA: 0x00063CEE File Offset: 0x00061EEE
 		public TermsPopup(string filter = "")
 		{
 			this.Filter = filter;
 		}
 
-		// (get) Token: 0x06000FE3 RID: 4067 RVA: 0x00063521 File Offset: 0x00061721
-		// (set) Token: 0x06000FE4 RID: 4068 RVA: 0x00063529 File Offset: 0x00061729
+		// (get) Token: 0x06000FFA RID: 4090 RVA: 0x00063CFD File Offset: 0x00061EFD
+		// (set) Token: 0x06000FFB RID: 4091 RVA: 0x00063D05 File Offset: 0x00061F05
 		public string Filter { get; private set; }
 	}
 }

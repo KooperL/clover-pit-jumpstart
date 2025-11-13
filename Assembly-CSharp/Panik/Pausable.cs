@@ -5,25 +5,25 @@ namespace Panik
 {
 	public class Pausable : MonoBehaviour
 	{
-		// Token: 0x06000D5E RID: 3422 RVA: 0x00054D5C File Offset: 0x00052F5C
+		// Token: 0x06000D75 RID: 3445 RVA: 0x00055538 File Offset: 0x00053738
 		public bool PausedGet()
 		{
 			return this._isPaused;
 		}
 
-		// Token: 0x06000D5F RID: 3423 RVA: 0x00054D64 File Offset: 0x00052F64
+		// Token: 0x06000D76 RID: 3446 RVA: 0x00055540 File Offset: 0x00053740
 		public void PausableSet(bool isPausable)
 		{
 			this.isPausable = isPausable;
 		}
 
-		// Token: 0x06000D60 RID: 3424 RVA: 0x00054D6D File Offset: 0x00052F6D
+		// Token: 0x06000D77 RID: 3447 RVA: 0x00055549 File Offset: 0x00053749
 		public bool PausableGet()
 		{
 			return this.isPausable;
 		}
 
-		// Token: 0x06000D61 RID: 3425 RVA: 0x00054D78 File Offset: 0x00052F78
+		// Token: 0x06000D78 RID: 3448 RVA: 0x00055554 File Offset: 0x00053754
 		private void _PauseMe()
 		{
 			this._isPaused = true;
@@ -36,7 +36,7 @@ namespace Panik
 				this.myRbs[i].linearVelocity = Vector3.zero;
 				this.myRbs[i].angularVelocity = Vector3.zero;
 				this.myRbs[i].useGravity = false;
-				this.myRbs[i].constraints = RigidbodyConstraints.FreezeAll;
+				this.myRbs[i].constraints = 126;
 				this.myRbs[i].detectCollisions = false;
 			}
 			for (int j = 0; j < this.myRbs2D.Length; j++)
@@ -47,8 +47,8 @@ namespace Panik
 				this.rbs2DConstraints[j] = this.myRbs2D[j].constraints;
 				this.myRbs2D[j].linearVelocity = Vector2.zero;
 				this.myRbs2D[j].angularVelocity = 0f;
-				this.myRbs2D[j].bodyType = RigidbodyType2D.Static;
-				this.myRbs2D[j].constraints = RigidbodyConstraints2D.FreezeAll;
+				this.myRbs2D[j].bodyType = 2;
+				this.myRbs2D[j].constraints = 7;
 			}
 			for (int k = 0; k < this.myAnimators.Length; k++)
 			{
@@ -63,7 +63,7 @@ namespace Panik
 			ev();
 		}
 
-		// Token: 0x06000D62 RID: 3426 RVA: 0x00054F4C File Offset: 0x0005314C
+		// Token: 0x06000D79 RID: 3449 RVA: 0x00055728 File Offset: 0x00053928
 		private void _UnpauseMe()
 		{
 			this._isPaused = false;
@@ -94,7 +94,7 @@ namespace Panik
 			ev();
 		}
 
-		// Token: 0x06000D63 RID: 3427 RVA: 0x00055080 File Offset: 0x00053280
+		// Token: 0x06000D7A RID: 3450 RVA: 0x0005585C File Offset: 0x00053A5C
 		private void Awake()
 		{
 			if (this.canPauseChilds)
@@ -133,13 +133,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D64 RID: 3428 RVA: 0x000551E1 File Offset: 0x000533E1
+		// Token: 0x06000D7B RID: 3451 RVA: 0x000559BD File Offset: 0x00053BBD
 		private void OnDisable()
 		{
 			this._UnpauseMe();
 		}
 
-		// Token: 0x06000D65 RID: 3429 RVA: 0x000551EC File Offset: 0x000533EC
+		// Token: 0x06000D7C RID: 3452 RVA: 0x000559C8 File Offset: 0x00053BC8
 		public void Update()
 		{
 			this.localPauseTimer -= Tick.Time;
@@ -203,7 +203,7 @@ namespace Panik
 
 		public Pausable.Ev onResume;
 
-		// (Invoke) Token: 0x0600142A RID: 5162
+		// (Invoke) Token: 0x06001449 RID: 5193
 		public delegate void Ev();
 	}
 }

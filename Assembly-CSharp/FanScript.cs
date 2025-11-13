@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FanScript : MonoBehaviour
 {
-	// Token: 0x060007DB RID: 2011 RVA: 0x00032EF0 File Offset: 0x000310F0
+	// Token: 0x060007DC RID: 2012 RVA: 0x00033008 File Offset: 0x00031208
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -24,7 +24,7 @@ public class FanScript : MonoBehaviour
 		float fanVolume = Data.settings.fanVolume;
 		if (!flag)
 		{
-			Sound.Play3D("SoundFan", base.transform.position, 20f, Mathf.Min(1f, volumeFade * fanVolume), 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundFan", base.transform.position, 20f, Mathf.Min(1f, volumeFade * fanVolume), 1f, 1);
 		}
 	}
 }

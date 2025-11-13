@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PatternScript
 {
-	// Token: 0x06000468 RID: 1128 RVA: 0x0001DAEC File Offset: 0x0001BCEC
+	// Token: 0x06000467 RID: 1127 RVA: 0x0001DBD0 File Offset: 0x0001BDD0
 	public static ulong PatternOrderWeightMask(PatternScript.Kind kind)
 	{
 		ulong num = 1UL;
@@ -66,7 +66,7 @@ public static class PatternScript
 		return num;
 	}
 
-	// Token: 0x06000469 RID: 1129 RVA: 0x0001DBDC File Offset: 0x0001BDDC
+	// Token: 0x06000468 RID: 1128 RVA: 0x0001DCC0 File Offset: 0x0001BEC0
 	public static string GetPatterTranslatedName(PatternScript.Kind patternKind)
 	{
 		switch (patternKind)
@@ -109,7 +109,7 @@ public static class PatternScript
 		}
 	}
 
-	// Token: 0x0600046A RID: 1130 RVA: 0x0001DD04 File Offset: 0x0001BF04
+	// Token: 0x06000469 RID: 1129 RVA: 0x0001DDE8 File Offset: 0x0001BFE8
 	public static string GetPatterTranslatedName_Short(PatternScript.Kind patternKind)
 	{
 		switch (patternKind)
@@ -152,7 +152,7 @@ public static class PatternScript
 		}
 	}
 
-	// Token: 0x0600046B RID: 1131 RVA: 0x0001DE2C File Offset: 0x0001C02C
+	// Token: 0x0600046A RID: 1130 RVA: 0x0001DF10 File Offset: 0x0001C110
 	public static bool[][] GetPatternMask(PatternScript.Kind patternKind, bool diagonalAltCheck)
 	{
 		if (PatternScript._tempPatternMask == null)
@@ -316,49 +316,49 @@ public static class PatternScript
 		return PatternScript._tempPatternMask;
 	}
 
-	// Token: 0x0600046C RID: 1132 RVA: 0x0001E2C9 File Offset: 0x0001C4C9
+	// Token: 0x0600046B RID: 1131 RVA: 0x0001E3AD File Offset: 0x0001C5AD
 	public static bool IsHorizontal(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.horizontal2 || patternKind == PatternScript.Kind.horizontal3 || patternKind == PatternScript.Kind.horizontal4 || patternKind == PatternScript.Kind.horizontal5;
 	}
 
-	// Token: 0x0600046D RID: 1133 RVA: 0x0001E2DD File Offset: 0x0001C4DD
+	// Token: 0x0600046C RID: 1132 RVA: 0x0001E3C1 File Offset: 0x0001C5C1
 	public static bool IsVertical(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.vertical2 || patternKind == PatternScript.Kind.vertical3;
 	}
 
-	// Token: 0x0600046E RID: 1134 RVA: 0x0001E2E9 File Offset: 0x0001C4E9
+	// Token: 0x0600046D RID: 1133 RVA: 0x0001E3CD File Offset: 0x0001C5CD
 	public static bool IsDiagonal(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.diagonal2 || patternKind == PatternScript.Kind.diagonal3;
 	}
 
-	// Token: 0x0600046F RID: 1135 RVA: 0x0001E2F5 File Offset: 0x0001C4F5
+	// Token: 0x0600046E RID: 1134 RVA: 0x0001E3D9 File Offset: 0x0001C5D9
 	public static bool IsPyramid(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.pyramid || patternKind == PatternScript.Kind.pyramidInverted;
 	}
 
-	// Token: 0x06000470 RID: 1136 RVA: 0x0001E303 File Offset: 0x0001C503
+	// Token: 0x0600046F RID: 1135 RVA: 0x0001E3E7 File Offset: 0x0001C5E7
 	public static bool IsTriangle(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.triangle || patternKind == PatternScript.Kind.triangleInverted;
 	}
 
-	// Token: 0x06000471 RID: 1137 RVA: 0x0001E311 File Offset: 0x0001C511
+	// Token: 0x06000470 RID: 1136 RVA: 0x0001E3F5 File Offset: 0x0001C5F5
 	public static bool IsSnake(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.snakeUpDown || patternKind == PatternScript.Kind.snakeDownUp;
 	}
 
-	// Token: 0x06000472 RID: 1138 RVA: 0x0001E31F File Offset: 0x0001C51F
+	// Token: 0x06000471 RID: 1137 RVA: 0x0001E403 File Offset: 0x0001C603
 	public static bool IsEye(PatternScript.Kind patternKind)
 	{
 		return patternKind == PatternScript.Kind.eye;
 	}
 
-	// Token: 0x06000473 RID: 1139 RVA: 0x0001E328 File Offset: 0x0001C528
+	// Token: 0x06000472 RID: 1138 RVA: 0x0001E40C File Offset: 0x0001C60C
 	public static int GetElementsCount(PatternScript.Kind patternKind)
 	{
 		switch (patternKind)

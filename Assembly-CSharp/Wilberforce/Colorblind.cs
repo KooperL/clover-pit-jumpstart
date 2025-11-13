@@ -9,7 +9,7 @@ namespace Wilberforce
 	[AddComponentMenu("Image Effects/Color Adjustments/Colorblind")]
 	public class Colorblind : MonoBehaviour
 	{
-		// Token: 0x060010B0 RID: 4272 RVA: 0x00066FA3 File Offset: 0x000651A3
+		// Token: 0x060010C7 RID: 4295 RVA: 0x0006777F File Offset: 0x0006597F
 		private void ReportError(string error)
 		{
 			if (Debug.isDebugBuild)
@@ -18,7 +18,7 @@ namespace Wilberforce
 			}
 		}
 
-		// Token: 0x060010B1 RID: 4273 RVA: 0x00066FBC File Offset: 0x000651BC
+		// Token: 0x060010C8 RID: 4296 RVA: 0x00067798 File Offset: 0x00065998
 		private void Start()
 		{
 			if (this.colorblindShader == null)
@@ -57,7 +57,7 @@ namespace Wilberforce
 			this.isSupported = true;
 		}
 
-		// Token: 0x060010B2 RID: 4274 RVA: 0x00067096 File Offset: 0x00065296
+		// Token: 0x060010C9 RID: 4297 RVA: 0x00067872 File Offset: 0x00065A72
 		private static Material CreateMaterial(Shader shader)
 		{
 			if (!shader)
@@ -70,7 +70,7 @@ namespace Wilberforce
 			};
 		}
 
-		// Token: 0x060010B3 RID: 4275 RVA: 0x000670B0 File Offset: 0x000652B0
+		// Token: 0x060010CA RID: 4298 RVA: 0x0006788C File Offset: 0x00065A8C
 		private static void DestroyMaterial(Material mat)
 		{
 			if (mat)
@@ -80,7 +80,7 @@ namespace Wilberforce
 			}
 		}
 
-		// Token: 0x060010B4 RID: 4276 RVA: 0x000670C4 File Offset: 0x000652C4
+		// Token: 0x060010CB RID: 4299 RVA: 0x000678A0 File Offset: 0x00065AA0
 		private void EnsureMaterials()
 		{
 			if (!this.ColorblindMaterial && this.colorblindShader.isSupported)
@@ -93,7 +93,7 @@ namespace Wilberforce
 			}
 		}
 
-		// Token: 0x060010B5 RID: 4277 RVA: 0x00067114 File Offset: 0x00065314
+		// Token: 0x060010CC RID: 4300 RVA: 0x000678F0 File Offset: 0x00065AF0
 		private void OnRenderImage(RenderTexture source, RenderTexture destination)
 		{
 			if (!this.isSupported || !this.colorblindShader.isSupported)

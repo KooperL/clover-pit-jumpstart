@@ -6,25 +6,25 @@ namespace Panik
 {
 	public class Colors : MonoBehaviour
 	{
-		// Token: 0x06000A9A RID: 2714 RVA: 0x00048500 File Offset: 0x00046700
+		// Token: 0x06000AAF RID: 2735 RVA: 0x00048C60 File Offset: 0x00046E60
 		public static Material GetMaterial_RainbowPausable()
 		{
 			return Colors.instance.rainbowMaterial_Pausable;
 		}
 
-		// Token: 0x06000A9B RID: 2715 RVA: 0x0004850C File Offset: 0x0004670C
+		// Token: 0x06000AB0 RID: 2736 RVA: 0x00048C6C File Offset: 0x00046E6C
 		public static Material GetMaterial_RainbowUnpausable()
 		{
 			return Colors.instance.rainbowMaterial_Unpausable;
 		}
 
-		// Token: 0x06000A9C RID: 2716 RVA: 0x00048518 File Offset: 0x00046718
+		// Token: 0x06000AB1 RID: 2737 RVA: 0x00048C78 File Offset: 0x00046E78
 		public static Material GetMaterial_GoldenSymbolUnpausable()
 		{
 			return Colors.instance.goldenSymbolMaterial_Unpausable;
 		}
 
-		// Token: 0x06000A9D RID: 2717 RVA: 0x00048524 File Offset: 0x00046724
+		// Token: 0x06000AB2 RID: 2738 RVA: 0x00048C84 File Offset: 0x00046E84
 		public static Color GetColor(string colorName)
 		{
 			if (Colors.instance.colorDictionary.ContainsKey(colorName.ToLower()))
@@ -34,7 +34,7 @@ namespace Panik
 			return Color.white;
 		}
 
-		// Token: 0x06000A9E RID: 2718 RVA: 0x00048558 File Offset: 0x00046758
+		// Token: 0x06000AB3 RID: 2739 RVA: 0x00048CB8 File Offset: 0x00046EB8
 		public static string GetColorHTML(string colorName)
 		{
 			if (Colors.instance.colorDictionary.ContainsKey(colorName.ToLower()))
@@ -44,7 +44,7 @@ namespace Panik
 			return "#ffffffff";
 		}
 
-		// Token: 0x06000A9F RID: 2719 RVA: 0x0004858C File Offset: 0x0004678C
+		// Token: 0x06000AB4 RID: 2740 RVA: 0x00048CEC File Offset: 0x00046EEC
 		public static string GetColorRichTextString(string colorName)
 		{
 			if (Colors.instance.colorDictionary.ContainsKey(colorName.ToLower()))
@@ -54,25 +54,25 @@ namespace Panik
 			return "<color=#ffffffff>";
 		}
 
-		// Token: 0x06000AA0 RID: 2720 RVA: 0x000485C0 File Offset: 0x000467C0
+		// Token: 0x06000AB5 RID: 2741 RVA: 0x00048D20 File Offset: 0x00046F20
 		public static Color GetRainbowColor_Pausable()
 		{
 			return Colors.instance.rainbowColor_Pausable;
 		}
 
-		// Token: 0x06000AA1 RID: 2721 RVA: 0x000485CC File Offset: 0x000467CC
+		// Token: 0x06000AB6 RID: 2742 RVA: 0x00048D2C File Offset: 0x00046F2C
 		public static Color GetRainbowColor_Unpausable()
 		{
 			return Colors.instance.rainbowColor_Unpausable;
 		}
 
-		// Token: 0x06000AA2 RID: 2722 RVA: 0x000485D8 File Offset: 0x000467D8
+		// Token: 0x06000AB7 RID: 2743 RVA: 0x00048D38 File Offset: 0x00046F38
 		public static Color GetGoldenSymbolColor_Unpausable()
 		{
 			return Colors.instance.goldenSymbolColor_Unpausable;
 		}
 
-		// Token: 0x06000AA3 RID: 2723 RVA: 0x000485E4 File Offset: 0x000467E4
+		// Token: 0x06000AB8 RID: 2744 RVA: 0x00048D44 File Offset: 0x00046F44
 		private void Awake()
 		{
 			if (Colors.instance != null)
@@ -93,12 +93,12 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AA4 RID: 2724 RVA: 0x00048697 File Offset: 0x00046897
+		// Token: 0x06000AB9 RID: 2745 RVA: 0x00048DF7 File Offset: 0x00046FF7
 		private void Start()
 		{
 		}
 
-		// Token: 0x06000AA5 RID: 2725 RVA: 0x0004869C File Offset: 0x0004689C
+		// Token: 0x06000ABA RID: 2746 RVA: 0x00048DFC File Offset: 0x00046FFC
 		private void Update()
 		{
 			this.rainbowTimerUnpausable += Tick.Time;

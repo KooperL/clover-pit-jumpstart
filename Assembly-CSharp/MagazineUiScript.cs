@@ -9,13 +9,13 @@ using UnityEngine.UI;
 
 public class MagazineUiScript : MonoBehaviour
 {
-	// Token: 0x060008DF RID: 2271 RVA: 0x0003A8DD File Offset: 0x00038ADD
+	// Token: 0x060008EE RID: 2286 RVA: 0x0003ABF9 File Offset: 0x00038DF9
 	public static bool IsEnabled()
 	{
 		return !(MagazineUiScript.instance == null) && MagazineUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008E0 RID: 2272 RVA: 0x0003A900 File Offset: 0x00038B00
+	// Token: 0x060008EF RID: 2287 RVA: 0x0003AC1C File Offset: 0x00038E1C
 	public static void Open()
 	{
 		if (MagazineUiScript.instance == null)
@@ -23,7 +23,7 @@ public class MagazineUiScript : MonoBehaviour
 			return;
 		}
 		MagazineUiScript.instance.holder.SetActive(true);
-		Sound.Play3D("SoundMagazineOpen", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundMagazineOpen", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, 1);
 		CameraController.DisableReason_Add("mgzn");
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 		VirtualCursors.CursorPositionNormalizedSet(0, Vector2.zero, true);
@@ -31,7 +31,7 @@ public class MagazineUiScript : MonoBehaviour
 		MagazineUiScript.instance.StartCoroutine(MagazineUiScript.instance.MainCoroutine());
 	}
 
-	// Token: 0x060008E1 RID: 2273 RVA: 0x0003A990 File Offset: 0x00038B90
+	// Token: 0x060008F0 RID: 2288 RVA: 0x0003ACAC File Offset: 0x00038EAC
 	public static void Close(bool initialSetup)
 	{
 		if (MagazineUiScript.instance == null)
@@ -48,7 +48,7 @@ public class MagazineUiScript : MonoBehaviour
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
 	}
 
-	// Token: 0x060008E2 RID: 2274 RVA: 0x0003A9EE File Offset: 0x00038BEE
+	// Token: 0x060008F1 RID: 2289 RVA: 0x0003AD0A File Offset: 0x00038F0A
 	private IEnumerator MainCoroutine()
 	{
 		float creditsMovementDelayTimer = 3f;
@@ -110,7 +110,7 @@ public class MagazineUiScript : MonoBehaviour
 			}
 			yield return null;
 		}
-		Sound.Play3D("SoundMagazineClose", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundMagazineClose", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, 1);
 		while (MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition.y > -539f && !MagazineUiScript.IsForceClosing())
 		{
 			MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition += (new Vector2(0f, -540f) - MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition) * Tick.Time * 20f;
@@ -122,7 +122,7 @@ public class MagazineUiScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060008E3 RID: 2275 RVA: 0x0003A9FD File Offset: 0x00038BFD
+	// Token: 0x060008F2 RID: 2290 RVA: 0x0003AD19 File Offset: 0x00038F19
 	public static void ForceClose_Death()
 	{
 		if (MagazineUiScript.instance == null)
@@ -132,13 +132,13 @@ public class MagazineUiScript : MonoBehaviour
 		MagazineUiScript.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x060008E4 RID: 2276 RVA: 0x0003AA18 File Offset: 0x00038C18
+	// Token: 0x060008F3 RID: 2291 RVA: 0x0003AD34 File Offset: 0x00038F34
 	public static bool IsForceClosing()
 	{
 		return !(MagazineUiScript.instance == null) && MagazineUiScript.instance.forceClose_Death;
 	}
 
-	// Token: 0x060008E5 RID: 2277 RVA: 0x0003AA34 File Offset: 0x00038C34
+	// Token: 0x060008F4 RID: 2292 RVA: 0x0003AD50 File Offset: 0x00038F50
 	private void TranslationUpdate()
 	{
 		if (!PlatformMaster.PlatformIsComputer())
@@ -179,7 +179,7 @@ public class MagazineUiScript : MonoBehaviour
 		this.creditsBodyText.text = MagazineUiScript.GetCreditsString();
 	}
 
-	// Token: 0x060008E6 RID: 2278 RVA: 0x0003AB5C File Offset: 0x00038D5C
+	// Token: 0x060008F5 RID: 2293 RVA: 0x0003AE78 File Offset: 0x00039078
 	public static string GetCreditsString()
 	{
 		MagazineUiScript._sb.Clear();
@@ -210,7 +210,7 @@ public class MagazineUiScript : MonoBehaviour
 		return MagazineUiScript._sb.ToString();
 	}
 
-	// Token: 0x060008E7 RID: 2279 RVA: 0x0003AD3C File Offset: 0x00038F3C
+	// Token: 0x060008F6 RID: 2294 RVA: 0x0003B058 File Offset: 0x00039258
 	public static void AdLinkOpen()
 	{
 		if (PlatformMaster.PlatformIsComputer())
@@ -246,7 +246,7 @@ public class MagazineUiScript : MonoBehaviour
 		Debug.Log("Link for platform: " + PlatformMaster.PlatformKindGet().ToString() + "is not implemented!");
 	}
 
-	// Token: 0x060008E8 RID: 2280 RVA: 0x0003AE04 File Offset: 0x00039004
+	// Token: 0x060008F7 RID: 2295 RVA: 0x0003B120 File Offset: 0x00039320
 	public static void SurveyLinkOpen()
 	{
 		if (PlatformMaster.PlatformIsComputer())
@@ -257,13 +257,13 @@ public class MagazineUiScript : MonoBehaviour
 		Debug.Log("Link for platform: " + PlatformMaster.PlatformKindGet().ToString() + "is not implemented!");
 	}
 
-	// Token: 0x060008E9 RID: 2281 RVA: 0x0003AE4A File Offset: 0x0003904A
+	// Token: 0x060008F8 RID: 2296 RVA: 0x0003B166 File Offset: 0x00039366
 	private void Awake()
 	{
 		MagazineUiScript.instance = this;
 	}
 
-	// Token: 0x060008EA RID: 2282 RVA: 0x0003AE52 File Offset: 0x00039052
+	// Token: 0x060008F9 RID: 2297 RVA: 0x0003B16E File Offset: 0x0003936E
 	private void Start()
 	{
 		MagazineUiScript.Close(true);
@@ -271,7 +271,7 @@ public class MagazineUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TranslationUpdate));
 	}
 
-	// Token: 0x060008EB RID: 2283 RVA: 0x0003AE80 File Offset: 0x00039080
+	// Token: 0x060008FA RID: 2298 RVA: 0x0003B19C File Offset: 0x0003939C
 	private void OnDestroy()
 	{
 		if (MagazineUiScript.instance == this)
@@ -281,7 +281,7 @@ public class MagazineUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslationUpdate));
 	}
 
-	// Token: 0x060008EC RID: 2284 RVA: 0x0003AEB8 File Offset: 0x000390B8
+	// Token: 0x060008FB RID: 2299 RVA: 0x0003B1D4 File Offset: 0x000393D4
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

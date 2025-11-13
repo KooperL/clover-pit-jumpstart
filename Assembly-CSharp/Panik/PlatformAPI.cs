@@ -10,13 +10,13 @@ namespace Panik
 {
 	public abstract class PlatformAPI
 	{
-		// Token: 0x06000CCD RID: 3277 RVA: 0x0005310A File Offset: 0x0005130A
+		// Token: 0x06000CE3 RID: 3299 RVA: 0x000538DE File Offset: 0x00051ADE
 		public static PlatformAPI.ApiKind ApiKindGet()
 		{
 			return Master._ApiKind;
 		}
 
-		// Token: 0x06000CCE RID: 3278 RVA: 0x00053114 File Offset: 0x00051314
+		// Token: 0x06000CE4 RID: 3300 RVA: 0x000538E8 File Offset: 0x00051AE8
 		public static async void Initialize()
 		{
 			if (PlatformAPI._initialized)
@@ -67,13 +67,13 @@ namespace Panik
 
 		protected abstract UniTask<bool> _InitializationFinalize();
 
-		// Token: 0x06000CD1 RID: 3281 RVA: 0x00053143 File Offset: 0x00051343
+		// Token: 0x06000CE7 RID: 3303 RVA: 0x00053917 File Offset: 0x00051B17
 		public static bool InitializationFailed()
 		{
 			return PlatformAPI.failedInitialization;
 		}
 
-		// Token: 0x06000CD2 RID: 3282 RVA: 0x0005314A File Offset: 0x0005134A
+		// Token: 0x06000CE8 RID: 3304 RVA: 0x0005391E File Offset: 0x00051B1E
 		public static bool IsInitialized()
 		{
 			return !PlatformAPI.failedInitialization && PlatformAPI._initialized;
@@ -85,19 +85,19 @@ namespace Panik
 
 		public abstract bool IsOnline();
 
-		// Token: 0x06000CD6 RID: 3286 RVA: 0x0005315A File Offset: 0x0005135A
+		// Token: 0x06000CEC RID: 3308 RVA: 0x0005392E File Offset: 0x00051B2E
 		public static bool AchievementIsUnlocked_Demo(PlatformAPI.AchievementDemo achievement)
 		{
 			return Master.IsDemo && PlatformAPI.achievementsData.AchievementUnlockState_Local_DemoGet(achievement);
 		}
 
-		// Token: 0x06000CD7 RID: 3287 RVA: 0x00053170 File Offset: 0x00051370
+		// Token: 0x06000CED RID: 3309 RVA: 0x00053944 File Offset: 0x00051B44
 		public static bool AchievementIsUnlocked_FullGame(PlatformAPI.AchievementFullGame achievement)
 		{
 			return !Master.IsDemo && PlatformAPI.achievementsData.AchievementUnlockState_Local_FullGameGet(achievement);
 		}
 
-		// Token: 0x06000CD8 RID: 3288 RVA: 0x00053186 File Offset: 0x00051386
+		// Token: 0x06000CEE RID: 3310 RVA: 0x0005395A File Offset: 0x00051B5A
 		public static bool AchievementUnlock_Demo(PlatformAPI.AchievementDemo achievement)
 		{
 			if (!Master.IsDemo)
@@ -116,7 +116,7 @@ namespace Panik
 			return flag;
 		}
 
-		// Token: 0x06000CD9 RID: 3289 RVA: 0x000531AF File Offset: 0x000513AF
+		// Token: 0x06000CEF RID: 3311 RVA: 0x00053983 File Offset: 0x00051B83
 		public static bool AchievementUnlock_FullGame(PlatformAPI.AchievementFullGame achievement)
 		{
 			if (Master.IsDemo)
@@ -139,7 +139,7 @@ namespace Panik
 			return flag;
 		}
 
-		// Token: 0x06000CDA RID: 3290 RVA: 0x000531E4 File Offset: 0x000513E4
+		// Token: 0x06000CF0 RID: 3312 RVA: 0x000539B8 File Offset: 0x00051BB8
 		public static UniTask<ValueTuple<bool, bool>> AchievementsReset(string debugReason, bool forceInRelease = false)
 		{
 			PlatformAPI.<AchievementsReset>d__25 <AchievementsReset>d__;
@@ -151,7 +151,7 @@ namespace Panik
 			return <AchievementsReset>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CDB RID: 3291 RVA: 0x0005322F File Offset: 0x0005142F
+		// Token: 0x06000CF1 RID: 3313 RVA: 0x00053A03 File Offset: 0x00051C03
 		protected static string AchievemntGetEnumString_Demo(PlatformAPI.AchievementDemo achievement)
 		{
 			if (!PlatformAPI._demoAchEnumNames.ContainsKey(achievement))
@@ -161,7 +161,7 @@ namespace Panik
 			return PlatformAPI._demoAchEnumNames[achievement];
 		}
 
-		// Token: 0x06000CDC RID: 3292 RVA: 0x00053261 File Offset: 0x00051461
+		// Token: 0x06000CF2 RID: 3314 RVA: 0x00053A35 File Offset: 0x00051C35
 		protected static string AchievemntGetEnumString_FullGame(PlatformAPI.AchievementFullGame achievement)
 		{
 			if (!PlatformAPI._fullGameAchEnumNames.ContainsKey(achievement))
@@ -183,17 +183,17 @@ namespace Panik
 
 		protected abstract UniTask<bool> AchievementsClearAll_Online(float maxTimeout);
 
-		// Token: 0x06000CE3 RID: 3299 RVA: 0x00053293 File Offset: 0x00051493
+		// Token: 0x06000CF9 RID: 3321 RVA: 0x00053A67 File Offset: 0x00051C67
 		protected virtual void Achievements_Prewarm_Demo()
 		{
 		}
 
-		// Token: 0x06000CE4 RID: 3300 RVA: 0x00053295 File Offset: 0x00051495
+		// Token: 0x06000CFA RID: 3322 RVA: 0x00053A69 File Offset: 0x00051C69
 		protected virtual void Achievements_Prewarm_FullGame()
 		{
 		}
 
-		// Token: 0x06000CE5 RID: 3301 RVA: 0x00053298 File Offset: 0x00051498
+		// Token: 0x06000CFB RID: 3323 RVA: 0x00053A6C File Offset: 0x00051C6C
 		private async void _AchievementsUpdate()
 		{
 			Debug.Log("Achievements update: waiting for game initialization");
@@ -276,6 +276,12 @@ namespace Panik
 		}
 
 		public abstract string GetUserID_String();
+
+		// Token: 0x06000CFD RID: 3325 RVA: 0x00053AA3 File Offset: 0x00051CA3
+		public static string GetOsString()
+		{
+			return SystemInfo.operatingSystem;
+		}
 
 		public abstract void _Update();
 
@@ -365,33 +371,33 @@ namespace Panik
 		[SerializeField]
 		public class AchievementsData
 		{
-			// Token: 0x060013EA RID: 5098 RVA: 0x0007B681 File Offset: 0x00079881
+			// Token: 0x06001409 RID: 5129 RVA: 0x0007C225 File Offset: 0x0007A425
 			public void Saving_Prepare()
 			{
 				this.unlockedAchievements_String_Demo = PlatformDataMaster.EnumListToString<PlatformAPI.AchievementDemo>(this.unlockedAchievements_Demo, ',');
 				this.unlockedAchievements_String_FullGame = PlatformDataMaster.EnumListToString<PlatformAPI.AchievementFullGame>(this.unlockedAchievements_FullGame, ',');
 			}
 
-			// Token: 0x060013EB RID: 5099 RVA: 0x0007B6A9 File Offset: 0x000798A9
+			// Token: 0x0600140A RID: 5130 RVA: 0x0007C24D File Offset: 0x0007A44D
 			public void Load_Restore()
 			{
 				this.unlockedAchievements_Demo = PlatformDataMaster.EnumListFromString<PlatformAPI.AchievementDemo>(this.unlockedAchievements_String_Demo, ',');
 				this.unlockedAchievements_FullGame = PlatformDataMaster.EnumListFromString<PlatformAPI.AchievementFullGame>(this.unlockedAchievements_String_FullGame, ',');
 			}
 
-			// Token: 0x060013EC RID: 5100 RVA: 0x0007B6D1 File Offset: 0x000798D1
+			// Token: 0x0600140B RID: 5131 RVA: 0x0007C275 File Offset: 0x0007A475
 			public bool AchievementUnlockState_Local_DemoGet(PlatformAPI.AchievementDemo achievement)
 			{
 				return this.unlockedAchievements_Demo.Contains(achievement);
 			}
 
-			// Token: 0x060013ED RID: 5101 RVA: 0x0007B6DF File Offset: 0x000798DF
+			// Token: 0x0600140C RID: 5132 RVA: 0x0007C283 File Offset: 0x0007A483
 			public bool AchievementUnlockState_Local_FullGameGet(PlatformAPI.AchievementFullGame achievement)
 			{
 				return this.unlockedAchievements_FullGame.Contains(achievement);
 			}
 
-			// Token: 0x060013EE RID: 5102 RVA: 0x0007B6ED File Offset: 0x000798ED
+			// Token: 0x0600140D RID: 5133 RVA: 0x0007C291 File Offset: 0x0007A491
 			public bool AchievementUnlockState_Local_DemoSet(PlatformAPI.AchievementDemo achievement, bool state)
 			{
 				if (state)
@@ -409,7 +415,7 @@ namespace Panik
 				return true;
 			}
 
-			// Token: 0x060013EF RID: 5103 RVA: 0x0007B71E File Offset: 0x0007991E
+			// Token: 0x0600140E RID: 5134 RVA: 0x0007C2C2 File Offset: 0x0007A4C2
 			public bool AchievementUnlockState_Local_FullGameSet(PlatformAPI.AchievementFullGame achievement, bool state)
 			{
 				if (state)

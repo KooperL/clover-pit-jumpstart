@@ -9,19 +9,19 @@ using UnityEngine.UI;
 
 public class GeneralUiScript : MonoBehaviour
 {
-	// Token: 0x060008A3 RID: 2211 RVA: 0x00038C62 File Offset: 0x00036E62
+	// Token: 0x060008AA RID: 2218 RVA: 0x00038EE2 File Offset: 0x000370E2
 	public static bool IsEnabled()
 	{
 		return GeneralUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008A4 RID: 2212 RVA: 0x00038C73 File Offset: 0x00036E73
+	// Token: 0x060008AB RID: 2219 RVA: 0x00038EF3 File Offset: 0x000370F3
 	public static void ForceEnabled()
 	{
 		GeneralUiScript.instance.holder.SetActive(true);
 	}
 
-	// Token: 0x060008A5 RID: 2213 RVA: 0x00038C85 File Offset: 0x00036E85
+	// Token: 0x060008AC RID: 2220 RVA: 0x00038F05 File Offset: 0x00037105
 	private void Initialize()
 	{
 		this.titleScreenRectTransform = this.titleScreenHolder.GetComponent<RectTransform>();
@@ -29,25 +29,25 @@ public class GeneralUiScript : MonoBehaviour
 		this.fadeImage.color = this.fadeImageColor;
 	}
 
-	// Token: 0x060008A6 RID: 2214 RVA: 0x00038CB0 File Offset: 0x00036EB0
+	// Token: 0x060008AD RID: 2221 RVA: 0x00038F30 File Offset: 0x00037130
 	public bool HasFadedIn()
 	{
 		return this.fadedIn;
 	}
 
-	// Token: 0x060008A7 RID: 2215 RVA: 0x00038CB8 File Offset: 0x00036EB8
+	// Token: 0x060008AE RID: 2222 RVA: 0x00038F38 File Offset: 0x00037138
 	public bool IsShowingTitleScreen()
 	{
 		return this.titleScreenShowing;
 	}
 
-	// Token: 0x060008A8 RID: 2216 RVA: 0x00038CC0 File Offset: 0x00036EC0
+	// Token: 0x060008AF RID: 2223 RVA: 0x00038F40 File Offset: 0x00037140
 	public static void ComingFromVictoryFlag_Set(bool value)
 	{
 		GeneralUiScript.comingFromVictory = value;
 	}
 
-	// Token: 0x060008A9 RID: 2217 RVA: 0x00038CC8 File Offset: 0x00036EC8
+	// Token: 0x060008B0 RID: 2224 RVA: 0x00038F48 File Offset: 0x00037148
 	private IEnumerator IntroAndTitleScreen_Coroutine()
 	{
 		bool hasOldSession = GameplayData.NewGameIntroFinished_Get();
@@ -258,14 +258,14 @@ public class GeneralUiScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060008AA RID: 2218 RVA: 0x00038CD7 File Offset: 0x00036ED7
+	// Token: 0x060008B1 RID: 2225 RVA: 0x00038F57 File Offset: 0x00037157
 	private void _IntroMenuNewGame()
 	{
 		GeneralUiScript.requestedNewSessionReset = true;
 		ScreenMenuScript.Close(false);
 	}
 
-	// Token: 0x060008AB RID: 2219 RVA: 0x00038CE5 File Offset: 0x00036EE5
+	// Token: 0x060008B2 RID: 2226 RVA: 0x00038F65 File Offset: 0x00037165
 	private void _IntroMenuContinue()
 	{
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
@@ -280,7 +280,7 @@ public class GeneralUiScript : MonoBehaviour
 		ScreenMenuScript.Close(false);
 	}
 
-	// Token: 0x060008AC RID: 2220 RVA: 0x00038D12 File Offset: 0x00036F12
+	// Token: 0x060008B3 RID: 2227 RVA: 0x00038F92 File Offset: 0x00037192
 	private void _IntroMenuNewSeededGame()
 	{
 		if (!GameplayMaster.CanInputSeed())
@@ -292,7 +292,7 @@ public class GeneralUiScript : MonoBehaviour
 		ScreenMenuScript.Close(false);
 	}
 
-	// Token: 0x060008AD RID: 2221 RVA: 0x00038D3E File Offset: 0x00036F3E
+	// Token: 0x060008B4 RID: 2228 RVA: 0x00038FBE File Offset: 0x000371BE
 	public void FadeIntro()
 	{
 		this.titleScreenHolder.SetActive(false);
@@ -300,7 +300,7 @@ public class GeneralUiScript : MonoBehaviour
 		base.StartCoroutine(this.IntroAndTitleScreen_Coroutine());
 	}
 
-	// Token: 0x060008AE RID: 2222 RVA: 0x00038D60 File Offset: 0x00036F60
+	// Token: 0x060008B5 RID: 2229 RVA: 0x00038FE0 File Offset: 0x000371E0
 	private void TranslateText(Controls.InputActionMap map)
 	{
 		if (Master.IsDemo)
@@ -327,7 +327,7 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008AF RID: 2223 RVA: 0x00038E30 File Offset: 0x00037030
+	// Token: 0x060008B6 RID: 2230 RVA: 0x000390B0 File Offset: 0x000372B0
 	public static void CoinUiForceShow(float time = 3f)
 	{
 		if (GeneralUiScript.instance == null)
@@ -337,7 +337,7 @@ public class GeneralUiScript : MonoBehaviour
 		GeneralUiScript.instance.coinsScreenKeepTimer = time;
 	}
 
-	// Token: 0x060008B0 RID: 2224 RVA: 0x00038E4B File Offset: 0x0003704B
+	// Token: 0x060008B7 RID: 2231 RVA: 0x000390CB File Offset: 0x000372CB
 	public static void CoinsTextForceUpdate()
 	{
 		if (GeneralUiScript.instance == null)
@@ -351,7 +351,7 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008B1 RID: 2225 RVA: 0x00038E86 File Offset: 0x00037086
+	// Token: 0x060008B8 RID: 2232 RVA: 0x00039106 File Offset: 0x00037306
 	public static void CoinsTextInstantUpdate()
 	{
 		if (GeneralUiScript.instance == null)
@@ -362,7 +362,7 @@ public class GeneralUiScript : MonoBehaviour
 		GeneralUiScript.CoinsTextForceUpdate();
 	}
 
-	// Token: 0x060008B2 RID: 2226 RVA: 0x00038EA6 File Offset: 0x000370A6
+	// Token: 0x060008B9 RID: 2233 RVA: 0x00039126 File Offset: 0x00037326
 	public static void TicketsForceShow(float time = 3f)
 	{
 		if (GeneralUiScript.instance == null)
@@ -372,7 +372,7 @@ public class GeneralUiScript : MonoBehaviour
 		GeneralUiScript.instance.coinsScreenKeepTimer = time;
 	}
 
-	// Token: 0x060008B3 RID: 2227 RVA: 0x00038EC1 File Offset: 0x000370C1
+	// Token: 0x060008BA RID: 2234 RVA: 0x00039141 File Offset: 0x00037341
 	public static void TicketsTextForceUpdate()
 	{
 		if (GeneralUiScript.instance == null)
@@ -386,7 +386,7 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008B4 RID: 2228 RVA: 0x00038EFC File Offset: 0x000370FC
+	// Token: 0x060008BB RID: 2235 RVA: 0x0003917C File Offset: 0x0003737C
 	private void VersionTextRefresh()
 	{
 		this.textGameVersion.text = GeneralUiScript.GameVersionString_Get();
@@ -404,20 +404,20 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008B5 RID: 2229 RVA: 0x00038F66 File Offset: 0x00037166
+	// Token: 0x060008BC RID: 2236 RVA: 0x000391E6 File Offset: 0x000373E6
 	public static string GameVersionString_Get()
 	{
 		return (Master.IsDemo ? "Demo " : "") + "v" + Application.version;
 	}
 
-	// Token: 0x060008B6 RID: 2230 RVA: 0x00038F8A File Offset: 0x0003718A
+	// Token: 0x060008BD RID: 2237 RVA: 0x0003920A File Offset: 0x0003740A
 	private void Awake()
 	{
 		GeneralUiScript.instance = this;
 		this.Initialize();
 	}
 
-	// Token: 0x060008B7 RID: 2231 RVA: 0x00038F98 File Offset: 0x00037198
+	// Token: 0x060008BE RID: 2238 RVA: 0x00039218 File Offset: 0x00037418
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -428,7 +428,7 @@ public class GeneralUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.VersionTextRefresh));
 	}
 
-	// Token: 0x060008B8 RID: 2232 RVA: 0x00039010 File Offset: 0x00037210
+	// Token: 0x060008BF RID: 2239 RVA: 0x00039290 File Offset: 0x00037490
 	private void OnDestroy()
 	{
 		Controls.onPromptsUpdateRequest = (Controls.MapCallback)Delegate.Remove(Controls.onPromptsUpdateRequest, new Controls.MapCallback(this.TranslateText));
@@ -439,7 +439,7 @@ public class GeneralUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.VersionTextRefresh));
 	}
 
-	// Token: 0x060008B9 RID: 2233 RVA: 0x00039070 File Offset: 0x00037270
+	// Token: 0x060008C0 RID: 2240 RVA: 0x000392F0 File Offset: 0x000374F0
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)

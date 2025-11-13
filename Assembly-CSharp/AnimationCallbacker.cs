@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class AnimationCallbacker : MonoBehaviour
 {
-	// Token: 0x060003A7 RID: 935 RVA: 0x0001980D File Offset: 0x00017A0D
+	// Token: 0x060003A5 RID: 933 RVA: 0x000198CF File Offset: 0x00017ACF
 	public void CallbackNormal()
 	{
 		UnityEvent unityEvent = this.callbackNormal;
@@ -15,7 +15,7 @@ public class AnimationCallbacker : MonoBehaviour
 		unityEvent.Invoke();
 	}
 
-	// Token: 0x060003A8 RID: 936 RVA: 0x0001981F File Offset: 0x00017A1F
+	// Token: 0x060003A6 RID: 934 RVA: 0x000198E1 File Offset: 0x00017AE1
 	public void CallbackFloat(float value)
 	{
 		UnityEvent<float> unityEvent = this.callbackFloat;
@@ -26,7 +26,7 @@ public class AnimationCallbacker : MonoBehaviour
 		unityEvent.Invoke(value);
 	}
 
-	// Token: 0x060003A9 RID: 937 RVA: 0x00019832 File Offset: 0x00017A32
+	// Token: 0x060003A7 RID: 935 RVA: 0x000198F4 File Offset: 0x00017AF4
 	public void CallbackBool(bool value)
 	{
 		UnityEvent<bool> unityEvent = this.callbackBool;
@@ -37,7 +37,7 @@ public class AnimationCallbacker : MonoBehaviour
 		unityEvent.Invoke(value);
 	}
 
-	// Token: 0x060003AA RID: 938 RVA: 0x00019845 File Offset: 0x00017A45
+	// Token: 0x060003A8 RID: 936 RVA: 0x00019907 File Offset: 0x00017B07
 	public void CallbackInt(int value)
 	{
 		UnityEvent<int> unityEvent = this.callbackInt;
@@ -48,7 +48,7 @@ public class AnimationCallbacker : MonoBehaviour
 		unityEvent.Invoke(value);
 	}
 
-	// Token: 0x060003AB RID: 939 RVA: 0x00019858 File Offset: 0x00017A58
+	// Token: 0x060003A9 RID: 937 RVA: 0x0001991A File Offset: 0x00017B1A
 	public void CallbackString(string value)
 	{
 		UnityEvent<string> unityEvent = this.callbackString;

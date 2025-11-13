@@ -9,13 +9,13 @@ namespace Panik
 {
 	public static class Data
 	{
-		// Token: 0x06000C9C RID: 3228 RVA: 0x000528DD File Offset: 0x00050ADD
+		// Token: 0x06000CB1 RID: 3249 RVA: 0x0005303D File Offset: 0x0005123D
 		public static string PAchievementsDataGet()
 		{
 			return "afhjttiojd?s0989sdfl12";
 		}
 
-		// Token: 0x06000C9D RID: 3229 RVA: 0x000528E4 File Offset: 0x00050AE4
+		// Token: 0x06000CB2 RID: 3250 RVA: 0x00053044 File Offset: 0x00051244
 		public static string PGameDataGet(int oldVersionNumber, int gameDataVersion)
 		{
 			if (gameDataVersion < 2)
@@ -25,25 +25,25 @@ namespace Panik
 			return "uoiyiuh_+=-5216gh;lj??!/345";
 		}
 
-		// Token: 0x06000C9E RID: 3230 RVA: 0x000528F1 File Offset: 0x00050AF1
+		// Token: 0x06000CB3 RID: 3251 RVA: 0x00053051 File Offset: 0x00051251
 		public static string PGameDataGet_LastOne(int oldVersionNumber)
 		{
 			return Data.PGameDataGet(oldVersionNumber, 3);
 		}
 
-		// Token: 0x06000C9F RID: 3231 RVA: 0x000528FA File Offset: 0x00050AFA
+		// Token: 0x06000CB4 RID: 3252 RVA: 0x0005305A File Offset: 0x0005125A
 		public static string Encrypt_Wrapped(string input, string password)
 		{
 			return PlatformDataMaster.EncryptCustom(input, password);
 		}
 
-		// Token: 0x06000CA0 RID: 3232 RVA: 0x00052903 File Offset: 0x00050B03
+		// Token: 0x06000CB5 RID: 3253 RVA: 0x00053063 File Offset: 0x00051263
 		public static string Decrypt_Wrapped(string input, string password)
 		{
 			return PlatformDataMaster.DecryptCustom(input, password);
 		}
 
-		// (get) Token: 0x06000CA1 RID: 3233 RVA: 0x0005290C File Offset: 0x00050B0C
+		// (get) Token: 0x06000CB6 RID: 3254 RVA: 0x0005306C File Offset: 0x0005126C
 		public static Data.VersionData versionData
 		{
 			get
@@ -52,7 +52,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CA2 RID: 3234 RVA: 0x00052914 File Offset: 0x00050B14
+		// Token: 0x06000CB7 RID: 3255 RVA: 0x00053074 File Offset: 0x00051274
 		public static UniTask<bool> _VersionsLoadAndSave()
 		{
 			Data.<_VersionsLoadAndSave>d__9 <_VersionsLoadAndSave>d__;
@@ -62,7 +62,7 @@ namespace Panik
 			return <_VersionsLoadAndSave>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CA3 RID: 3235 RVA: 0x0005294F File Offset: 0x00050B4F
+		// Token: 0x06000CB8 RID: 3256 RVA: 0x000530AF File Offset: 0x000512AF
 		private static void OnSettingsVersionChange(int oldVersionNumber, int newVersionNumber)
 		{
 			if (oldVersionNumber != newVersionNumber)
@@ -71,7 +71,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CA4 RID: 3236 RVA: 0x0005295C File Offset: 0x00050B5C
+		// Token: 0x06000CB9 RID: 3257 RVA: 0x000530BC File Offset: 0x000512BC
 		private static void OnGameVersionChange(int oldVersionNumber, int newVersionNumber)
 		{
 			Debug.Log("<color=orange>Game Data version differs!!! On disk: " + oldVersionNumber.ToString() + ", while game is: " + newVersionNumber.ToString());
@@ -134,7 +134,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CA5 RID: 3237 RVA: 0x00052A9C File Offset: 0x00050C9C
+		// Token: 0x06000CBA RID: 3258 RVA: 0x000531FC File Offset: 0x000513FC
 		private static void OnGameVersionChange_FirstPublisherBuildToSecond()
 		{
 			if (!PlatformMaster.PlatformIsComputer())
@@ -158,7 +158,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CA6 RID: 3238 RVA: 0x00052B05 File Offset: 0x00050D05
+		// (get) Token: 0x06000CBB RID: 3259 RVA: 0x00053265 File Offset: 0x00051465
 		public static Data.SettingsData settings
 		{
 			get
@@ -167,13 +167,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CA7 RID: 3239 RVA: 0x00052B0C File Offset: 0x00050D0C
+		// Token: 0x06000CBC RID: 3260 RVA: 0x0005326C File Offset: 0x0005146C
 		public static void ApplySettings(bool applyResolution, bool pushControlsJsonToMap)
 		{
 			Data.settings.Apply(applyResolution, pushControlsJsonToMap);
 		}
 
-		// (get) Token: 0x06000CA8 RID: 3240 RVA: 0x00052B1A File Offset: 0x00050D1A
+		// (get) Token: 0x06000CBD RID: 3261 RVA: 0x0005327A File Offset: 0x0005147A
 		public static Data.GameData game
 		{
 			get
@@ -182,7 +182,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CA9 RID: 3241 RVA: 0x00052B21 File Offset: 0x00050D21
+		// (get) Token: 0x06000CBE RID: 3262 RVA: 0x00053281 File Offset: 0x00051481
 		public static int GameDataIndex
 		{
 			get
@@ -195,13 +195,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CAA RID: 3242 RVA: 0x00052B36 File Offset: 0x00050D36
+		// Token: 0x06000CBF RID: 3263 RVA: 0x00053296 File Offset: 0x00051496
 		public static bool JsonErrorWhileLoadingGame_Get()
 		{
 			return Data.errorFlag_JsonGameDataError;
 		}
 
-		// Token: 0x06000CAB RID: 3243 RVA: 0x00052B40 File Offset: 0x00050D40
+		// Token: 0x06000CC0 RID: 3264 RVA: 0x000532A0 File Offset: 0x000514A0
 		public static UniTask<bool> SaveSettings()
 		{
 			Data.<SaveSettings>d__32 <SaveSettings>d__;
@@ -211,7 +211,7 @@ namespace Panik
 			return <SaveSettings>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CAC RID: 3244 RVA: 0x00052B7C File Offset: 0x00050D7C
+		// Token: 0x06000CC1 RID: 3265 RVA: 0x000532DC File Offset: 0x000514DC
 		public static UniTask<bool> SaveSettingsAndApply(bool applyResolution)
 		{
 			Data.<SaveSettingsAndApply>d__33 <SaveSettingsAndApply>d__;
@@ -222,7 +222,7 @@ namespace Panik
 			return <SaveSettingsAndApply>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CAD RID: 3245 RVA: 0x00052BC0 File Offset: 0x00050DC0
+		// Token: 0x06000CC2 RID: 3266 RVA: 0x00053320 File Offset: 0x00051520
 		public static UniTask<bool> LoadSettingsAndApply()
 		{
 			Data.<LoadSettingsAndApply>d__34 <LoadSettingsAndApply>d__;
@@ -232,7 +232,7 @@ namespace Panik
 			return <LoadSettingsAndApply>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CAE RID: 3246 RVA: 0x00052BFC File Offset: 0x00050DFC
+		// Token: 0x06000CC3 RID: 3267 RVA: 0x0005335C File Offset: 0x0005155C
 		public static UniTask<bool> DeleteSettingsAndReset()
 		{
 			Data.<DeleteSettingsAndReset>d__35 <DeleteSettingsAndReset>d__;
@@ -242,7 +242,7 @@ namespace Panik
 			return <DeleteSettingsAndReset>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CAF RID: 3247 RVA: 0x00052C38 File Offset: 0x00050E38
+		// Token: 0x06000CC4 RID: 3268 RVA: 0x00053398 File Offset: 0x00051598
 		public static UniTask<bool> SaveAchievements()
 		{
 			Data.<SaveAchievements>d__36 <SaveAchievements>d__;
@@ -252,7 +252,7 @@ namespace Panik
 			return <SaveAchievements>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CB0 RID: 3248 RVA: 0x00052C74 File Offset: 0x00050E74
+		// Token: 0x06000CC5 RID: 3269 RVA: 0x000533D4 File Offset: 0x000515D4
 		public static UniTask<bool> LoadAchievements()
 		{
 			Data.<LoadAchievements>d__37 <LoadAchievements>d__;
@@ -262,7 +262,7 @@ namespace Panik
 			return <LoadAchievements>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CB1 RID: 3249 RVA: 0x00052CB0 File Offset: 0x00050EB0
+		// Token: 0x06000CC6 RID: 3270 RVA: 0x00053410 File Offset: 0x00051610
 		public static UniTask<bool> DeleteAchievements(string debugReason, bool forceInRelease)
 		{
 			Data.<DeleteAchievements>d__38 <DeleteAchievements>d__;
@@ -274,7 +274,7 @@ namespace Panik
 			return <DeleteAchievements>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CB2 RID: 3250 RVA: 0x00052CFC File Offset: 0x00050EFC
+		// Token: 0x06000CC7 RID: 3271 RVA: 0x0005345C File Offset: 0x0005165C
 		public static UniTask<bool> SaveGame(Data.GameSavingReason reasonForSaving, int gameDataIndex = -1)
 		{
 			Data.<SaveGame>d__39 <SaveGame>d__;
@@ -286,7 +286,7 @@ namespace Panik
 			return <SaveGame>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CB3 RID: 3251 RVA: 0x00052D48 File Offset: 0x00050F48
+		// Token: 0x06000CC8 RID: 3272 RVA: 0x000534A8 File Offset: 0x000516A8
 		public static UniTask<bool> LoadGame(int gameDataIndex, bool forceLoadSameFile)
 		{
 			Data.<LoadGame>d__40 <LoadGame>d__;
@@ -298,7 +298,7 @@ namespace Panik
 			return <LoadGame>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x06000CB4 RID: 3252 RVA: 0x00052D94 File Offset: 0x00050F94
+		// Token: 0x06000CC9 RID: 3273 RVA: 0x000534F4 File Offset: 0x000516F4
 		public static UniTask<bool> DeleteGameData(int gameDataIndex)
 		{
 			Data.<DeleteGameData>d__41 <DeleteGameData>d__;
@@ -355,13 +355,13 @@ namespace Panik
 			public static bool gameVersionFixed = false;
 		}
 
-		// (Invoke) Token: 0x060012C1 RID: 4801
+		// (Invoke) Token: 0x060012D8 RID: 4824
 		public delegate void OnVersionChange(int oldVersionNumber, int newVersionNumber);
 
 		[Serializable]
 		public class SettingsData
 		{
-			// (get) Token: 0x060012C4 RID: 4804 RVA: 0x00077791 File Offset: 0x00075991
+			// (get) Token: 0x060012DB RID: 4827 RVA: 0x00078025 File Offset: 0x00076225
 			public static bool FullscreenDefault
 			{
 				get
@@ -370,7 +370,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012C5 RID: 4805 RVA: 0x00077798 File Offset: 0x00075998
+			// Token: 0x060012DC RID: 4828 RVA: 0x0007802C File Offset: 0x0007622C
 			private void VerticalResolutionEnsure()
 			{
 				if (Data.SettingsData.supportedVerticalResolutions == null)
@@ -379,7 +379,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012C6 RID: 4806 RVA: 0x000777AC File Offset: 0x000759AC
+			// Token: 0x060012DD RID: 4829 RVA: 0x00078040 File Offset: 0x00076240
 			public void VerticalResolutionSet(Data.SettingsData.VerticalResolution vRes)
 			{
 				this.VerticalResolutionEnsure();
@@ -400,7 +400,7 @@ namespace Panik
 				this.verticalResolution = vRes;
 			}
 
-			// Token: 0x060012C7 RID: 4807 RVA: 0x000777F4 File Offset: 0x000759F4
+			// Token: 0x060012DE RID: 4830 RVA: 0x00078088 File Offset: 0x00076288
 			public void VerticalResolutionSetNext()
 			{
 				this.VerticalResolutionEnsure();
@@ -423,7 +423,7 @@ namespace Panik
 				this.VerticalResolutionSet(Data.SettingsData.supportedVerticalResolutions[num]);
 			}
 
-			// Token: 0x060012C8 RID: 4808 RVA: 0x00077858 File Offset: 0x00075A58
+			// Token: 0x060012DF RID: 4831 RVA: 0x000780EC File Offset: 0x000762EC
 			public void VerticalResolutionSetPrevious()
 			{
 				this.VerticalResolutionEnsure();
@@ -446,13 +446,13 @@ namespace Panik
 				this.VerticalResolutionSet(Data.SettingsData.supportedVerticalResolutions[num]);
 			}
 
-			// Token: 0x060012C9 RID: 4809 RVA: 0x000778BC File Offset: 0x00075ABC
+			// Token: 0x060012E0 RID: 4832 RVA: 0x00078150 File Offset: 0x00076350
 			public Data.SettingsData.VerticalResolution VerticalResolutionGet()
 			{
 				return this.verticalResolution;
 			}
 
-			// Token: 0x060012CA RID: 4810 RVA: 0x000778C4 File Offset: 0x00075AC4
+			// Token: 0x060012E1 RID: 4833 RVA: 0x00078158 File Offset: 0x00076358
 			public string VerticalResolutionGetDebugName()
 			{
 				switch (this.verticalResolution)
@@ -476,7 +476,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012CB RID: 4811 RVA: 0x0007792C File Offset: 0x00075B2C
+			// Token: 0x060012E2 RID: 4834 RVA: 0x000781C0 File Offset: 0x000763C0
 			public int ResolutionDesiredHeightGet()
 			{
 				int num = Display.main.systemHeight;
@@ -510,7 +510,7 @@ namespace Panik
 				return num;
 			}
 
-			// Token: 0x060012CC RID: 4812 RVA: 0x000779B8 File Offset: 0x00075BB8
+			// Token: 0x060012E3 RID: 4835 RVA: 0x0007824C File Offset: 0x0007644C
 			public int ResolutionDesiredWidthGet()
 			{
 				int num = this.ResolutionDesiredHeightGet();
@@ -535,7 +535,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012CD RID: 4813 RVA: 0x00077A8E File Offset: 0x00075C8E
+			// Token: 0x060012E4 RID: 4836 RVA: 0x00078322 File Offset: 0x00076522
 			private void WidthAspectRatioEnsure()
 			{
 				if (Data.SettingsData.supportedWidthAspectRatios == null)
@@ -544,7 +544,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012CE RID: 4814 RVA: 0x00077AA4 File Offset: 0x00075CA4
+			// Token: 0x060012E5 RID: 4837 RVA: 0x00078338 File Offset: 0x00076538
 			public void WidthAspectRatioSet(Data.SettingsData.WidthAspectRatio aspectRatio)
 			{
 				this.WidthAspectRatioEnsure();
@@ -565,7 +565,7 @@ namespace Panik
 				this.widthAspectRatio = aspectRatio;
 			}
 
-			// Token: 0x060012CF RID: 4815 RVA: 0x00077AEC File Offset: 0x00075CEC
+			// Token: 0x060012E6 RID: 4838 RVA: 0x00078380 File Offset: 0x00076580
 			public void WidthAspectRatioSetNext()
 			{
 				this.WidthAspectRatioEnsure();
@@ -588,7 +588,7 @@ namespace Panik
 				this.WidthAspectRatioSet(Data.SettingsData.supportedWidthAspectRatios[num]);
 			}
 
-			// Token: 0x060012D0 RID: 4816 RVA: 0x00077B50 File Offset: 0x00075D50
+			// Token: 0x060012E7 RID: 4839 RVA: 0x000783E4 File Offset: 0x000765E4
 			public void WidthAspectRatioSetPrevious()
 			{
 				this.WidthAspectRatioEnsure();
@@ -611,13 +611,13 @@ namespace Panik
 				this.WidthAspectRatioSet(Data.SettingsData.supportedWidthAspectRatios[num]);
 			}
 
-			// Token: 0x060012D1 RID: 4817 RVA: 0x00077BB4 File Offset: 0x00075DB4
+			// Token: 0x060012E8 RID: 4840 RVA: 0x00078448 File Offset: 0x00076648
 			public Data.SettingsData.WidthAspectRatio WidthAspectRatioGet()
 			{
 				return this.widthAspectRatio;
 			}
 
-			// Token: 0x060012D2 RID: 4818 RVA: 0x00077BBC File Offset: 0x00075DBC
+			// Token: 0x060012E9 RID: 4841 RVA: 0x00078450 File Offset: 0x00076650
 			public string WidthAspectRatioGetDebugName()
 			{
 				switch (this.widthAspectRatio)
@@ -641,7 +641,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060012D3 RID: 4819 RVA: 0x00077C23 File Offset: 0x00075E23
+			// (get) Token: 0x060012EA RID: 4842 RVA: 0x000784B7 File Offset: 0x000766B7
 			public static int QUALITY_DEFAULT
 			{
 				get
@@ -650,7 +650,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012D4 RID: 4820 RVA: 0x00077C2C File Offset: 0x00075E2C
+			// Token: 0x060012EB RID: 4843 RVA: 0x000784C0 File Offset: 0x000766C0
 			private void FovEnsure()
 			{
 				if (this._fieldOfViews != null && this._fieldOfViews.Length == 1)
@@ -664,7 +664,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012D5 RID: 4821 RVA: 0x00077C72 File Offset: 0x00075E72
+			// Token: 0x060012EC RID: 4844 RVA: 0x00078506 File Offset: 0x00076706
 			public void FovSet(int playerIndex, float fov)
 			{
 				this.FovEnsure();
@@ -672,14 +672,14 @@ namespace Panik
 				this._fieldOfViews[playerIndex] = Mathf.Clamp(this._fieldOfViews[playerIndex], 30f, 180f);
 			}
 
-			// Token: 0x060012D6 RID: 4822 RVA: 0x00077CA2 File Offset: 0x00075EA2
+			// Token: 0x060012ED RID: 4845 RVA: 0x00078536 File Offset: 0x00076736
 			public float FovGet(int playerIndex)
 			{
 				this.FovEnsure();
 				return this._fieldOfViews[playerIndex];
 			}
 
-			// Token: 0x060012D7 RID: 4823 RVA: 0x00077CB2 File Offset: 0x00075EB2
+			// Token: 0x060012EE RID: 4846 RVA: 0x00078546 File Offset: 0x00076746
 			public void FovAdd(int playerIndex, float fov)
 			{
 				this.FovEnsure();
@@ -687,14 +687,14 @@ namespace Panik
 				this._fieldOfViews[playerIndex] = Mathf.Clamp(this._fieldOfViews[playerIndex], 30f, 180f);
 			}
 
-			// Token: 0x060012D8 RID: 4824 RVA: 0x00077CEA File Offset: 0x00075EEA
+			// Token: 0x060012EF RID: 4847 RVA: 0x0007857E File Offset: 0x0007677E
 			public void FovReset(int playerIndex)
 			{
 				this.FovEnsure();
 				this._fieldOfViews[playerIndex] = 60f;
 			}
 
-			// Token: 0x060012D9 RID: 4825 RVA: 0x00077D00 File Offset: 0x00075F00
+			// Token: 0x060012F0 RID: 4848 RVA: 0x00078594 File Offset: 0x00076794
 			public void FovResetAll()
 			{
 				this.FovEnsure();
@@ -704,19 +704,19 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012DA RID: 4826 RVA: 0x00077D2C File Offset: 0x00075F2C
+			// Token: 0x060012F1 RID: 4849 RVA: 0x000785C0 File Offset: 0x000767C0
 			public Data.SettingsData.KeyboardLayout KeyboardLayoutGet()
 			{
 				return this.keyboardLayout;
 			}
 
-			// Token: 0x060012DB RID: 4827 RVA: 0x00077D34 File Offset: 0x00075F34
+			// Token: 0x060012F2 RID: 4850 RVA: 0x000785C8 File Offset: 0x000767C8
 			public void KeyboardLayoutSet(Data.SettingsData.KeyboardLayout layout)
 			{
 				this.keyboardLayout = layout;
 			}
 
-			// Token: 0x060012DC RID: 4828 RVA: 0x00077D40 File Offset: 0x00075F40
+			// Token: 0x060012F3 RID: 4851 RVA: 0x000785D4 File Offset: 0x000767D4
 			public void KeyboardLayourNext()
 			{
 				int num = 4;
@@ -729,7 +729,7 @@ namespace Panik
 				this.KeyboardLayoutSet((Data.SettingsData.KeyboardLayout)num2);
 			}
 
-			// Token: 0x060012DD RID: 4829 RVA: 0x00077D68 File Offset: 0x00075F68
+			// Token: 0x060012F4 RID: 4852 RVA: 0x000785FC File Offset: 0x000767FC
 			public void KeyboardLayourPrevious()
 			{
 				int num = 4;
@@ -742,7 +742,7 @@ namespace Panik
 				this.KeyboardLayoutSet((Data.SettingsData.KeyboardLayout)num2);
 			}
 
-			// Token: 0x060012DE RID: 4830 RVA: 0x00077D94 File Offset: 0x00075F94
+			// Token: 0x060012F5 RID: 4853 RVA: 0x00078628 File Offset: 0x00076828
 			private void JoystickVibrationEnsure()
 			{
 				if (this.joystickVibrationEnabledPerPlayer != null && this.joystickVibrationEnabledPerPlayer.Length == 1)
@@ -756,28 +756,28 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012DF RID: 4831 RVA: 0x00077DD6 File Offset: 0x00075FD6
+			// Token: 0x060012F6 RID: 4854 RVA: 0x0007866A File Offset: 0x0007686A
 			public void JoystickVibrationEnabledSet(int playerIndex, bool enabled)
 			{
 				this.JoystickVibrationEnsure();
 				this.joystickVibrationEnabledPerPlayer[playerIndex] = enabled;
 			}
 
-			// Token: 0x060012E0 RID: 4832 RVA: 0x00077DE7 File Offset: 0x00075FE7
+			// Token: 0x060012F7 RID: 4855 RVA: 0x0007867B File Offset: 0x0007687B
 			public bool JoystickVibrationEnabledGet(int playerIndex)
 			{
 				this.JoystickVibrationEnsure();
 				return this.joystickVibrationEnabledPerPlayer[playerIndex];
 			}
 
-			// Token: 0x060012E1 RID: 4833 RVA: 0x00077DF7 File Offset: 0x00075FF7
+			// Token: 0x060012F8 RID: 4856 RVA: 0x0007868B File Offset: 0x0007688B
 			public void JoystickVibrationEnabledToggle(int playerIndex)
 			{
 				this.JoystickVibrationEnsure();
 				this.joystickVibrationEnabledPerPlayer[playerIndex] = !this.joystickVibrationEnabledPerPlayer[playerIndex];
 			}
 
-			// Token: 0x060012E2 RID: 4834 RVA: 0x00077E14 File Offset: 0x00076014
+			// Token: 0x060012F9 RID: 4857 RVA: 0x000786A8 File Offset: 0x000768A8
 			public void JoystickVibrationEnabledSetAll(bool enabled)
 			{
 				this.JoystickVibrationEnsure();
@@ -787,7 +787,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012E3 RID: 4835 RVA: 0x00077E3C File Offset: 0x0007603C
+			// Token: 0x060012FA RID: 4858 RVA: 0x000786D0 File Offset: 0x000768D0
 			private void CameraSensitivityEnsure()
 			{
 				if (this.cameraSensitivity != null && this.cameraSensitivity.Length == 1)
@@ -801,14 +801,14 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012E4 RID: 4836 RVA: 0x00077E90 File Offset: 0x00076090
+			// Token: 0x060012FB RID: 4859 RVA: 0x00078724 File Offset: 0x00076924
 			public Vector2 CameraSensitivityGet(int playerIndex)
 			{
 				this.CameraSensitivityEnsure();
 				return this.cameraSensitivity[playerIndex];
 			}
 
-			// Token: 0x060012E5 RID: 4837 RVA: 0x00077EA4 File Offset: 0x000760A4
+			// Token: 0x060012FC RID: 4860 RVA: 0x00078738 File Offset: 0x00076938
 			public void CameraSensitivitySet(int playerIndex, Vector2 sensitivity)
 			{
 				this.CameraSensitivityEnsure();
@@ -817,7 +817,7 @@ namespace Panik
 				this.cameraSensitivity[playerIndex].y = Mathf.Clamp(this.cameraSensitivity[playerIndex].y, 0.1f, 10f);
 			}
 
-			// Token: 0x060012E6 RID: 4838 RVA: 0x00077F28 File Offset: 0x00076128
+			// Token: 0x060012FD RID: 4861 RVA: 0x000787BC File Offset: 0x000769BC
 			public void CameraSensitivityAdd(int playerIndex, Vector2 sensitivity)
 			{
 				this.CameraSensitivityEnsure();
@@ -826,14 +826,14 @@ namespace Panik
 				this.cameraSensitivity[playerIndex].y = Mathf.Clamp(this.cameraSensitivity[playerIndex].y, 0.1f, 10f);
 			}
 
-			// Token: 0x060012E7 RID: 4839 RVA: 0x00077FBA File Offset: 0x000761BA
+			// Token: 0x060012FE RID: 4862 RVA: 0x0007884E File Offset: 0x00076A4E
 			public void CameraSensitivityReset(int playerIndex)
 			{
 				this.CameraSensitivityEnsure();
 				this.cameraSensitivity[playerIndex] = new Vector2(1f, 1f);
 			}
 
-			// Token: 0x060012E8 RID: 4840 RVA: 0x00077FE0 File Offset: 0x000761E0
+			// Token: 0x060012FF RID: 4863 RVA: 0x00078874 File Offset: 0x00076A74
 			public void CameraSensitivityResetAll()
 			{
 				this.CameraSensitivityEnsure();
@@ -843,7 +843,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012E9 RID: 4841 RVA: 0x0007801C File Offset: 0x0007621C
+			// Token: 0x06001300 RID: 4864 RVA: 0x000788B0 File Offset: 0x00076AB0
 			private void ControlsInversionEnsure()
 			{
 				if (this.controlsInvertMovementX != null && this.controlsInvertMovementX.Length == 1)
@@ -867,91 +867,91 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012EA RID: 4842 RVA: 0x000780C7 File Offset: 0x000762C7
+			// Token: 0x06001301 RID: 4865 RVA: 0x0007895B File Offset: 0x00076B5B
 			public void ControlsInvertMovementXSet(int playerIndex, bool invert)
 			{
 				this.ControlsInversionEnsure();
 				this.controlsInvertMovementX[playerIndex] = invert;
 			}
 
-			// Token: 0x060012EB RID: 4843 RVA: 0x000780D8 File Offset: 0x000762D8
+			// Token: 0x06001302 RID: 4866 RVA: 0x0007896C File Offset: 0x00076B6C
 			public bool ControlsInvertMovementXGet(int playerIndex)
 			{
 				this.ControlsInversionEnsure();
 				return this.controlsInvertMovementX[playerIndex];
 			}
 
-			// Token: 0x060012EC RID: 4844 RVA: 0x000780E8 File Offset: 0x000762E8
+			// Token: 0x06001303 RID: 4867 RVA: 0x0007897C File Offset: 0x00076B7C
 			public void ControlsInvertMovementYSet(int playerIndex, bool invert)
 			{
 				this.ControlsInversionEnsure();
 				this.controlsInvertMovementY[playerIndex] = invert;
 			}
 
-			// Token: 0x060012ED RID: 4845 RVA: 0x000780F9 File Offset: 0x000762F9
+			// Token: 0x06001304 RID: 4868 RVA: 0x0007898D File Offset: 0x00076B8D
 			public bool ControlsInvertMovementYGet(int playerIndex)
 			{
 				this.ControlsInversionEnsure();
 				return this.controlsInvertMovementY[playerIndex];
 			}
 
-			// Token: 0x060012EE RID: 4846 RVA: 0x00078109 File Offset: 0x00076309
+			// Token: 0x06001305 RID: 4869 RVA: 0x0007899D File Offset: 0x00076B9D
 			public void ControlsInvertCameraXSet(int playerIndex, bool invert)
 			{
 				this.ControlsInversionEnsure();
 				this.controlsInvertCameraX[playerIndex] = invert;
 			}
 
-			// Token: 0x060012EF RID: 4847 RVA: 0x0007811A File Offset: 0x0007631A
+			// Token: 0x06001306 RID: 4870 RVA: 0x000789AE File Offset: 0x00076BAE
 			public bool ControlsInvertCameraXGet(int playerIndex)
 			{
 				this.ControlsInversionEnsure();
 				return this.controlsInvertCameraX[playerIndex];
 			}
 
-			// Token: 0x060012F0 RID: 4848 RVA: 0x0007812A File Offset: 0x0007632A
+			// Token: 0x06001307 RID: 4871 RVA: 0x000789BE File Offset: 0x00076BBE
 			public void ControlsInvertCameraYSet(int playerIndex, bool invert)
 			{
 				this.ControlsInversionEnsure();
 				this.controlsInvertCameraY[playerIndex] = invert;
 			}
 
-			// Token: 0x060012F1 RID: 4849 RVA: 0x0007813B File Offset: 0x0007633B
+			// Token: 0x06001308 RID: 4872 RVA: 0x000789CF File Offset: 0x00076BCF
 			public bool ControlsInvertCameraYGet(int playerIndex)
 			{
 				this.ControlsInversionEnsure();
 				return this.controlsInvertCameraY[playerIndex];
 			}
 
-			// Token: 0x060012F2 RID: 4850 RVA: 0x0007814B File Offset: 0x0007634B
+			// Token: 0x06001309 RID: 4873 RVA: 0x000789DF File Offset: 0x00076BDF
 			public void ControlsInvertScrollingXSet(int playerIndex, bool invert)
 			{
 				this.ControlsInversionEnsure();
 				this.controlsInvertScrollingX[playerIndex] = invert;
 			}
 
-			// Token: 0x060012F3 RID: 4851 RVA: 0x0007815C File Offset: 0x0007635C
+			// Token: 0x0600130A RID: 4874 RVA: 0x000789F0 File Offset: 0x00076BF0
 			public bool ControlsInvertScrollingXGet(int playerIndex)
 			{
 				this.ControlsInversionEnsure();
 				return this.controlsInvertScrollingX[playerIndex];
 			}
 
-			// Token: 0x060012F4 RID: 4852 RVA: 0x0007816C File Offset: 0x0007636C
+			// Token: 0x0600130B RID: 4875 RVA: 0x00078A00 File Offset: 0x00076C00
 			public void ControlsInvertScrollingYSet(int playerIndex, bool invert)
 			{
 				this.ControlsInversionEnsure();
 				this.controlsInvertScrollingY[playerIndex] = invert;
 			}
 
-			// Token: 0x060012F5 RID: 4853 RVA: 0x0007817D File Offset: 0x0007637D
+			// Token: 0x0600130C RID: 4876 RVA: 0x00078A11 File Offset: 0x00076C11
 			public bool ControlsInvertScrollingYGet(int playerIndex)
 			{
 				this.ControlsInversionEnsure();
 				return this.controlsInvertScrollingY[playerIndex];
 			}
 
-			// Token: 0x060012F6 RID: 4854 RVA: 0x00078190 File Offset: 0x00076390
+			// Token: 0x0600130D RID: 4877 RVA: 0x00078A24 File Offset: 0x00076C24
 			public void ControlsInvertMovementAll()
 			{
 				this.ControlsInversionEnsure();
@@ -962,7 +962,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012F7 RID: 4855 RVA: 0x000781C4 File Offset: 0x000763C4
+			// Token: 0x0600130E RID: 4878 RVA: 0x00078A58 File Offset: 0x00076C58
 			public void ControlsInvertCameraAll()
 			{
 				this.ControlsInversionEnsure();
@@ -973,7 +973,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012F8 RID: 4856 RVA: 0x000781F8 File Offset: 0x000763F8
+			// Token: 0x0600130F RID: 4879 RVA: 0x00078A8C File Offset: 0x00076C8C
 			public void ControlsInvertScrollingAll()
 			{
 				this.ControlsInversionEnsure();
@@ -984,7 +984,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012F9 RID: 4857 RVA: 0x0007822C File Offset: 0x0007642C
+			// Token: 0x06001310 RID: 4880 RVA: 0x00078AC0 File Offset: 0x00076CC0
 			private void VirtualCursorSensitivityEnsure()
 			{
 				if (this._virtualCursorSensitivity != null && this._virtualCursorSensitivity.Length == 1)
@@ -998,7 +998,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012FA RID: 4858 RVA: 0x00078272 File Offset: 0x00076472
+			// Token: 0x06001311 RID: 4881 RVA: 0x00078B06 File Offset: 0x00076D06
 			public void VirtualCursorSensitivitySet(int playerIndex, float sensitivity)
 			{
 				this.VirtualCursorSensitivityEnsure();
@@ -1006,14 +1006,14 @@ namespace Panik
 				this._virtualCursorSensitivity[playerIndex] = Mathf.Clamp(this._virtualCursorSensitivity[playerIndex], 0.1f, 10f);
 			}
 
-			// Token: 0x060012FB RID: 4859 RVA: 0x000782A2 File Offset: 0x000764A2
+			// Token: 0x06001312 RID: 4882 RVA: 0x00078B36 File Offset: 0x00076D36
 			public float VirtualCursorSensitivityGet(int playerIndex)
 			{
 				this.VirtualCursorSensitivityEnsure();
 				return this._virtualCursorSensitivity[playerIndex];
 			}
 
-			// Token: 0x060012FC RID: 4860 RVA: 0x000782B2 File Offset: 0x000764B2
+			// Token: 0x06001313 RID: 4883 RVA: 0x00078B46 File Offset: 0x00076D46
 			public void VirtualCursorSensitivityAdd(int playerIndex, float sensitivity)
 			{
 				this.VirtualCursorSensitivityEnsure();
@@ -1021,14 +1021,14 @@ namespace Panik
 				this._virtualCursorSensitivity[playerIndex] = Mathf.Clamp(this._virtualCursorSensitivity[playerIndex], 0.1f, 10f);
 			}
 
-			// Token: 0x060012FD RID: 4861 RVA: 0x000782EA File Offset: 0x000764EA
+			// Token: 0x06001314 RID: 4884 RVA: 0x00078B7E File Offset: 0x00076D7E
 			public void VirtualCursorSensitivityReset(int playerIndex)
 			{
 				this.VirtualCursorSensitivityEnsure();
 				this._virtualCursorSensitivity[playerIndex] = 1f;
 			}
 
-			// Token: 0x060012FE RID: 4862 RVA: 0x00078300 File Offset: 0x00076500
+			// Token: 0x06001315 RID: 4885 RVA: 0x00078B94 File Offset: 0x00076D94
 			public void VirtualCursorSensitivityResetAll()
 			{
 				this.VirtualCursorSensitivityEnsure();
@@ -1038,7 +1038,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012FF RID: 4863 RVA: 0x0007832C File Offset: 0x0007652C
+			// Token: 0x06001316 RID: 4886 RVA: 0x00078BC0 File Offset: 0x00076DC0
 			public static float TransitionSpeedMapped_Get(float from, float fromMin, float fromMax, float toMin, float toMax)
 			{
 				float num = from - fromMin;
@@ -1047,7 +1047,7 @@ namespace Panik
 				return (toMax - toMin) * num3 + toMin;
 			}
 
-			// Token: 0x06001300 RID: 4864 RVA: 0x0007834B File Offset: 0x0007654B
+			// Token: 0x06001317 RID: 4887 RVA: 0x00078BDF File Offset: 0x00076DDF
 			public void _PrepareForSaving()
 			{
 				this.VerticalResolutionEnsure();
@@ -1059,7 +1059,7 @@ namespace Panik
 				this.controlMapsJson = Controls.SaveMapsToJson();
 			}
 
-			// Token: 0x06001301 RID: 4865 RVA: 0x0007837C File Offset: 0x0007657C
+			// Token: 0x06001318 RID: 4888 RVA: 0x00078C10 File Offset: 0x00076E10
 			public void Apply(bool applyResolution, bool pushControlsJsonToMap)
 			{
 				if (this.colorblindModeEnabled)
@@ -1333,13 +1333,13 @@ namespace Panik
 		[Serializable]
 		public class GameData
 		{
-			// Token: 0x06001304 RID: 4868 RVA: 0x00078518 File Offset: 0x00076718
+			// Token: 0x0600131B RID: 4891 RVA: 0x00078DAC File Offset: 0x00076FAC
 			public GameData(int gameDataIndex)
 			{
 				this.myGameDataIndex = gameDataIndex;
 			}
 
-			// Token: 0x06001305 RID: 4869 RVA: 0x0007859C File Offset: 0x0007679C
+			// Token: 0x0600131C RID: 4892 RVA: 0x00078E30 File Offset: 0x00077030
 			public void Saving_Prepare(bool saveGameplayData, Data.GameSavingReason reason)
 			{
 				this.lastGameVersionThatSavedMe = Application.version;
@@ -1364,7 +1364,7 @@ namespace Panik
 				this._RunModifiers_SavePrepare();
 			}
 
-			// Token: 0x06001306 RID: 4870 RVA: 0x000785FA File Offset: 0x000767FA
+			// Token: 0x0600131D RID: 4893 RVA: 0x00078E8E File Offset: 0x0007708E
 			public void Loading_Prepare()
 			{
 				this.gameplayData.Load_Format();
@@ -1372,7 +1372,7 @@ namespace Panik
 				this._RunModifiers_LoadPrepare();
 			}
 
-			// Token: 0x06001307 RID: 4871 RVA: 0x00078614 File Offset: 0x00076814
+			// Token: 0x0600131E RID: 4894 RVA: 0x00078EA8 File Offset: 0x000770A8
 			public void GameplayDataReset(bool transformSkeletonPieces)
 			{
 				bool[] array = new bool[4];
@@ -1417,20 +1417,53 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x06001308 RID: 4872 RVA: 0x000786FE File Offset: 0x000768FE
+			// Token: 0x0600131F RID: 4895 RVA: 0x00078F92 File Offset: 0x00077192
 			public bool GameplayDataIsEmpty()
 			{
 				return !this.gameplayDataHasSession;
 			}
 
-			// Token: 0x06001309 RID: 4873 RVA: 0x0007870C File Offset: 0x0007690C
+			// Token: 0x06001320 RID: 4896 RVA: 0x00078FA0 File Offset: 0x000771A0
 			public static bool IsGameCompletedFully()
 			{
 				return Data.game != null && Data.game.doorOpenedCounter > 0 && Data.game.badEndingCounter > 0 && Data.game.goodEndingCounter > 0 && Data.game.PowerupRealInstances_AreAllUnlocked() && Data.game.AllCardsUnlocked && Data.game.AllCardsHolographic;
 			}
 
-			// (get) Token: 0x0600130A RID: 4874 RVA: 0x0007877A File Offset: 0x0007697A
-			// (set) Token: 0x0600130B RID: 4875 RVA: 0x00078782 File Offset: 0x00076982
+			// Token: 0x06001321 RID: 4897 RVA: 0x00079010 File Offset: 0x00077210
+			public static int GameCompletitionPercentage_Get()
+			{
+				int num = 0;
+				if (Data.game == null)
+				{
+					return num;
+				}
+				if (Data.game.badEndingCounter > 0)
+				{
+					num++;
+				}
+				if (Data.game.goodEndingCounter > 0)
+				{
+					num++;
+				}
+				num += Data.game.RunModifier_WonOnce_TotalNumber();
+				num += Data.game.RunModifier_InHolographicCondition_TotalNumber();
+				num += DrawersScript.GetDrawersUnlockedNum();
+				int count = PowerupScript.all.Count;
+				int num2 = 0;
+				List<PowerupScript.Identifier> list = Data.game.LockedPowerups_GetList();
+				for (int i = 0; i < count; i++)
+				{
+					PowerupScript powerupScript = PowerupScript.all[i];
+					if (!(powerupScript == null) && powerupScript.identifier != PowerupScript.Identifier.undefined && powerupScript.identifier != PowerupScript.Identifier.count && !list.Contains(powerupScript.identifier))
+					{
+						num2++;
+					}
+				}
+				return num + Mathf.FloorToInt((float)num2 / (float)count * 54f);
+			}
+
+			// (get) Token: 0x06001322 RID: 4898 RVA: 0x000790EB File Offset: 0x000772EB
+			// (set) Token: 0x06001323 RID: 4899 RVA: 0x000790F3 File Offset: 0x000772F3
 			public int PersistentStat_666SeenTimes
 			{
 				get
@@ -1443,13 +1476,13 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x0600130C RID: 4876 RVA: 0x0007878B File Offset: 0x0007698B
+			// Token: 0x06001324 RID: 4900 RVA: 0x000790FC File Offset: 0x000772FC
 			public static List<PowerupScript.Identifier> _UnlockedPowerups_Definition()
 			{
 				return new List<PowerupScript.Identifier> { PowerupScript.Identifier.undefined };
 			}
 
-			// Token: 0x0600130D RID: 4877 RVA: 0x0007879C File Offset: 0x0007699C
+			// Token: 0x06001325 RID: 4901 RVA: 0x0007910C File Offset: 0x0007730C
 			public static List<PowerupScript.Identifier> _LockedPowerups_Definition()
 			{
 				return new List<PowerupScript.Identifier>
@@ -1588,7 +1621,7 @@ namespace Panik
 				};
 			}
 
-			// Token: 0x0600130E RID: 4878 RVA: 0x00078C1D File Offset: 0x00076E1D
+			// Token: 0x06001326 RID: 4902 RVA: 0x0007958D File Offset: 0x0007778D
 			public static List<PowerupScript.Identifier> _LockedPowerups_ResultingList_Definition()
 			{
 				if (Data.GameData.inst == null)
@@ -1598,7 +1631,7 @@ namespace Panik
 				return new List<PowerupScript.Identifier>(164);
 			}
 
-			// Token: 0x0600130F RID: 4879 RVA: 0x00078C36 File Offset: 0x00076E36
+			// Token: 0x06001327 RID: 4903 RVA: 0x000795A6 File Offset: 0x000777A6
 			private void _LockedPowerupsSystem_ListsEnsure()
 			{
 				if (this.unlockedPowerups == null)
@@ -1615,7 +1648,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x06001310 RID: 4880 RVA: 0x00078C74 File Offset: 0x00076E74
+			// Token: 0x06001328 RID: 4904 RVA: 0x000795E4 File Offset: 0x000777E4
 			private void _LockedPowerupsResultingList_Compute(bool ensureLists)
 			{
 				if (ensureLists)
@@ -1639,7 +1672,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x06001311 RID: 4881 RVA: 0x00078D30 File Offset: 0x00076F30
+			// Token: 0x06001329 RID: 4905 RVA: 0x000796A0 File Offset: 0x000778A0
 			private void _LockedPowerups_SavePrepare()
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
@@ -1647,7 +1680,7 @@ namespace Panik
 				this._LockedPowerupsResultingList_Compute(false);
 			}
 
-			// Token: 0x06001312 RID: 4882 RVA: 0x00078D52 File Offset: 0x00076F52
+			// Token: 0x0600132A RID: 4906 RVA: 0x000796C2 File Offset: 0x000778C2
 			private void _LockedPowerups_LoadPrepare()
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
@@ -1655,7 +1688,7 @@ namespace Panik
 				this._LockedPowerupsResultingList_Compute(false);
 			}
 
-			// Token: 0x06001313 RID: 4883 RVA: 0x00078D78 File Offset: 0x00076F78
+			// Token: 0x0600132B RID: 4907 RVA: 0x000796E8 File Offset: 0x000778E8
 			public static bool IsPowerupSecret(PowerupScript.Identifier powerup)
 			{
 				PowerupScript powerup_Quick = PowerupScript.GetPowerup_Quick(powerup);
@@ -1667,7 +1700,7 @@ namespace Panik
 				return archetype == PowerupScript.Archetype.skeleton || archetype == PowerupScript.Archetype.sacred;
 			}
 
-			// Token: 0x06001314 RID: 4884 RVA: 0x00078DAF File Offset: 0x00076FAF
+			// Token: 0x0600132C RID: 4908 RVA: 0x0007971F File Offset: 0x0007791F
 			public int LockedPowerups_GetCount()
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
@@ -1678,7 +1711,7 @@ namespace Panik
 				return this.lockedPowerups_ResultingList.Count;
 			}
 
-			// Token: 0x06001315 RID: 4885 RVA: 0x00078DD1 File Offset: 0x00076FD1
+			// Token: 0x0600132D RID: 4909 RVA: 0x00079741 File Offset: 0x00077941
 			public List<PowerupScript.Identifier> LockedPowerups_GetList()
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
@@ -1686,7 +1719,7 @@ namespace Panik
 				return this.lockedPowerups_ResultingList;
 			}
 
-			// Token: 0x06001316 RID: 4886 RVA: 0x00078DE8 File Offset: 0x00076FE8
+			// Token: 0x0600132E RID: 4910 RVA: 0x00079758 File Offset: 0x00077958
 			public void LockedPowerups_Unlock(PowerupScript.Identifier powerup)
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
@@ -1702,7 +1735,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x06001317 RID: 4887 RVA: 0x00078E40 File Offset: 0x00077040
+			// Token: 0x0600132F RID: 4911 RVA: 0x000797B0 File Offset: 0x000779B0
 			public void _LockedPowerups_UnlockAll()
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
@@ -1721,21 +1754,21 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x06001318 RID: 4888 RVA: 0x00078EC8 File Offset: 0x000770C8
+			// Token: 0x06001330 RID: 4912 RVA: 0x00079838 File Offset: 0x00077A38
 			public void _LockedPowerups_LockAll()
 			{
 				this.unlockedPowerups = Data.GameData._UnlockedPowerups_Definition();
 				this.lockedPowerups = Data.GameData._LockedPowerups_Definition();
 			}
 
-			// Token: 0x06001319 RID: 4889 RVA: 0x00078EE0 File Offset: 0x000770E0
+			// Token: 0x06001331 RID: 4913 RVA: 0x00079850 File Offset: 0x00077A50
 			public List<PowerupScript.Identifier> _UnlockedPowerups_GetList()
 			{
 				this._LockedPowerupsSystem_ListsEnsure();
 				return this.unlockedPowerups;
 			}
 
-			// Token: 0x0600131A RID: 4890 RVA: 0x00078EF0 File Offset: 0x000770F0
+			// Token: 0x06001332 RID: 4914 RVA: 0x00079860 File Offset: 0x00077A60
 			public bool PowerupRealInstances_AreAllUnlocked()
 			{
 				if (this.allPowerupsUnlockedChacheResult)
@@ -1760,7 +1793,7 @@ namespace Panik
 				return true;
 			}
 
-			// Token: 0x0600131B RID: 4891 RVA: 0x00078F83 File Offset: 0x00077183
+			// Token: 0x06001333 RID: 4915 RVA: 0x000798F3 File Offset: 0x00077AF3
 			public void UnlockableSteps_OnRechargingRedButtonCharges(int chargesN)
 			{
 				if (GameplayMaster.IsCustomSeed())
@@ -1771,7 +1804,7 @@ namespace Panik
 				Data.game.UnlockSteps_CrankGenerator += chargesN;
 			}
 
-			// Token: 0x0600131C RID: 4892 RVA: 0x00078FB4 File Offset: 0x000771B4
+			// Token: 0x06001334 RID: 4916 RVA: 0x00079924 File Offset: 0x00077B24
 			public void UnlockableSteps_OnCharmDiscard(int stepsN)
 			{
 				if (GameplayMaster.IsCustomSeed())
@@ -1790,7 +1823,7 @@ namespace Panik
 				this.UnlockSteps_DarkLotus = num + 1;
 			}
 
-			// (get) Token: 0x0600131D RID: 4893 RVA: 0x00079019 File Offset: 0x00077219
+			// (get) Token: 0x06001335 RID: 4917 RVA: 0x00079989 File Offset: 0x00077B89
 			public static int UnlockStepsMissing_PuppetPersonalTrainer
 			{
 				get
@@ -1799,7 +1832,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600131E RID: 4894 RVA: 0x00079039 File Offset: 0x00077239
+			// (get) Token: 0x06001336 RID: 4918 RVA: 0x000799A9 File Offset: 0x00077BA9
 			public static int UnlockStepsMissing_PuppetElectrician
 			{
 				get
@@ -1808,7 +1841,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600131F RID: 4895 RVA: 0x00079059 File Offset: 0x00077259
+			// (get) Token: 0x06001337 RID: 4919 RVA: 0x000799C9 File Offset: 0x00077BC9
 			public static int UnlockStepsMissing_PuppetFortuneTeller
 			{
 				get
@@ -1817,7 +1850,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001320 RID: 4896 RVA: 0x00079084 File Offset: 0x00077284
+			// (get) Token: 0x06001338 RID: 4920 RVA: 0x000799F4 File Offset: 0x00077BF4
 			public static int UnlockStepsMissing_StepsCounter
 			{
 				get
@@ -1826,7 +1859,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001321 RID: 4897 RVA: 0x00079094 File Offset: 0x00077294
+			// (get) Token: 0x06001339 RID: 4921 RVA: 0x00079A04 File Offset: 0x00077C04
 			public static int UnlockStepsMissing_DevilsHorn
 			{
 				get
@@ -1835,7 +1868,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001322 RID: 4898 RVA: 0x000790A4 File Offset: 0x000772A4
+			// (get) Token: 0x0600133A RID: 4922 RVA: 0x00079A14 File Offset: 0x00077C14
 			public static int UnlockStepsMissing_Necronomicon
 			{
 				get
@@ -1844,7 +1877,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001323 RID: 4899 RVA: 0x000790B4 File Offset: 0x000772B4
+			// (get) Token: 0x0600133B RID: 4923 RVA: 0x00079A24 File Offset: 0x00077C24
 			public static int UnlockStepsMissing_KingMida
 			{
 				get
@@ -1862,7 +1895,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001324 RID: 4900 RVA: 0x000790F0 File Offset: 0x000772F0
+			// (get) Token: 0x0600133C RID: 4924 RVA: 0x00079A60 File Offset: 0x00077C60
 			public static int UnlockStepsMissing_Dealer
 			{
 				get
@@ -1880,7 +1913,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001325 RID: 4901 RVA: 0x00079124 File Offset: 0x00077324
+			// (get) Token: 0x0600133D RID: 4925 RVA: 0x00079A94 File Offset: 0x00077C94
 			public static int UnlockStepsMissing_RagingCapitalist
 			{
 				get
@@ -1898,8 +1931,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001326 RID: 4902 RVA: 0x00079158 File Offset: 0x00077358
-			// (set) Token: 0x06001327 RID: 4903 RVA: 0x00079160 File Offset: 0x00077360
+			// (get) Token: 0x0600133E RID: 4926 RVA: 0x00079AC8 File Offset: 0x00077CC8
+			// (set) Token: 0x0600133F RID: 4927 RVA: 0x00079AD0 File Offset: 0x00077CD0
 			public int UnlockSteps_ElectricityCounter
 			{
 				get
@@ -1920,7 +1953,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001328 RID: 4904 RVA: 0x00079183 File Offset: 0x00077383
+			// (get) Token: 0x06001340 RID: 4928 RVA: 0x00079AF3 File Offset: 0x00077CF3
 			public static int UnlockStepsMissing_ElectricityCounter
 			{
 				get
@@ -1933,8 +1966,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001329 RID: 4905 RVA: 0x000791A1 File Offset: 0x000773A1
-			// (set) Token: 0x0600132A RID: 4906 RVA: 0x000791A9 File Offset: 0x000773A9
+			// (get) Token: 0x06001341 RID: 4929 RVA: 0x00079B11 File Offset: 0x00077D11
+			// (set) Token: 0x06001342 RID: 4930 RVA: 0x00079B19 File Offset: 0x00077D19
 			public int UnlockSteps_DarkLotus
 			{
 				get
@@ -1955,7 +1988,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600132B RID: 4907 RVA: 0x000791CF File Offset: 0x000773CF
+			// (get) Token: 0x06001343 RID: 4931 RVA: 0x00079B3F File Offset: 0x00077D3F
 			public static int UnlockStepsMissing_DarkLotus
 			{
 				get
@@ -1968,8 +2001,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600132C RID: 4908 RVA: 0x000791F0 File Offset: 0x000773F0
-			// (set) Token: 0x0600132D RID: 4909 RVA: 0x000791F8 File Offset: 0x000773F8
+			// (get) Token: 0x06001344 RID: 4932 RVA: 0x00079B60 File Offset: 0x00077D60
+			// (set) Token: 0x06001345 RID: 4933 RVA: 0x00079B68 File Offset: 0x00077D68
 			public int UnlockSteps_CloversLandPatch
 			{
 				get
@@ -1990,7 +2023,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600132E RID: 4910 RVA: 0x0007921B File Offset: 0x0007741B
+			// (get) Token: 0x06001346 RID: 4934 RVA: 0x00079B8B File Offset: 0x00077D8B
 			public static int UnlockStepsMissing_CloversLandPatch
 			{
 				get
@@ -2003,8 +2036,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600132F RID: 4911 RVA: 0x00079239 File Offset: 0x00077439
-			// (set) Token: 0x06001330 RID: 4912 RVA: 0x00079241 File Offset: 0x00077441
+			// (get) Token: 0x06001347 RID: 4935 RVA: 0x00079BA9 File Offset: 0x00077DA9
+			// (set) Token: 0x06001348 RID: 4936 RVA: 0x00079BB1 File Offset: 0x00077DB1
 			public int UnlockSteps_AllIn
 			{
 				get
@@ -2025,7 +2058,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001331 RID: 4913 RVA: 0x00079264 File Offset: 0x00077464
+			// (get) Token: 0x06001349 RID: 4937 RVA: 0x00079BD4 File Offset: 0x00077DD4
 			public static int UnlockStepsMissing_AllIn
 			{
 				get
@@ -2038,8 +2071,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001332 RID: 4914 RVA: 0x00079282 File Offset: 0x00077482
-			// (set) Token: 0x06001333 RID: 4915 RVA: 0x0007928A File Offset: 0x0007748A
+			// (get) Token: 0x0600134A RID: 4938 RVA: 0x00079BF2 File Offset: 0x00077DF2
+			// (set) Token: 0x0600134B RID: 4939 RVA: 0x00079BFA File Offset: 0x00077DFA
 			public int UnlockSteps_Garbage
 			{
 				get
@@ -2060,7 +2093,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001334 RID: 4916 RVA: 0x000792AD File Offset: 0x000774AD
+			// (get) Token: 0x0600134C RID: 4940 RVA: 0x00079C1D File Offset: 0x00077E1D
 			public static int UnlockStepsMissing_Garbage
 			{
 				get
@@ -2073,8 +2106,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001335 RID: 4917 RVA: 0x000792CB File Offset: 0x000774CB
-			// (set) Token: 0x06001336 RID: 4918 RVA: 0x000792D3 File Offset: 0x000774D3
+			// (get) Token: 0x0600134D RID: 4941 RVA: 0x00079C3B File Offset: 0x00077E3B
+			// (set) Token: 0x0600134E RID: 4942 RVA: 0x00079C43 File Offset: 0x00077E43
 			public int UnlockSteps_VoiceMail
 			{
 				get
@@ -2095,7 +2128,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001337 RID: 4919 RVA: 0x000792F6 File Offset: 0x000774F6
+			// (get) Token: 0x0600134F RID: 4943 RVA: 0x00079C66 File Offset: 0x00077E66
 			public static int UnlockStepsMissing_VoiceMail
 			{
 				get
@@ -2108,8 +2141,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001338 RID: 4920 RVA: 0x00079314 File Offset: 0x00077514
-			// (set) Token: 0x06001339 RID: 4921 RVA: 0x0007931C File Offset: 0x0007751C
+			// (get) Token: 0x06001350 RID: 4944 RVA: 0x00079C84 File Offset: 0x00077E84
+			// (set) Token: 0x06001351 RID: 4945 RVA: 0x00079C8C File Offset: 0x00077E8C
 			public int UnlockSteps_FortuneChanneler
 			{
 				get
@@ -2130,7 +2163,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600133A RID: 4922 RVA: 0x0007933F File Offset: 0x0007753F
+			// (get) Token: 0x06001352 RID: 4946 RVA: 0x00079CAF File Offset: 0x00077EAF
 			public static int UnlockStepsMissing_FortuneChanneler
 			{
 				get
@@ -2143,8 +2176,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600133B RID: 4923 RVA: 0x0007935D File Offset: 0x0007755D
-			// (set) Token: 0x0600133C RID: 4924 RVA: 0x00079365 File Offset: 0x00077565
+			// (get) Token: 0x06001353 RID: 4947 RVA: 0x00079CCD File Offset: 0x00077ECD
+			// (set) Token: 0x06001354 RID: 4948 RVA: 0x00079CD5 File Offset: 0x00077ED5
 			public int UnlockSteps_HamsaUpside
 			{
 				get
@@ -2165,7 +2198,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600133D RID: 4925 RVA: 0x00079387 File Offset: 0x00077587
+			// (get) Token: 0x06001355 RID: 4949 RVA: 0x00079CF7 File Offset: 0x00077EF7
 			public static int UnlockStepsMissing_HamsaUpside
 			{
 				get
@@ -2178,8 +2211,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600133E RID: 4926 RVA: 0x000793A5 File Offset: 0x000775A5
-			// (set) Token: 0x0600133F RID: 4927 RVA: 0x000793AD File Offset: 0x000775AD
+			// (get) Token: 0x06001356 RID: 4950 RVA: 0x00079D15 File Offset: 0x00077F15
+			// (set) Token: 0x06001357 RID: 4951 RVA: 0x00079D1D File Offset: 0x00077F1D
 			public int UnlockSteps_AncientCoin
 			{
 				get
@@ -2200,7 +2233,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001340 RID: 4928 RVA: 0x000793D0 File Offset: 0x000775D0
+			// (get) Token: 0x06001358 RID: 4952 RVA: 0x00079D40 File Offset: 0x00077F40
 			public static int UnlockStepsMissing_AncientCoin
 			{
 				get
@@ -2213,8 +2246,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001341 RID: 4929 RVA: 0x000793EE File Offset: 0x000775EE
-			// (set) Token: 0x06001342 RID: 4930 RVA: 0x000793F6 File Offset: 0x000775F6
+			// (get) Token: 0x06001359 RID: 4953 RVA: 0x00079D5E File Offset: 0x00077F5E
+			// (set) Token: 0x0600135A RID: 4954 RVA: 0x00079D66 File Offset: 0x00077F66
 			public int UnlockSteps_Sardines
 			{
 				get
@@ -2235,7 +2268,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001343 RID: 4931 RVA: 0x0007941C File Offset: 0x0007761C
+			// (get) Token: 0x0600135B RID: 4955 RVA: 0x00079D8C File Offset: 0x00077F8C
 			public static int UnlockStepsMissing_Sardines
 			{
 				get
@@ -2248,8 +2281,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001344 RID: 4932 RVA: 0x0007943D File Offset: 0x0007763D
-			// (set) Token: 0x06001345 RID: 4933 RVA: 0x00079445 File Offset: 0x00077645
+			// (get) Token: 0x0600135C RID: 4956 RVA: 0x00079DAD File Offset: 0x00077FAD
+			// (set) Token: 0x0600135D RID: 4957 RVA: 0x00079DB5 File Offset: 0x00077FB5
 			public int UnlockSteps_Rosary
 			{
 				get
@@ -2270,7 +2303,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001346 RID: 4934 RVA: 0x00079468 File Offset: 0x00077668
+			// (get) Token: 0x0600135E RID: 4958 RVA: 0x00079DD8 File Offset: 0x00077FD8
 			public static int UnlockStepsMissing_Rosary
 			{
 				get
@@ -2283,8 +2316,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001347 RID: 4935 RVA: 0x00079486 File Offset: 0x00077686
-			// (set) Token: 0x06001348 RID: 4936 RVA: 0x0007948E File Offset: 0x0007768E
+			// (get) Token: 0x0600135F RID: 4959 RVA: 0x00079DF6 File Offset: 0x00077FF6
+			// (set) Token: 0x06001360 RID: 4960 RVA: 0x00079DFE File Offset: 0x00077FFE
 			public int UnlockSteps_FortuneCookie
 			{
 				get
@@ -2305,7 +2338,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001349 RID: 4937 RVA: 0x000794B1 File Offset: 0x000776B1
+			// (get) Token: 0x06001361 RID: 4961 RVA: 0x00079E21 File Offset: 0x00078021
 			public static int UnlockStepsMissing_FortuneCookie
 			{
 				get
@@ -2318,8 +2351,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600134A RID: 4938 RVA: 0x000794CF File Offset: 0x000776CF
-			// (set) Token: 0x0600134B RID: 4939 RVA: 0x000794D7 File Offset: 0x000776D7
+			// (get) Token: 0x06001362 RID: 4962 RVA: 0x00079E3F File Offset: 0x0007803F
+			// (set) Token: 0x06001363 RID: 4963 RVA: 0x00079E47 File Offset: 0x00078047
 			public int UnlockSteps_YellowStar
 			{
 				get
@@ -2340,7 +2373,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600134C RID: 4940 RVA: 0x000794FA File Offset: 0x000776FA
+			// (get) Token: 0x06001364 RID: 4964 RVA: 0x00079E6A File Offset: 0x0007806A
 			public static int UnlockStepsMissing_YellowStar
 			{
 				get
@@ -2353,8 +2386,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600134D RID: 4941 RVA: 0x00079518 File Offset: 0x00077718
-			// (set) Token: 0x0600134E RID: 4942 RVA: 0x00079520 File Offset: 0x00077720
+			// (get) Token: 0x06001365 RID: 4965 RVA: 0x00079E88 File Offset: 0x00078088
+			// (set) Token: 0x06001366 RID: 4966 RVA: 0x00079E90 File Offset: 0x00078090
 			public int UnlockSteps_Cross
 			{
 				get
@@ -2375,7 +2408,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600134F RID: 4943 RVA: 0x00079543 File Offset: 0x00077743
+			// (get) Token: 0x06001367 RID: 4967 RVA: 0x00079EB3 File Offset: 0x000780B3
 			public static int UnlockStepsMissing_Cross
 			{
 				get
@@ -2388,8 +2421,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001350 RID: 4944 RVA: 0x00079561 File Offset: 0x00077761
-			// (set) Token: 0x06001351 RID: 4945 RVA: 0x00079569 File Offset: 0x00077769
+			// (get) Token: 0x06001368 RID: 4968 RVA: 0x00079ED1 File Offset: 0x000780D1
+			// (set) Token: 0x06001369 RID: 4969 RVA: 0x00079ED9 File Offset: 0x000780D9
 			public int UnlockSteps_Calendar
 			{
 				get
@@ -2410,7 +2443,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001352 RID: 4946 RVA: 0x0007958C File Offset: 0x0007778C
+			// (get) Token: 0x0600136A RID: 4970 RVA: 0x00079EFC File Offset: 0x000780FC
 			public static int UnlockStepsMissing_Calendar
 			{
 				get
@@ -2423,8 +2456,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001353 RID: 4947 RVA: 0x000795AA File Offset: 0x000777AA
-			// (set) Token: 0x06001354 RID: 4948 RVA: 0x000795B2 File Offset: 0x000777B2
+			// (get) Token: 0x0600136B RID: 4971 RVA: 0x00079F1A File Offset: 0x0007811A
+			// (set) Token: 0x0600136C RID: 4972 RVA: 0x00079F22 File Offset: 0x00078122
 			public int UnlockSteps_PainKillers
 			{
 				get
@@ -2445,7 +2478,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001355 RID: 4949 RVA: 0x000795D5 File Offset: 0x000777D5
+			// (get) Token: 0x0600136D RID: 4973 RVA: 0x00079F45 File Offset: 0x00078145
 			public static int UnlockStepsMissing_PainKillers
 			{
 				get
@@ -2458,8 +2491,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001356 RID: 4950 RVA: 0x000795F3 File Offset: 0x000777F3
-			// (set) Token: 0x06001357 RID: 4951 RVA: 0x000795FB File Offset: 0x000777FB
+			// (get) Token: 0x0600136E RID: 4974 RVA: 0x00079F63 File Offset: 0x00078163
+			// (set) Token: 0x0600136F RID: 4975 RVA: 0x00079F6B File Offset: 0x0007816B
 			public int UnlockSteps_ScratchAndWin
 			{
 				get
@@ -2480,7 +2513,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001358 RID: 4952 RVA: 0x0007961E File Offset: 0x0007781E
+			// (get) Token: 0x06001370 RID: 4976 RVA: 0x00079F8E File Offset: 0x0007818E
 			public static int UnlockStepsMissing_ScratchAndWin
 			{
 				get
@@ -2493,8 +2526,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001359 RID: 4953 RVA: 0x0007963C File Offset: 0x0007783C
-			// (set) Token: 0x0600135A RID: 4954 RVA: 0x00079644 File Offset: 0x00077844
+			// (get) Token: 0x06001371 RID: 4977 RVA: 0x00079FAC File Offset: 0x000781AC
+			// (set) Token: 0x06001372 RID: 4978 RVA: 0x00079FB4 File Offset: 0x000781B4
 			public int UnlockSteps_PhotoBook
 			{
 				get
@@ -2515,7 +2548,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600135B RID: 4955 RVA: 0x00079667 File Offset: 0x00077867
+			// (get) Token: 0x06001373 RID: 4979 RVA: 0x00079FD7 File Offset: 0x000781D7
 			public static int UnlockStepsMissing_PhotoBook
 			{
 				get
@@ -2528,8 +2561,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600135C RID: 4956 RVA: 0x00079685 File Offset: 0x00077885
-			// (set) Token: 0x0600135D RID: 4957 RVA: 0x0007968D File Offset: 0x0007788D
+			// (get) Token: 0x06001374 RID: 4980 RVA: 0x00079FF5 File Offset: 0x000781F5
+			// (set) Token: 0x06001375 RID: 4981 RVA: 0x00079FFD File Offset: 0x000781FD
 			public int UnlockSteps_Baphomet
 			{
 				get
@@ -2550,7 +2583,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600135E RID: 4958 RVA: 0x000796B3 File Offset: 0x000778B3
+			// (get) Token: 0x06001376 RID: 4982 RVA: 0x0007A023 File Offset: 0x00078223
 			public static int UnlockStepsMissing_Baphomet
 			{
 				get
@@ -2563,8 +2596,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600135F RID: 4959 RVA: 0x000796D4 File Offset: 0x000778D4
-			// (set) Token: 0x06001360 RID: 4960 RVA: 0x000796DC File Offset: 0x000778DC
+			// (get) Token: 0x06001377 RID: 4983 RVA: 0x0007A044 File Offset: 0x00078244
+			// (set) Token: 0x06001378 RID: 4984 RVA: 0x0007A04C File Offset: 0x0007824C
 			public int UnlockSteps_DungBeetleStercoRaro
 			{
 				get
@@ -2585,7 +2618,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001361 RID: 4961 RVA: 0x00079702 File Offset: 0x00077902
+			// (get) Token: 0x06001379 RID: 4985 RVA: 0x0007A072 File Offset: 0x00078272
 			public static int UnlockStepsMissing_DungBeetleStercoRaro
 			{
 				get
@@ -2598,8 +2631,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001362 RID: 4962 RVA: 0x00079723 File Offset: 0x00077923
-			// (set) Token: 0x06001363 RID: 4963 RVA: 0x0007972B File Offset: 0x0007792B
+			// (get) Token: 0x0600137A RID: 4986 RVA: 0x0007A093 File Offset: 0x00078293
+			// (set) Token: 0x0600137B RID: 4987 RVA: 0x0007A09B File Offset: 0x0007829B
 			public int UnlockSteps_LuckyCatFat
 			{
 				get
@@ -2620,7 +2653,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001364 RID: 4964 RVA: 0x0007974E File Offset: 0x0007794E
+			// (get) Token: 0x0600137C RID: 4988 RVA: 0x0007A0BE File Offset: 0x000782BE
 			public static int UnlockStepsMissing_LuckyCatFat
 			{
 				get
@@ -2633,8 +2666,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001365 RID: 4965 RVA: 0x0007976C File Offset: 0x0007796C
-			// (set) Token: 0x06001366 RID: 4966 RVA: 0x00079774 File Offset: 0x00077974
+			// (get) Token: 0x0600137D RID: 4989 RVA: 0x0007A0DC File Offset: 0x000782DC
+			// (set) Token: 0x0600137E RID: 4990 RVA: 0x0007A0E4 File Offset: 0x000782E4
 			public int UnlockSteps_LuckyCatSwole
 			{
 				get
@@ -2655,7 +2688,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001367 RID: 4967 RVA: 0x00079797 File Offset: 0x00077997
+			// (get) Token: 0x0600137F RID: 4991 RVA: 0x0007A107 File Offset: 0x00078307
 			public static int UnlockStepsMissing_LuckyCatSwole
 			{
 				get
@@ -2668,8 +2701,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001368 RID: 4968 RVA: 0x000797B5 File Offset: 0x000779B5
-			// (set) Token: 0x06001369 RID: 4969 RVA: 0x000797BD File Offset: 0x000779BD
+			// (get) Token: 0x06001380 RID: 4992 RVA: 0x0007A125 File Offset: 0x00078325
+			// (set) Token: 0x06001381 RID: 4993 RVA: 0x0007A12D File Offset: 0x0007832D
 			public int UnlockSteps_HorseShoeGold
 			{
 				get
@@ -2690,7 +2723,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600136A RID: 4970 RVA: 0x000797DE File Offset: 0x000779DE
+			// (get) Token: 0x06001382 RID: 4994 RVA: 0x0007A14E File Offset: 0x0007834E
 			public static int UnlockStepsMissing_HorseShoeGold
 			{
 				get
@@ -2703,8 +2736,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600136B RID: 4971 RVA: 0x000797FB File Offset: 0x000779FB
-			// (set) Token: 0x0600136C RID: 4972 RVA: 0x00079803 File Offset: 0x00077A03
+			// (get) Token: 0x06001383 RID: 4995 RVA: 0x0007A16B File Offset: 0x0007836B
+			// (set) Token: 0x06001384 RID: 4996 RVA: 0x0007A173 File Offset: 0x00078373
 			public int UnlockSteps_GoldenPepper
 			{
 				get
@@ -2725,7 +2758,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600136D RID: 4973 RVA: 0x00079826 File Offset: 0x00077A26
+			// (get) Token: 0x06001385 RID: 4997 RVA: 0x0007A196 File Offset: 0x00078396
 			public static int UnlockStepsMissing_GoldenPepper
 			{
 				get
@@ -2738,8 +2771,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600136E RID: 4974 RVA: 0x00079844 File Offset: 0x00077A44
-			// (set) Token: 0x0600136F RID: 4975 RVA: 0x0007984C File Offset: 0x00077A4C
+			// (get) Token: 0x06001386 RID: 4998 RVA: 0x0007A1B4 File Offset: 0x000783B4
+			// (set) Token: 0x06001387 RID: 4999 RVA: 0x0007A1BC File Offset: 0x000783BC
 			public int UnlockSteps_RottenPepper
 			{
 				get
@@ -2760,7 +2793,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001370 RID: 4976 RVA: 0x0007986F File Offset: 0x00077A6F
+			// (get) Token: 0x06001388 RID: 5000 RVA: 0x0007A1DF File Offset: 0x000783DF
 			public static int UnlockStepsMissing_RottenPepper
 			{
 				get
@@ -2773,8 +2806,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001371 RID: 4977 RVA: 0x0007988D File Offset: 0x00077A8D
-			// (set) Token: 0x06001372 RID: 4978 RVA: 0x00079895 File Offset: 0x00077A95
+			// (get) Token: 0x06001389 RID: 5001 RVA: 0x0007A1FD File Offset: 0x000783FD
+			// (set) Token: 0x0600138A RID: 5002 RVA: 0x0007A205 File Offset: 0x00078405
 			public int UnlockSteps_BellPepper
 			{
 				get
@@ -2795,7 +2828,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001373 RID: 4979 RVA: 0x000798B8 File Offset: 0x00077AB8
+			// (get) Token: 0x0600138B RID: 5003 RVA: 0x0007A228 File Offset: 0x00078428
 			public static int UnlockStepsMissing_BellPepper
 			{
 				get
@@ -2808,8 +2841,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001374 RID: 4980 RVA: 0x000798D6 File Offset: 0x00077AD6
-			// (set) Token: 0x06001375 RID: 4981 RVA: 0x000798DE File Offset: 0x00077ADE
+			// (get) Token: 0x0600138C RID: 5004 RVA: 0x0007A246 File Offset: 0x00078446
+			// (set) Token: 0x0600138D RID: 5005 RVA: 0x0007A24E File Offset: 0x0007844E
 			public int UnlockSteps_Abyssu
 			{
 				get
@@ -2830,7 +2863,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001376 RID: 4982 RVA: 0x00079901 File Offset: 0x00077B01
+			// (get) Token: 0x0600138E RID: 5006 RVA: 0x0007A271 File Offset: 0x00078471
 			public static int UnlockStepsMissing_Abyssu
 			{
 				get
@@ -2843,8 +2876,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001377 RID: 4983 RVA: 0x0007991F File Offset: 0x00077B1F
-			// (set) Token: 0x06001378 RID: 4984 RVA: 0x00079927 File Offset: 0x00077B27
+			// (get) Token: 0x0600138F RID: 5007 RVA: 0x0007A28F File Offset: 0x0007848F
+			// (set) Token: 0x06001390 RID: 5008 RVA: 0x0007A297 File Offset: 0x00078497
 			public int UnlockSteps_Vorago
 			{
 				get
@@ -2865,7 +2898,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001379 RID: 4985 RVA: 0x0007994A File Offset: 0x00077B4A
+			// (get) Token: 0x06001391 RID: 5009 RVA: 0x0007A2BA File Offset: 0x000784BA
 			public static int UnlockStepsMissing_Vorago
 			{
 				get
@@ -2878,8 +2911,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600137A RID: 4986 RVA: 0x00079968 File Offset: 0x00077B68
-			// (set) Token: 0x0600137B RID: 4987 RVA: 0x00079970 File Offset: 0x00077B70
+			// (get) Token: 0x06001392 RID: 5010 RVA: 0x0007A2D8 File Offset: 0x000784D8
+			// (set) Token: 0x06001393 RID: 5011 RVA: 0x0007A2E0 File Offset: 0x000784E0
 			public int UnlockSteps_Barathrum
 			{
 				get
@@ -2900,7 +2933,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600137C RID: 4988 RVA: 0x00079993 File Offset: 0x00077B93
+			// (get) Token: 0x06001394 RID: 5012 RVA: 0x0007A303 File Offset: 0x00078503
 			public static int UnlockStepsMissing__Barathrum
 			{
 				get
@@ -2913,8 +2946,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600137D RID: 4989 RVA: 0x000799B1 File Offset: 0x00077BB1
-			// (set) Token: 0x0600137E RID: 4990 RVA: 0x000799B9 File Offset: 0x00077BB9
+			// (get) Token: 0x06001395 RID: 5013 RVA: 0x0007A321 File Offset: 0x00078521
+			// (set) Token: 0x06001396 RID: 5014 RVA: 0x0007A329 File Offset: 0x00078529
 			public int UnlockSteps_SuperCapacitor
 			{
 				get
@@ -2935,7 +2968,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600137F RID: 4991 RVA: 0x000799DF File Offset: 0x00077BDF
+			// (get) Token: 0x06001397 RID: 5015 RVA: 0x0007A34F File Offset: 0x0007854F
 			public static int UnlockStepsMissing__SuperCapacitor
 			{
 				get
@@ -2948,8 +2981,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001380 RID: 4992 RVA: 0x00079A00 File Offset: 0x00077C00
-			// (set) Token: 0x06001381 RID: 4993 RVA: 0x00079A08 File Offset: 0x00077C08
+			// (get) Token: 0x06001398 RID: 5016 RVA: 0x0007A370 File Offset: 0x00078570
+			// (set) Token: 0x06001399 RID: 5017 RVA: 0x0007A378 File Offset: 0x00078578
 			public int UnlockSteps_CrankGenerator
 			{
 				get
@@ -2970,7 +3003,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001382 RID: 4994 RVA: 0x00079A2B File Offset: 0x00077C2B
+			// (get) Token: 0x0600139A RID: 5018 RVA: 0x0007A39B File Offset: 0x0007859B
 			public static int UnlockStepsMissing__CrankGenerator
 			{
 				get
@@ -2983,8 +3016,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001383 RID: 4995 RVA: 0x00079A49 File Offset: 0x00077C49
-			// (set) Token: 0x06001384 RID: 4996 RVA: 0x00079A51 File Offset: 0x00077C51
+			// (get) Token: 0x0600139B RID: 5019 RVA: 0x0007A3B9 File Offset: 0x000785B9
+			// (set) Token: 0x0600139C RID: 5020 RVA: 0x0007A3C1 File Offset: 0x000785C1
 			public int UnlockSteps_BoardgameC_Bricks
 			{
 				get
@@ -3005,7 +3038,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001385 RID: 4997 RVA: 0x00079A77 File Offset: 0x00077C77
+			// (get) Token: 0x0600139D RID: 5021 RVA: 0x0007A3E7 File Offset: 0x000785E7
 			public static int UnlockStepsMissing__BoardgameC_Bricks
 			{
 				get
@@ -3018,8 +3051,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001386 RID: 4998 RVA: 0x00079A95 File Offset: 0x00077C95
-			// (set) Token: 0x06001387 RID: 4999 RVA: 0x00079A9D File Offset: 0x00077C9D
+			// (get) Token: 0x0600139E RID: 5022 RVA: 0x0007A405 File Offset: 0x00078605
+			// (set) Token: 0x0600139F RID: 5023 RVA: 0x0007A40D File Offset: 0x0007860D
 			public int UnlockSteps_BoardgameC_Wood
 			{
 				get
@@ -3040,7 +3073,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001388 RID: 5000 RVA: 0x00079AC3 File Offset: 0x00077CC3
+			// (get) Token: 0x060013A0 RID: 5024 RVA: 0x0007A433 File Offset: 0x00078633
 			public static int UnlockStepsMissing__BoardgameC_Wood
 			{
 				get
@@ -3053,8 +3086,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001389 RID: 5001 RVA: 0x00079AE1 File Offset: 0x00077CE1
-			// (set) Token: 0x0600138A RID: 5002 RVA: 0x00079AE9 File Offset: 0x00077CE9
+			// (get) Token: 0x060013A1 RID: 5025 RVA: 0x0007A451 File Offset: 0x00078651
+			// (set) Token: 0x060013A2 RID: 5026 RVA: 0x0007A459 File Offset: 0x00078659
 			public int UnlockSteps_BoardgameC_Sheep
 			{
 				get
@@ -3075,7 +3108,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600138B RID: 5003 RVA: 0x00079B12 File Offset: 0x00077D12
+			// (get) Token: 0x060013A3 RID: 5027 RVA: 0x0007A482 File Offset: 0x00078682
 			public static int UnlockStepsMissing__BoardgameC_Sheep
 			{
 				get
@@ -3088,8 +3121,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600138C RID: 5004 RVA: 0x00079B33 File Offset: 0x00077D33
-			// (set) Token: 0x0600138D RID: 5005 RVA: 0x00079B3B File Offset: 0x00077D3B
+			// (get) Token: 0x060013A4 RID: 5028 RVA: 0x0007A4A3 File Offset: 0x000786A3
+			// (set) Token: 0x060013A5 RID: 5029 RVA: 0x0007A4AB File Offset: 0x000786AB
 			public int UnlockSteps_BoardgameC_Wheat
 			{
 				get
@@ -3110,7 +3143,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600138E RID: 5006 RVA: 0x00079B64 File Offset: 0x00077D64
+			// (get) Token: 0x060013A6 RID: 5030 RVA: 0x0007A4D4 File Offset: 0x000786D4
 			public static int UnlockStepsMissing__BoardgameC_Wheat
 			{
 				get
@@ -3123,8 +3156,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600138F RID: 5007 RVA: 0x00079B85 File Offset: 0x00077D85
-			// (set) Token: 0x06001390 RID: 5008 RVA: 0x00079B8D File Offset: 0x00077D8D
+			// (get) Token: 0x060013A7 RID: 5031 RVA: 0x0007A4F5 File Offset: 0x000786F5
+			// (set) Token: 0x060013A8 RID: 5032 RVA: 0x0007A4FD File Offset: 0x000786FD
 			public int UnlockSteps_BoardgameC_Stone
 			{
 				get
@@ -3145,7 +3178,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001391 RID: 5009 RVA: 0x00079BB6 File Offset: 0x00077DB6
+			// (get) Token: 0x060013A9 RID: 5033 RVA: 0x0007A526 File Offset: 0x00078726
 			public static int UnlockStepsMissing__BoardgameC_Stone
 			{
 				get
@@ -3158,8 +3191,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001392 RID: 5010 RVA: 0x00079BD7 File Offset: 0x00077DD7
-			// (set) Token: 0x06001393 RID: 5011 RVA: 0x00079BDF File Offset: 0x00077DDF
+			// (get) Token: 0x060013AA RID: 5034 RVA: 0x0007A547 File Offset: 0x00078747
+			// (set) Token: 0x060013AB RID: 5035 RVA: 0x0007A54F File Offset: 0x0007874F
 			public int UnlockSteps_BoardgameC_Harbor
 			{
 				get
@@ -3180,7 +3213,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001394 RID: 5012 RVA: 0x00079C08 File Offset: 0x00077E08
+			// (get) Token: 0x060013AC RID: 5036 RVA: 0x0007A578 File Offset: 0x00078778
 			public static int UnlockStepsMissing__BoardgameC_Harbor
 			{
 				get
@@ -3193,8 +3226,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001395 RID: 5013 RVA: 0x00079C29 File Offset: 0x00077E29
-			// (set) Token: 0x06001396 RID: 5014 RVA: 0x00079C31 File Offset: 0x00077E31
+			// (get) Token: 0x060013AD RID: 5037 RVA: 0x0007A599 File Offset: 0x00078799
+			// (set) Token: 0x060013AE RID: 5038 RVA: 0x0007A5A1 File Offset: 0x000787A1
 			public int UnlockSteps_BoardgameC_Thief
 			{
 				get
@@ -3215,7 +3248,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001397 RID: 5015 RVA: 0x00079C5A File Offset: 0x00077E5A
+			// (get) Token: 0x060013AF RID: 5039 RVA: 0x0007A5CA File Offset: 0x000787CA
 			public static int UnlockStepsMissing__BoardgameC_Thief
 			{
 				get
@@ -3228,8 +3261,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x06001398 RID: 5016 RVA: 0x00079C7B File Offset: 0x00077E7B
-			// (set) Token: 0x06001399 RID: 5017 RVA: 0x00079C83 File Offset: 0x00077E83
+			// (get) Token: 0x060013B0 RID: 5040 RVA: 0x0007A5EB File Offset: 0x000787EB
+			// (set) Token: 0x060013B1 RID: 5041 RVA: 0x0007A5F3 File Offset: 0x000787F3
 			public int UnlockSteps_BoardgameM_Carriola
 			{
 				get
@@ -3250,7 +3283,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600139A RID: 5018 RVA: 0x00079CAC File Offset: 0x00077EAC
+			// (get) Token: 0x060013B2 RID: 5042 RVA: 0x0007A61C File Offset: 0x0007881C
 			public static int UnlockStepsMissing__BoardgameM_Carriola
 			{
 				get
@@ -3263,8 +3296,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600139B RID: 5019 RVA: 0x00079CCD File Offset: 0x00077ECD
-			// (set) Token: 0x0600139C RID: 5020 RVA: 0x00079CD5 File Offset: 0x00077ED5
+			// (get) Token: 0x060013B3 RID: 5043 RVA: 0x0007A63D File Offset: 0x0007883D
+			// (set) Token: 0x060013B4 RID: 5044 RVA: 0x0007A645 File Offset: 0x00078845
 			public int UnlockSteps_BoardgameM_Shoe
 			{
 				get
@@ -3285,7 +3318,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600139D RID: 5021 RVA: 0x00079CFE File Offset: 0x00077EFE
+			// (get) Token: 0x060013B5 RID: 5045 RVA: 0x0007A66E File Offset: 0x0007886E
 			public static int UnlockStepsMissing__BoardgameM_Shoe
 			{
 				get
@@ -3298,8 +3331,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x0600139E RID: 5022 RVA: 0x00079D1F File Offset: 0x00077F1F
-			// (set) Token: 0x0600139F RID: 5023 RVA: 0x00079D27 File Offset: 0x00077F27
+			// (get) Token: 0x060013B6 RID: 5046 RVA: 0x0007A68F File Offset: 0x0007888F
+			// (set) Token: 0x060013B7 RID: 5047 RVA: 0x0007A697 File Offset: 0x00078897
 			public int UnlockSteps_BoardgameM_Ditale
 			{
 				get
@@ -3320,7 +3353,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A0 RID: 5024 RVA: 0x00079D4D File Offset: 0x00077F4D
+			// (get) Token: 0x060013B8 RID: 5048 RVA: 0x0007A6BD File Offset: 0x000788BD
 			public static int UnlockStepsMissing__BoardgameM_Ditale
 			{
 				get
@@ -3333,8 +3366,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A1 RID: 5025 RVA: 0x00079D6B File Offset: 0x00077F6B
-			// (set) Token: 0x060013A2 RID: 5026 RVA: 0x00079D73 File Offset: 0x00077F73
+			// (get) Token: 0x060013B9 RID: 5049 RVA: 0x0007A6DB File Offset: 0x000788DB
+			// (set) Token: 0x060013BA RID: 5050 RVA: 0x0007A6E3 File Offset: 0x000788E3
 			public int UnlockSteps_BoardgameM_Iron
 			{
 				get
@@ -3355,7 +3388,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A3 RID: 5027 RVA: 0x00079D99 File Offset: 0x00077F99
+			// (get) Token: 0x060013BB RID: 5051 RVA: 0x0007A709 File Offset: 0x00078909
 			public static int UnlockStepsMissing__BoardgameM_Iron
 			{
 				get
@@ -3368,8 +3401,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A4 RID: 5028 RVA: 0x00079DB7 File Offset: 0x00077FB7
-			// (set) Token: 0x060013A5 RID: 5029 RVA: 0x00079DBF File Offset: 0x00077FBF
+			// (get) Token: 0x060013BC RID: 5052 RVA: 0x0007A727 File Offset: 0x00078927
+			// (set) Token: 0x060013BD RID: 5053 RVA: 0x0007A72F File Offset: 0x0007892F
 			public int UnlockSteps_BoardgameM_Car
 			{
 				get
@@ -3390,7 +3423,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A6 RID: 5030 RVA: 0x00079DE8 File Offset: 0x00077FE8
+			// (get) Token: 0x060013BE RID: 5054 RVA: 0x0007A758 File Offset: 0x00078958
 			public static int UnlockStepsMissing__BoardgameM_Car
 			{
 				get
@@ -3403,8 +3436,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A7 RID: 5031 RVA: 0x00079E09 File Offset: 0x00078009
-			// (set) Token: 0x060013A8 RID: 5032 RVA: 0x00079E11 File Offset: 0x00078011
+			// (get) Token: 0x060013BF RID: 5055 RVA: 0x0007A779 File Offset: 0x00078979
+			// (set) Token: 0x060013C0 RID: 5056 RVA: 0x0007A781 File Offset: 0x00078981
 			public int UnlockSteps_BoardgameM_Ship
 			{
 				get
@@ -3425,7 +3458,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013A9 RID: 5033 RVA: 0x00079E3A File Offset: 0x0007803A
+			// (get) Token: 0x060013C1 RID: 5057 RVA: 0x0007A7AA File Offset: 0x000789AA
 			public static int UnlockStepsMissing__BoardgameM_Ship
 			{
 				get
@@ -3438,8 +3471,8 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013AA RID: 5034 RVA: 0x00079E5B File Offset: 0x0007805B
-			// (set) Token: 0x060013AB RID: 5035 RVA: 0x00079E63 File Offset: 0x00078063
+			// (get) Token: 0x060013C2 RID: 5058 RVA: 0x0007A7CB File Offset: 0x000789CB
+			// (set) Token: 0x060013C3 RID: 5059 RVA: 0x0007A7D3 File Offset: 0x000789D3
 			public int UnlockSteps_BoardgameM_TubaHat
 			{
 				get
@@ -3460,7 +3493,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013AC RID: 5036 RVA: 0x00079E8C File Offset: 0x0007808C
+			// (get) Token: 0x060013C4 RID: 5060 RVA: 0x0007A7FC File Offset: 0x000789FC
 			public static int UnlockStepsMissing__BoardgameM_TubaHat
 			{
 				get
@@ -3473,7 +3506,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013AD RID: 5037 RVA: 0x00079EB0 File Offset: 0x000780B0
+			// Token: 0x060013C5 RID: 5061 RVA: 0x0007A820 File Offset: 0x00078A20
 			public static long Tracker_ModSymbolsCounter_Get(SymbolScript.Kind symbolKind)
 			{
 				if (Data.game == null)
@@ -3505,7 +3538,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013AE RID: 5038 RVA: 0x00079F64 File Offset: 0x00078164
+			// Token: 0x060013C6 RID: 5062 RVA: 0x0007A8D4 File Offset: 0x00078AD4
 			public static void Tracker_ModSymbolsCounter_Set(SymbolScript.Kind symbolKind, long n)
 			{
 				if (Data.game == null)
@@ -3544,7 +3577,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013AF RID: 5039 RVA: 0x0007A016 File Offset: 0x00078216
+			// Token: 0x060013C7 RID: 5063 RVA: 0x0007A986 File Offset: 0x00078B86
 			private void _TerminalNotificationsListEnsure()
 			{
 				if (this.terminalNotifications == null)
@@ -3553,14 +3586,14 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013B0 RID: 5040 RVA: 0x0007A02B File Offset: 0x0007822B
+			// Token: 0x060013C8 RID: 5064 RVA: 0x0007A99B File Offset: 0x00078B9B
 			public bool TerminalNotification_HasAny()
 			{
 				this._TerminalNotificationsListEnsure();
 				return this.terminalNotifications.Count > 0;
 			}
 
-			// Token: 0x060013B1 RID: 5041 RVA: 0x0007A041 File Offset: 0x00078241
+			// Token: 0x060013C9 RID: 5065 RVA: 0x0007A9B1 File Offset: 0x00078BB1
 			public Data.GameData.TerminalNotification TerminaNotification_GetFirst(bool remove)
 			{
 				this._TerminalNotificationsListEnsure();
@@ -3576,14 +3609,14 @@ namespace Panik
 				return terminalNotification;
 			}
 
-			// Token: 0x060013B2 RID: 5042 RVA: 0x0007A073 File Offset: 0x00078273
+			// Token: 0x060013CA RID: 5066 RVA: 0x0007A9E3 File Offset: 0x00078BE3
 			public void TerminalNotification_Set(Data.GameData.TerminalNotification notification)
 			{
 				this._TerminalNotificationsListEnsure();
 				this.terminalNotifications.Add(notification);
 			}
 
-			// (get) Token: 0x060013B3 RID: 5043 RVA: 0x0007A087 File Offset: 0x00078287
+			// (get) Token: 0x060013CB RID: 5067 RVA: 0x0007A9F7 File Offset: 0x00078BF7
 			public bool AllCardsUnlocked
 			{
 				get
@@ -3592,7 +3625,7 @@ namespace Panik
 				}
 			}
 
-			// (get) Token: 0x060013B4 RID: 5044 RVA: 0x0007A08F File Offset: 0x0007828F
+			// (get) Token: 0x060013CC RID: 5068 RVA: 0x0007A9FF File Offset: 0x00078BFF
 			public bool AllCardsHolographic
 			{
 				get
@@ -3601,7 +3634,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013B5 RID: 5045 RVA: 0x0007A098 File Offset: 0x00078298
+			// Token: 0x060013CD RID: 5069 RVA: 0x0007AA08 File Offset: 0x00078C08
 			public static void AllCardsUnlockedCompute()
 			{
 				bool flag = true;
@@ -3617,7 +3650,7 @@ namespace Panik
 				Data.game._allCardsUnlocked = flag;
 			}
 
-			// Token: 0x060013B6 RID: 5046 RVA: 0x0007A0D8 File Offset: 0x000782D8
+			// Token: 0x060013CE RID: 5070 RVA: 0x0007AA48 File Offset: 0x00078C48
 			public static void AllCardsHolographicCompute()
 			{
 				bool flag = true;
@@ -3633,7 +3666,7 @@ namespace Panik
 				Data.game._allCardsHolographic = flag;
 			}
 
-			// Token: 0x060013B7 RID: 5047 RVA: 0x0007A114 File Offset: 0x00078314
+			// Token: 0x060013CF RID: 5071 RVA: 0x0007AA84 File Offset: 0x00078C84
 			private void RunMod_EnsureAllCapsules()
 			{
 				int num = 20;
@@ -3643,7 +3676,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013B8 RID: 5048 RVA: 0x0007A138 File Offset: 0x00078338
+			// Token: 0x060013D0 RID: 5072 RVA: 0x0007AAA8 File Offset: 0x00078CA8
 			private void RunModCapsuleEnsure(RunModifierScript.Identifier identifier)
 			{
 				if (this.runModCapsulesDictionary.ContainsKey(identifier))
@@ -3658,14 +3691,14 @@ namespace Panik
 				this.runModCapsulesDictionary.Add(identifier, runModifierCapsule);
 			}
 
-			// Token: 0x060013B9 RID: 5049 RVA: 0x0007A185 File Offset: 0x00078385
+			// Token: 0x060013D1 RID: 5073 RVA: 0x0007AAF5 File Offset: 0x00078CF5
 			private Data.GameData.RunModifierCapsule _RunModifier_GetWorkingCapsule(RunModifierScript.Identifier identifier)
 			{
 				Data.game.RunModCapsuleEnsure(identifier);
 				return Data.game.runModCapsulesDictionary[identifier];
 			}
 
-			// Token: 0x060013BA RID: 5050 RVA: 0x0007A1A4 File Offset: 0x000783A4
+			// Token: 0x060013D2 RID: 5074 RVA: 0x0007AB14 File Offset: 0x00078D14
 			public int RunModifier_OwnedCount_Get(RunModifierScript.Identifier identifier)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3680,7 +3713,7 @@ namespace Panik
 				return runModifierCapsule.ownedCount;
 			}
 
-			// Token: 0x060013BB RID: 5051 RVA: 0x0007A1CC File Offset: 0x000783CC
+			// Token: 0x060013D3 RID: 5075 RVA: 0x0007AB3C File Offset: 0x00078D3C
 			public void RunModifier_OwnedCount_Set(RunModifierScript.Identifier identifier, int n)
 			{
 				if (identifier == RunModifierScript.Identifier.defaultModifier)
@@ -3695,7 +3728,7 @@ namespace Panik
 				runModifierCapsule.ownedCount = n;
 			}
 
-			// Token: 0x060013BC RID: 5052 RVA: 0x0007A1F0 File Offset: 0x000783F0
+			// Token: 0x060013D4 RID: 5076 RVA: 0x0007AB60 File Offset: 0x00078D60
 			public int RunModifier_UnlockedTimes_Get(RunModifierScript.Identifier identifier)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3706,7 +3739,7 @@ namespace Panik
 				return runModifierCapsule.unlockedTimes;
 			}
 
-			// Token: 0x060013BD RID: 5053 RVA: 0x0007A210 File Offset: 0x00078410
+			// Token: 0x060013D5 RID: 5077 RVA: 0x0007AB80 File Offset: 0x00078D80
 			public void RunModifier_UnlockedTimes_Set(RunModifierScript.Identifier identifier, int n)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3718,7 +3751,7 @@ namespace Panik
 				Data.GameData.AllCardsUnlockedCompute();
 			}
 
-			// Token: 0x060013BE RID: 5054 RVA: 0x0007A238 File Offset: 0x00078438
+			// Token: 0x060013D6 RID: 5078 RVA: 0x0007ABA8 File Offset: 0x00078DA8
 			public int RunModifier_PlayedTimes_Get(RunModifierScript.Identifier identifier)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3729,7 +3762,7 @@ namespace Panik
 				return runModifierCapsule.playedTimes;
 			}
 
-			// Token: 0x060013BF RID: 5055 RVA: 0x0007A258 File Offset: 0x00078458
+			// Token: 0x060013D7 RID: 5079 RVA: 0x0007ABC8 File Offset: 0x00078DC8
 			public void RunModifier_PlayedTimes_Set(RunModifierScript.Identifier identifier, int n)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3740,7 +3773,7 @@ namespace Panik
 				runModifierCapsule.playedTimes = n;
 			}
 
-			// Token: 0x060013C0 RID: 5056 RVA: 0x0007A278 File Offset: 0x00078478
+			// Token: 0x060013D8 RID: 5080 RVA: 0x0007ABE8 File Offset: 0x00078DE8
 			public int RunModifier_WonTimes_Get(RunModifierScript.Identifier identifier)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3751,7 +3784,7 @@ namespace Panik
 				return runModifierCapsule.wonTimes;
 			}
 
-			// Token: 0x060013C1 RID: 5057 RVA: 0x0007A298 File Offset: 0x00078498
+			// Token: 0x060013D9 RID: 5081 RVA: 0x0007AC08 File Offset: 0x00078E08
 			public void RunModifier_WonTimes_Set(RunModifierScript.Identifier identifier, int n)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3766,7 +3799,33 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013C2 RID: 5058 RVA: 0x0007A2C8 File Offset: 0x000784C8
+			// Token: 0x060013DA RID: 5082 RVA: 0x0007AC38 File Offset: 0x00078E38
+			public int RunModifier_WonTimesHARDCORE_Get(RunModifierScript.Identifier identifier)
+			{
+				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
+				if (runModifierCapsule == null)
+				{
+					return 0;
+				}
+				return runModifierCapsule.wonTimesHardcore;
+			}
+
+			// Token: 0x060013DB RID: 5083 RVA: 0x0007AC58 File Offset: 0x00078E58
+			public void RunModifier_WonTimesHARDCORE_Set(RunModifierScript.Identifier identifier, int n)
+			{
+				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
+				if (runModifierCapsule == null)
+				{
+					return;
+				}
+				runModifierCapsule.wonTimesHardcore = n;
+				if (identifier == RunModifierScript.Identifier.bigDebt)
+				{
+					PlatformAPI.AchievementUnlock_FullGame(PlatformAPI.AchievementFullGame.Omnipotent);
+				}
+			}
+
+			// Token: 0x060013DC RID: 5084 RVA: 0x0007AC88 File Offset: 0x00078E88
 			public int RunModifier_FoilLevel_Get(RunModifierScript.Identifier identifier)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3777,7 +3836,7 @@ namespace Panik
 				return runModifierCapsule.foilLevel;
 			}
 
-			// Token: 0x060013C3 RID: 5059 RVA: 0x0007A2E8 File Offset: 0x000784E8
+			// Token: 0x060013DD RID: 5085 RVA: 0x0007ACA8 File Offset: 0x00078EA8
 			public void RunModifier_FoilLevel_Set(RunModifierScript.Identifier identifier, int n)
 			{
 				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
@@ -3789,7 +3848,25 @@ namespace Panik
 				Data.GameData.AllCardsHolographicCompute();
 			}
 
-			// Token: 0x060013C4 RID: 5060 RVA: 0x0007A310 File Offset: 0x00078510
+			// Token: 0x060013DE RID: 5086 RVA: 0x0007ACD0 File Offset: 0x00078ED0
+			public bool RunModifier_HardcoreMode_Get(RunModifierScript.Identifier identifier)
+			{
+				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
+				return runModifierCapsule != null && runModifierCapsule.isInHardcoreMode;
+			}
+
+			// Token: 0x060013DF RID: 5087 RVA: 0x0007ACF0 File Offset: 0x00078EF0
+			public void RunModifier_HardcoreMode_Set(RunModifierScript.Identifier identifier, bool value)
+			{
+				Data.GameData.RunModifierCapsule runModifierCapsule = this._RunModifier_GetWorkingCapsule(identifier);
+				if (runModifierCapsule == null)
+				{
+					return;
+				}
+				runModifierCapsule.isInHardcoreMode = value;
+			}
+
+			// Token: 0x060013E0 RID: 5088 RVA: 0x0007AD10 File Offset: 0x00078F10
 			public int RunModifier_UnlockedTotalNumber()
 			{
 				int num = 0;
@@ -3803,7 +3880,49 @@ namespace Panik
 				return num;
 			}
 
-			// Token: 0x060013C5 RID: 5061 RVA: 0x0007A3A4 File Offset: 0x000785A4
+			// Token: 0x060013E1 RID: 5089 RVA: 0x0007ADA4 File Offset: 0x00078FA4
+			public int RunModifier_UnlockedOnce_TotalNumber()
+			{
+				int num = 0;
+				foreach (KeyValuePair<RunModifierScript.Identifier, Data.GameData.RunModifierCapsule> keyValuePair in this.runModCapsulesDictionary)
+				{
+					if (keyValuePair.Key != RunModifierScript.Identifier.undefined && keyValuePair.Key != RunModifierScript.Identifier.count && keyValuePair.Value != null && (keyValuePair.Value.GetIdentifier() == RunModifierScript.Identifier.defaultModifier || keyValuePair.Value.unlockedTimes > 0))
+					{
+						num++;
+					}
+				}
+				return num;
+			}
+
+			// Token: 0x060013E2 RID: 5090 RVA: 0x0007AE34 File Offset: 0x00079034
+			public int RunModifier_WonOnce_TotalNumber()
+			{
+				int num = 0;
+				foreach (KeyValuePair<RunModifierScript.Identifier, Data.GameData.RunModifierCapsule> keyValuePair in this.runModCapsulesDictionary)
+				{
+					if (keyValuePair.Key != RunModifierScript.Identifier.undefined && keyValuePair.Key != RunModifierScript.Identifier.count && keyValuePair.Value != null && keyValuePair.Value.wonTimes > 0)
+					{
+						num++;
+					}
+				}
+				return num;
+			}
+
+			// Token: 0x060013E3 RID: 5091 RVA: 0x0007AEB8 File Offset: 0x000790B8
+			public int RunModifier_InHolographicCondition_TotalNumber()
+			{
+				int num = 0;
+				foreach (KeyValuePair<RunModifierScript.Identifier, Data.GameData.RunModifierCapsule> keyValuePair in this.runModCapsulesDictionary)
+				{
+					if (keyValuePair.Key != RunModifierScript.Identifier.undefined && keyValuePair.Key != RunModifierScript.Identifier.count && keyValuePair.Value != null && (keyValuePair.Value.wonTimesHardcore > 0 || keyValuePair.Value.foilLevel >= 2))
+					{
+						num++;
+					}
+				}
+				return num;
+			}
+
+			// Token: 0x060013E4 RID: 5092 RVA: 0x0007AF48 File Offset: 0x00079148
 			public int RunModifier_OwnedCopiesTotalNumber()
 			{
 				int num = 0;
@@ -3817,7 +3936,7 @@ namespace Panik
 				return num;
 			}
 
-			// Token: 0x060013C6 RID: 5062 RVA: 0x0007A438 File Offset: 0x00078638
+			// Token: 0x060013E5 RID: 5093 RVA: 0x0007AFDC File Offset: 0x000791DC
 			private void _RunMod_DictAndListEnsure()
 			{
 				if (this.runModCapsulesDictionary == null)
@@ -3830,7 +3949,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013C7 RID: 5063 RVA: 0x0007A460 File Offset: 0x00078660
+			// Token: 0x060013E6 RID: 5094 RVA: 0x0007B004 File Offset: 0x00079204
 			private void _RunModifiers_SavePrepare()
 			{
 				this._RunMod_DictAndListEnsure();
@@ -3842,7 +3961,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060013C8 RID: 5064 RVA: 0x0007A4D8 File Offset: 0x000786D8
+			// Token: 0x060013E7 RID: 5095 RVA: 0x0007B07C File Offset: 0x0007927C
 			private void _RunModifiers_LoadPrepare()
 			{
 				this._RunMod_DictAndListEnsure();
@@ -4196,7 +4315,7 @@ namespace Panik
 			[Serializable]
 			public class TerminalNotification
 			{
-				// Token: 0x060014C5 RID: 5317 RVA: 0x0007FD23 File Offset: 0x0007DF23
+				// Token: 0x060014E4 RID: 5348 RVA: 0x000808C7 File Offset: 0x0007EAC7
 				public TerminalNotification(PowerupScript.Identifier powerupIdentifier, string titleKey, string messageKey)
 				{
 					this.powerupIdentifierAsString = PlatformDataMaster.EnumEntryToString<PowerupScript.Identifier>(powerupIdentifier);
@@ -4204,20 +4323,20 @@ namespace Panik
 					this.messageKey = messageKey;
 				}
 
-				// Token: 0x060014C6 RID: 5318 RVA: 0x0007FD45 File Offset: 0x0007DF45
+				// Token: 0x060014E5 RID: 5349 RVA: 0x000808E9 File Offset: 0x0007EAE9
 				public string GetTitle()
 				{
 					return Strings.Sanitize(Strings.SantizationKind.ui, Translation.Get(this.titleKey), Strings.SanitizationSubKind.none);
 				}
 
-				// Token: 0x060014C7 RID: 5319 RVA: 0x0007FD59 File Offset: 0x0007DF59
+				// Token: 0x060014E6 RID: 5350 RVA: 0x000808FD File Offset: 0x0007EAFD
 				public string GetMessage()
 				{
 					Data.GameData._terminalNotificationStringPowerup = PlatformDataMaster.EnumEntryFromString<PowerupScript.Identifier>(this.powerupIdentifierAsString, PowerupScript.Identifier.undefined);
 					return Strings.Sanitize(Strings.SantizationKind.ui, Translation.Get(this.messageKey), Strings.SanitizationSubKind.none);
 				}
 
-				// Token: 0x060014C8 RID: 5320 RVA: 0x0007FD7E File Offset: 0x0007DF7E
+				// Token: 0x060014E7 RID: 5351 RVA: 0x00080922 File Offset: 0x0007EB22
 				public PowerupScript.Identifier GetPowerupIdentifier()
 				{
 					return PlatformDataMaster.EnumEntryFromString<PowerupScript.Identifier>(this.powerupIdentifierAsString, PowerupScript.Identifier.undefined);
@@ -4236,13 +4355,13 @@ namespace Panik
 			[Serializable]
 			public class RunModifierCapsule
 			{
-				// Token: 0x060014C9 RID: 5321 RVA: 0x0007FD8C File Offset: 0x0007DF8C
+				// Token: 0x060014E8 RID: 5352 RVA: 0x00080930 File Offset: 0x0007EB30
 				public RunModifierCapsule(RunModifierScript.Identifier identifier)
 				{
 					this.runModifierIdentifierAsString = PlatformDataMaster.EnumEntryToString<RunModifierScript.Identifier>(identifier);
 				}
 
-				// Token: 0x060014CA RID: 5322 RVA: 0x0007FDA0 File Offset: 0x0007DFA0
+				// Token: 0x060014E9 RID: 5353 RVA: 0x00080944 File Offset: 0x0007EB44
 				public RunModifierScript.Identifier GetIdentifier()
 				{
 					return PlatformDataMaster.EnumEntryFromString<RunModifierScript.Identifier>(this.runModifierIdentifierAsString, RunModifierScript.Identifier.undefined);
@@ -4264,7 +4383,13 @@ namespace Panik
 				public int wonTimes;
 
 				[SerializeField]
+				public int wonTimesHardcore;
+
+				[SerializeField]
 				public int foilLevel;
+
+				[SerializeField]
+				public bool isInHardcoreMode;
 			}
 		}
 	}

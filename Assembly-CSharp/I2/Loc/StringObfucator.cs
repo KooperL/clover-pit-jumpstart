@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public class StringObfucator
 	{
-		// Token: 0x06001037 RID: 4151 RVA: 0x00065A5C File Offset: 0x00063C5C
+		// Token: 0x0600104E RID: 4174 RVA: 0x00066238 File Offset: 0x00064438
 		public static string Encode(string NormalString)
 		{
 			string text;
@@ -20,7 +20,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06001038 RID: 4152 RVA: 0x00065A90 File Offset: 0x00063C90
+		// Token: 0x0600104F RID: 4175 RVA: 0x0006626C File Offset: 0x0006446C
 		public static string Decode(string ObfucatedString)
 		{
 			string text;
@@ -35,20 +35,20 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06001039 RID: 4153 RVA: 0x00065AC4 File Offset: 0x00063CC4
+		// Token: 0x06001050 RID: 4176 RVA: 0x000662A0 File Offset: 0x000644A0
 		private static string ToBase64(string regularString)
 		{
 			return Convert.ToBase64String(Encoding.UTF8.GetBytes(regularString));
 		}
 
-		// Token: 0x0600103A RID: 4154 RVA: 0x00065AD8 File Offset: 0x00063CD8
+		// Token: 0x06001051 RID: 4177 RVA: 0x000662B4 File Offset: 0x000644B4
 		private static string FromBase64(string base64string)
 		{
 			byte[] array = Convert.FromBase64String(base64string);
 			return Encoding.UTF8.GetString(array, 0, array.Length);
 		}
 
-		// Token: 0x0600103B RID: 4155 RVA: 0x00065AFC File Offset: 0x00063CFC
+		// Token: 0x06001052 RID: 4178 RVA: 0x000662D8 File Offset: 0x000644D8
 		private static string XoREncode(string NormalString)
 		{
 			string text;

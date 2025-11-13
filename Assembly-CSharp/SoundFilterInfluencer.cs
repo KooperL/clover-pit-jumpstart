@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SoundFilterInfluencer : MonoBehaviour
 {
-	// Token: 0x060003BF RID: 959 RVA: 0x00019EA7 File Offset: 0x000180A7
+	// Token: 0x060003BD RID: 957 RVA: 0x00019F6B File Offset: 0x0001816B
 	public static void ResetReverb()
 	{
 		CameraGame.firstInstance.audioReverbFilter.reverbLevel = SoundFilterInfluencer.reverbDefault;
 	}
 
-	// Token: 0x060003C0 RID: 960 RVA: 0x00019EBD File Offset: 0x000180BD
+	// Token: 0x060003BE RID: 958 RVA: 0x00019F81 File Offset: 0x00018181
 	private void Start()
 	{
 		if (SoundFilterInfluencer.reverbDefault == 0f)
@@ -19,7 +19,7 @@ public class SoundFilterInfluencer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003C1 RID: 961 RVA: 0x00019EDF File Offset: 0x000180DF
+	// Token: 0x060003BF RID: 959 RVA: 0x00019FA3 File Offset: 0x000181A3
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))

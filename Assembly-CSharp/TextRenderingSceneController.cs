@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class TextRenderingSceneController : MonoBehaviour
 {
-	// Token: 0x06000A87 RID: 2695 RVA: 0x000480CC File Offset: 0x000462CC
+	// Token: 0x06000A9C RID: 2716 RVA: 0x0004882C File Offset: 0x00046A2C
 	private void Awake()
 	{
 		this.originalPositions = new Vector3[this.shakeThoseTransforms.Length];
@@ -14,7 +14,7 @@ public class TextRenderingSceneController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A88 RID: 2696 RVA: 0x00048118 File Offset: 0x00046318
+	// Token: 0x06000A9D RID: 2717 RVA: 0x00048878 File Offset: 0x00046A78
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
@@ -23,7 +23,7 @@ public class TextRenderingSceneController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A89 RID: 2697 RVA: 0x00048140 File Offset: 0x00046340
+	// Token: 0x06000A9E RID: 2718 RVA: 0x000488A0 File Offset: 0x00046AA0
 	private void FixedUpdate()
 	{
 		for (int i = 0; i < this.shakeThoseTransforms.Length; i++)

@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class ToyPhoneUIScript : MonoBehaviour
 {
-	// Token: 0x06000A54 RID: 2644 RVA: 0x00046DB1 File Offset: 0x00044FB1
+	// Token: 0x06000A69 RID: 2665 RVA: 0x00047511 File Offset: 0x00045711
 	public static bool IsEnabled()
 	{
 		return !(ToyPhoneUIScript.instance == null) && ToyPhoneUIScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A55 RID: 2645 RVA: 0x00046DD4 File Offset: 0x00044FD4
+	// Token: 0x06000A6A RID: 2666 RVA: 0x00047534 File Offset: 0x00045734
 	public void PickUp()
 	{
 		this.oldCameraPositionKind = CameraController.GetPositionKind();
@@ -28,7 +28,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		this.mainCoroutine = base.StartCoroutine(this.MainCoroutine());
 	}
 
-	// Token: 0x06000A56 RID: 2646 RVA: 0x00046E31 File Offset: 0x00045031
+	// Token: 0x06000A6B RID: 2667 RVA: 0x00047591 File Offset: 0x00045791
 	public void HangUp()
 	{
 		this.holder.SetActive(false);
@@ -38,7 +38,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A57 RID: 2647 RVA: 0x00046E5A File Offset: 0x0004505A
+	// Token: 0x06000A6C RID: 2668 RVA: 0x000475BA File Offset: 0x000457BA
 	private IEnumerator MainCoroutine()
 	{
 		this.requestedExit = false;
@@ -48,7 +48,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		this.cursorPreviousState = VirtualCursors.CursorDesiredVisibilityGet(0);
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 		this.visualsAndButtonnsHolder.SetActive(false);
-		Sound.Play3D("SoundToyPhonePickup", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundToyPhonePickup", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
 		while (!CameraController.IsCameraNearPositionAndAngle(0.1f) && !ToyPhoneUIScript.IsForceClosing())
 		{
 			yield return null;
@@ -106,7 +106,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 							{
 								onSelect.Invoke();
 							}
-							Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+							Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
 						}
 					}
 				}
@@ -141,7 +141,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 					}
 					if (toyPhoneUIButtonScript != this.backButton)
 					{
-						Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+						Sound.Play3D_Unpausable("SoundToyPhoneSelect", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
 					}
 				}
 			}
@@ -155,7 +155,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 			}
 			yield return null;
 		}
-		Sound.Play3D("SoundToyPhoneHangUp", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundToyPhoneHangUp", ToyPhoneScript.instance.transform.position, 10f, 1f, 1f, 1);
 		GameplayMaster.instance.FCAll_ToyPhone_Hangup();
 		VirtualCursors.CursorDesiredVisibilitySet(0, this.cursorPreviousState);
 		this._forceClose_Death = false;
@@ -163,19 +163,19 @@ public class ToyPhoneUIScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A58 RID: 2648 RVA: 0x00046E69 File Offset: 0x00045069
+	// Token: 0x06000A6D RID: 2669 RVA: 0x000475C9 File Offset: 0x000457C9
 	public static int Pages_GetIndex()
 	{
 		return ToyPhoneUIScript.instance.pageIndex;
 	}
 
-	// Token: 0x06000A59 RID: 2649 RVA: 0x00046E75 File Offset: 0x00045075
+	// Token: 0x06000A6E RID: 2670 RVA: 0x000475D5 File Offset: 0x000457D5
 	public static int Pages_GetMax()
 	{
 		return ToyPhoneUIScript.instance.pagesNumberChached;
 	}
 
-	// Token: 0x06000A5A RID: 2650 RVA: 0x00046E84 File Offset: 0x00045084
+	// Token: 0x06000A6F RID: 2671 RVA: 0x000475E4 File Offset: 0x000457E4
 	private void PageApply()
 	{
 		int count = GameplayData.Instance.phoneAbilitiesPickHistory.Count;
@@ -240,13 +240,13 @@ public class ToyPhoneUIScript : MonoBehaviour
 		ToyPhoneScript.instance.UpdateLabelText();
 	}
 
-	// Token: 0x06000A5B RID: 2651 RVA: 0x0004702C File Offset: 0x0004522C
+	// Token: 0x06000A70 RID: 2672 RVA: 0x0004778C File Offset: 0x0004598C
 	public void ButtonRequest_Exit()
 	{
 		this.requestedExit = true;
 	}
 
-	// Token: 0x06000A5C RID: 2652 RVA: 0x00047035 File Offset: 0x00045235
+	// Token: 0x06000A71 RID: 2673 RVA: 0x00047795 File Offset: 0x00045995
 	public void ButtonRequest_PageNext()
 	{
 		this.pageIndex++;
@@ -257,7 +257,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		this.PageApply();
 	}
 
-	// Token: 0x06000A5D RID: 2653 RVA: 0x00047067 File Offset: 0x00045267
+	// Token: 0x06000A72 RID: 2674 RVA: 0x000477C7 File Offset: 0x000459C7
 	public void ButtonRequest_PagePrevious()
 	{
 		this.pageIndex--;
@@ -268,7 +268,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		this.PageApply();
 	}
 
-	// Token: 0x06000A5E RID: 2654 RVA: 0x0004708D File Offset: 0x0004528D
+	// Token: 0x06000A73 RID: 2675 RVA: 0x000477ED File Offset: 0x000459ED
 	public static void ForceClose_Death()
 	{
 		if (ToyPhoneUIScript.instance == null)
@@ -282,20 +282,20 @@ public class ToyPhoneUIScript : MonoBehaviour
 		ToyPhoneUIScript.instance._forceClose_Death = true;
 	}
 
-	// Token: 0x06000A5F RID: 2655 RVA: 0x000470B5 File Offset: 0x000452B5
+	// Token: 0x06000A74 RID: 2676 RVA: 0x00047815 File Offset: 0x00045A15
 	public static bool IsForceClosing()
 	{
 		return !(ToyPhoneUIScript.instance == null) && ToyPhoneUIScript.instance._forceClose_Death;
 	}
 
-	// Token: 0x06000A60 RID: 2656 RVA: 0x000470D0 File Offset: 0x000452D0
+	// Token: 0x06000A75 RID: 2677 RVA: 0x00047830 File Offset: 0x00045A30
 	private void Awake()
 	{
 		ToyPhoneUIScript.instance = this;
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A61 RID: 2657 RVA: 0x000470E4 File Offset: 0x000452E4
+	// Token: 0x06000A76 RID: 2678 RVA: 0x00047844 File Offset: 0x00045A44
 	private void OnDestroy()
 	{
 		if (ToyPhoneUIScript.instance == this)
@@ -304,7 +304,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A62 RID: 2658 RVA: 0x000470FC File Offset: 0x000452FC
+	// Token: 0x06000A77 RID: 2679 RVA: 0x0004785C File Offset: 0x00045A5C
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -315,7 +315,7 @@ public class ToyPhoneUIScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A63 RID: 2659 RVA: 0x0004715C File Offset: 0x0004535C
+	// Token: 0x06000A78 RID: 2680 RVA: 0x000478BC File Offset: 0x00045ABC
 	private void Update()
 	{
 		for (int i = 0; i < this.imagesToShake.Length; i++)

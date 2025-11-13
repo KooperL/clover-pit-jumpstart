@@ -7,7 +7,7 @@ namespace Panik
 {
 	public static class Translation
 	{
-		// (get) Token: 0x06000D79 RID: 3449 RVA: 0x00055458 File Offset: 0x00053658
+		// (get) Token: 0x06000D90 RID: 3472 RVA: 0x00055C34 File Offset: 0x00053E34
 		public static Translation.Language[] LanguagesInOrder
 		{
 			get
@@ -39,7 +39,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D7A RID: 3450 RVA: 0x00055498 File Offset: 0x00053698
+		// Token: 0x06000D91 RID: 3473 RVA: 0x00055C74 File Offset: 0x00053E74
 		public static void LanguageSet(Translation.Language language)
 		{
 			if (language == Translation.Language.Undefined)
@@ -58,13 +58,13 @@ namespace Panik
 			onLanguageChanged();
 		}
 
-		// Token: 0x06000D7B RID: 3451 RVA: 0x000554F0 File Offset: 0x000536F0
+		// Token: 0x06000D92 RID: 3474 RVA: 0x00055CCC File Offset: 0x00053ECC
 		public static Translation.Language LanguageGet()
 		{
 			return Data.settings.language;
 		}
 
-		// Token: 0x06000D7C RID: 3452 RVA: 0x000554FC File Offset: 0x000536FC
+		// Token: 0x06000D93 RID: 3475 RVA: 0x00055CD8 File Offset: 0x00053ED8
 		public static void LanguageSetNext()
 		{
 			Translation.Language language = Data.settings.language;
@@ -88,7 +88,7 @@ namespace Panik
 			Translation.LanguageSet(Translation.LanguagesInOrder[num]);
 		}
 
-		// Token: 0x06000D7D RID: 3453 RVA: 0x00055570 File Offset: 0x00053770
+		// Token: 0x06000D94 RID: 3476 RVA: 0x00055D4C File Offset: 0x00053F4C
 		public static void LanguageSetPrevious()
 		{
 			Translation.Language language = Data.settings.language;
@@ -112,25 +112,25 @@ namespace Panik
 			Translation.LanguageSet(Translation.LanguagesInOrder[num]);
 		}
 
-		// Token: 0x06000D7E RID: 3454 RVA: 0x000555E6 File Offset: 0x000537E6
+		// Token: 0x06000D95 RID: 3477 RVA: 0x00055DC2 File Offset: 0x00053FC2
 		public static string LanguageNameGetCurrent()
 		{
 			return LocalizationManager.GetTermTranslation("YOUR_LANGUAGE_TRANSLATED", true, 0, true, false, null, null, true);
 		}
 
-		// Token: 0x06000D7F RID: 3455 RVA: 0x000555F9 File Offset: 0x000537F9
+		// Token: 0x06000D96 RID: 3478 RVA: 0x00055DD5 File Offset: 0x00053FD5
 		public static string LanguageNameGetTranslated(Translation.Language language)
 		{
 			return Translation.languageNamesTranslated[(int)language];
 		}
 
-		// Token: 0x06000D80 RID: 3456 RVA: 0x00055602 File Offset: 0x00053802
+		// Token: 0x06000D97 RID: 3479 RVA: 0x00055DDE File Offset: 0x00053FDE
 		public static string LanguageI2NameGet(Translation.Language language)
 		{
 			return Translation.languagesI2Names[(int)language];
 		}
 
-		// Token: 0x06000D81 RID: 3457 RVA: 0x0005560C File Offset: 0x0005380C
+		// Token: 0x06000D98 RID: 3480 RVA: 0x00055DE8 File Offset: 0x00053FE8
 		public static string PlatformKeySuffixGet()
 		{
 			if (Translation.currentPlatformKeySuffix == null)
@@ -171,7 +171,7 @@ namespace Panik
 			return Translation.currentPlatformKeySuffix;
 		}
 
-		// Token: 0x06000D82 RID: 3458 RVA: 0x000556B4 File Offset: 0x000538B4
+		// Token: 0x06000D99 RID: 3481 RVA: 0x00055E90 File Offset: 0x00054090
 		public static string Get(string key)
 		{
 			string text = LocalizationManager.GetTermTranslation(key + Translation.PlatformKeySuffixGet(), true, 0, true, false, null, null, true);

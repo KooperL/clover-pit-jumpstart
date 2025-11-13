@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class SlotBackgroundScript : MonoBehaviour
 {
-	// Token: 0x060006EF RID: 1775 RVA: 0x0002C836 File Offset: 0x0002AA36
+	// Token: 0x060006EF RID: 1775 RVA: 0x0002C8DE File Offset: 0x0002AADE
 	private void Awake()
 	{
 		SlotBackgroundScript.instance = this;
 	}
 
-	// Token: 0x060006F0 RID: 1776 RVA: 0x0002C83E File Offset: 0x0002AA3E
+	// Token: 0x060006F0 RID: 1776 RVA: 0x0002C8E6 File Offset: 0x0002AAE6
 	private void OnDestroy()
 	{
 		if (SlotBackgroundScript.instance == this)
@@ -20,7 +20,7 @@ public class SlotBackgroundScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F1 RID: 1777 RVA: 0x0002C854 File Offset: 0x0002AA54
+	// Token: 0x060006F1 RID: 1777 RVA: 0x0002C8FC File Offset: 0x0002AAFC
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)

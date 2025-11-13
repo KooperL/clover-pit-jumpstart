@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public class TranslationJob_Main : TranslationJob
 	{
-		// Token: 0x06000E5D RID: 3677 RVA: 0x0005C15A File Offset: 0x0005A35A
+		// Token: 0x06000E74 RID: 3700 RVA: 0x0005C936 File Offset: 0x0005AB36
 		public TranslationJob_Main(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
 		{
 			this._requests = requests;
@@ -13,7 +13,7 @@ namespace I2.Loc
 			this.mPost = new TranslationJob_POST(requests, OnTranslationReady);
 		}
 
-		// Token: 0x06000E5E RID: 3678 RVA: 0x0005C180 File Offset: 0x0005A380
+		// Token: 0x06000E75 RID: 3701 RVA: 0x0005C95C File Offset: 0x0005AB5C
 		public override TranslationJob.eJobState GetState()
 		{
 			if (this.mWeb != null)
@@ -71,7 +71,7 @@ namespace I2.Loc
 			return this.mJobState;
 		}
 
-		// Token: 0x06000E5F RID: 3679 RVA: 0x0005C2C0 File Offset: 0x0005A4C0
+		// Token: 0x06000E76 RID: 3702 RVA: 0x0005CA9C File Offset: 0x0005AC9C
 		public override void Dispose()
 		{
 			if (this.mPost != null)

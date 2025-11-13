@@ -6,7 +6,7 @@ namespace I2.Loc
 {
 	public class LocalizationParamsManager : MonoBehaviour, ILocalizationParamsManager
 	{
-		// Token: 0x06001001 RID: 4097 RVA: 0x00063E2C File Offset: 0x0006202C
+		// Token: 0x06001018 RID: 4120 RVA: 0x00064608 File Offset: 0x00062808
 		public string GetParameterValue(string ParamName)
 		{
 			if (this._Params != null)
@@ -25,7 +25,7 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06001002 RID: 4098 RVA: 0x00063E88 File Offset: 0x00062088
+		// Token: 0x06001019 RID: 4121 RVA: 0x00064664 File Offset: 0x00062864
 		public void SetParameterValue(string ParamName, string ParamValue, bool localize = true)
 		{
 			bool flag = false;
@@ -57,7 +57,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001003 RID: 4099 RVA: 0x00063F20 File Offset: 0x00062120
+		// Token: 0x0600101A RID: 4122 RVA: 0x000646FC File Offset: 0x000628FC
 		public void OnLocalize()
 		{
 			Localize component = base.GetComponent<Localize>();
@@ -67,7 +67,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001004 RID: 4100 RVA: 0x00063F44 File Offset: 0x00062144
+		// Token: 0x0600101B RID: 4123 RVA: 0x00064720 File Offset: 0x00062920
 		public virtual void OnEnable()
 		{
 			if (this._IsGlobalManager)
@@ -76,7 +76,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001005 RID: 4101 RVA: 0x00063F54 File Offset: 0x00062154
+		// Token: 0x0600101C RID: 4124 RVA: 0x00064730 File Offset: 0x00062930
 		public void DoAutoRegister()
 		{
 			if (!LocalizationManager.ParamManagers.Contains(this))
@@ -86,7 +86,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001006 RID: 4102 RVA: 0x00063F74 File Offset: 0x00062174
+		// Token: 0x0600101D RID: 4125 RVA: 0x00064750 File Offset: 0x00062950
 		public void OnDisable()
 		{
 			LocalizationManager.ParamManagers.Remove(this);

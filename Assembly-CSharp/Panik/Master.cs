@@ -5,7 +5,7 @@ namespace Panik
 {
 	public class Master : MonoBehaviour
 	{
-		// (get) Token: 0x06000CC3 RID: 3267 RVA: 0x00052F5F File Offset: 0x0005115F
+		// (get) Token: 0x06000CD8 RID: 3288
 		public static bool IsDebugBuild
 		{
 			get
@@ -14,7 +14,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CC4 RID: 3268 RVA: 0x00052F6B File Offset: 0x0005116B
+		// (get) Token: 0x06000CD9 RID: 3289
 		public static bool IsPlaytestBuild
 		{
 			get
@@ -23,7 +23,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CC5 RID: 3269 RVA: 0x00052F6E File Offset: 0x0005116E
+		// (get) Token: 0x06000CDA RID: 3290
 		public static bool IsDemo
 		{
 			get
@@ -32,7 +32,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CC6 RID: 3270 RVA: 0x00052F71 File Offset: 0x00051171
+		// (get) Token: 0x06000CDB RID: 3291
 		public static PlatformMaster.PlatformKind _PlatformKind
 		{
 			get
@@ -46,7 +46,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CC7 RID: 3271 RVA: 0x00052F8E File Offset: 0x0005118E
+		// (get) Token: 0x06000CDC RID: 3292
 		public static PlatformAPI.ApiKind _ApiKind
 		{
 			get
@@ -55,7 +55,11 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CC8 RID: 3272 RVA: 0x00052F94 File Offset: 0x00051194
+		public static bool IsModded()
+		{
+			return true;
+		}
+
 		private void Awake()
 		{
 			if (Master.instance != null)
@@ -74,19 +78,17 @@ namespace Panik
 				this.EDITOR_QUICK_START = false;
 			}
 			Application.targetFrameRate = this.HIGHEST_FRAME_RATE;
-			QualitySettings.vSyncCount = (this.VSYNC_DEFAULT ? 1 : 0);
+			QualitySettings.vSyncCount = ((this.VSYNC_DEFAULT > false) ? 1 : 0);
 			this.audioHolderTr = new GameObject().transform;
 			this.audioHolderTr.gameObject.name = "audio holder";
 			this.audioHolderTr.SetParent(base.transform);
 		}
 
-		// Token: 0x06000CC9 RID: 3273 RVA: 0x0005304B File Offset: 0x0005124B
 		private void Start()
 		{
 			PlatformMaster.Initialize();
 		}
 
-		// Token: 0x06000CCA RID: 3274 RVA: 0x00053052 File Offset: 0x00051252
 		private void OnQuit()
 		{
 			if (Master.instance != this)
@@ -96,7 +98,6 @@ namespace Panik
 			PlatformDataMaster.EndGameDataIsDoneCheck();
 		}
 
-		// Token: 0x06000CCB RID: 3275 RVA: 0x00053068 File Offset: 0x00051268
 		private void Update()
 		{
 			Tick.Routine();

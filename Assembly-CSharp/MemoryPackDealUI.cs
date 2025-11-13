@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class MemoryPackDealUI : MonoBehaviour
 {
-	// Token: 0x0600095D RID: 2397 RVA: 0x0003E01B File Offset: 0x0003C21B
+	// Token: 0x06000971 RID: 2417 RVA: 0x0003E681 File Offset: 0x0003C881
 	public static bool IsDealRunnning()
 	{
 		return !(MemoryPackDealUI.instance == null) && MemoryPackDealUI.instance.dealCoroutine != null;
 	}
 
-	// Token: 0x0600095E RID: 2398 RVA: 0x0003E03C File Offset: 0x0003C23C
+	// Token: 0x06000972 RID: 2418 RVA: 0x0003E6A0 File Offset: 0x0003C8A0
 	public static void DealPropose()
 	{
 		if (MemoryPackDealUI.instance == null)
@@ -28,7 +28,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		MemoryPackDealUI.instance.dealCoroutine = MemoryPackDealUI.instance.StartCoroutine(MemoryPackDealUI.instance.DealCoroutine());
 	}
 
-	// Token: 0x0600095F RID: 2399 RVA: 0x0003E092 File Offset: 0x0003C292
+	// Token: 0x06000973 RID: 2419 RVA: 0x0003E6F6 File Offset: 0x0003C8F6
 	private IEnumerator DealCoroutine()
 	{
 		float transitionSpeed = (float)Data.settings.transitionSpeed;
@@ -419,19 +419,19 @@ public class MemoryPackDealUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000960 RID: 2400 RVA: 0x0003E0A1 File Offset: 0x0003C2A1
+	// Token: 0x06000974 RID: 2420 RVA: 0x0003E705 File Offset: 0x0003C905
 	private void PacksOffer_OnYes()
 	{
 		this._skipDeadlineDealAnswer = true;
 	}
 
-	// Token: 0x06000961 RID: 2401 RVA: 0x0003E0AA File Offset: 0x0003C2AA
+	// Token: 0x06000975 RID: 2421 RVA: 0x0003E70E File Offset: 0x0003C90E
 	private void PacksOffer_OnNo()
 	{
 		this._skipDeadlineDealAnswer = false;
 	}
 
-	// Token: 0x06000962 RID: 2402 RVA: 0x0003E0B3 File Offset: 0x0003C2B3
+	// Token: 0x06000976 RID: 2422 RVA: 0x0003E717 File Offset: 0x0003C917
 	public void Pack_Hide()
 	{
 		if (this.coroutineHidePack == null)
@@ -440,7 +440,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000963 RID: 2403 RVA: 0x0003E0CA File Offset: 0x0003C2CA
+	// Token: 0x06000977 RID: 2423 RVA: 0x0003E72E File Offset: 0x0003C92E
 	private IEnumerator HidePackCoroutine()
 	{
 		this.packParticles.SetActive(false);
@@ -456,13 +456,13 @@ public class MemoryPackDealUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000964 RID: 2404 RVA: 0x0003E0D9 File Offset: 0x0003C2D9
+	// Token: 0x06000978 RID: 2424 RVA: 0x0003E73D File Offset: 0x0003C93D
 	public void Pack_ShowCards()
 	{
 		this.showCards = true;
 	}
 
-	// Token: 0x06000965 RID: 2405 RVA: 0x0003E0E2 File Offset: 0x0003C2E2
+	// Token: 0x06000979 RID: 2425 RVA: 0x0003E746 File Offset: 0x0003C946
 	private IEnumerator CardsMoveAroundCoroutine(CardScript c0, CardScript c1, CardScript c2)
 	{
 		float lerpSpeed = 0f;
@@ -520,13 +520,13 @@ public class MemoryPackDealUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000966 RID: 2406 RVA: 0x0003E106 File Offset: 0x0003C306
+	// Token: 0x0600097A RID: 2426 RVA: 0x0003E76A File Offset: 0x0003C96A
 	private void Awake()
 	{
 		MemoryPackDealUI.instance = this;
 	}
 
-	// Token: 0x06000967 RID: 2407 RVA: 0x0003E10E File Offset: 0x0003C30E
+	// Token: 0x0600097B RID: 2427 RVA: 0x0003E772 File Offset: 0x0003C972
 	private void Start()
 	{
 		this.holder.SetActive(false);
@@ -535,7 +535,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		this.backImage.color = this.backTargetColor;
 	}
 
-	// Token: 0x06000968 RID: 2408 RVA: 0x0003E145 File Offset: 0x0003C345
+	// Token: 0x0600097C RID: 2428 RVA: 0x0003E7A9 File Offset: 0x0003C9A9
 	private void OnDestroy()
 	{
 		if (MemoryPackDealUI.instance == this)
@@ -544,7 +544,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000969 RID: 2409 RVA: 0x0003E15C File Offset: 0x0003C35C
+	// Token: 0x0600097D RID: 2429 RVA: 0x0003E7C0 File Offset: 0x0003C9C0
 	private void Update()
 	{
 		if (!this.holder.activeSelf)

@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	internal class RTLFixerTool
 	{
-		// Token: 0x06001028 RID: 4136 RVA: 0x00064AB0 File Offset: 0x00062CB0
+		// Token: 0x0600103F RID: 4159 RVA: 0x0006528C File Offset: 0x0006348C
 		internal static string RemoveTashkeel(string str, out List<TashkeelLocation> tashkeelLocation)
 		{
 			tashkeelLocation = new List<TashkeelLocation>();
@@ -112,7 +112,7 @@ namespace I2.Loc
 			return str;
 		}
 
-		// Token: 0x06001029 RID: 4137 RVA: 0x00064D94 File Offset: 0x00062F94
+		// Token: 0x06001040 RID: 4160 RVA: 0x00065570 File Offset: 0x00063770
 		internal static char[] ReturnTashkeel(char[] letters, List<TashkeelLocation> tashkeelLocation)
 		{
 			char[] array = new char[letters.Length + tashkeelLocation.Count];
@@ -133,7 +133,7 @@ namespace I2.Loc
 			return array;
 		}
 
-		// Token: 0x0600102A RID: 4138 RVA: 0x00064E20 File Offset: 0x00063020
+		// Token: 0x06001041 RID: 4161 RVA: 0x000655FC File Offset: 0x000637FC
 		internal static string FixLine(string str)
 		{
 			string text = "";
@@ -350,7 +350,7 @@ namespace I2.Loc
 			return str;
 		}
 
-		// Token: 0x0600102B RID: 4139 RVA: 0x000653D8 File Offset: 0x000635D8
+		// Token: 0x06001042 RID: 4162 RVA: 0x00065BB4 File Offset: 0x00063DB4
 		internal static bool IsIgnoredCharacter(char ch)
 		{
 			bool flag = char.IsPunctuation(ch);
@@ -363,7 +363,7 @@ namespace I2.Loc
 			return flag || flag2 || flag3 || flag4 || flag5 || !flag7 || ch == 'a' || ch == '>' || ch == '<' || ch == '؛';
 		}
 
-		// Token: 0x0600102C RID: 4140 RVA: 0x00065484 File Offset: 0x00063684
+		// Token: 0x06001043 RID: 4163 RVA: 0x00065C60 File Offset: 0x00063E60
 		internal static bool IsLeadingLetter(char[] letters, int index)
 		{
 			bool flag = index == 0 || letters[index - 1] == ' ' || letters[index - 1] == '*' || letters[index - 1] == 'A' || char.IsPunctuation(letters[index - 1]) || letters[index - 1] == '>' || letters[index - 1] == '<' || letters[index - 1] == 'ﺍ' || letters[index - 1] == 'ﺩ' || letters[index - 1] == 'ﺫ' || letters[index - 1] == 'ﺭ' || letters[index - 1] == 'ﺯ' || letters[index - 1] == 'ﮊ' || letters[index - 1] == 'ﻭ' || letters[index - 1] == 'ﺁ' || letters[index - 1] == 'ﺃ' || letters[index - 1] == 'ﺇ' || letters[index - 1] == 'ﺅ';
@@ -372,7 +372,7 @@ namespace I2.Loc
 			return flag && flag2 && flag3;
 		}
 
-		// Token: 0x0600102D RID: 4141 RVA: 0x00065658 File Offset: 0x00063858
+		// Token: 0x06001044 RID: 4164 RVA: 0x00065E34 File Offset: 0x00064034
 		internal static bool IsFinishingLetter(char[] letters, int index)
 		{
 			bool flag = index != 0 && (letters[index - 1] != ' ' && letters[index - 1] != 'ﺩ' && letters[index - 1] != 'ﺫ' && letters[index - 1] != 'ﺭ' && letters[index - 1] != 'ﺯ' && letters[index - 1] != 'ﮊ' && letters[index - 1] != 'ﻭ' && letters[index - 1] != 'ﺍ' && letters[index - 1] != 'ﺁ' && letters[index - 1] != 'ﺃ' && letters[index - 1] != 'ﺇ' && letters[index - 1] != 'ﺅ' && letters[index - 1] != 'ﺀ' && !char.IsPunctuation(letters[index - 1]) && letters[index - 1] != '>') && letters[index - 1] != '<';
@@ -380,7 +380,7 @@ namespace I2.Loc
 			return flag && flag2;
 		}
 
-		// Token: 0x0600102E RID: 4142 RVA: 0x0006575C File Offset: 0x0006395C
+		// Token: 0x06001045 RID: 4165 RVA: 0x00065F38 File Offset: 0x00064138
 		internal static bool IsMiddleLetter(char[] letters, int index)
 		{
 			bool flag = index != 0 && (letters[index] != 'ﺍ' && letters[index] != 'ﺩ' && letters[index] != 'ﺫ' && letters[index] != 'ﺭ' && letters[index] != 'ﺯ' && letters[index] != 'ﮊ' && letters[index] != 'ﻭ' && letters[index] != 'ﺁ' && letters[index] != 'ﺃ' && letters[index] != 'ﺇ' && letters[index] != 'ﺅ') && letters[index] != 'ﺀ';

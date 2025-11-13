@@ -925,9 +925,9 @@ public class GameplayData
 		return GameplayData.CloverTickets_BonusRoundsLeft_Get() * (long)extraRounds * (long)PowerupScript.EvilDealBonusMultiplier();
 	}
 
-	public static long DeadlineReward_CloverTickets_Extras()
+	public static long DeadlineReward_CloverTickets_Extras(bool rewardTime)
 	{
-		return ((long)(PowerupScript.ModifiedPowerups_GetTicketsBonus() + PowerupScript.Hourglass_BonusTicketsGet(true)) + PowerupScript.CloverPotTicketsBonus(true) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_Tickets, true) ? 3L : 0L)) * (long)PowerupScript.EvilDealBonusMultiplier();
+		return ((long)PowerupScript.ModifiedPowerups_GetTicketsBonus() + PowerupScript.CloverPotTicketsBonus(true, rewardTime) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_Tickets, true) ? 3L : 0L)) * (long)PowerupScript.EvilDealBonusMultiplier();
 	}
 
 	private void _Debt_PrepareForSerialization()
@@ -1161,6 +1161,10 @@ public class GameplayData
 		bigInteger *= PowerupScript.SkeletonPiecesDebtIncreasePercentage();
 		bigInteger /= 100;
 		if (GameplayData.RunModifier_GetCurrent() == RunModifierScript.Identifier.bigDebt)
+		{
+			bigInteger *= 2;
+		}
+		if (Data.game.RunModifier_HardcoreMode_Get(GameplayData.RunModifier_GetCurrent()))
 		{
 			bigInteger *= 2;
 		}
@@ -2265,9 +2269,7 @@ public class GameplayData
 	{
 		BigInteger bigInteger = GameplayData.Symbol_CoinsValue_GetBasic(kind) + GameplayData.Symbol_CoinsValueExtra_Get(kind);
 		bigInteger += PowerupScript.PoopBeetle_ExtraCoinsForAllSymbolsGet(true, kind);
-		bigInteger += PowerupScript.Calendar_GetSymbolBonus(true, kind);
 		bigInteger += PowerupScript.ShroomsBonusGet(kind);
-		bigInteger += PowerupScript.RingBell_BonusGet(kind);
 		bigInteger += PowerupScript.ConsolationPrizeBonusGet(kind);
 		bigInteger += PowerupScript.SteamLocomotive_SymbolsBonus_Get(kind);
 		bigInteger += PowerupScript.CigarettesGetSymbolBonus(kind);
@@ -2857,7 +2859,7 @@ public class GameplayData
 		BigInteger bigInteger = instance.allSymbolsMultiplier;
 		if (considerPowerups)
 		{
-			bigInteger += PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.symbolMultiplier) + PowerupScript.TarotDeckRewardGet(true) + PowerupScript.PentacleBonusGet(true) + PowerupScript.CloverPetSymbolsMultiplierBonus(true) + PowerupScript.VoiceMail_MultiplierBonusGet(true) + PowerupScript.Garbage_MultiplierBonusGet(true) + PowerupScript.AllIn_MultiplierBonusGet(true) + PowerupScript.DarkLotus_MultiplierBonus_Get(true) + PowerupScript.ShoppingCart_MultiplierBonusGet(true) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_SymbMult, true) ? 5 : 0);
+			bigInteger += PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.symbolMultiplier) * 2 + PowerupScript.TarotDeckRewardGet(true) + PowerupScript.PentacleBonusGet(true) + PowerupScript.CloverPetSymbolsMultiplierBonus(true) + PowerupScript.VoiceMail_MultiplierBonusGet(true) + PowerupScript.Garbage_MultiplierBonusGet(true) + PowerupScript.AllIn_MultiplierBonusGet(true) + PowerupScript.DarkLotus_MultiplierBonus_Get(true) + PowerupScript.ShoppingCart_MultiplierBonusGet(true) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_SymbMult, true) ? 5 : 0) + PowerupScript.Calendar_GetSymbolsMultiplierBonus(true) + PowerupScript.RingBell_BonusGet() + PowerupScript.Hourglass_SymbolsMultiplierBonusGet(true);
 		}
 		if (bigInteger < 1L)
 		{
@@ -3224,6 +3226,10 @@ public class GameplayData
 		{
 			num2 = 0.5;
 		}
+		if (double.IsInfinity(num2))
+		{
+			num2 = double.MaxValue;
+		}
 		return num2;
 	}
 
@@ -3297,7 +3303,7 @@ public class GameplayData
 		BigInteger bigInteger = instance.allPatternsMultiplier;
 		if (considerPowerups)
 		{
-			bigInteger += (long)(PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.patternMultiplier) + PowerupScript.Necronomicon_AdditionalPatternsMultiplierGet()) + PowerupScript.Cross_PatternsMultiplierBonus_Get(true) + (long)PowerupScript.TheCollector_MultiplierGet(true) + (long)PowerupScript.ChastityBelt_MultiplierBonusGet(true) + PowerupScript.Wallet_PatternsMultiplierBonus(true) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_PatternsMult, true) ? 2L : 0L);
+			bigInteger += (long)(PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.patternMultiplier) + PowerupScript.Necronomicon_AdditionalPatternsMultiplierGet()) + PowerupScript.Cross_PatternsMultiplierBonus_Get(true) + (long)PowerupScript.TheCollector_MultiplierGet(true) + (long)PowerupScript.ChastityBelt_MultiplierBonusGet(true) + PowerupScript.Wallet_PatternsMultiplierBonus(true) + (GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_PatternsMult, true) ? 2L : 0L) + (long)PowerupScript.Hourglass_PatternsMultiplierBonusGet(true);
 		}
 		if (bigInteger < 1L)
 		{
@@ -4350,43 +4356,28 @@ public class GameplayData
 		this.Powerup_Pareidolia_SerializationRestore();
 	}
 
-	public static int Powerup_Hourglass_DeadlinesLeftGet()
+	// (get) Token: 0x06000206 RID: 518
+	// (set) Token: 0x06000207 RID: 519
+	public static int Powerup_Hourglass_DeadlinesCounter
 	{
-		GameplayData instance = GameplayData.Instance;
-		if (instance == null)
+		get
 		{
-			return 0;
+			GameplayData instance = GameplayData.Instance;
+			if (instance == null)
+			{
+				return 0;
+			}
+			return instance._powerupHourglass_DeadlinesCounter;
 		}
-		return instance._powerupHourglass_DeadlinesLeft;
-	}
-
-	public static void Powerup_Hourglass_DeadlinesLeftSet(int value)
-	{
-		GameplayData instance = GameplayData.Instance;
-		if (instance == null)
+		set
 		{
-			return;
+			GameplayData instance = GameplayData.Instance;
+			if (instance == null)
+			{
+				return;
+			}
+			instance._powerupHourglass_DeadlinesCounter = value;
 		}
-		instance._powerupHourglass_DeadlinesLeft = value;
-		if (instance._powerupHourglass_DeadlinesLeft < 0)
-		{
-			instance._powerupHourglass_DeadlinesLeft = 0;
-		}
-	}
-
-	public static void Powerup_Hourglass_DeadlinesLeftAdd(int value)
-	{
-		GameplayData instance = GameplayData.Instance;
-		if (instance == null)
-		{
-			return;
-		}
-		GameplayData.Powerup_Hourglass_DeadlinesLeftSet(instance._powerupHourglass_DeadlinesLeft + value);
-	}
-
-	public static void Powerup_Hourglass_DeadlinesLeftReset()
-	{
-		GameplayData.Powerup_Hourglass_DeadlinesLeftSet(3);
 	}
 
 	public static int Powerup_FruitsBasket_RoundsLeftGet()
@@ -4412,7 +4403,7 @@ public class GameplayData
 
 	public static void Powerup_FruitBasket_RoundsLeftReset()
 	{
-		GameplayData.Powerup_FruitsBasket_RoundsLeftSet(7);
+		GameplayData.Powerup_FruitsBasket_RoundsLeftSet(10);
 	}
 
 	public static BigInteger Powerup_TarotDeck_RewardGet()
@@ -4923,8 +4914,8 @@ public class GameplayData
 		instance._powerupSteamLocomotiveBonus = n;
 	}
 
-	// (get) Token: 0x06000237 RID: 567
-	// (set) Token: 0x06000238 RID: 568
+	// (get) Token: 0x06000235 RID: 565
+	// (set) Token: 0x06000236 RID: 566
 	public static int Powerup_DiscA_SpinsCounter
 	{
 		get
@@ -4947,8 +4938,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000239 RID: 569
-	// (set) Token: 0x0600023A RID: 570
+	// (get) Token: 0x06000237 RID: 567
+	// (set) Token: 0x06000238 RID: 568
 	public static int Powerup_DiscB_SpinsCounter
 	{
 		get
@@ -4971,8 +4962,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x0600023B RID: 571
-	// (set) Token: 0x0600023C RID: 572
+	// (get) Token: 0x06000239 RID: 569
+	// (set) Token: 0x0600023A RID: 570
 	public static int Powerup_DiscC_SpinsCounter
 	{
 		get
@@ -4995,8 +4986,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x0600023D RID: 573
-	// (set) Token: 0x0600023E RID: 574
+	// (get) Token: 0x0600023B RID: 571
+	// (set) Token: 0x0600023C RID: 572
 	public static int Powerup_WeirdClock_DeadlineUses
 	{
 		get
@@ -5019,8 +5010,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x0600023F RID: 575
-	// (set) Token: 0x06000240 RID: 576
+	// (get) Token: 0x0600023D RID: 573
+	// (set) Token: 0x0600023E RID: 574
 	public static int Powerup_Cigarettes_ActivationsCounter
 	{
 		get
@@ -5043,8 +5034,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x06000241 RID: 577
-	// (set) Token: 0x06000242 RID: 578
+	// (get) Token: 0x0600023F RID: 575
+	// (set) Token: 0x06000240 RID: 576
 	public static int Powerup_Jimbo_RoundsLeft
 	{
 		get
@@ -5659,8 +5650,8 @@ public class GameplayData
 		instance._powerupHoleCross_AbilityIdentifier = identifier;
 	}
 
-	// (get) Token: 0x06000278 RID: 632
-	// (set) Token: 0x06000279 RID: 633
+	// (get) Token: 0x06000276 RID: 630
+	// (set) Token: 0x06000277 RID: 631
 	public static int PowerupOphanimWheels_JackpotsCounter
 	{
 		get
@@ -5696,6 +5687,7 @@ public class GameplayData
 			num += PowerupScript.HouseContractBonusGet(true);
 			num -= PowerupScript.Button2x_SpaceMalusGet(true);
 			num -= PowerupScript.Megaphone_SpaceMalusGet(true);
+			num -= ((PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hourglass) > false) ? 1 : 0);
 		}
 		return num;
 	}
@@ -5839,8 +5831,8 @@ public class GameplayData
 		this.nineNineNine_TotalRewardEarned = this.BigIntegerFromByteArray(this.nineNineNine_TotalRewardEarned_ByteArray, 0);
 	}
 
-	// (get) Token: 0x06000288 RID: 648
-	// (set) Token: 0x06000289 RID: 649
+	// (get) Token: 0x06000286 RID: 646
+	// (set) Token: 0x06000287 RID: 647
 	public static int AbilityHoly_PatternsRepetitions
 	{
 		get
@@ -6190,8 +6182,8 @@ public class GameplayData
 		instance._phoneRerollsPerformed = n;
 	}
 
-	// (get) Token: 0x060002A3 RID: 675
-	// (set) Token: 0x060002A4 RID: 676
+	// (get) Token: 0x060002A1 RID: 673
+	// (set) Token: 0x060002A2 RID: 674
 	public static long PhoneRerollPerformed_PerDeadline
 	{
 		get
@@ -6577,8 +6569,8 @@ public class GameplayData
 		}
 	}
 
-	// (get) Token: 0x060002C8 RID: 712
-	// (set) Token: 0x060002C9 RID: 713
+	// (get) Token: 0x060002C6 RID: 710
+	// (set) Token: 0x060002C7 RID: 711
 	public static RewardBoxScript.RewardKind RewardKind
 	{
 		get
@@ -6853,8 +6845,8 @@ public class GameplayData
 		instance.stats_PeppersBought += 1L;
 	}
 
-	// (get) Token: 0x060002E2 RID: 738
-	// (set) Token: 0x060002E3 RID: 739
+	// (get) Token: 0x060002E0 RID: 736
+	// (set) Token: 0x060002E1 RID: 737
 	public static long Stats_SixSixSix_SeenTimes
 	{
 		get
@@ -7151,7 +7143,7 @@ public class GameplayData
 	[SerializeField]
 	private byte[] roundEarnedCoins_ByteArray;
 
-	public const long CLOVER_TICKETS_INITIAL = 2L;
+	public const long CLOVER_TICKETS_INITIAL = 4L;
 
 	private const long CLOVER_TICKETS_BONUS_FOR_LITTLE_BET = 2L;
 
@@ -7433,10 +7425,13 @@ public class GameplayData
 	[SerializeField]
 	private int _powerupHourglass_DeadlinesLeft = 3;
 
-	private const int POWERUP_FRUIT_BASKET_DEFAULT_ROUNDS = 7;
+	[SerializeField]
+	private int _powerupHourglass_DeadlinesCounter;
+
+	private const int POWERUP_FRUIT_BASKET_DEFAULT_ROUNDS = 10;
 
 	[SerializeField]
-	private int _powerupFruitsBasket_RoundsLeft = 7;
+	private int _powerupFruitsBasket_RoundsLeft = 10;
 
 	private BigInteger _powerupTarotDeck_Reward = 0;
 

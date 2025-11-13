@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public class RegisterBundlesManager : MonoBehaviour, IResourceManager_Bundles
 	{
-		// Token: 0x06000DFB RID: 3579 RVA: 0x000569B2 File Offset: 0x00054BB2
+		// Token: 0x06000E12 RID: 3602 RVA: 0x0005718E File Offset: 0x0005538E
 		public void OnEnable()
 		{
 			if (!ResourceManager.pInstance.mBundleManagers.Contains(this))
@@ -14,13 +14,13 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000DFC RID: 3580 RVA: 0x000569D6 File Offset: 0x00054BD6
+		// Token: 0x06000E13 RID: 3603 RVA: 0x000571B2 File Offset: 0x000553B2
 		public void OnDisable()
 		{
 			ResourceManager.pInstance.mBundleManagers.Remove(this);
 		}
 
-		// Token: 0x06000DFD RID: 3581 RVA: 0x000569E9 File Offset: 0x00054BE9
+		// Token: 0x06000E14 RID: 3604 RVA: 0x000571C5 File Offset: 0x000553C5
 		public virtual global::UnityEngine.Object LoadFromBundle(string path, Type assetType)
 		{
 			return null;

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ToyPhoneScript : MonoBehaviour
 {
-	// Token: 0x0600082A RID: 2090 RVA: 0x00035754 File Offset: 0x00033954
+	// Token: 0x06000831 RID: 2097 RVA: 0x0003593C File Offset: 0x00033B3C
 	public void MenuConnectionUpdate(ToyPhoneScript.MenuConnectionKind menuConnectionKind)
 	{
 		if (!this.meshHolder.activeSelf)
@@ -44,7 +44,7 @@ public class ToyPhoneScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600082B RID: 2091 RVA: 0x000358CC File Offset: 0x00033ACC
+	// Token: 0x06000832 RID: 2098 RVA: 0x00035AB4 File Offset: 0x00033CB4
 	public void UpdateLabelText()
 	{
 		if (ToyPhoneUIScript.IsEnabled())
@@ -64,13 +64,13 @@ public class ToyPhoneScript : MonoBehaviour
 		this.labelText.text = Translation.Get("TOY_PHONE_LABEL");
 	}
 
-	// Token: 0x0600082C RID: 2092 RVA: 0x0003594B File Offset: 0x00033B4B
+	// Token: 0x06000833 RID: 2099 RVA: 0x00035B33 File Offset: 0x00033D33
 	private void Awake()
 	{
 		ToyPhoneScript.instance = this;
 	}
 
-	// Token: 0x0600082D RID: 2093 RVA: 0x00035953 File Offset: 0x00033B53
+	// Token: 0x06000834 RID: 2100 RVA: 0x00035B3B File Offset: 0x00033D3B
 	private void OnDestroy()
 	{
 		if (ToyPhoneScript.instance == this)
@@ -80,14 +80,14 @@ public class ToyPhoneScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.UpdateLabelText));
 	}
 
-	// Token: 0x0600082E RID: 2094 RVA: 0x00035988 File Offset: 0x00033B88
+	// Token: 0x06000835 RID: 2101 RVA: 0x00035B70 File Offset: 0x00033D70
 	private void Start()
 	{
 		this.UpdateLabelText();
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.UpdateLabelText));
 	}
 
-	// Token: 0x0600082F RID: 2095 RVA: 0x000359B0 File Offset: 0x00033BB0
+	// Token: 0x06000836 RID: 2102 RVA: 0x00035B98 File Offset: 0x00033D98
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

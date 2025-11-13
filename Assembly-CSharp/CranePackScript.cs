@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class CranePackScript : MonoBehaviour
 {
-	// Token: 0x060007CC RID: 1996 RVA: 0x00032932 File Offset: 0x00030B32
+	// Token: 0x060007CC RID: 1996 RVA: 0x000329EA File Offset: 0x00030BEA
 	public static bool IsEnabled()
 	{
 		return !(CranePackScript.instance == null) && CranePackScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060007CD RID: 1997 RVA: 0x00032952 File Offset: 0x00030B52
+	// Token: 0x060007CD RID: 1997 RVA: 0x00032A0A File Offset: 0x00030C0A
 	private void Awake()
 	{
 		CranePackScript.instance = this;
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x060007CE RID: 1998 RVA: 0x00032966 File Offset: 0x00030B66
+	// Token: 0x060007CE RID: 1998 RVA: 0x00032A1E File Offset: 0x00030C1E
 	private void OnDestroy()
 	{
 		if (CranePackScript.instance == this)
@@ -26,7 +26,7 @@ public class CranePackScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007CF RID: 1999 RVA: 0x0003297C File Offset: 0x00030B7C
+	// Token: 0x060007CF RID: 1999 RVA: 0x00032A34 File Offset: 0x00030C34
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

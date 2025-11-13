@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ButtonVisualizerScript : MonoBehaviour
 {
-	// Token: 0x0600083D RID: 2109 RVA: 0x00035D54 File Offset: 0x00033F54
+	// Token: 0x06000844 RID: 2116 RVA: 0x00035F3C File Offset: 0x0003413C
 	public void Press()
 	{
 		if (this.runningAnimation)
@@ -15,7 +15,7 @@ public class ButtonVisualizerScript : MonoBehaviour
 		this.AnimationReset(true);
 	}
 
-	// Token: 0x0600083E RID: 2110 RVA: 0x00035D66 File Offset: 0x00033F66
+	// Token: 0x06000845 RID: 2117 RVA: 0x00035F4E File Offset: 0x0003414E
 	private void AnimationReset(bool runningState)
 	{
 		this.runningAnimation = runningState;
@@ -23,14 +23,14 @@ public class ButtonVisualizerScript : MonoBehaviour
 		this.animTimer = 0f;
 	}
 
-	// Token: 0x0600083F RID: 2111 RVA: 0x00035D85 File Offset: 0x00033F85
+	// Token: 0x06000846 RID: 2118 RVA: 0x00035F6D File Offset: 0x0003416D
 	private void Reset()
 	{
 		this.myElement = base.GetComponentInParent<DiegeticMenuElement>();
 		this.myButtonTransform = base.transform;
 	}
 
-	// Token: 0x06000840 RID: 2112 RVA: 0x00035DA0 File Offset: 0x00033FA0
+	// Token: 0x06000847 RID: 2119 RVA: 0x00035F88 File Offset: 0x00034188
 	private void Awake()
 	{
 		this.myElement = base.GetComponentInParent<DiegeticMenuElement>();
@@ -44,7 +44,7 @@ public class ButtonVisualizerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000841 RID: 2113 RVA: 0x00035E30 File Offset: 0x00034030
+	// Token: 0x06000848 RID: 2120 RVA: 0x00036018 File Offset: 0x00034218
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -68,7 +68,7 @@ public class ButtonVisualizerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000842 RID: 2114 RVA: 0x00035F04 File Offset: 0x00034104
+	// Token: 0x06000849 RID: 2121 RVA: 0x000360EC File Offset: 0x000342EC
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;

@@ -5,7 +5,7 @@ using Panik;
 
 public class PlatformAPI_Noone : PlatformAPI
 {
-	// Token: 0x06000350 RID: 848 RVA: 0x000153B4 File Offset: 0x000135B4
+	// Token: 0x0600034E RID: 846 RVA: 0x000153F8 File Offset: 0x000135F8
 	protected override UniTask<bool> _InitializationBeing()
 	{
 		PlatformAPI_Noone.<_InitializationBeing>d__0 <_InitializationBeing>d__;
@@ -15,7 +15,7 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <_InitializationBeing>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000351 RID: 849 RVA: 0x000153F0 File Offset: 0x000135F0
+	// Token: 0x0600034F RID: 847 RVA: 0x00015434 File Offset: 0x00013634
 	protected override UniTask<bool> _InitializationFinalize()
 	{
 		PlatformAPI_Noone.<_InitializationFinalize>d__1 <_InitializationFinalize>d__;
@@ -25,32 +25,32 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <_InitializationFinalize>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000352 RID: 850 RVA: 0x0001542B File Offset: 0x0001362B
+	// Token: 0x06000350 RID: 848 RVA: 0x0001546F File Offset: 0x0001366F
 	public override bool IsUsable()
 	{
 		return PlatformAPI.IsInitialized();
 	}
 
-	// Token: 0x06000353 RID: 851 RVA: 0x00015432 File Offset: 0x00013632
+	// Token: 0x06000351 RID: 849 RVA: 0x00015476 File Offset: 0x00013676
 	public override bool SupportsOnlineFunctionalities()
 	{
 		return false;
 	}
 
-	// Token: 0x06000354 RID: 852 RVA: 0x00015435 File Offset: 0x00013635
+	// Token: 0x06000352 RID: 850 RVA: 0x00015479 File Offset: 0x00013679
 	public override bool IsOnline()
 	{
 		PlatformAPI.IsInitialized();
 		return false;
 	}
 
-	// Token: 0x06000355 RID: 853 RVA: 0x0001543E File Offset: 0x0001363E
+	// Token: 0x06000353 RID: 851 RVA: 0x00015482 File Offset: 0x00013682
 	public override bool SupportsOnlineAchievements()
 	{
 		return false;
 	}
 
-	// Token: 0x06000356 RID: 854 RVA: 0x00015444 File Offset: 0x00013644
+	// Token: 0x06000354 RID: 852 RVA: 0x00015488 File Offset: 0x00013688
 	protected override UniTask<bool> AchievementIsUnlocked_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
 	{
 		PlatformAPI_Noone.<AchievementIsUnlocked_Online_Demo>d__6 <AchievementIsUnlocked_Online_Demo>d__;
@@ -61,7 +61,7 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <AchievementIsUnlocked_Online_Demo>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000357 RID: 855 RVA: 0x00015488 File Offset: 0x00013688
+	// Token: 0x06000355 RID: 853 RVA: 0x000154CC File Offset: 0x000136CC
 	protected override UniTask<bool> AchievementIsUnlocked_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
 	{
 		PlatformAPI_Noone.<AchievementIsUnlocked_Online_FullGame>d__7 <AchievementIsUnlocked_Online_FullGame>d__;
@@ -72,7 +72,7 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <AchievementIsUnlocked_Online_FullGame>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000358 RID: 856 RVA: 0x000154CC File Offset: 0x000136CC
+	// Token: 0x06000356 RID: 854 RVA: 0x00015510 File Offset: 0x00013710
 	protected override UniTask<bool> AchievementUnlock_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
 	{
 		PlatformAPI_Noone.<AchievementUnlock_Online_Demo>d__8 <AchievementUnlock_Online_Demo>d__;
@@ -83,7 +83,7 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <AchievementUnlock_Online_Demo>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000359 RID: 857 RVA: 0x00015510 File Offset: 0x00013710
+	// Token: 0x06000357 RID: 855 RVA: 0x00015554 File Offset: 0x00013754
 	protected override UniTask<bool> AchievementUnlock_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
 	{
 		PlatformAPI_Noone.<AchievementUnlock_Online_FullGame>d__9 <AchievementUnlock_Online_FullGame>d__;
@@ -94,7 +94,7 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <AchievementUnlock_Online_FullGame>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x0600035A RID: 858 RVA: 0x00015554 File Offset: 0x00013754
+	// Token: 0x06000358 RID: 856 RVA: 0x00015598 File Offset: 0x00013798
 	protected override UniTask<bool> AchievementsClearAll_Online(float maxTimeout)
 	{
 		PlatformAPI_Noone.<AchievementsClearAll_Online>d__10 <AchievementsClearAll_Online>d__;
@@ -105,18 +105,18 @@ public class PlatformAPI_Noone : PlatformAPI
 		return <AchievementsClearAll_Online>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x0600035B RID: 859 RVA: 0x00015597 File Offset: 0x00013797
+	// Token: 0x06000359 RID: 857 RVA: 0x000155DB File Offset: 0x000137DB
 	public override string GetUserID_String()
 	{
 		return "undefined";
 	}
 
-	// Token: 0x0600035C RID: 860 RVA: 0x0001559E File Offset: 0x0001379E
+	// Token: 0x0600035A RID: 858 RVA: 0x000155E2 File Offset: 0x000137E2
 	public override void _Update()
 	{
 	}
 
-	// Token: 0x0600035D RID: 861 RVA: 0x000155A0 File Offset: 0x000137A0
+	// Token: 0x0600035B RID: 859 RVA: 0x000155E4 File Offset: 0x000137E4
 	public override void _OnClose()
 	{
 	}

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CharmUiRenderer : MonoBehaviour
 {
-	// Token: 0x06000844 RID: 2116 RVA: 0x00035F70 File Offset: 0x00034170
+	// Token: 0x0600084B RID: 2123 RVA: 0x00036158 File Offset: 0x00034358
 	public static CharmUiRenderer PoolSpawn(PowerupScript.Identifier identifier, int targetLayer, Transform desiredParent, bool normalizeScale, float scaleMult, float bounceEntryForce, bool considerModifier, bool showDrawerImg, string textString, string textCounterString)
 	{
 		if (!CharmUiRenderer.dictionary.ContainsKey(identifier))
@@ -39,6 +39,14 @@ public class CharmUiRenderer : MonoBehaviour
 					if (charmUiRenderer.mySkinnedMeshRenderer != null)
 					{
 						charmUiRenderer.mySkinnedMeshRenderer.sharedMaterial = charmUiRenderer.defaultMaterial;
+					}
+					if (charmUiRenderer.myMeshRenderer != null)
+					{
+						charmUiRenderer.myMeshRenderer.transform.localScale = (normalizeScale ? powerup_Quick.GetBoundingBoxSizeNormalized() : Vector3.one) * scaleMult;
+					}
+					if (charmUiRenderer.mySkinnedMeshRenderer != null)
+					{
+						charmUiRenderer.mySkinnedMeshRenderer.transform.localScale = (normalizeScale ? powerup_Quick.GetBoundingBoxSizeNormalized() : Vector3.one) * scaleMult;
 					}
 					charmUiRenderer.transform.SetParent(desiredParent);
 					charmUiRenderer.transform.localScale = Vector3.one;
@@ -120,7 +128,7 @@ public class CharmUiRenderer : MonoBehaviour
 		return charmUiRenderer;
 	}
 
-	// Token: 0x06000845 RID: 2117 RVA: 0x000363B0 File Offset: 0x000345B0
+	// Token: 0x0600084C RID: 2124 RVA: 0x00036604 File Offset: 0x00034804
 	public static void PoolDestroy(CharmUiRenderer charmInstance)
 	{
 		if (charmInstance == null)
@@ -145,19 +153,19 @@ public class CharmUiRenderer : MonoBehaviour
 		charmInstance.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06000846 RID: 2118 RVA: 0x0003645F File Offset: 0x0003465F
+	// Token: 0x0600084D RID: 2125 RVA: 0x000366B3 File Offset: 0x000348B3
 	public PowerupScript.Identifier GetIdentifier()
 	{
 		return this.powerupIdentifier;
 	}
 
-	// Token: 0x06000847 RID: 2119 RVA: 0x00036467 File Offset: 0x00034667
+	// Token: 0x0600084E RID: 2126 RVA: 0x000366BB File Offset: 0x000348BB
 	public void Bounce(float force)
 	{
 		this.bounceScript.SetBounceScale(force);
 	}
 
-	// Token: 0x06000848 RID: 2120 RVA: 0x00036478 File Offset: 0x00034678
+	// Token: 0x0600084F RID: 2127 RVA: 0x000366CC File Offset: 0x000348CC
 	private void Update()
 	{
 		this.meshRotatorTr.AddLocalYAngle(Tick.Time * 180f);
