@@ -5,7 +5,7 @@ namespace Panik
 {
 	public class EffectScript : MonoBehaviour
 	{
-		// Token: 0x06000AA7 RID: 2727 RVA: 0x00048854 File Offset: 0x00046A54
+		// Token: 0x06000ABC RID: 2748 RVA: 0x00048FB4 File Offset: 0x000471B4
 		public void KillMe()
 		{
 			if (this.dead)
@@ -20,13 +20,13 @@ namespace Panik
 			Pool.Destroy(base.gameObject, null);
 		}
 
-		// Token: 0x06000AA8 RID: 2728 RVA: 0x0004889D File Offset: 0x00046A9D
+		// Token: 0x06000ABD RID: 2749 RVA: 0x00048FFD File Offset: 0x000471FD
 		private void Awake()
 		{
 			this.myParticleSystems = base.GetComponentsInChildren<ParticleSystem>(true);
 		}
 
-		// Token: 0x06000AA9 RID: 2729 RVA: 0x000488AC File Offset: 0x00046AAC
+		// Token: 0x06000ABE RID: 2750 RVA: 0x0004900C File Offset: 0x0004720C
 		private void OnEnable()
 		{
 			this.paused = false;
@@ -37,7 +37,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AAA RID: 2730 RVA: 0x000488E8 File Offset: 0x00046AE8
+		// Token: 0x06000ABF RID: 2751 RVA: 0x00049048 File Offset: 0x00047248
 		private void Update()
 		{
 			if (this.pausable)

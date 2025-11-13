@@ -5,13 +5,13 @@ namespace I2.Loc
 {
 	public class LocalizeTarget_UnityStandard_Prefab : LocalizeTarget<GameObject>
 	{
-		// Token: 0x06000F8F RID: 3983 RVA: 0x000629A5 File Offset: 0x00060BA5
+		// Token: 0x06000FA6 RID: 4006 RVA: 0x00063181 File Offset: 0x00061381
 		static LocalizeTarget_UnityStandard_Prefab()
 		{
 			LocalizeTarget_UnityStandard_Prefab.AutoRegister();
 		}
 
-		// Token: 0x06000F90 RID: 3984 RVA: 0x000629AC File Offset: 0x00060BAC
+		// Token: 0x06000FA7 RID: 4007 RVA: 0x00063188 File Offset: 0x00061388
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -22,50 +22,50 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000F91 RID: 3985 RVA: 0x000629CE File Offset: 0x00060BCE
+		// Token: 0x06000FA8 RID: 4008 RVA: 0x000631AA File Offset: 0x000613AA
 		public override bool IsValid(Localize cmp)
 		{
 			return true;
 		}
 
-		// Token: 0x06000F92 RID: 3986 RVA: 0x000629D1 File Offset: 0x00060BD1
+		// Token: 0x06000FA9 RID: 4009 RVA: 0x000631AD File Offset: 0x000613AD
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.GameObject;
 		}
 
-		// Token: 0x06000F93 RID: 3987 RVA: 0x000629D4 File Offset: 0x00060BD4
+		// Token: 0x06000FAA RID: 4010 RVA: 0x000631B0 File Offset: 0x000613B0
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000F94 RID: 3988 RVA: 0x000629D7 File Offset: 0x00060BD7
+		// Token: 0x06000FAB RID: 4011 RVA: 0x000631B3 File Offset: 0x000613B3
 		public override bool CanUseSecondaryTerm()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F95 RID: 3989 RVA: 0x000629DA File Offset: 0x00060BDA
+		// Token: 0x06000FAC RID: 4012 RVA: 0x000631B6 File Offset: 0x000613B6
 		public override bool AllowMainTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F96 RID: 3990 RVA: 0x000629DD File Offset: 0x00060BDD
+		// Token: 0x06000FAD RID: 4013 RVA: 0x000631B9 File Offset: 0x000613B9
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F97 RID: 3991 RVA: 0x000629E0 File Offset: 0x00060BE0
+		// Token: 0x06000FAE RID: 4014 RVA: 0x000631BC File Offset: 0x000613BC
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = cmp.name;
 			secondaryTerm = null;
 		}
 
-		// Token: 0x06000F98 RID: 3992 RVA: 0x000629F0 File Offset: 0x00060BF0
+		// Token: 0x06000FAF RID: 4015 RVA: 0x000631CC File Offset: 0x000613CC
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			if (string.IsNullOrEmpty(mainTranslation))
@@ -99,7 +99,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000F99 RID: 3993 RVA: 0x00062A9C File Offset: 0x00060C9C
+		// Token: 0x06000FB0 RID: 4016 RVA: 0x00063278 File Offset: 0x00061478
 		private Transform InstantiateNewPrefab(Localize cmp, string mainTranslation)
 		{
 			GameObject gameObject = cmp.FindTranslatedObject<GameObject>(mainTranslation);

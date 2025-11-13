@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MagazinesHolderScript : MonoBehaviour
 {
-	// Token: 0x060007F0 RID: 2032 RVA: 0x0003325F File Offset: 0x0003145F
+	// Token: 0x060007F7 RID: 2039 RVA: 0x00033447 File Offset: 0x00031647
 	private void Awake()
 	{
 		MagazinesHolderScript.instance = this;
 	}
 
-	// Token: 0x060007F1 RID: 2033 RVA: 0x00033267 File Offset: 0x00031467
+	// Token: 0x060007F8 RID: 2040 RVA: 0x0003344F File Offset: 0x0003164F
 	private void OnDestroy()
 	{
 		if (MagazinesHolderScript.instance == this)
@@ -19,7 +19,7 @@ public class MagazinesHolderScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007F2 RID: 2034 RVA: 0x0003327C File Offset: 0x0003147C
+	// Token: 0x060007F9 RID: 2041 RVA: 0x00033464 File Offset: 0x00031664
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

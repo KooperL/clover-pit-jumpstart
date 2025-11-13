@@ -6,7 +6,7 @@ namespace I2.Loc
 {
 	public class CoroutineManager : MonoBehaviour
 	{
-		// (get) Token: 0x06000FE7 RID: 4071 RVA: 0x00063544 File Offset: 0x00061744
+		// (get) Token: 0x06000FFE RID: 4094 RVA: 0x00063D20 File Offset: 0x00061F20
 		private static CoroutineManager pInstance
 		{
 			get
@@ -25,7 +25,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000FE8 RID: 4072 RVA: 0x0006358E File Offset: 0x0006178E
+		// Token: 0x06000FFF RID: 4095 RVA: 0x00063D6A File Offset: 0x00061F6A
 		private void Awake()
 		{
 			if (Application.isPlaying)
@@ -34,7 +34,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000FE9 RID: 4073 RVA: 0x000635A2 File Offset: 0x000617A2
+		// Token: 0x06001000 RID: 4096 RVA: 0x00063D7E File Offset: 0x00061F7E
 		public static Coroutine Start(IEnumerator coroutine)
 		{
 			return CoroutineManager.pInstance.StartCoroutine(coroutine);

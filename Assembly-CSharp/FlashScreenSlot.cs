@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FlashScreenSlot : MonoBehaviour
 {
-	// Token: 0x0600089A RID: 2202 RVA: 0x000388FC File Offset: 0x00036AFC
+	// Token: 0x060008A1 RID: 2209 RVA: 0x00038B7C File Offset: 0x00036D7C
 	public static FlashScreenSlot Flash(Color c, float alpha, float alphaSpeed)
 	{
 		if (FlashScreenSlot.instance == null)
@@ -22,7 +22,7 @@ public class FlashScreenSlot : MonoBehaviour
 		return FlashScreenSlot.instance;
 	}
 
-	// Token: 0x0600089B RID: 2203 RVA: 0x00038988 File Offset: 0x00036B88
+	// Token: 0x060008A2 RID: 2210 RVA: 0x00038C08 File Offset: 0x00036E08
 	public static void SetTexture(Texture2D texture, Vector2 textureSpeed)
 	{
 		if (FlashScreenSlot.instance == null)
@@ -35,7 +35,7 @@ public class FlashScreenSlot : MonoBehaviour
 		FlashScreenSlot.instance.myImage2.enabled = false;
 	}
 
-	// Token: 0x0600089C RID: 2204 RVA: 0x000389DD File Offset: 0x00036BDD
+	// Token: 0x060008A3 RID: 2211 RVA: 0x00038C5D File Offset: 0x00036E5D
 	public static void SetSecondTexture(Texture2D texture, Vector2 textureSpeed)
 	{
 		FlashScreenSlot.instance.myImage2.enabled = true;
@@ -44,13 +44,13 @@ public class FlashScreenSlot : MonoBehaviour
 		FlashScreenSlot.instance.myImage2.texture = texture;
 	}
 
-	// Token: 0x0600089D RID: 2205 RVA: 0x00038A19 File Offset: 0x00036C19
+	// Token: 0x060008A4 RID: 2212 RVA: 0x00038C99 File Offset: 0x00036E99
 	public bool IsEnabled()
 	{
 		return this.myImage.enabled;
 	}
 
-	// Token: 0x0600089E RID: 2206 RVA: 0x00038A28 File Offset: 0x00036C28
+	// Token: 0x060008A5 RID: 2213 RVA: 0x00038CA8 File Offset: 0x00036EA8
 	public static void Stop()
 	{
 		if (FlashScreenSlot.instance == null)
@@ -66,13 +66,13 @@ public class FlashScreenSlot : MonoBehaviour
 		FlashScreenSlot.instance.myImage2.enabled = false;
 	}
 
-	// Token: 0x0600089F RID: 2207 RVA: 0x00038A84 File Offset: 0x00036C84
+	// Token: 0x060008A6 RID: 2214 RVA: 0x00038D04 File Offset: 0x00036F04
 	private void Awake()
 	{
 		FlashScreenSlot.instance = this;
 	}
 
-	// Token: 0x060008A0 RID: 2208 RVA: 0x00038A8C File Offset: 0x00036C8C
+	// Token: 0x060008A7 RID: 2215 RVA: 0x00038D0C File Offset: 0x00036F0C
 	private void OnDestroy()
 	{
 		if (FlashScreenSlot.instance == this)
@@ -81,7 +81,7 @@ public class FlashScreenSlot : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008A1 RID: 2209 RVA: 0x00038AA4 File Offset: 0x00036CA4
+	// Token: 0x060008A8 RID: 2216 RVA: 0x00038D24 File Offset: 0x00036F24
 	private void Update()
 	{
 		if (!this.myImage.enabled)

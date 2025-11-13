@@ -6,13 +6,13 @@ namespace I2.Loc
 {
 	public class LocalizeTarget_TextMeshPro_Label : LocalizeTarget<TextMeshPro>
 	{
-		// Token: 0x06000F54 RID: 3924 RVA: 0x00061EF2 File Offset: 0x000600F2
+		// Token: 0x06000F6B RID: 3947 RVA: 0x000626CE File Offset: 0x000608CE
 		static LocalizeTarget_TextMeshPro_Label()
 		{
 			LocalizeTarget_TextMeshPro_Label.AutoRegister();
 		}
 
-		// Token: 0x06000F55 RID: 3925 RVA: 0x00061EF9 File Offset: 0x000600F9
+		// Token: 0x06000F6C RID: 3948 RVA: 0x000626D5 File Offset: 0x000608D5
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -23,44 +23,44 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000F56 RID: 3926 RVA: 0x00061F18 File Offset: 0x00060118
+		// Token: 0x06000F6D RID: 3949 RVA: 0x000626F4 File Offset: 0x000608F4
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000F57 RID: 3927 RVA: 0x00061F1B File Offset: 0x0006011B
+		// Token: 0x06000F6E RID: 3950 RVA: 0x000626F7 File Offset: 0x000608F7
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Font;
 		}
 
-		// Token: 0x06000F58 RID: 3928 RVA: 0x00061F1E File Offset: 0x0006011E
+		// Token: 0x06000F6F RID: 3951 RVA: 0x000626FA File Offset: 0x000608FA
 		public override bool CanUseSecondaryTerm()
 		{
 			return true;
 		}
 
-		// Token: 0x06000F59 RID: 3929 RVA: 0x00061F21 File Offset: 0x00060121
+		// Token: 0x06000F70 RID: 3952 RVA: 0x000626FD File Offset: 0x000608FD
 		public override bool AllowMainTermToBeRTL()
 		{
 			return true;
 		}
 
-		// Token: 0x06000F5A RID: 3930 RVA: 0x00061F24 File Offset: 0x00060124
+		// Token: 0x06000F71 RID: 3953 RVA: 0x00062700 File Offset: 0x00060900
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F5B RID: 3931 RVA: 0x00061F28 File Offset: 0x00060128
+		// Token: 0x06000F72 RID: 3954 RVA: 0x00062704 File Offset: 0x00060904
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = (this.mTarget ? this.mTarget.text : null);
 			secondaryTerm = ((this.mTarget.font != null) ? this.mTarget.font.name : string.Empty);
 		}
 
-		// Token: 0x06000F5C RID: 3932 RVA: 0x00061F80 File Offset: 0x00060180
+		// Token: 0x06000F73 RID: 3955 RVA: 0x0006275C File Offset: 0x0006095C
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			TMP_FontAsset tmp_FontAsset = cmp.GetSecondaryTranslatedObj<TMP_FontAsset>(ref mainTranslation, ref secondaryTranslation);
@@ -117,7 +117,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000F5D RID: 3933 RVA: 0x00062134 File Offset: 0x00060334
+		// Token: 0x06000F74 RID: 3956 RVA: 0x00062910 File Offset: 0x00060B10
 		internal static TMP_FontAsset GetTMPFontFromMaterial(Localize cmp, string matName)
 		{
 			string text = " .\\/-[]()";
@@ -146,175 +146,175 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06000F5E RID: 3934 RVA: 0x000621AC File Offset: 0x000603AC
+		// Token: 0x06000F75 RID: 3957 RVA: 0x00062988 File Offset: 0x00060B88
 		internal static void InitAlignment_TMPro(bool isRTL, TextAlignmentOptions alignment, out TextAlignmentOptions alignLTR, out TextAlignmentOptions alignRTL)
 		{
 			alignRTL = alignment;
 			alignLTR = alignment;
 			if (isRTL)
 			{
-				if (alignment <= TextAlignmentOptions.BottomRight)
+				if (alignment <= 1028)
 				{
-					if (alignment <= TextAlignmentOptions.Left)
+					if (alignment <= 513)
 					{
-						if (alignment == TextAlignmentOptions.TopLeft)
+						if (alignment == 257)
 						{
-							alignLTR = TextAlignmentOptions.TopRight;
+							alignLTR = 260;
 							return;
 						}
-						if (alignment == TextAlignmentOptions.TopRight)
+						if (alignment == 260)
 						{
-							alignLTR = TextAlignmentOptions.TopLeft;
+							alignLTR = 257;
 							return;
 						}
-						if (alignment != TextAlignmentOptions.Left)
+						if (alignment != 513)
 						{
 							return;
 						}
-						alignLTR = TextAlignmentOptions.Right;
+						alignLTR = 516;
 						return;
 					}
 					else
 					{
-						if (alignment == TextAlignmentOptions.Right)
+						if (alignment == 516)
 						{
-							alignLTR = TextAlignmentOptions.Left;
+							alignLTR = 513;
 							return;
 						}
-						if (alignment == TextAlignmentOptions.BottomLeft)
+						if (alignment == 1025)
 						{
-							alignLTR = TextAlignmentOptions.BottomRight;
+							alignLTR = 1028;
 							return;
 						}
-						if (alignment != TextAlignmentOptions.BottomRight)
+						if (alignment != 1028)
 						{
 							return;
 						}
-						alignLTR = TextAlignmentOptions.BottomLeft;
+						alignLTR = 1025;
 						return;
 					}
 				}
-				else if (alignment <= TextAlignmentOptions.MidlineLeft)
+				else if (alignment <= 4097)
 				{
-					if (alignment == TextAlignmentOptions.BaselineLeft)
+					if (alignment == 2049)
 					{
-						alignLTR = TextAlignmentOptions.BaselineRight;
+						alignLTR = 2052;
 						return;
 					}
-					if (alignment == TextAlignmentOptions.BaselineRight)
+					if (alignment == 2052)
 					{
-						alignLTR = TextAlignmentOptions.BaselineLeft;
+						alignLTR = 2049;
 						return;
 					}
-					if (alignment != TextAlignmentOptions.MidlineLeft)
+					if (alignment != 4097)
 					{
 						return;
 					}
-					alignLTR = TextAlignmentOptions.MidlineRight;
+					alignLTR = 4100;
 					return;
 				}
 				else
 				{
-					if (alignment == TextAlignmentOptions.MidlineRight)
+					if (alignment == 4100)
 					{
-						alignLTR = TextAlignmentOptions.MidlineLeft;
+						alignLTR = 4097;
 						return;
 					}
-					if (alignment == TextAlignmentOptions.CaplineLeft)
+					if (alignment == 8193)
 					{
-						alignLTR = TextAlignmentOptions.CaplineRight;
+						alignLTR = 8196;
 						return;
 					}
-					if (alignment != TextAlignmentOptions.CaplineRight)
+					if (alignment != 8196)
 					{
 						return;
 					}
-					alignLTR = TextAlignmentOptions.CaplineLeft;
+					alignLTR = 8193;
 					return;
 				}
 			}
-			else if (alignment <= TextAlignmentOptions.BottomRight)
+			else if (alignment <= 1028)
 			{
-				if (alignment <= TextAlignmentOptions.Left)
+				if (alignment <= 513)
 				{
-					if (alignment == TextAlignmentOptions.TopLeft)
+					if (alignment == 257)
 					{
-						alignRTL = TextAlignmentOptions.TopRight;
+						alignRTL = 260;
 						return;
 					}
-					if (alignment == TextAlignmentOptions.TopRight)
+					if (alignment == 260)
 					{
-						alignRTL = TextAlignmentOptions.TopLeft;
+						alignRTL = 257;
 						return;
 					}
-					if (alignment != TextAlignmentOptions.Left)
+					if (alignment != 513)
 					{
 						return;
 					}
-					alignRTL = TextAlignmentOptions.Right;
+					alignRTL = 516;
 					return;
 				}
 				else
 				{
-					if (alignment == TextAlignmentOptions.Right)
+					if (alignment == 516)
 					{
-						alignRTL = TextAlignmentOptions.Left;
+						alignRTL = 513;
 						return;
 					}
-					if (alignment == TextAlignmentOptions.BottomLeft)
+					if (alignment == 1025)
 					{
-						alignRTL = TextAlignmentOptions.BottomRight;
+						alignRTL = 1028;
 						return;
 					}
-					if (alignment != TextAlignmentOptions.BottomRight)
+					if (alignment != 1028)
 					{
 						return;
 					}
-					alignRTL = TextAlignmentOptions.BottomLeft;
+					alignRTL = 1025;
 					return;
 				}
 			}
-			else if (alignment <= TextAlignmentOptions.MidlineLeft)
+			else if (alignment <= 4097)
 			{
-				if (alignment == TextAlignmentOptions.BaselineLeft)
+				if (alignment == 2049)
 				{
-					alignRTL = TextAlignmentOptions.BaselineRight;
+					alignRTL = 2052;
 					return;
 				}
-				if (alignment == TextAlignmentOptions.BaselineRight)
+				if (alignment == 2052)
 				{
-					alignRTL = TextAlignmentOptions.BaselineLeft;
+					alignRTL = 2049;
 					return;
 				}
-				if (alignment != TextAlignmentOptions.MidlineLeft)
+				if (alignment != 4097)
 				{
 					return;
 				}
-				alignRTL = TextAlignmentOptions.MidlineRight;
+				alignRTL = 4100;
 				return;
 			}
 			else
 			{
-				if (alignment == TextAlignmentOptions.MidlineRight)
+				if (alignment == 4100)
 				{
-					alignRTL = TextAlignmentOptions.MidlineLeft;
+					alignRTL = 4097;
 					return;
 				}
-				if (alignment == TextAlignmentOptions.CaplineLeft)
+				if (alignment == 8193)
 				{
-					alignRTL = TextAlignmentOptions.CaplineRight;
+					alignRTL = 8196;
 					return;
 				}
-				if (alignment != TextAlignmentOptions.CaplineRight)
+				if (alignment != 8196)
 				{
 					return;
 				}
-				alignRTL = TextAlignmentOptions.CaplineLeft;
+				alignRTL = 8193;
 				return;
 			}
 		}
 
-		// Token: 0x06000F5F RID: 3935 RVA: 0x00062390 File Offset: 0x00060590
+		// Token: 0x06000F76 RID: 3958 RVA: 0x00062B6C File Offset: 0x00060D6C
 		internal static void SetFont(TMP_Text label, TMP_FontAsset newFont)
 		{
 			if (label.font != newFont)
@@ -327,7 +327,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000F60 RID: 3936 RVA: 0x000623C1 File Offset: 0x000605C1
+		// Token: 0x06000F77 RID: 3959 RVA: 0x00062B9D File Offset: 0x00060D9D
 		internal static void SetMaterial(TMP_Text label, Material newMat)
 		{
 			if (label.fontSharedMaterial != newMat)
@@ -340,9 +340,9 @@ namespace I2.Loc
 			}
 		}
 
-		private TextAlignmentOptions mAlignment_RTL = TextAlignmentOptions.Right;
+		private TextAlignmentOptions mAlignment_RTL = 516;
 
-		private TextAlignmentOptions mAlignment_LTR = TextAlignmentOptions.Left;
+		private TextAlignmentOptions mAlignment_LTR = 513;
 
 		private bool mAlignmentWasRTL;
 

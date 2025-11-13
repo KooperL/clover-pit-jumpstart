@@ -6,8 +6,8 @@ namespace I2.Loc
 	[CreateAssetMenu(fileName = "I2Languages", menuName = "I2 Localization/LanguageSource", order = 1)]
 	public class LanguageSourceAsset : ScriptableObject, ILanguageSource
 	{
-		// (get) Token: 0x06000E7A RID: 3706 RVA: 0x0005CC67 File Offset: 0x0005AE67
-		// (set) Token: 0x06000E7B RID: 3707 RVA: 0x0005CC6F File Offset: 0x0005AE6F
+		// (get) Token: 0x06000E91 RID: 3729 RVA: 0x0005D443 File Offset: 0x0005B643
+		// (set) Token: 0x06000E92 RID: 3730 RVA: 0x0005D44B File Offset: 0x0005B64B
 		public LanguageSourceData SourceData
 		{
 			get

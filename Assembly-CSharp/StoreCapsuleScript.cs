@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class StoreCapsuleScript : MonoBehaviour
 {
-	// Token: 0x06000769 RID: 1897 RVA: 0x0002F4C0 File Offset: 0x0002D6C0
+	// Token: 0x06000769 RID: 1897 RVA: 0x0002F568 File Offset: 0x0002D768
 	public static StoreCapsuleScript GetStoreCapsuleById(int id)
 	{
 		foreach (StoreCapsuleScript storeCapsuleScript in StoreCapsuleScript.list)
@@ -21,7 +21,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600076A RID: 1898 RVA: 0x0002F534 File Offset: 0x0002D734
+	// Token: 0x0600076A RID: 1898 RVA: 0x0002F5DC File Offset: 0x0002D7DC
 	public static BigInteger RestockCost_Get()
 	{
 		if (GameplayData.StoreFreeRestocksGet() > 0L)
@@ -77,7 +77,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		return bigInteger2 + bigInteger;
 	}
 
-	// Token: 0x0600076B RID: 1899 RVA: 0x0002F68C File Offset: 0x0002D88C
+	// Token: 0x0600076B RID: 1899 RVA: 0x0002F734 File Offset: 0x0002D934
 	private long PowerupDiscountGet()
 	{
 		long num = GameplayData.StoreTemporaryDiscountGet();
@@ -90,7 +90,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600076C RID: 1900 RVA: 0x0002F6C8 File Offset: 0x0002D8C8
+	// Token: 0x0600076C RID: 1900 RVA: 0x0002F770 File Offset: 0x0002D970
 	public BigInteger GetCapsuleCost()
 	{
 		if (this.isRefreshButton)
@@ -110,7 +110,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600076D RID: 1901 RVA: 0x0002F72C File Offset: 0x0002D92C
+	// Token: 0x0600076D RID: 1901 RVA: 0x0002F7D4 File Offset: 0x0002D9D4
 	public void RefreshCostText()
 	{
 		BigInteger capsuleCost = this.GetCapsuleCost();
@@ -161,7 +161,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		this.costText.text = capsuleCost.ToStringSmart() + " " + text;
 	}
 
-	// Token: 0x0600076E RID: 1902 RVA: 0x0002F89C File Offset: 0x0002DA9C
+	// Token: 0x0600076E RID: 1902 RVA: 0x0002F944 File Offset: 0x0002DB44
 	public static void RefreshCostTextAll()
 	{
 		foreach (StoreCapsuleScript storeCapsuleScript in StoreCapsuleScript.list)
@@ -170,7 +170,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600076F RID: 1903 RVA: 0x0002F8EC File Offset: 0x0002DAEC
+	// Token: 0x0600076F RID: 1903 RVA: 0x0002F994 File Offset: 0x0002DB94
 	public static StoreCapsuleScript.BuyResult BuyTry(int id)
 	{
 		StoreCapsuleScript storeCapsuleById = StoreCapsuleScript.GetStoreCapsuleById(id);
@@ -323,7 +323,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		return StoreCapsuleScript.BuyResult.Success;
 	}
 
-	// Token: 0x06000770 RID: 1904 RVA: 0x0002FC0A File Offset: 0x0002DE0A
+	// Token: 0x06000770 RID: 1904 RVA: 0x0002FCB2 File Offset: 0x0002DEB2
 	public static void RemovePowerupAt(int storeIndex, bool refreshStuff)
 	{
 		if (StoreCapsuleScript.storePowerups[storeIndex] == null)
@@ -338,7 +338,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000771 RID: 1905 RVA: 0x0002FC34 File Offset: 0x0002DE34
+	// Token: 0x06000771 RID: 1905 RVA: 0x0002FCDC File Offset: 0x0002DEDC
 	public static void RemovePowerup(PowerupScript.Identifier identifier, bool refreshStuff)
 	{
 		for (int i = 0; i < StoreCapsuleScript.storePowerups.Length; i++)
@@ -351,7 +351,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000772 RID: 1906 RVA: 0x0002FC7C File Offset: 0x0002DE7C
+	// Token: 0x06000772 RID: 1906 RVA: 0x0002FD24 File Offset: 0x0002DF24
 	public static void RemoveAllPowerups()
 	{
 		for (int i = 0; i < StoreCapsuleScript.storePowerups.Length; i++)
@@ -362,7 +362,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		PowerupScript.RefreshPlacementAll();
 	}
 
-	// Token: 0x06000773 RID: 1907 RVA: 0x0002FCAC File Offset: 0x0002DEAC
+	// Token: 0x06000773 RID: 1907 RVA: 0x0002FD54 File Offset: 0x0002DF54
 	public static bool CanBuyAnything()
 	{
 		if (StoreCapsuleScript.list == null || StoreCapsuleScript.list.Count == 0)
@@ -381,7 +381,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000774 RID: 1908 RVA: 0x0002FD18 File Offset: 0x0002DF18
+	// Token: 0x06000774 RID: 1908 RVA: 0x0002FDC0 File Offset: 0x0002DFC0
 	private static void PowerupsChain_Initilize(bool isNewGame)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -811,7 +811,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		StoreCapsuleScript.PowerupChain_PickNewChain();
 	}
 
-	// Token: 0x06000775 RID: 1909 RVA: 0x0003091C File Offset: 0x0002EB1C
+	// Token: 0x06000775 RID: 1909 RVA: 0x000309C4 File Offset: 0x0002EBC4
 	private static PowerupScript.Identifier PowerupChain_GetPowerup()
 	{
 		if (StoreCapsuleScript._powerupChains == null || StoreCapsuleScript._powerupChains.Count == 0)
@@ -837,7 +837,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000776 RID: 1910 RVA: 0x0003098A File Offset: 0x0002EB8A
+	// Token: 0x06000776 RID: 1910 RVA: 0x00030A32 File Offset: 0x0002EC32
 	private static void PowerupChain_Next()
 	{
 		StoreCapsuleScript.chainIndex_PowerupIdentifier++;
@@ -847,7 +847,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000777 RID: 1911 RVA: 0x000309B8 File Offset: 0x0002EBB8
+	// Token: 0x06000777 RID: 1911 RVA: 0x00030A60 File Offset: 0x0002EC60
 	private static void PowerupChain_PickNewChain()
 	{
 		int num = StoreCapsuleScript.chainIndex_Array;
@@ -876,13 +876,13 @@ public class StoreCapsuleScript : MonoBehaviour
 		StoreCapsuleScript.chainIndex_PowerupIdentifier = 0;
 	}
 
-	// Token: 0x06000778 RID: 1912 RVA: 0x00030A63 File Offset: 0x0002EC63
+	// Token: 0x06000778 RID: 1912 RVA: 0x00030B0B File Offset: 0x0002ED0B
 	public bool IsEnabled()
 	{
 		return (GameplayData.RunModifier_GetCurrent() != RunModifierScript.Identifier.smallerStore || this.id != 3 || this.isRefreshButton) && (this.useInDemo || !Master.IsDemo);
 	}
 
-	// Token: 0x06000779 RID: 1913 RVA: 0x00030A94 File Offset: 0x0002EC94
+	// Token: 0x06000779 RID: 1913 RVA: 0x00030B3C File Offset: 0x0002ED3C
 	public static bool PowerupIsForbiddenToRestock(PowerupScript.Identifier identifier, bool considerDeadlineNumberCondition, bool considerEquipOrDrawerCondition)
 	{
 		if (StoreCapsuleScript.powerupsToNeverRestock.Contains(identifier))
@@ -910,10 +910,10 @@ public class StoreCapsuleScript : MonoBehaviour
 			return true;
 		}
 		PowerupScript powerup_Quick = PowerupScript.GetPowerup_Quick(identifier);
-		return powerup_Quick == null || PowerupScript.IsBanned(identifier, powerup_Quick.archetype) || powerup_Quick.archetype == PowerupScript.Archetype.sacred;
+		return powerup_Quick == null || PowerupScript.IsBanned(identifier, powerup_Quick.archetype) || powerup_Quick.archetype == PowerupScript.Archetype.sacred || (powerup_Quick.identifier == PowerupScript.Identifier.WeirdClock && PowerupScript.WeirdClockActivationsLimitReached());
 	}
 
-	// Token: 0x0600077A RID: 1914 RVA: 0x00030B5C File Offset: 0x0002ED5C
+	// Token: 0x0600077A RID: 1914 RVA: 0x00030C14 File Offset: 0x0002EE14
 	public static void Restock(bool isFirstRestockOfDeadline, bool refreshPlacement, PowerupScript[] predeterminedPowerups, bool isLoadingFromFile, bool saveAfterRestock)
 	{
 		bool flag = GameplayMaster.instance == null || GameplayData.DebtIndexGet() == 0L;
@@ -1101,7 +1101,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600077B RID: 1915 RVA: 0x0003100C File Offset: 0x0002F20C
+	// Token: 0x0600077B RID: 1915 RVA: 0x000310C4 File Offset: 0x0002F2C4
 	private static void RestockSave()
 	{
 		if (PlatformMaster.PlatformIsComputer())
@@ -1114,7 +1114,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		ConsolePrompt.LogError(text, "", 0f);
 	}
 
-	// Token: 0x0600077C RID: 1916 RVA: 0x0003103C File Offset: 0x0002F23C
+	// Token: 0x0600077C RID: 1916 RVA: 0x000310F4 File Offset: 0x0002F2F4
 	public static void InitializeAll(bool isNewGame, bool refreshPlacement)
 	{
 		StoreCapsuleScript._lastRandomIndex = 0;
@@ -1191,7 +1191,7 @@ public class StoreCapsuleScript : MonoBehaviour
 		StoreCapsuleScript._initializing = false;
 	}
 
-	// Token: 0x0600077D RID: 1917 RVA: 0x000312BC File Offset: 0x0002F4BC
+	// Token: 0x0600077D RID: 1917 RVA: 0x00031374 File Offset: 0x0002F574
 	private void Awake()
 	{
 		StoreCapsuleScript.list.Add(this);
@@ -1206,13 +1206,13 @@ public class StoreCapsuleScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600077E RID: 1918 RVA: 0x00031329 File Offset: 0x0002F529
+	// Token: 0x0600077E RID: 1918 RVA: 0x000313E1 File Offset: 0x0002F5E1
 	private void OnDestroy()
 	{
 		StoreCapsuleScript.list.Remove(this);
 	}
 
-	// Token: 0x0600077F RID: 1919 RVA: 0x00031338 File Offset: 0x0002F538
+	// Token: 0x0600077F RID: 1919 RVA: 0x000313F0 File Offset: 0x0002F5F0
 	private void Update()
 	{
 		if (!this.isRefreshButton)

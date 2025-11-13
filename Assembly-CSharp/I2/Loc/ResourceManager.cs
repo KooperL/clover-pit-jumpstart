@@ -7,7 +7,7 @@ namespace I2.Loc
 {
 	public class ResourceManager : MonoBehaviour
 	{
-		// (get) Token: 0x06001016 RID: 4118 RVA: 0x000640BC File Offset: 0x000622BC
+		// (get) Token: 0x0600102D RID: 4141 RVA: 0x00064898 File Offset: 0x00062A98
 		public static ResourceManager pInstance
 		{
 			get
@@ -32,14 +32,14 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001017 RID: 4119 RVA: 0x0006416D File Offset: 0x0006236D
+		// Token: 0x0600102E RID: 4142 RVA: 0x00064949 File Offset: 0x00062B49
 		public static void MyOnLevelWasLoaded(Scene scene, LoadSceneMode mode)
 		{
 			ResourceManager.pInstance.CleanResourceCache(false);
 			LocalizationManager.UpdateSources();
 		}
 
-		// Token: 0x06001018 RID: 4120 RVA: 0x00064180 File Offset: 0x00062380
+		// Token: 0x0600102F RID: 4143 RVA: 0x0006495C File Offset: 0x00062B5C
 		public T GetAsset<T>(string Name) where T : global::UnityEngine.Object
 		{
 			T t = this.FindAsset(Name) as T;
@@ -50,7 +50,7 @@ namespace I2.Loc
 			return this.LoadFromResources<T>(Name);
 		}
 
-		// Token: 0x06001019 RID: 4121 RVA: 0x000641B8 File Offset: 0x000623B8
+		// Token: 0x06001030 RID: 4144 RVA: 0x00064994 File Offset: 0x00062B94
 		private global::UnityEngine.Object FindAsset(string Name)
 		{
 			if (this.Assets != null)
@@ -69,13 +69,13 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x0600101A RID: 4122 RVA: 0x00064211 File Offset: 0x00062411
+		// Token: 0x06001031 RID: 4145 RVA: 0x000649ED File Offset: 0x00062BED
 		public bool HasAsset(global::UnityEngine.Object Obj)
 		{
 			return this.Assets != null && Array.IndexOf<global::UnityEngine.Object>(this.Assets, Obj) >= 0;
 		}
 
-		// Token: 0x0600101B RID: 4123 RVA: 0x00064230 File Offset: 0x00062430
+		// Token: 0x06001032 RID: 4146 RVA: 0x00064A0C File Offset: 0x00062C0C
 		public T LoadFromResources<T>(string Path) where T : global::UnityEngine.Object
 		{
 			T t;
@@ -141,7 +141,7 @@ namespace I2.Loc
 			return t;
 		}
 
-		// Token: 0x0600101C RID: 4124 RVA: 0x000643BC File Offset: 0x000625BC
+		// Token: 0x06001033 RID: 4147 RVA: 0x00064B98 File Offset: 0x00062D98
 		public T LoadFromBundle<T>(string path) where T : global::UnityEngine.Object
 		{
 			int i = 0;
@@ -161,7 +161,7 @@ namespace I2.Loc
 			return default(T);
 		}
 
-		// Token: 0x0600101D RID: 4125 RVA: 0x0006442F File Offset: 0x0006262F
+		// Token: 0x06001034 RID: 4148 RVA: 0x00064C0B File Offset: 0x00062E0B
 		public void CleanResourceCache(bool unloadResources = false)
 		{
 			this.mResourcesCache.Clear();

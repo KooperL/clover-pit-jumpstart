@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DeckBoxScript : MonoBehaviour
 {
-	// Token: 0x060007D1 RID: 2001 RVA: 0x000329F1 File Offset: 0x00030BF1
+	// Token: 0x060007D1 RID: 2001 RVA: 0x00032AA9 File Offset: 0x00030CA9
 	public static bool IsEnabled()
 	{
 		return !(DeckBoxScript.instance == null) && DeckBoxScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060007D2 RID: 2002 RVA: 0x00032A14 File Offset: 0x00030C14
+	// Token: 0x060007D2 RID: 2002 RVA: 0x00032ACC File Offset: 0x00030CCC
 	public void MenuConnectionUpdate(DeckBoxScript.MenuConnectionKind menuConnectionKind)
 	{
 		if (!this.holder.activeSelf)
@@ -48,7 +48,7 @@ public class DeckBoxScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007D3 RID: 2003 RVA: 0x00032B8C File Offset: 0x00030D8C
+	// Token: 0x060007D3 RID: 2003 RVA: 0x00032C44 File Offset: 0x00030E44
 	public static void SetSummonedCard()
 	{
 		if (DeckBoxScript.instance == null)
@@ -68,7 +68,7 @@ public class DeckBoxScript : MonoBehaviour
 		DeckBoxScript.instance.summonedCard = cardScript;
 	}
 
-	// Token: 0x060007D4 RID: 2004 RVA: 0x00032C0C File Offset: 0x00030E0C
+	// Token: 0x060007D4 RID: 2004 RVA: 0x00032CC4 File Offset: 0x00030EC4
 	public static bool ItsMemoryCardTime()
 	{
 		RewardBoxScript.RewardKind rewardKind = RewardBoxScript.GetRewardKind();
@@ -90,7 +90,7 @@ public class DeckBoxScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060007D5 RID: 2005 RVA: 0x00032C6C File Offset: 0x00030E6C
+	// Token: 0x060007D5 RID: 2005 RVA: 0x00032D24 File Offset: 0x00030F24
 	public static bool CanActuallyCountVictoriesForCards()
 	{
 		RewardBoxScript.RewardKind rewardKind = RewardBoxScript.GetRewardKind();
@@ -110,27 +110,40 @@ public class DeckBoxScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060007D6 RID: 2006 RVA: 0x00032CC8 File Offset: 0x00030EC8
+	// Token: 0x060007D6 RID: 2006 RVA: 0x00032D80 File Offset: 0x00030F80
+	public static void CandlesStateUpdate(bool forceNormal)
+	{
+		if (!forceNormal && Data.game.RunModifier_HardcoreMode_Get(GameplayData.RunModifier_GetCurrent()))
+		{
+			DeckBoxScript.instance.candlesHolder_Normal.SetActive(false);
+			DeckBoxScript.instance.candlesHolder_Skull.SetActive(true);
+			return;
+		}
+		DeckBoxScript.instance.candlesHolder_Normal.SetActive(true);
+		DeckBoxScript.instance.candlesHolder_Skull.SetActive(false);
+	}
+
+	// Token: 0x060007D7 RID: 2007 RVA: 0x00032DE2 File Offset: 0x00030FE2
 	private void Awake()
 	{
 		DeckBoxScript.instance = this;
 		this.summonedCardHolderStartPosition_Local = this.summonedCardHolder.localPosition;
 	}
 
-	// Token: 0x060007D7 RID: 2007 RVA: 0x00032CE1 File Offset: 0x00030EE1
+	// Token: 0x060007D8 RID: 2008 RVA: 0x00032DFB File Offset: 0x00030FFB
 	private void Start()
 	{
 		this.holder.SetActive(false);
 		this.summonedCardHolder.localScale = Vector3.zero;
 	}
 
-	// Token: 0x060007D8 RID: 2008 RVA: 0x00032CFF File Offset: 0x00030EFF
+	// Token: 0x060007D9 RID: 2009 RVA: 0x00032E19 File Offset: 0x00031019
 	private void OnDestroy()
 	{
 		DeckBoxScript.instance == this;
 	}
 
-	// Token: 0x060007D9 RID: 2009 RVA: 0x00032D10 File Offset: 0x00030F10
+	// Token: 0x060007DA RID: 2010 RVA: 0x00032E28 File Offset: 0x00031028
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -202,6 +215,10 @@ public class DeckBoxScript : MonoBehaviour
 	public Transform summonedCardHolder;
 
 	public GameObject headset;
+
+	public GameObject candlesHolder_Normal;
+
+	public GameObject candlesHolder_Skull;
 
 	private CardScript summonedCard;
 

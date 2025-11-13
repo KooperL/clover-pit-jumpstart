@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public abstract class LocalizeTarget<T> : ILocalizeTarget where T : global::UnityEngine.Object
 	{
-		// Token: 0x06000F48 RID: 3912 RVA: 0x00061DE4 File Offset: 0x0005FFE4
+		// Token: 0x06000F5F RID: 3935 RVA: 0x000625C0 File Offset: 0x000607C0
 		public override bool IsValid(Localize cmp)
 		{
 			if (this.mTarget != null)

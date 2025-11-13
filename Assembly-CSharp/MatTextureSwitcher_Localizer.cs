@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class MatTextureSwitcher_Localizer : MonoBehaviour
 {
-	// Token: 0x0600034C RID: 844 RVA: 0x00015240 File Offset: 0x00013440
+	// Token: 0x0600034A RID: 842 RVA: 0x00015284 File Offset: 0x00013484
 	public void Refresh()
 	{
 		Translation.Language language = Translation.LanguageGet();
@@ -45,14 +45,14 @@ public class MatTextureSwitcher_Localizer : MonoBehaviour
 		Debug.LogError("MatTextureSwitcher_Localizer.Refresh(): language not handled: " + language.ToString());
 	}
 
-	// Token: 0x0600034D RID: 845 RVA: 0x00015362 File Offset: 0x00013562
+	// Token: 0x0600034B RID: 843 RVA: 0x000153A6 File Offset: 0x000135A6
 	private void Start()
 	{
 		this.Refresh();
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.Refresh));
 	}
 
-	// Token: 0x0600034E RID: 846 RVA: 0x0001538A File Offset: 0x0001358A
+	// Token: 0x0600034C RID: 844 RVA: 0x000153CE File Offset: 0x000135CE
 	private void OnDestroy()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.Refresh));

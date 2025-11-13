@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GiantNumberOnTheWall : MonoBehaviour
 {
-	// Token: 0x060007DD RID: 2013 RVA: 0x00032F76 File Offset: 0x00031176
+	// Token: 0x060007DE RID: 2014 RVA: 0x0003308E File Offset: 0x0003128E
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())

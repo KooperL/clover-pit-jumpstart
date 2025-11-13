@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WCScript : MonoBehaviour
 {
-	// Token: 0x060007AE RID: 1966 RVA: 0x000323A0 File Offset: 0x000305A0
+	// Token: 0x060007AE RID: 1966 RVA: 0x00032458 File Offset: 0x00030658
 	public static void StartAction(WCScript.ActionType actionType)
 	{
 		if (WCScript.instance == null)
@@ -19,7 +19,7 @@ public class WCScript : MonoBehaviour
 		WCScript.instance.actionCoroutine = WCScript.instance.StartCoroutine(WCScript.instance.ActionCoroutine(actionType));
 	}
 
-	// Token: 0x060007AF RID: 1967 RVA: 0x000323FA File Offset: 0x000305FA
+	// Token: 0x060007AF RID: 1967 RVA: 0x000324B2 File Offset: 0x000306B2
 	private IEnumerator ActionCoroutine(WCScript.ActionType actionType)
 	{
 		CameraController.SetPosition((actionType == WCScript.ActionType.piss) ? CameraController.PositionKind.WcPiss : CameraController.PositionKind.WcPoop, false, 2f);
@@ -109,13 +109,13 @@ public class WCScript : MonoBehaviour
 		goto IL_01D9;
 	}
 
-	// Token: 0x060007B0 RID: 1968 RVA: 0x00032410 File Offset: 0x00030610
+	// Token: 0x060007B0 RID: 1968 RVA: 0x000324C8 File Offset: 0x000306C8
 	public static bool IsPerformingAction()
 	{
 		return !(WCScript.instance == null) && WCScript.instance.actionCoroutine != null;
 	}
 
-	// Token: 0x060007B1 RID: 1969 RVA: 0x0003242E File Offset: 0x0003062E
+	// Token: 0x060007B1 RID: 1969 RVA: 0x000324E6 File Offset: 0x000306E6
 	public static void ForceClose_Death()
 	{
 		if (WCScript.instance == null)
@@ -125,20 +125,20 @@ public class WCScript : MonoBehaviour
 		WCScript.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x060007B2 RID: 1970 RVA: 0x00032449 File Offset: 0x00030649
+	// Token: 0x060007B2 RID: 1970 RVA: 0x00032501 File Offset: 0x00030701
 	public static bool IsForceClosing()
 	{
 		return !(WCScript.instance == null) && WCScript.instance.forceClose_Death;
 	}
 
-	// Token: 0x060007B3 RID: 1971 RVA: 0x00032464 File Offset: 0x00030664
+	// Token: 0x060007B3 RID: 1971 RVA: 0x0003251C File Offset: 0x0003071C
 	private void Awake()
 	{
 		WCScript.instance = this;
 		this.actualPiss.SetActive(false);
 	}
 
-	// Token: 0x060007B4 RID: 1972 RVA: 0x00032478 File Offset: 0x00030678
+	// Token: 0x060007B4 RID: 1972 RVA: 0x00032530 File Offset: 0x00030730
 	private void Start()
 	{
 		if (Data.GameData.IsGameCompletedFully())
@@ -147,7 +147,7 @@ public class WCScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007B5 RID: 1973 RVA: 0x00032492 File Offset: 0x00030692
+	// Token: 0x060007B5 RID: 1973 RVA: 0x0003254A File Offset: 0x0003074A
 	private void OnDestroy()
 	{
 		if (WCScript.instance == this)

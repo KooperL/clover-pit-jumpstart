@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TwitchPollObject : MonoBehaviour
 {
-	// Token: 0x06000A6C RID: 2668 RVA: 0x000472AB File Offset: 0x000454AB
+	// Token: 0x06000A81 RID: 2689 RVA: 0x00047A0B File Offset: 0x00045C0B
 	public static bool IsEnabled()
 	{
 		return !(TwitchPollObject.instance == null) && TwitchPollObject.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A6D RID: 2669 RVA: 0x000472CC File Offset: 0x000454CC
+	// Token: 0x06000A82 RID: 2690 RVA: 0x00047A2C File Offset: 0x00045C2C
 	public void MenuConnectionUpdate()
 	{
 		if (!this.holder.activeSelf)
@@ -25,7 +25,7 @@ public class TwitchPollObject : MonoBehaviour
 		TwitchPollObject.instance.myDiegeticMenuElement.SetMyController(DiegeticMenuController.MainMenu);
 	}
 
-	// Token: 0x06000A6E RID: 2670 RVA: 0x00047349 File Offset: 0x00045549
+	// Token: 0x06000A83 RID: 2691 RVA: 0x00047AA9 File Offset: 0x00045CA9
 	private void Awake()
 	{
 		TwitchPollObject.instance = this;
@@ -33,7 +33,7 @@ public class TwitchPollObject : MonoBehaviour
 		this.meshRend = base.GetComponentInChildren<MeshRenderer>();
 	}
 
-	// Token: 0x06000A6F RID: 2671 RVA: 0x00047369 File Offset: 0x00045569
+	// Token: 0x06000A84 RID: 2692 RVA: 0x00047AC9 File Offset: 0x00045CC9
 	private void OnDestroy()
 	{
 		if (TwitchPollObject.instance == this)
@@ -42,13 +42,13 @@ public class TwitchPollObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A70 RID: 2672 RVA: 0x0004737E File Offset: 0x0004557E
+	// Token: 0x06000A85 RID: 2693 RVA: 0x00047ADE File Offset: 0x00045CDE
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A71 RID: 2673 RVA: 0x0004738C File Offset: 0x0004558C
+	// Token: 0x06000A86 RID: 2694 RVA: 0x00047AEC File Offset: 0x00045CEC
 	private void Update()
 	{
 		bool flag = TwitchPollObject.IsEnabled();

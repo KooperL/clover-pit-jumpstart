@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class TwitchMaster : MonoBehaviour
 {
-	// Token: 0x0600039C RID: 924 RVA: 0x000194E1 File Offset: 0x000176E1
+	// Token: 0x0600039A RID: 922 RVA: 0x00019560 File Offset: 0x00017760
 	public static bool IsTwitchSupported()
 	{
-		return PlatformMaster.IsInitialized() && (PlatformAPI.ApiKindGet() != PlatformAPI.ApiKind.Steam || !PlatformAPI_Steam.IsSteamDeck());
+		return !(TwitchMaster.instance == null) && PlatformMaster.IsInitialized() && !TwitchMaster.instance._osString.Contains("linux") && (PlatformAPI.ApiKindGet() != PlatformAPI.ApiKind.Steam || !PlatformAPI_Steam.IsSteamDeck());
 	}
 
-	// Token: 0x0600039D RID: 925 RVA: 0x00019500 File Offset: 0x00017700
+	// Token: 0x0600039B RID: 923 RVA: 0x000195B0 File Offset: 0x000177B0
 	public void UpdateAuthState()
 	{
 		if (!TwitchMaster.IsTwitchSupported())
@@ -68,7 +68,7 @@ public class TwitchMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600039E RID: 926 RVA: 0x00019628 File Offset: 0x00017828
+	// Token: 0x0600039C RID: 924 RVA: 0x000196D8 File Offset: 0x000178D8
 	public void GetAuthInformation()
 	{
 		this.urlOpened = false;
@@ -80,7 +80,7 @@ public class TwitchMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600039F RID: 927 RVA: 0x00019690 File Offset: 0x00017890
+	// Token: 0x0600039D RID: 925 RVA: 0x00019740 File Offset: 0x00017940
 	public static bool IsLoggedInAndEnabled()
 	{
 		if (!TwitchMaster.IsTwitchSupported())
@@ -110,7 +110,7 @@ public class TwitchMaster : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060003A0 RID: 928 RVA: 0x00019710 File Offset: 0x00017910
+	// Token: 0x0600039E RID: 926 RVA: 0x000197C0 File Offset: 0x000179C0
 	public static async void LogoutTwitch(bool menuCall)
 	{
 		await Twitch.API.LogOut();
@@ -122,13 +122,13 @@ public class TwitchMaster : MonoBehaviour
 		TwitchMaster.instance.twitchMenuString = "";
 	}
 
-	// Token: 0x060003A1 RID: 929 RVA: 0x00019747 File Offset: 0x00017947
+	// Token: 0x0600039F RID: 927 RVA: 0x000197F7 File Offset: 0x000179F7
 	public static string GetTwitchMenuString()
 	{
 		return TwitchMaster.instance.twitchMenuString;
 	}
 
-	// Token: 0x060003A2 RID: 930 RVA: 0x00019753 File Offset: 0x00017953
+	// Token: 0x060003A0 RID: 928 RVA: 0x00019803 File Offset: 0x00017A03
 	private void Awake()
 	{
 		if (!PlatformMaster.PlatformIsComputer())
@@ -145,13 +145,17 @@ public class TwitchMaster : MonoBehaviour
 		TwitchMaster.instance = this;
 	}
 
-	// Token: 0x060003A3 RID: 931 RVA: 0x00019791 File Offset: 0x00017991
+	// Token: 0x060003A1 RID: 929 RVA: 0x00019841 File Offset: 0x00017A41
 	private void Start()
 	{
-		TwitchMaster.instance != this;
+		if (TwitchMaster.instance != this)
+		{
+			return;
+		}
+		this._osString = PlatformAPI.GetOsString().ToLower();
 	}
 
-	// Token: 0x060003A4 RID: 932 RVA: 0x0001979F File Offset: 0x0001799F
+	// Token: 0x060003A2 RID: 930 RVA: 0x00019861 File Offset: 0x00017A61
 	private void OnDestroy()
 	{
 		if (TwitchMaster.instance == this)
@@ -160,7 +164,7 @@ public class TwitchMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003A5 RID: 933 RVA: 0x000197B4 File Offset: 0x000179B4
+	// Token: 0x060003A3 RID: 931 RVA: 0x00019876 File Offset: 0x00017A76
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -178,6 +182,8 @@ public class TwitchMaster : MonoBehaviour
 	public static TwitchMaster instance;
 
 	public const bool SHOW_TWITCH_CODE = false;
+
+	private string _osString;
 
 	private GameTask<AuthenticationInfo> AuthInfoTask;
 

@@ -4,7 +4,7 @@ namespace Panik
 {
 	public static class Bit
 	{
-		// Token: 0x06000D52 RID: 3410 RVA: 0x00054C76 File Offset: 0x00052E76
+		// Token: 0x06000D69 RID: 3433 RVA: 0x00055452 File Offset: 0x00053652
 		public static int Set(ref int numReference, int bitPosition, bool value)
 		{
 			if (value)
@@ -14,27 +14,27 @@ namespace Panik
 			return Bit.SetZero(ref numReference, bitPosition);
 		}
 
-		// Token: 0x06000D53 RID: 3411 RVA: 0x00054C8A File Offset: 0x00052E8A
+		// Token: 0x06000D6A RID: 3434 RVA: 0x00055466 File Offset: 0x00053666
 		public static int SetOne(ref int numReference, int bitPosition)
 		{
 			numReference |= 1 << bitPosition;
 			return numReference;
 		}
 
-		// Token: 0x06000D54 RID: 3412 RVA: 0x00054C99 File Offset: 0x00052E99
+		// Token: 0x06000D6B RID: 3435 RVA: 0x00055475 File Offset: 0x00053675
 		public static int SetZero(ref int numReference, int bitPosition)
 		{
 			numReference &= ~(1 << bitPosition);
 			return numReference;
 		}
 
-		// Token: 0x06000D55 RID: 3413 RVA: 0x00054CA9 File Offset: 0x00052EA9
+		// Token: 0x06000D6C RID: 3436 RVA: 0x00055485 File Offset: 0x00053685
 		public static bool GetBit(int num, int bitPosition)
 		{
 			return ((num >> bitPosition) & 1) != 0;
 		}
 
-		// Token: 0x06000D56 RID: 3414 RVA: 0x00054CB6 File Offset: 0x00052EB6
+		// Token: 0x06000D6D RID: 3437 RVA: 0x00055492 File Offset: 0x00053692
 		public static int GetBitInt(int num, int bitPosition)
 		{
 			if (((num >> bitPosition) & 1) != 0)
@@ -44,31 +44,31 @@ namespace Panik
 			return 0;
 		}
 
-		// Token: 0x06000D57 RID: 3415 RVA: 0x00054CC5 File Offset: 0x00052EC5
+		// Token: 0x06000D6E RID: 3438 RVA: 0x000554A1 File Offset: 0x000536A1
 		public static bool IsOne(int num, int bitPosition)
 		{
 			return (num & (1 << bitPosition)) != 0;
 		}
 
-		// Token: 0x06000D58 RID: 3416 RVA: 0x00054CD2 File Offset: 0x00052ED2
+		// Token: 0x06000D6F RID: 3439 RVA: 0x000554AE File Offset: 0x000536AE
 		public static bool IsZero(int num, int bitPosition)
 		{
 			return (num & (1 << bitPosition)) == 0;
 		}
 
-		// Token: 0x06000D59 RID: 3417 RVA: 0x00054CDF File Offset: 0x00052EDF
+		// Token: 0x06000D70 RID: 3440 RVA: 0x000554BB File Offset: 0x000536BB
 		public static uint ShiftRotateLeft(uint originalNumber, int shiftN)
 		{
 			return (originalNumber << shiftN) | (originalNumber >> 32 - shiftN);
 		}
 
-		// Token: 0x06000D5A RID: 3418 RVA: 0x00054CF1 File Offset: 0x00052EF1
+		// Token: 0x06000D71 RID: 3441 RVA: 0x000554CD File Offset: 0x000536CD
 		public static uint ShiftRotateRight(uint originalNumber, int shiftN)
 		{
 			return (originalNumber >> shiftN) | (originalNumber << 32 - shiftN);
 		}
 
-		// Token: 0x06000D5B RID: 3419 RVA: 0x00054D04 File Offset: 0x00052F04
+		// Token: 0x06000D72 RID: 3442 RVA: 0x000554E0 File Offset: 0x000536E0
 		public static byte[] BufferFromArray<T>(T[] array, uint sizeOfSingleElement)
 		{
 			byte[] array2 = new byte[(long)array.Length * (long)((ulong)sizeOfSingleElement)];
@@ -76,7 +76,7 @@ namespace Panik
 			return array2;
 		}
 
-		// Token: 0x06000D5C RID: 3420 RVA: 0x00054D2C File Offset: 0x00052F2C
+		// Token: 0x06000D73 RID: 3443 RVA: 0x00055508 File Offset: 0x00053708
 		public static T[] BufferToArray<T>(byte[] byteArray, uint sizeOfSingleElement)
 		{
 			T[] array = new T[(long)byteArray.Length / (long)((ulong)sizeOfSingleElement)];

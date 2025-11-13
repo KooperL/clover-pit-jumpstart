@@ -7,7 +7,7 @@ namespace Panik
 {
 	public class UIGlobalScript : MonoBehaviour
 	{
-		// Token: 0x06000DCA RID: 3530 RVA: 0x00056090 File Offset: 0x00054290
+		// Token: 0x06000DE1 RID: 3553 RVA: 0x0005686C File Offset: 0x00054A6C
 		private void SaveIconAndTextUpdate()
 		{
 			bool flag = PlatformDataMaster.IsSavingOrLoadingOrDeleting();
@@ -46,13 +46,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DCB RID: 3531 RVA: 0x00056195 File Offset: 0x00054395
+		// Token: 0x06000DE2 RID: 3554 RVA: 0x00056971 File Offset: 0x00054B71
 		private void Awake()
 		{
 			UIGlobalScript.instance = this;
 		}
 
-		// Token: 0x06000DCC RID: 3532 RVA: 0x0005619D File Offset: 0x0005439D
+		// Token: 0x06000DE3 RID: 3555 RVA: 0x00056979 File Offset: 0x00054B79
 		private void Start()
 		{
 			this.saveIconImage = this.saveIconHolder.GetComponentInChildren<Image>();
@@ -60,7 +60,7 @@ namespace Panik
 			this.SaveIconAndTextUpdate();
 		}
 
-		// Token: 0x06000DCD RID: 3533 RVA: 0x000561C2 File Offset: 0x000543C2
+		// Token: 0x06000DE4 RID: 3556 RVA: 0x0005699E File Offset: 0x00054B9E
 		private void OnDestroy()
 		{
 			if (UIGlobalScript.instance == this)
@@ -69,13 +69,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DCE RID: 3534 RVA: 0x000561D7 File Offset: 0x000543D7
+		// Token: 0x06000DE5 RID: 3557 RVA: 0x000569B3 File Offset: 0x00054BB3
 		private void Update()
 		{
 			this.SaveIconAndTextUpdate();
 		}
 
-		// Token: 0x06000DCF RID: 3535 RVA: 0x000561DF File Offset: 0x000543DF
+		// Token: 0x06000DE6 RID: 3558 RVA: 0x000569BB File Offset: 0x00054BBB
 		private void OnDrawGizmosSelected()
 		{
 			this.myCanvasScaler.referencePixelsPerUnit = 32f;

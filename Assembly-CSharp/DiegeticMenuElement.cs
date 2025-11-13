@@ -5,31 +5,31 @@ using UnityEngine.Events;
 
 public class DiegeticMenuElement : MonoBehaviour
 {
-	// Token: 0x06000888 RID: 2184 RVA: 0x0003834C File Offset: 0x0003654C
+	// Token: 0x0600088F RID: 2191 RVA: 0x000385CC File Offset: 0x000367CC
 	public void SetMyController(DiegeticMenuController controller)
 	{
 		this.myController = controller;
 	}
 
-	// Token: 0x06000889 RID: 2185 RVA: 0x00038355 File Offset: 0x00036555
+	// Token: 0x06000890 RID: 2192 RVA: 0x000385D5 File Offset: 0x000367D5
 	public bool IsHovered()
 	{
 		return this.isHoveredOld;
 	}
 
-	// Token: 0x0600088A RID: 2186 RVA: 0x0003835D File Offset: 0x0003655D
+	// Token: 0x06000891 RID: 2193 RVA: 0x000385DD File Offset: 0x000367DD
 	public void RefreshHovering(bool desiredHoverState)
 	{
 		this.isHoveredOld = !desiredHoverState;
 	}
 
-	// Token: 0x0600088B RID: 2187 RVA: 0x00038369 File Offset: 0x00036569
+	// Token: 0x06000892 RID: 2194 RVA: 0x000385E9 File Offset: 0x000367E9
 	public bool IsMouseOnMe()
 	{
 		return this._mouseOver;
 	}
 
-	// Token: 0x0600088C RID: 2188 RVA: 0x00038374 File Offset: 0x00036574
+	// Token: 0x06000893 RID: 2195 RVA: 0x000385F4 File Offset: 0x000367F4
 	private bool IsMouseOver()
 	{
 		bool flag = VirtualCursors.IsCursorVisible(0, true);
@@ -75,7 +75,7 @@ public class DiegeticMenuElement : MonoBehaviour
 		return flag2;
 	}
 
-	// Token: 0x0600088D RID: 2189 RVA: 0x00038518 File Offset: 0x00036718
+	// Token: 0x06000894 RID: 2196 RVA: 0x00038798 File Offset: 0x00036998
 	public void Select(DiegeticMenuController controller)
 	{
 		this._ignoreConditionTriggered = false;
@@ -106,25 +106,25 @@ public class DiegeticMenuElement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600088E RID: 2190 RVA: 0x000385CE File Offset: 0x000367CE
+	// Token: 0x06000895 RID: 2197 RVA: 0x0003884E File Offset: 0x00036A4E
 	public void DirectActionControl_Set(Controls.InputAction action)
 	{
 		this.directAction = action;
 	}
 
-	// Token: 0x0600088F RID: 2191 RVA: 0x000385D7 File Offset: 0x000367D7
+	// Token: 0x06000896 RID: 2198 RVA: 0x00038857 File Offset: 0x00036A57
 	public Controls.InputAction DirectActionControl_Get()
 	{
 		return this.directAction;
 	}
 
-	// Token: 0x06000890 RID: 2192 RVA: 0x000385DF File Offset: 0x000367DF
+	// Token: 0x06000897 RID: 2199 RVA: 0x0003885F File Offset: 0x00036A5F
 	public void SetPromptGuide()
 	{
 		PromptGuideScript.SetGuideType(this.promptGuideType);
 	}
 
-	// Token: 0x06000891 RID: 2193 RVA: 0x000385EC File Offset: 0x000367EC
+	// Token: 0x06000898 RID: 2200 RVA: 0x0003886C File Offset: 0x00036A6C
 	public void SetPromptGuide_Powerup()
 	{
 		if (GameplayMaster.GetGamePhase() == GameplayMaster.GamePhase.gambling)
@@ -134,7 +134,7 @@ public class DiegeticMenuElement : MonoBehaviour
 		PromptGuideScript.SetGuideType(this.promptGuideType);
 	}
 
-	// Token: 0x06000892 RID: 2194 RVA: 0x00038602 File Offset: 0x00036802
+	// Token: 0x06000899 RID: 2201 RVA: 0x00038882 File Offset: 0x00036A82
 	public void IgnoreOnSlotSpinning()
 	{
 		if (SlotMachineScript.StateGet() == SlotMachineScript.State.spinning)
@@ -143,7 +143,7 @@ public class DiegeticMenuElement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000893 RID: 2195 RVA: 0x00038613 File Offset: 0x00036813
+	// Token: 0x0600089A RID: 2202 RVA: 0x00038893 File Offset: 0x00036A93
 	public void IgnoreOnSlotAutoSpin()
 	{
 		if (SlotMachineScript.instance.IsAutoSpinning())
@@ -152,19 +152,19 @@ public class DiegeticMenuElement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000894 RID: 2196 RVA: 0x00038628 File Offset: 0x00036828
+	// Token: 0x0600089B RID: 2203 RVA: 0x000388A8 File Offset: 0x00036AA8
 	private void Reset()
 	{
 		this.myOutline = base.GetComponent<Outline>();
 	}
 
-	// Token: 0x06000895 RID: 2197 RVA: 0x00038636 File Offset: 0x00036836
+	// Token: 0x0600089C RID: 2204 RVA: 0x000388B6 File Offset: 0x00036AB6
 	private void Awake()
 	{
 		this.myCollider = base.GetComponent<Collider>();
 	}
 
-	// Token: 0x06000896 RID: 2198 RVA: 0x00038644 File Offset: 0x00036844
+	// Token: 0x0600089D RID: 2205 RVA: 0x000388C4 File Offset: 0x00036AC4
 	private void OnDisable()
 	{
 		if (this.myOutline != null)
@@ -173,7 +173,7 @@ public class DiegeticMenuElement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000897 RID: 2199 RVA: 0x00038660 File Offset: 0x00036860
+	// Token: 0x0600089E RID: 2206 RVA: 0x000388E0 File Offset: 0x00036AE0
 	private void Start()
 	{
 		if (this.myController == null && !this.IllGiveYouAMenuLater)
@@ -186,7 +186,7 @@ public class DiegeticMenuElement : MonoBehaviour
 		this.gameCamera = CameraGame.list[0].myCamera;
 	}
 
-	// Token: 0x06000898 RID: 2200 RVA: 0x000386B8 File Offset: 0x000368B8
+	// Token: 0x0600089F RID: 2207 RVA: 0x00038938 File Offset: 0x00036B38
 	private void Update()
 	{
 		if (this.IllGiveYouAMenuLater && this.myController == null)

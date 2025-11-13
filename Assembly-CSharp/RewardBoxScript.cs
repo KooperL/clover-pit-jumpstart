@@ -7,19 +7,19 @@ using UnityEngine;
 
 public class RewardBoxScript : MonoBehaviour
 {
-	// Token: 0x060006CD RID: 1741 RVA: 0x0002B687 File Offset: 0x00029887
+	// Token: 0x060006CD RID: 1741 RVA: 0x0002B72F File Offset: 0x0002992F
 	public static bool IsOpened()
 	{
 		return !(RewardBoxScript.instance == null) && RewardBoxScript.instance._opened;
 	}
 
-	// Token: 0x060006CE RID: 1742 RVA: 0x0002B6A2 File Offset: 0x000298A2
+	// Token: 0x060006CE RID: 1742 RVA: 0x0002B74A File Offset: 0x0002994A
 	public static bool IsOpening()
 	{
 		return !(RewardBoxScript.instance == null) && RewardBoxScript.instance._isOpening;
 	}
 
-	// Token: 0x060006CF RID: 1743 RVA: 0x0002B6C0 File Offset: 0x000298C0
+	// Token: 0x060006CF RID: 1743 RVA: 0x0002B768 File Offset: 0x00029968
 	public static void Open()
 	{
 		if (RewardBoxScript.instance == null)
@@ -37,19 +37,19 @@ public class RewardBoxScript : MonoBehaviour
 		RewardBoxScript.instance.StartCoroutine(RewardBoxScript.instance.OpenCoroutine());
 	}
 
-	// Token: 0x060006D0 RID: 1744 RVA: 0x0002B720 File Offset: 0x00029920
+	// Token: 0x060006D0 RID: 1744 RVA: 0x0002B7C8 File Offset: 0x000299C8
 	private IEnumerator OpenCoroutine()
 	{
 		this._isOpening = true;
 		float timer = 0f;
 		this.effectScript.gameObject.SetActive(true);
-		Sound.Play3D("SoundRewardBoxConfetti", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundRewardBoxConfetti", base.transform.position, 20f, 1f, 1f, 1);
 		while (timer < 1f)
 		{
 			timer += Tick.Time;
 			yield return null;
 		}
-		Sound.Play3D("SoundRewardBoxTrigger", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundRewardBoxTrigger", base.transform.position, 20f, 1f, 1f, 1);
 		while (timer < 0.5f)
 		{
 			timer += Tick.Time;
@@ -70,7 +70,7 @@ public class RewardBoxScript : MonoBehaviour
 				int num = bouncedTimes;
 				bouncedTimes = num + 1;
 				animationSpeed = 360f / (float)(bouncedTimes + bouncedTimes);
-				Sound.Play3D("SoundRewardBoxDoorHit", base.transform.position, 20f, 1f - (float)bouncedTimes * 0.2f, 1f, AudioRolloffMode.Linear);
+				Sound.Play3D("SoundRewardBoxDoorHit", base.transform.position, 20f, 1f - (float)bouncedTimes * 0.2f, 1f, 1);
 			}
 			this.doorTr.localEulerAngles = doorEulers;
 			yield return null;
@@ -80,13 +80,13 @@ public class RewardBoxScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060006D1 RID: 1745 RVA: 0x0002B72F File Offset: 0x0002992F
+	// Token: 0x060006D1 RID: 1745 RVA: 0x0002B7D7 File Offset: 0x000299D7
 	public void SetModelAsOpened()
 	{
 		this.doorTr.localEulerAngles = RewardBoxScript.doorOpenedEulers;
 	}
 
-	// Token: 0x060006D2 RID: 1746 RVA: 0x0002B744 File Offset: 0x00029944
+	// Token: 0x060006D2 RID: 1746 RVA: 0x0002B7EC File Offset: 0x000299EC
 	public static void Pick()
 	{
 		if (RewardBoxScript.instance == null)
@@ -109,19 +109,19 @@ public class RewardBoxScript : MonoBehaviour
 		RewardBoxScript.RefreshText_ToDeadlineDebtToReach();
 	}
 
-	// Token: 0x060006D3 RID: 1747 RVA: 0x0002B7B1 File Offset: 0x000299B1
+	// Token: 0x060006D3 RID: 1747 RVA: 0x0002B859 File Offset: 0x00029A59
 	private static void DilogueDeathCallback()
 	{
 		GameplayMaster.instance.DieTry(GameplayMaster.DeathStep.lookAtTrapdoor, false);
 	}
 
-	// Token: 0x060006D4 RID: 1748 RVA: 0x0002B7C0 File Offset: 0x000299C0
+	// Token: 0x060006D4 RID: 1748 RVA: 0x0002B868 File Offset: 0x00029A68
 	public static bool HasPrize()
 	{
 		return !(RewardBoxScript.instance == null) && RewardBoxScript.instance.prizeOfGame.activeSelf;
 	}
 
-	// Token: 0x060006D5 RID: 1749 RVA: 0x0002B7E5 File Offset: 0x000299E5
+	// Token: 0x060006D5 RID: 1749 RVA: 0x0002B88D File Offset: 0x00029A8D
 	public static RewardBoxScript.RewardKind GetRewardKind()
 	{
 		if (RewardBoxScript.instance == null)
@@ -131,7 +131,7 @@ public class RewardBoxScript : MonoBehaviour
 		return RewardBoxScript.instance.rewardKind;
 	}
 
-	// Token: 0x060006D6 RID: 1750 RVA: 0x0002B800 File Offset: 0x00029A00
+	// Token: 0x060006D6 RID: 1750 RVA: 0x0002B8A8 File Offset: 0x00029AA8
 	public static void RefreshText_ToDeadlineDebtToReach()
 	{
 		if (RewardBoxScript.instance == null)
@@ -146,16 +146,16 @@ public class RewardBoxScript : MonoBehaviour
 		}
 		if (RewardBoxScript.IsOpened() || !RewardBoxScript.HasPrize())
 		{
-			RewardBoxScript.instance.monitorText.fontStyle = FontStyles.Strikethrough;
+			RewardBoxScript.instance.monitorText.fontStyle = 64;
 		}
 		RewardBoxScript.instance.monitorText.text = "> " + GameplayData.GetRewardDeadlineDebt().ToStringSmart() + "<sprite name=\"CoinSymbolOrange64\">";
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundRewardBoxTextUpdate", RewardBoxScript.instance.transform.position, 30f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundRewardBoxTextUpdate", RewardBoxScript.instance.transform.position, 30f, 1f, 1f, 1);
 		}
 	}
 
-	// Token: 0x060006D7 RID: 1751 RVA: 0x0002B8B4 File Offset: 0x00029AB4
+	// Token: 0x060006D7 RID: 1751 RVA: 0x0002B95C File Offset: 0x00029B5C
 	private void SkeletonKeyMaterialUpdate()
 	{
 		Material material = RewardBoxScript.DoorKeyDesiredMaterial_Get();
@@ -166,7 +166,7 @@ public class RewardBoxScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006D8 RID: 1752 RVA: 0x0002B900 File Offset: 0x00029B00
+	// Token: 0x060006D8 RID: 1752 RVA: 0x0002B9A8 File Offset: 0x00029BA8
 	public static Material DoorKeyDesiredMaterial_Get()
 	{
 		if (RewardBoxScript.instance == null)
@@ -185,7 +185,7 @@ public class RewardBoxScript : MonoBehaviour
 		return material;
 	}
 
-	// Token: 0x060006D9 RID: 1753 RVA: 0x0002B94C File Offset: 0x00029B4C
+	// Token: 0x060006D9 RID: 1753 RVA: 0x0002B9F4 File Offset: 0x00029BF4
 	public static void Initialize(bool isNewGame)
 	{
 		if (isNewGame)
@@ -261,20 +261,20 @@ public class RewardBoxScript : MonoBehaviour
 		RewardBoxScript.RefreshText_ToDeadlineDebtToReach();
 	}
 
-	// Token: 0x060006DA RID: 1754 RVA: 0x0002BB6E File Offset: 0x00029D6E
+	// Token: 0x060006DA RID: 1754 RVA: 0x0002BC16 File Offset: 0x00029E16
 	private void Awake()
 	{
 		RewardBoxScript.instance = this;
 		this.myMenuElement = base.GetComponentInChildren<DiegeticMenuElement>();
 	}
 
-	// Token: 0x060006DB RID: 1755 RVA: 0x0002BB82 File Offset: 0x00029D82
+	// Token: 0x060006DB RID: 1755 RVA: 0x0002BC2A File Offset: 0x00029E2A
 	private void Start()
 	{
 		this.doorKeyHolyEffect.SetActive(false);
 	}
 
-	// Token: 0x060006DC RID: 1756 RVA: 0x0002BB90 File Offset: 0x00029D90
+	// Token: 0x060006DC RID: 1756 RVA: 0x0002BC38 File Offset: 0x00029E38
 	private void OnDestroy()
 	{
 		if (RewardBoxScript.instance == this)
@@ -283,7 +283,7 @@ public class RewardBoxScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006DD RID: 1757 RVA: 0x0002BBA8 File Offset: 0x00029DA8
+	// Token: 0x060006DD RID: 1757 RVA: 0x0002BC50 File Offset: 0x00029E50
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

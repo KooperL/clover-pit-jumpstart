@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class PromptGuideScript : MonoBehaviour
 {
-	// Token: 0x060009C5 RID: 2501 RVA: 0x00041925 File Offset: 0x0003FB25
+	// Token: 0x060009D9 RID: 2521 RVA: 0x00041F8D File Offset: 0x0004018D
 	public static bool IsEnabled()
 	{
 		return !(PromptGuideScript.instance == null) && PromptGuideScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060009C6 RID: 2502 RVA: 0x00041948 File Offset: 0x0003FB48
+	// Token: 0x060009DA RID: 2522 RVA: 0x00041FB0 File Offset: 0x000401B0
 	public static void SetGuideType(PromptGuideScript.GuideType type)
 	{
 		if (PromptGuideScript.instance == null)
@@ -540,7 +540,7 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.instance.currentType = type;
 	}
 
-	// Token: 0x060009C7 RID: 2503 RVA: 0x00042C96 File Offset: 0x00040E96
+	// Token: 0x060009DB RID: 2523 RVA: 0x000432FE File Offset: 0x000414FE
 	public static PromptGuideScript.GuideType GetGuideType()
 	{
 		if (PromptGuideScript.instance == null)
@@ -551,13 +551,13 @@ public class PromptGuideScript : MonoBehaviour
 		return PromptGuideScript.instance.currentType;
 	}
 
-	// Token: 0x060009C8 RID: 2504 RVA: 0x00042CBB File Offset: 0x00040EBB
+	// Token: 0x060009DC RID: 2524 RVA: 0x00043323 File Offset: 0x00041523
 	public static void ResetGuide()
 	{
 		PromptGuideScript.instance.currentType = PromptGuideScript.GuideType.Undefined;
 	}
 
-	// Token: 0x060009C9 RID: 2505 RVA: 0x00042CC9 File Offset: 0x00040EC9
+	// Token: 0x060009DD RID: 2525 RVA: 0x00043331 File Offset: 0x00041531
 	public static void ForceClose(bool resetType)
 	{
 		if (resetType)
@@ -567,7 +567,7 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x060009CA RID: 2506 RVA: 0x00042CE3 File Offset: 0x00040EE3
+	// Token: 0x060009DE RID: 2526 RVA: 0x0004334B File Offset: 0x0004154B
 	private static void SetText(string textString, bool sanitizeString = true)
 	{
 		if (PromptGuideScript.instance == null)
@@ -582,13 +582,13 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.instance.text.text = textString;
 	}
 
-	// Token: 0x060009CB RID: 2507 RVA: 0x00042D1E File Offset: 0x00040F1E
+	// Token: 0x060009DF RID: 2527 RVA: 0x00043386 File Offset: 0x00041586
 	public static bool PreventDepositDuringFlashing()
 	{
 		return !(PromptGuideScript.instance == null) && PromptGuideScript.instance._textFlashPreventsDeposit;
 	}
 
-	// Token: 0x060009CC RID: 2508 RVA: 0x00042D39 File Offset: 0x00040F39
+	// Token: 0x060009E0 RID: 2528 RVA: 0x000433A1 File Offset: 0x000415A1
 	private void OnInputChange_ForceUpdate(Controls.InputActionMap map)
 	{
 		if (!PromptGuideScript.IsEnabled())
@@ -602,7 +602,7 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.SetGuideType(this.currentType);
 	}
 
-	// Token: 0x060009CD RID: 2509 RVA: 0x00042D63 File Offset: 0x00040F63
+	// Token: 0x060009E1 RID: 2529 RVA: 0x000433CB File Offset: 0x000415CB
 	private void Awake()
 	{
 		PromptGuideScript.instance = this;
@@ -610,7 +610,7 @@ public class PromptGuideScript : MonoBehaviour
 		this.imageStartingPos = this.textBackImage.rectTransform.anchoredPosition;
 	}
 
-	// Token: 0x060009CE RID: 2510 RVA: 0x00042D8D File Offset: 0x00040F8D
+	// Token: 0x060009E2 RID: 2530 RVA: 0x000433F5 File Offset: 0x000415F5
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -618,7 +618,7 @@ public class PromptGuideScript : MonoBehaviour
 		PlatformMaster.IsInitialized();
 	}
 
-	// Token: 0x060009CF RID: 2511 RVA: 0x00042DA7 File Offset: 0x00040FA7
+	// Token: 0x060009E3 RID: 2531 RVA: 0x0004340F File Offset: 0x0004160F
 	private void OnDestroy()
 	{
 		if (PromptGuideScript.instance == this)
@@ -632,7 +632,7 @@ public class PromptGuideScript : MonoBehaviour
 		Controls.onLastInputKindChangedAny = (Controls.MapCallback)Delegate.Remove(Controls.onLastInputKindChangedAny, new Controls.MapCallback(this.OnInputChange_ForceUpdate));
 	}
 
-	// Token: 0x060009D0 RID: 2512 RVA: 0x00042DE4 File Offset: 0x00040FE4
+	// Token: 0x060009E4 RID: 2532 RVA: 0x0004344C File Offset: 0x0004164C
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -908,6 +908,6 @@ public class PromptGuideScript : MonoBehaviour
 		Undefined
 	}
 
-	// (Invoke) Token: 0x06001234 RID: 4660
+	// (Invoke) Token: 0x0600124B RID: 4683
 	public delegate bool ShouldEnableCallback();
 }

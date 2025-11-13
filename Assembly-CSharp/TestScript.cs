@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
-	// Token: 0x06000831 RID: 2097 RVA: 0x00035A48 File Offset: 0x00033C48
+	// Token: 0x06000838 RID: 2104 RVA: 0x00035C30 File Offset: 0x00033E30
 	private void Start()
 	{
 		this.graphColumns = new Transform[100];
@@ -18,7 +18,7 @@ public class TestScript : MonoBehaviour
 		this.GraphShow();
 	}
 
-	// Token: 0x06000832 RID: 2098 RVA: 0x00035AA1 File Offset: 0x00033CA1
+	// Token: 0x06000839 RID: 2105 RVA: 0x00035C89 File Offset: 0x00033E89
 	private void GraphShow()
 	{
 		if (this.graphShowCoroutine != null)
@@ -28,7 +28,7 @@ public class TestScript : MonoBehaviour
 		this.graphShowCoroutine = base.StartCoroutine(this.GraphShowCoroutine());
 	}
 
-	// Token: 0x06000833 RID: 2099 RVA: 0x00035ACC File Offset: 0x00033CCC
+	// Token: 0x0600083A RID: 2106 RVA: 0x00035CB4 File Offset: 0x00033EB4
 	private void TextReset()
 	{
 		if (this.randomInst == null)
@@ -48,7 +48,7 @@ public class TestScript : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06000834 RID: 2100 RVA: 0x00035B84 File Offset: 0x00033D84
+	// Token: 0x0600083B RID: 2107 RVA: 0x00035D6C File Offset: 0x00033F6C
 	private IEnumerator GraphShowCoroutine()
 	{
 		MonoBehaviour.print("Started");
@@ -115,13 +115,13 @@ public class TestScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000835 RID: 2101 RVA: 0x00035B93 File Offset: 0x00033D93
+	// Token: 0x0600083C RID: 2108 RVA: 0x00035D7B File Offset: 0x00033F7B
 	private int GetRndVal()
 	{
 		return Mathf.FloorToInt(this.randomInst.Value * 100f);
 	}
 
-	// Token: 0x06000836 RID: 2102 RVA: 0x00035BAC File Offset: 0x00033DAC
+	// Token: 0x0600083D RID: 2109 RVA: 0x00035D94 File Offset: 0x00033F94
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus))

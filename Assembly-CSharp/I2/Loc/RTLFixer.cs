@@ -4,13 +4,13 @@ namespace I2.Loc
 {
 	public class RTLFixer
 	{
-		// Token: 0x0600101F RID: 4127 RVA: 0x0006446E File Offset: 0x0006266E
+		// Token: 0x06001036 RID: 4150 RVA: 0x00064C4A File Offset: 0x00062E4A
 		public static string Fix(string str)
 		{
 			return RTLFixer.Fix(str, false, true);
 		}
 
-		// Token: 0x06001020 RID: 4128 RVA: 0x00064478 File Offset: 0x00062678
+		// Token: 0x06001037 RID: 4151 RVA: 0x00064C54 File Offset: 0x00062E54
 		public static string Fix(string str, bool rtl)
 		{
 			if (rtl)
@@ -39,7 +39,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06001021 RID: 4129 RVA: 0x0006451C File Offset: 0x0006271C
+		// Token: 0x06001038 RID: 4152 RVA: 0x00064CF8 File Offset: 0x00062EF8
 		public static string Fix(string str, bool showTashkeel, bool useHinduNumbers)
 		{
 			string text = HindiFixer.Fix(str);

@@ -7,7 +7,7 @@ namespace I2.Loc
 	[Serializable]
 	public class TermData
 	{
-		// Token: 0x06000FD8 RID: 4056 RVA: 0x000632A4 File Offset: 0x000614A4
+		// Token: 0x06000FEF RID: 4079 RVA: 0x00063A80 File Offset: 0x00061C80
 		public string GetTranslation(int idx, string specialization = null, bool editMode = false)
 		{
 			string text = this.Languages[idx];
@@ -22,13 +22,13 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000FD9 RID: 4057 RVA: 0x000632E9 File Offset: 0x000614E9
+		// Token: 0x06000FF0 RID: 4080 RVA: 0x00063AC5 File Offset: 0x00061CC5
 		public void SetTranslation(int idx, string translation, string specialization = null)
 		{
 			this.Languages[idx] = SpecializationManager.SetSpecializedText(this.Languages[idx], translation, specialization);
 		}
 
-		// Token: 0x06000FDA RID: 4058 RVA: 0x00063304 File Offset: 0x00061504
+		// Token: 0x06000FF1 RID: 4081 RVA: 0x00063AE0 File Offset: 0x00061CE0
 		public void RemoveSpecialization(string specialization)
 		{
 			for (int i = 0; i < this.Languages.Length; i++)
@@ -37,7 +37,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000FDB RID: 4059 RVA: 0x0006332C File Offset: 0x0006152C
+		// Token: 0x06000FF2 RID: 4082 RVA: 0x00063B08 File Offset: 0x00061D08
 		public void RemoveSpecialization(int idx, string specialization)
 		{
 			string text = this.Languages[idx];
@@ -50,13 +50,13 @@ namespace I2.Loc
 			this.Languages[idx] = SpecializationManager.SetSpecializedText(specializations);
 		}
 
-		// Token: 0x06000FDC RID: 4060 RVA: 0x00063386 File Offset: 0x00061586
+		// Token: 0x06000FF3 RID: 4083 RVA: 0x00063B62 File Offset: 0x00061D62
 		public bool IsAutoTranslated(int idx, bool IsTouch)
 		{
 			return (this.Flags[idx] & 2) > 0;
 		}
 
-		// Token: 0x06000FDD RID: 4061 RVA: 0x00063398 File Offset: 0x00061598
+		// Token: 0x06000FF4 RID: 4084 RVA: 0x00063B74 File Offset: 0x00061D74
 		public void Validate()
 		{
 			int num = Mathf.Max(this.Languages.Length, this.Flags.Length);
@@ -82,7 +82,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000FDE RID: 4062 RVA: 0x00063448 File Offset: 0x00061648
+		// Token: 0x06000FF5 RID: 4085 RVA: 0x00063C24 File Offset: 0x00061E24
 		public bool IsTerm(string name, bool allowCategoryMistmatch)
 		{
 			if (!allowCategoryMistmatch)
@@ -92,7 +92,7 @@ namespace I2.Loc
 			return name == LanguageSourceData.GetKeyFromFullTerm(this.Term, false);
 		}
 
-		// Token: 0x06000FDF RID: 4063 RVA: 0x0006346C File Offset: 0x0006166C
+		// Token: 0x06000FF6 RID: 4086 RVA: 0x00063C48 File Offset: 0x00061E48
 		public bool HasSpecializations()
 		{
 			for (int i = 0; i < this.Languages.Length; i++)
@@ -105,7 +105,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000FE0 RID: 4064 RVA: 0x000634B4 File Offset: 0x000616B4
+		// Token: 0x06000FF7 RID: 4087 RVA: 0x00063C90 File Offset: 0x00061E90
 		public List<string> GetAllSpecializations()
 		{
 			List<string> list = new List<string>();

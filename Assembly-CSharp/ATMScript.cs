@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class ATMScript : MonoBehaviour
 {
-	// (get) Token: 0x0600040E RID: 1038 RVA: 0x0001BA17 File Offset: 0x00019C17
+	// (get) Token: 0x0600040C RID: 1036 RVA: 0x0001BADB File Offset: 0x00019CDB
 	public global::UnityEngine.Vector3 Sound3dOffset
 	{
 		get
@@ -17,7 +17,7 @@ public class ATMScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600040F RID: 1039 RVA: 0x0001BA30 File Offset: 0x00019C30
+	// Token: 0x0600040D RID: 1037 RVA: 0x0001BAF4 File Offset: 0x00019CF4
 	public void UpdateStrings(bool forceUpdate)
 	{
 		GameplayMaster.GetGamePhase();
@@ -75,25 +75,25 @@ public class ATMScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000410 RID: 1040 RVA: 0x0001BBF0 File Offset: 0x00019DF0
+	// Token: 0x0600040E RID: 1038 RVA: 0x0001BCB4 File Offset: 0x00019EB4
 	private void OnLanguageChange()
 	{
 		this.UpdateStrings(true);
 	}
 
-	// Token: 0x06000411 RID: 1041 RVA: 0x0001BBF9 File Offset: 0x00019DF9
+	// Token: 0x0600040F RID: 1039 RVA: 0x0001BCBD File Offset: 0x00019EBD
 	public void InsertCoinAnimation()
 	{
 		this.insertCoinHolderTr.SetLocalZ(-0.75f);
 	}
 
-	// Token: 0x06000412 RID: 1042 RVA: 0x0001BC0C File Offset: 0x00019E0C
+	// Token: 0x06000410 RID: 1040 RVA: 0x0001BCD0 File Offset: 0x00019ED0
 	public static bool DebtClearCutsceneIsPlaying()
 	{
 		return ATMScript.instance != null && ATMScript.instance.debtClearCutscenePlaying;
 	}
 
-	// Token: 0x06000413 RID: 1043 RVA: 0x0001BC27 File Offset: 0x00019E27
+	// Token: 0x06000411 RID: 1041 RVA: 0x0001BCEB File Offset: 0x00019EEB
 	private void DebtClearCutsceneStart()
 	{
 		if (this.debtClearCutscenePlaying)
@@ -104,7 +104,7 @@ public class ATMScript : MonoBehaviour
 		base.StartCoroutine(this.DebtClearCoroutine());
 	}
 
-	// Token: 0x06000414 RID: 1044 RVA: 0x0001BC46 File Offset: 0x00019E46
+	// Token: 0x06000412 RID: 1042 RVA: 0x0001BD0A File Offset: 0x00019F0A
 	private IEnumerator DebtClearCoroutine()
 	{
 		float transitionSpeed = (float)Data.settings.transitionSpeed;
@@ -120,13 +120,19 @@ public class ATMScript : MonoBehaviour
 		CameraController.SetPosition(CameraController.PositionKind.ATM, false, 1f * transitionSpeed);
 		float passedTime = Tick.PassedTime;
 		float timer = 0.75f;
+		bool garbageCollected = false;
 		while (timer > 0f)
 		{
 			timer -= Tick.Time * transitionSpeed;
 			yield return null;
 		}
+		if (!garbageCollected && CameraController.GetPositionDifferenceMagnitude() < 0.2f)
+		{
+			garbageCollected = true;
+			GC.Collect();
+		}
 		this.crownImageGameObject.SetActive(true);
-		Sound.Play3D("SoundATMFanfare", this.Sound3dOffset, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundATMFanfare", this.Sound3dOffset, 20f, 1f, 1f, 1);
 		BigInteger debtIndexOld = GameplayData.DebtIndexGet();
 		int num = debtIndexOld.CastToInt();
 		GameplayMaster.FCall_DebtNext(true, lastDemoDeadline);
@@ -263,7 +269,7 @@ public class ATMScript : MonoBehaviour
 			onDeadlineBonus();
 		}
 		long num2 = GameplayData.DeadlineReward_CloverTickets(Mathf.Max(roundsLeft, 0));
-		num2 += GameplayData.DeadlineReward_CloverTickets_Extras();
+		num2 += GameplayData.DeadlineReward_CloverTickets_Extras(true);
 		if (num2 > 0L)
 		{
 			GameplayData.CloverTicketsAdd(num2, true);
@@ -281,6 +287,7 @@ public class ATMScript : MonoBehaviour
 		{
 			onDeadlineBonus_Late();
 		}
+		PowerupScript.WeirdClockDeadlineReset();
 		PowerupScript.GiantShroom_DeadlineEndReset();
 		PowerupScript.Calendar_IncreaseBonus(true, roundsLeft);
 		PowerupScript.GoldenKingMida_GrowValue(roundsLeft);
@@ -323,18 +330,18 @@ public class ATMScript : MonoBehaviour
 		try
 		{
 			PowerupScript.SkeletonFillDrawersWithCharms_Try();
-			goto IL_08CF;
+			goto IL_08FC;
 		}
 		catch (Exception ex)
 		{
 			string text = string.Concat(new string[] { "Error while putting powerups into drawers after debt increase. SOURCE: ", ex.Source, "\nMESSAGE: ", ex.Message, "\nSTACK TRACE: ", ex.StackTrace });
 			Debug.LogError(text);
 			ConsolePrompt.LogError(text, "", 0f);
-			goto IL_08CF;
+			goto IL_08FC;
 		}
-		IL_08B7:
+		IL_08E4:
 		yield return null;
-		IL_08CF:
+		IL_08FC:
 		if (!PowerupTriggerAnimController.HasAnimations())
 		{
 			if (!lastDemoDeadline)
@@ -410,16 +417,16 @@ public class ATMScript : MonoBehaviour
 			this.debtClearCutscenePlaying = false;
 			yield break;
 		}
-		goto IL_08B7;
+		goto IL_08E4;
 	}
 
-	// Token: 0x06000415 RID: 1045 RVA: 0x0001BC55 File Offset: 0x00019E55
+	// Token: 0x06000413 RID: 1043 RVA: 0x0001BD19 File Offset: 0x00019F19
 	public void DebtTextFlash()
 	{
 		this.flashDepositTextTimer = 0.75f;
 	}
 
-	// Token: 0x06000416 RID: 1046 RVA: 0x0001BC64 File Offset: 0x00019E64
+	// Token: 0x06000414 RID: 1044 RVA: 0x0001BD28 File Offset: 0x00019F28
 	private void DepositFlashUpdate()
 	{
 		this.flashDepositTextTimer -= Tick.Time;
@@ -434,13 +441,13 @@ public class ATMScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000417 RID: 1047 RVA: 0x0001BCE4 File Offset: 0x00019EE4
+	// Token: 0x06000415 RID: 1045 RVA: 0x0001BDA8 File Offset: 0x00019FA8
 	public static bool IsDepositButtonDelayed()
 	{
 		return !(ATMScript.instance == null) && ATMScript.instance.depositButtonDelay > 0f;
 	}
 
-	// Token: 0x06000418 RID: 1048 RVA: 0x0001BD08 File Offset: 0x00019F08
+	// Token: 0x06000416 RID: 1046 RVA: 0x0001BDCC File Offset: 0x00019FCC
 	private void UpdateTextColor()
 	{
 		Color c_ORANGE = ATMScript.C_ORANGE;
@@ -472,7 +479,7 @@ public class ATMScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000419 RID: 1049 RVA: 0x0001BE01 File Offset: 0x0001A001
+	// Token: 0x06000417 RID: 1047 RVA: 0x0001BEC5 File Offset: 0x0001A0C5
 	public static void Button_SetDeal()
 	{
 		if (ATMScript.instance == null)
@@ -486,7 +493,7 @@ public class ATMScript : MonoBehaviour
 		ATMScript.instance.buttonDealCoroutine = ATMScript.instance.StartCoroutine(ATMScript.instance.Button_DealCoroutine());
 	}
 
-	// Token: 0x0600041A RID: 1050 RVA: 0x0001BE3C File Offset: 0x0001A03C
+	// Token: 0x06000418 RID: 1048 RVA: 0x0001BF00 File Offset: 0x0001A100
 	private IEnumerator Button_DealCoroutine()
 	{
 		float timer = 0.5f;
@@ -499,7 +506,7 @@ public class ATMScript : MonoBehaviour
 		this.buttonParticles.SetActive(true);
 		if (GameplayMaster.GetGamePhase() != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundAtmButtonFlashStart", this.buttonMeshRend.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundAtmButtonFlashStart", this.buttonMeshRend.transform.position, 20f, 1f, 1f, 1);
 		}
 		bool flashOld = false;
 		while (GameplayData.RunModifier_DealIsAvailable_Get())
@@ -517,7 +524,7 @@ public class ATMScript : MonoBehaviour
 				bool flag2 = gamePhase == GameplayMaster.GamePhase.preparation || gamePhase == GameplayMaster.GamePhase.cutscene;
 				if (!Sound.IsPlaying("SoundAtmButtonFlashStart") && flag2)
 				{
-					Sound.Play3D("SoundATMButtonFlash", this.buttonMeshRend.transform.position, 5f, 0.6f, flag ? 1.25f : 1f, AudioRolloffMode.Linear);
+					Sound.Play3D("SoundATMButtonFlash", this.buttonMeshRend.transform.position, 5f, 0.6f, flag ? 1.25f : 1f, 1);
 				}
 			}
 			yield return null;
@@ -536,20 +543,20 @@ public class ATMScript : MonoBehaviour
 		this.buttonParticles.SetActive(true);
 		if (GameplayMaster.GetGamePhase() != GameplayMaster.GamePhase.endingWithoutDeath && GameplayMaster.GetGamePhase() != GameplayMaster.GamePhase.death)
 		{
-			Sound.Play3D("SoundAtmButtonFlashEnd", this.buttonMeshRend.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundAtmButtonFlashEnd", this.buttonMeshRend.transform.position, 20f, 1f, 1f, 1);
 		}
 		this.buttonMeshRend.sharedMaterial = this.buttonDefaultMaterial;
 		this.buttonDealCoroutine = null;
 		yield break;
 	}
 
-	// Token: 0x0600041B RID: 1051 RVA: 0x0001BE4B File Offset: 0x0001A04B
+	// Token: 0x06000419 RID: 1049 RVA: 0x0001BF0F File Offset: 0x0001A10F
 	public static bool Button_DealIsRunning()
 	{
 		return !(ATMScript.instance == null) && ATMScript.instance.buttonDealCoroutine != null;
 	}
 
-	// Token: 0x0600041C RID: 1052 RVA: 0x0001BE69 File Offset: 0x0001A069
+	// Token: 0x0600041A RID: 1050 RVA: 0x0001BF2D File Offset: 0x0001A12D
 	public static void Initialize()
 	{
 		if (GameplayData.RunModifier_DealIsAvailable_Get())
@@ -558,14 +565,14 @@ public class ATMScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600041D RID: 1053 RVA: 0x0001BE77 File Offset: 0x0001A077
+	// Token: 0x0600041B RID: 1051 RVA: 0x0001BF3B File Offset: 0x0001A13B
 	private void Awake()
 	{
 		ATMScript.instance = this;
 		this.coinVisualizerChildren = base.GetComponentsInChildren<CoinVisualizerScript>(true);
 	}
 
-	// Token: 0x0600041E RID: 1054 RVA: 0x0001BE8C File Offset: 0x0001A08C
+	// Token: 0x0600041C RID: 1052 RVA: 0x0001BF50 File Offset: 0x0001A150
 	private void OnDestroy()
 	{
 		if (ATMScript.instance == this)
@@ -575,7 +582,7 @@ public class ATMScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.OnLanguageChange));
 	}
 
-	// Token: 0x0600041F RID: 1055 RVA: 0x0001BEC4 File Offset: 0x0001A0C4
+	// Token: 0x0600041D RID: 1053 RVA: 0x0001BF88 File Offset: 0x0001A188
 	private void Start()
 	{
 		this.crownImageGameObject.SetActive(false);
@@ -586,7 +593,7 @@ public class ATMScript : MonoBehaviour
 		this.buttonMeshRend.sharedMaterial = this.buttonDefaultMaterial;
 	}
 
-	// Token: 0x06000420 RID: 1056 RVA: 0x0001BF30 File Offset: 0x0001A130
+	// Token: 0x0600041E RID: 1054 RVA: 0x0001BFF4 File Offset: 0x0001A1F4
 	private void Update()
 	{
 		GameplayMaster.GamePhase gamePhase = GameplayMaster.GetGamePhase();

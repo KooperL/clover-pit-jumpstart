@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundAreaPlayer : MonoBehaviour
 {
-	// Token: 0x060003BC RID: 956 RVA: 0x00019D9C File Offset: 0x00017F9C
+	// Token: 0x060003BA RID: 954 RVA: 0x00019E60 File Offset: 0x00018060
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!other.CompareTag("Player"))
@@ -19,11 +19,11 @@ public class SoundAreaPlayer : MonoBehaviour
 		{
 			return;
 		}
-		Sound.Play3D(this.clip.name, base.transform.position + this.soundOffset, this.distance, 1f, 1f + global::UnityEngine.Random.Range(-this.pitchVariance / 2f, this.pitchVariance / 2f), AudioRolloffMode.Linear);
+		Sound.Play3D(this.clip.name, base.transform.position + this.soundOffset, this.distance, 1f, 1f + global::UnityEngine.Random.Range(-this.pitchVariance / 2f, this.pitchVariance / 2f), 1);
 		this.playedOnce = true;
 	}
 
-	// Token: 0x060003BD RID: 957 RVA: 0x00019E3C File Offset: 0x0001803C
+	// Token: 0x060003BB RID: 955 RVA: 0x00019F00 File Offset: 0x00018100
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;

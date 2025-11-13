@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public class HindiFixer
 	{
-		// Token: 0x06000FEF RID: 4079 RVA: 0x00063610 File Offset: 0x00061810
+		// Token: 0x06001006 RID: 4102 RVA: 0x00063DEC File Offset: 0x00061FEC
 		internal static string Fix(string text)
 		{
 			char[] array = text.ToCharArray();

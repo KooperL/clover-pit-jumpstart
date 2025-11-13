@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Panik;
 using TMPro;
 using UnityEngine;
@@ -8,19 +9,19 @@ using UnityEngine.UI;
 
 public class DeckBoxUI : MonoBehaviour
 {
-	// Token: 0x0600094D RID: 2381 RVA: 0x0003D8BE File Offset: 0x0003BABE
+	// Token: 0x0600095C RID: 2396 RVA: 0x0003DC22 File Offset: 0x0003BE22
 	public static bool IsEnabled()
 	{
 		return !(DeckBoxUI.instance == null) && DeckBoxUI.instance.holder.activeSelf;
 	}
 
-	// Token: 0x0600094E RID: 2382 RVA: 0x0003D8DE File Offset: 0x0003BADE
+	// Token: 0x0600095D RID: 2397 RVA: 0x0003DC42 File Offset: 0x0003BE42
 	public static bool IsPickingCard(bool considerEnabledState)
 	{
 		return !(DeckBoxUI.instance == null) && DeckBoxUI.IsEnabled() && DeckBoxUI.instance.uiKindOpenedTo == DeckBoxUI.UiKind.pickCardForTheRun;
 	}
 
-	// Token: 0x0600094F RID: 2383 RVA: 0x0003D908 File Offset: 0x0003BB08
+	// Token: 0x0600095E RID: 2398 RVA: 0x0003DC6C File Offset: 0x0003BE6C
 	public static void Open(DeckBoxUI.UiKind uiKind)
 	{
 		if (DeckBoxUI.instance == null)
@@ -36,11 +37,11 @@ public class DeckBoxUI : MonoBehaviour
 		CameraController.SetPosition(CameraController.PositionKind.DeckBox, false, (uiKind == DeckBoxUI.UiKind.pickCardForTheRun) ? 0f : 1f);
 		DeckBoxUI.instance.holder.SetActive(true);
 		DeckBoxUI.instance._TextUpdate(uiKind);
-		Sound.Play3D("SoundDeckBoxOpen", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundDeckBoxOpen", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, 1);
 		DeckBoxUI.instance.uiCoroutine = DeckBoxUI.instance.StartCoroutine(DeckBoxUI.instance.UiCoroutine(uiKind));
 	}
 
-	// Token: 0x06000950 RID: 2384 RVA: 0x0003D9C8 File Offset: 0x0003BBC8
+	// Token: 0x0600095F RID: 2399 RVA: 0x0003DD2C File Offset: 0x0003BF2C
 	public static void Close()
 	{
 		if (DeckBoxUI.instance == null)
@@ -52,14 +53,15 @@ public class DeckBoxUI : MonoBehaviour
 			DeckBoxUI.instance.StopCoroutine(DeckBoxUI.instance.uiCoroutine);
 		}
 		DeckBoxUI.instance.holder.SetActive(false);
-		Sound.Play3D("SoundDeckBoxClose", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundDeckBoxClose", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, 1);
 		if (DeckBoxUI.instance.backupCameraPosition != CameraController.PositionKind.Undefined)
 		{
 			CameraController.SetPosition(DeckBoxUI.instance.backupCameraPosition, false, 1f);
 		}
+		GoldenToiletStickerScript.RefreshVisualsStatic();
 	}
 
-	// Token: 0x06000951 RID: 2385 RVA: 0x0003DA60 File Offset: 0x0003BC60
+	// Token: 0x06000960 RID: 2400 RVA: 0x0003DDC9 File Offset: 0x0003BFC9
 	private IEnumerator UiCoroutine(DeckBoxUI.UiKind uiKind)
 	{
 		int cardsCount = 20;
@@ -126,6 +128,7 @@ public class DeckBoxUI : MonoBehaviour
 		}
 		RectTransform hoveredRect = null;
 		RectTransform hoveredRectOld = null;
+		CardScript hoveredCard = null;
 		float axisXOld = 0f;
 		float axisYOld = 0f;
 		while (!DeckBoxUI.IsForceClosing())
@@ -140,145 +143,158 @@ public class DeckBoxUI : MonoBehaviour
 			}
 			else
 			{
-				CardScript cardScript3 = null;
-				if (uiKind == DeckBoxUI.UiKind.seeCollection && Controls.ActionButton_PressedGet(0, Controls.InputAction.menuBack, true))
+				hoveredCard = null;
+				if (!ScreenMenuScript.IsEnabled())
 				{
-					if (!(hoveredRect != null))
+					if (this.menuSelection_ExitTime)
 					{
-						Sound.Play("SoundMenuBack", 1f, 1f);
 						break;
 					}
-					hoveredRect = null;
-				}
-				bool flag = VirtualCursors.IsCursorVisible(0, true);
-				float num5 = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveRight, Controls.InputAction.menuMoveLeft, true);
-				float num6 = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveUp, Controls.InputAction.menuMoveDown, true);
-				Vector2 vector = VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(0, this.canvasScaler.referenceResolution);
-				bool flag2 = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true);
-				bool flag3 = false;
-				if (flag)
-				{
-					hoveredRect = null;
-					if (vector.x < this.button_Left.anchoredPosition.x + this.button_Left.sizeDelta.x / 2f && vector.x > this.button_Left.anchoredPosition.x - this.button_Left.sizeDelta.x / 2f && vector.y < this.button_Left.anchoredPosition.y + this.button_Left.sizeDelta.y / 2f && vector.y > this.button_Left.anchoredPosition.y - this.button_Left.sizeDelta.y / 2f)
+					if (this.menuSelection_WaitFrame)
 					{
-						hoveredRect = this.button_Left;
+						yield return null;
 					}
-					else if (vector.x < this.button_Right.anchoredPosition.x + this.button_Right.sizeDelta.x / 2f && vector.x > this.button_Right.anchoredPosition.x - this.button_Right.sizeDelta.x / 2f && vector.y < this.button_Right.anchoredPosition.y + this.button_Right.sizeDelta.y / 2f && vector.y > this.button_Right.anchoredPosition.y - this.button_Right.sizeDelta.y / 2f)
+					this.menuSelection_WaitFrame = false;
+					if (uiKind == DeckBoxUI.UiKind.seeCollection && Controls.ActionButton_PressedGet(0, Controls.InputAction.menuBack, true))
 					{
-						hoveredRect = this.button_Right;
-					}
-					else if (vector.x < this.button_Action.anchoredPosition.x + this.button_Action.sizeDelta.x / 2f && vector.x > this.button_Action.anchoredPosition.x - this.button_Action.sizeDelta.x / 2f && vector.y < this.button_Action.anchoredPosition.y + this.button_Action.sizeDelta.y / 2f && vector.y > this.button_Action.anchoredPosition.y - this.button_Action.sizeDelta.y / 2f)
-					{
-						hoveredRect = this.button_Action;
-					}
-					if (hoveredRect == null)
-					{
-						for (int m = Mathf.Max(0, this.cardNavigationIndex - 5); m < this._cardsList.Count; m++)
+						if (!(hoveredRect != null))
 						{
-							if (m >= this.cardNavigationIndex + 5)
-							{
-								break;
-							}
-							float x = this._cardsList[m].rectTransform.localScale.x;
-							if (vector.x < this._cardsList[m].rectTransform.anchoredPosition.x + this._cardsList[m].rectTransform.sizeDelta.x / 2f * x && vector.x > this._cardsList[m].rectTransform.anchoredPosition.x - this._cardsList[m].rectTransform.sizeDelta.x / 2f * x && vector.y < this._cardsList[m].rectTransform.anchoredPosition.y + this._cardsList[m].rectTransform.sizeDelta.y / 2f * x && vector.y > this._cardsList[m].rectTransform.anchoredPosition.y - this._cardsList[m].rectTransform.sizeDelta.y / 2f * x)
-							{
-								cardScript3 = this._cardsList[m];
-								break;
-							}
-						}
-					}
-				}
-				else
-				{
-					if ((flag2 || (num6 < -0.35f && axisYOld >= -0.35f)) && hoveredRect != this.button_Action)
-					{
-						hoveredRect = this.button_Action;
-						flag3 = true;
-					}
-					if (num5 < -0.35f && axisXOld >= -0.35f)
-					{
-						hoveredRect = this.button_Left;
-						flag2 = true;
-					}
-					if (num5 > 0.35f && axisXOld <= 0.35f)
-					{
-						hoveredRect = this.button_Right;
-						flag2 = true;
-					}
-				}
-				if (hoveredRectOld != hoveredRect)
-				{
-					hoveredRectOld = hoveredRect;
-					if (hoveredRect != null)
-					{
-						Sound.Play("SoundMenuSelectionChange", 1f, 1f);
-					}
-					this.buttonLeftCursor.enabled = false;
-					this.buttonRightCursor.enabled = false;
-					this.buttonActionCursor.enabled = false;
-					if (hoveredRect == this.button_Left)
-					{
-						this.buttonLeftCursor.enabled = true;
-					}
-					if (hoveredRect == this.button_Right)
-					{
-						this.buttonRightCursor.enabled = true;
-					}
-					if (hoveredRect == this.button_Action)
-					{
-						this.buttonActionCursor.enabled = true;
-					}
-				}
-				if (hoveredRect != null && flag2 && !flag3 && this.Select(uiKind, hoveredRect))
-				{
-					break;
-				}
-				if (cardScript3 != null && flag2 && !flag3)
-				{
-					for (int n = 0; n < this._cardsList.Count; n++)
-					{
-						if (this._cardsList[n] == cardScript3)
-						{
-							this.cardNavigationIndex = n;
+							Sound.Play("SoundMenuBack", 1f, 1f);
 							break;
 						}
+						hoveredRect = null;
 					}
-					Sound.Play("SoundCardChange", 1f, 1f);
-				}
-				bool flag4 = Controls.ActionButton_PressedGet(0, Controls.InputAction.scrollUp, true) || Controls.ActionButton_PressedGet(0, Controls.InputAction.menuTabRight, true);
-				if (Controls.ActionButton_PressedGet(0, Controls.InputAction.scrollDown, true) || Controls.ActionButton_PressedGet(0, Controls.InputAction.menuTabLeft, true))
-				{
-					this.cardNavigationIndex--;
-					if (this.cardNavigationIndex < 0)
+					bool flag = VirtualCursors.IsCursorVisible(0, true);
+					float num5 = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveRight, Controls.InputAction.menuMoveLeft, true);
+					float num6 = Controls.ActionAxisPair_GetValue(0, Controls.InputAction.menuMoveUp, Controls.InputAction.menuMoveDown, true);
+					Vector2 vector = VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(0, this.canvasScaler.referenceResolution);
+					bool flag2 = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true);
+					bool flag3 = false;
+					if (flag)
 					{
-						this.cardNavigationIndex = cardsCount - 1;
+						hoveredRect = null;
+						if (vector.x < this.button_Left.anchoredPosition.x + this.button_Left.sizeDelta.x / 2f && vector.x > this.button_Left.anchoredPosition.x - this.button_Left.sizeDelta.x / 2f && vector.y < this.button_Left.anchoredPosition.y + this.button_Left.sizeDelta.y / 2f && vector.y > this.button_Left.anchoredPosition.y - this.button_Left.sizeDelta.y / 2f)
+						{
+							hoveredRect = this.button_Left;
+						}
+						else if (vector.x < this.button_Right.anchoredPosition.x + this.button_Right.sizeDelta.x / 2f && vector.x > this.button_Right.anchoredPosition.x - this.button_Right.sizeDelta.x / 2f && vector.y < this.button_Right.anchoredPosition.y + this.button_Right.sizeDelta.y / 2f && vector.y > this.button_Right.anchoredPosition.y - this.button_Right.sizeDelta.y / 2f)
+						{
+							hoveredRect = this.button_Right;
+						}
+						else if (vector.x < this.button_Action.anchoredPosition.x + this.button_Action.sizeDelta.x / 2f && vector.x > this.button_Action.anchoredPosition.x - this.button_Action.sizeDelta.x / 2f && vector.y < this.button_Action.anchoredPosition.y + this.button_Action.sizeDelta.y / 2f && vector.y > this.button_Action.anchoredPosition.y - this.button_Action.sizeDelta.y / 2f)
+						{
+							hoveredRect = this.button_Action;
+						}
+						if (hoveredRect == null)
+						{
+							for (int m = Mathf.Max(0, this.cardNavigationIndex - 5); m < this._cardsList.Count; m++)
+							{
+								if (m >= this.cardNavigationIndex + 5)
+								{
+									break;
+								}
+								float x = this._cardsList[m].rectTransform.localScale.x;
+								if (vector.x < this._cardsList[m].rectTransform.anchoredPosition.x + this._cardsList[m].rectTransform.sizeDelta.x / 2f * x && vector.x > this._cardsList[m].rectTransform.anchoredPosition.x - this._cardsList[m].rectTransform.sizeDelta.x / 2f * x && vector.y < this._cardsList[m].rectTransform.anchoredPosition.y + this._cardsList[m].rectTransform.sizeDelta.y / 2f * x && vector.y > this._cardsList[m].rectTransform.anchoredPosition.y - this._cardsList[m].rectTransform.sizeDelta.y / 2f * x)
+								{
+									hoveredCard = this._cardsList[m];
+									break;
+								}
+							}
+						}
 					}
-					Sound.Play("SoundCardChange", 1f, 1f);
-				}
-				if (flag4)
-				{
-					this.cardNavigationIndex++;
-					if (this.cardNavigationIndex >= cardsCount)
+					else
 					{
-						this.cardNavigationIndex = 0;
+						if ((flag2 || (num6 < -0.35f && axisYOld >= -0.35f)) && hoveredRect != this.button_Action)
+						{
+							hoveredRect = this.button_Action;
+							flag3 = true;
+						}
+						if (num5 < -0.35f && axisXOld >= -0.35f)
+						{
+							hoveredRect = this.button_Left;
+							flag2 = true;
+						}
+						if (num5 > 0.35f && axisXOld <= 0.35f)
+						{
+							hoveredRect = this.button_Right;
+							flag2 = true;
+						}
 					}
-					Sound.Play("SoundCardChange", 1f, 1f);
-				}
-				axisXOld = num5;
-				axisYOld = num6;
-				if (!flag && hoveredRect != null && hoveredRect != this.button_Action)
-				{
-					hoveredRect = null;
-					timer = 0.05f;
-					while (timer > 0f && !DeckBoxUI.IsForceClosing())
+					if (hoveredRectOld != hoveredRect)
 					{
-						timer -= Tick.Time;
-						yield return null;
+						hoveredRectOld = hoveredRect;
+						if (hoveredRect != null)
+						{
+							Sound.Play("SoundMenuSelectionChange", 1f, 1f);
+						}
+						this.buttonLeftCursor.enabled = false;
+						this.buttonRightCursor.enabled = false;
+						this.buttonActionCursor.enabled = false;
+						if (hoveredRect == this.button_Left)
+						{
+							this.buttonLeftCursor.enabled = true;
+						}
+						if (hoveredRect == this.button_Right)
+						{
+							this.buttonRightCursor.enabled = true;
+						}
+						if (hoveredRect == this.button_Action)
+						{
+							this.buttonActionCursor.enabled = true;
+						}
+					}
+					if (hoveredRect != null && flag2 && !flag3 && this.Select(uiKind, hoveredRect))
+					{
+						break;
+					}
+					if (hoveredCard != null && flag2 && !flag3)
+					{
+						for (int n = 0; n < this._cardsList.Count; n++)
+						{
+							if (this._cardsList[n] == hoveredCard)
+							{
+								this.cardNavigationIndex = n;
+								break;
+							}
+						}
+						Sound.Play("SoundCardChange", 1f, 1f);
+					}
+					bool flag4 = Controls.ActionButton_PressedGet(0, Controls.InputAction.scrollUp, true) || Controls.ActionButton_PressedGet(0, Controls.InputAction.menuTabRight, true);
+					if (Controls.ActionButton_PressedGet(0, Controls.InputAction.scrollDown, true) || Controls.ActionButton_PressedGet(0, Controls.InputAction.menuTabLeft, true))
+					{
+						this.cardNavigationIndex--;
+						if (this.cardNavigationIndex < 0)
+						{
+							this.cardNavigationIndex = cardsCount - 1;
+						}
+						Sound.Play("SoundCardChange", 1f, 1f);
+					}
+					if (flag4)
+					{
+						this.cardNavigationIndex++;
+						if (this.cardNavigationIndex >= cardsCount)
+						{
+							this.cardNavigationIndex = 0;
+						}
+						Sound.Play("SoundCardChange", 1f, 1f);
+					}
+					axisXOld = num5;
+					axisYOld = num6;
+					if (!flag && hoveredRect != null && hoveredRect != this.button_Action)
+					{
+						hoveredRect = null;
+						timer = 0.05f;
+						while (timer > 0f && !DeckBoxUI.IsForceClosing())
+						{
+							timer -= Tick.Time;
+							yield return null;
+						}
 					}
 				}
 				yield return null;
 			}
 		}
+		this.menuSelection_ExitTime = false;
 		CardsInspectorScript.Close();
 		VirtualCursors.CursorDesiredVisibilitySet(0, cursorBackupState);
 		if (this.coroutineFlashInstructionsText != null)
@@ -296,7 +312,7 @@ public class DeckBoxUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000952 RID: 2386 RVA: 0x0003DA78 File Offset: 0x0003BC78
+	// Token: 0x06000961 RID: 2401 RVA: 0x0003DDE0 File Offset: 0x0003BFE0
 	private bool Select(DeckBoxUI.UiKind uiKind, RectTransform hoveredRect)
 	{
 		bool flag = false;
@@ -329,44 +345,121 @@ public class DeckBoxUI : MonoBehaviour
 					flag = true;
 				}
 			}
+			else if (Data.game.RunModifier_WonTimes_Get(cardScript.identifier) > 0)
+			{
+				this.OpenDifficultySelectionMenu();
+			}
 			else
 			{
-				bool flag2 = cardScript.identifier == RunModifierScript.Identifier.defaultModifier || Data.game.RunModifier_OwnedCount_Get(cardScript.identifier) > 0;
-				if (cardScript != null && !cardScript.IsFaceDown() && flag2)
-				{
-					GameplayData.RunModifier_SetCurrent(cardScript.identifier, true);
-					Sound.Play("SoundCardSelectSummon", 1f, 1f);
-					FlashScreen.SpawnCamera(Colors.GetColor("blood red"), 2f, 2f, CameraUiGlobal.instance.myCamera, 0.5f);
-					flag = true;
-				}
-				else
-				{
-					Sound.Play("SoundMenuError", 1f, 1f);
-					CameraGame.Shake(1f);
-				}
+				flag = this.PickCard();
 			}
 		}
 		return flag;
 	}
 
-	// Token: 0x06000953 RID: 2387 RVA: 0x0003DBF4 File Offset: 0x0003BDF4
+	// Token: 0x06000962 RID: 2402 RVA: 0x0003DED0 File Offset: 0x0003C0D0
+	private bool PickCard()
+	{
+		CardScript cardScript = this._cardsList[this.cardNavigationIndex];
+		bool flag = cardScript.identifier == RunModifierScript.Identifier.defaultModifier || Data.game.RunModifier_OwnedCount_Get(cardScript.identifier) > 0;
+		if (cardScript != null && !cardScript.IsFaceDown() && flag)
+		{
+			GameplayData.RunModifier_SetCurrent(cardScript.identifier, true);
+			Sound.Play("SoundCardSelectSummon", 1f, 1f);
+			FlashScreen.SpawnCamera(Colors.GetColor("blood red"), 2f, 2f, CameraUiGlobal.instance.myCamera, 0.5f);
+			return true;
+		}
+		Sound.Play("SoundMenuError", 1f, 1f);
+		CameraGame.Shake(1f);
+		return false;
+	}
+
+	// Token: 0x06000963 RID: 2403 RVA: 0x0003DF94 File Offset: 0x0003C194
+	private void OpenDifficultySelectionMenu()
+	{
+		ScreenMenuScript.OptionEvent[] array = new ScreenMenuScript.OptionEvent[3];
+		ScreenMenuScript.OptionEvent[] array2 = array;
+		int num = 0;
+		array2[num] = (ScreenMenuScript.OptionEvent)Delegate.Combine(array2[num], new ScreenMenuScript.OptionEvent(this.SelectionMenu_PickNormal));
+		ScreenMenuScript.OptionEvent[] array3 = array;
+		int num2 = 1;
+		array3[num2] = (ScreenMenuScript.OptionEvent)Delegate.Combine(array3[num2], new ScreenMenuScript.OptionEvent(this.SelectionMenu_PickHardcore));
+		ScreenMenuScript.OptionEvent[] array4 = array;
+		int num3 = 2;
+		array4[num3] = (ScreenMenuScript.OptionEvent)Delegate.Combine(array4[num3], new ScreenMenuScript.OptionEvent(this.SelectionMenu_Back));
+		ScreenMenuScript.Open(false, true, 2, ScreenMenuScript.Positioning.centerTopALittlle, 0f, Translation.Get("SCREEN_MENU_CARD_DIFFICULTY_TITLE"), new string[]
+		{
+			Strings.Sanitize(Strings.SantizationKind.menus, Translation.Get("SCREEN_MENU_CARD_OPTION_NORMAL"), Strings.SanitizationSubKind.none),
+			Strings.Sanitize(Strings.SantizationKind.menus, Translation.Get("SCREEN_MENU_CARD_OPTION_HARDCORE"), Strings.SanitizationSubKind.none),
+			Strings.Sanitize(Strings.SantizationKind.menus, Translation.Get("SCREEN_MENU_CARD_OPTION_CANCEL"), Strings.SanitizationSubKind.none)
+		}, array);
+		Sound.Play_Unpausable("SoundMenuPopUp", 1f, 1f);
+		ScreenMenuScript.instance.BackAlphaSet(0.75f);
+	}
+
+	// Token: 0x06000964 RID: 2404 RVA: 0x0003E088 File Offset: 0x0003C288
+	private void SelectionMenu_PickNormal()
+	{
+		CardScript cardScript = this._cardsList[this.cardNavigationIndex];
+		Data.game.RunModifier_HardcoreMode_Set(cardScript.identifier, false);
+		if (this.PickCard())
+		{
+			this.menuSelection_ExitTime = true;
+		}
+	}
+
+	// Token: 0x06000965 RID: 2405 RVA: 0x0003E0C8 File Offset: 0x0003C2C8
+	private void SelectionMenu_PickHardcore()
+	{
+		CardScript cardScript = this._cardsList[this.cardNavigationIndex];
+		Data.game.RunModifier_HardcoreMode_Set(cardScript.identifier, true);
+		if (this.PickCard())
+		{
+			this.menuSelection_ExitTime = true;
+		}
+		DeckBoxScript.CandlesStateUpdate(false);
+	}
+
+	// Token: 0x06000966 RID: 2406 RVA: 0x0003E10D File Offset: 0x0003C30D
+	private void SelectionMenu_Back()
+	{
+		Sound.Play_Unpausable("SoundCardChange", 1f, 1f);
+		this.menuSelection_WaitFrame = true;
+	}
+
+	// Token: 0x06000967 RID: 2407 RVA: 0x0003E12C File Offset: 0x0003C32C
 	private void _TextUpdate(DeckBoxUI.UiKind uiKind)
 	{
-		if (uiKind == DeckBoxUI.UiKind.pickCardForTheRun)
+		if (uiKind != DeckBoxUI.UiKind.pickCardForTheRun)
+		{
+			if (uiKind == DeckBoxUI.UiKind.seeCollection)
+			{
+				this.textInstructions.text = Translation.Get("DECKBOX_INSTRUCTIONS_COLLECTION");
+				this.textActionLabel.text = Translation.Get("DECKBOX_BUTTON_BACK");
+			}
+		}
+		else
 		{
 			this.textInstructions.text = Translation.Get("DECKBOX_INSTRUCTIONS_PICK_CARD");
 			this.textActionLabel.text = Translation.Get("DECKBOX_BUTTON_PICK");
-			return;
 		}
-		if (uiKind != DeckBoxUI.UiKind.seeCollection)
-		{
-			return;
-		}
-		this.textInstructions.text = Translation.Get("DECKBOX_INSTRUCTIONS_COLLECTION");
-		this.textActionLabel.text = Translation.Get("DECKBOX_BUTTON_BACK");
+		int num = 20;
+		this._sb.Clear();
+		this._sb.Append(Translation.Get("CARDS_CLEARED"));
+		this._sb.Append(" ");
+		this._sb.Append(Data.game.RunModifier_WonOnce_TotalNumber());
+		this._sb.Append("/");
+		this._sb.Append(num);
+		this._sb.Append("\n");
+		this._sb.Append(Translation.Get("CARDS_HOLO_OBTAINED"));
+		this._sb.Append(" ");
+		this._sb.Append(Data.game.RunModifier_InHolographicCondition_TotalNumber());
+		this._sb.Append("/");
+		this._sb.Append(num);
+		this.textCompletedCards.text = this._sb.ToString();
 	}
 
-	// Token: 0x06000954 RID: 2388 RVA: 0x0003DC5E File Offset: 0x0003BE5E
+	// Token: 0x06000968 RID: 2408 RVA: 0x0003E284 File Offset: 0x0003C484
 	private IEnumerator FlashInstructionsText()
 	{
 		float timer = 2f;
@@ -379,7 +472,7 @@ public class DeckBoxUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000955 RID: 2389 RVA: 0x0003DC6D File Offset: 0x0003BE6D
+	// Token: 0x06000969 RID: 2409 RVA: 0x0003E293 File Offset: 0x0003C493
 	public static void ForceClose_Death()
 	{
 		if (DeckBoxUI.instance == null)
@@ -389,13 +482,13 @@ public class DeckBoxUI : MonoBehaviour
 		DeckBoxUI.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x06000956 RID: 2390 RVA: 0x0003DC88 File Offset: 0x0003BE88
+	// Token: 0x0600096A RID: 2410 RVA: 0x0003E2AE File Offset: 0x0003C4AE
 	public static bool IsForceClosing()
 	{
 		return !(DeckBoxUI.instance == null) && DeckBoxUI.instance.forceClose_Death;
 	}
 
-	// Token: 0x06000957 RID: 2391 RVA: 0x0003DCA4 File Offset: 0x0003BEA4
+	// Token: 0x0600096B RID: 2411 RVA: 0x0003E2CC File Offset: 0x0003C4CC
 	private void Awake()
 	{
 		DeckBoxUI.instance = this;
@@ -406,7 +499,7 @@ public class DeckBoxUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000958 RID: 2392 RVA: 0x0003DCFB File Offset: 0x0003BEFB
+	// Token: 0x0600096C RID: 2412 RVA: 0x0003E323 File Offset: 0x0003C523
 	private void OnDestroy()
 	{
 		if (DeckBoxUI.instance == this)
@@ -415,13 +508,13 @@ public class DeckBoxUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000959 RID: 2393 RVA: 0x0003DD10 File Offset: 0x0003BF10
+	// Token: 0x0600096D RID: 2413 RVA: 0x0003E338 File Offset: 0x0003C538
 	private void Start()
 	{
 		DeckBoxUI.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x0600095A RID: 2394 RVA: 0x0003DD24 File Offset: 0x0003BF24
+	// Token: 0x0600096E RID: 2414 RVA: 0x0003E34C File Offset: 0x0003C54C
 	private void Update()
 	{
 		bool flag = DeckBoxUI.IsEnabled();
@@ -444,6 +537,17 @@ public class DeckBoxUI : MonoBehaviour
 				Vector2 vector3 = cardScript.rectTransform.anchoredPosition;
 				Vector2 vector4 = vector3;
 				vector4.x = (float)j * 128f - 128f * (float)this.cardNavigationIndex;
+				if (ScreenMenuScript.IsEnabled())
+				{
+					if (flag2)
+					{
+						vector4.x -= 256f;
+					}
+					else
+					{
+						vector4.x *= 10f;
+					}
+				}
 				vector3 = Vector2.Lerp(vector3, vector4, Tick.Time * 10f);
 				cardScript.rectTransform.anchoredPosition = vector3;
 				Vector3 vector5 = Vector3.one * 300f;
@@ -528,6 +632,8 @@ public class DeckBoxUI : MonoBehaviour
 
 	public TextMeshProUGUI textActionLabel;
 
+	public TextMeshProUGUI textCompletedCards;
+
 	private DeckBoxUI.UiKind uiKindOpenedTo;
 
 	private Coroutine uiCoroutine;
@@ -537,6 +643,12 @@ public class DeckBoxUI : MonoBehaviour
 	private CameraController.PositionKind backupCameraPosition = CameraController.PositionKind.Undefined;
 
 	private int cardNavigationIndex;
+
+	private bool menuSelection_ExitTime;
+
+	private bool menuSelection_WaitFrame;
+
+	private StringBuilder _sb = new StringBuilder();
 
 	private Coroutine coroutineFlashInstructionsText;
 

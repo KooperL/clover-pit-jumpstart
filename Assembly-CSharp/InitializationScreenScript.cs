@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InitializationScreenScript : MonoBehaviour
 {
-	// Token: 0x060008BB RID: 2235 RVA: 0x00039BD0 File Offset: 0x00037DD0
+	// Token: 0x060008C2 RID: 2242 RVA: 0x00039E50 File Offset: 0x00038050
 	private void Awake()
 	{
 		if (InitializationScreenScript.instance != null)
@@ -18,7 +18,7 @@ public class InitializationScreenScript : MonoBehaviour
 		base.StartCoroutine(this.UpdateCoroutine());
 	}
 
-	// Token: 0x060008BC RID: 2236 RVA: 0x00039BFE File Offset: 0x00037DFE
+	// Token: 0x060008C3 RID: 2243 RVA: 0x00039E7E File Offset: 0x0003807E
 	private IEnumerator UpdateCoroutine()
 	{
 		for (;;)

@@ -6,13 +6,13 @@ namespace I2.Loc
 {
 	public class LocalizeTarget_UnityStandard_VideoPlayer : LocalizeTarget<VideoPlayer>
 	{
-		// Token: 0x06000FAF RID: 4015 RVA: 0x00062D9F File Offset: 0x00060F9F
+		// Token: 0x06000FC6 RID: 4038 RVA: 0x0006357B File Offset: 0x0006177B
 		static LocalizeTarget_UnityStandard_VideoPlayer()
 		{
 			LocalizeTarget_UnityStandard_VideoPlayer.AutoRegister();
 		}
 
-		// Token: 0x06000FB0 RID: 4016 RVA: 0x00062DA6 File Offset: 0x00060FA6
+		// Token: 0x06000FC7 RID: 4039 RVA: 0x00063582 File Offset: 0x00061782
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -23,37 +23,37 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000FB1 RID: 4017 RVA: 0x00062DC5 File Offset: 0x00060FC5
+		// Token: 0x06000FC8 RID: 4040 RVA: 0x000635A1 File Offset: 0x000617A1
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.Video;
 		}
 
-		// Token: 0x06000FB2 RID: 4018 RVA: 0x00062DC9 File Offset: 0x00060FC9
+		// Token: 0x06000FC9 RID: 4041 RVA: 0x000635A5 File Offset: 0x000617A5
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000FB3 RID: 4019 RVA: 0x00062DCC File Offset: 0x00060FCC
+		// Token: 0x06000FCA RID: 4042 RVA: 0x000635A8 File Offset: 0x000617A8
 		public override bool CanUseSecondaryTerm()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FB4 RID: 4020 RVA: 0x00062DCF File Offset: 0x00060FCF
+		// Token: 0x06000FCB RID: 4043 RVA: 0x000635AB File Offset: 0x000617AB
 		public override bool AllowMainTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FB5 RID: 4021 RVA: 0x00062DD2 File Offset: 0x00060FD2
+		// Token: 0x06000FCC RID: 4044 RVA: 0x000635AE File Offset: 0x000617AE
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FB6 RID: 4022 RVA: 0x00062DD8 File Offset: 0x00060FD8
+		// Token: 0x06000FCD RID: 4045 RVA: 0x000635B4 File Offset: 0x000617B4
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			VideoClip clip = this.mTarget.clip;
@@ -61,7 +61,7 @@ namespace I2.Loc
 			secondaryTerm = null;
 		}
 
-		// Token: 0x06000FB7 RID: 4023 RVA: 0x00062E10 File Offset: 0x00061010
+		// Token: 0x06000FCE RID: 4046 RVA: 0x000635EC File Offset: 0x000617EC
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			VideoClip clip = this.mTarget.clip;

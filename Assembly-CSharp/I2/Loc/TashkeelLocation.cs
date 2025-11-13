@@ -4,7 +4,7 @@ namespace I2.Loc
 {
 	internal class TashkeelLocation
 	{
-		// Token: 0x06001027 RID: 4135 RVA: 0x00064A98 File Offset: 0x00062C98
+		// Token: 0x0600103E RID: 4158 RVA: 0x00065274 File Offset: 0x00063474
 		public TashkeelLocation(char tashkeel, int position)
 		{
 			this.tashkeel = tashkeel;

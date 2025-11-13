@@ -7,19 +7,19 @@ using UnityEngine.UI;
 
 public class DialogueScript : MonoBehaviour
 {
-	// Token: 0x0600085D RID: 2141 RVA: 0x00036921 File Offset: 0x00034B21
+	// Token: 0x06000864 RID: 2148 RVA: 0x00036BA1 File Offset: 0x00034DA1
 	public static bool IsEnabled()
 	{
 		return DialogueScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x0600085E RID: 2142 RVA: 0x00036932 File Offset: 0x00034B32
+	// Token: 0x06000865 RID: 2149 RVA: 0x00036BB2 File Offset: 0x00034DB2
 	public static bool IsAskingQuestion()
 	{
 		return (DialogueScript.IsEnabled() && DialogueScript.instance.onYes != null) || DialogueScript.instance.onNo != null;
 	}
 
-	// Token: 0x0600085F RID: 2143 RVA: 0x00036958 File Offset: 0x00034B58
+	// Token: 0x06000866 RID: 2150 RVA: 0x00036BD8 File Offset: 0x00034DD8
 	public static void SetDialogue(List<string> keys, bool concatenate)
 	{
 		if (!DialogueScript.instance.legalDuringDeathCooldown && GameplayMaster.DeathCountdownHasStarted())
@@ -49,7 +49,7 @@ public class DialogueScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000860 RID: 2144 RVA: 0x00036A1D File Offset: 0x00034C1D
+	// Token: 0x06000867 RID: 2151 RVA: 0x00036C9D File Offset: 0x00034E9D
 	public static void SetDialogue(bool concatenate, params string[] keys)
 	{
 		if (concatenate && (DialogueScript.instance.onYes != null || DialogueScript.instance.onNo != null))
@@ -60,19 +60,19 @@ public class DialogueScript : MonoBehaviour
 		DialogueScript.SetDialogue(new List<string>(keys), concatenate);
 	}
 
-	// Token: 0x06000861 RID: 2145 RVA: 0x00036A51 File Offset: 0x00034C51
+	// Token: 0x06000868 RID: 2152 RVA: 0x00036CD1 File Offset: 0x00034ED1
 	public static int GetDialogueIndex()
 	{
 		return DialogueScript.instance.dialogueIndex;
 	}
 
-	// Token: 0x06000862 RID: 2146 RVA: 0x00036A5D File Offset: 0x00034C5D
+	// Token: 0x06000869 RID: 2153 RVA: 0x00036CDD File Offset: 0x00034EDD
 	public static void SetDialogueInputDelay(float value)
 	{
 		DialogueScript.instance.allDialoguesInputDelay = value;
 	}
 
-	// Token: 0x06000863 RID: 2147 RVA: 0x00036A6C File Offset: 0x00034C6C
+	// Token: 0x0600086A RID: 2154 RVA: 0x00036CEC File Offset: 0x00034EEC
 	public static void SetQuestionDialogue(bool concatenate, DialogueScript.AnswerCallback onYes, DialogueScript.AnswerCallback onNo, params string[] keys)
 	{
 		if (!DialogueScript.instance.legalDuringDeathCooldown && GameplayMaster.DeathCountdownHasStarted())
@@ -107,7 +107,7 @@ public class DialogueScript : MonoBehaviour
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 	}
 
-	// Token: 0x06000864 RID: 2148 RVA: 0x00036B94 File Offset: 0x00034D94
+	// Token: 0x0600086B RID: 2155 RVA: 0x00036E14 File Offset: 0x00035014
 	public static void Close()
 	{
 		if (!DialogueScript.IsEnabled())
@@ -137,12 +137,12 @@ public class DialogueScript : MonoBehaviour
 		}
 		else
 		{
-			Sound.Play3D_Unpausable("SoundDialogueClose", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D_Unpausable("SoundDialogueClose", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
 		}
 		Controls.VibrationSet_PreferMax(DialogueScript.instance.player, 0.25f);
 	}
 
-	// Token: 0x06000865 RID: 2149 RVA: 0x00036CF8 File Offset: 0x00034EF8
+	// Token: 0x0600086C RID: 2156 RVA: 0x00036F78 File Offset: 0x00035178
 	private void NextDialogue()
 	{
 		this.dialogueIndex++;
@@ -163,7 +163,7 @@ public class DialogueScript : MonoBehaviour
 				}
 				else
 				{
-					Sound.Play3D_Unpausable("SoundDialogueStart", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D_Unpausable("SoundDialogueStart", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
 				}
 			}
 		}
@@ -173,7 +173,7 @@ public class DialogueScript : MonoBehaviour
 		}
 		else
 		{
-			Sound.Play3D_Unpausable("SoundDialogueNext", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D_Unpausable("SoundDialogueNext", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
 		}
 		DialogueScript.AnswerCallback answerCallback = this.onDialogueNext;
 		if (answerCallback == null)
@@ -183,7 +183,7 @@ public class DialogueScript : MonoBehaviour
 		answerCallback();
 	}
 
-	// Token: 0x06000866 RID: 2150 RVA: 0x00036E60 File Offset: 0x00035060
+	// Token: 0x0600086D RID: 2157 RVA: 0x000370E0 File Offset: 0x000352E0
 	private void AnswerInputCompute()
 	{
 		if (!DialogueScript.IsEnabled())
@@ -249,7 +249,7 @@ public class DialogueScript : MonoBehaviour
 				}
 				else
 				{
-					Sound.Play3D_Unpausable("SoundMenuSelectionChange", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D_Unpausable("SoundMenuSelectionChange", DialogueScript.instance.soundOriginTransform.position, 20f, 1f, 1f, 1);
 				}
 			}
 			switch (this.questionAnswer)
@@ -272,7 +272,7 @@ public class DialogueScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000867 RID: 2151 RVA: 0x000371BC File Offset: 0x000353BC
+	// Token: 0x0600086E RID: 2158 RVA: 0x0003743C File Offset: 0x0003563C
 	private void AnswerInputReset()
 	{
 		this.questionAnswer = DialogueScript.QuestionAnswer.undefined;
@@ -282,20 +282,20 @@ public class DialogueScript : MonoBehaviour
 		this.question_CursorWasVisibleBeforeQuestion = null;
 	}
 
-	// Token: 0x06000868 RID: 2152 RVA: 0x00037217 File Offset: 0x00035417
+	// Token: 0x0600086F RID: 2159 RVA: 0x00037497 File Offset: 0x00035697
 	public static void SetAutoClose(float time)
 	{
 		DialogueScript.instance.autoCloseTimer = time;
 	}
 
-	// Token: 0x06000869 RID: 2153 RVA: 0x00037224 File Offset: 0x00035424
+	// Token: 0x06000870 RID: 2160 RVA: 0x000374A4 File Offset: 0x000356A4
 	public static void SetAutoProgress(float time)
 	{
 		DialogueScript.instance.autoProgressTimer = time;
 		DialogueScript.instance.autoProgressTimerLastValue = time;
 	}
 
-	// Token: 0x0600086A RID: 2154 RVA: 0x0003723C File Offset: 0x0003543C
+	// Token: 0x06000871 RID: 2161 RVA: 0x000374BC File Offset: 0x000356BC
 	public static void NextIsLegalDuringDeathCooldown()
 	{
 		if (DialogueScript.instance == null)
@@ -305,7 +305,7 @@ public class DialogueScript : MonoBehaviour
 		DialogueScript.instance.legalDuringDeathCooldown = true;
 	}
 
-	// Token: 0x0600086B RID: 2155 RVA: 0x00037257 File Offset: 0x00035457
+	// Token: 0x06000872 RID: 2162 RVA: 0x000374D7 File Offset: 0x000356D7
 	private void Awake()
 	{
 		DialogueScript.instance = this;
@@ -314,14 +314,14 @@ public class DialogueScript : MonoBehaviour
 		this.backImageStartingLocalPos = this.backImageRectTransform.anchoredPosition;
 	}
 
-	// Token: 0x0600086C RID: 2156 RVA: 0x00037286 File Offset: 0x00035486
+	// Token: 0x06000873 RID: 2163 RVA: 0x00037506 File Offset: 0x00035706
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
 		this.AnswerInputReset();
 	}
 
-	// Token: 0x0600086D RID: 2157 RVA: 0x0003729A File Offset: 0x0003549A
+	// Token: 0x06000874 RID: 2164 RVA: 0x0003751A File Offset: 0x0003571A
 	private void OnDestroy()
 	{
 		if (DialogueScript.instance == this)
@@ -330,7 +330,7 @@ public class DialogueScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600086E RID: 2158 RVA: 0x000372B0 File Offset: 0x000354B0
+	// Token: 0x06000875 RID: 2165 RVA: 0x00037530 File Offset: 0x00035730
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -511,6 +511,6 @@ public class DialogueScript : MonoBehaviour
 		no
 	}
 
-	// (Invoke) Token: 0x060011D5 RID: 4565
+	// (Invoke) Token: 0x060011EC RID: 4588
 	public delegate void AnswerCallback();
 }

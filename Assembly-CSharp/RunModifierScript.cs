@@ -5,13 +5,13 @@ using UnityEngine;
 
 public static class RunModifierScript
 {
-	// Token: 0x060006E0 RID: 1760 RVA: 0x0002BD4C File Offset: 0x00029F4C
+	// Token: 0x060006E0 RID: 1760 RVA: 0x0002BDF4 File Offset: 0x00029FF4
 	public static string GetCardPrefabName(RunModifierScript.Identifier identifier)
 	{
 		return RunModifierScript.cardsPrefabsDictionary[identifier];
 	}
 
-	// Token: 0x060006E1 RID: 1761 RVA: 0x0002BD5C File Offset: 0x00029F5C
+	// Token: 0x060006E1 RID: 1761 RVA: 0x0002BE04 File Offset: 0x0002A004
 	public static RunModifierScript.Rarity RarityGet(RunModifierScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -62,7 +62,7 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006E2 RID: 1762 RVA: 0x0002BE08 File Offset: 0x0002A008
+	// Token: 0x060006E2 RID: 1762 RVA: 0x0002BEB0 File Offset: 0x0002A0B0
 	private static float RarityThresholdGet(RunModifierScript.Identifier identifier)
 	{
 		RunModifierScript.Rarity rarity = RunModifierScript.RarityGet(identifier);
@@ -82,7 +82,7 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006E3 RID: 1763 RVA: 0x0002BE70 File Offset: 0x0002A070
+	// Token: 0x060006E3 RID: 1763 RVA: 0x0002BF18 File Offset: 0x0002A118
 	public static int OrderWeightGet(RunModifierScript.Identifier identifier)
 	{
 		int num = 0;
@@ -112,7 +112,7 @@ public static class RunModifierScript
 		return num;
 	}
 
-	// Token: 0x060006E4 RID: 1764 RVA: 0x0002BEEC File Offset: 0x0002A0EC
+	// Token: 0x060006E4 RID: 1764 RVA: 0x0002BF94 File Offset: 0x0002A194
 	public static RunModifierScript.Identifier CardGetFromPack()
 	{
 		RunModifierScript.Identifier identifier = RunModifierScript.Identifier.undefined;
@@ -141,7 +141,7 @@ public static class RunModifierScript
 		return identifier;
 	}
 
-	// Token: 0x060006E5 RID: 1765 RVA: 0x0002BF50 File Offset: 0x0002A150
+	// Token: 0x060006E5 RID: 1765 RVA: 0x0002BFF8 File Offset: 0x0002A1F8
 	public static string TitleGet(RunModifierScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -196,7 +196,7 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006E6 RID: 1766 RVA: 0x0002C150 File Offset: 0x0002A350
+	// Token: 0x060006E6 RID: 1766 RVA: 0x0002C1F8 File Offset: 0x0002A3F8
 	public static string DescriptionGet(RunModifierScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -251,7 +251,7 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006E7 RID: 1767 RVA: 0x0002C350 File Offset: 0x0002A550
+	// Token: 0x060006E7 RID: 1767 RVA: 0x0002C3F8 File Offset: 0x0002A5F8
 	public static string AlternativeIntroDialogueGetKey(RunModifierScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -306,13 +306,13 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006E8 RID: 1768 RVA: 0x0002C456 File Offset: 0x0002A656
+	// Token: 0x060006E8 RID: 1768 RVA: 0x0002C4FE File Offset: 0x0002A6FE
 	public static void TriggerAnimation(RunModifierScript.Identifier runModifier)
 	{
 		PowerupTriggerAnimController.AddAnimation(null, runModifier, PowerupTriggerAnimController.AnimationCapsule.AnimationKind.card);
 	}
 
-	// Token: 0x060006E9 RID: 1769 RVA: 0x0002C460 File Offset: 0x0002A660
+	// Token: 0x060006E9 RID: 1769 RVA: 0x0002C508 File Offset: 0x0002A708
 	public static void TriggerAnimation_IfEquipped(RunModifierScript.Identifier desiredRunModifier)
 	{
 		if (GameplayData.RunModifier_GetCurrent() != desiredRunModifier)
@@ -322,13 +322,13 @@ public static class RunModifierScript
 		RunModifierScript.TriggerAnimation(desiredRunModifier);
 	}
 
-	// Token: 0x060006EA RID: 1770 RVA: 0x0002C471 File Offset: 0x0002A671
+	// Token: 0x060006EA RID: 1770 RVA: 0x0002C519 File Offset: 0x0002A719
 	public static void MFunc_SmallerStoreRestocksBonus()
 	{
 		GameplayData.StoreFreeRestocksSet(GameplayData.StoreFreeRestocksGet() + 2L);
 	}
 
-	// Token: 0x060006EB RID: 1771 RVA: 0x0002C480 File Offset: 0x0002A680
+	// Token: 0x060006EB RID: 1771 RVA: 0x0002C528 File Offset: 0x0002A728
 	public static void MFunc_SmallItemPool_CheckForBannedItems()
 	{
 		bool flag = false;
@@ -346,7 +346,7 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006EC RID: 1772 RVA: 0x0002C4EC File Offset: 0x0002A6EC
+	// Token: 0x060006EC RID: 1772 RVA: 0x0002C594 File Offset: 0x0002A794
 	public static void OnRunModifierSet(RunModifierScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -413,7 +413,7 @@ public static class RunModifierScript
 		}
 	}
 
-	// Token: 0x060006ED RID: 1773 RVA: 0x0002C65C File Offset: 0x0002A85C
+	// Token: 0x060006ED RID: 1773 RVA: 0x0002C704 File Offset: 0x0002A904
 	public static void InitializeAll()
 	{
 		int num = 20;

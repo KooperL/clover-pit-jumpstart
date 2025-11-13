@@ -5,55 +5,55 @@ using UnityEngine;
 
 public class ItemOrganizerScript : MonoBehaviour
 {
-	// Token: 0x060007DF RID: 2015 RVA: 0x00032FA7 File Offset: 0x000311A7
+	// Token: 0x060007E6 RID: 2022 RVA: 0x0003318E File Offset: 0x0003138E
 	public static Transform GetOrganizerTransform(int index)
 	{
 		return ItemOrganizerScript.instance.organizerTransforms[index];
 	}
 
-	// Token: 0x060007E0 RID: 2016 RVA: 0x00032FB5 File Offset: 0x000311B5
+	// Token: 0x060007E7 RID: 2023 RVA: 0x0003319C File Offset: 0x0003139C
 	public static Transform GetDollTransform(int index)
 	{
 		return ItemOrganizerScript.instance.dollTransforms[index];
 	}
 
-	// Token: 0x060007E1 RID: 2017 RVA: 0x00032FC3 File Offset: 0x000311C3
+	// Token: 0x060007E8 RID: 2024 RVA: 0x000331AA File Offset: 0x000313AA
 	public static Transform GetDrawerTransform(int index)
 	{
 		return ItemOrganizerScript.instance.drawerTransforms[index];
 	}
 
-	// Token: 0x060007E2 RID: 2018 RVA: 0x00032FD1 File Offset: 0x000311D1
+	// Token: 0x060007E9 RID: 2025 RVA: 0x000331B8 File Offset: 0x000313B8
 	public static Transform GetStoreTransform(int index)
 	{
 		return ItemOrganizerScript.instance.storeTransforms[index];
 	}
 
-	// Token: 0x060007E3 RID: 2019 RVA: 0x00032FDF File Offset: 0x000311DF
+	// Token: 0x060007EA RID: 2026 RVA: 0x000331C6 File Offset: 0x000313C6
 	public static int CharmsSlotN()
 	{
 		return 33;
 	}
 
-	// Token: 0x060007E4 RID: 2020 RVA: 0x00032FE3 File Offset: 0x000311E3
+	// Token: 0x060007EB RID: 2027 RVA: 0x000331CA File Offset: 0x000313CA
 	public static int SkeletonSlotsN()
 	{
 		return 5;
 	}
 
-	// Token: 0x060007E5 RID: 2021 RVA: 0x00032FE6 File Offset: 0x000311E6
+	// Token: 0x060007EC RID: 2028 RVA: 0x000331CD File Offset: 0x000313CD
 	public static int DrawerSlotsN()
 	{
 		return 4;
 	}
 
-	// Token: 0x060007E6 RID: 2022 RVA: 0x00032FE9 File Offset: 0x000311E9
+	// Token: 0x060007ED RID: 2029 RVA: 0x000331D0 File Offset: 0x000313D0
 	public static int StoreSlotsN()
 	{
 		return 4;
 	}
 
-	// Token: 0x060007E7 RID: 2023 RVA: 0x00032FEC File Offset: 0x000311EC
+	// Token: 0x060007EE RID: 2030 RVA: 0x000331D4 File Offset: 0x000313D4
 	private void Awake()
 	{
 		ItemOrganizerScript.instance = this;
@@ -75,7 +75,7 @@ public class ItemOrganizerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007E8 RID: 2024 RVA: 0x00033054 File Offset: 0x00031254
+	// Token: 0x060007EF RID: 2031 RVA: 0x0003323C File Offset: 0x0003143C
 	private void OnDestroy()
 	{
 		if (ItemOrganizerScript.instance == this)
@@ -84,7 +84,7 @@ public class ItemOrganizerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007E9 RID: 2025 RVA: 0x0003306C File Offset: 0x0003126C
+	// Token: 0x060007F0 RID: 2032 RVA: 0x00033254 File Offset: 0x00031454
 	private void Update()
 	{
 		int count = PowerupScript.list_EquippedNormal.Count;

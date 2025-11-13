@@ -585,7 +585,7 @@ public class ConsolePrompt : MonoBehaviour
 
 	private class Command
 	{
-		// Token: 0x060010C2 RID: 4290 RVA: 0x00067334 File Offset: 0x00065534
+		// Token: 0x060010D9 RID: 4313 RVA: 0x00067B10 File Offset: 0x00065D10
 		public Command(string[] allowedEntries, string description, UnityAction action)
 		{
 			this.allowedEntries = allowedEntries;
@@ -597,7 +597,7 @@ public class ConsolePrompt : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060010C3 RID: 4291 RVA: 0x00067381 File Offset: 0x00065581
+		// Token: 0x060010DA RID: 4314 RVA: 0x00067B5D File Offset: 0x00065D5D
 		public bool TryExecute()
 		{
 			if (this.action != null)

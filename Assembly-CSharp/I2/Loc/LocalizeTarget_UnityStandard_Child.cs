@@ -5,13 +5,13 @@ namespace I2.Loc
 {
 	public class LocalizeTarget_UnityStandard_Child : LocalizeTarget<GameObject>
 	{
-		// Token: 0x06000F78 RID: 3960 RVA: 0x00062785 File Offset: 0x00060985
+		// Token: 0x06000F8F RID: 3983 RVA: 0x00062F61 File Offset: 0x00061161
 		static LocalizeTarget_UnityStandard_Child()
 		{
 			LocalizeTarget_UnityStandard_Child.AutoRegister();
 		}
 
-		// Token: 0x06000F79 RID: 3961 RVA: 0x0006278C File Offset: 0x0006098C
+		// Token: 0x06000F90 RID: 3984 RVA: 0x00062F68 File Offset: 0x00061168
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -22,50 +22,50 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000F7A RID: 3962 RVA: 0x000627AE File Offset: 0x000609AE
+		// Token: 0x06000F91 RID: 3985 RVA: 0x00062F8A File Offset: 0x0006118A
 		public override bool IsValid(Localize cmp)
 		{
 			return cmp.transform.childCount > 1;
 		}
 
-		// Token: 0x06000F7B RID: 3963 RVA: 0x000627BE File Offset: 0x000609BE
+		// Token: 0x06000F92 RID: 3986 RVA: 0x00062F9A File Offset: 0x0006119A
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.GameObject;
 		}
 
-		// Token: 0x06000F7C RID: 3964 RVA: 0x000627C1 File Offset: 0x000609C1
+		// Token: 0x06000F93 RID: 3987 RVA: 0x00062F9D File Offset: 0x0006119D
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000F7D RID: 3965 RVA: 0x000627C4 File Offset: 0x000609C4
+		// Token: 0x06000F94 RID: 3988 RVA: 0x00062FA0 File Offset: 0x000611A0
 		public override bool CanUseSecondaryTerm()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F7E RID: 3966 RVA: 0x000627C7 File Offset: 0x000609C7
+		// Token: 0x06000F95 RID: 3989 RVA: 0x00062FA3 File Offset: 0x000611A3
 		public override bool AllowMainTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F7F RID: 3967 RVA: 0x000627CA File Offset: 0x000609CA
+		// Token: 0x06000F96 RID: 3990 RVA: 0x00062FA6 File Offset: 0x000611A6
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F80 RID: 3968 RVA: 0x000627CD File Offset: 0x000609CD
+		// Token: 0x06000F97 RID: 3991 RVA: 0x00062FA9 File Offset: 0x000611A9
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = cmp.name;
 			secondaryTerm = null;
 		}
 
-		// Token: 0x06000F81 RID: 3969 RVA: 0x000627DC File Offset: 0x000609DC
+		// Token: 0x06000F98 RID: 3992 RVA: 0x00062FB8 File Offset: 0x000611B8
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			if (string.IsNullOrEmpty(mainTranslation))

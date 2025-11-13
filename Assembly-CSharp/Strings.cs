@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Strings : MonoBehaviour
 {
-	// Token: 0x0600037F RID: 895 RVA: 0x00015AB0 File Offset: 0x00013CB0
+	// Token: 0x0600037D RID: 893 RVA: 0x00015AF4 File Offset: 0x00013CF4
 	public static string GetPowerupRarity_SpriteString(PowerupScript.PublicRarity pubRarity)
 	{
 		switch (pubRarity)
@@ -26,13 +26,13 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000380 RID: 896 RVA: 0x00015B0E File Offset: 0x00013D0E
+	// Token: 0x0600037E RID: 894 RVA: 0x00015B52 File Offset: 0x00013D52
 	public static string GetPowerupRarity_SpriteString(PowerupScript powerup)
 	{
 		return Strings.GetPowerupRarity_SpriteString(powerup.RarityPublicGet());
 	}
 
-	// Token: 0x06000381 RID: 897 RVA: 0x00015B1C File Offset: 0x00013D1C
+	// Token: 0x0600037F RID: 895 RVA: 0x00015B60 File Offset: 0x00013D60
 	public static string GetPowerupRarity_StringKey(PowerupScript.PublicRarity pubRarity)
 	{
 		switch (pubRarity)
@@ -51,13 +51,13 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000382 RID: 898 RVA: 0x00015B93 File Offset: 0x00013D93
+	// Token: 0x06000380 RID: 896 RVA: 0x00015BD7 File Offset: 0x00013DD7
 	public static string GetPowerupRarity_StringKey(PowerupScript powerup)
 	{
 		return Strings.GetPowerupRarity_StringKey(powerup.RarityPublicGet());
 	}
 
-	// Token: 0x06000383 RID: 899 RVA: 0x00015BA0 File Offset: 0x00013DA0
+	// Token: 0x06000381 RID: 897 RVA: 0x00015BE4 File Offset: 0x00013DE4
 	public static string GetSpriteString_SlotMachineSymbol(SymbolScript.Kind kind)
 	{
 		switch (kind)
@@ -82,7 +82,7 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000384 RID: 900 RVA: 0x00015C1C File Offset: 0x00013E1C
+	// Token: 0x06000382 RID: 898 RVA: 0x00015C60 File Offset: 0x00013E60
 	public static string GetSpriteString_SlotMachinePattern(PatternScript.Kind kind)
 	{
 		switch (kind)
@@ -125,19 +125,19 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000385 RID: 901 RVA: 0x00015CF2 File Offset: 0x00013EF2
+	// Token: 0x06000383 RID: 899 RVA: 0x00015D36 File Offset: 0x00013F36
 	public static void SetTemporaryInspectedPowerup(PowerupScript p)
 	{
 		Strings.temporaryInspectedPowerup = p;
 	}
 
-	// Token: 0x06000386 RID: 902 RVA: 0x00015CFA File Offset: 0x00013EFA
+	// Token: 0x06000384 RID: 900 RVA: 0x00015D3E File Offset: 0x00013F3E
 	public static void SetTemporaryFlag_Sanitize666And999(int occurrencies)
 	{
 		Strings.sanitize666999_Counter = occurrencies;
 	}
 
-	// Token: 0x06000387 RID: 903 RVA: 0x00015D04 File Offset: 0x00013F04
+	// Token: 0x06000385 RID: 901 RVA: 0x00015D48 File Offset: 0x00013F48
 	public static string Sanitize(Strings.SantizationKind santizationKind, string input, Strings.SanitizationSubKind subKind = Strings.SanitizationSubKind.none)
 	{
 		StringBuilder stringBuilder = new StringBuilder(input, input.Length * 2);
@@ -227,8 +227,14 @@ public class Strings : MonoBehaviour
 				break;
 			}
 			case Strings.SanitizationSubKind.powerup_Hourglass:
-				stringBuilder.Replace("[K_HRGLSS_DLEFT]", GameplayData.Powerup_Hourglass_DeadlinesLeftGet().ToString());
+			{
+				int num = PowerupScript.Hourglass_SymbolsMultiplierBonusGet(false);
+				int num2 = PowerupScript.Hourglass_PatternsMultiplierBonusGet(false);
+				stringBuilder.Replace("[K_HOURGLASS_S]", num.ToString());
+				stringBuilder.Replace("[K_HOURGLASS_P]", num2.ToString());
+				stringBuilder.Replace("[K_HOURGLASS_WHICH]", (num > num2) ? "[K_P_MULT]" : "[K_S_MULT]");
 				break;
+			}
 			case Strings.SanitizationSubKind.powerup_SpicyPeppers:
 				stringBuilder.Replace("[RP_ACTIVATIONS]", PowerupScript.RedPepper_ActivationsLeft().ToString());
 				stringBuilder.Replace("[GP_ACTIVATIONS]", PowerupScript.GreenPepper_ActivationsLeft().ToString());
@@ -325,20 +331,20 @@ public class Strings : MonoBehaviour
 						{
 						case PowerupScript.Identifier.LuckyCat:
 							stringBuilder.Replace("[K_LUCKY_CAT_REVENUE]", PowerupScript._LuckyCatBonusCoinsGet().ToStringSmart() + "<sprite name=\"CoinSymbolOrange32\">");
-							goto IL_100A;
+							goto IL_1030;
 						case PowerupScript.Identifier.LuckyCatFat:
 							stringBuilder.Replace("[K_LUCKY_CAT_FAT_REVENUE]", PowerupScript._LuckyCatFatBonusCoinsGet().ToStringSmart() + "<sprite name=\"CoinSymbolOrange32\">");
-							goto IL_100A;
+							goto IL_1030;
 						case PowerupScript.Identifier.LuckyCatSwole:
 							stringBuilder.Replace("[K_LUCKY_CAT_GYM_REVENUE]", PowerupScript._LuckyCatSwoleBonusCoinsGet().ToStringSmart() + "<sprite name=\"CoinSymbolOrange32\">");
-							goto IL_100A;
+							goto IL_1030;
 						case PowerupScript.Identifier.OneTrickPony:
 						case PowerupScript.Identifier.RedCrystal:
 						case PowerupScript.Identifier.TarotDeck:
-							goto IL_100A;
+							goto IL_1030;
 						case PowerupScript.Identifier.PoopBeetle:
 							stringBuilder.Replace("[POOP_BEETLE_BONUS]", "<color=yellow>" + GameplayData.Powerup_PoopBeetle_SymbolsIncreaseN_Get().ToString() + "</color>X " + Strings.SymbolsWithBaseValue_GetString(false));
-							goto IL_100A;
+							goto IL_1030;
 						default:
 							switch (identifier5)
 							{
@@ -346,7 +352,7 @@ public class Strings : MonoBehaviour
 							case PowerupScript.Identifier.PoopJar:
 								stringBuilder.Replace("[YELLOW_SYMBOLS]", Strings.Symbols_GetString_YellowOnes());
 								stringBuilder.Replace("[NON_YELLOW_SYMBOLS]", Strings.Symbols_GetString_NonYellowOnes());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.Painkillers:
 							case PowerupScript.Identifier.Wolf:
 							case PowerupScript.Identifier.FortuneCookie:
@@ -375,98 +381,98 @@ public class Strings : MonoBehaviour
 							case PowerupScript.Identifier.Hole_Cross:
 							case PowerupScript.Identifier.Rorschach:
 							case PowerupScript.Identifier.Hourglass:
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.Wallet:
 								stringBuilder.Replace("[WALLET_BONUS]", PowerupScript.Wallet_PatternsMultiplierBonus(false).ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.MoneyBriefCase:
 								stringBuilder.Replace("[DEBT_30%]", (bigInteger4 * 30 / 100).ToStringSmart());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.Calendar:
-								stringBuilder.Replace("[CALENDAR_BONUS]", "<color=yellow>" + GameplayData.Powerup_Calendar_SymbolsIncreaseN_Get().ToString() + "</color>X " + Strings.SymbolsWithBaseValue_GetString(false));
-								goto IL_100A;
+								stringBuilder.Replace("[CALENDAR_BONUS]", "+" + GameplayData.Powerup_Calendar_SymbolsIncreaseN_Get().ToStringSmart());
+								goto IL_1030;
 							case PowerupScript.Identifier.YellowStar:
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.jackpot);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.FortuneChanneler:
 							{
-								int num = GameplayData.Powerup_ChannelerOfFortune_ActivationsCounterGet();
-								num = Mathf.Min(num, 5);
-								stringBuilder.Replace("[CHNLR_FRTN_N]", (5 - num).ToString());
-								goto IL_100A;
+								int num3 = GameplayData.Powerup_ChannelerOfFortune_ActivationsCounterGet();
+								num3 = Mathf.Min(num3, 5);
+								stringBuilder.Replace("[CHNLR_FRTN_N]", (5 - num3).ToString());
+								goto IL_1030;
 							}
 							case PowerupScript.Identifier.Nose:
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.triangle);
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.triangleInverted);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.EyeJar:
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.eye);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.VoiceMailTape:
 								stringBuilder.Replace("[VOICEM_N]", PowerupScript.VoiceMail_MultiplierBonusGet(false).ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.Garbage:
 								stringBuilder.Replace("[GARBAGE_N]", PowerupScript.Garbage_MultiplierBonusGet(false).ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.AllIn:
 								stringBuilder.Replace("[ALL_IN_N]", PowerupScript.AllIn_MultiplierBonusGet(false).ToString());
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.jackpot);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.RingBell:
 								Strings.SymbolsAndPatternsReplaceAll(stringBuilder);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.ConsolationPrize:
 								Strings.SymbolsAndPatternsReplaceAll(stringBuilder);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.DarkLotus:
 								stringBuilder.Replace("[DRK_LTS_VAL]", PowerupScript.DarkLotus_MultiplierBonus_Get(false).ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.StepsCounter:
 								stringBuilder.Replace("[STP_CNTR_T]", PowerupScript.StepsCounter_TriggersNeededGet().ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.ShoppingCart:
 								stringBuilder.Replace("[SHPCRT_N]", PowerupScript.ShoppingCart_MultiplierBonusGet(false).ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.DiscA:
 								stringBuilder.Replace("[DISC_A_SP]", PowerupScript.DiscA_MissingSpinsGet().ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.DiscB:
 								stringBuilder.Replace("[DISC_B_SP]", PowerupScript.DiscB_MissingSpinsGet().ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.DiscC:
 								stringBuilder.Replace("[DISC_C_SP]", PowerupScript.DiscC_MissingSpinsGet().ToString());
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.pyramid);
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.pyramidInverted);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.LocomotiveSteam:
 								Strings.SymbolsAndPatternsReplaceAll(stringBuilder);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.LocomotiveDiesel:
 								Strings.SymbolsAndPatternsReplaceAll(stringBuilder);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.CloverPot:
-								stringBuilder.Replace("[CLOVERPOT_BNS]", PowerupScript.CloverPotTicketsBonus(false).ToString());
-								goto IL_100A;
+								stringBuilder.Replace("[CLOVERPOT_BNS]", PowerupScript.CloverPotTicketsBonus(false, false).ToString());
+								goto IL_1030;
 							case PowerupScript.Identifier.CloverPet:
 								stringBuilder.Replace("[CLOVERPET_BONUS]", PowerupScript.CloverPetSymbolsMultiplierBonus(false).ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.Mushrooms:
 								stringBuilder.Replace("[SHROOMS_BONUS]", "<color=yellow>" + PowerupScript.ShroomsRawBonusGet().ToString() + "</color>X " + Strings.SymbolsWithBaseValue_GetString(false));
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.AbstractPainting:
 								Strings.SymbolsAndPatternsReplaceAll(stringBuilder);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.Pareidolia:
 								Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.eye);
 								Strings.SymbolsAndPatternsReplaceAll(stringBuilder);
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.FruitBasket:
 								stringBuilder.Replace("[FR_BSKT_ROUNDS_LEFT]", GameplayData.Powerup_FruitsBasket_RoundsLeftGet().ToString());
-								goto IL_100A;
+								goto IL_1030;
 							case PowerupScript.Identifier.SevenSinsStone:
 								break;
 							default:
-								goto IL_100A;
+								goto IL_1030;
 							}
 							break;
 						}
@@ -477,20 +483,20 @@ public class Strings : MonoBehaviour
 						{
 						case PowerupScript.Identifier.RottenPepper:
 							Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.jackpot);
-							goto IL_100A;
+							goto IL_1030;
 						case PowerupScript.Identifier.BellPepper:
 							Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.jackpot);
-							goto IL_100A;
+							goto IL_1030;
 						case PowerupScript.Identifier.GoldenPepper:
 							Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.jackpot);
-							goto IL_100A;
+							goto IL_1030;
 						default:
 							if (identifier5 != PowerupScript.Identifier.Cross)
 							{
-								goto IL_100A;
+								goto IL_1030;
 							}
 							stringBuilder.Replace("[CROSS_MULT]", PowerupScript.Cross_PatternsMultiplierBonus_Get(false).ToString());
-							goto IL_100A;
+							goto IL_1030;
 						}
 					}
 				}
@@ -499,38 +505,38 @@ public class Strings : MonoBehaviour
 					if (identifier5 == PowerupScript.Identifier.ChastityBelt)
 					{
 						stringBuilder.Replace("[CAST_B_N]", PowerupScript.ChastityBelt_MultiplierBonusGet(false).ToString());
-						goto IL_100A;
+						goto IL_1030;
 					}
 					switch (identifier5)
 					{
 					case PowerupScript.Identifier.GoldenSymbol_Lemon:
 						stringBuilder.Replace("[S_CURRENT]", "[S_LEMON]");
 						stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_LEMON_BASE_VALUE]");
-						goto IL_100A;
+						goto IL_1030;
 					case PowerupScript.Identifier.GoldenSymbol_Cherry:
 						stringBuilder.Replace("[S_CURRENT]", "[S_CHERRY]");
 						stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_CHERRY_BASE_VALUE]");
-						goto IL_100A;
+						goto IL_1030;
 					case PowerupScript.Identifier.GoldenSymbol_Clover:
 						stringBuilder.Replace("[S_CURRENT]", "[S_CLOVER]");
 						stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_CLOVER_BASE_VALUE]");
-						goto IL_100A;
+						goto IL_1030;
 					case PowerupScript.Identifier.GoldenSymbol_Bell:
 						stringBuilder.Replace("[S_CURRENT]", "[S_BELL]");
 						stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_BELL_BASE_VALUE]");
-						goto IL_100A;
+						goto IL_1030;
 					case PowerupScript.Identifier.GoldenSymbol_Diamond:
 						stringBuilder.Replace("[S_CURRENT]", "[S_DIAMOND]");
 						stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_DIAMOND_BASE_VALUE]");
-						goto IL_100A;
+						goto IL_1030;
 					case PowerupScript.Identifier.GoldenSymbol_Treasure:
 						stringBuilder.Replace("[S_CURRENT]", "[S_COINS]");
 						stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_COINS_BASE_VALUE]");
-						goto IL_100A;
+						goto IL_1030;
 					case PowerupScript.Identifier.GoldenSymbol_Seven:
 						break;
 					default:
-						goto IL_100A;
+						goto IL_1030;
 					}
 				}
 				else
@@ -538,25 +544,25 @@ public class Strings : MonoBehaviour
 					if (identifier5 == PowerupScript.Identifier.PlayingCard_ClubsAce)
 					{
 						stringBuilder.Replace("[ACE_CLUBS_TICKETS]", (3L - GameplayData.Powerup_AceOfClubs_TicketsSpentGet()).ToString());
-						goto IL_100A;
+						goto IL_1030;
 					}
 					if (identifier5 == PowerupScript.Identifier.PlayingCard_SpadesAce)
 					{
 						stringBuilder.Replace("[ACE_SPADES_C_ACTIVATIONS]", (7L - GameplayData.Powerup_AceOfSpades_ActivationsCounterGet()).ToString());
-						goto IL_100A;
+						goto IL_1030;
 					}
 					if (identifier5 != PowerupScript.Identifier._999_OphanimWheels)
 					{
-						goto IL_100A;
+						goto IL_1030;
 					}
 					Strings.PatternReplaceTag(stringBuilder, PatternScript.Kind.jackpot);
 					stringBuilder.Replace("[OPH_WHEEL_N]", PowerupScript.OphanimWheels_JackpotsBookedGet(false).ToString());
-					goto IL_100A;
+					goto IL_1030;
 				}
 				stringBuilder.Replace("[S_CURRENT]", "[S_SEVEN]");
 				stringBuilder.Replace("[S_CURRENT_BASE_VAL]", "[S_SEVEN_BASE_VALUE]");
 			}
-			IL_100A:
+			IL_1030:
 			if (powerupScript != null)
 			{
 				PowerupScript.Identifier identifier5 = powerupScript.identifier;
@@ -855,15 +861,15 @@ public class Strings : MonoBehaviour
 			bool flag = powerupScript != null && powerupScript.IsRedButtonCharm();
 			if (flag)
 			{
-				int num2 = GameplayData.Powerup_ButtonChargesUsed_Get(powerupScript.identifier);
-				int num3 = GameplayData.Powerup_ButtonChargesMax_Get(powerupScript.identifier);
-				int num4 = Mathf.Max(0, num3 - num2);
-				if (num3 > 0)
+				int num4 = GameplayData.Powerup_ButtonChargesUsed_Get(powerupScript.identifier);
+				int num5 = GameplayData.Powerup_ButtonChargesMax_Get(powerupScript.identifier);
+				int num6 = Mathf.Max(0, num5 - num4);
+				if (num5 > 0)
 				{
 					Strings._sb.Clear();
-					if (num3 == 1)
+					if (num5 == 1)
 					{
-						if (num4 == num3)
+						if (num6 == num5)
 						{
 							Strings._sb.Append("<sprite name=\"BS_Init\">");
 							Strings._sb.Append("<sprite name=\"BS_ChargeBigGreen\">");
@@ -878,10 +884,10 @@ public class Strings : MonoBehaviour
 							Strings._sb.Append("<sprite name=\"BatteryRecharging\">");
 						}
 					}
-					else if (num4 == num3)
+					else if (num6 == num5)
 					{
 						Strings._sb.Append("<sprite name=\"BS_Init\">");
-						for (int i = 0; i < num3; i++)
+						for (int i = 0; i < num5; i++)
 						{
 							Strings._sb.Append("<sprite name=\"BS_ChargeGreen\">");
 						}
@@ -891,9 +897,9 @@ public class Strings : MonoBehaviour
 					else
 					{
 						Strings._sb.Append("<sprite name=\"BS_InitRed\">");
-						for (int j = 0; j < num3; j++)
+						for (int j = 0; j < num5; j++)
 						{
-							if (j < num4)
+							if (j < num6)
 							{
 								Strings._sb.Append("<sprite name=\"BS_Charge\">");
 							}
@@ -929,10 +935,10 @@ public class Strings : MonoBehaviour
 						text2
 					}));
 				}
-				stringBuilder.Replace("[RB_USES]", num2.ToString());
+				stringBuilder.Replace("[RB_USES]", num4.ToString());
 				stringBuilder.Replace("[RB_USES_ABS]", GameplayData.Powerup_ButtonChargesUsed_GetAbsolute(powerupScript.identifier).ToString());
-				stringBuilder.Replace("[RB_USES_LEFT]", num4.ToString());
-				stringBuilder.Replace("[RB_USES_MAX]", num3.ToString());
+				stringBuilder.Replace("[RB_USES_LEFT]", num6.ToString());
+				stringBuilder.Replace("[RB_USES_MAX]", num5.ToString());
 			}
 			else if (Application.isEditor && powerupScript != null && input.Contains("[K_USABLE]") && !flag)
 			{
@@ -946,14 +952,14 @@ public class Strings : MonoBehaviour
 		}
 		if (santizationKind == Strings.SantizationKind.all || santizationKind == Strings.SantizationKind.menus || santizationKind == Strings.SantizationKind.uiAndMenus)
 		{
-			long num5 = GameplayData.PhoneRerollCostGet();
+			long num7 = GameplayData.PhoneRerollCostGet();
 			if (GameplayData.PhoneRerollCostGet() <= GameplayData.CloverTicketsGet())
 			{
-				stringBuilder.Replace("[PHONE_REROLL_COST]", "-" + num5.ToString() + "<sprite name=\"CloverTicket\">");
+				stringBuilder.Replace("[PHONE_REROLL_COST]", "-" + num7.ToString() + "<sprite name=\"CloverTicket\">");
 			}
 			else
 			{
-				stringBuilder.Replace("[PHONE_REROLL_COST]", "<color=red>-" + num5.ToString() + "<sprite name=\"CloverTicket\"></color>");
+				stringBuilder.Replace("[PHONE_REROLL_COST]", "<color=red>-" + num7.ToString() + "<sprite name=\"CloverTicket\"></color>");
 			}
 			int hypotehticalMaxSpinsBuyable = GameplayData.GetHypotehticalMaxSpinsBuyable();
 			int hypotehticalMidSpinsBuyable = GameplayData.GetHypotehticalMidSpinsBuyable();
@@ -967,27 +973,27 @@ public class Strings : MonoBehaviour
 			else
 			{
 				string text4 = "";
-				long num6 = GameplayData.CloverTickets_BonusBigBet_Get(true);
-				if (num6 > 0L)
+				long num8 = GameplayData.CloverTickets_BonusBigBet_Get(true);
+				if (num8 > 0L)
 				{
-					text4 = " +" + num6.ToString() + "<sprite name=\"CloverTicket\">";
+					text4 = " +" + num8.ToString() + "<sprite name=\"CloverTicket\">";
 				}
 				string text5 = "";
-				int num7 = GameplayData.ExtraSpinsGet(true);
-				if (num7 > 0)
+				int num9 = GameplayData.ExtraSpinsGet(true);
+				if (num9 > 0)
 				{
-					text5 = "<color=yellow>+" + num7.ToString() + "</color> ";
+					text5 = "<color=yellow>+" + num9.ToString() + "</color> ";
 				}
-				else if (num7 < 0)
+				else if (num9 < 0)
 				{
-					text5 = "<color=red>" + num7.ToString() + "</color> ";
+					text5 = "<color=red>" + num9.ToString() + "</color> ";
 				}
 				if (hypotehticalMaxSpinsBuyable <= 0)
 				{
 					stringBuilder.Replace("[BET_MIDDLE]", "0 <sprite name=\"CoinSymbolOrange32\">");
 					stringBuilder.Replace("[BET_MAX]", "0 <sprite name=\"CoinSymbolOrange32\">");
 					stringBuilder.Replace("[SPINS_MID]", "1 " + Translation.Get("DIALOGUE_SLOT_BET_WORD_SPIN"));
-					if (hypotehticalMaxSpinsBuyable + num7 > 0)
+					if (hypotehticalMaxSpinsBuyable + num9 > 0)
 					{
 						stringBuilder.Replace("[SPINS_MAX]", "1 " + text5 + Translation.Get("DIALOGUE_SLOT_BET_WORD_SPIN") + text4);
 					}
@@ -1000,7 +1006,7 @@ public class Strings : MonoBehaviour
 				{
 					stringBuilder.Replace("[BET_MIDDLE]", "-" + GameplayData.SpinCostMid_Get().ToString() + " <sprite name=\"CoinSymbolOrange32\">");
 					stringBuilder.Replace("[BET_MAX]", "-" + GameplayData.SpinCostMax_Get().ToString() + " <sprite name=\"CoinSymbolOrange32\">");
-					if (hypotehticalMidSpinsBuyable + num7 > 0)
+					if (hypotehticalMidSpinsBuyable + num9 > 0)
 					{
 						stringBuilder.Replace("[SPINS_MID]", "1 " + text5 + Translation.Get("DIALOGUE_SLOT_BET_WORD_SPIN"));
 					}
@@ -1008,7 +1014,7 @@ public class Strings : MonoBehaviour
 					{
 						stringBuilder.Replace("[SPINS_MID]", "<color=red>1 " + Translation.Get("DIALOGUE_SLOT_BET_WORD_SPIN") + "</color>");
 					}
-					if (hypotehticalMaxSpinsBuyable + num7 > 0)
+					if (hypotehticalMaxSpinsBuyable + num9 > 0)
 					{
 						stringBuilder.Replace("[SPINS_MAX]", "1 " + text5 + Translation.Get("DIALOGUE_SLOT_BET_WORD_SPIN") + text4);
 					}
@@ -1024,12 +1030,12 @@ public class Strings : MonoBehaviour
 					string text6 = Translation.Get("DIALOGUE_SLOT_BET_WORD_SPIN");
 					string text7 = Translation.Get("DIALOGUE_SLOT_BET_WORD_SPINS");
 					string text8 = "";
-					long num8 = GameplayData.CloverTickets_BonusLittleBet_Get(true);
-					if (num8 > 0L)
+					long num10 = GameplayData.CloverTickets_BonusLittleBet_Get(true);
+					if (num10 > 0L)
 					{
-						text8 = " +" + num8.ToString() + "<sprite name=\"CloverTicket\">";
+						text8 = " +" + num10.ToString() + "<sprite name=\"CloverTicket\">";
 					}
-					if (hypotehticalMidSpinsBuyable + num7 > 0)
+					if (hypotehticalMidSpinsBuyable + num9 > 0)
 					{
 						stringBuilder.Replace("[SPINS_MID]", string.Concat(new string[]
 						{
@@ -1044,7 +1050,7 @@ public class Strings : MonoBehaviour
 					{
 						stringBuilder.Replace("[SPINS_MID]", "<color=red>1 " + text6 + "</color>" + text8);
 					}
-					if (hypotehticalMaxSpinsBuyable + num7 > 0)
+					if (hypotehticalMaxSpinsBuyable + num9 > 0)
 					{
 						stringBuilder.Replace("[SPINS_MAX]", string.Concat(new string[]
 						{
@@ -1061,6 +1067,7 @@ public class Strings : MonoBehaviour
 					}
 				}
 			}
+			stringBuilder.Replace("[SKULL]", "<sprite name=\"SkullSymbolOrange64\">");
 		}
 		if (santizationKind == Strings.SantizationKind.all || santizationKind == Strings.SantizationKind.endStats)
 		{
@@ -1086,7 +1093,7 @@ public class Strings : MonoBehaviour
 		return stringBuilder.ToString();
 	}
 
-	// Token: 0x06000388 RID: 904 RVA: 0x00018408 File Offset: 0x00016608
+	// Token: 0x06000386 RID: 902 RVA: 0x00018484 File Offset: 0x00016684
 	private static string SymbolsWithBaseValue_GetString(bool includeCoinsIcon)
 	{
 		Strings._sb.Clear();
@@ -1114,7 +1121,7 @@ public class Strings : MonoBehaviour
 		return Strings._sb.ToString();
 	}
 
-	// Token: 0x06000389 RID: 905 RVA: 0x000184A0 File Offset: 0x000166A0
+	// Token: 0x06000387 RID: 903 RVA: 0x0001851C File Offset: 0x0001671C
 	private static void PatternReplaceTag(StringBuilder sbRef, PatternScript.Kind kind)
 	{
 		switch (kind)
@@ -1172,7 +1179,7 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600038A RID: 906 RVA: 0x00018624 File Offset: 0x00016824
+	// Token: 0x06000388 RID: 904 RVA: 0x000186A0 File Offset: 0x000168A0
 	private static void PatternReplaceTagAll(StringBuilder sbReference)
 	{
 		Strings.PatternReplaceTag(sbReference, PatternScript.Kind.horizontal2);
@@ -1193,7 +1200,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceTag(sbReference, PatternScript.Kind.jackpot);
 	}
 
-	// Token: 0x0600038B RID: 907 RVA: 0x000186A8 File Offset: 0x000168A8
+	// Token: 0x06000389 RID: 905 RVA: 0x00018724 File Offset: 0x00016924
 	private static void PatternReplaceBaseValue(StringBuilder sbReference, PatternScript.Kind kind)
 	{
 		switch (kind)
@@ -1252,7 +1259,7 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600038C RID: 908 RVA: 0x000188D4 File Offset: 0x00016AD4
+	// Token: 0x0600038A RID: 906 RVA: 0x00018950 File Offset: 0x00016B50
 	private static void PatternReplaceBaseValueAll(StringBuilder sbReference)
 	{
 		Strings.PatternReplaceBaseValue(sbReference, PatternScript.Kind.horizontal2);
@@ -1273,7 +1280,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceBaseValue(sbReference, PatternScript.Kind.jackpot);
 	}
 
-	// Token: 0x0600038D RID: 909 RVA: 0x00018958 File Offset: 0x00016B58
+	// Token: 0x0600038B RID: 907 RVA: 0x000189D4 File Offset: 0x00016BD4
 	private static string Symbol_GetString(SymbolScript.Kind symbolKind)
 	{
 		switch (symbolKind)
@@ -1297,13 +1304,13 @@ public class Strings : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600038E RID: 910 RVA: 0x000189E0 File Offset: 0x00016BE0
+	// Token: 0x0600038C RID: 908 RVA: 0x00018A5C File Offset: 0x00016C5C
 	private static string Symbol_GetStringWithValue(SymbolScript.Kind symbolKind, bool includeCoinIcon)
 	{
 		return Strings.Symbol_GetString(symbolKind) + GameplayData.Symbol_CoinsValue_GetBasic(symbolKind).ToString() + (includeCoinIcon ? "<sprite name=\"CoinSymbolOrange32\">" : "");
 	}
 
-	// Token: 0x0600038F RID: 911 RVA: 0x00018A18 File Offset: 0x00016C18
+	// Token: 0x0600038D RID: 909 RVA: 0x00018A94 File Offset: 0x00016C94
 	private static string Symbols_GetString_YellowOnes()
 	{
 		Strings._sb.Clear();
@@ -1318,7 +1325,7 @@ public class Strings : MonoBehaviour
 		return Strings._sb.ToString();
 	}
 
-	// Token: 0x06000390 RID: 912 RVA: 0x00018A78 File Offset: 0x00016C78
+	// Token: 0x0600038E RID: 910 RVA: 0x00018AF4 File Offset: 0x00016CF4
 	private static string Symbols_GetString_NonYellowOnes()
 	{
 		Strings._sb.Clear();
@@ -1333,7 +1340,7 @@ public class Strings : MonoBehaviour
 		return Strings._sb.ToString();
 	}
 
-	// Token: 0x06000391 RID: 913 RVA: 0x00018AD8 File Offset: 0x00016CD8
+	// Token: 0x0600038F RID: 911 RVA: 0x00018B54 File Offset: 0x00016D54
 	private static void PatternReplaceWith_Symbols(StringBuilder sbReference, string keyToReplace, string separator, List<SymbolScript.Kind> symbolsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1349,7 +1356,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000392 RID: 914 RVA: 0x00018B40 File Offset: 0x00016D40
+	// Token: 0x06000390 RID: 912 RVA: 0x00018BBC File Offset: 0x00016DBC
 	private static void PatternReplaceWith_SymbolsAndBValue(StringBuilder sbReference, string keyToReplace, string separator, List<SymbolScript.Kind> symbolsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1365,7 +1372,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000393 RID: 915 RVA: 0x00018BAC File Offset: 0x00016DAC
+	// Token: 0x06000391 RID: 913 RVA: 0x00018C28 File Offset: 0x00016E28
 	private static void PatternReplaceWith_Patterns(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1446,7 +1453,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000394 RID: 916 RVA: 0x00018E60 File Offset: 0x00017060
+	// Token: 0x06000392 RID: 914 RVA: 0x00018EDC File Offset: 0x000170DC
 	private static void PatternReplaceWith_PatternsAndBValue(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1543,7 +1550,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000395 RID: 917 RVA: 0x000192AC File Offset: 0x000174AC
+	// Token: 0x06000393 RID: 915 RVA: 0x00019328 File Offset: 0x00017528
 	private static void PatternReplaceWith_Patterns_BelowNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int maxElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1558,7 +1565,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_Patterns(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000396 RID: 918 RVA: 0x00019300 File Offset: 0x00017500
+	// Token: 0x06000394 RID: 916 RVA: 0x0001937C File Offset: 0x0001757C
 	private static void PatternReplaceWith_PatternsAndBValue_BelowNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int maxElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1573,7 +1580,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_PatternsAndBValue(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000397 RID: 919 RVA: 0x00019354 File Offset: 0x00017554
+	// Token: 0x06000395 RID: 917 RVA: 0x000193D0 File Offset: 0x000175D0
 	private static void PAtternReplaceWith_Patterns_AboveNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int minElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1588,7 +1595,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_Patterns(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000398 RID: 920 RVA: 0x000193A8 File Offset: 0x000175A8
+	// Token: 0x06000396 RID: 918 RVA: 0x00019424 File Offset: 0x00017624
 	private static void PatternReplaceWith_PatternsAndBValue_AboveNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int minElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1603,7 +1610,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_PatternsAndBValue(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000399 RID: 921 RVA: 0x000193FC File Offset: 0x000175FC
+	// Token: 0x06000397 RID: 919 RVA: 0x00019478 File Offset: 0x00017678
 	private static void SymbolsAndPatternsReplaceAll(StringBuilder sbReference)
 	{
 		Strings.PatternReplaceWith_Symbols(sbReference, "[ALL_SYMBOLS]", "", GameplayData.SymbolsAvailable_GetAll(false));

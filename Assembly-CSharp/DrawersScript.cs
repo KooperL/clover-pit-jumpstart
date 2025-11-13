@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class DrawersScript : MonoBehaviour
 {
-	// Token: 0x06000439 RID: 1081 RVA: 0x0001C601 File Offset: 0x0001A801
+	// Token: 0x06000437 RID: 1079 RVA: 0x0001C6C5 File Offset: 0x0001A8C5
 	private void CameraFree_Chache()
 	{
 		this.cameraRotOld = CameraController.instance.freeCamTransform.eulerAngles;
 	}
 
-	// Token: 0x0600043A RID: 1082 RVA: 0x0001C618 File Offset: 0x0001A818
+	// Token: 0x06000438 RID: 1080 RVA: 0x0001C6DC File Offset: 0x0001A8DC
 	private void CameraFree_Reset()
 	{
 		CameraController.SetPosition(CameraController.PositionKind.Free, false, 0f);
 		CameraController.SetFreeCameraRotation(this.cameraRotOld);
 	}
 
-	// Token: 0x0600043B RID: 1083 RVA: 0x0001C634 File Offset: 0x0001A834
+	// Token: 0x06000439 RID: 1081 RVA: 0x0001C6F8 File Offset: 0x0001A8F8
 	public static bool IsInConditionToUnlock()
 	{
 		RewardBoxScript.RewardKind rewardKind = RewardBoxScript.GetRewardKind();
 		return (rewardKind == RewardBoxScript.RewardKind.DrawerKey0 || rewardKind == RewardBoxScript.RewardKind.DrawerKey1 || rewardKind == RewardBoxScript.RewardKind.DrawerKey2 || rewardKind == RewardBoxScript.RewardKind.DrawerKey3) && RewardBoxScript.IsOpened() && !RewardBoxScript.HasPrize() && !GameplayData.PrizeWasUsedGet();
 	}
 
-	// Token: 0x0600043C RID: 1084 RVA: 0x0001C674 File Offset: 0x0001A874
+	// Token: 0x0600043A RID: 1082 RVA: 0x0001C738 File Offset: 0x0001A938
 	public static void Unlock(int index)
 	{
 		if (DrawersScript.instance == null)
@@ -53,7 +53,7 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600043D RID: 1085 RVA: 0x0001C6F0 File Offset: 0x0001A8F0
+	// Token: 0x0600043B RID: 1083 RVA: 0x0001C7B4 File Offset: 0x0001A9B4
 	public static void LockAll()
 	{
 		if (DrawersScript.instance == null)
@@ -75,7 +75,7 @@ public class DrawersScript : MonoBehaviour
 		Data.SaveGame(Data.GameSavingReason.debug, -1);
 	}
 
-	// Token: 0x0600043E RID: 1086 RVA: 0x0001C774 File Offset: 0x0001A974
+	// Token: 0x0600043C RID: 1084 RVA: 0x0001C838 File Offset: 0x0001AA38
 	public static bool OpenTry(int index)
 	{
 		if (DrawersScript.instance == null)
@@ -141,20 +141,20 @@ public class DrawersScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600043F RID: 1087 RVA: 0x0001C8F2 File Offset: 0x0001AAF2
+	// Token: 0x0600043D RID: 1085 RVA: 0x0001C9B6 File Offset: 0x0001ABB6
 	private static void _SpawnInfoDialogue()
 	{
 		DialogueScript.SetDialogue(false, new string[] { "DIALOGUE_DRAWER_INFO" });
 		DialogueScript.instance.onDialogueClose = new DialogueScript.AnswerCallback(DrawersScript._CloseDrawer);
 	}
 
-	// Token: 0x06000440 RID: 1088 RVA: 0x0001C91E File Offset: 0x0001AB1E
+	// Token: 0x0600043E RID: 1086 RVA: 0x0001C9E2 File Offset: 0x0001ABE2
 	private static void _CloseDrawer()
 	{
 		DrawersScript.Close(DrawersScript.lastOpenedIndex);
 	}
 
-	// Token: 0x06000441 RID: 1089 RVA: 0x0001C92C File Offset: 0x0001AB2C
+	// Token: 0x0600043F RID: 1087 RVA: 0x0001C9F0 File Offset: 0x0001ABF0
 	public static void Close(int index)
 	{
 		if (DrawersScript.instance == null)
@@ -172,7 +172,7 @@ public class DrawersScript : MonoBehaviour
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
 	}
 
-	// Token: 0x06000442 RID: 1090 RVA: 0x0001C9A0 File Offset: 0x0001ABA0
+	// Token: 0x06000440 RID: 1088 RVA: 0x0001CA64 File Offset: 0x0001AC64
 	public static void CloseAll()
 	{
 		for (int i = 0; i < 4; i++)
@@ -181,13 +181,13 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000443 RID: 1091 RVA: 0x0001C9BF File Offset: 0x0001ABBF
+	// Token: 0x06000441 RID: 1089 RVA: 0x0001CA83 File Offset: 0x0001AC83
 	public static bool IsDrawerOpen(int index)
 	{
 		return !(DrawersScript.instance == null) && DrawersScript.instance.drawerIsOpen[index];
 	}
 
-	// Token: 0x06000444 RID: 1092 RVA: 0x0001C9DC File Offset: 0x0001ABDC
+	// Token: 0x06000442 RID: 1090 RVA: 0x0001CAA0 File Offset: 0x0001ACA0
 	public static bool IsAnyDrawerOpened()
 	{
 		if (DrawersScript.instance == null)
@@ -204,13 +204,13 @@ public class DrawersScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000445 RID: 1093 RVA: 0x0001CA0F File Offset: 0x0001AC0F
+	// Token: 0x06000443 RID: 1091 RVA: 0x0001CAD3 File Offset: 0x0001ACD3
 	public static int GetLastOpenedDrawer()
 	{
 		return DrawersScript.lastOpenedIndex;
 	}
 
-	// Token: 0x06000446 RID: 1094 RVA: 0x0001CA18 File Offset: 0x0001AC18
+	// Token: 0x06000444 RID: 1092 RVA: 0x0001CADC File Offset: 0x0001ACDC
 	public static int GetOpenedDrawer()
 	{
 		if (DrawersScript.IsDrawerOpen(DrawersScript.lastOpenedIndex))
@@ -228,7 +228,7 @@ public class DrawersScript : MonoBehaviour
 		return -1;
 	}
 
-	// Token: 0x06000447 RID: 1095 RVA: 0x0001CA58 File Offset: 0x0001AC58
+	// Token: 0x06000445 RID: 1093 RVA: 0x0001CB1C File Offset: 0x0001AD1C
 	public static bool IsDrawerUnlocked(int index)
 	{
 		if (DrawersScript.instance == null)
@@ -239,7 +239,7 @@ public class DrawersScript : MonoBehaviour
 		return DrawersScript.instance.drawerIsUnlocked[index];
 	}
 
-	// Token: 0x06000448 RID: 1096 RVA: 0x0001CA8C File Offset: 0x0001AC8C
+	// Token: 0x06000446 RID: 1094 RVA: 0x0001CB50 File Offset: 0x0001AD50
 	public static int GetDrawersUnlockedNum()
 	{
 		if (!PlatformAPI.IsInitialized())
@@ -262,7 +262,7 @@ public class DrawersScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000449 RID: 1097 RVA: 0x0001CAE4 File Offset: 0x0001ACE4
+	// Token: 0x06000447 RID: 1095 RVA: 0x0001CBA8 File Offset: 0x0001ADA8
 	public static int GetDrawersUnlockedNum_Local()
 	{
 		if (!PlatformAPI.IsInitialized())
@@ -285,7 +285,7 @@ public class DrawersScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600044A RID: 1098 RVA: 0x0001CB3C File Offset: 0x0001AD3C
+	// Token: 0x06000448 RID: 1096 RVA: 0x0001CC00 File Offset: 0x0001AE00
 	private void KeysInit()
 	{
 		for (int i = 0; i < this.keyTransforms.Length; i++)
@@ -297,7 +297,7 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600044B RID: 1099 RVA: 0x0001CBB2 File Offset: 0x0001ADB2
+	// Token: 0x06000449 RID: 1097 RVA: 0x0001CC76 File Offset: 0x0001AE76
 	private void KeyAnimationStart(int keyIndex)
 	{
 		if (this.keyAnimationCoroutine[keyIndex] != null)
@@ -307,7 +307,7 @@ public class DrawersScript : MonoBehaviour
 		this.keyAnimationCoroutine[keyIndex] = base.StartCoroutine(this.KeyAnimationCoroutine(keyIndex));
 	}
 
-	// Token: 0x0600044C RID: 1100 RVA: 0x0001CBD4 File Offset: 0x0001ADD4
+	// Token: 0x0600044A RID: 1098 RVA: 0x0001CC98 File Offset: 0x0001AE98
 	public static bool IsKeyAnimationPlaying()
 	{
 		if (DrawersScript.instance == null)
@@ -324,13 +324,13 @@ public class DrawersScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600044D RID: 1101 RVA: 0x0001CC18 File Offset: 0x0001AE18
+	// Token: 0x0600044B RID: 1099 RVA: 0x0001CCDC File Offset: 0x0001AEDC
 	private bool _PlayTruncatedKeyAnimation()
 	{
 		return GameplayMaster.DeathCountdownHasStarted() || GameplayMaster.GetGamePhase() == GameplayMaster.GamePhase.death || GameplayMaster.GetGamePhase() == GameplayMaster.GamePhase.endingWithoutDeath;
 	}
 
-	// Token: 0x0600044E RID: 1102 RVA: 0x0001CC33 File Offset: 0x0001AE33
+	// Token: 0x0600044C RID: 1100 RVA: 0x0001CCF7 File Offset: 0x0001AEF7
 	private IEnumerator KeyAnimationCoroutine(int keyIndex)
 	{
 		if (!this._PlayTruncatedKeyAnimation())
@@ -345,14 +345,14 @@ public class DrawersScript : MonoBehaviour
 			yield return null;
 		}
 		this.keyTransforms[keyIndex].SetLocalZ(0.7f);
-		Sound.Play3D("SoundDrawerKeyEnter", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundDrawerKeyEnter", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, 1);
 		float timer = 0.25f;
 		while (timer > 0f)
 		{
 			timer -= Tick.Time;
 			yield return null;
 		}
-		Sound.Play3D("SoundDrawerKeyTurn", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundDrawerKeyTurn", this.keyTransforms[keyIndex].position, 10f, 1f, 1f, 1);
 		while (this.keyTransforms[keyIndex].GetLocalXAngle() < -1f)
 		{
 			this.keyTransforms[keyIndex].AddLocalXAngle((0f - this.keyTransforms[keyIndex].GetLocalXAngle()) * Tick.Time * 10f);
@@ -384,19 +384,19 @@ public class DrawersScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600044F RID: 1103 RVA: 0x0001CC49 File Offset: 0x0001AE49
+	// Token: 0x0600044D RID: 1101 RVA: 0x0001CD0D File Offset: 0x0001AF0D
 	private void KeyAnimationAnswer_EndYes()
 	{
 		this.keyAnimationAnswerCoroutine = base.StartCoroutine(this.KeyAnimationAnswer_Coroutine(false));
 	}
 
-	// Token: 0x06000450 RID: 1104 RVA: 0x0001CC5E File Offset: 0x0001AE5E
+	// Token: 0x0600044E RID: 1102 RVA: 0x0001CD22 File Offset: 0x0001AF22
 	private void KeyAnimationAnswer_EndNo()
 	{
 		this.keyAnimationAnswerCoroutine = base.StartCoroutine(this.KeyAnimationAnswer_Coroutine(true));
 	}
 
-	// Token: 0x06000451 RID: 1105 RVA: 0x0001CC73 File Offset: 0x0001AE73
+	// Token: 0x0600044F RID: 1103 RVA: 0x0001CD37 File Offset: 0x0001AF37
 	private IEnumerator KeyAnimationAnswer_Coroutine(bool die)
 	{
 		DialogueScript.Close();
@@ -430,29 +430,13 @@ public class DrawersScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000452 RID: 1106 RVA: 0x0001CC84 File Offset: 0x0001AE84
-	public static void SetEasterEgg(DrawersScript.EasterEgg easterEgg, int drawerIndex)
+	// Token: 0x06000450 RID: 1104 RVA: 0x0001CD48 File Offset: 0x0001AF48
+	public static void SetEasterEgg(bool disableOthers, DrawersScript.EasterEgg easterEgg, int drawerIndex)
 	{
 		DrawersScript.instance.easterEggs[drawerIndex] = easterEgg;
-		GameObject[] array = DrawersScript.instance.easterEggs_Drawer0;
-		for (int i = 0; i < array.Length; i++)
+		if (disableOthers)
 		{
-			array[i].SetActive(false);
-		}
-		array = DrawersScript.instance.easterEggs_Drawer1;
-		for (int i = 0; i < array.Length; i++)
-		{
-			array[i].SetActive(false);
-		}
-		array = DrawersScript.instance.easterEggs_Drawer2;
-		for (int i = 0; i < array.Length; i++)
-		{
-			array[i].SetActive(false);
-		}
-		array = DrawersScript.instance.easterEggs_Drawer3;
-		for (int i = 0; i < array.Length; i++)
-		{
-			array[i].SetActive(false);
+			DrawersScript._EasterEgg_DisableAll();
 		}
 		if (easterEgg == DrawersScript.EasterEgg.Undefined)
 		{
@@ -477,27 +461,53 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000453 RID: 1107 RVA: 0x0001CD8D File Offset: 0x0001AF8D
+	// Token: 0x06000451 RID: 1105 RVA: 0x0001CDD4 File Offset: 0x0001AFD4
+	private static void _EasterEgg_DisableAll()
+	{
+		GameObject[] array = DrawersScript.instance.easterEggs_Drawer0;
+		for (int i = 0; i < array.Length; i++)
+		{
+			array[i].SetActive(false);
+		}
+		array = DrawersScript.instance.easterEggs_Drawer1;
+		for (int i = 0; i < array.Length; i++)
+		{
+			array[i].SetActive(false);
+		}
+		array = DrawersScript.instance.easterEggs_Drawer2;
+		for (int i = 0; i < array.Length; i++)
+		{
+			array[i].SetActive(false);
+		}
+		array = DrawersScript.instance.easterEggs_Drawer3;
+		for (int i = 0; i < array.Length; i++)
+		{
+			array[i].SetActive(false);
+		}
+	}
+
+	// Token: 0x06000452 RID: 1106 RVA: 0x0001CE69 File Offset: 0x0001B069
 	public static DrawersScript.EasterEgg EasterEggGet(int drawerIndex)
 	{
 		return DrawersScript.instance.easterEggs[drawerIndex];
 	}
 
-	// Token: 0x06000454 RID: 1108 RVA: 0x0001CD9B File Offset: 0x0001AF9B
+	// Token: 0x06000453 RID: 1107 RVA: 0x0001CE77 File Offset: 0x0001B077
 	public static bool HasEasterEgg(int drawerIndex)
 	{
 		return DrawersScript.instance.easterEggs[drawerIndex] != DrawersScript.EasterEgg.Undefined && DrawersScript.instance.easterEggs[drawerIndex] != DrawersScript.EasterEgg.Count;
 	}
 
-	// Token: 0x06000455 RID: 1109 RVA: 0x0001CDC0 File Offset: 0x0001AFC0
+	// Token: 0x06000454 RID: 1108 RVA: 0x0001CE9C File Offset: 0x0001B09C
 	public static void TryPuttingEasterEgg()
 	{
+		DrawersScript._EasterEgg_DisableAll();
 		int num = global::UnityEngine.Random.Range(0, 4);
 		for (int i = 0; i < 4; i++)
 		{
 			if (DrawersScript.IsDrawerUnlocked(num) && !(PowerupScript.array_InDrawer[num] != null))
 			{
-				DrawersScript.SetEasterEgg((DrawersScript.EasterEgg)global::UnityEngine.Random.Range(0, 5), num);
+				DrawersScript.SetEasterEgg(false, (DrawersScript.EasterEgg)global::UnityEngine.Random.Range(0, 5), num);
 				DrawersScript.hasSeenEasterEgg = false;
 				return;
 			}
@@ -509,7 +519,7 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000456 RID: 1110 RVA: 0x0001CE18 File Offset: 0x0001B018
+	// Token: 0x06000455 RID: 1109 RVA: 0x0001CEF8 File Offset: 0x0001B0F8
 	public PowerupScript PutRandomCharmIntoDrawer(int desiredDrawerIndex = -1)
 	{
 		PowerupScript powerupScript = null;
@@ -578,7 +588,7 @@ public class DrawersScript : MonoBehaviour
 		return powerupScript;
 	}
 
-	// Token: 0x06000457 RID: 1111 RVA: 0x0001CF50 File Offset: 0x0001B150
+	// Token: 0x06000456 RID: 1110 RVA: 0x0001D030 File Offset: 0x0001B230
 	public static int RerollCharmsIntoDrawers()
 	{
 		if (DrawersScript.instance == null)
@@ -607,7 +617,7 @@ public class DrawersScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000458 RID: 1112 RVA: 0x0001CFE8 File Offset: 0x0001B1E8
+	// Token: 0x06000457 RID: 1111 RVA: 0x0001D0C8 File Offset: 0x0001B2C8
 	public static int RerollARandomCharmInDrawer()
 	{
 		if (DrawersScript.instance == null)
@@ -651,7 +661,7 @@ public class DrawersScript : MonoBehaviour
 		return num2;
 	}
 
-	// Token: 0x06000459 RID: 1113 RVA: 0x0001D0A5 File Offset: 0x0001B2A5
+	// Token: 0x06000458 RID: 1112 RVA: 0x0001D185 File Offset: 0x0001B385
 	private IEnumerator SkeletonHorrorSoundCoroutine(int drawerIndex)
 	{
 		Sound.Play("SoundTensionViolinDown", 1f, 1f);
@@ -678,7 +688,7 @@ public class DrawersScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600045A RID: 1114 RVA: 0x0001D0B4 File Offset: 0x0001B2B4
+	// Token: 0x06000459 RID: 1113 RVA: 0x0001D194 File Offset: 0x0001B394
 	public static void Initialize()
 	{
 		if (DrawersScript.instance == null)
@@ -712,17 +722,17 @@ public class DrawersScript : MonoBehaviour
 		DrawersScript.hasSeenEasterEgg = false;
 		for (int j = 0; j < 4; j++)
 		{
-			DrawersScript.SetEasterEgg(DrawersScript.EasterEgg.Undefined, j);
+			DrawersScript.SetEasterEgg(true, DrawersScript.EasterEgg.Undefined, j);
 		}
 	}
 
-	// Token: 0x0600045B RID: 1115 RVA: 0x0001D15C File Offset: 0x0001B35C
+	// Token: 0x0600045A RID: 1114 RVA: 0x0001D23D File Offset: 0x0001B43D
 	private void Awake()
 	{
 		DrawersScript.instance = this;
 	}
 
-	// Token: 0x0600045C RID: 1116 RVA: 0x0001D164 File Offset: 0x0001B364
+	// Token: 0x0600045B RID: 1115 RVA: 0x0001D248 File Offset: 0x0001B448
 	private void Start()
 	{
 		for (int i = 0; i < this.fliesGameObjects.Length; i++)
@@ -735,7 +745,7 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600045D RID: 1117 RVA: 0x0001D1B1 File Offset: 0x0001B3B1
+	// Token: 0x0600045C RID: 1116 RVA: 0x0001D295 File Offset: 0x0001B495
 	private void OnDestroy()
 	{
 		if (DrawersScript.instance == this)
@@ -744,7 +754,7 @@ public class DrawersScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600045E RID: 1118 RVA: 0x0001D1C8 File Offset: 0x0001B3C8
+	// Token: 0x0600045D RID: 1117 RVA: 0x0001D2AC File Offset: 0x0001B4AC
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -771,7 +781,7 @@ public class DrawersScript : MonoBehaviour
 				if (this.shakeSoundCounter >= 2)
 				{
 					this.shakeSoundCounter = 0;
-					Sound.Play3D("SoundDrawerWithItem", base.transform.position, 8f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D("SoundDrawerWithItem", base.transform.position, 8f, 1f, 1f, 1);
 				}
 			}
 		}
@@ -881,7 +891,7 @@ public class DrawersScript : MonoBehaviour
 		{
 			if (this.myFliesSound == null || !Sound.IsPlaying("SoundDrawerFlies"))
 			{
-				this.myFliesSound = Sound.Play3D("SoundDrawerFlies", base.transform.position + new Vector3(0f, 4f, 0f), 10f, this.fliesVolume, 1f, AudioRolloffMode.Linear);
+				this.myFliesSound = Sound.Play3D("SoundDrawerFlies", base.transform.position + new Vector3(0f, 4f, 0f), 10f, this.fliesVolume, 1f, 1);
 				this.fliesVolume -= 0.1f;
 				this.fliesVolume = Mathf.Max(this.fliesVolume, 0.2f);
 				return;

@@ -8,21 +8,21 @@ namespace Panik
 {
 	public class VirtualCursors : MonoBehaviour
 	{
-		// Token: 0x06000C62 RID: 3170 RVA: 0x00051730 File Offset: 0x0004F930
+		// Token: 0x06000C77 RID: 3191 RVA: 0x00051E90 File Offset: 0x00050090
 		public Vector2 GetMouseSpeedMultiplier_FromResolution()
 		{
 			Vector2 vector = new Vector2((float)Display.main.systemWidth, (float)Display.main.systemHeight);
 			return new Vector2(vector.x / this.referenceResolution.x, vector.y / this.referenceResolution.y);
 		}
 
-		// Token: 0x06000C63 RID: 3171 RVA: 0x00051784 File Offset: 0x0004F984
+		// Token: 0x06000C78 RID: 3192 RVA: 0x00051EE4 File Offset: 0x000500E4
 		public float GetResolutionMaxDiffMult()
 		{
 			Vector2 mouseSpeedMultiplier_FromResolution = this.GetMouseSpeedMultiplier_FromResolution();
 			return Mathf.Max(mouseSpeedMultiplier_FromResolution.x, mouseSpeedMultiplier_FromResolution.y);
 		}
 
-		// Token: 0x06000C64 RID: 3172 RVA: 0x000517A9 File Offset: 0x0004F9A9
+		// Token: 0x06000C79 RID: 3193 RVA: 0x00051F09 File Offset: 0x00050109
 		public static void CursorDesiredVisibilitySet(int playerIndex, bool value)
 		{
 			if (VirtualCursors.instance == null)
@@ -36,37 +36,37 @@ namespace Panik
 			VirtualCursors.instance.cursordDesiredVisibility[playerIndex] = value;
 		}
 
-		// Token: 0x06000C65 RID: 3173 RVA: 0x000517DD File Offset: 0x0004F9DD
+		// Token: 0x06000C7A RID: 3194 RVA: 0x00051F3D File Offset: 0x0005013D
 		public static bool CursorDesiredVisibilityGet(int playerIndex)
 		{
 			return !(VirtualCursors.instance == null) && playerIndex >= 0 && playerIndex < VirtualCursors.instance.cursorImages.Count && VirtualCursors.instance.cursordDesiredVisibility[playerIndex];
 		}
 
-		// Token: 0x06000C66 RID: 3174 RVA: 0x00051812 File Offset: 0x0004FA12
+		// Token: 0x06000C7B RID: 3195 RVA: 0x00051F72 File Offset: 0x00050172
 		public static void CursorDesiredVisibility_AskToHide_Kindly(int playerIndex)
 		{
 			VirtualCursors.instance.cursorDesiredVisibility_KindlyAskToHidePrettyPlease[playerIndex] = true;
 		}
 
-		// Token: 0x06000C67 RID: 3175 RVA: 0x00051821 File Offset: 0x0004FA21
+		// Token: 0x06000C7C RID: 3196 RVA: 0x00051F81 File Offset: 0x00050181
 		public static void CursorSmartVisibility_EnableSet(bool enable)
 		{
 			VirtualCursors.cursorSmartVisibility_EnableState = enable;
 		}
 
-		// Token: 0x06000C68 RID: 3176 RVA: 0x00051829 File Offset: 0x0004FA29
+		// Token: 0x06000C7D RID: 3197 RVA: 0x00051F89 File Offset: 0x00050189
 		public static bool CursorSmartVisibility_EnableGet()
 		{
 			return VirtualCursors.cursorSmartVisibility_EnableState;
 		}
 
-		// Token: 0x06000C69 RID: 3177 RVA: 0x00051830 File Offset: 0x0004FA30
+		// Token: 0x06000C7E RID: 3198 RVA: 0x00051F90 File Offset: 0x00050190
 		public static bool IsCursorVisible(int playerIndex, bool considerPlayingState = true)
 		{
 			return !(VirtualCursors.instance == null) && (!considerPlayingState || Controls.PlayerIsPlaying(playerIndex)) && VirtualCursors.instance.cursorImagesVisibleState[playerIndex];
 		}
 
-		// Token: 0x06000C6A RID: 3178 RVA: 0x00051863 File Offset: 0x0004FA63
+		// Token: 0x06000C7F RID: 3199 RVA: 0x00051FC3 File Offset: 0x000501C3
 		public static void CursorScale_Set(int playerIndex, float value)
 		{
 			if (VirtualCursors.instance == null)
@@ -80,7 +80,7 @@ namespace Panik
 			VirtualCursors.instance.scale[playerIndex] = value;
 		}
 
-		// Token: 0x06000C6B RID: 3179 RVA: 0x00051898 File Offset: 0x0004FA98
+		// Token: 0x06000C80 RID: 3200 RVA: 0x00051FF8 File Offset: 0x000501F8
 		public static void CursorScale_SetAll(float value)
 		{
 			if (VirtualCursors.instance == null)
@@ -93,7 +93,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C6C RID: 3180 RVA: 0x000518DA File Offset: 0x0004FADA
+		// Token: 0x06000C81 RID: 3201 RVA: 0x0005203A File Offset: 0x0005023A
 		public static void CursorTargetScale_Set(int playerIndex, float value)
 		{
 			if (VirtualCursors.instance == null)
@@ -107,7 +107,7 @@ namespace Panik
 			VirtualCursors.instance.scaleTarget[playerIndex] = value;
 		}
 
-		// Token: 0x06000C6D RID: 3181 RVA: 0x00051910 File Offset: 0x0004FB10
+		// Token: 0x06000C82 RID: 3202 RVA: 0x00052070 File Offset: 0x00050270
 		public static void CursorTargetScale_SetAll(float value)
 		{
 			if (VirtualCursors.instance == null)
@@ -120,7 +120,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C6E RID: 3182 RVA: 0x00051954 File Offset: 0x0004FB54
+		// Token: 0x06000C83 RID: 3203 RVA: 0x000520B4 File Offset: 0x000502B4
 		public static void CursorSet(int playerIndex, string spriteName)
 		{
 			if (VirtualCursors.instance == null)
@@ -142,13 +142,13 @@ namespace Panik
 			VirtualCursors.instance.cursorImageAnimators[playerIndex].AnimationName = spriteName;
 		}
 
-		// Token: 0x06000C6F RID: 3183 RVA: 0x000519AE File Offset: 0x0004FBAE
+		// Token: 0x06000C84 RID: 3204 RVA: 0x0005210E File Offset: 0x0005030E
 		public static void CursorSet(Controls.PlayerExt player, string spriteName)
 		{
 			VirtualCursors.CursorSet(Controls.GetPlayerIndex(player), spriteName);
 		}
 
-		// Token: 0x06000C70 RID: 3184 RVA: 0x000519BC File Offset: 0x0004FBBC
+		// Token: 0x06000C85 RID: 3205 RVA: 0x0005211C File Offset: 0x0005031C
 		public static void CursorSetAll(string spriteName)
 		{
 			for (int i = 0; i < VirtualCursors.instance.cursorImages.Count; i++)
@@ -157,19 +157,19 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C71 RID: 3185 RVA: 0x000519EA File Offset: 0x0004FBEA
+		// Token: 0x06000C86 RID: 3206 RVA: 0x0005214A File Offset: 0x0005034A
 		public static void CursorSetDefault(int playerIndex)
 		{
 			VirtualCursors.CursorSet(playerIndex, VirtualCursors.instance.cursorImageAnimators[playerIndex].defaultAnimation.name);
 		}
 
-		// Token: 0x06000C72 RID: 3186 RVA: 0x00051A0C File Offset: 0x0004FC0C
+		// Token: 0x06000C87 RID: 3207 RVA: 0x0005216C File Offset: 0x0005036C
 		public static void CursorSetDefault(Controls.PlayerExt player)
 		{
 			VirtualCursors.CursorSetDefault(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C73 RID: 3187 RVA: 0x00051A1C File Offset: 0x0004FC1C
+		// Token: 0x06000C88 RID: 3208 RVA: 0x0005217C File Offset: 0x0005037C
 		public static void CursorSetDefaultAll()
 		{
 			for (int i = 0; i < VirtualCursors.instance.cursorImages.Count; i++)
@@ -178,7 +178,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C74 RID: 3188 RVA: 0x00051A49 File Offset: 0x0004FC49
+		// Token: 0x06000C89 RID: 3209 RVA: 0x000521A9 File Offset: 0x000503A9
 		public static string CursorNameGet(int playerIndex)
 		{
 			if (VirtualCursors.instance == null)
@@ -192,13 +192,13 @@ namespace Panik
 			return VirtualCursors.instance.cursorImageAnimators[playerIndex].AnimationName;
 		}
 
-		// Token: 0x06000C75 RID: 3189 RVA: 0x00051A87 File Offset: 0x0004FC87
+		// Token: 0x06000C8A RID: 3210 RVA: 0x000521E7 File Offset: 0x000503E7
 		public static string CursorNameGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorNameGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C76 RID: 3190 RVA: 0x00051A94 File Offset: 0x0004FC94
+		// Token: 0x06000C8B RID: 3211 RVA: 0x000521F4 File Offset: 0x000503F4
 		public static FrameAnimation CursorGet(int playerIndex)
 		{
 			if (VirtualCursors.instance == null)
@@ -212,13 +212,13 @@ namespace Panik
 			return VirtualCursors.instance.cursorImageAnimators[playerIndex].Animation;
 		}
 
-		// Token: 0x06000C77 RID: 3191 RVA: 0x00051AD2 File Offset: 0x0004FCD2
+		// Token: 0x06000C8C RID: 3212 RVA: 0x00052232 File Offset: 0x00050432
 		public static FrameAnimation CursorGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C78 RID: 3192 RVA: 0x00051ADF File Offset: 0x0004FCDF
+		// Token: 0x06000C8D RID: 3213 RVA: 0x0005223F File Offset: 0x0005043F
 		public static FrameAnimation CursorGetDeafault(int playerIndex)
 		{
 			if (VirtualCursors.instance == null)
@@ -232,13 +232,13 @@ namespace Panik
 			return VirtualCursors.instance.cursorImageAnimators[playerIndex].defaultAnimation;
 		}
 
-		// Token: 0x06000C79 RID: 3193 RVA: 0x00051B1D File Offset: 0x0004FD1D
+		// Token: 0x06000C8E RID: 3214 RVA: 0x0005227D File Offset: 0x0005047D
 		public static FrameAnimation CursorGetDeafault(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorGetDeafault(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C7A RID: 3194 RVA: 0x00051B2C File Offset: 0x0004FD2C
+		// Token: 0x06000C8F RID: 3215 RVA: 0x0005228C File Offset: 0x0005048C
 		public static Vector2 CursorPositionGet(int playerIndex)
 		{
 			if (VirtualCursors.instance == null)
@@ -252,13 +252,13 @@ namespace Panik
 			return VirtualCursors.instance.cursorImages[playerIndex].rectTransform.anchoredPosition;
 		}
 
-		// Token: 0x06000C7B RID: 3195 RVA: 0x00051B82 File Offset: 0x0004FD82
+		// Token: 0x06000C90 RID: 3216 RVA: 0x000522E2 File Offset: 0x000504E2
 		public static Vector2 CursorPositionGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorPositionGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C7C RID: 3196 RVA: 0x00051B90 File Offset: 0x0004FD90
+		// Token: 0x06000C91 RID: 3217 RVA: 0x000522F0 File Offset: 0x000504F0
 		public static Vector2 CursorPositionNormalizedGet(int playerIndex)
 		{
 			if (VirtualCursors.instance == null)
@@ -276,13 +276,13 @@ namespace Panik
 			return anchoredPosition;
 		}
 
-		// Token: 0x06000C7D RID: 3197 RVA: 0x00051C2F File Offset: 0x0004FE2F
+		// Token: 0x06000C92 RID: 3218 RVA: 0x0005238F File Offset: 0x0005058F
 		public static Vector2 CursorPositionNormalizedGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorPositionNormalizedGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C7E RID: 3198 RVA: 0x00051C3C File Offset: 0x0004FE3C
+		// Token: 0x06000C93 RID: 3219 RVA: 0x0005239C File Offset: 0x0005059C
 		public static Vector2 CursorPositionScreenGet(int playerIndex)
 		{
 			if (VirtualCursors.instance == null)
@@ -300,13 +300,13 @@ namespace Panik
 			return anchoredPosition;
 		}
 
-		// Token: 0x06000C7F RID: 3199 RVA: 0x00051CD5 File Offset: 0x0004FED5
+		// Token: 0x06000C94 RID: 3220 RVA: 0x00052435 File Offset: 0x00050635
 		public static Vector2 CursorPositionScreenGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorPositionScreenGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C80 RID: 3200 RVA: 0x00051CE4 File Offset: 0x0004FEE4
+		// Token: 0x06000C95 RID: 3221 RVA: 0x00052444 File Offset: 0x00050644
 		public static Vector2 CursorPositionCenteredGet_ReferenceResolution(int playerIndex, Vector2 resolution)
 		{
 			Vector2 vector = VirtualCursors.CursorPositionNormalizedGet(playerIndex);
@@ -319,13 +319,13 @@ namespace Panik
 			return zero;
 		}
 
-		// Token: 0x06000C81 RID: 3201 RVA: 0x00051D7B File Offset: 0x0004FF7B
+		// Token: 0x06000C96 RID: 3222 RVA: 0x000524DB File Offset: 0x000506DB
 		public static Vector2 CursorPositionCenteredGet_ReferenceResolution(Controls.PlayerExt player, float resolutionX, float resolutionY)
 		{
 			return VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(Controls.GetPlayerIndex(player), new Vector2(resolutionX, resolutionY));
 		}
 
-		// Token: 0x06000C82 RID: 3202 RVA: 0x00051D90 File Offset: 0x0004FF90
+		// Token: 0x06000C97 RID: 3223 RVA: 0x000524F0 File Offset: 0x000506F0
 		public static Vector2 CursorPositionNormalizedCenteredGet_ReferenceResolution(int playerIndex, Vector2 resolution)
 		{
 			Vector2 vector = VirtualCursors.CursorPositionCenteredGet_ReferenceResolution(playerIndex, resolution);
@@ -334,13 +334,13 @@ namespace Panik
 			return vector;
 		}
 
-		// Token: 0x06000C83 RID: 3203 RVA: 0x00051DCE File Offset: 0x0004FFCE
+		// Token: 0x06000C98 RID: 3224 RVA: 0x0005252E File Offset: 0x0005072E
 		public static Vector2 CursorPositionNormalizedCenteredGet_ReferenceResolution(Controls.PlayerExt player, Vector2 resolution)
 		{
 			return VirtualCursors.CursorPositionNormalizedCenteredGet_ReferenceResolution(Controls.GetPlayerIndex(player), resolution);
 		}
 
-		// Token: 0x06000C84 RID: 3204 RVA: 0x00051DDC File Offset: 0x0004FFDC
+		// Token: 0x06000C99 RID: 3225 RVA: 0x0005253C File Offset: 0x0005073C
 		public static void CursorPositionNormalizedSet(int playerIndex, Vector2 normalizedPosition, bool scaleZero)
 		{
 			if (VirtualCursors.instance == null)
@@ -362,13 +362,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C85 RID: 3205 RVA: 0x00051E72 File Offset: 0x00050072
+		// Token: 0x06000C9A RID: 3226 RVA: 0x000525D2 File Offset: 0x000507D2
 		public static void CursorPositionNormalizedSet(Controls.PlayerExt player, Vector2 normalizedPosition, bool scaleZero)
 		{
 			VirtualCursors.CursorPositionNormalizedSet(Controls.GetPlayerIndex(player), normalizedPosition, scaleZero);
 		}
 
-		// Token: 0x06000C86 RID: 3206 RVA: 0x00051E84 File Offset: 0x00050084
+		// Token: 0x06000C9B RID: 3227 RVA: 0x000525E4 File Offset: 0x000507E4
 		public static void CursorPositionScreenSet(int playerIndex, Vector2 screenPosition, bool scaleZero)
 		{
 			if (VirtualCursors.instance == null)
@@ -389,13 +389,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C87 RID: 3207 RVA: 0x00051EF9 File Offset: 0x000500F9
+		// Token: 0x06000C9C RID: 3228 RVA: 0x00052659 File Offset: 0x00050859
 		public static void CursorPositionScreenSet(Controls.PlayerExt player, Vector2 screenPosition, bool scaleZero)
 		{
 			VirtualCursors.CursorPositionScreenSet(Controls.GetPlayerIndex(player), screenPosition, scaleZero);
 		}
 
-		// Token: 0x06000C88 RID: 3208 RVA: 0x00051F08 File Offset: 0x00050108
+		// Token: 0x06000C9D RID: 3229 RVA: 0x00052668 File Offset: 0x00050868
 		public static void JoystickCursor_RightStickEnabledSet(int playerIndex, bool canMove)
 		{
 			if (VirtualCursors.instance == null)
@@ -409,19 +409,19 @@ namespace Panik
 			VirtualCursors.instance.joystickRightStickCanMoveCursor[playerIndex] = canMove;
 		}
 
-		// Token: 0x06000C89 RID: 3209 RVA: 0x00051F3C File Offset: 0x0005013C
+		// Token: 0x06000C9E RID: 3230 RVA: 0x0005269C File Offset: 0x0005089C
 		public static void JoystickCursor_RightStickEnabledSet(Controls.PlayerExt player, bool canMove)
 		{
 			VirtualCursors.JoystickCursor_RightStickEnabledSet(Controls.GetPlayerIndex(player), canMove);
 		}
 
-		// Token: 0x06000C8A RID: 3210 RVA: 0x00051F4A File Offset: 0x0005014A
+		// Token: 0x06000C9F RID: 3231 RVA: 0x000526AA File Offset: 0x000508AA
 		public static bool JoystickCursor_RightStickEnabledGet(int playerIndex)
 		{
 			return !(VirtualCursors.instance == null) && playerIndex >= 0 && playerIndex < VirtualCursors.instance.cursorImages.Count && VirtualCursors.instance.joystickRightStickCanMoveCursor[playerIndex];
 		}
 
-		// Token: 0x06000C8B RID: 3211 RVA: 0x00051F7F File Offset: 0x0005017F
+		// Token: 0x06000CA0 RID: 3232 RVA: 0x000526DF File Offset: 0x000508DF
 		public static void JoystickCursor_LeftStickEnabledSet(int playerIndex, bool canMove)
 		{
 			if (VirtualCursors.instance == null)
@@ -435,49 +435,49 @@ namespace Panik
 			VirtualCursors.instance.joystickLeftStickCanMoveCursor[playerIndex] = canMove;
 		}
 
-		// Token: 0x06000C8C RID: 3212 RVA: 0x00051FB3 File Offset: 0x000501B3
+		// Token: 0x06000CA1 RID: 3233 RVA: 0x00052713 File Offset: 0x00050913
 		public static bool JoystickCursor_LeftStickEnabledGet(int playerIndex)
 		{
 			return !(VirtualCursors.instance == null) && playerIndex >= 0 && playerIndex < VirtualCursors.instance.cursorImages.Count && VirtualCursors.instance.joystickLeftStickCanMoveCursor[playerIndex];
 		}
 
-		// Token: 0x06000C8D RID: 3213 RVA: 0x00051FE8 File Offset: 0x000501E8
+		// Token: 0x06000CA2 RID: 3234 RVA: 0x00052748 File Offset: 0x00050948
 		public static bool CursorClick_PressedGet(int playerIndex)
 		{
 			return !(VirtualCursors.instance == null) && playerIndex >= 0 && playerIndex < VirtualCursors.instance.cursorImages.Count && VirtualCursors.instance.cursorLeftClickState[playerIndex] && !VirtualCursors.instance.cursorLeftClickStateOld[playerIndex];
 		}
 
-		// Token: 0x06000C8E RID: 3214 RVA: 0x0005203B File Offset: 0x0005023B
+		// Token: 0x06000CA3 RID: 3235 RVA: 0x0005279B File Offset: 0x0005099B
 		public static bool CursorClick_PressedGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorClick_PressedGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C8F RID: 3215 RVA: 0x00052048 File Offset: 0x00050248
+		// Token: 0x06000CA4 RID: 3236 RVA: 0x000527A8 File Offset: 0x000509A8
 		public static bool CursorClick_ReleasedGet(int playerIndex)
 		{
 			return !(VirtualCursors.instance == null) && playerIndex >= 0 && playerIndex < VirtualCursors.instance.cursorImages.Count && !VirtualCursors.instance.cursorLeftClickState[playerIndex] && VirtualCursors.instance.cursorLeftClickStateOld[playerIndex];
 		}
 
-		// Token: 0x06000C90 RID: 3216 RVA: 0x00052098 File Offset: 0x00050298
+		// Token: 0x06000CA5 RID: 3237 RVA: 0x000527F8 File Offset: 0x000509F8
 		public static bool CursorClick_ReleasedGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorClick_ReleasedGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C91 RID: 3217 RVA: 0x000520A5 File Offset: 0x000502A5
+		// Token: 0x06000CA6 RID: 3238 RVA: 0x00052805 File Offset: 0x00050A05
 		public static bool CursorClick_HoldGet(int playerIndex)
 		{
 			return !(VirtualCursors.instance == null) && playerIndex >= 0 && playerIndex < VirtualCursors.instance.cursorImages.Count && VirtualCursors.instance.cursorLeftClickState[playerIndex];
 		}
 
-		// Token: 0x06000C92 RID: 3218 RVA: 0x000520DA File Offset: 0x000502DA
+		// Token: 0x06000CA7 RID: 3239 RVA: 0x0005283A File Offset: 0x00050A3A
 		public static bool CursorClick_HoldGet(Controls.PlayerExt player)
 		{
 			return VirtualCursors.CursorClick_HoldGet(Controls.GetPlayerIndex(player));
 		}
 
-		// Token: 0x06000C93 RID: 3219 RVA: 0x000520E7 File Offset: 0x000502E7
+		// Token: 0x06000CA8 RID: 3240 RVA: 0x00052847 File Offset: 0x00050A47
 		public static void CursorHasMoved(int playerIndex, out bool hasMoved)
 		{
 			if (VirtualCursors.instance == null)
@@ -493,13 +493,13 @@ namespace Panik
 			hasMoved = VirtualCursors.instance.cursorHasMoved[playerIndex];
 		}
 
-		// Token: 0x06000C94 RID: 3220 RVA: 0x00052122 File Offset: 0x00050322
+		// Token: 0x06000CA9 RID: 3241 RVA: 0x00052882 File Offset: 0x00050A82
 		public static void CursorHasMoved(Controls.PlayerExt player, out bool hasMoved)
 		{
 			VirtualCursors.CursorHasMoved(Controls.GetPlayerIndex(player), out hasMoved);
 		}
 
-		// Token: 0x06000C95 RID: 3221 RVA: 0x00052130 File Offset: 0x00050330
+		// Token: 0x06000CAA RID: 3242 RVA: 0x00052890 File Offset: 0x00050A90
 		public static void CursorHasMovedOld(int playerIndex, out bool hasMoved)
 		{
 			if (VirtualCursors.instance == null)
@@ -515,13 +515,13 @@ namespace Panik
 			hasMoved = VirtualCursors.instance.cursorHasMovedOld[playerIndex];
 		}
 
-		// Token: 0x06000C96 RID: 3222 RVA: 0x0005216B File Offset: 0x0005036B
+		// Token: 0x06000CAB RID: 3243 RVA: 0x000528CB File Offset: 0x00050ACB
 		public static void CursorHasMovedOld(Controls.PlayerExt player, out bool hasMoved)
 		{
 			VirtualCursors.CursorHasMovedOld(Controls.GetPlayerIndex(player), out hasMoved);
 		}
 
-		// Token: 0x06000C97 RID: 3223 RVA: 0x0005217C File Offset: 0x0005037C
+		// Token: 0x06000CAC RID: 3244 RVA: 0x000528DC File Offset: 0x00050ADC
 		private void Awake()
 		{
 			if (VirtualCursors.instance != null)
@@ -578,7 +578,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C98 RID: 3224 RVA: 0x0005239B File Offset: 0x0005059B
+		// Token: 0x06000CAD RID: 3245 RVA: 0x00052AFB File Offset: 0x00050CFB
 		private void OnDestroy()
 		{
 			if (VirtualCursors.instance == this)
@@ -587,7 +587,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000C99 RID: 3225 RVA: 0x000523B0 File Offset: 0x000505B0
+		// Token: 0x06000CAE RID: 3246 RVA: 0x00052B10 File Offset: 0x00050D10
 		private void Update()
 		{
 			Vector2 vector = new Vector2((float)Screen.width, (float)Screen.height);

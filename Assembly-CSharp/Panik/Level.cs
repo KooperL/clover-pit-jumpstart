@@ -7,7 +7,7 @@ namespace Panik
 {
 	public static class Level
 	{
-		// (get) Token: 0x06000CB6 RID: 3254 RVA: 0x00052E28 File Offset: 0x00051028
+		// (get) Token: 0x06000CCB RID: 3275 RVA: 0x00053588 File Offset: 0x00051788
 		public static int CurrentScene
 		{
 			get
@@ -16,7 +16,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CB7 RID: 3255 RVA: 0x00052E42 File Offset: 0x00051042
+		// (get) Token: 0x06000CCC RID: 3276 RVA: 0x000535A2 File Offset: 0x000517A2
 		public static Level.SceneIndex CurrentSceneIndex
 		{
 			get
@@ -25,7 +25,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CB8 RID: 3256 RVA: 0x00052E49 File Offset: 0x00051049
+		// (get) Token: 0x06000CCD RID: 3277 RVA: 0x000535A9 File Offset: 0x000517A9
 		public static int PreviousScene
 		{
 			get
@@ -34,7 +34,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CB9 RID: 3257 RVA: 0x00052E50 File Offset: 0x00051050
+		// (get) Token: 0x06000CCE RID: 3278 RVA: 0x000535B0 File Offset: 0x000517B0
 		public static Level.SceneIndex PreviousSceneIndex
 		{
 			get
@@ -43,7 +43,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CBA RID: 3258 RVA: 0x00052E57 File Offset: 0x00051057
+		// (get) Token: 0x06000CCF RID: 3279 RVA: 0x000535B7 File Offset: 0x000517B7
 		public static float GetLoadingStatus
 		{
 			get
@@ -56,25 +56,25 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CBB RID: 3259 RVA: 0x00052E70 File Offset: 0x00051070
+		// Token: 0x06000CD0 RID: 3280 RVA: 0x000535D0 File Offset: 0x000517D0
 		public static void GoToNext(bool asyncLoad = true)
 		{
 			Level.GoTo(Level.CurrentScene + 1, asyncLoad);
 		}
 
-		// Token: 0x06000CBC RID: 3260 RVA: 0x00052E7F File Offset: 0x0005107F
+		// Token: 0x06000CD1 RID: 3281 RVA: 0x000535DF File Offset: 0x000517DF
 		public static void GoPrevious(bool asyncLoad = true)
 		{
 			Level.GoTo(Level.CurrentScene - 1, asyncLoad);
 		}
 
-		// Token: 0x06000CBD RID: 3261 RVA: 0x00052E8E File Offset: 0x0005108E
+		// Token: 0x06000CD2 RID: 3282 RVA: 0x000535EE File Offset: 0x000517EE
 		public static void Restart(bool asyncLoad = true)
 		{
 			Level.GoTo(Level.CurrentScene, asyncLoad);
 		}
 
-		// Token: 0x06000CBE RID: 3262 RVA: 0x00052E9B File Offset: 0x0005109B
+		// Token: 0x06000CD3 RID: 3283 RVA: 0x000535FB File Offset: 0x000517FB
 		public static void GoTo(int sceneIndexToLoad, bool asyncLoad = true)
 		{
 			Level._prevScene = Level.CurrentScene;
@@ -91,13 +91,13 @@ namespace Panik
 			Debug.LogWarning("Cannot start the loading of a scene as it looks like an other one is in act!");
 		}
 
-		// Token: 0x06000CBF RID: 3263 RVA: 0x00052ED8 File Offset: 0x000510D8
+		// Token: 0x06000CD4 RID: 3284 RVA: 0x00053638 File Offset: 0x00051838
 		public static void GoTo(Level.SceneIndex sceneIndexToLoad, bool asyncLoad = true)
 		{
 			Level.GoTo((int)sceneIndexToLoad, asyncLoad);
 		}
 
-		// Token: 0x06000CC0 RID: 3264 RVA: 0x00052EE1 File Offset: 0x000510E1
+		// Token: 0x06000CD5 RID: 3285 RVA: 0x00053641 File Offset: 0x00051841
 		private static IEnumerator LoadSceneAsync(int sceneIndexToLoad)
 		{
 			SceneManager.LoadScene(Level.loadingSceneIndex);
@@ -130,7 +130,7 @@ namespace Panik
 			yield break;
 		}
 
-		// Token: 0x06000CC1 RID: 3265 RVA: 0x00052EF0 File Offset: 0x000510F0
+		// Token: 0x06000CD6 RID: 3286 RVA: 0x00053650 File Offset: 0x00051850
 		public static void StartLoadedScene()
 		{
 			if (Level.loadingOperationReference == null)
@@ -177,7 +177,7 @@ namespace Panik
 			Game
 		}
 
-		// (Invoke) Token: 0x060013E1 RID: 5089
+		// (Invoke) Token: 0x06001400 RID: 5120
 		public delegate void Ev();
 	}
 }

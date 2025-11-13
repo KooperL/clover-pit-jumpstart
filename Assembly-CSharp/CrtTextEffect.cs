@@ -5,26 +5,26 @@ using UnityEngine;
 
 public class CrtTextEffect : MonoBehaviour
 {
-	// Token: 0x0600084B RID: 2123 RVA: 0x00036541 File Offset: 0x00034741
+	// Token: 0x06000852 RID: 2130 RVA: 0x00036795 File Offset: 0x00034995
 	private void Reset()
 	{
 		this.text = base.GetComponent<TextMeshProUGUI>();
 	}
 
-	// Token: 0x0600084C RID: 2124 RVA: 0x0003654F File Offset: 0x0003474F
+	// Token: 0x06000853 RID: 2131 RVA: 0x000367A3 File Offset: 0x000349A3
 	private void Awake()
 	{
 		this.text = base.GetComponent<TextMeshProUGUI>();
 	}
 
-	// Token: 0x0600084D RID: 2125 RVA: 0x0003655D File Offset: 0x0003475D
+	// Token: 0x06000854 RID: 2132 RVA: 0x000367B1 File Offset: 0x000349B1
 	private void OnEnable()
 	{
 		this.waveTimer = (this.pausable ? Tick.PassedTimePausable : Tick.PassedTime);
 		this.flickerTimer = (this.pausable ? Tick.PassedTimePausable : Tick.PassedTime);
 	}
 
-	// Token: 0x0600084E RID: 2126 RVA: 0x00036594 File Offset: 0x00034794
+	// Token: 0x06000855 RID: 2133 RVA: 0x000367E8 File Offset: 0x000349E8
 	private void Update()
 	{
 		if (!Tick.IsGameRunning && this.pausable)

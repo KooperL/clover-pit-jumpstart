@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
-	// (get) Token: 0x060008EF RID: 2287 RVA: 0x0003AF2F File Offset: 0x0003912F
+	// (get) Token: 0x060008FE RID: 2302 RVA: 0x0003B24B File Offset: 0x0003944B
 	private static int INDEX_RESUME
 	{
 		get
@@ -17,13 +17,13 @@ public class MainMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008F0 RID: 2288 RVA: 0x0003AF32 File Offset: 0x00039132
+	// Token: 0x060008FF RID: 2303 RVA: 0x0003B24E File Offset: 0x0003944E
 	public static bool IsEnabled()
 	{
 		return !(MainMenuScript.instance == null) && MainMenuScript.instance._isEnabled;
 	}
 
-	// Token: 0x060008F1 RID: 2289 RVA: 0x0003AF50 File Offset: 0x00039150
+	// Token: 0x06000900 RID: 2304 RVA: 0x0003B26C File Offset: 0x0003946C
 	public static void Open()
 	{
 		if (MainMenuScript.IsEnabled())
@@ -44,13 +44,14 @@ public class MainMenuScript : MonoBehaviour
 		MainMenuScript.instance.saveSettingsOnClose = false;
 	}
 
-	// Token: 0x060008F2 RID: 2290 RVA: 0x0003AFDA File Offset: 0x000391DA
+	// Token: 0x06000901 RID: 2305 RVA: 0x0003B2F6 File Offset: 0x000394F6
 	public static void Close()
 	{
 		if (!MainMenuScript.IsEnabled())
 		{
 			return;
 		}
+		GC.Collect();
 		MainMenuScript.instance._isEnabled = false;
 		MainMenuScript.instance.menuController.Back();
 		if (MainMenuScript.instance.saveSettingsOnClose)
@@ -59,20 +60,20 @@ public class MainMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008F3 RID: 2291 RVA: 0x0003B010 File Offset: 0x00039210
+	// Token: 0x06000902 RID: 2306 RVA: 0x0003B331 File Offset: 0x00039531
 	public static void BackInput()
 	{
 		GameplayMaster.instance.FCall_MenuDrawer_MainMenu_CloseTry();
 		Sound.Play("SoundMenuBack", 1f, 1f);
 	}
 
-	// Token: 0x060008F4 RID: 2292 RVA: 0x0003B031 File Offset: 0x00039231
+	// Token: 0x06000903 RID: 2307 RVA: 0x0003B352 File Offset: 0x00039552
 	public bool CanMenuPerform(bool includeDelay)
 	{
 		return (!includeDelay || this.inputDelay <= 0f) && this.dataErasureCoroutine == null && (MainMenuScript.IsEnabled() && !ScreenMenuScript.IsEnabled()) && !DialogueScript.IsEnabled();
 	}
 
-	// Token: 0x060008F5 RID: 2293 RVA: 0x0003B068 File Offset: 0x00039268
+	// Token: 0x06000904 RID: 2308 RVA: 0x0003B388 File Offset: 0x00039588
 	private void LeftRightNavigationUpdate()
 	{
 		this.rightNavigationPress = false;
@@ -98,25 +99,25 @@ public class MainMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008F6 RID: 2294 RVA: 0x0003B0DA File Offset: 0x000392DA
+	// Token: 0x06000905 RID: 2309 RVA: 0x0003B3FA File Offset: 0x000395FA
 	public bool LeftRightNavigationHasBeenPressed()
 	{
 		return this.leftNavigationPress || this.rightNavigationPress;
 	}
 
-	// Token: 0x060008F7 RID: 2295 RVA: 0x0003B0EC File Offset: 0x000392EC
+	// Token: 0x06000906 RID: 2310 RVA: 0x0003B40C File Offset: 0x0003960C
 	public void Select(int selectionIndex)
 	{
 		this.Select(this.menuIndex, selectionIndex);
 	}
 
-	// Token: 0x060008F8 RID: 2296 RVA: 0x0003B0FB File Offset: 0x000392FB
+	// Token: 0x06000907 RID: 2311 RVA: 0x0003B41B File Offset: 0x0003961B
 	public void Select(MainMenuScript.MenuIndex _menuIndex, int selectionIndex)
 	{
 		this.Select_Desktop(_menuIndex, selectionIndex);
 	}
 
-	// Token: 0x060008F9 RID: 2297 RVA: 0x0003B108 File Offset: 0x00039308
+	// Token: 0x06000908 RID: 2312 RVA: 0x0003B428 File Offset: 0x00039628
 	public void Select_Desktop(MainMenuScript.MenuIndex _menuIndex, int selectionIndex)
 	{
 		if (!this.CanMenuPerform(true))
@@ -388,7 +389,7 @@ public class MainMenuScript : MonoBehaviour
 		this.OptionsUpdate();
 	}
 
-	// Token: 0x060008FA RID: 2298 RVA: 0x0003B741 File Offset: 0x00039941
+	// Token: 0x06000909 RID: 2313 RVA: 0x0003BA61 File Offset: 0x00039C61
 	private void MFunc_ResetTutorial()
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -397,7 +398,7 @@ public class MainMenuScript : MonoBehaviour
 		DialogueScript.SetDialogue(false, new string[] { "DIALOGUE_MAIN_MENU_TUTORIAL_RESET" });
 	}
 
-	// Token: 0x060008FB RID: 2299 RVA: 0x0003B77C File Offset: 0x0003997C
+	// Token: 0x0600090A RID: 2314 RVA: 0x0003BA9C File Offset: 0x00039C9C
 	private void MFunc_Language(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -412,7 +413,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x060008FC RID: 2300 RVA: 0x0003B7AA File Offset: 0x000399AA
+	// Token: 0x0600090B RID: 2315 RVA: 0x0003BACA File Offset: 0x00039CCA
 	private void MFunc_KeyboardLayout(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -427,7 +428,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x060008FD RID: 2301 RVA: 0x0003B7D8 File Offset: 0x000399D8
+	// Token: 0x0600090C RID: 2316 RVA: 0x0003BAF8 File Offset: 0x00039CF8
 	private void MFunc_TextEffects(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -440,7 +441,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x060008FE RID: 2302 RVA: 0x0003B829 File Offset: 0x00039A29
+	// Token: 0x0600090D RID: 2317 RVA: 0x0003BB49 File Offset: 0x00039D49
 	private void MFunc_ScreenShake(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -448,7 +449,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x060008FF RID: 2303 RVA: 0x0003B860 File Offset: 0x00039A60
+	// Token: 0x0600090E RID: 2318 RVA: 0x0003BB80 File Offset: 0x00039D80
 	private void MFunc_WobblyPolygons(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -457,7 +458,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000900 RID: 2304 RVA: 0x0003B8AC File Offset: 0x00039AAC
+	// Token: 0x0600090F RID: 2319 RVA: 0x0003BBCC File Offset: 0x00039DCC
 	private void MFunc_FullscreenToggle(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -466,7 +467,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000901 RID: 2305 RVA: 0x0003B8F8 File Offset: 0x00039AF8
+	// Token: 0x06000910 RID: 2320 RVA: 0x0003BC18 File Offset: 0x00039E18
 	private void MFunc_ResolutionSwitch(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -482,7 +483,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000902 RID: 2306 RVA: 0x0003B948 File Offset: 0x00039B48
+	// Token: 0x06000911 RID: 2321 RVA: 0x0003BC68 File Offset: 0x00039E68
 	private void MFunc_Vsync(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -491,7 +492,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000903 RID: 2307 RVA: 0x0003B994 File Offset: 0x00039B94
+	// Token: 0x06000912 RID: 2322 RVA: 0x0003BCB4 File Offset: 0x00039EB4
 	private void MFunc_SfxVolume(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -510,7 +511,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000904 RID: 2308 RVA: 0x0003BA0C File Offset: 0x00039C0C
+	// Token: 0x06000913 RID: 2323 RVA: 0x0003BD2C File Offset: 0x00039F2C
 	private void MFunc_FanVolume(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -528,7 +529,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000905 RID: 2309 RVA: 0x0003BA70 File Offset: 0x00039C70
+	// Token: 0x06000914 RID: 2324 RVA: 0x0003BD90 File Offset: 0x00039F90
 	private void MFunc_TransitionSpeed(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -544,7 +545,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000906 RID: 2310 RVA: 0x0003BAE0 File Offset: 0x00039CE0
+	// Token: 0x06000915 RID: 2325 RVA: 0x0003BE00 File Offset: 0x0003A000
 	private void MFunc_GamepadVibration(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -556,7 +557,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000907 RID: 2311 RVA: 0x0003BB40 File Offset: 0x00039D40
+	// Token: 0x06000916 RID: 2326 RVA: 0x0003BE60 File Offset: 0x0003A060
 	private void MFunc_CameraSensitivity(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -575,7 +576,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000908 RID: 2312 RVA: 0x0003BBB4 File Offset: 0x00039DB4
+	// Token: 0x06000917 RID: 2327 RVA: 0x0003BED4 File Offset: 0x0003A0D4
 	private void MFunc_CursorSensitivity(int _selectionDirection, bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -594,7 +595,7 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x06000909 RID: 2313 RVA: 0x0003BC1B File Offset: 0x00039E1B
+	// Token: 0x06000918 RID: 2328 RVA: 0x0003BF3B File Offset: 0x0003A13B
 	private void MFunc_InvertCameraY(bool saveSettingsWhenClosing)
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -602,20 +603,20 @@ public class MainMenuScript : MonoBehaviour
 		this.saveSettingsOnClose = saveSettingsWhenClosing;
 	}
 
-	// Token: 0x0600090A RID: 2314 RVA: 0x0003BC52 File Offset: 0x00039E52
+	// Token: 0x06000919 RID: 2329 RVA: 0x0003BF72 File Offset: 0x0003A172
 	private void _RestartYes()
 	{
 		GameplayMaster.instance.FCall_MenuDrawer_MainMenu_CloseTry();
 		GameplayMaster.instance.DieTry(GameplayMaster.DeathStep.lookAtTrapdoor, false);
 	}
 
-	// Token: 0x0600090B RID: 2315 RVA: 0x0003BC6B File Offset: 0x00039E6B
+	// Token: 0x0600091A RID: 2330 RVA: 0x0003BF8B File Offset: 0x0003A18B
 	private void _RestartNo()
 	{
 		Sound.Play("SoundMenuBack", 1f, 1f);
 	}
 
-	// Token: 0x0600090C RID: 2316 RVA: 0x0003BC82 File Offset: 0x00039E82
+	// Token: 0x0600091B RID: 2331 RVA: 0x0003BFA2 File Offset: 0x0003A1A2
 	private IEnumerator DataEresureCoroutine()
 	{
 		yield return null;
@@ -626,7 +627,7 @@ public class MainMenuScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600090D RID: 2317 RVA: 0x0003BC91 File Offset: 0x00039E91
+	// Token: 0x0600091C RID: 2332 RVA: 0x0003BFB1 File Offset: 0x0003A1B1
 	private void _DataResetYes_SpawnSecondQuestion()
 	{
 		DialogueScript.Close();
@@ -636,7 +637,7 @@ public class MainMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600090E RID: 2318 RVA: 0x0003BCB2 File Offset: 0x00039EB2
+	// Token: 0x0600091D RID: 2333 RVA: 0x0003BFD2 File Offset: 0x0003A1D2
 	private void _DataResetYes()
 	{
 		Sound.Play("SoundMenuFileDestroy", 1f, 1f);
@@ -646,13 +647,13 @@ public class MainMenuScript : MonoBehaviour
 		GameplayMaster.instance.DieTry(GameplayMaster.DeathStep.lookAtTrapdoor, false);
 	}
 
-	// Token: 0x0600090F RID: 2319 RVA: 0x0003BCEF File Offset: 0x00039EEF
+	// Token: 0x0600091E RID: 2334 RVA: 0x0003C00F File Offset: 0x0003A20F
 	private void _DataResetNo()
 	{
 		Sound.Play("SoundMenuBack", 1f, 1f);
 	}
 
-	// Token: 0x06000910 RID: 2320 RVA: 0x0003BD06 File Offset: 0x00039F06
+	// Token: 0x0600091F RID: 2335 RVA: 0x0003C026 File Offset: 0x0003A226
 	private void _QuitYes()
 	{
 		Sound.Play("SoundMenuSelect", 1f, 1f);
@@ -660,19 +661,19 @@ public class MainMenuScript : MonoBehaviour
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.closingGame, false, null);
 	}
 
-	// Token: 0x06000911 RID: 2321 RVA: 0x0003BD2F File Offset: 0x00039F2F
+	// Token: 0x06000920 RID: 2336 RVA: 0x0003C04F File Offset: 0x0003A24F
 	private void _QuitNo()
 	{
 		Sound.Play("SoundMenuBack", 1f, 1f);
 	}
 
-	// Token: 0x06000912 RID: 2322 RVA: 0x0003BD46 File Offset: 0x00039F46
+	// Token: 0x06000921 RID: 2337 RVA: 0x0003C066 File Offset: 0x0003A266
 	public void OptionsUpdate()
 	{
 		this.OptionsUpdateText_Desktop();
 	}
 
-	// Token: 0x06000913 RID: 2323 RVA: 0x0003BD50 File Offset: 0x00039F50
+	// Token: 0x06000922 RID: 2338 RVA: 0x0003C070 File Offset: 0x0003A270
 	private void OptionsUpdateText_Desktop()
 	{
 		int num = -1;
@@ -861,19 +862,19 @@ public class MainMenuScript : MonoBehaviour
 		this.twitchText.text = TwitchMaster.GetTwitchMenuString();
 	}
 
-	// Token: 0x06000914 RID: 2324 RVA: 0x0003C59A File Offset: 0x0003A79A
+	// Token: 0x06000923 RID: 2339 RVA: 0x0003C8BA File Offset: 0x0003AABA
 	public static void ForceClose_Death()
 	{
 		MainMenuScript.BackInput();
 	}
 
-	// Token: 0x06000915 RID: 2325 RVA: 0x0003C5A1 File Offset: 0x0003A7A1
+	// Token: 0x06000924 RID: 2340 RVA: 0x0003C8C1 File Offset: 0x0003AAC1
 	private void Awake()
 	{
 		MainMenuScript.instance = this;
 	}
 
-	// Token: 0x06000916 RID: 2326 RVA: 0x0003C5A9 File Offset: 0x0003A7A9
+	// Token: 0x06000925 RID: 2341 RVA: 0x0003C8C9 File Offset: 0x0003AAC9
 	private void Start()
 	{
 		this.shifterTransform.localPosition = this.shifterHiddenPos;
@@ -881,7 +882,7 @@ public class MainMenuScript : MonoBehaviour
 		this.twitchText.text = "";
 	}
 
-	// Token: 0x06000917 RID: 2327 RVA: 0x0003C5D8 File Offset: 0x0003A7D8
+	// Token: 0x06000926 RID: 2342 RVA: 0x0003C8F8 File Offset: 0x0003AAF8
 	private void OnDestroy()
 	{
 		if (MainMenuScript.instance == this)
@@ -890,7 +891,7 @@ public class MainMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000918 RID: 2328 RVA: 0x0003C5F0 File Offset: 0x0003A7F0
+	// Token: 0x06000927 RID: 2343 RVA: 0x0003C910 File Offset: 0x0003AB10
 	private void Update()
 	{
 		bool flag = this.CanMenuPerform(false);
@@ -1023,6 +1024,6 @@ public class MainMenuScript : MonoBehaviour
 		settingsOthers
 	}
 
-	// (Invoke) Token: 0x060011EF RID: 4591
+	// (Invoke) Token: 0x06001206 RID: 4614
 	public delegate void Callback();
 }

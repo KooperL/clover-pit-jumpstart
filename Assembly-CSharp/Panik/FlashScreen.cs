@@ -6,37 +6,37 @@ namespace Panik
 {
 	public class FlashScreen : MonoBehaviour
 	{
-		// Token: 0x06000DAD RID: 3501 RVA: 0x00055C0D File Offset: 0x00053E0D
+		// Token: 0x06000DC4 RID: 3524 RVA: 0x000563E9 File Offset: 0x000545E9
 		public static void PositionResetToDefault()
 		{
 			FlashScreen.spawnPosition = FlashScreen.spawnPositionDefault;
 		}
 
-		// Token: 0x06000DAE RID: 3502 RVA: 0x00055C19 File Offset: 0x00053E19
+		// Token: 0x06000DC5 RID: 3525 RVA: 0x000563F5 File Offset: 0x000545F5
 		public static void PositionSet(Vector3 position)
 		{
 			FlashScreen.spawnPosition = position;
 		}
 
-		// Token: 0x06000DAF RID: 3503 RVA: 0x00055C21 File Offset: 0x00053E21
+		// Token: 0x06000DC6 RID: 3526 RVA: 0x000563FD File Offset: 0x000545FD
 		public static Vector3 PositionGet()
 		{
 			return FlashScreen.spawnPosition;
 		}
 
-		// Token: 0x06000DB0 RID: 3504 RVA: 0x00055C28 File Offset: 0x00053E28
+		// Token: 0x06000DC7 RID: 3527 RVA: 0x00056404 File Offset: 0x00054604
 		public static Vector3 PositionDefaultGet()
 		{
 			return FlashScreen.spawnPositionDefault;
 		}
 
-		// Token: 0x06000DB1 RID: 3505 RVA: 0x00055C2F File Offset: 0x00053E2F
+		// Token: 0x06000DC8 RID: 3528 RVA: 0x0005640B File Offset: 0x0005460B
 		public static void PositionDefaultSet(Vector3 position)
 		{
 			FlashScreen.spawnPositionDefault = position;
 		}
 
-		// Token: 0x06000DB2 RID: 3506 RVA: 0x00055C38 File Offset: 0x00053E38
+		// Token: 0x06000DC9 RID: 3529 RVA: 0x00056414 File Offset: 0x00054614
 		public static FlashScreen SpawnEx(Color color, float alpha, float alphaDecaySpeed, Camera targetCamera, float cameraDistance, bool forceSpawn = false)
 		{
 			if (Data.SettingsData.inst.flashingLightsReducedEnabled && !forceSpawn)
@@ -62,20 +62,20 @@ namespace Panik
 			return component;
 		}
 
-		// Token: 0x06000DB3 RID: 3507 RVA: 0x00055CFD File Offset: 0x00053EFD
+		// Token: 0x06000DCA RID: 3530 RVA: 0x000564D9 File Offset: 0x000546D9
 		public static FlashScreen SpawnWorld(Color color, float alpha, float alphaDecaySpeed, Vector3 position)
 		{
 			FlashScreen.PositionSet(position);
 			return FlashScreen.SpawnEx(color, alpha, alphaDecaySpeed, null, 0f, false);
 		}
 
-		// Token: 0x06000DB4 RID: 3508 RVA: 0x00055D14 File Offset: 0x00053F14
+		// Token: 0x06000DCB RID: 3531 RVA: 0x000564F0 File Offset: 0x000546F0
 		public static FlashScreen SpawnCamera(Color color, float alpha, float alphaDecaySpeed, Camera targetCamera, float cameraDistance = 0.5f)
 		{
 			return FlashScreen.SpawnEx(color, alpha, alphaDecaySpeed, targetCamera, cameraDistance, false);
 		}
 
-		// Token: 0x06000DB5 RID: 3509 RVA: 0x00055D22 File Offset: 0x00053F22
+		// Token: 0x06000DCC RID: 3532 RVA: 0x000564FE File Offset: 0x000546FE
 		private void Awake()
 		{
 			this.pausableBackup = this.pausable;
@@ -83,14 +83,14 @@ namespace Panik
 			this.myImage = base.GetComponentInChildren<Image>();
 		}
 
-		// Token: 0x06000DB6 RID: 3510 RVA: 0x00055D48 File Offset: 0x00053F48
+		// Token: 0x06000DCD RID: 3533 RVA: 0x00056524 File Offset: 0x00054724
 		private void OnEnable()
 		{
 			this.pausable = this.pausableBackup;
 			FlashScreen.instanceLast = this;
 		}
 
-		// Token: 0x06000DB7 RID: 3511 RVA: 0x00055D5C File Offset: 0x00053F5C
+		// Token: 0x06000DCE RID: 3534 RVA: 0x00056538 File Offset: 0x00054738
 		private void OnDisable()
 		{
 			if (FlashScreen.instanceLast == this)
@@ -99,7 +99,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DB8 RID: 3512 RVA: 0x00055D74 File Offset: 0x00053F74
+		// Token: 0x06000DCF RID: 3535 RVA: 0x00056550 File Offset: 0x00054750
 		private void Update()
 		{
 			if (this.pausable && !Tick.IsGameRunning)

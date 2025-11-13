@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class TerminalNodeScript : TerminalButton
 {
-	// Token: 0x06000A34 RID: 2612 RVA: 0x00046276 File Offset: 0x00044476
+	// Token: 0x06000A49 RID: 2633 RVA: 0x000469D6 File Offset: 0x00044BD6
 	public PowerupScript PowerupAssigned_Get()
 	{
 		return this.myPowerup;
 	}
 
-	// Token: 0x06000A35 RID: 2613 RVA: 0x00046280 File Offset: 0x00044480
+	// Token: 0x06000A4A RID: 2634 RVA: 0x000469E0 File Offset: 0x00044BE0
 	public void PowerupAssigned_Set(PowerupScript powerup, TerminalScript.TerminalPowerupState terminalPowerupState)
 	{
 		if (this.myPowerup != null)
@@ -89,7 +89,7 @@ public class TerminalNodeScript : TerminalButton
 		}
 	}
 
-	// Token: 0x06000A36 RID: 2614 RVA: 0x00046580 File Offset: 0x00044780
+	// Token: 0x06000A4B RID: 2635 RVA: 0x00046CE0 File Offset: 0x00044EE0
 	public static Vector3 PowerupPositionOffset(PowerupScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -109,7 +109,7 @@ public class TerminalNodeScript : TerminalButton
 		}
 	}
 
-	// Token: 0x06000A37 RID: 2615 RVA: 0x00046608 File Offset: 0x00044808
+	// Token: 0x06000A4C RID: 2636 RVA: 0x00046D68 File Offset: 0x00044F68
 	public static Vector3 PowerupAngleOffset(PowerupScript.Identifier identifier)
 	{
 		if (identifier <= PowerupScript.Identifier.GrandmasPurse)
@@ -146,7 +146,7 @@ public class TerminalNodeScript : TerminalButton
 		return Vector3.zero;
 	}
 
-	// Token: 0x06000A38 RID: 2616 RVA: 0x000466E8 File Offset: 0x000448E8
+	// Token: 0x06000A4D RID: 2637 RVA: 0x00046E48 File Offset: 0x00045048
 	public float PowerupScaleMultiplier(PowerupScript.Identifier identifier)
 	{
 		if (identifier == PowerupScript.Identifier.Hole_Circle)
@@ -170,7 +170,7 @@ public class TerminalNodeScript : TerminalButton
 		}
 	}
 
-	// Token: 0x06000A39 RID: 2617 RVA: 0x0004673F File Offset: 0x0004493F
+	// Token: 0x06000A4E RID: 2638 RVA: 0x00046E9F File Offset: 0x0004509F
 	public override void Start()
 	{
 		base.Start();
@@ -178,7 +178,7 @@ public class TerminalNodeScript : TerminalButton
 		this.cameraGame = CameraGame.firstInstance.myCamera;
 	}
 
-	// Token: 0x06000A3A RID: 2618 RVA: 0x00046768 File Offset: 0x00044968
+	// Token: 0x06000A4F RID: 2639 RVA: 0x00046EC8 File Offset: 0x000450C8
 	public override void Update()
 	{
 		base.Update();

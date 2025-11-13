@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class RewardUIScript : MonoBehaviour
 {
-	// Token: 0x060009E0 RID: 2528 RVA: 0x00043923 File Offset: 0x00041B23
+	// Token: 0x060009F4 RID: 2548 RVA: 0x00043F8B File Offset: 0x0004218B
 	public static bool IsEnabled()
 	{
 		return RewardUIScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060009E1 RID: 2529 RVA: 0x00043934 File Offset: 0x00041B34
+	// Token: 0x060009F5 RID: 2549 RVA: 0x00043F9C File Offset: 0x0004219C
 	private void Awake()
 	{
 		RewardUIScript.instance = this;
 	}
 
-	// Token: 0x060009E2 RID: 2530 RVA: 0x0004393C File Offset: 0x00041B3C
+	// Token: 0x060009F6 RID: 2550 RVA: 0x00043FA4 File Offset: 0x000421A4
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x060009E3 RID: 2531 RVA: 0x0004394A File Offset: 0x00041B4A
+	// Token: 0x060009F7 RID: 2551 RVA: 0x00043FB2 File Offset: 0x000421B2
 	private void OnDestroy()
 	{
 		if (RewardUIScript.instance == this)
@@ -31,7 +31,7 @@ public class RewardUIScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009E4 RID: 2532 RVA: 0x00043960 File Offset: 0x00041B60
+	// Token: 0x060009F8 RID: 2552 RVA: 0x00043FC8 File Offset: 0x000421C8
 	private void Update()
 	{
 		bool flag = RewardBoxScript.IsOpened() && !RewardBoxScript.HasPrize();

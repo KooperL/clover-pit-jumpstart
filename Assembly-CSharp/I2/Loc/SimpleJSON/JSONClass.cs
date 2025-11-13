@@ -50,7 +50,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x06001081 RID: 4225 RVA: 0x00066816 File Offset: 0x00064A16
+		// (get) Token: 0x06001098 RID: 4248 RVA: 0x00066FF2 File Offset: 0x000651F2
 		public override int Count
 		{
 			get
@@ -59,7 +59,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x06001082 RID: 4226 RVA: 0x00066824 File Offset: 0x00064A24
+		// Token: 0x06001099 RID: 4249 RVA: 0x00067000 File Offset: 0x00065200
 		public override void Add(string aKey, JSONNode aItem)
 		{
 			if (string.IsNullOrEmpty(aKey))
@@ -75,7 +75,7 @@ namespace I2.Loc.SimpleJSON
 			this.m_Dict.Add(aKey, aItem);
 		}
 
-		// Token: 0x06001083 RID: 4227 RVA: 0x00066882 File Offset: 0x00064A82
+		// Token: 0x0600109A RID: 4250 RVA: 0x0006705E File Offset: 0x0006525E
 		public override JSONNode Remove(string aKey)
 		{
 			if (!this.m_Dict.ContainsKey(aKey))
@@ -87,7 +87,7 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// Token: 0x06001084 RID: 4228 RVA: 0x000668B0 File Offset: 0x00064AB0
+		// Token: 0x0600109B RID: 4251 RVA: 0x0006708C File Offset: 0x0006528C
 		public override JSONNode Remove(int aIndex)
 		{
 			if (aIndex < 0 || aIndex >= this.m_Dict.Count)
@@ -99,7 +99,7 @@ namespace I2.Loc.SimpleJSON
 			return keyValuePair.Value;
 		}
 
-		// Token: 0x06001085 RID: 4229 RVA: 0x000668F8 File Offset: 0x00064AF8
+		// Token: 0x0600109C RID: 4252 RVA: 0x000670D4 File Offset: 0x000652D4
 		public override JSONNode Remove(JSONNode aNode)
 		{
 			JSONNode jsonnode;
@@ -116,7 +116,7 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// (get) Token: 0x06001086 RID: 4230 RVA: 0x00066964 File Offset: 0x00064B64
+		// (get) Token: 0x0600109D RID: 4253 RVA: 0x00067140 File Offset: 0x00065340
 		public override IEnumerable<JSONNode> Childs
 		{
 			get
@@ -131,7 +131,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x06001087 RID: 4231 RVA: 0x00066974 File Offset: 0x00064B74
+		// Token: 0x0600109E RID: 4254 RVA: 0x00067150 File Offset: 0x00065350
 		public IEnumerator GetEnumerator()
 		{
 			foreach (KeyValuePair<string, JSONNode> keyValuePair in this.m_Dict)
@@ -143,7 +143,7 @@ namespace I2.Loc.SimpleJSON
 			yield break;
 		}
 
-		// Token: 0x06001088 RID: 4232 RVA: 0x00066984 File Offset: 0x00064B84
+		// Token: 0x0600109F RID: 4255 RVA: 0x00067160 File Offset: 0x00065360
 		public override string ToString()
 		{
 			string text = "{";
@@ -166,7 +166,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x06001089 RID: 4233 RVA: 0x00066A38 File Offset: 0x00064C38
+		// Token: 0x060010A0 RID: 4256 RVA: 0x00067214 File Offset: 0x00065414
 		public override string ToString(string aPrefix)
 		{
 			string text = "{ ";
@@ -190,7 +190,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x0600108A RID: 4234 RVA: 0x00066B10 File Offset: 0x00064D10
+		// Token: 0x060010A1 RID: 4257 RVA: 0x000672EC File Offset: 0x000654EC
 		public override void Serialize(BinaryWriter aWriter)
 		{
 			aWriter.Write(2);

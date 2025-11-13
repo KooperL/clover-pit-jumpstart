@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class TutorialScript : MonoBehaviour
 {
-	// Token: 0x06000A65 RID: 2661 RVA: 0x000471F4 File Offset: 0x000453F4
+	// Token: 0x06000A7A RID: 2682 RVA: 0x00047954 File Offset: 0x00045B54
 	public static bool IsEnabled()
 	{
 		return !(TutorialScript.instance == null) && TutorialScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A66 RID: 2662 RVA: 0x00047214 File Offset: 0x00045414
+	// Token: 0x06000A7B RID: 2683 RVA: 0x00047974 File Offset: 0x00045B74
 	public static void StartTutorial()
 	{
 		if (TutorialScript.instance.tutorialCoroutine != null)
@@ -22,7 +22,7 @@ public class TutorialScript : MonoBehaviour
 		TutorialScript.instance.tutorialCoroutine = TutorialScript.instance.StartCoroutine(TutorialScript.instance.TutorialCoroutine());
 	}
 
-	// Token: 0x06000A67 RID: 2663 RVA: 0x00047269 File Offset: 0x00045469
+	// Token: 0x06000A7C RID: 2684 RVA: 0x000479C9 File Offset: 0x00045BC9
 	private IEnumerator TutorialCoroutine()
 	{
 		this.holder.SetActive(true);
@@ -96,19 +96,19 @@ public class TutorialScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A68 RID: 2664 RVA: 0x00047278 File Offset: 0x00045478
+	// Token: 0x06000A7D RID: 2685 RVA: 0x000479D8 File Offset: 0x00045BD8
 	private void Awake()
 	{
 		TutorialScript.instance = this;
 	}
 
-	// Token: 0x06000A69 RID: 2665 RVA: 0x00047280 File Offset: 0x00045480
+	// Token: 0x06000A7E RID: 2686 RVA: 0x000479E0 File Offset: 0x00045BE0
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A6A RID: 2666 RVA: 0x0004728E File Offset: 0x0004548E
+	// Token: 0x06000A7F RID: 2687 RVA: 0x000479EE File Offset: 0x00045BEE
 	private void OnDestroy()
 	{
 		if (TutorialScript.instance == this)

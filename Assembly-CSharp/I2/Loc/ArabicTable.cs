@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	internal class ArabicTable
 	{
-		// Token: 0x06001024 RID: 4132 RVA: 0x00064600 File Offset: 0x00062800
+		// Token: 0x0600103B RID: 4155 RVA: 0x00064DDC File Offset: 0x00062FDC
 		private ArabicTable()
 		{
 			ArabicTable.mapList = new List<ArabicMapping>();
@@ -52,7 +52,7 @@ namespace I2.Loc
 			ArabicTable.mapList.Add(new ArabicMapping(1705, 64398));
 		}
 
-		// (get) Token: 0x06001025 RID: 4133 RVA: 0x00064A1E File Offset: 0x00062C1E
+		// (get) Token: 0x0600103C RID: 4156 RVA: 0x000651FA File Offset: 0x000633FA
 		internal static ArabicTable ArabicMapper
 		{
 			get
@@ -65,7 +65,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001026 RID: 4134 RVA: 0x00064A38 File Offset: 0x00062C38
+		// Token: 0x0600103D RID: 4157 RVA: 0x00065214 File Offset: 0x00063414
 		internal int Convert(int toBeConverted)
 		{
 			foreach (ArabicMapping arabicMapping in ArabicTable.mapList)

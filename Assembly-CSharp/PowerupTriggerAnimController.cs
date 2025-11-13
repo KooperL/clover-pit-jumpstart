@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class PowerupTriggerAnimController : MonoBehaviour
 {
-	// Token: 0x060009AD RID: 2477 RVA: 0x000404F1 File Offset: 0x0003E6F1
+	// Token: 0x060009C1 RID: 2497 RVA: 0x00040B55 File Offset: 0x0003ED55
 	public static bool ShouldHide()
 	{
 		return PowerupTriggerAnimController.instance == null || GameplayMaster.instance == null || GameplayMaster.GetGamePhase() == GameplayMaster.GamePhase.intro;
 	}
 
-	// Token: 0x060009AE RID: 2478 RVA: 0x0004051C File Offset: 0x0003E71C
+	// Token: 0x060009C2 RID: 2498 RVA: 0x00040B80 File Offset: 0x0003ED80
 	public static void AddAnimation(PowerupScript powerup, RunModifierScript.Identifier runModifierCard, PowerupTriggerAnimController.AnimationCapsule.AnimationKind animKind)
 	{
 		PowerupTriggerAnimController.AnimationCapsule animationCapsule;
@@ -32,13 +32,13 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		PowerupTriggerAnimController.instance.inLineAnimations.Add(animationCapsule);
 	}
 
-	// Token: 0x060009AF RID: 2479 RVA: 0x000405A9 File Offset: 0x0003E7A9
+	// Token: 0x060009C3 RID: 2499 RVA: 0x00040C0D File Offset: 0x0003EE0D
 	public static bool HasAnimations()
 	{
 		return !(PowerupTriggerAnimController.instance == null) && (PowerupTriggerAnimController.instance.animationPlaying || PowerupTriggerAnimController.instance.inLineAnimations.Count > 0);
 	}
 
-	// Token: 0x060009B0 RID: 2480 RVA: 0x000405DA File Offset: 0x0003E7DA
+	// Token: 0x060009C4 RID: 2500 RVA: 0x00040C3E File Offset: 0x0003EE3E
 	public static PowerupScript GetAnimatedPowerup()
 	{
 		if (PowerupTriggerAnimController.instance == null)
@@ -52,19 +52,19 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		return PowerupTriggerAnimController.instance.currentlyAnimatedCapsule.powerup;
 	}
 
-	// Token: 0x060009B1 RID: 2481 RVA: 0x00040608 File Offset: 0x0003E808
+	// Token: 0x060009C5 RID: 2501 RVA: 0x00040C6C File Offset: 0x0003EE6C
 	public static bool IsShowingUnlockAnimation()
 	{
 		return !(PowerupTriggerAnimController.instance == null) && PowerupTriggerAnimController.instance.currentlyAnimatedCapsule != null && PowerupTriggerAnimController.instance.currentlyAnimatedCapsule.animationKind == PowerupTriggerAnimController.AnimationCapsule.AnimationKind.unlock;
 	}
 
-	// Token: 0x060009B2 RID: 2482 RVA: 0x00040639 File Offset: 0x0003E839
+	// Token: 0x060009C6 RID: 2502 RVA: 0x00040C9D File Offset: 0x0003EE9D
 	public static bool IsShowingDiscardAnimation()
 	{
 		return !(PowerupTriggerAnimController.instance == null) && PowerupTriggerAnimController.instance.currentlyAnimatedCapsule != null && PowerupTriggerAnimController.instance.currentlyAnimatedCapsule.animationKind == PowerupTriggerAnimController.AnimationCapsule.AnimationKind.unlock;
 	}
 
-	// Token: 0x060009B3 RID: 2483 RVA: 0x0004066A File Offset: 0x0003E86A
+	// Token: 0x060009C7 RID: 2503 RVA: 0x00040CCE File Offset: 0x0003EECE
 	public static void AnimationSetSpeed(float speed)
 	{
 		if (PowerupTriggerAnimController.instance == null)
@@ -74,7 +74,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		PowerupTriggerAnimController.instance.animSpeedMultOverride = speed;
 	}
 
-	// Token: 0x060009B4 RID: 2484 RVA: 0x00040685 File Offset: 0x0003E885
+	// Token: 0x060009C8 RID: 2504 RVA: 0x00040CE9 File Offset: 0x0003EEE9
 	private void _AnimationExitSound()
 	{
 		if (!PowerupTriggerAnimController.ShouldHide())
@@ -83,7 +83,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009B5 RID: 2485 RVA: 0x000406B0 File Offset: 0x0003E8B0
+	// Token: 0x060009C9 RID: 2505 RVA: 0x00040D14 File Offset: 0x0003EF14
 	private void _AnimationMidwaySound()
 	{
 		if (this.currentlyAnimatedCapsule == null)
@@ -112,7 +112,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009B6 RID: 2486 RVA: 0x0004074C File Offset: 0x0003E94C
+	// Token: 0x060009CA RID: 2506 RVA: 0x00040DB0 File Offset: 0x0003EFB0
 	private void _AnimationPlay()
 	{
 		if (this.animationPlaying)
@@ -176,7 +176,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009B7 RID: 2487 RVA: 0x0004097C File Offset: 0x0003EB7C
+	// Token: 0x060009CB RID: 2507 RVA: 0x00040FE0 File Offset: 0x0003F1E0
 	private void _AnimationEnd()
 	{
 		if (!this.animationPlaying)
@@ -222,9 +222,10 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		PowerupTriggerAnimController.instance.animationsPool.Add(this.currentlyAnimatedCapsule);
 		this.animationPlaying = false;
 		this.currentlyAnimatedCapsule = null;
+		GoldenToiletStickerScript.RefreshVisualsStatic();
 	}
 
-	// Token: 0x060009B8 RID: 2488 RVA: 0x00040A9C File Offset: 0x0003EC9C
+	// Token: 0x060009CC RID: 2508 RVA: 0x00041104 File Offset: 0x0003F304
 	private void MeshSet(PowerupTriggerAnimController.AnimationCapsule animation, PowerupTriggerAnimController.AnimationCapsule.AnimationKind animationKind)
 	{
 		if (animation == null)
@@ -359,7 +360,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009B9 RID: 2489 RVA: 0x00040F70 File Offset: 0x0003F170
+	// Token: 0x060009CD RID: 2509 RVA: 0x000415D8 File Offset: 0x0003F7D8
 	private void MeshRemove()
 	{
 		if (this.currentlyAnimatedCapsule == null)
@@ -386,7 +387,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		Debug.LogError("PowerupTriggerAnimationController.MeshRemove(): cannot remove a mesh for powerup: " + this.currentlyAnimatedCapsule.ToString());
 	}
 
-	// Token: 0x060009BA RID: 2490 RVA: 0x0004106C File Offset: 0x0003F26C
+	// Token: 0x060009CE RID: 2510 RVA: 0x000416D4 File Offset: 0x0003F8D4
 	private void CardSet(PowerupTriggerAnimController.AnimationCapsule animation, PowerupTriggerAnimController.AnimationCapsule.AnimationKind animationKind)
 	{
 		if (animation == null)
@@ -406,7 +407,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		this._cards[this._cards.Count - 1].ForceUnflipped();
 	}
 
-	// Token: 0x060009BB RID: 2491 RVA: 0x00041174 File Offset: 0x0003F374
+	// Token: 0x060009CF RID: 2511 RVA: 0x000417DC File Offset: 0x0003F9DC
 	private void CardRemove()
 	{
 		if (this.currentlyAnimatedCapsule == null)
@@ -428,7 +429,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009BC RID: 2492 RVA: 0x00041208 File Offset: 0x0003F408
+	// Token: 0x060009D0 RID: 2512 RVA: 0x00041870 File Offset: 0x0003FA70
 	private void MeshUpdateAnimation(float animationTime)
 	{
 		if (this.currentlyAnimatedCapsule == null)
@@ -488,7 +489,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009BD RID: 2493 RVA: 0x000414B5 File Offset: 0x0003F6B5
+	// Token: 0x060009D1 RID: 2513 RVA: 0x00041B1D File Offset: 0x0003FD1D
 	private float ExtraScaleMultGet(PowerupScript.Identifier identifier)
 	{
 		switch (identifier)
@@ -504,14 +505,14 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009BE RID: 2494 RVA: 0x000414E8 File Offset: 0x0003F6E8
+	// Token: 0x060009D2 RID: 2514 RVA: 0x00041B50 File Offset: 0x0003FD50
 	private void AnimationParticlesReset()
 	{
 		this.animationParticles_DiscardBlood.gameObject.SetActive(false);
 		this.animationParticles_RechargeRedButton.gameObject.SetActive(false);
 	}
 
-	// Token: 0x060009BF RID: 2495 RVA: 0x0004150C File Offset: 0x0003F70C
+	// Token: 0x060009D3 RID: 2515 RVA: 0x00041B74 File Offset: 0x0003FD74
 	private void Awake()
 	{
 		PowerupTriggerAnimController.instance = this;
@@ -519,13 +520,13 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		this.myAnimator = base.GetComponent<Animator>();
 	}
 
-	// Token: 0x060009C0 RID: 2496 RVA: 0x0004152C File Offset: 0x0003F72C
+	// Token: 0x060009D4 RID: 2516 RVA: 0x00041B94 File Offset: 0x0003FD94
 	private void Start()
 	{
 		this.AnimationParticlesReset();
 	}
 
-	// Token: 0x060009C1 RID: 2497 RVA: 0x00041534 File Offset: 0x0003F734
+	// Token: 0x060009D5 RID: 2517 RVA: 0x00041B9C File Offset: 0x0003FD9C
 	private void OnDestroy()
 	{
 		if (PowerupTriggerAnimController.instance == this)
@@ -534,7 +535,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009C2 RID: 2498 RVA: 0x0004154C File Offset: 0x0003F74C
+	// Token: 0x060009D6 RID: 2518 RVA: 0x00041BB4 File Offset: 0x0003FDB4
 	private void Update()
 	{
 		if (DrawersScript.IsAnyDrawerOpened())
@@ -749,7 +750,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 
 	public class MeshCopyCapsule
 	{
-		// Token: 0x06001229 RID: 4649 RVA: 0x000749C4 File Offset: 0x00072BC4
+		// Token: 0x06001240 RID: 4672 RVA: 0x00075258 File Offset: 0x00073458
 		public MeshCopyCapsule(MeshRenderer meshRenderer, SkinnedMeshRenderer skinnedMeshRenderer, Material materialDefault)
 		{
 			this.meshRenderer = meshRenderer;
@@ -765,7 +766,7 @@ public class PowerupTriggerAnimController : MonoBehaviour
 			this.materialPowerDown.SetColor("_Color", new Color(0.75f, 0.75f, 0.75f, 1f));
 		}
 
-		// Token: 0x0600122A RID: 4650 RVA: 0x00074AB4 File Offset: 0x00072CB4
+		// Token: 0x06001241 RID: 4673 RVA: 0x00075348 File Offset: 0x00073548
 		~MeshCopyCapsule()
 		{
 			if (this.materialDiscard != null)
@@ -795,9 +796,9 @@ public class PowerupTriggerAnimController : MonoBehaviour
 		public Material materialPowerDown;
 	}
 
-	// (Invoke) Token: 0x0600122C RID: 4652
+	// (Invoke) Token: 0x06001243 RID: 4675
 	public delegate void PowerupAgnosticEvent(PowerupTriggerAnimController.AnimationCapsule animationCapsule);
 
-	// (Invoke) Token: 0x06001230 RID: 4656
+	// (Invoke) Token: 0x06001247 RID: 4679
 	public delegate void PowerupEvent(PowerupTriggerAnimController.AnimationCapsule animationCapsule);
 }

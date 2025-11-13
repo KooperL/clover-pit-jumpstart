@@ -10,13 +10,13 @@ using UnityEngine.UI;
 
 public class PhoneUiScript : MonoBehaviour
 {
-	// Token: 0x06000987 RID: 2439 RVA: 0x0003E934 File Offset: 0x0003CB34
+	// Token: 0x0600099B RID: 2459 RVA: 0x0003EF98 File Offset: 0x0003D198
 	public static bool IsEnabled()
 	{
 		return !(PhoneUiScript.instance == null) && PhoneUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000988 RID: 2440 RVA: 0x0003E954 File Offset: 0x0003CB54
+	// Token: 0x0600099C RID: 2460 RVA: 0x0003EFB8 File Offset: 0x0003D1B8
 	public static void Open()
 	{
 		if (PhoneUiScript.instance == null)
@@ -31,7 +31,7 @@ public class PhoneUiScript : MonoBehaviour
 		PhoneUiScript.instance.mainCoroutine = PhoneUiScript.instance.StartCoroutine(PhoneUiScript.instance.MainCoroutine());
 	}
 
-	// Token: 0x06000989 RID: 2441 RVA: 0x0003E9BD File Offset: 0x0003CBBD
+	// Token: 0x0600099D RID: 2461 RVA: 0x0003F021 File Offset: 0x0003D221
 	private IEnumerator MainCoroutine()
 	{
 		bool hasNoDialogue = PhoneScript.HasNoDialogue();
@@ -41,7 +41,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.uiHolder.SetActive(false);
 		this.twitchLabelHolder.SetActive(false);
 		this.phoneHolder.transform.SetLocalY(-640f);
-		Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, 1);
 		while (this.phoneHolder.transform.localPosition.y < -1f)
 		{
 			this.phoneHolder.transform.AddLocalY((0f - this.phoneHolder.transform.GetLocalY()) * 20f * Tick.Time);
@@ -50,7 +50,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.phoneHolder.transform.SetLocalY(0f);
 		if (hasNoDialogue)
 		{
-			Sound.Play3D("SoundPhoneNoLine", PhoneScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+			Sound.Play3D("SoundPhoneNoLine", PhoneScript.instance.transform.position, 20f, 1f, 1f, 1);
 			float timer = 3f;
 			while (timer > 0f)
 			{
@@ -93,7 +93,7 @@ public class PhoneUiScript : MonoBehaviour
 				{
 					this.uiHolder.SetActive(false);
 					this.phoneHolder.transform.SetLocalY(-640f);
-					Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+					Sound.Play3D("SoundWooshIn", this.phoneHolder.transform.position, 20f, 1f, 1f, 1);
 					while (this.phoneHolder.transform.localPosition.y < -1f)
 					{
 						this.phoneHolder.transform.AddLocalY((0f - this.phoneHolder.transform.GetLocalY()) * 20f * Tick.Time);
@@ -169,7 +169,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.uiHolder.SetActive(false);
 		this.twitchLabelHolder.SetActive(false);
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
-		Sound.Play3D("SoundWooshOut", this.phoneHolder.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
+		Sound.Play3D("SoundWooshOut", this.phoneHolder.transform.position, 20f, 1f, 1f, 1);
 		while (this.phoneHolder.transform.localPosition.y > -639f && !PhoneUiScript.IsForceClosing())
 		{
 			this.phoneHolder.transform.AddLocalY((-640f - this.phoneHolder.transform.GetLocalY()) * 20f * Tick.Time);
@@ -196,7 +196,7 @@ public class PhoneUiScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600098A RID: 2442 RVA: 0x0003E9CC File Offset: 0x0003CBCC
+	// Token: 0x0600099E RID: 2462 RVA: 0x0003F030 File Offset: 0x0003D230
 	private void DefinePhoneStuff(bool refreshRequestedThis)
 	{
 		GameplayData gameplayData = GameplayData.Instance;
@@ -384,14 +384,14 @@ public class PhoneUiScript : MonoBehaviour
 		gameplayData._phone_pickedUpOnceLastDeadline = true;
 	}
 
-	// Token: 0x0600098B RID: 2443 RVA: 0x0003EF03 File Offset: 0x0003D103
+	// Token: 0x0600099F RID: 2463 RVA: 0x0003F567 File Offset: 0x0003D767
 	private void SecondaryButtonsRefresh()
 	{
 		this.rerollButtonText.text = Strings.Sanitize(Strings.SantizationKind.menus, Translation.Get("PHONE_REROLL_PROMPT"), Strings.SanitizationSubKind.none);
 		this.backButtonText.text = Strings.Sanitize(Strings.SantizationKind.menus, Translation.Get("PHONE_BACK_PROMPT"), Strings.SanitizationSubKind.none);
 	}
 
-	// Token: 0x0600098C RID: 2444 RVA: 0x0003EF40 File Offset: 0x0003D140
+	// Token: 0x060009A0 RID: 2464 RVA: 0x0003F5A4 File Offset: 0x0003D7A4
 	private void DialogueSound(GameplayData gpDataInst, bool useReplyVersion)
 	{
 		switch (gpDataInst._phone_lastAbilityCategory)
@@ -426,7 +426,7 @@ public class PhoneUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600098D RID: 2445 RVA: 0x0003F040 File Offset: 0x0003D240
+	// Token: 0x060009A1 RID: 2465 RVA: 0x0003F6A4 File Offset: 0x0003D8A4
 	private void NavigationUpdate(GameplayData gpDataInst, out bool goBack, out bool rerolled, out AbilityScript abilityPicked)
 	{
 		rerolled = false;
@@ -611,7 +611,7 @@ public class PhoneUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600098E RID: 2446 RVA: 0x0003F688 File Offset: 0x0003D888
+	// Token: 0x060009A2 RID: 2466 RVA: 0x0003FCEC File Offset: 0x0003DEEC
 	public void AbilityPick(AbilityScript ability)
 	{
 		int num = GameplayData.PhonePickMultiplierGet(true);
@@ -621,7 +621,7 @@ public class PhoneUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600098F RID: 2447 RVA: 0x0003F6AE File Offset: 0x0003D8AE
+	// Token: 0x060009A3 RID: 2467 RVA: 0x0003FD12 File Offset: 0x0003DF12
 	public static void ForceClose_Death()
 	{
 		if (PhoneUiScript.instance == null)
@@ -635,13 +635,13 @@ public class PhoneUiScript : MonoBehaviour
 		PhoneUiScript.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x06000990 RID: 2448 RVA: 0x0003F6D6 File Offset: 0x0003D8D6
+	// Token: 0x060009A4 RID: 2468 RVA: 0x0003FD3A File Offset: 0x0003DF3A
 	public static bool IsForceClosing()
 	{
 		return !(PhoneUiScript.instance == null) && PhoneUiScript.instance.forceClose_Death;
 	}
 
-	// Token: 0x06000991 RID: 2449 RVA: 0x0003F6F4 File Offset: 0x0003D8F4
+	// Token: 0x060009A5 RID: 2469 RVA: 0x0003FD58 File Offset: 0x0003DF58
 	private void ClosingDialogueEvaluate()
 	{
 		if (GameplayData.Instance == null)
@@ -671,14 +671,14 @@ public class PhoneUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000992 RID: 2450 RVA: 0x0003F7D3 File Offset: 0x0003D9D3
+	// Token: 0x060009A6 RID: 2470 RVA: 0x0003FE37 File Offset: 0x0003E037
 	private void TwitchUpdate()
 	{
 		this.TwitchTextUpdate();
 		this.TwitchInputCheck();
 	}
 
-	// Token: 0x06000993 RID: 2451 RVA: 0x0003F7E4 File Offset: 0x0003D9E4
+	// Token: 0x060009A7 RID: 2471 RVA: 0x0003FE48 File Offset: 0x0003E048
 	private void TwitchTextUpdate()
 	{
 		if (Controls.GetPlayerByIndex(0).lastInputKindUsed == this.inputKindOld)
@@ -690,7 +690,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.twitchLabelText.ForceMeshUpdate(false, false);
 	}
 
-	// Token: 0x06000994 RID: 2452 RVA: 0x0003F850 File Offset: 0x0003DA50
+	// Token: 0x060009A8 RID: 2472 RVA: 0x0003FEB4 File Offset: 0x0003E0B4
 	private void TwitchInputCheck()
 	{
 		bool flag = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSocialButton, true);
@@ -704,7 +704,7 @@ public class PhoneUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000995 RID: 2453 RVA: 0x0003F878 File Offset: 0x0003DA78
+	// Token: 0x060009A9 RID: 2473 RVA: 0x0003FEDC File Offset: 0x0003E0DC
 	private void Awake()
 	{
 		PhoneUiScript.instance = this;
@@ -712,7 +712,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.twitchImageStartPos = this.twitchLabelImage.rectTransform.anchoredPosition;
 	}
 
-	// Token: 0x06000996 RID: 2454 RVA: 0x0003F8AC File Offset: 0x0003DAAC
+	// Token: 0x060009AA RID: 2474 RVA: 0x0003FF10 File Offset: 0x0003E110
 	private void OnDestroy()
 	{
 		if (PhoneUiScript.instance == this)
@@ -721,7 +721,7 @@ public class PhoneUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000997 RID: 2455 RVA: 0x0003F8C1 File Offset: 0x0003DAC1
+	// Token: 0x060009AB RID: 2475 RVA: 0x0003FF25 File Offset: 0x0003E125
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -729,7 +729,7 @@ public class PhoneUiScript : MonoBehaviour
 		this.twitchLabelHolder.SetActive(false);
 	}
 
-	// Token: 0x06000998 RID: 2456 RVA: 0x0003F8E8 File Offset: 0x0003DAE8
+	// Token: 0x060009AC RID: 2476 RVA: 0x0003FF4C File Offset: 0x0003E14C
 	private void Update()
 	{
 		if (!PhoneUiScript.IsEnabled())

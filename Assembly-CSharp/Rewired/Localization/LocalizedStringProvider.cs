@@ -8,8 +8,8 @@ namespace Rewired.Localization
 	[AddComponentMenu("Rewired/Localization/Localized String Provider")]
 	public class LocalizedStringProvider : LocalizedStringProviderBase
 	{
-		// (get) Token: 0x06000DD1 RID: 3537 RVA: 0x00056245 File Offset: 0x00054445
-		// (set) Token: 0x06000DD2 RID: 3538 RVA: 0x0005624D File Offset: 0x0005444D
+		// (get) Token: 0x06000DE8 RID: 3560 RVA: 0x00056A21 File Offset: 0x00054C21
+		// (set) Token: 0x06000DE9 RID: 3561 RVA: 0x00056A29 File Offset: 0x00054C29
 		protected virtual Dictionary<string, string> dictionary
 		{
 			get
@@ -22,8 +22,8 @@ namespace Rewired.Localization
 			}
 		}
 
-		// (get) Token: 0x06000DD3 RID: 3539 RVA: 0x00056256 File Offset: 0x00054456
-		// (set) Token: 0x06000DD4 RID: 3540 RVA: 0x0005625E File Offset: 0x0005445E
+		// (get) Token: 0x06000DEA RID: 3562 RVA: 0x00056A32 File Offset: 0x00054C32
+		// (set) Token: 0x06000DEB RID: 3563 RVA: 0x00056A3A File Offset: 0x00054C3A
 		public virtual TextAsset localizedStringsFile
 		{
 			get
@@ -37,7 +37,7 @@ namespace Rewired.Localization
 			}
 		}
 
-		// (get) Token: 0x06000DD5 RID: 3541 RVA: 0x0005626D File Offset: 0x0005446D
+		// (get) Token: 0x06000DEC RID: 3564 RVA: 0x00056A49 File Offset: 0x00054C49
 		protected override bool initialized
 		{
 			get
@@ -46,14 +46,14 @@ namespace Rewired.Localization
 			}
 		}
 
-		// Token: 0x06000DD6 RID: 3542 RVA: 0x00056275 File Offset: 0x00054475
+		// Token: 0x06000DED RID: 3565 RVA: 0x00056A51 File Offset: 0x00054C51
 		protected override bool Initialize()
 		{
 			this._initialized = this.TryLoadLocalizedStringData();
 			return this._initialized;
 		}
 
-		// Token: 0x06000DD7 RID: 3543 RVA: 0x0005628C File Offset: 0x0005448C
+		// Token: 0x06000DEE RID: 3566 RVA: 0x00056A68 File Offset: 0x00054C68
 		protected virtual bool TryLoadLocalizedStringData()
 		{
 			this._dictionary.Clear();
@@ -71,7 +71,7 @@ namespace Rewired.Localization
 			return this._dictionary.Count > 0;
 		}
 
-		// Token: 0x06000DD8 RID: 3544 RVA: 0x000562F0 File Offset: 0x000544F0
+		// Token: 0x06000DEF RID: 3567 RVA: 0x00056ACC File Offset: 0x00054CCC
 		protected override bool TryGetLocalizedString(string key, out string result)
 		{
 			if (!this._initialized)

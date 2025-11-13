@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ToyPhoneUIAbilityDisplay : MonoBehaviour
 {
-	// Token: 0x06000A42 RID: 2626 RVA: 0x00046A28 File Offset: 0x00044C28
+	// Token: 0x06000A57 RID: 2647 RVA: 0x00047188 File Offset: 0x00045388
 	public void AbilitySet(AbilityScript.Identifier ability, int abilityPickIndex)
 	{
 		AbilityScript abilityScript = AbilityScript.AbilityGet(ability);

@@ -6,31 +6,31 @@ namespace Panik
 {
 	public class FontsMaster : MonoBehaviour
 	{
-		// Token: 0x06000AAC RID: 2732 RVA: 0x000489BC File Offset: 0x00046BBC
+		// Token: 0x06000AC1 RID: 2753 RVA: 0x0004911C File Offset: 0x0004731C
 		public TMP_FontAsset GetFontNormal(int index)
 		{
 			return this.fontsNormal[index];
 		}
 
-		// Token: 0x06000AAD RID: 2733 RVA: 0x000489C6 File Offset: 0x00046BC6
+		// Token: 0x06000AC2 RID: 2754 RVA: 0x00049126 File Offset: 0x00047326
 		public TMP_FontAsset GetFontDyslexic(int index)
 		{
 			return this.fontsDyslexic[index];
 		}
 
-		// Token: 0x06000AAE RID: 2734 RVA: 0x000489D0 File Offset: 0x00046BD0
+		// Token: 0x06000AC3 RID: 2755 RVA: 0x00049130 File Offset: 0x00047330
 		public Material GetFontMaterialNormal(int index)
 		{
 			return this.fontMaterialsNormal[index];
 		}
 
-		// Token: 0x06000AAF RID: 2735 RVA: 0x000489DA File Offset: 0x00046BDA
+		// Token: 0x06000AC4 RID: 2756 RVA: 0x0004913A File Offset: 0x0004733A
 		public Material GetFontMaterialDyslexic(int index)
 		{
 			return this.fontMaterialsDyslexic[index];
 		}
 
-		// Token: 0x06000AB0 RID: 2736 RVA: 0x000489E4 File Offset: 0x00046BE4
+		// Token: 0x06000AC5 RID: 2757 RVA: 0x00049144 File Offset: 0x00047344
 		public TMP_FontAsset GetFontNormalFromDyslexic(TMP_FontAsset dyslexicFont)
 		{
 			int num = Array.IndexOf<TMP_FontAsset>(this.fontsDyslexic, dyslexicFont);
@@ -47,7 +47,7 @@ namespace Panik
 			return this.fontsNormal[num];
 		}
 
-		// Token: 0x06000AB1 RID: 2737 RVA: 0x00048A30 File Offset: 0x00046C30
+		// Token: 0x06000AC6 RID: 2758 RVA: 0x00049190 File Offset: 0x00047390
 		public TMP_FontAsset GetFontDyslexicFromNormal(TMP_FontAsset normalFont)
 		{
 			int num = Array.IndexOf<TMP_FontAsset>(this.fontsNormal, normalFont);
@@ -64,7 +64,7 @@ namespace Panik
 			return this.fontsDyslexic[num];
 		}
 
-		// Token: 0x06000AB2 RID: 2738 RVA: 0x00048A7C File Offset: 0x00046C7C
+		// Token: 0x06000AC7 RID: 2759 RVA: 0x000491DC File Offset: 0x000473DC
 		public Material GetFontMaterialNormalFromDyslexic(Material dyslexicFontMaterial)
 		{
 			int num = Array.IndexOf<Material>(this.fontMaterialsDyslexic, dyslexicFontMaterial);
@@ -81,7 +81,7 @@ namespace Panik
 			return this.fontMaterialsNormal[num];
 		}
 
-		// Token: 0x06000AB3 RID: 2739 RVA: 0x00048AC8 File Offset: 0x00046CC8
+		// Token: 0x06000AC8 RID: 2760 RVA: 0x00049228 File Offset: 0x00047428
 		public Material GetFontMaterialDyslexicFromNormal(Material normalFontMaterial)
 		{
 			int num = Array.IndexOf<Material>(this.fontMaterialsNormal, normalFontMaterial);
@@ -98,7 +98,7 @@ namespace Panik
 			return this.fontMaterialsDyslexic[num];
 		}
 
-		// Token: 0x06000AB4 RID: 2740 RVA: 0x00048B11 File Offset: 0x00046D11
+		// Token: 0x06000AC9 RID: 2761 RVA: 0x00049271 File Offset: 0x00047471
 		private void Awake()
 		{
 			if (FontsMaster.instance != null)
@@ -109,7 +109,7 @@ namespace Panik
 			FontsMaster.instance = this;
 		}
 
-		// Token: 0x06000AB5 RID: 2741 RVA: 0x00048B32 File Offset: 0x00046D32
+		// Token: 0x06000ACA RID: 2762 RVA: 0x00049292 File Offset: 0x00047492
 		private void Start()
 		{
 			if (this.fontsNormal.Length != this.fontsDyslexic.Length)

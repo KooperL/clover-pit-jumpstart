@@ -9,7 +9,7 @@ namespace I2.Loc
 	[AddComponentMenu("I2/Localization/SetLanguage Dropdown")]
 	public class SetLanguageDropdown : MonoBehaviour
 	{
-		// Token: 0x06001034 RID: 4148 RVA: 0x00065994 File Offset: 0x00063B94
+		// Token: 0x0600104B RID: 4171 RVA: 0x00066170 File Offset: 0x00064370
 		private void OnEnable()
 		{
 			Dropdown component = base.GetComponent<Dropdown>();
@@ -30,7 +30,7 @@ namespace I2.Loc
 			component.onValueChanged.AddListener(new UnityAction<int>(this.OnValueChanged));
 		}
 
-		// Token: 0x06001035 RID: 4149 RVA: 0x00065A1C File Offset: 0x00063C1C
+		// Token: 0x0600104C RID: 4172 RVA: 0x000661F8 File Offset: 0x000643F8
 		private void OnValueChanged(int index)
 		{
 			Dropdown component = base.GetComponent<Dropdown>();

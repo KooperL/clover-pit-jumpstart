@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PillarScript : MonoBehaviour
 {
-	// Token: 0x060003BA RID: 954 RVA: 0x00019CC0 File Offset: 0x00017EC0
+	// Token: 0x060003B8 RID: 952 RVA: 0x00019D84 File Offset: 0x00017F84
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())

@@ -6,49 +6,49 @@ namespace Panik
 {
 	public static class Util
 	{
-		// Token: 0x06000D84 RID: 3460 RVA: 0x00055841 File Offset: 0x00053A41
+		// Token: 0x06000D9B RID: 3483 RVA: 0x0005601D File Offset: 0x0005421D
 		public static T Choose<T>(params T[] elements)
 		{
 			return elements[global::UnityEngine.Random.Range(0, elements.Length)];
 		}
 
-		// Token: 0x06000D85 RID: 3461 RVA: 0x00055852 File Offset: 0x00053A52
+		// Token: 0x06000D9C RID: 3484 RVA: 0x0005602E File Offset: 0x0005422E
 		public static T Choose<T>(List<T> elements)
 		{
 			return elements[global::UnityEngine.Random.Range(0, elements.Count)];
 		}
 
-		// Token: 0x06000D86 RID: 3462 RVA: 0x00055866 File Offset: 0x00053A66
+		// Token: 0x06000D9D RID: 3485 RVA: 0x00056042 File Offset: 0x00054242
 		public static float AngleCos(float angleDegrees)
 		{
 			return Mathf.Cos(angleDegrees * 0.017453292f);
 		}
 
-		// Token: 0x06000D87 RID: 3463 RVA: 0x00055874 File Offset: 0x00053A74
+		// Token: 0x06000D9E RID: 3486 RVA: 0x00056050 File Offset: 0x00054250
 		public static float AngleSin(float angleDegrees)
 		{
 			return Mathf.Sin(angleDegrees * 0.017453292f);
 		}
 
-		// Token: 0x06000D88 RID: 3464 RVA: 0x00055882 File Offset: 0x00053A82
+		// Token: 0x06000D9F RID: 3487 RVA: 0x0005605E File Offset: 0x0005425E
 		public static float AxisToAngle2D(Vector2 axis)
 		{
 			return Mathf.Atan2(axis.y, axis.x) * 57.29578f;
 		}
 
-		// Token: 0x06000D89 RID: 3465 RVA: 0x0005589B File Offset: 0x00053A9B
+		// Token: 0x06000DA0 RID: 3488 RVA: 0x00056077 File Offset: 0x00054277
 		public static float AxisToAngle2D(float x, float y)
 		{
 			return Mathf.Atan2(y, x) * 57.29578f;
 		}
 
-		// Token: 0x06000D8A RID: 3466 RVA: 0x000558AA File Offset: 0x00053AAA
+		// Token: 0x06000DA1 RID: 3489 RVA: 0x00056086 File Offset: 0x00054286
 		public static float AxisToAngle2D(Transform transformFrom, Transform transformTo)
 		{
 			return Util.AxisToAngle2D(transformTo.GetPos2D() - transformFrom.GetPos2D());
 		}
 
-		// Token: 0x06000D8B RID: 3467 RVA: 0x000558C2 File Offset: 0x00053AC2
+		// Token: 0x06000DA2 RID: 3490 RVA: 0x0005609E File Offset: 0x0005429E
 		public static Vector2 AngleToAxis2D(float angle360, float distanceInUnits = 1f)
 		{
 			Util.vec2.x = Mathf.Cos(angle360 * 0.017453292f) * distanceInUnits;
@@ -56,19 +56,19 @@ namespace Panik
 			return Util.vec2;
 		}
 
-		// Token: 0x06000D8C RID: 3468 RVA: 0x000558FC File Offset: 0x00053AFC
+		// Token: 0x06000DA3 RID: 3491 RVA: 0x000560D8 File Offset: 0x000542D8
 		public static Vector3 AxisToAngle3D(Vector3 axis)
 		{
 			return new Vector3(0f, Mathf.Atan2(-axis.z, axis.x) * 57.29578f, Mathf.Atan2(axis.y, new Vector2(axis.x, -axis.z).magnitude) * 57.29578f);
 		}
 
-		// Token: 0x06000D8D RID: 3469 RVA: 0x00055956 File Offset: 0x00053B56
+		// Token: 0x06000DA4 RID: 3492 RVA: 0x00056132 File Offset: 0x00054332
 		public static Vector3 AngleToAxis3D(float yEulerAngle, float zEulerAngle)
 		{
 			return new Vector3(Util.AngleCos(yEulerAngle) * Mathf.Abs(Util.AngleCos(zEulerAngle)), Util.AngleSin(zEulerAngle), -Util.AngleSin(yEulerAngle) * Mathf.Abs(Util.AngleCos(zEulerAngle)));
 		}
 
-		// Token: 0x06000D8E RID: 3470 RVA: 0x00055988 File Offset: 0x00053B88
+		// Token: 0x06000DA5 RID: 3493 RVA: 0x00056164 File Offset: 0x00054364
 		public static Vector3 AxisToFpsVec3(Vector2 inputAxis, float facingYAngle)
 		{
 			facingYAngle = Util.AxisToAngle2D(-inputAxis.x, inputAxis.y) - 180f + facingYAngle;

@@ -5,7 +5,7 @@ namespace I2.Loc
 {
 	public class RegisterGlobalParameters : MonoBehaviour, ILocalizationParamsManager
 	{
-		// Token: 0x06001011 RID: 4113 RVA: 0x00064081 File Offset: 0x00062281
+		// Token: 0x06001028 RID: 4136 RVA: 0x0006485D File Offset: 0x00062A5D
 		public virtual void OnEnable()
 		{
 			if (!LocalizationManager.ParamManagers.Contains(this))
@@ -15,13 +15,13 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001012 RID: 4114 RVA: 0x000640A1 File Offset: 0x000622A1
+		// Token: 0x06001029 RID: 4137 RVA: 0x0006487D File Offset: 0x00062A7D
 		public virtual void OnDisable()
 		{
 			LocalizationManager.ParamManagers.Remove(this);
 		}
 
-		// Token: 0x06001013 RID: 4115 RVA: 0x000640AF File Offset: 0x000622AF
+		// Token: 0x0600102A RID: 4138 RVA: 0x0006488B File Offset: 0x00062A8B
 		public virtual string GetParameterValue(string ParamName)
 		{
 			return null;

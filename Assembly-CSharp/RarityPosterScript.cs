@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class RarityPosterScript : MonoBehaviour
 {
-	// Token: 0x060009DB RID: 2523 RVA: 0x00043760 File Offset: 0x00041960
+	// Token: 0x060009EF RID: 2543 RVA: 0x00043DC8 File Offset: 0x00041FC8
 	private void TranslateTexts()
 	{
 		this.titleText.text = Translation.Get("RARITY_POSTER_TITLE");
@@ -30,20 +30,20 @@ public class RarityPosterScript : MonoBehaviour
 		this.bodyText.text = this.sb.ToString();
 	}
 
-	// Token: 0x060009DC RID: 2524 RVA: 0x000438AB File Offset: 0x00041AAB
+	// Token: 0x060009F0 RID: 2544 RVA: 0x00043F13 File Offset: 0x00042113
 	private void Awake()
 	{
 		RarityPosterScript.instance = this;
 	}
 
-	// Token: 0x060009DD RID: 2525 RVA: 0x000438B3 File Offset: 0x00041AB3
+	// Token: 0x060009F1 RID: 2545 RVA: 0x00043F1B File Offset: 0x0004211B
 	private void Start()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TranslateTexts));
 		this.TranslateTexts();
 	}
 
-	// Token: 0x060009DE RID: 2526 RVA: 0x000438DB File Offset: 0x00041ADB
+	// Token: 0x060009F2 RID: 2546 RVA: 0x00043F43 File Offset: 0x00042143
 	private void OnDestroy()
 	{
 		if (RarityPosterScript.instance == this)

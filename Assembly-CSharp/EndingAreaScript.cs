@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndingAreaScript : MonoBehaviour
 {
-	// Token: 0x060003AD RID: 941 RVA: 0x00019874 File Offset: 0x00017A74
+	// Token: 0x060003AB RID: 939 RVA: 0x00019938 File Offset: 0x00017B38
 	public static void DetermineControlPanel()
 	{
 		Collider[] array;
@@ -38,13 +38,13 @@ public class EndingAreaScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003AE RID: 942 RVA: 0x00019952 File Offset: 0x00017B52
+	// Token: 0x060003AC RID: 940 RVA: 0x00019A16 File Offset: 0x00017C16
 	private void Awake()
 	{
 		EndingAreaScript.instance = this;
 	}
 
-	// Token: 0x060003AF RID: 943 RVA: 0x0001995C File Offset: 0x00017B5C
+	// Token: 0x060003AD RID: 941 RVA: 0x00019A20 File Offset: 0x00017C20
 	private void Update()
 	{
 		this.liftTr.localPosition = new Vector3(Util.AngleSin(Tick.PassedTime * 45f) * 0.1f, 0f, Util.AngleSin(Tick.PassedTime * 75f) * 0.1f);

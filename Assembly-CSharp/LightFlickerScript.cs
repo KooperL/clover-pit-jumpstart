@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class LightFlickerScript : MonoBehaviour
 {
-	// Token: 0x060007EB RID: 2027 RVA: 0x00033103 File Offset: 0x00031303
+	// Token: 0x060007F2 RID: 2034 RVA: 0x000332EB File Offset: 0x000314EB
 	private void Reset()
 	{
 		this.myLight = base.GetComponent<Light>();
 	}
 
-	// Token: 0x060007EC RID: 2028 RVA: 0x00033111 File Offset: 0x00031311
+	// Token: 0x060007F3 RID: 2035 RVA: 0x000332F9 File Offset: 0x000314F9
 	private void Awake()
 	{
 		LightFlickerScript.instance = this;
 	}
 
-	// Token: 0x060007ED RID: 2029 RVA: 0x00033119 File Offset: 0x00031319
+	// Token: 0x060007F4 RID: 2036 RVA: 0x00033301 File Offset: 0x00031501
 	private void OnDestroy()
 	{
 		if (LightFlickerScript.instance == this)
@@ -25,7 +25,7 @@ public class LightFlickerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007EE RID: 2030 RVA: 0x00033130 File Offset: 0x00031330
+	// Token: 0x060007F5 RID: 2037 RVA: 0x00033318 File Offset: 0x00031518
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)

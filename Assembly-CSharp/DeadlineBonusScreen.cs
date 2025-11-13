@@ -8,13 +8,13 @@ using UnityEngine.Events;
 
 public class DeadlineBonusScreen : MonoBehaviour
 {
-	// Token: 0x06000850 RID: 2128 RVA: 0x00036647 File Offset: 0x00034847
+	// Token: 0x06000857 RID: 2135 RVA: 0x0003689B File Offset: 0x00034A9B
 	private void TitleTranslate()
 	{
 		this.titleText.text = Translation.Get("DEADLINE_REWARD_SCREEN_TITLE");
 	}
 
-	// Token: 0x06000851 RID: 2129 RVA: 0x00036660 File Offset: 0x00034860
+	// Token: 0x06000858 RID: 2136 RVA: 0x000368B4 File Offset: 0x00034AB4
 	public static void UpdateValues()
 	{
 		if (DeadlineBonusScreen.instance == null)
@@ -29,7 +29,7 @@ public class DeadlineBonusScreen : MonoBehaviour
 		DeadlineBonusScreen.instance.bodyText_Coins.text = DeadlineBonusScreen.instance.sb.ToString();
 		DeadlineBonusScreen.instance.sb.Clear();
 		DeadlineBonusScreen.instance.sb.Append(GameplayData.DeadlineReward_CloverTickets(num));
-		long num2 = GameplayData.DeadlineReward_CloverTickets_Extras();
+		long num2 = GameplayData.DeadlineReward_CloverTickets_Extras(false);
 		if (num2 > 0L)
 		{
 			DeadlineBonusScreen.instance.sb.Append("+");
@@ -39,7 +39,7 @@ public class DeadlineBonusScreen : MonoBehaviour
 		DeadlineBonusScreen.instance.bodyText_Tickets.text = DeadlineBonusScreen.instance.sb.ToString();
 	}
 
-	// Token: 0x06000852 RID: 2130 RVA: 0x0003676F File Offset: 0x0003496F
+	// Token: 0x06000859 RID: 2137 RVA: 0x000369C4 File Offset: 0x00034BC4
 	public static void Initialize()
 	{
 		if (DeadlineBonusScreen.instance == null)
@@ -49,13 +49,13 @@ public class DeadlineBonusScreen : MonoBehaviour
 		DeadlineBonusScreen.UpdateValues();
 	}
 
-	// Token: 0x06000853 RID: 2131 RVA: 0x00036784 File Offset: 0x00034984
+	// Token: 0x0600085A RID: 2138 RVA: 0x000369D9 File Offset: 0x00034BD9
 	private void Awake()
 	{
 		DeadlineBonusScreen.instance = this;
 	}
 
-	// Token: 0x06000854 RID: 2132 RVA: 0x0003678C File Offset: 0x0003498C
+	// Token: 0x0600085B RID: 2139 RVA: 0x000369E1 File Offset: 0x00034BE1
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -66,7 +66,7 @@ public class DeadlineBonusScreen : MonoBehaviour
 		this.TitleTranslate();
 	}
 
-	// Token: 0x06000855 RID: 2133 RVA: 0x000367BC File Offset: 0x000349BC
+	// Token: 0x0600085C RID: 2140 RVA: 0x00036A11 File Offset: 0x00034C11
 	private void OnDestroy()
 	{
 		if (DeadlineBonusScreen.instance == this)
@@ -76,7 +76,7 @@ public class DeadlineBonusScreen : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TitleTranslate));
 	}
 
-	// Token: 0x06000856 RID: 2134 RVA: 0x000367F4 File Offset: 0x000349F4
+	// Token: 0x0600085D RID: 2141 RVA: 0x00036A48 File Offset: 0x00034C48
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

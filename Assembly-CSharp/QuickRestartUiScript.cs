@@ -7,33 +7,33 @@ using UnityEngine.UI;
 
 public class QuickRestartUiScript : MonoBehaviour
 {
-	// Token: 0x060009D2 RID: 2514 RVA: 0x0004333D File Offset: 0x0004153D
+	// Token: 0x060009E6 RID: 2534 RVA: 0x000439A5 File Offset: 0x00041BA5
 	public static bool IsEnabled()
 	{
 		return !(QuickRestartUiScript.instance == null) && QuickRestartUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060009D3 RID: 2515 RVA: 0x0004335D File Offset: 0x0004155D
+	// Token: 0x060009E7 RID: 2535 RVA: 0x000439C5 File Offset: 0x00041BC5
 	private void TextUpdate()
 	{
 		this.restartText.text = Translation.Get("MENU_OPTION_RESTART");
 	}
 
-	// Token: 0x060009D4 RID: 2516 RVA: 0x00043374 File Offset: 0x00041574
+	// Token: 0x060009E8 RID: 2536 RVA: 0x000439DC File Offset: 0x00041BDC
 	private void Awake()
 	{
 		QuickRestartUiScript.instance = this;
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x060009D5 RID: 2517 RVA: 0x00043388 File Offset: 0x00041588
+	// Token: 0x060009E9 RID: 2537 RVA: 0x000439F0 File Offset: 0x00041BF0
 	private void Start()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TextUpdate));
 		this.ResetImageBar();
 	}
 
-	// Token: 0x060009D6 RID: 2518 RVA: 0x000433B0 File Offset: 0x000415B0
+	// Token: 0x060009EA RID: 2538 RVA: 0x00043A18 File Offset: 0x00041C18
 	private void OnDestroy()
 	{
 		if (QuickRestartUiScript.instance == this)
@@ -42,7 +42,7 @@ public class QuickRestartUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009D7 RID: 2519 RVA: 0x000433C8 File Offset: 0x000415C8
+	// Token: 0x060009EB RID: 2539 RVA: 0x00043A30 File Offset: 0x00041C30
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -159,7 +159,7 @@ public class QuickRestartUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009D8 RID: 2520 RVA: 0x000436EC File Offset: 0x000418EC
+	// Token: 0x060009EC RID: 2540 RVA: 0x00043D54 File Offset: 0x00041F54
 	private void ResetImageBar()
 	{
 		Vector2 sizeDelta = this.foregroundImageBar.rectTransform.sizeDelta;

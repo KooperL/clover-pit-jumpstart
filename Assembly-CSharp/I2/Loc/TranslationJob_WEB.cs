@@ -10,7 +10,7 @@ namespace I2.Loc
 {
 	public class TranslationJob_WEB : TranslationJob_WWW
 	{
-		// Token: 0x06000E63 RID: 3683 RVA: 0x0005C41E File Offset: 0x0005A61E
+		// Token: 0x06000E7A RID: 3706 RVA: 0x0005CBFA File Offset: 0x0005ADFA
 		public TranslationJob_WEB(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
 		{
 			this._requests = requests;
@@ -19,7 +19,7 @@ namespace I2.Loc
 			this.ExecuteNextBatch();
 		}
 
-		// Token: 0x06000E64 RID: 3684 RVA: 0x0005C440 File Offset: 0x0005A640
+		// Token: 0x06000E7B RID: 3707 RVA: 0x0005CC1C File Offset: 0x0005AE1C
 		private void FindAllQueries()
 		{
 			this.mQueries = new List<KeyValuePair<string, string>>();
@@ -33,7 +33,7 @@ namespace I2.Loc
 			this.mQueries.Sort((KeyValuePair<string, string> a, KeyValuePair<string, string> b) => a.Value.CompareTo(b.Value));
 		}
 
-		// Token: 0x06000E65 RID: 3685 RVA: 0x0005C518 File Offset: 0x0005A718
+		// Token: 0x06000E7C RID: 3708 RVA: 0x0005CCF4 File Offset: 0x0005AEF4
 		private void ExecuteNextBatch()
 		{
 			if (this.mQueries.Count == 0)
@@ -75,7 +75,7 @@ namespace I2.Loc
 			I2Utils.SendWebRequest(this.www);
 		}
 
-		// Token: 0x06000E66 RID: 3686 RVA: 0x0005C644 File Offset: 0x0005A844
+		// Token: 0x06000E7D RID: 3709 RVA: 0x0005CE20 File Offset: 0x0005B020
 		public override TranslationJob.eJobState GetState()
 		{
 			if (this.www != null && this.www.isDone)
@@ -91,7 +91,7 @@ namespace I2.Loc
 			return this.mJobState;
 		}
 
-		// Token: 0x06000E67 RID: 3687 RVA: 0x0005C6B0 File Offset: 0x0005A8B0
+		// Token: 0x06000E7E RID: 3710 RVA: 0x0005CE8C File Offset: 0x0005B08C
 		public void ProcessResult(byte[] bytes, string errorMsg)
 		{
 			if (string.IsNullOrEmpty(errorMsg))
@@ -111,7 +111,7 @@ namespace I2.Loc
 			this.mErrorMessage = errorMsg;
 		}
 
-		// Token: 0x06000E68 RID: 3688 RVA: 0x0005C718 File Offset: 0x0005A918
+		// Token: 0x06000E7F RID: 3711 RVA: 0x0005CEF4 File Offset: 0x0005B0F4
 		private string ParseTranslationResult(string html, string OriginalText)
 		{
 			string text2;

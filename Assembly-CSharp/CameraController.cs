@@ -289,7 +289,7 @@ public class CameraController : MonoBehaviour
 			if (this.lookDown_Timer > 0.5f && !this.lookdDown_ScarySoundPlayed)
 			{
 				this.lookdDown_ScarySoundPlayed = true;
-				Sound.Play3D("SoundScaryPit" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString(), new Vector3(0f, -2.5f, 0f), 30f, 1f, 1f, AudioRolloffMode.Linear);
+				Sound.Play3D("SoundScaryPit" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString(), new Vector3(0f, -2.5f, 0f), 30f, 1f, 1f, 1);
 			}
 		}
 		else
@@ -312,7 +312,7 @@ public class CameraController : MonoBehaviour
 			if (this.lookUp_Timer > 2f && !this.lookdUp_ScarySoundPlayed)
 			{
 				this.lookdUp_ScarySoundPlayed = true;
-				Sound.Play3D("SoundScaryCeiling", new Vector3(0f, 15f, 0f), 30f, 1f, 1f, AudioRolloffMode.Linear);
+				Sound.Play3D("SoundScaryCeiling", new Vector3(0f, 15f, 0f), 30f, 1f, 1f, 1);
 			}
 		}
 		else

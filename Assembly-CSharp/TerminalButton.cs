@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class TerminalButton : MonoBehaviour
 {
-	// Token: 0x06000A2A RID: 2602 RVA: 0x00045F96 File Offset: 0x00044196
+	// Token: 0x06000A3F RID: 2623 RVA: 0x000466F6 File Offset: 0x000448F6
 	public bool IsMouseOnMe()
 	{
 		return this._mouseOver;
 	}
 
-	// Token: 0x06000A2B RID: 2603 RVA: 0x00045FA0 File Offset: 0x000441A0
+	// Token: 0x06000A40 RID: 2624 RVA: 0x00046700 File Offset: 0x00044900
 	private bool IsMouseOver()
 	{
 		bool flag = VirtualCursors.IsCursorVisible(0, true);
@@ -53,13 +53,13 @@ public class TerminalButton : MonoBehaviour
 		return flag2;
 	}
 
-	// Token: 0x06000A2C RID: 2604 RVA: 0x000460F1 File Offset: 0x000442F1
+	// Token: 0x06000A41 RID: 2625 RVA: 0x00046851 File Offset: 0x00044A51
 	public bool HoveredState_Get()
 	{
 		return this._hovered;
 	}
 
-	// Token: 0x06000A2D RID: 2605 RVA: 0x000460F9 File Offset: 0x000442F9
+	// Token: 0x06000A42 RID: 2626 RVA: 0x00046859 File Offset: 0x00044A59
 	public void HoveredState_Set(bool state)
 	{
 		if (state != this._hovered && state)
@@ -73,32 +73,32 @@ public class TerminalButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A2E RID: 2606 RVA: 0x00046127 File Offset: 0x00044327
+	// Token: 0x06000A43 RID: 2627 RVA: 0x00046887 File Offset: 0x00044A87
 	public void HoverColor()
 	{
 		this.hoveredColorTimer = 0.15f;
 	}
 
-	// Token: 0x06000A2F RID: 2607 RVA: 0x00046134 File Offset: 0x00044334
+	// Token: 0x06000A44 RID: 2628 RVA: 0x00046894 File Offset: 0x00044A94
 	public bool FlashState_Get()
 	{
 		return this._flash;
 	}
 
-	// Token: 0x06000A30 RID: 2608 RVA: 0x0004613C File Offset: 0x0004433C
+	// Token: 0x06000A45 RID: 2629 RVA: 0x0004689C File Offset: 0x00044A9C
 	public void FlashState_Set(bool state)
 	{
 		this._flash = state;
 	}
 
-	// Token: 0x06000A31 RID: 2609 RVA: 0x00046145 File Offset: 0x00044345
+	// Token: 0x06000A46 RID: 2630 RVA: 0x000468A5 File Offset: 0x00044AA5
 	public virtual void Start()
 	{
 		this.gameCamera = CameraGame.firstInstance.myCamera;
 		this.player = Controls.GetPlayerByIndex(0);
 	}
 
-	// Token: 0x06000A32 RID: 2610 RVA: 0x00046164 File Offset: 0x00044364
+	// Token: 0x06000A47 RID: 2631 RVA: 0x000468C4 File Offset: 0x00044AC4
 	public virtual void Update()
 	{
 		if (!PlatformMaster.IsInitialized())

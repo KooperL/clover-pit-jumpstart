@@ -5,7 +5,7 @@ namespace Panik
 {
 	public class BounceScript : MonoBehaviour
 	{
-		// Token: 0x06000A90 RID: 2704 RVA: 0x0004828E File Offset: 0x0004648E
+		// Token: 0x06000AA5 RID: 2725 RVA: 0x000489EE File Offset: 0x00046BEE
 		public void SetBounceScale(float force)
 		{
 			if (!base.enabled)
@@ -18,13 +18,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000A91 RID: 2705 RVA: 0x000482AF File Offset: 0x000464AF
+		// Token: 0x06000AA6 RID: 2726 RVA: 0x00048A0F File Offset: 0x00046C0F
 		public void SetBounceScaleDecaySpeed(float decaySpeed)
 		{
 			this.additionalScaleDecay = decaySpeed;
 		}
 
-		// Token: 0x06000A92 RID: 2706 RVA: 0x000482B8 File Offset: 0x000464B8
+		// Token: 0x06000AA7 RID: 2727 RVA: 0x00048A18 File Offset: 0x00046C18
 		public void SetBouncesPerSecond(float bouncesPerSecond)
 		{
 			if (!base.enabled)
@@ -34,26 +34,26 @@ namespace Panik
 			this.bouncesPerSecond = bouncesPerSecond;
 		}
 
-		// Token: 0x06000A93 RID: 2707 RVA: 0x000482D0 File Offset: 0x000464D0
+		// Token: 0x06000AA8 RID: 2728 RVA: 0x00048A30 File Offset: 0x00046C30
 		public void SetBouncesPerSecondDecaySpeed(float decaySpeed)
 		{
 			this.frequencyDecay = decaySpeed;
 		}
 
-		// Token: 0x06000A94 RID: 2708 RVA: 0x000482D9 File Offset: 0x000464D9
+		// Token: 0x06000AA9 RID: 2729 RVA: 0x00048A39 File Offset: 0x00046C39
 		public void ResetBounceFrequency()
 		{
 			this.bouncesPerSecond = this._bouncesPerSecondResetValue;
 		}
 
-		// Token: 0x06000A95 RID: 2709 RVA: 0x000482E7 File Offset: 0x000464E7
+		// Token: 0x06000AAA RID: 2730 RVA: 0x00048A47 File Offset: 0x00046C47
 		private void Awake()
 		{
 			this._additionalScaleResetValue = this.additionalScale;
 			this._bouncesPerSecondResetValue = this.bouncesPerSecond;
 		}
 
-		// Token: 0x06000A96 RID: 2710 RVA: 0x00048304 File Offset: 0x00046504
+		// Token: 0x06000AAB RID: 2731 RVA: 0x00048A64 File Offset: 0x00046C64
 		private void OnEnable()
 		{
 			if (this.resetOnEnable)
@@ -73,7 +73,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000A97 RID: 2711 RVA: 0x00048369 File Offset: 0x00046569
+		// Token: 0x06000AAC RID: 2732 RVA: 0x00048AC9 File Offset: 0x00046CC9
 		private void OnDisable()
 		{
 			if (this.frequencyResets)
@@ -82,7 +82,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000A98 RID: 2712 RVA: 0x0004837C File Offset: 0x0004657C
+		// Token: 0x06000AAD RID: 2733 RVA: 0x00048ADC File Offset: 0x00046CDC
 		public void Update()
 		{
 			if (this.pausable && !Tick.IsGameRunning)

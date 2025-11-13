@@ -6,7 +6,7 @@ namespace Panik
 {
 	public class Pool : MonoBehaviour
 	{
-		// Token: 0x06000B03 RID: 2819 RVA: 0x0004A3F0 File Offset: 0x000485F0
+		// Token: 0x06000B18 RID: 2840 RVA: 0x0004AB50 File Offset: 0x00048D50
 		public static GameObject GetEx(string prefabName, bool automaticallyEnable)
 		{
 			Pool.gameObjAppoggio = null;
@@ -33,13 +33,13 @@ namespace Panik
 			return Pool.gameObjAppoggio;
 		}
 
-		// Token: 0x06000B04 RID: 2820 RVA: 0x0004A4DB File Offset: 0x000486DB
+		// Token: 0x06000B19 RID: 2841 RVA: 0x0004AC3B File Offset: 0x00048E3B
 		public static GameObject Get(string prefabName)
 		{
 			return Pool.GetEx(prefabName, true);
 		}
 
-		// Token: 0x06000B05 RID: 2821 RVA: 0x0004A4E4 File Offset: 0x000486E4
+		// Token: 0x06000B1A RID: 2842 RVA: 0x0004AC44 File Offset: 0x00048E44
 		public static void Destroy(GameObject gameObject, string prefabName = null)
 		{
 			if (gameObject == null)
@@ -65,7 +65,7 @@ namespace Panik
 			gameObject.SetActive(false);
 		}
 
-		// Token: 0x06000B06 RID: 2822 RVA: 0x0004A598 File Offset: 0x00048798
+		// Token: 0x06000B1B RID: 2843 RVA: 0x0004ACF8 File Offset: 0x00048EF8
 		public static void Prepare(string prefabName, int numberOfDesiredInstances)
 		{
 			for (int i = 0; i < numberOfDesiredInstances; i++)
@@ -74,7 +74,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B07 RID: 2823 RVA: 0x0004A5C4 File Offset: 0x000487C4
+		// Token: 0x06000B1C RID: 2844 RVA: 0x0004AD24 File Offset: 0x00048F24
 		private void _PrepareDuringUpdate(string prefabName)
 		{
 			Pool.gameObjAppoggio = null;
@@ -90,13 +90,13 @@ namespace Panik
 			Pool.poolCapsAppoggio.availableGameObjects.Add(Pool.gameObjAppoggio);
 		}
 
-		// Token: 0x06000B08 RID: 2824 RVA: 0x0004A648 File Offset: 0x00048848
+		// Token: 0x06000B1D RID: 2845 RVA: 0x0004ADA8 File Offset: 0x00048FA8
 		private void Awake()
 		{
 			Pool.instance = this;
 		}
 
-		// Token: 0x06000B09 RID: 2825 RVA: 0x0004A650 File Offset: 0x00048850
+		// Token: 0x06000B1E RID: 2846 RVA: 0x0004ADB0 File Offset: 0x00048FB0
 		private void OnDestroy()
 		{
 			if (Pool.instance == this)
@@ -105,7 +105,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B0A RID: 2826 RVA: 0x0004A668 File Offset: 0x00048868
+		// Token: 0x06000B1F RID: 2847 RVA: 0x0004ADC8 File Offset: 0x00048FC8
 		private void Update()
 		{
 			if (this.prepareList.Count > 0)
@@ -134,7 +134,7 @@ namespace Panik
 
 		public class PoolCapsule
 		{
-			// Token: 0x06001290 RID: 4752 RVA: 0x000768B8 File Offset: 0x00074AB8
+			// Token: 0x060012A7 RID: 4775 RVA: 0x0007714C File Offset: 0x0007534C
 			public PoolCapsule(string prefabName)
 			{
 				this.prefabName = prefabName;

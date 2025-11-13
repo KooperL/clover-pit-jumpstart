@@ -7,25 +7,25 @@ using UnityEngine.UI;
 
 public class SeedMenuButton : MonoBehaviour
 {
-	// Token: 0x060009FE RID: 2558 RVA: 0x0004486B File Offset: 0x00042A6B
+	// Token: 0x06000A13 RID: 2579 RVA: 0x00044F67 File Offset: 0x00043167
 	public bool IsHovered()
 	{
 		return this.hovered;
 	}
 
-	// Token: 0x060009FF RID: 2559 RVA: 0x00044873 File Offset: 0x00042A73
+	// Token: 0x06000A14 RID: 2580 RVA: 0x00044F6F File Offset: 0x0004316F
 	public void HoveredSet(bool state)
 	{
 		this.hovered = state;
 	}
 
-	// Token: 0x06000A00 RID: 2560 RVA: 0x0004487C File Offset: 0x00042A7C
+	// Token: 0x06000A15 RID: 2581 RVA: 0x00044F78 File Offset: 0x00043178
 	public void FlashRed()
 	{
 		this.redTextTimer = 0.5f;
 	}
 
-	// Token: 0x06000A01 RID: 2561 RVA: 0x0004488C File Offset: 0x00042A8C
+	// Token: 0x06000A16 RID: 2582 RVA: 0x00044F88 File Offset: 0x00043188
 	public void SetNumber(uint n)
 	{
 		if (!this.acceptNumbers)
@@ -41,13 +41,13 @@ public class SeedMenuButton : MonoBehaviour
 		this.text.text = n.ToString();
 	}
 
-	// Token: 0x06000A02 RID: 2562 RVA: 0x00044935 File Offset: 0x00042B35
+	// Token: 0x06000A17 RID: 2583 RVA: 0x00045031 File Offset: 0x00043231
 	public uint GetNumber()
 	{
 		return this.myNumber;
 	}
 
-	// Token: 0x06000A03 RID: 2563 RVA: 0x00044940 File Offset: 0x00042B40
+	// Token: 0x06000A18 RID: 2584 RVA: 0x0004503C File Offset: 0x0004323C
 	private void Awake()
 	{
 		if (!this.isOkButton && !this.isBackButton)
@@ -60,7 +60,7 @@ public class SeedMenuButton : MonoBehaviour
 		this.textStartingPos = this.text.rectTransform.anchoredPosition;
 	}
 
-	// Token: 0x06000A04 RID: 2564 RVA: 0x000449A2 File Offset: 0x00042BA2
+	// Token: 0x06000A19 RID: 2585 RVA: 0x0004509E File Offset: 0x0004329E
 	private void OnDestroy()
 	{
 		if (!this.isOkButton && !this.isBackButton)
@@ -69,7 +69,7 @@ public class SeedMenuButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A05 RID: 2565 RVA: 0x000449C0 File Offset: 0x00042BC0
+	// Token: 0x06000A1A RID: 2586 RVA: 0x000450BC File Offset: 0x000432BC
 	private void Start()
 	{
 		this.originalColor = this.text.color;
@@ -80,7 +80,7 @@ public class SeedMenuButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A06 RID: 2566 RVA: 0x000449FC File Offset: 0x00042BFC
+	// Token: 0x06000A1B RID: 2587 RVA: 0x000450F8 File Offset: 0x000432F8
 	private void Update()
 	{
 		bool flag = this.hovered;

@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-	// Token: 0x060007B7 RID: 1975 RVA: 0x000324AF File Offset: 0x000306AF
+	// Token: 0x060007B7 RID: 1975 RVA: 0x00032567 File Offset: 0x00030767
 	private void PlayerExtChacheIt()
 	{
 		this._myPlayerExtChached = this.GetMyPlayerExt();
 	}
 
-	// Token: 0x060007B8 RID: 1976 RVA: 0x000324BD File Offset: 0x000306BD
+	// Token: 0x060007B8 RID: 1976 RVA: 0x00032575 File Offset: 0x00030775
 	public Controls.PlayerExt GetMyPlayerExt()
 	{
 		return Controls.GetPlayerByIndex(this.playerIndex);
 	}
 
-	// (get) Token: 0x060007B9 RID: 1977 RVA: 0x000324CA File Offset: 0x000306CA
+	// (get) Token: 0x060007B9 RID: 1977 RVA: 0x00032582 File Offset: 0x00030782
 	public Controls.PlayerExt MyPlayerExt
 	{
 		get
@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007BA RID: 1978 RVA: 0x000324D4 File Offset: 0x000306D4
+	// Token: 0x060007BA RID: 1978 RVA: 0x0003258C File Offset: 0x0003078C
 	private string GetStepSound()
 	{
 		if (this.onConcrete)
@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
 		return "SoundStep" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString();
 	}
 
-	// Token: 0x060007BB RID: 1979 RVA: 0x0003253C File Offset: 0x0003073C
+	// Token: 0x060007BB RID: 1979 RVA: 0x000325F4 File Offset: 0x000307F4
 	private void Awake()
 	{
 		switch (this.playerIndex)
@@ -58,13 +58,13 @@ public class PlayerScript : MonoBehaviour
 		this.rb = base.GetComponent<Rigidbody>();
 	}
 
-	// Token: 0x060007BC RID: 1980 RVA: 0x0003259D File Offset: 0x0003079D
+	// Token: 0x060007BC RID: 1980 RVA: 0x00032655 File Offset: 0x00030855
 	private void Start()
 	{
 		this.PlayerExtChacheIt();
 	}
 
-	// Token: 0x060007BD RID: 1981 RVA: 0x000325A8 File Offset: 0x000307A8
+	// Token: 0x060007BD RID: 1981 RVA: 0x00032660 File Offset: 0x00030860
 	private void OnDestroy()
 	{
 		switch (this.playerIndex)
@@ -97,7 +97,7 @@ public class PlayerScript : MonoBehaviour
 		PlayerScript.list.Remove(this);
 	}
 
-	// Token: 0x060007BE RID: 1982 RVA: 0x00032634 File Offset: 0x00030834
+	// Token: 0x060007BE RID: 1982 RVA: 0x000326EC File Offset: 0x000308EC
 	private void Update()
 	{
 		if (Tick.IsGameRunning && PlatformMaster.IsInitialized() && (GameplayMaster.GetGamePhase() == GameplayMaster.GamePhase.preparation || GameplayMaster.EndingFreeRoaming))
@@ -130,7 +130,7 @@ public class PlayerScript : MonoBehaviour
 				if (this.stepTimer <= 0f)
 				{
 					this.stepTimer = this.stepTimerMax + global::UnityEngine.Random.Range(-this.stepTimerRnd, this.stepTimerRnd);
-					Sound.Play3D(this.GetStepSound(), base.transform.position, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
+					Sound.Play3D(this.GetStepSound(), base.transform.position, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), 1);
 				}
 				return;
 			}
@@ -138,13 +138,13 @@ public class PlayerScript : MonoBehaviour
 		this.rb.linearVelocity = Vector3.zero;
 	}
 
-	// Token: 0x060007BF RID: 1983 RVA: 0x00032836 File Offset: 0x00030A36
+	// Token: 0x060007BF RID: 1983 RVA: 0x000328EE File Offset: 0x00030AEE
 	private void FixedUpdate()
 	{
 		this.onConcrete = false;
 	}
 
-	// Token: 0x060007C0 RID: 1984 RVA: 0x0003283F File Offset: 0x00030A3F
+	// Token: 0x060007C0 RID: 1984 RVA: 0x000328F7 File Offset: 0x00030AF7
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.CompareTag("SoundConcrete"))

@@ -5,7 +5,7 @@ namespace Panik
 {
 	public static class Tick
 	{
-		// (get) Token: 0x06000D67 RID: 3431 RVA: 0x0005526E File Offset: 0x0005346E
+		// (get) Token: 0x06000D7E RID: 3454 RVA: 0x00055A4A File Offset: 0x00053C4A
 		public static float Time
 		{
 			get
@@ -14,7 +14,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D68 RID: 3432 RVA: 0x00055275 File Offset: 0x00053475
+		// (get) Token: 0x06000D7F RID: 3455 RVA: 0x00055A51 File Offset: 0x00053C51
 		public static float TimeFixed
 		{
 			get
@@ -23,7 +23,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D69 RID: 3433 RVA: 0x0005527C File Offset: 0x0005347C
+		// (get) Token: 0x06000D80 RID: 3456 RVA: 0x00055A58 File Offset: 0x00053C58
 		public static float TimeUnscaled
 		{
 			get
@@ -32,7 +32,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D6A RID: 3434 RVA: 0x00055283 File Offset: 0x00053483
+		// (get) Token: 0x06000D81 RID: 3457 RVA: 0x00055A5F File Offset: 0x00053C5F
 		public static float TimeFixedUnscaled
 		{
 			get
@@ -41,7 +41,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D6B RID: 3435 RVA: 0x0005528A File Offset: 0x0005348A
+		// (get) Token: 0x06000D82 RID: 3458 RVA: 0x00055A66 File Offset: 0x00053C66
 		public static float PassedTime
 		{
 			get
@@ -50,7 +50,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D6C RID: 3436 RVA: 0x00055291 File Offset: 0x00053491
+		// (get) Token: 0x06000D83 RID: 3459 RVA: 0x00055A6D File Offset: 0x00053C6D
 		public static float PassedTimePausable
 		{
 			get
@@ -59,7 +59,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D6D RID: 3437 RVA: 0x00055298 File Offset: 0x00053498
+		// (get) Token: 0x06000D84 RID: 3460 RVA: 0x00055A74 File Offset: 0x00053C74
 		public static float PassedTimeUnscaled
 		{
 			get
@@ -68,7 +68,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D6E RID: 3438 RVA: 0x0005529F File Offset: 0x0005349F
+		// (get) Token: 0x06000D85 RID: 3461 RVA: 0x00055A7B File Offset: 0x00053C7B
 		public static float PassedTimePausableUnscaled
 		{
 			get
@@ -77,7 +77,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D6F RID: 3439 RVA: 0x000552A6 File Offset: 0x000534A6
+		// (get) Token: 0x06000D86 RID: 3462 RVA: 0x00055A82 File Offset: 0x00053C82
 		public static float PassedTime01
 		{
 			get
@@ -86,7 +86,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D70 RID: 3440 RVA: 0x000552AD File Offset: 0x000534AD
+		// (get) Token: 0x06000D87 RID: 3463 RVA: 0x00055A89 File Offset: 0x00053C89
 		public static float PassedTimePausable01
 		{
 			get
@@ -95,7 +95,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D71 RID: 3441 RVA: 0x000552B4 File Offset: 0x000534B4
+		// (get) Token: 0x06000D88 RID: 3464 RVA: 0x00055A90 File Offset: 0x00053C90
 		public static float PassedTimeUnscaled01
 		{
 			get
@@ -104,7 +104,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D72 RID: 3442 RVA: 0x000552BB File Offset: 0x000534BB
+		// (get) Token: 0x06000D89 RID: 3465 RVA: 0x00055A97 File Offset: 0x00053C97
 		public static float PassedTimePausableUnscaled01
 		{
 			get
@@ -113,8 +113,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D73 RID: 3443 RVA: 0x000552C2 File Offset: 0x000534C2
-		// (set) Token: 0x06000D74 RID: 3444 RVA: 0x000552C9 File Offset: 0x000534C9
+		// (get) Token: 0x06000D8A RID: 3466 RVA: 0x00055A9E File Offset: 0x00053C9E
+		// (set) Token: 0x06000D8B RID: 3467 RVA: 0x00055AA5 File Offset: 0x00053CA5
 		public static float FreezeTimer
 		{
 			get
@@ -130,8 +130,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D75 RID: 3445 RVA: 0x000552D9 File Offset: 0x000534D9
-		// (set) Token: 0x06000D76 RID: 3446 RVA: 0x000552E0 File Offset: 0x000534E0
+		// (get) Token: 0x06000D8C RID: 3468 RVA: 0x00055AB5 File Offset: 0x00053CB5
+		// (set) Token: 0x06000D8D RID: 3469 RVA: 0x00055ABC File Offset: 0x00053CBC
 		public static bool Paused
 		{
 			get
@@ -144,7 +144,7 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000D77 RID: 3447 RVA: 0x000552E8 File Offset: 0x000534E8
+		// (get) Token: 0x06000D8E RID: 3470 RVA: 0x00055AC4 File Offset: 0x00053CC4
 		public static bool IsGameRunning
 		{
 			get
@@ -153,7 +153,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D78 RID: 3448 RVA: 0x00055304 File Offset: 0x00053504
+		// Token: 0x06000D8F RID: 3471 RVA: 0x00055AE0 File Offset: 0x00053CE0
 		public static void Routine()
 		{
 			Tick._time = global::UnityEngine.Time.deltaTime;

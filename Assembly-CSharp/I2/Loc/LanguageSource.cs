@@ -8,8 +8,8 @@ namespace I2.Loc
 	[ExecuteInEditMode]
 	public class LanguageSource : MonoBehaviour, ISerializationCallbackReceiver, ILanguageSource
 	{
-		// (get) Token: 0x06000E70 RID: 3696 RVA: 0x0005C8C6 File Offset: 0x0005AAC6
-		// (set) Token: 0x06000E71 RID: 3697 RVA: 0x0005C8CE File Offset: 0x0005AACE
+		// (get) Token: 0x06000E87 RID: 3719 RVA: 0x0005D0A2 File Offset: 0x0005B2A2
+		// (set) Token: 0x06000E88 RID: 3720 RVA: 0x0005D0AA File Offset: 0x0005B2AA
 		public LanguageSourceData SourceData
 		{
 			get
@@ -22,18 +22,18 @@ namespace I2.Loc
 			}
 		}
 
-		// (add) Token: 0x06000E72 RID: 3698 RVA: 0x0005C8D8 File Offset: 0x0005AAD8
-		// (remove) Token: 0x06000E73 RID: 3699 RVA: 0x0005C910 File Offset: 0x0005AB10
+		// (add) Token: 0x06000E89 RID: 3721 RVA: 0x0005D0B4 File Offset: 0x0005B2B4
+		// (remove) Token: 0x06000E8A RID: 3722 RVA: 0x0005D0EC File Offset: 0x0005B2EC
 		public event LanguageSource.fnOnSourceUpdated Event_OnSourceUpdateFromGoogle;
 
-		// Token: 0x06000E74 RID: 3700 RVA: 0x0005C945 File Offset: 0x0005AB45
+		// Token: 0x06000E8B RID: 3723 RVA: 0x0005D121 File Offset: 0x0005B321
 		private void Awake()
 		{
 			this.mSource.owner = this;
 			this.mSource.Awake();
 		}
 
-		// Token: 0x06000E75 RID: 3701 RVA: 0x0005C95E File Offset: 0x0005AB5E
+		// Token: 0x06000E8C RID: 3724 RVA: 0x0005D13A File Offset: 0x0005B33A
 		private void OnDestroy()
 		{
 			this.NeverDestroy = false;
@@ -43,7 +43,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E76 RID: 3702 RVA: 0x0005C97C File Offset: 0x0005AB7C
+		// Token: 0x06000E8D RID: 3725 RVA: 0x0005D158 File Offset: 0x0005B358
 		public string GetSourceName()
 		{
 			string text = base.gameObject.name;
@@ -56,13 +56,13 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000E77 RID: 3703 RVA: 0x0005C9C5 File Offset: 0x0005ABC5
+		// Token: 0x06000E8E RID: 3726 RVA: 0x0005D1A1 File Offset: 0x0005B3A1
 		public void OnBeforeSerialize()
 		{
 			this.version = 1;
 		}
 
-		// Token: 0x06000E78 RID: 3704 RVA: 0x0005C9D0 File Offset: 0x0005ABD0
+		// Token: 0x06000E8F RID: 3727 RVA: 0x0005D1AC File Offset: 0x0005B3AC
 		public void OnAfterDeserialize()
 		{
 			if (this.version == 0 || this.mSource == null)
@@ -150,7 +150,7 @@ namespace I2.Loc
 
 		public string mTerm_AppName;
 
-		// (Invoke) Token: 0x0600144F RID: 5199
+		// (Invoke) Token: 0x0600146E RID: 5230
 		public delegate void fnOnSourceUpdated(LanguageSourceData source, bool ReceivedNewData, string errorMsg);
 	}
 }

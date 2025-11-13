@@ -6,7 +6,7 @@ namespace I2.Loc
 {
 	public class RealTimeTranslation : MonoBehaviour
 	{
-		// Token: 0x06000DF1 RID: 3569 RVA: 0x00056618 File Offset: 0x00054818
+		// Token: 0x06000E08 RID: 3592 RVA: 0x00056DF4 File Offset: 0x00054FF4
 		public void OnGUI()
 		{
 			GUILayout.Label("Translate:", Array.Empty<GUILayoutOption>());
@@ -38,14 +38,14 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000DF2 RID: 3570 RVA: 0x0005675B File Offset: 0x0005495B
+		// Token: 0x06000E09 RID: 3593 RVA: 0x00056F37 File Offset: 0x00055137
 		public void StartTranslating(string fromCode, string toCode)
 		{
 			this.IsTranslating = true;
 			GoogleTranslation.Translate(this.OriginalText, fromCode, toCode, new GoogleTranslation.fnOnTranslated(this.OnTranslationReady));
 		}
 
-		// Token: 0x06000DF3 RID: 3571 RVA: 0x0005677D File Offset: 0x0005497D
+		// Token: 0x06000E0A RID: 3594 RVA: 0x00056F59 File Offset: 0x00055159
 		private void OnTranslationReady(string Translation, string errorMsg)
 		{
 			this.IsTranslating = false;
@@ -57,7 +57,7 @@ namespace I2.Loc
 			this.TranslatedText = Translation;
 		}
 
-		// Token: 0x06000DF4 RID: 3572 RVA: 0x00056798 File Offset: 0x00054998
+		// Token: 0x06000E0B RID: 3595 RVA: 0x00056F74 File Offset: 0x00055174
 		public void ExampleMultiTranslations_Blocking()
 		{
 			Dictionary<string, TranslationQuery> dictionary = new Dictionary<string, TranslationQuery>();
@@ -74,7 +74,7 @@ namespace I2.Loc
 			Debug.Log(dictionary["Hola"].Results[0]);
 		}
 
-		// Token: 0x06000DF5 RID: 3573 RVA: 0x0005684C File Offset: 0x00054A4C
+		// Token: 0x06000E0C RID: 3596 RVA: 0x00057028 File Offset: 0x00055228
 		public void ExampleMultiTranslations_Async()
 		{
 			this.IsTranslating = true;
@@ -85,7 +85,7 @@ namespace I2.Loc
 			GoogleTranslation.Translate(dictionary, new GoogleTranslation.fnOnTranslationReady(this.OnMultitranslationReady), true);
 		}
 
-		// Token: 0x06000DF6 RID: 3574 RVA: 0x000568B8 File Offset: 0x00054AB8
+		// Token: 0x06000E0D RID: 3597 RVA: 0x00057094 File Offset: 0x00055294
 		private void OnMultitranslationReady(Dictionary<string, TranslationQuery> dict, string errorMsg)
 		{
 			if (!string.IsNullOrEmpty(errorMsg))
@@ -101,19 +101,19 @@ namespace I2.Loc
 			this.TranslatedText += dict["Hola"].Results[0];
 		}
 
-		// Token: 0x06000DF7 RID: 3575 RVA: 0x0005697B File Offset: 0x00054B7B
+		// Token: 0x06000E0E RID: 3598 RVA: 0x00057157 File Offset: 0x00055357
 		public bool IsWaitingForTranslation()
 		{
 			return this.IsTranslating;
 		}
 
-		// Token: 0x06000DF8 RID: 3576 RVA: 0x00056983 File Offset: 0x00054B83
+		// Token: 0x06000E0F RID: 3599 RVA: 0x0005715F File Offset: 0x0005535F
 		public string GetTranslatedText()
 		{
 			return this.TranslatedText;
 		}
 
-		// Token: 0x06000DF9 RID: 3577 RVA: 0x0005698B File Offset: 0x00054B8B
+		// Token: 0x06000E10 RID: 3600 RVA: 0x00057167 File Offset: 0x00055367
 		public void SetOriginalText(string text)
 		{
 			this.OriginalText = text;

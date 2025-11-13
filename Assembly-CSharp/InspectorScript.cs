@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InspectorScript : MonoBehaviour
 {
-	// Token: 0x060008BE RID: 2238 RVA: 0x00039C15 File Offset: 0x00037E15
+	// Token: 0x060008C5 RID: 2245 RVA: 0x00039E95 File Offset: 0x00038095
 	public static PowerupScript CurrentlyInspectedPowerupGet()
 	{
 		if (InspectorScript.instance == null)
@@ -16,13 +16,13 @@ public class InspectorScript : MonoBehaviour
 		return InspectorScript.instance.powerupInspected;
 	}
 
-	// Token: 0x060008BF RID: 2239 RVA: 0x00039C30 File Offset: 0x00037E30
+	// Token: 0x060008C6 RID: 2246 RVA: 0x00039EB0 File Offset: 0x000380B0
 	public static bool IsEnabled()
 	{
 		return !(InspectorScript.instance == null) && InspectorScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008C0 RID: 2240 RVA: 0x00039C50 File Offset: 0x00037E50
+	// Token: 0x060008C7 RID: 2247 RVA: 0x00039ED0 File Offset: 0x000380D0
 	public static void Open(string title, string description)
 	{
 		if (InspectorScript.IsEnabled())
@@ -41,14 +41,14 @@ public class InspectorScript : MonoBehaviour
 		InspectorScript.instance.textBackImage.rectTransform.sizeDelta = vector;
 	}
 
-	// Token: 0x060008C1 RID: 2241 RVA: 0x00039D2B File Offset: 0x00037F2B
+	// Token: 0x060008C8 RID: 2248 RVA: 0x00039FAB File Offset: 0x000381AB
 	public static void Open_AsPowerup(PowerupScript powerup)
 	{
 		InspectorScript.instance.powerupInspected = powerup;
 		InspectorScript.Open(powerup.NameGet(true, true), powerup.DescriptionGet(true, false, true, 5f));
 	}
 
-	// Token: 0x060008C2 RID: 2242 RVA: 0x00039D53 File Offset: 0x00037F53
+	// Token: 0x060008C9 RID: 2249 RVA: 0x00039FD3 File Offset: 0x000381D3
 	public static void Close()
 	{
 		if (!InspectorScript.IsEnabled())
@@ -59,7 +59,7 @@ public class InspectorScript : MonoBehaviour
 		InspectorScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x060008C3 RID: 2243 RVA: 0x00039D78 File Offset: 0x00037F78
+	// Token: 0x060008CA RID: 2250 RVA: 0x00039FF8 File Offset: 0x000381F8
 	private void StoreAutoEnableCheck()
 	{
 		bool flag = PromptGuideScript.IsEnabled();
@@ -201,19 +201,19 @@ public class InspectorScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008C4 RID: 2244 RVA: 0x0003A07C File Offset: 0x0003827C
+	// Token: 0x060008CB RID: 2251 RVA: 0x0003A2FC File Offset: 0x000384FC
 	private void Awake()
 	{
 		InspectorScript.instance = this;
 	}
 
-	// Token: 0x060008C5 RID: 2245 RVA: 0x0003A084 File Offset: 0x00038284
+	// Token: 0x060008CC RID: 2252 RVA: 0x0003A304 File Offset: 0x00038504
 	private void Start()
 	{
 		InspectorScript.Close();
 	}
 
-	// Token: 0x060008C6 RID: 2246 RVA: 0x0003A08B File Offset: 0x0003828B
+	// Token: 0x060008CD RID: 2253 RVA: 0x0003A30B File Offset: 0x0003850B
 	private void OnDestroy()
 	{
 		if (InspectorScript.instance == this)
@@ -222,7 +222,7 @@ public class InspectorScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008C7 RID: 2247 RVA: 0x0003A0A0 File Offset: 0x000382A0
+	// Token: 0x060008CE RID: 2254 RVA: 0x0003A320 File Offset: 0x00038520
 	private void Update()
 	{
 		this.StoreAutoEnableCheck();
