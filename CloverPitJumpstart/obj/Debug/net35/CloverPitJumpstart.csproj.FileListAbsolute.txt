@@ -1,0 +1,7 @@
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\CloverPitJumpstart.csproj.AssemblyReference.cache
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\MyPluginInfo.cs
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\CloverPitJumpstart.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\CloverPitJumpstart.AssemblyInfoInputs.cache
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\CloverPitJumpstart.AssemblyInfo.cs
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\CloverPitJumpstart.csproj.CoreCompileInputs.cache
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\CloverPitJumpstart\obj\Debug\net35\CloverPitJumpstart.sourcelink.json
