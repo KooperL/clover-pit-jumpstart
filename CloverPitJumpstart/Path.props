@@ -1,0 +1,13 @@
+<Project>
+
+  <PropertyGroup>
+
+    <!-- Windows -->
+    <!-- C:/Program Files (x86)/Steam/steamapps/common/CloverPit -->
+
+    <GamePath>C:/Program Files (x86)/Steam/steamapps/common/CloverPit</GamePath>
+    <ManagedPath>$(GamePath)/CloverPit_Data/Managed</ManagedPath>
+
+  </PropertyGroup>
+
+</Project>
