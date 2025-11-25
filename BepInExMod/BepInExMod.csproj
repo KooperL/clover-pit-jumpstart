@@ -28,10 +28,10 @@
   <Import Project="Path.props" />
 
   <ItemGroup>
-    <Reference Include="lib/netstandard.dll">
+    <Reference Include="$(ManagedPath)/netstandard.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="lib/Assembly-CSharp.dll">
+    <Reference Include="$(ManagedPath)/Assembly-CSharp.dll">
       <Private>false</Private>
     </Reference>
   </ItemGroup>

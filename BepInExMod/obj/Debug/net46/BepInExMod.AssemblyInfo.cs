@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BepInExMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e5c2092183c57da194bf0c82332f32fe62f1890")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17000fd9aaa2f768eb3b2d900f3357e54eaf0244")]
 [assembly: System.Reflection.AssemblyProductAttribute("My first plugin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BepInExMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
