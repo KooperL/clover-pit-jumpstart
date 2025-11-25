@@ -1,0 +1,11 @@
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\bin\Debug\net46\cloverpitjumpstart.dll
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\bin\Debug\net46\cloverpitjumpstart.pdb
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.csproj.AssemblyReference.cache
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\MyPluginInfo.cs
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.AssemblyInfoInputs.cache
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.AssemblyInfo.cs
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.csproj.CoreCompileInputs.cache
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.sourcelink.json
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.dll
+C:\Users\WindowsUser\Downloads\clover-pit-jumpstart\BepInExMod\obj\Debug\net46\cloverpitjumpstart.pdb
