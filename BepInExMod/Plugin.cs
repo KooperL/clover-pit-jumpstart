@@ -3,7 +3,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Reflection;
 
-namespace BepInExMod;
+namespace cloverpitjumpstart;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class Plugin : BaseUnityPlugin
