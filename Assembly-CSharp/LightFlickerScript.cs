@@ -2,21 +2,22 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000096 RID: 150
 public class LightFlickerScript : MonoBehaviour
 {
-	// Token: 0x060007F2 RID: 2034 RVA: 0x000332EB File Offset: 0x000314EB
+	// Token: 0x060008FD RID: 2301 RVA: 0x0000D1A6 File Offset: 0x0000B3A6
 	private void Reset()
 	{
 		this.myLight = base.GetComponent<Light>();
 	}
 
-	// Token: 0x060007F3 RID: 2035 RVA: 0x000332F9 File Offset: 0x000314F9
+	// Token: 0x060008FE RID: 2302 RVA: 0x0000D1B4 File Offset: 0x0000B3B4
 	private void Awake()
 	{
 		LightFlickerScript.instance = this;
 	}
 
-	// Token: 0x060007F4 RID: 2036 RVA: 0x00033301 File Offset: 0x00031501
+	// Token: 0x060008FF RID: 2303 RVA: 0x0000D1BC File Offset: 0x0000B3BC
 	private void OnDestroy()
 	{
 		if (LightFlickerScript.instance == this)
@@ -25,7 +26,7 @@ public class LightFlickerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007F5 RID: 2037 RVA: 0x00033318 File Offset: 0x00031518
+	// Token: 0x06000900 RID: 2304 RVA: 0x0004A420 File Offset: 0x00048620
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -64,21 +65,30 @@ public class LightFlickerScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040008AC RID: 2220
 	public static LightFlickerScript instance;
 
+	// Token: 0x040008AD RID: 2221
 	private const float WAVE_SPEED = 180f;
 
+	// Token: 0x040008AE RID: 2222
 	public Light myLight;
 
+	// Token: 0x040008AF RID: 2223
 	public MeshRenderer lampMeshRenderer;
 
+	// Token: 0x040008B0 RID: 2224
 	public Material lampMaterial_On;
 
+	// Token: 0x040008B1 RID: 2225
 	public Material lampMaterial_Off;
 
+	// Token: 0x040008B2 RID: 2226
 	public bool titleScreenTurnOff;
 
+	// Token: 0x040008B3 RID: 2227
 	private float waveTimer;
 
+	// Token: 0x040008B4 RID: 2228
 	private float flickerTimer;
 }

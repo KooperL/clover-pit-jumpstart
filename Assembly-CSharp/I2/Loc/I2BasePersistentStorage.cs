@@ -6,9 +6,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x0200018D RID: 397
 	public abstract class I2BasePersistentStorage
 	{
-		// Token: 0x06000E23 RID: 3619 RVA: 0x00057364 File Offset: 0x00055564
+		// Token: 0x060011BF RID: 4543 RVA: 0x00075BD4 File Offset: 0x00073DD4
 		public virtual void SetSetting_String(string key, string value)
 		{
 			try
@@ -36,7 +37,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E24 RID: 3620 RVA: 0x0005740C File Offset: 0x0005560C
+		// Token: 0x060011C0 RID: 4544 RVA: 0x00075C7C File Offset: 0x00073E7C
 		public virtual string GetSetting_String(string key, string defaultValue)
 		{
 			string text2;
@@ -62,7 +63,7 @@ namespace I2.Loc
 			return text2;
 		}
 
-		// Token: 0x06000E25 RID: 3621 RVA: 0x000574B0 File Offset: 0x000556B0
+		// Token: 0x060011C1 RID: 4545 RVA: 0x00075D20 File Offset: 0x00073F20
 		public virtual void DeleteSetting(string key)
 		{
 			try
@@ -84,25 +85,25 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E26 RID: 3622 RVA: 0x00057544 File Offset: 0x00055744
+		// Token: 0x060011C2 RID: 4546 RVA: 0x00014848 File Offset: 0x00012A48
 		public virtual void ForceSaveSettings()
 		{
 			PlayerPrefs.Save();
 		}
 
-		// Token: 0x06000E27 RID: 3623 RVA: 0x0005754B File Offset: 0x0005574B
+		// Token: 0x060011C3 RID: 4547 RVA: 0x0001484F File Offset: 0x00012A4F
 		public virtual bool HasSetting(string key)
 		{
 			return PlayerPrefs.HasKey(key);
 		}
 
-		// Token: 0x06000E28 RID: 3624 RVA: 0x00057553 File Offset: 0x00055753
+		// Token: 0x060011C4 RID: 4548 RVA: 0x00007C86 File Offset: 0x00005E86
 		public virtual bool CanAccessFiles()
 		{
 			return true;
 		}
 
-		// Token: 0x06000E29 RID: 3625 RVA: 0x00057558 File Offset: 0x00055758
+		// Token: 0x060011C5 RID: 4549 RVA: 0x00075DB4 File Offset: 0x00073FB4
 		private string UpdateFilename(PersistentStorage.eFileType fileType, string fileName)
 		{
 			switch (fileType)
@@ -120,7 +121,7 @@ namespace I2.Loc
 			return fileName;
 		}
 
-		// Token: 0x06000E2A RID: 3626 RVA: 0x000575B8 File Offset: 0x000557B8
+		// Token: 0x060011C6 RID: 4550 RVA: 0x00075E14 File Offset: 0x00074014
 		public virtual bool SaveFile(PersistentStorage.eFileType fileType, string fileName, string data, bool logExceptions = true)
 		{
 			if (!this.CanAccessFiles())
@@ -149,7 +150,7 @@ namespace I2.Loc
 			return flag;
 		}
 
-		// Token: 0x06000E2B RID: 3627 RVA: 0x00057628 File Offset: 0x00055828
+		// Token: 0x060011C7 RID: 4551 RVA: 0x00075E84 File Offset: 0x00074084
 		public virtual string LoadFile(PersistentStorage.eFileType fileType, string fileName, bool logExceptions = true)
 		{
 			if (!this.CanAccessFiles())
@@ -177,7 +178,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000E2C RID: 3628 RVA: 0x00057694 File Offset: 0x00055894
+		// Token: 0x060011C8 RID: 4552 RVA: 0x00075EF0 File Offset: 0x000740F0
 		public virtual bool DeleteFile(PersistentStorage.eFileType fileType, string fileName, bool logExceptions = true)
 		{
 			if (!this.CanAccessFiles())
@@ -206,7 +207,7 @@ namespace I2.Loc
 			return flag;
 		}
 
-		// Token: 0x06000E2D RID: 3629 RVA: 0x000576FC File Offset: 0x000558FC
+		// Token: 0x060011C9 RID: 4553 RVA: 0x00075F58 File Offset: 0x00074158
 		public virtual bool HasFile(PersistentStorage.eFileType fileType, string fileName, bool logExceptions = true)
 		{
 			if (!this.CanAccessFiles())

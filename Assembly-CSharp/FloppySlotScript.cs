@@ -2,9 +2,10 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000055 RID: 85
 public class FloppySlotScript : MonoBehaviour
 {
-	// Token: 0x06000460 RID: 1120 RVA: 0x0001D7A0 File Offset: 0x0001B9A0
+	// Token: 0x060004EE RID: 1262 RVA: 0x00031D3C File Offset: 0x0002FF3C
 	public static void SixSixSixTextureUpdateToIgnoredCallsLevel(bool computeCallsNum)
 	{
 		if (FloppySlotScript.instance == null)
@@ -57,7 +58,7 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000461 RID: 1121 RVA: 0x0001D8DA File Offset: 0x0001BADA
+	// Token: 0x060004EF RID: 1263 RVA: 0x000097E9 File Offset: 0x000079E9
 	public static void Initialize(bool isNewGame)
 	{
 		if (!isNewGame)
@@ -66,13 +67,13 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000462 RID: 1122 RVA: 0x0001D8E5 File Offset: 0x0001BAE5
+	// Token: 0x060004F0 RID: 1264 RVA: 0x000097F4 File Offset: 0x000079F4
 	private void Awake()
 	{
 		FloppySlotScript.instance = this;
 	}
 
-	// Token: 0x06000463 RID: 1123 RVA: 0x0001D8ED File Offset: 0x0001BAED
+	// Token: 0x060004F1 RID: 1265 RVA: 0x000097FC File Offset: 0x000079FC
 	private void Start()
 	{
 		this.meshRenderer.enabled = false;
@@ -80,7 +81,7 @@ public class FloppySlotScript : MonoBehaviour
 		this.effectsHolderSuper666.SetActive(false);
 	}
 
-	// Token: 0x06000464 RID: 1124 RVA: 0x0001D913 File Offset: 0x0001BB13
+	// Token: 0x060004F2 RID: 1266 RVA: 0x00009822 File Offset: 0x00007A22
 	private void OnDestroy()
 	{
 		if (FloppySlotScript.instance == this)
@@ -89,7 +90,7 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000465 RID: 1125 RVA: 0x0001D928 File Offset: 0x0001BB28
+	// Token: 0x060004F3 RID: 1267 RVA: 0x00031E78 File Offset: 0x00030078
 	private void Update()
 	{
 		int num = GameplayData.Phone_Ignored666CallsLevel_JustGet();
@@ -150,33 +151,48 @@ public class FloppySlotScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000486 RID: 1158
 	public static FloppySlotScript instance;
 
+	// Token: 0x04000487 RID: 1159
 	public GameObject holder;
 
+	// Token: 0x04000488 RID: 1160
 	public MeshRenderer meshRenderer;
 
+	// Token: 0x04000489 RID: 1161
 	public Material material_666;
 
+	// Token: 0x0400048A RID: 1162
 	public Material material_666_Ignored1;
 
+	// Token: 0x0400048B RID: 1163
 	public Material material_666_Ignored2;
 
+	// Token: 0x0400048C RID: 1164
 	public Material material_666_Ignored3;
 
+	// Token: 0x0400048D RID: 1165
 	public Material material_999;
 
+	// Token: 0x0400048E RID: 1166
 	public GameObject effectsHolder999;
 
+	// Token: 0x0400048F RID: 1167
 	public GameObject effectsHolderSuper666;
 
+	// Token: 0x04000490 RID: 1168
 	private Color emissionColor = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000491 RID: 1169
 	private float shakeTimer;
 
+	// Token: 0x04000492 RID: 1170
 	private bool is666Time;
 
+	// Token: 0x04000493 RID: 1171
 	private bool isSuper666Time;
 
+	// Token: 0x04000494 RID: 1172
 	private bool is999Time;
 }

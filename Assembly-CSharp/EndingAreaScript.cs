@@ -2,9 +2,10 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x0200003F RID: 63
 public class EndingAreaScript : MonoBehaviour
 {
-	// Token: 0x060003AB RID: 939 RVA: 0x00019938 File Offset: 0x00017B38
+	// Token: 0x06000411 RID: 1041 RVA: 0x0002D144 File Offset: 0x0002B344
 	public static void DetermineControlPanel()
 	{
 		Collider[] array;
@@ -38,29 +39,36 @@ public class EndingAreaScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003AC RID: 940 RVA: 0x00019A16 File Offset: 0x00017C16
+	// Token: 0x06000412 RID: 1042 RVA: 0x00008E66 File Offset: 0x00007066
 	private void Awake()
 	{
 		EndingAreaScript.instance = this;
 	}
 
-	// Token: 0x060003AD RID: 941 RVA: 0x00019A20 File Offset: 0x00017C20
+	// Token: 0x06000413 RID: 1043 RVA: 0x0002D224 File Offset: 0x0002B424
 	private void Update()
 	{
 		this.liftTr.localPosition = new Vector3(Util.AngleSin(Tick.PassedTime * 45f) * 0.1f, 0f, Util.AngleSin(Tick.PassedTime * 75f) * 0.1f);
 	}
 
+	// Token: 0x04000392 RID: 914
 	public static EndingAreaScript instance;
 
+	// Token: 0x04000393 RID: 915
 	public Transform spawnPoint;
 
+	// Token: 0x04000394 RID: 916
 	public Transform liftTr;
 
+	// Token: 0x04000395 RID: 917
 	public GameObject slotObj;
 
+	// Token: 0x04000396 RID: 918
 	public Collider[] slotColliders;
 
+	// Token: 0x04000397 RID: 919
 	public GameObject planciaObj;
 
+	// Token: 0x04000398 RID: 920
 	public Collider[] planciaColliders;
 }

@@ -5,9 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x020000E5 RID: 229
 public class RarityPosterScript : MonoBehaviour
 {
-	// Token: 0x060009EF RID: 2543 RVA: 0x00043DC8 File Offset: 0x00041FC8
+	// Token: 0x06000B97 RID: 2967 RVA: 0x0005D848 File Offset: 0x0005BA48
 	private void TranslateTexts()
 	{
 		this.titleText.text = Translation.Get("RARITY_POSTER_TITLE");
@@ -30,20 +31,20 @@ public class RarityPosterScript : MonoBehaviour
 		this.bodyText.text = this.sb.ToString();
 	}
 
-	// Token: 0x060009F0 RID: 2544 RVA: 0x00043F13 File Offset: 0x00042113
+	// Token: 0x06000B98 RID: 2968 RVA: 0x0000F830 File Offset: 0x0000DA30
 	private void Awake()
 	{
 		RarityPosterScript.instance = this;
 	}
 
-	// Token: 0x060009F1 RID: 2545 RVA: 0x00043F1B File Offset: 0x0004211B
+	// Token: 0x06000B99 RID: 2969 RVA: 0x0000F838 File Offset: 0x0000DA38
 	private void Start()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TranslateTexts));
 		this.TranslateTexts();
 	}
 
-	// Token: 0x060009F2 RID: 2546 RVA: 0x00043F43 File Offset: 0x00042143
+	// Token: 0x06000B9A RID: 2970 RVA: 0x0000F860 File Offset: 0x0000DA60
 	private void OnDestroy()
 	{
 		if (RarityPosterScript.instance == this)
@@ -53,11 +54,15 @@ public class RarityPosterScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslateTexts));
 	}
 
+	// Token: 0x04000C37 RID: 3127
 	public static RarityPosterScript instance;
 
+	// Token: 0x04000C38 RID: 3128
 	public TextMeshProUGUI titleText;
 
+	// Token: 0x04000C39 RID: 3129
 	public TextMeshProUGUI bodyText;
 
+	// Token: 0x04000C3A RID: 3130
 	private StringBuilder sb = new StringBuilder();
 }

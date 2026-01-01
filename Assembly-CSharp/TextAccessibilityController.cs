@@ -3,15 +3,16 @@ using Febucci.UI;
 using Panik;
 using UnityEngine;
 
+// Token: 0x020000F7 RID: 247
 public class TextAccessibilityController : MonoBehaviour
 {
-	// Token: 0x06000A51 RID: 2641 RVA: 0x00047058 File Offset: 0x00045258
+	// Token: 0x06000C15 RID: 3093 RVA: 0x0000FEB0 File Offset: 0x0000E0B0
 	public void Refresh()
 	{
 		this.textAnimator.BehaviourEffectsEnaabledSet(!Data.settings.dyslexicFontEnabled);
 	}
 
-	// Token: 0x06000A52 RID: 2642 RVA: 0x00047074 File Offset: 0x00045274
+	// Token: 0x06000C16 RID: 3094 RVA: 0x00061160 File Offset: 0x0005F360
 	private void Awake()
 	{
 		this.textAnimator = base.GetComponent<TextAnimator>();
@@ -27,13 +28,13 @@ public class TextAccessibilityController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A53 RID: 2643 RVA: 0x000470EF File Offset: 0x000452EF
+	// Token: 0x06000C17 RID: 3095 RVA: 0x0000FECA File Offset: 0x0000E0CA
 	private void Start()
 	{
 		this._bookedRefresh = true;
 	}
 
-	// Token: 0x06000A54 RID: 2644 RVA: 0x000470F8 File Offset: 0x000452F8
+	// Token: 0x06000C18 RID: 3096 RVA: 0x0000FED3 File Offset: 0x0000E0D3
 	private void OnDestroy()
 	{
 		if (MainMenuScript.instance != null)
@@ -43,7 +44,7 @@ public class TextAccessibilityController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A55 RID: 2645 RVA: 0x00047130 File Offset: 0x00045330
+	// Token: 0x06000C19 RID: 3097 RVA: 0x000611DC File Offset: 0x0005F3DC
 	private void LateUpdate()
 	{
 		bool flag = !Data.settings.dyslexicFontEnabled;
@@ -56,11 +57,15 @@ public class TextAccessibilityController : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000CED RID: 3309
 	private TextAnimator textAnimator;
 
+	// Token: 0x04000CEE RID: 3310
 	private TextAnimatorPlayer textAnimatorPlayer;
 
+	// Token: 0x04000CEF RID: 3311
 	private bool _enabledStateOld;
 
+	// Token: 0x04000CF0 RID: 3312
 	private bool _bookedRefresh;
 }

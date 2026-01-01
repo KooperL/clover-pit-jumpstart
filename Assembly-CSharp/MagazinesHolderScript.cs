@@ -2,15 +2,16 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000097 RID: 151
 public class MagazinesHolderScript : MonoBehaviour
 {
-	// Token: 0x060007F7 RID: 2039 RVA: 0x00033447 File Offset: 0x00031647
+	// Token: 0x06000902 RID: 2306 RVA: 0x0000D1D1 File Offset: 0x0000B3D1
 	private void Awake()
 	{
 		MagazinesHolderScript.instance = this;
 	}
 
-	// Token: 0x060007F8 RID: 2040 RVA: 0x0003344F File Offset: 0x0003164F
+	// Token: 0x06000903 RID: 2307 RVA: 0x0000D1D9 File Offset: 0x0000B3D9
 	private void OnDestroy()
 	{
 		if (MagazinesHolderScript.instance == this)
@@ -19,7 +20,7 @@ public class MagazinesHolderScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007F9 RID: 2041 RVA: 0x00033464 File Offset: 0x00031664
+	// Token: 0x06000904 RID: 2308 RVA: 0x0004A548 File Offset: 0x00048748
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -33,7 +34,9 @@ public class MagazinesHolderScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040008B5 RID: 2229
 	public static MagazinesHolderScript instance;
 
+	// Token: 0x040008B6 RID: 2230
 	public GameObject readableMagazine;
 }

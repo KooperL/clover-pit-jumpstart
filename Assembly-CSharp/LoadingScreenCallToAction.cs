@@ -6,33 +6,34 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// Token: 0x020000BB RID: 187
 public class LoadingScreenCallToAction : MonoBehaviour
 {
-	// Token: 0x060008D8 RID: 2264 RVA: 0x0003A42C File Offset: 0x0003862C
+	// Token: 0x06000A0F RID: 2575 RVA: 0x0000DF8A File Offset: 0x0000C18A
 	public static bool IsEnabled()
 	{
 		return !(LoadingScreenCallToAction.instance == null) && LoadingScreenCallToAction.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008D9 RID: 2265 RVA: 0x0003A44C File Offset: 0x0003864C
+	// Token: 0x06000A10 RID: 2576 RVA: 0x0000DFAA File Offset: 0x0000C1AA
 	private static bool IsBooked()
 	{
 		return LoadingScreenCallToAction.booked;
 	}
 
-	// Token: 0x060008DA RID: 2266 RVA: 0x0003A453 File Offset: 0x00038653
+	// Token: 0x06000A11 RID: 2577 RVA: 0x0000DFB1 File Offset: 0x0000C1B1
 	public static void BookCallToAction()
 	{
 		LoadingScreenCallToAction.booked = true;
 	}
 
-	// Token: 0x060008DB RID: 2267 RVA: 0x0003A45B File Offset: 0x0003865B
+	// Token: 0x06000A12 RID: 2578 RVA: 0x0000DFB9 File Offset: 0x0000C1B9
 	public static bool LoadingShouldWait()
 	{
 		return !(LoadingScreenCallToAction.instance == null) && (LoadingScreenCallToAction.IsBooked() || LoadingScreenCallToAction.IsEnabled());
 	}
 
-	// Token: 0x060008DC RID: 2268 RVA: 0x0003A47C File Offset: 0x0003867C
+	// Token: 0x06000A13 RID: 2579 RVA: 0x000518B8 File Offset: 0x0004FAB8
 	private void TranslationUpdate()
 	{
 		this.textSkip.text = Translation.Get("MENU_OPTION_SKIP");
@@ -49,13 +50,13 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		this.textTitle.text = ((Master.instance.GAME_PUBLIC_STATE == Master.GamePublicState.released) ? Translation.Get("LOADING_NOTIFICATION_CALL_TO_ACTION_BUY") : Translation.Get("LOADING_NOTIFICATION_CALL_TO_ACTION_WISHLIST"));
 	}
 
-	// Token: 0x060008DD RID: 2269 RVA: 0x0003A52E File Offset: 0x0003872E
+	// Token: 0x06000A14 RID: 2580 RVA: 0x0000DFD8 File Offset: 0x0000C1D8
 	private void Awake()
 	{
 		LoadingScreenCallToAction.instance = this;
 	}
 
-	// Token: 0x060008DE RID: 2270 RVA: 0x0003A538 File Offset: 0x00038738
+	// Token: 0x06000A15 RID: 2581 RVA: 0x0005196C File Offset: 0x0004FB6C
 	private void Start()
 	{
 		this.TranslationUpdate();
@@ -67,7 +68,7 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008DF RID: 2271 RVA: 0x0003A595 File Offset: 0x00038795
+	// Token: 0x06000A16 RID: 2582 RVA: 0x0000DFE0 File Offset: 0x0000C1E0
 	private void OnDestroy()
 	{
 		if (LoadingScreenCallToAction.instance == this)
@@ -77,7 +78,7 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslationUpdate));
 	}
 
-	// Token: 0x060008E0 RID: 2272 RVA: 0x0003A5CC File Offset: 0x000387CC
+	// Token: 0x06000A17 RID: 2583 RVA: 0x000519CC File Offset: 0x0004FBCC
 	private void Update()
 	{
 		int num = -1;
@@ -175,37 +176,54 @@ public class LoadingScreenCallToAction : MonoBehaviour
 		this.textSkip.color = ((this.selectionIndex == 1) ? Color.yellow : Color.white);
 	}
 
+	// Token: 0x04000A39 RID: 2617
 	public static LoadingScreenCallToAction instance;
 
+	// Token: 0x04000A3A RID: 2618
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000A3B RID: 2619
 	private const int BUTTON_IMAGE = 0;
 
+	// Token: 0x04000A3C RID: 2620
 	private const int BUTTON_SKIP = 1;
 
+	// Token: 0x04000A3D RID: 2621
 	private const float INPUT_DELAY = 0.5f;
 
+	// Token: 0x04000A3E RID: 2622
 	public CanvasScaler canvasScaler;
 
+	// Token: 0x04000A3F RID: 2623
 	public GameObject holder;
 
+	// Token: 0x04000A40 RID: 2624
 	public TextMeshProUGUI textSkip;
 
+	// Token: 0x04000A41 RID: 2625
 	public TextMeshProUGUI textInfos;
 
+	// Token: 0x04000A42 RID: 2626
 	public TextMeshProUGUI textTitle;
 
+	// Token: 0x04000A43 RID: 2627
 	public RawImage displayImage;
 
+	// Token: 0x04000A44 RID: 2628
 	public RawImage imageSelector;
 
+	// Token: 0x04000A45 RID: 2629
 	public Texture buyTexture;
 
+	// Token: 0x04000A46 RID: 2630
 	private static bool booked;
 
+	// Token: 0x04000A47 RID: 2631
 	private float inputDelay = 0.5f;
 
+	// Token: 0x04000A48 RID: 2632
 	private int selectionIndex = -1;
 
+	// Token: 0x04000A49 RID: 2633
 	private int selectionIndexOld = -1;
 }

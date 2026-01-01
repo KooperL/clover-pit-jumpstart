@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 namespace I2.Loc
 {
+	// Token: 0x020001F1 RID: 497
 	[AddComponentMenu("I2/Localization/SetLanguage Dropdown")]
 	public class SetLanguageDropdown : MonoBehaviour
 	{
-		// Token: 0x0600104B RID: 4171 RVA: 0x00066170 File Offset: 0x00064370
+		// Token: 0x0600143F RID: 5183 RVA: 0x00083BFC File Offset: 0x00081DFC
 		private void OnEnable()
 		{
 			Dropdown component = base.GetComponent<Dropdown>();
@@ -30,7 +31,7 @@ namespace I2.Loc
 			component.onValueChanged.AddListener(new UnityAction<int>(this.OnValueChanged));
 		}
 
-		// Token: 0x0600104C RID: 4172 RVA: 0x000661F8 File Offset: 0x000643F8
+		// Token: 0x06001440 RID: 5184 RVA: 0x00083C84 File Offset: 0x00081E84
 		private void OnValueChanged(int index)
 		{
 			Dropdown component = base.GetComponent<Dropdown>();

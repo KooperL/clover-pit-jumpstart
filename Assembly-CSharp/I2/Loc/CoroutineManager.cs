@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x020001DA RID: 474
 	public class CoroutineManager : MonoBehaviour
 	{
-		// (get) Token: 0x06000FFE RID: 4094 RVA: 0x00063D20 File Offset: 0x00061F20
+		// Token: 0x1700015D RID: 349
+		// (get) Token: 0x060013EC RID: 5100 RVA: 0x00081A7C File Offset: 0x0007FC7C
 		private static CoroutineManager pInstance
 		{
 			get
@@ -25,7 +27,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000FFF RID: 4095 RVA: 0x00063D6A File Offset: 0x00061F6A
+		// Token: 0x060013ED RID: 5101 RVA: 0x000156AD File Offset: 0x000138AD
 		private void Awake()
 		{
 			if (Application.isPlaying)
@@ -34,12 +36,13 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001000 RID: 4096 RVA: 0x00063D7E File Offset: 0x00061F7E
+		// Token: 0x060013EE RID: 5102 RVA: 0x000156C1 File Offset: 0x000138C1
 		public static Coroutine Start(IEnumerator coroutine)
 		{
 			return CoroutineManager.pInstance.StartCoroutine(coroutine);
 		}
 
+		// Token: 0x040013BD RID: 5053
 		private static CoroutineManager mInstance;
 	}
 }

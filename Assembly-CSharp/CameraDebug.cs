@@ -2,9 +2,10 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x0200000B RID: 11
 public class CameraDebug : MonoBehaviour
 {
-	// Token: 0x06000044 RID: 68 RVA: 0x00004CEC File Offset: 0x00002EEC
+	// Token: 0x0600004F RID: 79 RVA: 0x000187FC File Offset: 0x000169FC
 	private void RecordTrackPoint()
 	{
 		switch (this.recTrackN)
@@ -38,7 +39,7 @@ public class CameraDebug : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000045 RID: 69 RVA: 0x0000503C File Offset: 0x0000323C
+	// Token: 0x06000050 RID: 80 RVA: 0x00018B4C File Offset: 0x00016D4C
 	private void RecordTrackReset()
 	{
 		switch (this.recTrackN)
@@ -63,13 +64,13 @@ public class CameraDebug : MonoBehaviour
 		this.recTrackN = -1;
 	}
 
-	// Token: 0x06000046 RID: 70 RVA: 0x000050D5 File Offset: 0x000032D5
+	// Token: 0x06000051 RID: 81 RVA: 0x0000775F File Offset: 0x0000595F
 	public static bool IsEnabled()
 	{
 		return !(CameraDebug.instance == null) && CameraDebug.instance.mode > CameraDebug.Mode.disabled;
 	}
 
-	// Token: 0x06000047 RID: 71 RVA: 0x000050F4 File Offset: 0x000032F4
+	// Token: 0x06000052 RID: 82 RVA: 0x00018BE8 File Offset: 0x00016DE8
 	public static void SetMode(CameraDebug.Mode mode)
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -114,13 +115,13 @@ public class CameraDebug : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000048 RID: 72 RVA: 0x0000546C File Offset: 0x0000366C
+	// Token: 0x06000053 RID: 83 RVA: 0x0000777D File Offset: 0x0000597D
 	public static void Close()
 	{
 		CameraDebug.SetMode(CameraDebug.Mode.disabled);
 	}
 
-	// Token: 0x06000049 RID: 73 RVA: 0x00005474 File Offset: 0x00003674
+	// Token: 0x06000054 RID: 84 RVA: 0x00007785 File Offset: 0x00005985
 	private void ResetTrack()
 	{
 		this.trackIndex_Positions = 0;
@@ -129,7 +130,7 @@ public class CameraDebug : MonoBehaviour
 		this.trackTimer_Rotations = 0f;
 	}
 
-	// Token: 0x0600004A RID: 74 RVA: 0x0000549C File Offset: 0x0000369C
+	// Token: 0x06000055 RID: 85 RVA: 0x00018F60 File Offset: 0x00017160
 	private void UpdateTrack(ref Vector4[] freePositions, ref Vector4[] freeRotations)
 	{
 		if (freePositions.Length == 0 || freeRotations.Length == 0)
@@ -225,20 +226,20 @@ public class CameraDebug : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600004B RID: 75 RVA: 0x00005886 File Offset: 0x00003A86
+	// Token: 0x06000056 RID: 86 RVA: 0x000077AB File Offset: 0x000059AB
 	private void Awake()
 	{
 		CameraDebug.instance = this;
 		this.myCamera = base.GetComponent<Camera>();
 	}
 
-	// Token: 0x0600004C RID: 76 RVA: 0x0000589A File Offset: 0x00003A9A
+	// Token: 0x06000057 RID: 87 RVA: 0x000077BF File Offset: 0x000059BF
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
 	}
 
-	// Token: 0x0600004D RID: 77 RVA: 0x000058A8 File Offset: 0x00003AA8
+	// Token: 0x06000058 RID: 88 RVA: 0x000077CD File Offset: 0x000059CD
 	private void OnDestroy()
 	{
 		if (CameraDebug.instance == this)
@@ -247,7 +248,7 @@ public class CameraDebug : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600004E RID: 78 RVA: 0x000058C0 File Offset: 0x00003AC0
+	// Token: 0x06000059 RID: 89 RVA: 0x0001934C File Offset: 0x0001754C
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -385,7 +386,7 @@ public class CameraDebug : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600004F RID: 79 RVA: 0x00005E28 File Offset: 0x00004028
+	// Token: 0x0600005A RID: 90 RVA: 0x000198B4 File Offset: 0x00017AB4
 	private void OnDrawGizmosSelected()
 	{
 		if (this.myCamera == null)
@@ -450,69 +451,104 @@ public class CameraDebug : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040000A4 RID: 164
 	public static CameraDebug instance;
 
+	// Token: 0x040000A5 RID: 165
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040000A6 RID: 166
 	private const float SPEED_MULTIPLIER_VARIATION_SPEED = 0.5f;
 
+	// Token: 0x040000A7 RID: 167
 	private const float GAMEPAD_CAMERA_MULTIPLIER = 90f;
 
+	// Token: 0x040000A8 RID: 168
 	private const float MOUSE_CAMERA_MULTIPLIER = 90f;
 
+	// Token: 0x040000A9 RID: 169
 	public int recTrackN = -1;
 
+	// Token: 0x040000AA RID: 170
 	public bool recordTrackPoint;
 
+	// Token: 0x040000AB RID: 171
 	public bool recordTrackReset;
 
+	// Token: 0x040000AC RID: 172
 	public Camera myCamera;
 
+	// Token: 0x040000AD RID: 173
 	private Controls.PlayerExt player;
 
+	// Token: 0x040000AE RID: 174
 	public Vector4[] positionsAndTime_0;
 
+	// Token: 0x040000AF RID: 175
 	public Vector4[] rotationsAndTime_0;
 
+	// Token: 0x040000B0 RID: 176
 	public Vector4[] positionsAndTime_1;
 
+	// Token: 0x040000B1 RID: 177
 	public Vector4[] rotationsAndTime_1;
 
+	// Token: 0x040000B2 RID: 178
 	public Vector4[] positionsAndTime_2;
 
+	// Token: 0x040000B3 RID: 179
 	public Vector4[] rotationsAndTime_2;
 
+	// Token: 0x040000B4 RID: 180
 	public Vector4[] positionsAndTime_3;
 
+	// Token: 0x040000B5 RID: 181
 	public Vector4[] rotationsAndTime_3;
 
+	// Token: 0x040000B6 RID: 182
 	public CameraDebug.Mode mode;
 
+	// Token: 0x040000B7 RID: 183
 	private float speedMultiplier = 1f;
 
+	// Token: 0x040000B8 RID: 184
 	private int trackIndex_Positions;
 
+	// Token: 0x040000B9 RID: 185
 	private int trackIndex_Rotations;
 
+	// Token: 0x040000BA RID: 186
 	private float trackTimer_Positions;
 
+	// Token: 0x040000BB RID: 187
 	private float trackTimer_Rotations;
 
+	// Token: 0x040000BC RID: 188
 	private Vector3 freePosition;
 
+	// Token: 0x040000BD RID: 189
 	private Vector3 freeRotation;
 
+	// Token: 0x040000BE RID: 190
 	private float freeMovementSpeed = 4f;
 
+	// Token: 0x040000BF RID: 191
 	private float freeRotationSpeed = 1f;
 
+	// Token: 0x0200000C RID: 12
 	public enum Mode
 	{
+		// Token: 0x040000C1 RID: 193
 		disabled,
+		// Token: 0x040000C2 RID: 194
 		free,
+		// Token: 0x040000C3 RID: 195
 		track0,
+		// Token: 0x040000C4 RID: 196
 		track1,
+		// Token: 0x040000C5 RID: 197
 		track2,
+		// Token: 0x040000C6 RID: 198
 		track3
 	}
 }

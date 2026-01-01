@@ -4,27 +4,28 @@ using Panik;
 using TMPro;
 using UnityEngine;
 
+// Token: 0x02000013 RID: 19
 public class PromptsMaster : MonoBehaviour
 {
-	// Token: 0x060000DB RID: 219 RVA: 0x00009172 File Offset: 0x00007372
+	// Token: 0x060000EE RID: 238 RVA: 0x00007EAE File Offset: 0x000060AE
 	public static string GetSpriteName_Keyboard(Controls.KeyboardElement element)
 	{
 		return PromptsMaster.instance.promptSpriteNames_Keyboard[(int)element];
 	}
 
-	// Token: 0x060000DC RID: 220 RVA: 0x00009180 File Offset: 0x00007380
+	// Token: 0x060000EF RID: 239 RVA: 0x00007EBC File Offset: 0x000060BC
 	public static string GetSpriteName_Mouse(Controls.MouseElement element)
 	{
 		return PromptsMaster.instance.promptSpriteNames_Mouse[(int)element];
 	}
 
-	// Token: 0x060000DD RID: 221 RVA: 0x0000918E File Offset: 0x0000738E
+	// Token: 0x060000F0 RID: 240 RVA: 0x00007ECA File Offset: 0x000060CA
 	public static string GetSpriteName_Joystick(Controls.JoystickElement element)
 	{
 		return PromptsMaster.GetSpriteName_Joystick(element, PlatformMaster.PlatformKindGet());
 	}
 
-	// Token: 0x060000DE RID: 222 RVA: 0x0000919C File Offset: 0x0000739C
+	// Token: 0x060000F1 RID: 241 RVA: 0x0001C64C File Offset: 0x0001A84C
 	public static string GetSpriteName_Joystick(Controls.JoystickElement element, PlatformMaster.PlatformKind platform)
 	{
 		switch (platform)
@@ -44,7 +45,7 @@ public class PromptsMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000DF RID: 223 RVA: 0x00009214 File Offset: 0x00007414
+	// Token: 0x060000F2 RID: 242 RVA: 0x0001C6C4 File Offset: 0x0001A8C4
 	public static Sprite GetSprite_Keyboard(Controls.KeyboardElement element)
 	{
 		string spriteName_Keyboard = PromptsMaster.GetSpriteName_Keyboard(element);
@@ -55,7 +56,7 @@ public class PromptsMaster : MonoBehaviour
 		return PromptsMaster.inputSpritesDict[spriteName_Keyboard];
 	}
 
-	// Token: 0x060000E0 RID: 224 RVA: 0x00009244 File Offset: 0x00007444
+	// Token: 0x060000F3 RID: 243 RVA: 0x0001C6F4 File Offset: 0x0001A8F4
 	public static Sprite GetSprite_Mouse(Controls.MouseElement element)
 	{
 		string spriteName_Mouse = PromptsMaster.GetSpriteName_Mouse(element);
@@ -66,13 +67,13 @@ public class PromptsMaster : MonoBehaviour
 		return PromptsMaster.inputSpritesDict[spriteName_Mouse];
 	}
 
-	// Token: 0x060000E1 RID: 225 RVA: 0x00009272 File Offset: 0x00007472
+	// Token: 0x060000F4 RID: 244 RVA: 0x00007ED7 File Offset: 0x000060D7
 	public static Sprite GetSprite_Joystick(Controls.JoystickElement element)
 	{
 		return PromptsMaster.GetSprite_Joystick(element, PlatformMaster.PlatformKindGet());
 	}
 
-	// Token: 0x060000E2 RID: 226 RVA: 0x00009280 File Offset: 0x00007480
+	// Token: 0x060000F5 RID: 245 RVA: 0x0001C724 File Offset: 0x0001A924
 	public static Sprite GetSprite_Joystick(Controls.JoystickElement element, PlatformMaster.PlatformKind platform)
 	{
 		string spriteName_Joystick = PromptsMaster.GetSpriteName_Joystick(element, platform);
@@ -83,7 +84,7 @@ public class PromptsMaster : MonoBehaviour
 		return PromptsMaster.inputSpritesDict[spriteName_Joystick];
 	}
 
-	// Token: 0x060000E3 RID: 227 RVA: 0x000092B0 File Offset: 0x000074B0
+	// Token: 0x060000F6 RID: 246 RVA: 0x0001C754 File Offset: 0x0001A954
 	private void InitTMPSpriteStrings()
 	{
 		if (PromptsMaster.promptsSpriteTMPStrings_Keyboard == null)
@@ -136,25 +137,25 @@ public class PromptsMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E4 RID: 228 RVA: 0x00009485 File Offset: 0x00007685
+	// Token: 0x060000F7 RID: 247 RVA: 0x00007EE4 File Offset: 0x000060E4
 	public static string GetSpriteString_Keyboard(Controls.KeyboardElement element)
 	{
 		return PromptsMaster.promptsSpriteTMPStrings_Keyboard[(int)element];
 	}
 
-	// Token: 0x060000E5 RID: 229 RVA: 0x0000948E File Offset: 0x0000768E
+	// Token: 0x060000F8 RID: 248 RVA: 0x00007EED File Offset: 0x000060ED
 	public static string GetSpriteString_Mouse(Controls.MouseElement element)
 	{
 		return PromptsMaster.promptsSpriteTMPStrings_Mouse[(int)element];
 	}
 
-	// Token: 0x060000E6 RID: 230 RVA: 0x00009497 File Offset: 0x00007697
+	// Token: 0x060000F9 RID: 249 RVA: 0x00007EF6 File Offset: 0x000060F6
 	public static string GetSpriteString_Joystick(Controls.JoystickElement element)
 	{
 		return PromptsMaster.GetSpriteString_Joystick(element, PlatformMaster.PlatformKindGet());
 	}
 
-	// Token: 0x060000E7 RID: 231 RVA: 0x000094A4 File Offset: 0x000076A4
+	// Token: 0x060000FA RID: 250 RVA: 0x0001C92C File Offset: 0x0001AB2C
 	public static string GetSpriteString_Joystick(Controls.JoystickElement element, PlatformMaster.PlatformKind platform)
 	{
 		switch (platform)
@@ -174,7 +175,7 @@ public class PromptsMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E8 RID: 232 RVA: 0x00009500 File Offset: 0x00007700
+	// Token: 0x060000FB RID: 251 RVA: 0x0001C988 File Offset: 0x0001AB88
 	public void DebugEnableSet(bool value, bool forceSet = false)
 	{
 		if (this.debugEnabled == value)
@@ -197,13 +198,13 @@ public class PromptsMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E9 RID: 233 RVA: 0x00009566 File Offset: 0x00007766
+	// Token: 0x060000FC RID: 252 RVA: 0x00007F03 File Offset: 0x00006103
 	public bool DebugEnableGet()
 	{
 		return this.debugEnabled;
 	}
 
-	// Token: 0x060000EA RID: 234 RVA: 0x00009570 File Offset: 0x00007770
+	// Token: 0x060000FD RID: 253 RVA: 0x0001C9F0 File Offset: 0x0001ABF0
 	private void DebugUpdate()
 	{
 		if (!this.debugEnabled)
@@ -241,7 +242,7 @@ public class PromptsMaster : MonoBehaviour
 		this._debugActionStatesText.text = text;
 	}
 
-	// Token: 0x060000EB RID: 235 RVA: 0x00009628 File Offset: 0x00007828
+	// Token: 0x060000FE RID: 254 RVA: 0x0001CAA8 File Offset: 0x0001ACA8
 	private void Awake()
 	{
 		if (PromptsMaster.instance != null)
@@ -265,14 +266,16 @@ public class PromptsMaster : MonoBehaviour
 		this.DebugEnableSet(false, true);
 	}
 
-	// Token: 0x060000EC RID: 236 RVA: 0x000096CB File Offset: 0x000078CB
+	// Token: 0x060000FF RID: 255 RVA: 0x00007F0B File Offset: 0x0000610B
 	private void Update()
 	{
 		this.DebugUpdate();
 	}
 
+	// Token: 0x040000F8 RID: 248
 	public static PromptsMaster instance;
 
+	// Token: 0x040000F9 RID: 249
 	private string[] promptSpriteNames_Keyboard = new string[]
 	{
 		"prompts_sheet_keyboard_86", "prompts_sheet_keyboard_50", "prompts_sheet_keyboard_56", "prompts_sheet_keyboard_59", "prompts_sheet_keyboard_61", "prompts_sheet_keyboard_63", "prompts_sheet_keyboard_65", "prompts_sheet_keyboard_80", "prompts_sheet_keyboard_82", "prompts_sheet_keyboard_83",
@@ -291,8 +294,10 @@ public class PromptsMaster : MonoBehaviour
 		"prompts_sheet_keyboard_116", "prompts_sheet_keyboard_114", "prompts_sheet_generic_2", "prompts_sheet_generic_2"
 	};
 
+	// Token: 0x040000FA RID: 250
 	private string[] promptSpriteNames_Mouse = new string[] { "prompts_sheet_mouse_0", "prompts_sheet_mouse_3", "prompts_sheet_mouse_1", "prompts_sheet_mouse_5", "prompts_sheet_mouse_4", "prompts_sheet_mouse_2", "prompts_sheet_mouse_2", "prompts_sheet_generic_2", "prompts_sheet_generic_2" };
 
+	// Token: 0x040000FB RID: 251
 	private string[] promptSpriteNames_Joystick_Xbox = new string[]
 	{
 		"prompts_sheet_xbox_22", "prompts_sheet_xbox_23", "prompts_sheet_xbox_27", "prompts_sheet_xbox_28", "prompts_sheet_xbox_29", "prompts_sheet_xbox_30", "prompts_sheet_xbox_31", "prompts_sheet_xbox_4", "prompts_sheet_xbox_9", "prompts_sheet_xbox_10",
@@ -300,6 +305,7 @@ public class PromptsMaster : MonoBehaviour
 		"prompts_sheet_xbox_21", "prompts_sheet_generic_2", "prompts_sheet_generic_2"
 	};
 
+	// Token: 0x040000FC RID: 252
 	private string[] promptSpriteNames_Joystick_PS4 = new string[]
 	{
 		"prompts_sheet_playstation_28", "prompts_sheet_playstation_23", "prompts_sheet_playstation_33", "prompts_sheet_playstation_39", "prompts_sheet_playstation_54", "prompts_sheet_playstation_52", "prompts_sheet_playstation_66", "prompts_sheet_playstation_50", "prompts_sheet_playstation_56", "prompts_sheet_playstation_46",
@@ -307,6 +313,7 @@ public class PromptsMaster : MonoBehaviour
 		"prompts_sheet_playstation_60", "prompts_sheet_generic_2", "prompts_sheet_generic_2"
 	};
 
+	// Token: 0x040000FD RID: 253
 	private string[] promptSpriteNames_Joystick_PS5 = new string[]
 	{
 		"prompts_sheet_playstation_29", "prompts_sheet_playstation_24", "prompts_sheet_playstation_34", "prompts_sheet_playstation_40", "prompts_sheet_playstation_55", "prompts_sheet_playstation_53", "prompts_sheet_playstation_67", "prompts_sheet_playstation_51", "prompts_sheet_playstation_57", "prompts_sheet_playstation_47",
@@ -314,6 +321,7 @@ public class PromptsMaster : MonoBehaviour
 		"prompts_sheet_playstation_61", "prompts_sheet_generic_2", "prompts_sheet_generic_2"
 	};
 
+	// Token: 0x040000FE RID: 254
 	private string[] promptSpriteNames_Joystick_NintendoSwitch = new string[]
 	{
 		"prompts_sheet_nintendo_switch_1", "prompts_sheet_nintendo_switch_0", "prompts_sheet_nintendo_switch_17", "prompts_sheet_nintendo_switch_16", "prompts_sheet_nintendo_switch_24", "prompts_sheet_nintendo_switch_23", "prompts_sheet_nintendo_switch_22", "prompts_sheet_nintendo_switch_18", "prompts_sheet_nintendo_switch_19", "prompts_sheet_nintendo_switch_7",
@@ -321,25 +329,36 @@ public class PromptsMaster : MonoBehaviour
 		"prompts_sheet_nintendo_switch_15", "prompts_sheet_generic_2", "prompts_sheet_generic_2"
 	};
 
+	// Token: 0x040000FF RID: 255
 	public Sprite[] inputSprites;
 
+	// Token: 0x04000100 RID: 256
 	private static Dictionary<string, Sprite> inputSpritesDict = new Dictionary<string, Sprite>();
 
+	// Token: 0x04000101 RID: 257
 	private static string[] promptsSpriteTMPStrings_Keyboard = null;
 
+	// Token: 0x04000102 RID: 258
 	private static string[] promptsSpriteTMPStrings_Mouse = null;
 
+	// Token: 0x04000103 RID: 259
 	private static string[] promptsSpriteTMPStrings_Joystick_Xbox = null;
 
+	// Token: 0x04000104 RID: 260
 	private static string[] promptsSpriteTMPStrings_Joystick_PS4 = null;
 
+	// Token: 0x04000105 RID: 261
 	private static string[] promptsSpriteTMPStrings_Joystick_PS5 = null;
 
+	// Token: 0x04000106 RID: 262
 	private static string[] promptsSpriteTMPStrings_Joystick_NintendoSwitch = null;
 
+	// Token: 0x04000107 RID: 263
 	private bool debugEnabled;
 
+	// Token: 0x04000108 RID: 264
 	public TextMeshProUGUI _debugActionStatesText;
 
+	// Token: 0x04000109 RID: 265
 	private string[] actionNames;
 }

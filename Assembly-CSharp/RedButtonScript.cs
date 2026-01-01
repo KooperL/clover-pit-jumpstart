@@ -5,9 +5,10 @@ using Panik;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x02000061 RID: 97
 public class RedButtonScript : MonoBehaviour
 {
-	// Token: 0x060006B1 RID: 1713 RVA: 0x0002A484 File Offset: 0x00028684
+	// Token: 0x06000749 RID: 1865 RVA: 0x0003C59C File Offset: 0x0003A79C
 	private static void CapsuleRemoveAndCleanUp(RedButtonScript.RegistrationCapsule capsule)
 	{
 		if (capsule == null)
@@ -26,13 +27,13 @@ public class RedButtonScript : MonoBehaviour
 		capsule.timing = RedButtonScript.RegistrationCapsule.Timing.undefined;
 	}
 
-	// Token: 0x060006B2 RID: 1714 RVA: 0x0002A4F6 File Offset: 0x000286F6
+	// Token: 0x0600074A RID: 1866 RVA: 0x0000BFDF File Offset: 0x0000A1DF
 	public static bool IsCharmTriggerableNow(PowerupScript.Identifier identifier)
 	{
 		return GameplayData.Powerup_ButtonChargesUsed_Get(identifier) <= 0;
 	}
 
-	// Token: 0x060006B3 RID: 1715 RVA: 0x0002A504 File Offset: 0x00028704
+	// Token: 0x0600074B RID: 1867 RVA: 0x0003C610 File Offset: 0x0003A810
 	public static List<PowerupScript> RegisteredPowerupsGet()
 	{
 		if (RedButtonScript.instance == null)
@@ -50,7 +51,7 @@ public class RedButtonScript : MonoBehaviour
 		return RedButtonScript.instance._tempRegistrationsList;
 	}
 
-	// Token: 0x060006B4 RID: 1716 RVA: 0x0002A5AC File Offset: 0x000287AC
+	// Token: 0x0600074C RID: 1868 RVA: 0x0003C6B8 File Offset: 0x0003A8B8
 	public static List<PowerupScript> RegisteredPowerupsGet_OnlyTriggerables()
 	{
 		if (RedButtonScript.instance == null)
@@ -68,7 +69,7 @@ public class RedButtonScript : MonoBehaviour
 		return RedButtonScript.instance._temp_AvailableRegistrations_List;
 	}
 
-	// Token: 0x060006B5 RID: 1717 RVA: 0x0002A66C File Offset: 0x0002886C
+	// Token: 0x0600074D RID: 1869 RVA: 0x0003C778 File Offset: 0x0003A978
 	public static List<PowerupScript> RegisteredPowerupsGet_ActivatedOnes()
 	{
 		if (RedButtonScript.instance == null)
@@ -99,13 +100,13 @@ public class RedButtonScript : MonoBehaviour
 		return RedButtonScript.instance._temp_UntriggerableRegistrations_List;
 	}
 
-	// Token: 0x060006B6 RID: 1718 RVA: 0x0002A768 File Offset: 0x00028968
+	// Token: 0x0600074E RID: 1870 RVA: 0x0000BFED File Offset: 0x0000A1ED
 	public static bool HasPowerupsRegistered()
 	{
 		return !(RedButtonScript.instance == null) && RedButtonScript.RegisteredPowerupsGet().Count > 0;
 	}
 
-	// Token: 0x060006B7 RID: 1719 RVA: 0x0002A786 File Offset: 0x00028986
+	// Token: 0x0600074F RID: 1871 RVA: 0x0000C00B File Offset: 0x0000A20B
 	public static void DamagedCapsules_Add(RedButtonScript.RegistrationCapsule capsule)
 	{
 		if (RedButtonScript.instance == null)
@@ -115,7 +116,7 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.instance.damagedRegistrations.Add(capsule);
 	}
 
-	// Token: 0x060006B8 RID: 1720 RVA: 0x0002A7A8 File Offset: 0x000289A8
+	// Token: 0x06000750 RID: 1872 RVA: 0x0003C874 File Offset: 0x0003AA74
 	public static void DamagedCapsules_Clean()
 	{
 		if (RedButtonScript.instance == null)
@@ -155,7 +156,7 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.instance.damagedRegistrations.Clear();
 	}
 
-	// Token: 0x060006B9 RID: 1721 RVA: 0x0002A908 File Offset: 0x00028B08
+	// Token: 0x06000751 RID: 1873 RVA: 0x0003C9D4 File Offset: 0x0003ABD4
 	public static void PowerupRegistration_Add(PowerupScript powerup, RedButtonScript.ButtonCallback onPress, RedButtonScript.RegistrationCapsule.Timing timing, RedButtonScript.ButtonCallback onReset = null)
 	{
 		if (RedButtonScript.instance == null)
@@ -183,7 +184,7 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.instance.registrationsPool.Remove(registrationCapsule);
 	}
 
-	// Token: 0x060006BA RID: 1722 RVA: 0x0002A9D6 File Offset: 0x00028BD6
+	// Token: 0x06000752 RID: 1874 RVA: 0x0000C02B File Offset: 0x0000A22B
 	public static void PowerupRegistration_Remove(PowerupScript powerup)
 	{
 		if (RedButtonScript.instance == null)
@@ -197,7 +198,7 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.CapsuleRemoveAndCleanUp(RedButtonScript.instance.registrations[powerup]);
 	}
 
-	// Token: 0x060006BB RID: 1723 RVA: 0x0002AA10 File Offset: 0x00028C10
+	// Token: 0x06000753 RID: 1875 RVA: 0x0003CAA4 File Offset: 0x0003ACA4
 	public void Press()
 	{
 		if (RedButtonScript.instance == null)
@@ -295,7 +296,7 @@ public class RedButtonScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006BC RID: 1724 RVA: 0x0002AC44 File Offset: 0x00028E44
+	// Token: 0x06000754 RID: 1876 RVA: 0x0003CCD8 File Offset: 0x0003AED8
 	public static void ResetTiming(RedButtonScript.RegistrationCapsule.Timing timing)
 	{
 		if (RedButtonScript.instance == null)
@@ -327,7 +328,7 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.ButtonVisualsRefresh();
 	}
 
-	// Token: 0x060006BD RID: 1725 RVA: 0x0002AD74 File Offset: 0x00028F74
+	// Token: 0x06000755 RID: 1877 RVA: 0x0003CE08 File Offset: 0x0003B008
 	public static bool IsAnyTriggerAvailable()
 	{
 		if (RedButtonScript.instance == null)
@@ -355,7 +356,7 @@ public class RedButtonScript : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x060006BE RID: 1726 RVA: 0x0002AE64 File Offset: 0x00029064
+	// Token: 0x06000756 RID: 1878 RVA: 0x0003CEF8 File Offset: 0x0003B0F8
 	public static int TriggersAvailableGetCount()
 	{
 		if (RedButtonScript.instance == null)
@@ -382,7 +383,7 @@ public class RedButtonScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x060006BF RID: 1727 RVA: 0x0002AF54 File Offset: 0x00029154
+	// Token: 0x06000757 RID: 1879 RVA: 0x0003CFE8 File Offset: 0x0003B1E8
 	public static void RestoreCharges(int n)
 	{
 		if (RedButtonScript.instance == null)
@@ -408,14 +409,15 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.ButtonVisualsRefresh();
 	}
 
-	// Token: 0x060006C0 RID: 1728 RVA: 0x0002B038 File Offset: 0x00029238
+	// Token: 0x06000758 RID: 1880 RVA: 0x0003D0CC File Offset: 0x0003B2CC
 	private void VisualsRoutine()
 	{
 		GameplayMaster.GamePhase gamePhase = GameplayMaster.GetGamePhase();
 		if (this.buttonHasTriggers)
 		{
 			this.flashing = true;
-			if (Util.AngleSin(Tick.PassedTime * 720f) > 0f)
+			bool flashingLightsReducedEnabled = Data.settings.flashingLightsReducedEnabled;
+			if (Util.AngleSin(Tick.PassedTime * (flashingLightsReducedEnabled ? 180f : 720f)) > 0f)
 			{
 				if (this.buttonRenderer.sharedMaterial != this.buttonMaterial_On)
 				{
@@ -447,7 +449,7 @@ public class RedButtonScript : MonoBehaviour
 				{
 					num = 0.5f;
 				}
-				Sound.Play3D("SoundRedButtonTwitching", base.transform.position, 3f, num, global::UnityEngine.Random.Range(0.9f, 1.1f), 1);
+				Sound.Play3D("SoundRedButtonTwitching", base.transform.position, 3f, num, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 			}
 		}
 		else
@@ -470,7 +472,7 @@ public class RedButtonScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006C1 RID: 1729 RVA: 0x0002B217 File Offset: 0x00029417
+	// Token: 0x06000759 RID: 1881 RVA: 0x0000C063 File Offset: 0x0000A263
 	public static void ButtonVisualsRefresh()
 	{
 		if (RedButtonScript.instance == null)
@@ -482,13 +484,13 @@ public class RedButtonScript : MonoBehaviour
 		RedButtonScript.instance.stackRequestUpdate = true;
 	}
 
-	// Token: 0x060006C2 RID: 1730 RVA: 0x0002B246 File Offset: 0x00029446
+	// Token: 0x0600075A RID: 1882 RVA: 0x0000C092 File Offset: 0x0000A292
 	public static bool ButtonIsFlashing()
 	{
 		return !(RedButtonScript.instance == null) && RedButtonScript.instance.flashing;
 	}
 
-	// Token: 0x060006C3 RID: 1731 RVA: 0x0002B264 File Offset: 0x00029464
+	// Token: 0x0600075B RID: 1883 RVA: 0x0003D2C0 File Offset: 0x0003B4C0
 	private void UiRoutine(List<PowerupScript> triggerableCharms, List<PowerupScript> activeCharms)
 	{
 		bool flag = this.myMenuElement.IsHovered() && GameplayMaster.GetGamePhase() == GameplayMaster.GamePhase.gambling && !SlotMachineScript.IsSpinning() && triggerableCharms.Count > 0 && CameraController.SlotMachineLook_Get() == CameraController.SlotMachineLookingSides.front;
@@ -561,19 +563,19 @@ public class RedButtonScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006C4 RID: 1732 RVA: 0x0002B5D3 File Offset: 0x000297D3
+	// Token: 0x0600075C RID: 1884 RVA: 0x0000C0AD File Offset: 0x0000A2AD
 	public static bool UiIsShowing()
 	{
 		return !(RedButtonScript.instance == null) && RedButtonScript.instance._uiIsShowing;
 	}
 
-	// Token: 0x060006C5 RID: 1733 RVA: 0x0002B5EE File Offset: 0x000297EE
+	// Token: 0x0600075D RID: 1885 RVA: 0x0000C0C8 File Offset: 0x0000A2C8
 	private bool _IsNoTimingCharm(PowerupScript powerup)
 	{
 		return this.noTimingCharmsDictionary.ContainsKey(powerup) && this.noTimingCharmsDictionary[powerup];
 	}
 
-	// Token: 0x060006C6 RID: 1734 RVA: 0x0002B60C File Offset: 0x0002980C
+	// Token: 0x0600075E RID: 1886 RVA: 0x0000C0E6 File Offset: 0x0000A2E6
 	private int _NoTimingCharm_GetCounterToShow(PowerupScript.Identifier powerupIdentifier)
 	{
 		if (powerupIdentifier <= PowerupScript.Identifier.RingBell)
@@ -605,13 +607,13 @@ public class RedButtonScript : MonoBehaviour
 		return -1;
 	}
 
-	// Token: 0x060006C7 RID: 1735 RVA: 0x0002B640 File Offset: 0x00029840
+	// Token: 0x0600075F RID: 1887 RVA: 0x0000C11A File Offset: 0x0000A31A
 	private void Awake()
 	{
 		RedButtonScript.instance = this;
 	}
 
-	// Token: 0x060006C8 RID: 1736 RVA: 0x0002B648 File Offset: 0x00029848
+	// Token: 0x06000760 RID: 1888 RVA: 0x0000C122 File Offset: 0x0000A322
 	private void OnDestroy()
 	{
 		if (RedButtonScript.instance == this)
@@ -620,13 +622,13 @@ public class RedButtonScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006C9 RID: 1737 RVA: 0x0002B65D File Offset: 0x0002985D
+	// Token: 0x06000761 RID: 1889 RVA: 0x0000C137 File Offset: 0x0000A337
 	private void Start()
 	{
 		RedButtonScript.ButtonVisualsRefresh();
 	}
 
-	// Token: 0x060006CA RID: 1738 RVA: 0x0002B664 File Offset: 0x00029864
+	// Token: 0x06000762 RID: 1890 RVA: 0x0000C13E File Offset: 0x0000A33E
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -637,94 +639,140 @@ public class RedButtonScript : MonoBehaviour
 		this.UiRoutine(RedButtonScript.RegisteredPowerupsGet_OnlyTriggerables(), RedButtonScript.RegisteredPowerupsGet_ActivatedOnes());
 	}
 
+	// Token: 0x0400064D RID: 1613
 	public static RedButtonScript instance;
 
+	// Token: 0x0400064E RID: 1614
 	public static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x0400064F RID: 1615
 	public DiegeticMenuElement myMenuElement;
 
+	// Token: 0x04000650 RID: 1616
 	public MeshRenderer buttonRenderer;
 
+	// Token: 0x04000651 RID: 1617
 	public MeshRenderer buttonBaseRenderer;
 
+	// Token: 0x04000652 RID: 1618
 	public Material buttonMaterial_Off;
 
+	// Token: 0x04000653 RID: 1619
 	public Material buttonMaterial_On;
 
+	// Token: 0x04000654 RID: 1620
 	public BounceScript twitchBounceScript;
 
+	// Token: 0x04000655 RID: 1621
 	public GameObject baloonHolder;
 
+	// Token: 0x04000656 RID: 1622
 	public Transform uiBaloonShakerTransform;
 
+	// Token: 0x04000657 RID: 1623
 	public RawImage uiBaloonImage;
 
+	// Token: 0x04000658 RID: 1624
 	public RawImage uiBaloonPointImage;
 
+	// Token: 0x04000659 RID: 1625
 	public Transform stackTransform;
 
+	// Token: 0x0400065A RID: 1626
 	private List<CharmUiRenderer> charmUiRenderers = new List<CharmUiRenderer>();
 
+	// Token: 0x0400065B RID: 1627
 	private List<CharmUiRenderer> charmUiRenderers_ActiveOnes = new List<CharmUiRenderer>();
 
+	// Token: 0x0400065C RID: 1628
 	private List<RedButtonScript.RegistrationCapsule> registrationsPool = new List<RedButtonScript.RegistrationCapsule>();
 
+	// Token: 0x0400065D RID: 1629
 	private Dictionary<PowerupScript, RedButtonScript.RegistrationCapsule> registrations = new Dictionary<PowerupScript, RedButtonScript.RegistrationCapsule>();
 
+	// Token: 0x0400065E RID: 1630
 	private int registeredCount;
 
+	// Token: 0x0400065F RID: 1631
 	private List<PowerupScript> _tempRegistrationsList = new List<PowerupScript>();
 
+	// Token: 0x04000660 RID: 1632
 	private List<PowerupScript> _temp_AvailableRegistrations_List = new List<PowerupScript>();
 
+	// Token: 0x04000661 RID: 1633
 	private List<PowerupScript> _temp_UntriggerableRegistrations_List = new List<PowerupScript>();
 
+	// Token: 0x04000662 RID: 1634
 	private static StringBuilder damagedCapsulesStringBuilder = new StringBuilder();
 
+	// Token: 0x04000663 RID: 1635
 	private List<RedButtonScript.RegistrationCapsule> damagedRegistrations = new List<RedButtonScript.RegistrationCapsule>();
 
+	// Token: 0x04000664 RID: 1636
 	private List<RedButtonScript.RegistrationCapsule> tempRegistrations = new List<RedButtonScript.RegistrationCapsule>();
 
+	// Token: 0x04000665 RID: 1637
 	private bool buttonHasTriggers;
 
+	// Token: 0x04000666 RID: 1638
 	private bool flashing;
 
+	// Token: 0x04000667 RID: 1639
 	private int powerupsEquippedCountOld;
 
+	// Token: 0x04000668 RID: 1640
 	private float buttonTwitchTimer;
 
+	// Token: 0x04000669 RID: 1641
 	private bool stackRequestUpdate;
 
+	// Token: 0x0400066A RID: 1642
 	private bool _uiIsShowing;
 
+	// Token: 0x0400066B RID: 1643
 	private Dictionary<PowerupScript, bool> noTimingCharmsDictionary = new Dictionary<PowerupScript, bool>();
 
+	// Token: 0x0400066C RID: 1644
 	public RedButtonScript.RedButtonEvent onButtonActivatedSomething;
 
-	// (Invoke) Token: 0x06001163 RID: 4451
+	// Token: 0x02000062 RID: 98
+	// (Invoke) Token: 0x06000766 RID: 1894
 	public delegate void ButtonCallback(PowerupScript powerup);
 
+	// Token: 0x02000063 RID: 99
 	public class RegistrationCapsule
 	{
+		// Token: 0x0400066D RID: 1645
 		public PowerupScript powerup;
 
+		// Token: 0x0400066E RID: 1646
 		public RedButtonScript.ButtonCallback onPressed;
 
+		// Token: 0x0400066F RID: 1647
 		public RedButtonScript.ButtonCallback onReset;
 
+		// Token: 0x04000670 RID: 1648
 		public RedButtonScript.RegistrationCapsule.Timing timing = RedButtonScript.RegistrationCapsule.Timing.undefined;
 
+		// Token: 0x02000064 RID: 100
 		public enum Timing
 		{
+			// Token: 0x04000672 RID: 1650
 			undefined = -1,
+			// Token: 0x04000673 RID: 1651
 			noTiming,
+			// Token: 0x04000674 RID: 1652
 			perSpin,
+			// Token: 0x04000675 RID: 1653
 			perRound,
+			// Token: 0x04000676 RID: 1654
 			perDeadline,
+			// Token: 0x04000677 RID: 1655
 			count
 		}
 	}
 
-	// (Invoke) Token: 0x06001168 RID: 4456
+	// Token: 0x02000065 RID: 101
+	// (Invoke) Token: 0x0600076B RID: 1899
 	public delegate void RedButtonEvent();
 }

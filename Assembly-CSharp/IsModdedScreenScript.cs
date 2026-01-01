@@ -3,15 +3,16 @@ using Panik;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000BA RID: 186
 public class IsModdedScreenScript : MonoBehaviour
 {
-	// Token: 0x060008D0 RID: 2256 RVA: 0x0003A392 File Offset: 0x00038592
+	// Token: 0x06000A07 RID: 2567 RVA: 0x0000DEFF File Offset: 0x0000C0FF
 	public bool IsEnabled()
 	{
 		return !(IsModdedScreenScript.instance == null) && this.holder.activeSelf;
 	}
 
-	// Token: 0x060008D1 RID: 2257 RVA: 0x0003A3AE File Offset: 0x000385AE
+	// Token: 0x06000A08 RID: 2568 RVA: 0x0000DF1B File Offset: 0x0000C11B
 	public static void UpdateState()
 	{
 		if (IsModdedScreenScript.instance == null)
@@ -21,25 +22,25 @@ public class IsModdedScreenScript : MonoBehaviour
 		IsModdedScreenScript.instance.holder.SetActive(Master.IsModded());
 	}
 
-	// Token: 0x060008D2 RID: 2258 RVA: 0x0003A3D2 File Offset: 0x000385D2
+	// Token: 0x06000A09 RID: 2569 RVA: 0x0000DF3F File Offset: 0x0000C13F
 	private void Awake()
 	{
 		IsModdedScreenScript.instance = this;
 	}
 
-	// Token: 0x060008D3 RID: 2259 RVA: 0x0003A3DA File Offset: 0x000385DA
+	// Token: 0x06000A0A RID: 2570 RVA: 0x0000DF47 File Offset: 0x0000C147
 	private void Start()
 	{
 		IsModdedScreenScript.UpdateState();
 	}
 
-	// Token: 0x060008D4 RID: 2260 RVA: 0x0003A3E1 File Offset: 0x000385E1
+	// Token: 0x06000A0B RID: 2571 RVA: 0x0000DF47 File Offset: 0x0000C147
 	private void OnEnable()
 	{
 		IsModdedScreenScript.UpdateState();
 	}
 
-	// Token: 0x060008D5 RID: 2261 RVA: 0x0003A3E8 File Offset: 0x000385E8
+	// Token: 0x06000A0C RID: 2572 RVA: 0x0000DF4E File Offset: 0x0000C14E
 	private void OnDestroy()
 	{
 		if (IsModdedScreenScript.instance == this)
@@ -48,7 +49,7 @@ public class IsModdedScreenScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008D6 RID: 2262 RVA: 0x0003A3FD File Offset: 0x000385FD
+	// Token: 0x06000A0D RID: 2573 RVA: 0x0000DF63 File Offset: 0x0000C163
 	private void Update()
 	{
 		if (!this.IsEnabled())
@@ -58,9 +59,12 @@ public class IsModdedScreenScript : MonoBehaviour
 		this.gearImage.transform.AddLocalZAngle(Tick.Time * 45f);
 	}
 
+	// Token: 0x04000A36 RID: 2614
 	public static IsModdedScreenScript instance;
 
+	// Token: 0x04000A37 RID: 2615
 	public GameObject holder;
 
+	// Token: 0x04000A38 RID: 2616
 	public Image gearImage;
 }

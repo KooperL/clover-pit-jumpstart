@@ -7,15 +7,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x020000BD RID: 189
 public class MagazineUiScript : MonoBehaviour
 {
-	// Token: 0x060008EE RID: 2286 RVA: 0x0003ABF9 File Offset: 0x00038DF9
+	// Token: 0x06000A25 RID: 2597 RVA: 0x0000E111 File Offset: 0x0000C311
 	public static bool IsEnabled()
 	{
 		return !(MagazineUiScript.instance == null) && MagazineUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008EF RID: 2287 RVA: 0x0003AC1C File Offset: 0x00038E1C
+	// Token: 0x06000A26 RID: 2598 RVA: 0x00051ED8 File Offset: 0x000500D8
 	public static void Open()
 	{
 		if (MagazineUiScript.instance == null)
@@ -23,7 +24,7 @@ public class MagazineUiScript : MonoBehaviour
 			return;
 		}
 		MagazineUiScript.instance.holder.SetActive(true);
-		Sound.Play3D("SoundMagazineOpen", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundMagazineOpen", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraController.DisableReason_Add("mgzn");
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 		VirtualCursors.CursorPositionNormalizedSet(0, Vector2.zero, true);
@@ -31,7 +32,7 @@ public class MagazineUiScript : MonoBehaviour
 		MagazineUiScript.instance.StartCoroutine(MagazineUiScript.instance.MainCoroutine());
 	}
 
-	// Token: 0x060008F0 RID: 2288 RVA: 0x0003ACAC File Offset: 0x00038EAC
+	// Token: 0x06000A27 RID: 2599 RVA: 0x00051F68 File Offset: 0x00050168
 	public static void Close(bool initialSetup)
 	{
 		if (MagazineUiScript.instance == null)
@@ -48,7 +49,7 @@ public class MagazineUiScript : MonoBehaviour
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
 	}
 
-	// Token: 0x060008F1 RID: 2289 RVA: 0x0003AD0A File Offset: 0x00038F0A
+	// Token: 0x06000A28 RID: 2600 RVA: 0x0000E131 File Offset: 0x0000C331
 	private IEnumerator MainCoroutine()
 	{
 		float creditsMovementDelayTimer = 3f;
@@ -110,7 +111,7 @@ public class MagazineUiScript : MonoBehaviour
 			}
 			yield return null;
 		}
-		Sound.Play3D("SoundMagazineClose", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundMagazineClose", MagazinesHolderScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		while (MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition.y > -539f && !MagazineUiScript.IsForceClosing())
 		{
 			MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition += (new Vector2(0f, -540f) - MagazineUiScript.instance.magazineHolderRecTr.anchoredPosition) * Tick.Time * 20f;
@@ -122,7 +123,7 @@ public class MagazineUiScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060008F2 RID: 2290 RVA: 0x0003AD19 File Offset: 0x00038F19
+	// Token: 0x06000A29 RID: 2601 RVA: 0x0000E140 File Offset: 0x0000C340
 	public static void ForceClose_Death()
 	{
 		if (MagazineUiScript.instance == null)
@@ -132,54 +133,54 @@ public class MagazineUiScript : MonoBehaviour
 		MagazineUiScript.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x060008F3 RID: 2291 RVA: 0x0003AD34 File Offset: 0x00038F34
+	// Token: 0x06000A2A RID: 2602 RVA: 0x0000E15B File Offset: 0x0000C35B
 	public static bool IsForceClosing()
 	{
 		return !(MagazineUiScript.instance == null) && MagazineUiScript.instance.forceClose_Death;
 	}
 
-	// Token: 0x060008F4 RID: 2292 RVA: 0x0003AD50 File Offset: 0x00038F50
+	// Token: 0x06000A2B RID: 2603 RVA: 0x00051FC8 File Offset: 0x000501C8
 	private void TranslationUpdate()
 	{
+		this.creditsTitleText.text = Translation.Get("VARIOUS_MAGAZINE_CREDITS_TITLE");
+		this.creditsBodyText.text = MagazineUiScript.GetCreditsString();
 		if (!PlatformMaster.PlatformIsComputer())
 		{
 			this.adRawImage.texture = this.adTexture_CloverPitConsole;
 			this.adPromptText.text = "~ Panik Arcade";
 			return;
 		}
-		if (Master.IsDemo)
+		if (Master.instance.MobileAdEnabled())
 		{
-			Master.GamePublicState game_PUBLIC_STATE = Master.instance.GAME_PUBLIC_STATE;
-			if (game_PUBLIC_STATE != Master.GamePublicState.wishlistOrPrerelease)
-			{
-				if (game_PUBLIC_STATE == Master.GamePublicState.released)
-				{
-					this.adRawImage.texture = this.adTexture_CloverPitBuy;
-					this.adPromptText.text = Translation.Get("VARIOUS_MAGAZINE_BUY_PROMPT_DESKTOP");
-				}
-				else
-				{
-					string text = "MagazineUiScript.TranslationUpdate(): Call to action kind not handled: " + Master.instance.GAME_PUBLIC_STATE.ToString();
-					Debug.LogError(text);
-					ConsolePrompt.LogError(text, "", 0f);
-				}
-			}
-			else
-			{
-				this.adRawImage.texture = this.adTexture_CloverPitWishlist;
-				this.adPromptText.text = Translation.Get("VARIOUS_MAGAZINE_WISHLIST_PROMPT_DESKTOP");
-			}
+			this.adRawImage.texture = this.adTexture_CloverPitMobile;
+			this.adPromptText.text = Translation.Get("VARIOUS_MAGAZINE_PLAY_MOBILE_VERSION");
+			return;
 		}
-		else
+		if (!Master.IsDemo)
 		{
 			this.adRawImage.texture = this.adTexture_YellowTaxi;
 			this.adPromptText.text = Translation.Get("VARIOUS_MAGAZINE_YELLOW_TAXI_PROMPT_DESKTOP");
+			return;
 		}
-		this.creditsTitleText.text = Translation.Get("VARIOUS_MAGAZINE_CREDITS_TITLE");
-		this.creditsBodyText.text = MagazineUiScript.GetCreditsString();
+		Master.GamePublicState game_PUBLIC_STATE = Master.instance.GAME_PUBLIC_STATE;
+		if (game_PUBLIC_STATE == Master.GamePublicState.wishlistOrPrerelease)
+		{
+			this.adRawImage.texture = this.adTexture_CloverPitWishlist;
+			this.adPromptText.text = Translation.Get("VARIOUS_MAGAZINE_WISHLIST_PROMPT_DESKTOP");
+			return;
+		}
+		if (game_PUBLIC_STATE == Master.GamePublicState.released)
+		{
+			this.adRawImage.texture = this.adTexture_CloverPitBuy;
+			this.adPromptText.text = Translation.Get("VARIOUS_MAGAZINE_BUY_PROMPT_DESKTOP");
+			return;
+		}
+		string text = "MagazineUiScript.TranslationUpdate(): Call to action kind not handled: " + Master.instance.GAME_PUBLIC_STATE.ToString();
+		Debug.LogError(text);
+		ConsolePrompt.LogError(text, "", 0f);
 	}
 
-	// Token: 0x060008F5 RID: 2293 RVA: 0x0003AE78 File Offset: 0x00039078
+	// Token: 0x06000A2C RID: 2604 RVA: 0x0005211C File Offset: 0x0005031C
 	public static string GetCreditsString()
 	{
 		MagazineUiScript._sb.Clear();
@@ -210,9 +211,14 @@ public class MagazineUiScript : MonoBehaviour
 		return MagazineUiScript._sb.ToString();
 	}
 
-	// Token: 0x060008F6 RID: 2294 RVA: 0x0003B058 File Offset: 0x00039258
+	// Token: 0x06000A2D RID: 2605 RVA: 0x000522FC File Offset: 0x000504FC
 	public static void AdLinkOpen()
 	{
+		if (Master.instance.MobileAdEnabled())
+		{
+			Application.OpenURL("https://cloverpit.ateo.ch/");
+			return;
+		}
 		if (PlatformMaster.PlatformIsComputer())
 		{
 			if (Master.IsDemo)
@@ -246,7 +252,7 @@ public class MagazineUiScript : MonoBehaviour
 		Debug.Log("Link for platform: " + PlatformMaster.PlatformKindGet().ToString() + "is not implemented!");
 	}
 
-	// Token: 0x060008F7 RID: 2295 RVA: 0x0003B120 File Offset: 0x00039320
+	// Token: 0x06000A2E RID: 2606 RVA: 0x000523D8 File Offset: 0x000505D8
 	public static void SurveyLinkOpen()
 	{
 		if (PlatformMaster.PlatformIsComputer())
@@ -257,13 +263,13 @@ public class MagazineUiScript : MonoBehaviour
 		Debug.Log("Link for platform: " + PlatformMaster.PlatformKindGet().ToString() + "is not implemented!");
 	}
 
-	// Token: 0x060008F8 RID: 2296 RVA: 0x0003B166 File Offset: 0x00039366
+	// Token: 0x06000A2F RID: 2607 RVA: 0x0000E176 File Offset: 0x0000C376
 	private void Awake()
 	{
 		MagazineUiScript.instance = this;
 	}
 
-	// Token: 0x060008F9 RID: 2297 RVA: 0x0003B16E File Offset: 0x0003936E
+	// Token: 0x06000A30 RID: 2608 RVA: 0x0000E17E File Offset: 0x0000C37E
 	private void Start()
 	{
 		MagazineUiScript.Close(true);
@@ -271,7 +277,7 @@ public class MagazineUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TranslationUpdate));
 	}
 
-	// Token: 0x060008FA RID: 2298 RVA: 0x0003B19C File Offset: 0x0003939C
+	// Token: 0x06000A31 RID: 2609 RVA: 0x0000E1AC File Offset: 0x0000C3AC
 	private void OnDestroy()
 	{
 		if (MagazineUiScript.instance == this)
@@ -281,7 +287,7 @@ public class MagazineUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslationUpdate));
 	}
 
-	// Token: 0x060008FB RID: 2299 RVA: 0x0003B1D4 File Offset: 0x000393D4
+	// Token: 0x06000A32 RID: 2610 RVA: 0x00052420 File Offset: 0x00050620
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -295,51 +301,81 @@ public class MagazineUiScript : MonoBehaviour
 		this.magazineWaverRecTr.anchoredPosition = Vector2.zero + new Vector2(Util.AngleSin(Tick.PassedTime * 20f) * 2f, Util.AngleCos(Tick.PassedTime * 45f) * 8f);
 	}
 
+	// Token: 0x04000A53 RID: 2643
 	public static MagazineUiScript instance;
 
+	// Token: 0x04000A54 RID: 2644
 	private const string CAMERA_DISABLE_REASON = "mgzn";
 
+	// Token: 0x04000A55 RID: 2645
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000A56 RID: 2646
 	private const float MAGAZINE_Y_OUT = -540f;
 
+	// Token: 0x04000A57 RID: 2647
 	private const string STEAM_LINK_CLOVERPIT_DESKTOP = "steam://store/3314790";
 
+	// Token: 0x04000A58 RID: 2648
 	private const string STEAM_LINK_YELLOW_TAXI_DESKTOP = "steam://store/2011780";
 
+	// Token: 0x04000A59 RID: 2649
 	private const string PLAYTEST_SURVEY_LINK = "https://forms.gle/em1oD4CoCaa8D6Dg9";
 
+	// Token: 0x04000A5A RID: 2650
+	private const string MOBILE_VERSION_DOWNLOAD_LINK = "https://cloverpit.ateo.ch/";
+
+	// Token: 0x04000A5B RID: 2651
 	public GameObject holder;
 
+	// Token: 0x04000A5C RID: 2652
 	public RectTransform magazineHolderRecTr;
 
+	// Token: 0x04000A5D RID: 2653
 	public RectTransform magazineWaverRecTr;
 
+	// Token: 0x04000A5E RID: 2654
 	public CanvasScaler canvasScaler;
 
+	// Token: 0x04000A5F RID: 2655
 	public RawImage adRawImage;
 
+	// Token: 0x04000A60 RID: 2656
 	public TextMeshProUGUI adPromptText;
 
+	// Token: 0x04000A61 RID: 2657
 	public Texture2D adTexture_CloverPitWishlist;
 
+	// Token: 0x04000A62 RID: 2658
 	public Texture2D adTexture_CloverPitBuy;
 
+	// Token: 0x04000A63 RID: 2659
 	public Texture2D adTexture_YellowTaxi;
 
+	// Token: 0x04000A64 RID: 2660
 	public Texture2D adTexture_CloverPitConsole;
 
+	// Token: 0x04000A65 RID: 2661
+	public Texture2D adTexture_CloverPitMobile;
+
+	// Token: 0x04000A66 RID: 2662
 	public BounceScript adBounceScript;
 
+	// Token: 0x04000A67 RID: 2663
 	public RectTransform adSelectableRectTr;
 
+	// Token: 0x04000A68 RID: 2664
 	public RectTransform adPositionShifter;
 
+	// Token: 0x04000A69 RID: 2665
 	public TextMeshProUGUI creditsTitleText;
 
+	// Token: 0x04000A6A RID: 2666
 	public TextMeshProUGUI creditsBodyText;
 
+	// Token: 0x04000A6B RID: 2667
 	private bool forceClose_Death;
 
+	// Token: 0x04000A6C RID: 2668
 	private static StringBuilder _sb = new StringBuilder();
 }

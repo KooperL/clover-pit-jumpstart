@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Panik
 {
+	// Token: 0x02000119 RID: 281
 	public class CameraUi : MonoBehaviour
 	{
-		// Token: 0x06000B74 RID: 2932 RVA: 0x0004C3CF File Offset: 0x0004A5CF
+		// Token: 0x06000D59 RID: 3417 RVA: 0x00010F05 File Offset: 0x0000F105
 		public int CameraIndex()
 		{
 			if (this._myIndex < 0)
@@ -16,7 +17,7 @@ namespace Panik
 			return this._myIndex;
 		}
 
-		// Token: 0x06000B75 RID: 2933 RVA: 0x0004C3F1 File Offset: 0x0004A5F1
+		// Token: 0x06000D5A RID: 3418 RVA: 0x00010F27 File Offset: 0x0000F127
 		public void UpdateRenderingTexture()
 		{
 			if (!Master.instance.RENDER_TO_TEXTURE)
@@ -27,7 +28,7 @@ namespace Panik
 			this.myCamera.targetTexture = RenderingMaster.renderTextureCurrent;
 		}
 
-		// Token: 0x06000B76 RID: 2934 RVA: 0x0004C41C File Offset: 0x0004A61C
+		// Token: 0x06000D5B RID: 3419 RVA: 0x00065E04 File Offset: 0x00064004
 		public void CullingMaskUpdate()
 		{
 			switch (this.CameraIndex())
@@ -53,12 +54,12 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B77 RID: 2935 RVA: 0x0004C4BE File Offset: 0x0004A6BE
+		// Token: 0x06000D5C RID: 3420 RVA: 0x0000774E File Offset: 0x0000594E
 		public void _SplitScreenUpdate()
 		{
 		}
 
-		// Token: 0x06000B78 RID: 2936 RVA: 0x0004C4C0 File Offset: 0x0004A6C0
+		// Token: 0x06000D5D RID: 3421 RVA: 0x00010F52 File Offset: 0x0000F152
 		private void Awake()
 		{
 			if (CameraUi.firstInstance == null)
@@ -69,7 +70,7 @@ namespace Panik
 			this.myCamera = base.GetComponent<Camera>();
 		}
 
-		// Token: 0x06000B79 RID: 2937 RVA: 0x0004C4EC File Offset: 0x0004A6EC
+		// Token: 0x06000D5E RID: 3422 RVA: 0x00065EA8 File Offset: 0x000640A8
 		private void Start()
 		{
 			this._myIndex = -1;
@@ -130,7 +131,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B7A RID: 2938 RVA: 0x0004C6D4 File Offset: 0x0004A8D4
+		// Token: 0x06000D5F RID: 3423 RVA: 0x00010F7E File Offset: 0x0000F17E
 		private void OnDestroy()
 		{
 			if (CameraUi.firstInstance == this)
@@ -140,12 +141,16 @@ namespace Panik
 			CameraUi.list.Remove(this);
 		}
 
+		// Token: 0x04000DE9 RID: 3561
 		public static CameraUi firstInstance = null;
 
+		// Token: 0x04000DEA RID: 3562
 		public static List<CameraUi> list = new List<CameraUi>();
 
+		// Token: 0x04000DEB RID: 3563
 		private int _myIndex = -1;
 
+		// Token: 0x04000DEC RID: 3564
 		[NonSerialized]
 		public Camera myCamera;
 	}

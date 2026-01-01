@@ -5,35 +5,36 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x020000E4 RID: 228
 public class QuickRestartUiScript : MonoBehaviour
 {
-	// Token: 0x060009E6 RID: 2534 RVA: 0x000439A5 File Offset: 0x00041BA5
+	// Token: 0x06000B8E RID: 2958 RVA: 0x0000F788 File Offset: 0x0000D988
 	public static bool IsEnabled()
 	{
 		return !(QuickRestartUiScript.instance == null) && QuickRestartUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060009E7 RID: 2535 RVA: 0x000439C5 File Offset: 0x00041BC5
+	// Token: 0x06000B8F RID: 2959 RVA: 0x0000F7A8 File Offset: 0x0000D9A8
 	private void TextUpdate()
 	{
 		this.restartText.text = Translation.Get("MENU_OPTION_RESTART");
 	}
 
-	// Token: 0x060009E8 RID: 2536 RVA: 0x000439DC File Offset: 0x00041BDC
+	// Token: 0x06000B90 RID: 2960 RVA: 0x0000F7BF File Offset: 0x0000D9BF
 	private void Awake()
 	{
 		QuickRestartUiScript.instance = this;
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x060009E9 RID: 2537 RVA: 0x000439F0 File Offset: 0x00041BF0
+	// Token: 0x06000B91 RID: 2961 RVA: 0x0000F7D3 File Offset: 0x0000D9D3
 	private void Start()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TextUpdate));
 		this.ResetImageBar();
 	}
 
-	// Token: 0x060009EA RID: 2538 RVA: 0x00043A18 File Offset: 0x00041C18
+	// Token: 0x06000B92 RID: 2962 RVA: 0x0000F7FB File Offset: 0x0000D9FB
 	private void OnDestroy()
 	{
 		if (QuickRestartUiScript.instance == this)
@@ -42,7 +43,7 @@ public class QuickRestartUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009EB RID: 2539 RVA: 0x00043A30 File Offset: 0x00041C30
+	// Token: 0x06000B93 RID: 2963 RVA: 0x0005D4D8 File Offset: 0x0005B6D8
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -159,7 +160,7 @@ public class QuickRestartUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009EC RID: 2540 RVA: 0x00043D54 File Offset: 0x00041F54
+	// Token: 0x06000B94 RID: 2964 RVA: 0x0005D7FC File Offset: 0x0005B9FC
 	private void ResetImageBar()
 	{
 		Vector2 sizeDelta = this.foregroundImageBar.rectTransform.sizeDelta;
@@ -168,17 +169,24 @@ public class QuickRestartUiScript : MonoBehaviour
 		this.foregroundImageBar.color = QuickRestartUiScript.C_ORANGE;
 	}
 
+	// Token: 0x04000C30 RID: 3120
 	public static QuickRestartUiScript instance;
 
+	// Token: 0x04000C31 RID: 3121
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000C32 RID: 3122
 	public GameObject holder;
 
+	// Token: 0x04000C33 RID: 3123
 	public Image foregroundImageBar;
 
+	// Token: 0x04000C34 RID: 3124
 	public TextMeshProUGUI restartText;
 
+	// Token: 0x04000C35 RID: 3125
 	private float disableDelayTimer;
 
+	// Token: 0x04000C36 RID: 3126
 	private float restartDelayTimer;
 }

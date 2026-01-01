@@ -4,15 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000D1 RID: 209
 public class MemoScript : MonoBehaviour
 {
-	// Token: 0x06000980 RID: 2432 RVA: 0x0003E973 File Offset: 0x0003CB73
+	// Token: 0x06000AF2 RID: 2802 RVA: 0x0000EB2B File Offset: 0x0000CD2B
 	public static bool IsEnabled()
 	{
 		return !(MemoScript.instance == null) && MemoScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000981 RID: 2433 RVA: 0x0003E994 File Offset: 0x0003CB94
+	// Token: 0x06000AF3 RID: 2803 RVA: 0x00058190 File Offset: 0x00056390
 	public static void SetMessage(MemoScript.Message message, float time)
 	{
 		if (message != MemoScript.Message.roundsLeft)
@@ -41,7 +42,7 @@ public class MemoScript : MonoBehaviour
 		MemoScript.instance.holder.SetActive(true);
 	}
 
-	// Token: 0x06000982 RID: 2434 RVA: 0x0003EA78 File Offset: 0x0003CC78
+	// Token: 0x06000AF4 RID: 2804 RVA: 0x0000EB4B File Offset: 0x0000CD4B
 	public static void Close(bool forceClose)
 	{
 		if (!MemoScript.IsEnabled() && !forceClose)
@@ -51,14 +52,14 @@ public class MemoScript : MonoBehaviour
 		MemoScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x06000983 RID: 2435 RVA: 0x0003EA95 File Offset: 0x0003CC95
+	// Token: 0x06000AF5 RID: 2805 RVA: 0x0000EB68 File Offset: 0x0000CD68
 	private void Awake()
 	{
 		MemoScript.instance = this;
 		MemoScript.Close(true);
 	}
 
-	// Token: 0x06000984 RID: 2436 RVA: 0x0003EAA3 File Offset: 0x0003CCA3
+	// Token: 0x06000AF6 RID: 2806 RVA: 0x0000EB76 File Offset: 0x0000CD76
 	private void OnDestroy()
 	{
 		if (MemoScript.instance == this)
@@ -67,7 +68,7 @@ public class MemoScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000985 RID: 2437 RVA: 0x0003EAB8 File Offset: 0x0003CCB8
+	// Token: 0x06000AF7 RID: 2807 RVA: 0x00058274 File Offset: 0x00056474
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -93,27 +94,40 @@ public class MemoScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000B40 RID: 2880
 	public static MemoScript instance;
 
+	// Token: 0x04000B41 RID: 2881
 	public const float TIME_SHORT = 1.5f;
 
+	// Token: 0x04000B42 RID: 2882
 	public const float TIME_LONG = 3f;
 
+	// Token: 0x04000B43 RID: 2883
 	public const float TIME_LONG_LONG = 5f;
 
+	// Token: 0x04000B44 RID: 2884
 	public GameObject holder;
 
+	// Token: 0x04000B45 RID: 2885
 	public Image backImage;
 
+	// Token: 0x04000B46 RID: 2886
 	public TextMeshProUGUI memoText;
 
+	// Token: 0x04000B47 RID: 2887
 	private float lifeTimer;
 
+	// Token: 0x020000D2 RID: 210
 	public enum Message
 	{
+		// Token: 0x04000B49 RID: 2889
 		undefined = -1,
+		// Token: 0x04000B4A RID: 2890
 		roundsLeft,
+		// Token: 0x04000B4B RID: 2891
 		inputsMove,
+		// Token: 0x04000B4C RID: 2892
 		count
 	}
 }

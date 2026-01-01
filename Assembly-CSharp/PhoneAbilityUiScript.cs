@@ -4,9 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000D3 RID: 211
 public class PhoneAbilityUiScript : MonoBehaviour
 {
-	// Token: 0x06000987 RID: 2439 RVA: 0x0003EB3C File Offset: 0x0003CD3C
+	// Token: 0x06000AF9 RID: 2809 RVA: 0x000582F0 File Offset: 0x000564F0
 	private void SetAbility(AbilityScript ability)
 	{
 		base.gameObject.SetActive(true);
@@ -28,13 +29,13 @@ public class PhoneAbilityUiScript : MonoBehaviour
 		this.titleText.color = ability.ColorGet();
 	}
 
-	// Token: 0x06000988 RID: 2440 RVA: 0x0003EC0E File Offset: 0x0003CE0E
+	// Token: 0x06000AFA RID: 2810 RVA: 0x0000EB8B File Offset: 0x0000CD8B
 	public static void SetAbility(int abilityIndex, AbilityScript ability)
 	{
 		PhoneAbilityUiScript.allAbilities[abilityIndex].SetAbility(ability);
 	}
 
-	// Token: 0x06000989 RID: 2441 RVA: 0x0003EC24 File Offset: 0x0003CE24
+	// Token: 0x06000AFB RID: 2811 RVA: 0x000583C4 File Offset: 0x000565C4
 	public static void InitializeAll()
 	{
 		for (int i = 0; i < PhoneAbilityUiScript.allAbilities.Count; i++)
@@ -51,43 +52,51 @@ public class PhoneAbilityUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600098A RID: 2442 RVA: 0x0003ECAD File Offset: 0x0003CEAD
+	// Token: 0x06000AFC RID: 2812 RVA: 0x0000EB9E File Offset: 0x0000CD9E
 	private void Awake()
 	{
 		PhoneAbilityUiScript.allAbilities.Add(this);
 	}
 
-	// Token: 0x0600098B RID: 2443 RVA: 0x0003ECBA File Offset: 0x0003CEBA
+	// Token: 0x06000AFD RID: 2813 RVA: 0x0000EBAB File Offset: 0x0000CDAB
 	private void OnDestroy()
 	{
 		PhoneAbilityUiScript.allAbilities.Remove(this);
 	}
 
-	// Token: 0x0600098C RID: 2444 RVA: 0x0003ECC8 File Offset: 0x0003CEC8
+	// Token: 0x06000AFE RID: 2814 RVA: 0x0000EBB9 File Offset: 0x0000CDB9
 	private void OnEnable()
 	{
 		PhoneAbilityUiScript.allEnabled.Add(this);
 	}
 
-	// Token: 0x0600098D RID: 2445 RVA: 0x0003ECD5 File Offset: 0x0003CED5
+	// Token: 0x06000AFF RID: 2815 RVA: 0x0000EBC6 File Offset: 0x0000CDC6
 	private void OnDisable()
 	{
 		PhoneAbilityUiScript.allEnabled.Remove(this);
 	}
 
+	// Token: 0x04000B4D RID: 2893
 	public static List<PhoneAbilityUiScript> allAbilities = new List<PhoneAbilityUiScript>();
 
+	// Token: 0x04000B4E RID: 2894
 	public static List<PhoneAbilityUiScript> allEnabled = new List<PhoneAbilityUiScript>();
 
+	// Token: 0x04000B4F RID: 2895
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000B50 RID: 2896
 	public TextMeshProUGUI titleText;
 
+	// Token: 0x04000B51 RID: 2897
 	public TextMeshProUGUI descriptionText;
 
+	// Token: 0x04000B52 RID: 2898
 	public Image iconRenderer;
 
+	// Token: 0x04000B53 RID: 2899
 	public Image lastAbilityImage;
 
+	// Token: 0x04000B54 RID: 2900
 	public int abilityIndex = -1;
 }

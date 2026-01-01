@@ -5,13 +5,15 @@ using System.IO;
 
 namespace I2.Loc.SimpleJSON
 {
+	// Token: 0x020001F4 RID: 500
 	public class JSONNode
 	{
-		// Token: 0x06001055 RID: 4181 RVA: 0x00066365 File Offset: 0x00064565
+		// Token: 0x06001449 RID: 5193 RVA: 0x0000774E File Offset: 0x0000594E
 		public virtual void Add(string aKey, JSONNode aItem)
 		{
 		}
 
+		// Token: 0x17000160 RID: 352
 		public virtual JSONNode this[int aIndex]
 		{
 			get
@@ -23,6 +25,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
+		// Token: 0x17000161 RID: 353
 		public virtual JSONNode this[string aKey]
 		{
 			get
@@ -34,8 +37,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x0600105A RID: 4186 RVA: 0x00066371 File Offset: 0x00064571
-		// (set) Token: 0x0600105B RID: 4187 RVA: 0x00066378 File Offset: 0x00064578
+		// Token: 0x17000162 RID: 354
+		// (get) Token: 0x0600144E RID: 5198 RVA: 0x0001593F File Offset: 0x00013B3F
+		// (set) Token: 0x0600144F RID: 5199 RVA: 0x0000774E File Offset: 0x0000594E
 		public virtual string Value
 		{
 			get
@@ -47,7 +51,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x0600105C RID: 4188 RVA: 0x0006637A File Offset: 0x0006457A
+		// Token: 0x17000163 RID: 355
+		// (get) Token: 0x06001450 RID: 5200 RVA: 0x00008AE5 File Offset: 0x00006CE5
 		public virtual int Count
 		{
 			get
@@ -56,31 +61,32 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x0600105D RID: 4189 RVA: 0x0006637D File Offset: 0x0006457D
+		// Token: 0x06001451 RID: 5201 RVA: 0x00015946 File Offset: 0x00013B46
 		public virtual void Add(JSONNode aItem)
 		{
 			this.Add("", aItem);
 		}
 
-		// Token: 0x0600105E RID: 4190 RVA: 0x0006638B File Offset: 0x0006458B
+		// Token: 0x06001452 RID: 5202 RVA: 0x000146FE File Offset: 0x000128FE
 		public virtual JSONNode Remove(string aKey)
 		{
 			return null;
 		}
 
-		// Token: 0x0600105F RID: 4191 RVA: 0x0006638E File Offset: 0x0006458E
+		// Token: 0x06001453 RID: 5203 RVA: 0x000146FE File Offset: 0x000128FE
 		public virtual JSONNode Remove(int aIndex)
 		{
 			return null;
 		}
 
-		// Token: 0x06001060 RID: 4192 RVA: 0x00066391 File Offset: 0x00064591
+		// Token: 0x06001454 RID: 5204 RVA: 0x00015954 File Offset: 0x00013B54
 		public virtual JSONNode Remove(JSONNode aNode)
 		{
 			return aNode;
 		}
 
-		// (get) Token: 0x06001061 RID: 4193 RVA: 0x00066394 File Offset: 0x00064594
+		// Token: 0x17000164 RID: 356
+		// (get) Token: 0x06001455 RID: 5205 RVA: 0x00015957 File Offset: 0x00013B57
 		public virtual IEnumerable<JSONNode> Childs
 		{
 			get
@@ -89,7 +95,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x06001062 RID: 4194 RVA: 0x0006639D File Offset: 0x0006459D
+		// Token: 0x17000165 RID: 357
+		// (get) Token: 0x06001456 RID: 5206 RVA: 0x00015960 File Offset: 0x00013B60
 		public IEnumerable<JSONNode> DeepChilds
 		{
 			get
@@ -108,20 +115,21 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x06001063 RID: 4195 RVA: 0x000663AD File Offset: 0x000645AD
+		// Token: 0x06001457 RID: 5207 RVA: 0x00015970 File Offset: 0x00013B70
 		public override string ToString()
 		{
 			return "JSONNode";
 		}
 
-		// Token: 0x06001064 RID: 4196 RVA: 0x000663B4 File Offset: 0x000645B4
+		// Token: 0x06001458 RID: 5208 RVA: 0x00015970 File Offset: 0x00013B70
 		public virtual string ToString(string aPrefix)
 		{
 			return "JSONNode";
 		}
 
-		// (get) Token: 0x06001065 RID: 4197 RVA: 0x000663BC File Offset: 0x000645BC
-		// (set) Token: 0x06001066 RID: 4198 RVA: 0x000663DD File Offset: 0x000645DD
+		// Token: 0x17000166 RID: 358
+		// (get) Token: 0x06001459 RID: 5209 RVA: 0x00083DBC File Offset: 0x00081FBC
+		// (set) Token: 0x0600145A RID: 5210 RVA: 0x00015977 File Offset: 0x00013B77
 		public virtual int AsInt
 		{
 			get
@@ -139,8 +147,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x06001067 RID: 4199 RVA: 0x000663EC File Offset: 0x000645EC
-		// (set) Token: 0x06001068 RID: 4200 RVA: 0x00066415 File Offset: 0x00064615
+		// Token: 0x17000167 RID: 359
+		// (get) Token: 0x0600145B RID: 5211 RVA: 0x00083DE0 File Offset: 0x00081FE0
+		// (set) Token: 0x0600145C RID: 5212 RVA: 0x00015986 File Offset: 0x00013B86
 		public virtual float AsFloat
 		{
 			get
@@ -158,8 +167,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x06001069 RID: 4201 RVA: 0x00066424 File Offset: 0x00064624
-		// (set) Token: 0x0600106A RID: 4202 RVA: 0x00066455 File Offset: 0x00064655
+		// Token: 0x17000168 RID: 360
+		// (get) Token: 0x0600145D RID: 5213 RVA: 0x00083E0C File Offset: 0x0008200C
+		// (set) Token: 0x0600145E RID: 5214 RVA: 0x00015995 File Offset: 0x00013B95
 		public virtual double AsDouble
 		{
 			get
@@ -177,8 +187,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x0600106B RID: 4203 RVA: 0x00066464 File Offset: 0x00064664
-		// (set) Token: 0x0600106C RID: 4204 RVA: 0x00066492 File Offset: 0x00064692
+		// Token: 0x17000169 RID: 361
+		// (get) Token: 0x0600145F RID: 5215 RVA: 0x00083E40 File Offset: 0x00082040
+		// (set) Token: 0x06001460 RID: 5216 RVA: 0x000159A4 File Offset: 0x00013BA4
 		public virtual bool AsBool
 		{
 			get
@@ -196,7 +207,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x0600106D RID: 4205 RVA: 0x000664A9 File Offset: 0x000646A9
+		// Token: 0x1700016A RID: 362
+		// (get) Token: 0x06001461 RID: 5217 RVA: 0x000159BB File Offset: 0x00013BBB
 		public virtual JSONArray AsArray
 		{
 			get
@@ -205,7 +217,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x0600106E RID: 4206 RVA: 0x000664B1 File Offset: 0x000646B1
+		// Token: 0x1700016B RID: 363
+		// (get) Token: 0x06001462 RID: 5218 RVA: 0x000159C3 File Offset: 0x00013BC3
 		public virtual JSONClass AsObject
 		{
 			get
@@ -214,13 +227,13 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x0600106F RID: 4207 RVA: 0x000664B9 File Offset: 0x000646B9
+		// Token: 0x06001463 RID: 5219 RVA: 0x000159CB File Offset: 0x00013BCB
 		public static implicit operator JSONNode(string s)
 		{
 			return new JSONData(s);
 		}
 
-		// Token: 0x06001070 RID: 4208 RVA: 0x000664C1 File Offset: 0x000646C1
+		// Token: 0x06001464 RID: 5220 RVA: 0x000159D3 File Offset: 0x00013BD3
 		public static implicit operator string(JSONNode d)
 		{
 			if (!(d == null))
@@ -230,31 +243,31 @@ namespace I2.Loc.SimpleJSON
 			return null;
 		}
 
-		// Token: 0x06001071 RID: 4209 RVA: 0x000664D4 File Offset: 0x000646D4
+		// Token: 0x06001465 RID: 5221 RVA: 0x000159E6 File Offset: 0x00013BE6
 		public static bool operator ==(JSONNode a, object b)
 		{
 			return (b == null && a is JSONLazyCreator) || a == b;
 		}
 
-		// Token: 0x06001072 RID: 4210 RVA: 0x000664E7 File Offset: 0x000646E7
+		// Token: 0x06001466 RID: 5222 RVA: 0x000159F9 File Offset: 0x00013BF9
 		public static bool operator !=(JSONNode a, object b)
 		{
 			return !(a == b);
 		}
 
-		// Token: 0x06001073 RID: 4211 RVA: 0x000664F3 File Offset: 0x000646F3
+		// Token: 0x06001467 RID: 5223 RVA: 0x00015A05 File Offset: 0x00013C05
 		public override bool Equals(object obj)
 		{
 			return this == obj;
 		}
 
-		// Token: 0x06001074 RID: 4212 RVA: 0x000664F9 File Offset: 0x000646F9
+		// Token: 0x06001468 RID: 5224 RVA: 0x00015A0B File Offset: 0x00013C0B
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
 		}
 
-		// Token: 0x06001075 RID: 4213 RVA: 0x00066504 File Offset: 0x00064704
+		// Token: 0x06001469 RID: 5225 RVA: 0x00083E70 File Offset: 0x00082070
 		internal static string Escape(string aText)
 		{
 			string text = "";
@@ -306,7 +319,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x06001076 RID: 4214 RVA: 0x000665D4 File Offset: 0x000647D4
+		// Token: 0x0600146A RID: 5226 RVA: 0x00083F40 File Offset: 0x00082140
 		public static JSONNode Parse(string aJSON)
 		{
 			Stack<JSONNode> stack = new Stack<JSONNode>();
@@ -548,37 +561,37 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// Token: 0x06001077 RID: 4215 RVA: 0x00066A2A File Offset: 0x00064C2A
+		// Token: 0x0600146B RID: 5227 RVA: 0x0000774E File Offset: 0x0000594E
 		public virtual void Serialize(BinaryWriter aWriter)
 		{
 		}
 
-		// Token: 0x06001078 RID: 4216 RVA: 0x00066A2C File Offset: 0x00064C2C
+		// Token: 0x0600146C RID: 5228 RVA: 0x00084398 File Offset: 0x00082598
 		public void SaveToStream(Stream aData)
 		{
 			BinaryWriter binaryWriter = new BinaryWriter(aData);
 			this.Serialize(binaryWriter);
 		}
 
-		// Token: 0x06001079 RID: 4217 RVA: 0x00066A47 File Offset: 0x00064C47
+		// Token: 0x0600146D RID: 5229 RVA: 0x00015A13 File Offset: 0x00013C13
 		public void SaveToCompressedStream(Stream aData)
 		{
 			throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
 
-		// Token: 0x0600107A RID: 4218 RVA: 0x00066A53 File Offset: 0x00064C53
+		// Token: 0x0600146E RID: 5230 RVA: 0x00015A13 File Offset: 0x00013C13
 		public void SaveToCompressedFile(string aFileName)
 		{
 			throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
 
-		// Token: 0x0600107B RID: 4219 RVA: 0x00066A5F File Offset: 0x00064C5F
+		// Token: 0x0600146F RID: 5231 RVA: 0x00015A13 File Offset: 0x00013C13
 		public string SaveToCompressedBase64()
 		{
 			throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
 
-		// Token: 0x0600107C RID: 4220 RVA: 0x00066A6C File Offset: 0x00064C6C
+		// Token: 0x06001470 RID: 5232 RVA: 0x000843B4 File Offset: 0x000825B4
 		public void SaveToFile(string aFileName)
 		{
 			Directory.CreateDirectory(new FileInfo(aFileName).Directory.FullName);
@@ -588,7 +601,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x0600107D RID: 4221 RVA: 0x00066ABC File Offset: 0x00064CBC
+		// Token: 0x06001471 RID: 5233 RVA: 0x00084404 File Offset: 0x00082604
 		public string SaveToBase64()
 		{
 			string text;
@@ -601,7 +614,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x0600107E RID: 4222 RVA: 0x00066B08 File Offset: 0x00064D08
+		// Token: 0x06001472 RID: 5234 RVA: 0x00084450 File Offset: 0x00082650
 		public static JSONNode Deserialize(BinaryReader aReader)
 		{
 			JSONBinaryTag jsonbinaryTag = (JSONBinaryTag)aReader.ReadByte();
@@ -644,25 +657,25 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x0600107F RID: 4223 RVA: 0x00066C02 File Offset: 0x00064E02
+		// Token: 0x06001473 RID: 5235 RVA: 0x00015A13 File Offset: 0x00013C13
 		public static JSONNode LoadFromCompressedFile(string aFileName)
 		{
 			throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
 
-		// Token: 0x06001080 RID: 4224 RVA: 0x00066C0E File Offset: 0x00064E0E
+		// Token: 0x06001474 RID: 5236 RVA: 0x00015A13 File Offset: 0x00013C13
 		public static JSONNode LoadFromCompressedStream(Stream aData)
 		{
 			throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
 
-		// Token: 0x06001081 RID: 4225 RVA: 0x00066C1A File Offset: 0x00064E1A
+		// Token: 0x06001475 RID: 5237 RVA: 0x00015A13 File Offset: 0x00013C13
 		public static JSONNode LoadFromCompressedBase64(string aBase64)
 		{
 			throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
 
-		// Token: 0x06001082 RID: 4226 RVA: 0x00066C28 File Offset: 0x00064E28
+		// Token: 0x06001476 RID: 5238 RVA: 0x0008454C File Offset: 0x0008274C
 		public static JSONNode LoadFromStream(Stream aData)
 		{
 			JSONNode jsonnode;
@@ -673,7 +686,7 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// Token: 0x06001083 RID: 4227 RVA: 0x00066C60 File Offset: 0x00064E60
+		// Token: 0x06001477 RID: 5239 RVA: 0x00084584 File Offset: 0x00082784
 		public static JSONNode LoadFromFile(string aFileName)
 		{
 			JSONNode jsonnode;
@@ -684,7 +697,7 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// Token: 0x06001084 RID: 4228 RVA: 0x00066C98 File Offset: 0x00064E98
+		// Token: 0x06001478 RID: 5240 RVA: 0x00015A1F File Offset: 0x00013C1F
 		public static JSONNode LoadFromBase64(string aBase64)
 		{
 			return JSONNode.LoadFromStream(new MemoryStream(Convert.FromBase64String(aBase64))

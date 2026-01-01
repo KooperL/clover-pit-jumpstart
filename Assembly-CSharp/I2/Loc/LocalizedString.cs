@@ -2,16 +2,17 @@
 
 namespace I2.Loc
 {
+	// Token: 0x020001E4 RID: 484
 	[Serializable]
 	public struct LocalizedString
 	{
-		// Token: 0x0600101F RID: 4127 RVA: 0x00064771 File Offset: 0x00062971
+		// Token: 0x06001413 RID: 5139 RVA: 0x000157C8 File Offset: 0x000139C8
 		public static implicit operator string(LocalizedString s)
 		{
 			return s.ToString();
 		}
 
-		// Token: 0x06001020 RID: 4128 RVA: 0x00064780 File Offset: 0x00062980
+		// Token: 0x06001414 RID: 5140 RVA: 0x000823BC File Offset: 0x000805BC
 		public static implicit operator LocalizedString(string term)
 		{
 			return new LocalizedString
@@ -20,7 +21,7 @@ namespace I2.Loc
 			};
 		}
 
-		// Token: 0x06001021 RID: 4129 RVA: 0x0006479E File Offset: 0x0006299E
+		// Token: 0x06001415 RID: 5141 RVA: 0x000157D7 File Offset: 0x000139D7
 		public LocalizedString(LocalizedString str)
 		{
 			this.mTerm = str.mTerm;
@@ -30,7 +31,7 @@ namespace I2.Loc
 			this.m_DontLocalizeParameters = str.m_DontLocalizeParameters;
 		}
 
-		// Token: 0x06001022 RID: 4130 RVA: 0x000647DC File Offset: 0x000629DC
+		// Token: 0x06001416 RID: 5142 RVA: 0x000823DC File Offset: 0x000805DC
 		public override string ToString()
 		{
 			string translation = LocalizationManager.GetTranslation(this.mTerm, !this.mRTL_IgnoreArabicFix, this.mRTL_MaxLineLength, !this.mRTL_ConvertNumbers, true, null, null, true);
@@ -38,14 +39,19 @@ namespace I2.Loc
 			return translation;
 		}
 
+		// Token: 0x040013CC RID: 5068
 		public string mTerm;
 
+		// Token: 0x040013CD RID: 5069
 		public bool mRTL_IgnoreArabicFix;
 
+		// Token: 0x040013CE RID: 5070
 		public int mRTL_MaxLineLength;
 
+		// Token: 0x040013CF RID: 5071
 		public bool mRTL_ConvertNumbers;
 
+		// Token: 0x040013D0 RID: 5072
 		public bool m_DontLocalizeParameters;
 	}
 }

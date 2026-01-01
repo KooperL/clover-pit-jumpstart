@@ -2,9 +2,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Token: 0x02000103 RID: 259
 public class TextRenderingSceneController : MonoBehaviour
 {
-	// Token: 0x06000A9C RID: 2716 RVA: 0x0004882C File Offset: 0x00046A2C
+	// Token: 0x06000C75 RID: 3189 RVA: 0x00062C58 File Offset: 0x00060E58
 	private void Awake()
 	{
 		this.originalPositions = new Vector3[this.shakeThoseTransforms.Length];
@@ -14,7 +15,7 @@ public class TextRenderingSceneController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A9D RID: 2717 RVA: 0x00048878 File Offset: 0x00046A78
+	// Token: 0x06000C76 RID: 3190 RVA: 0x00062CA4 File Offset: 0x00060EA4
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
@@ -23,7 +24,7 @@ public class TextRenderingSceneController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A9E RID: 2718 RVA: 0x000488A0 File Offset: 0x00046AA0
+	// Token: 0x06000C77 RID: 3191 RVA: 0x00062CCC File Offset: 0x00060ECC
 	private void FixedUpdate()
 	{
 		for (int i = 0; i < this.shakeThoseTransforms.Length; i++)
@@ -34,11 +35,15 @@ public class TextRenderingSceneController : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000D42 RID: 3394
 	public Transform[] shakeThoseTransforms;
 
+	// Token: 0x04000D43 RID: 3395
 	private Vector3[] originalPositions;
 
+	// Token: 0x04000D44 RID: 3396
 	public float[] shakeMultipliers;
 
+	// Token: 0x04000D45 RID: 3397
 	public float shakeScale = 1f;
 }

@@ -5,9 +5,10 @@ using System.Text;
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000039 RID: 57
 public class Strings : MonoBehaviour
 {
-	// Token: 0x0600037D RID: 893 RVA: 0x00015AF4 File Offset: 0x00013CF4
+	// Token: 0x060003E1 RID: 993 RVA: 0x000293AC File Offset: 0x000275AC
 	public static string GetPowerupRarity_SpriteString(PowerupScript.PublicRarity pubRarity)
 	{
 		switch (pubRarity)
@@ -26,13 +27,13 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600037E RID: 894 RVA: 0x00015B52 File Offset: 0x00013D52
+	// Token: 0x060003E2 RID: 994 RVA: 0x00008CD6 File Offset: 0x00006ED6
 	public static string GetPowerupRarity_SpriteString(PowerupScript powerup)
 	{
 		return Strings.GetPowerupRarity_SpriteString(powerup.RarityPublicGet());
 	}
 
-	// Token: 0x0600037F RID: 895 RVA: 0x00015B60 File Offset: 0x00013D60
+	// Token: 0x060003E3 RID: 995 RVA: 0x0002940C File Offset: 0x0002760C
 	public static string GetPowerupRarity_StringKey(PowerupScript.PublicRarity pubRarity)
 	{
 		switch (pubRarity)
@@ -51,13 +52,13 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000380 RID: 896 RVA: 0x00015BD7 File Offset: 0x00013DD7
+	// Token: 0x060003E4 RID: 996 RVA: 0x00008CE3 File Offset: 0x00006EE3
 	public static string GetPowerupRarity_StringKey(PowerupScript powerup)
 	{
 		return Strings.GetPowerupRarity_StringKey(powerup.RarityPublicGet());
 	}
 
-	// Token: 0x06000381 RID: 897 RVA: 0x00015BE4 File Offset: 0x00013DE4
+	// Token: 0x060003E5 RID: 997 RVA: 0x00029484 File Offset: 0x00027684
 	public static string GetSpriteString_SlotMachineSymbol(SymbolScript.Kind kind)
 	{
 		switch (kind)
@@ -82,7 +83,7 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000382 RID: 898 RVA: 0x00015C60 File Offset: 0x00013E60
+	// Token: 0x060003E6 RID: 998 RVA: 0x00029500 File Offset: 0x00027700
 	public static string GetSpriteString_SlotMachinePattern(PatternScript.Kind kind)
 	{
 		switch (kind)
@@ -125,19 +126,19 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000383 RID: 899 RVA: 0x00015D36 File Offset: 0x00013F36
+	// Token: 0x060003E7 RID: 999 RVA: 0x00008CF0 File Offset: 0x00006EF0
 	public static void SetTemporaryInspectedPowerup(PowerupScript p)
 	{
 		Strings.temporaryInspectedPowerup = p;
 	}
 
-	// Token: 0x06000384 RID: 900 RVA: 0x00015D3E File Offset: 0x00013F3E
+	// Token: 0x060003E8 RID: 1000 RVA: 0x00008CF8 File Offset: 0x00006EF8
 	public static void SetTemporaryFlag_Sanitize666And999(int occurrencies)
 	{
 		Strings.sanitize666999_Counter = occurrencies;
 	}
 
-	// Token: 0x06000385 RID: 901 RVA: 0x00015D48 File Offset: 0x00013F48
+	// Token: 0x060003E9 RID: 1001 RVA: 0x000295D8 File Offset: 0x000277D8
 	public static string Sanitize(Strings.SantizationKind santizationKind, string input, Strings.SanitizationSubKind subKind = Strings.SanitizationSubKind.none)
 	{
 		StringBuilder stringBuilder = new StringBuilder(input, input.Length * 2);
@@ -1093,7 +1094,7 @@ public class Strings : MonoBehaviour
 		return stringBuilder.ToString();
 	}
 
-	// Token: 0x06000386 RID: 902 RVA: 0x00018484 File Offset: 0x00016684
+	// Token: 0x060003EA RID: 1002 RVA: 0x0002BD14 File Offset: 0x00029F14
 	private static string SymbolsWithBaseValue_GetString(bool includeCoinsIcon)
 	{
 		Strings._sb.Clear();
@@ -1121,7 +1122,7 @@ public class Strings : MonoBehaviour
 		return Strings._sb.ToString();
 	}
 
-	// Token: 0x06000387 RID: 903 RVA: 0x0001851C File Offset: 0x0001671C
+	// Token: 0x060003EB RID: 1003 RVA: 0x0002BDAC File Offset: 0x00029FAC
 	private static void PatternReplaceTag(StringBuilder sbRef, PatternScript.Kind kind)
 	{
 		switch (kind)
@@ -1179,7 +1180,7 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000388 RID: 904 RVA: 0x000186A0 File Offset: 0x000168A0
+	// Token: 0x060003EC RID: 1004 RVA: 0x0002BF30 File Offset: 0x0002A130
 	private static void PatternReplaceTagAll(StringBuilder sbReference)
 	{
 		Strings.PatternReplaceTag(sbReference, PatternScript.Kind.horizontal2);
@@ -1200,7 +1201,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceTag(sbReference, PatternScript.Kind.jackpot);
 	}
 
-	// Token: 0x06000389 RID: 905 RVA: 0x00018724 File Offset: 0x00016924
+	// Token: 0x060003ED RID: 1005 RVA: 0x0002BFB4 File Offset: 0x0002A1B4
 	private static void PatternReplaceBaseValue(StringBuilder sbReference, PatternScript.Kind kind)
 	{
 		switch (kind)
@@ -1259,7 +1260,7 @@ public class Strings : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600038A RID: 906 RVA: 0x00018950 File Offset: 0x00016B50
+	// Token: 0x060003EE RID: 1006 RVA: 0x0002C1E0 File Offset: 0x0002A3E0
 	private static void PatternReplaceBaseValueAll(StringBuilder sbReference)
 	{
 		Strings.PatternReplaceBaseValue(sbReference, PatternScript.Kind.horizontal2);
@@ -1280,7 +1281,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceBaseValue(sbReference, PatternScript.Kind.jackpot);
 	}
 
-	// Token: 0x0600038B RID: 907 RVA: 0x000189D4 File Offset: 0x00016BD4
+	// Token: 0x060003EF RID: 1007 RVA: 0x0002C264 File Offset: 0x0002A464
 	private static string Symbol_GetString(SymbolScript.Kind symbolKind)
 	{
 		switch (symbolKind)
@@ -1304,13 +1305,13 @@ public class Strings : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600038C RID: 908 RVA: 0x00018A5C File Offset: 0x00016C5C
+	// Token: 0x060003F0 RID: 1008 RVA: 0x0002C2EC File Offset: 0x0002A4EC
 	private static string Symbol_GetStringWithValue(SymbolScript.Kind symbolKind, bool includeCoinIcon)
 	{
 		return Strings.Symbol_GetString(symbolKind) + GameplayData.Symbol_CoinsValue_GetBasic(symbolKind).ToString() + (includeCoinIcon ? "<sprite name=\"CoinSymbolOrange32\">" : "");
 	}
 
-	// Token: 0x0600038D RID: 909 RVA: 0x00018A94 File Offset: 0x00016C94
+	// Token: 0x060003F1 RID: 1009 RVA: 0x0002C324 File Offset: 0x0002A524
 	private static string Symbols_GetString_YellowOnes()
 	{
 		Strings._sb.Clear();
@@ -1325,7 +1326,7 @@ public class Strings : MonoBehaviour
 		return Strings._sb.ToString();
 	}
 
-	// Token: 0x0600038E RID: 910 RVA: 0x00018AF4 File Offset: 0x00016CF4
+	// Token: 0x060003F2 RID: 1010 RVA: 0x0002C384 File Offset: 0x0002A584
 	private static string Symbols_GetString_NonYellowOnes()
 	{
 		Strings._sb.Clear();
@@ -1340,7 +1341,7 @@ public class Strings : MonoBehaviour
 		return Strings._sb.ToString();
 	}
 
-	// Token: 0x0600038F RID: 911 RVA: 0x00018B54 File Offset: 0x00016D54
+	// Token: 0x060003F3 RID: 1011 RVA: 0x0002C3E4 File Offset: 0x0002A5E4
 	private static void PatternReplaceWith_Symbols(StringBuilder sbReference, string keyToReplace, string separator, List<SymbolScript.Kind> symbolsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1356,7 +1357,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000390 RID: 912 RVA: 0x00018BBC File Offset: 0x00016DBC
+	// Token: 0x060003F4 RID: 1012 RVA: 0x0002C44C File Offset: 0x0002A64C
 	private static void PatternReplaceWith_SymbolsAndBValue(StringBuilder sbReference, string keyToReplace, string separator, List<SymbolScript.Kind> symbolsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1372,7 +1373,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000391 RID: 913 RVA: 0x00018C28 File Offset: 0x00016E28
+	// Token: 0x060003F5 RID: 1013 RVA: 0x0002C4B8 File Offset: 0x0002A6B8
 	private static void PatternReplaceWith_Patterns(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1453,7 +1454,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000392 RID: 914 RVA: 0x00018EDC File Offset: 0x000170DC
+	// Token: 0x060003F6 RID: 1014 RVA: 0x0002C76C File Offset: 0x0002A96C
 	private static void PatternReplaceWith_PatternsAndBValue(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider)
 	{
 		Strings._sb.Clear();
@@ -1550,7 +1551,7 @@ public class Strings : MonoBehaviour
 		sbReference.Replace(keyToReplace, Strings._sb.ToString());
 	}
 
-	// Token: 0x06000393 RID: 915 RVA: 0x00019328 File Offset: 0x00017528
+	// Token: 0x060003F7 RID: 1015 RVA: 0x0002CBB8 File Offset: 0x0002ADB8
 	private static void PatternReplaceWith_Patterns_BelowNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int maxElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1565,7 +1566,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_Patterns(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000394 RID: 916 RVA: 0x0001937C File Offset: 0x0001757C
+	// Token: 0x060003F8 RID: 1016 RVA: 0x0002CC0C File Offset: 0x0002AE0C
 	private static void PatternReplaceWith_PatternsAndBValue_BelowNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int maxElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1580,7 +1581,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_PatternsAndBValue(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000395 RID: 917 RVA: 0x000193D0 File Offset: 0x000175D0
+	// Token: 0x060003F9 RID: 1017 RVA: 0x0002CC60 File Offset: 0x0002AE60
 	private static void PAtternReplaceWith_Patterns_AboveNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int minElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1595,7 +1596,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_Patterns(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000396 RID: 918 RVA: 0x00019424 File Offset: 0x00017624
+	// Token: 0x060003FA RID: 1018 RVA: 0x0002CCB4 File Offset: 0x0002AEB4
 	private static void PatternReplaceWith_PatternsAndBValue_AboveNElements(StringBuilder sbReference, string keyToReplace, string separator, List<PatternScript.Kind> patternsToConsider, int minElementsPerPattern)
 	{
 		Strings._patterns.Clear();
@@ -1610,7 +1611,7 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_PatternsAndBValue(sbReference, keyToReplace, separator, Strings._patterns);
 	}
 
-	// Token: 0x06000397 RID: 919 RVA: 0x00019478 File Offset: 0x00017678
+	// Token: 0x060003FB RID: 1019 RVA: 0x0002CD08 File Offset: 0x0002AF08
 	private static void SymbolsAndPatternsReplaceAll(StringBuilder sbReference)
 	{
 		Strings.PatternReplaceWith_Symbols(sbReference, "[ALL_SYMBOLS]", "", GameplayData.SymbolsAvailable_GetAll(false));
@@ -1623,193 +1624,297 @@ public class Strings : MonoBehaviour
 		Strings.PatternReplaceWith_PatternsAndBValue_AboveNElements(sbReference, "[ALL_PATTERNS_4MORE_W_VALUE]", ",", GameplayData.PatternsAvailable_GetAll(), 4);
 	}
 
+	// Token: 0x04000317 RID: 791
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000318 RID: 792
 	public const string TEXT_SPRITE_COIN_SYMBOL_ORANGE_32 = "<sprite name=\"CoinSymbolOrange32\">";
 
+	// Token: 0x04000319 RID: 793
 	public const string TEXT_SPRITE_COIN_SYMBOL_ORANGE_64 = "<sprite name=\"CoinSymbolOrange64\">";
 
+	// Token: 0x0400031A RID: 794
 	public const string TEXT_SPRITE_COIN_SYMBOL_WHITE_32 = "<sprite name=\"CoinSymbolWhite32\">";
 
+	// Token: 0x0400031B RID: 795
 	public const string TEXT_SPRITE_COIN_SYMBOL_WHITE_64 = "<sprite name=\"CoinSymbolWhite64\">";
 
+	// Token: 0x0400031C RID: 796
 	public const string TEXT_SPRITE_COIN_32 = "<sprite name=\"Coin32\">";
 
+	// Token: 0x0400031D RID: 797
 	public const string TEXT_SPRITE_COIN_WHITE_32 = "<sprite name=\"CoinWhite32\">";
 
+	// Token: 0x0400031E RID: 798
 	public const string TEXT_SPRITE_COIN_64 = "<sprite name=\"Coin64\">";
 
+	// Token: 0x0400031F RID: 799
 	public const string TEXT_SPRITE_CLOVER_TICKET = "<sprite name=\"CloverTicket\">";
 
+	// Token: 0x04000320 RID: 800
 	public const string TEXT_SPRITE_CLOVER_TICKET_SATURATED = "<sprite name=\"CloverTicketSaturated\">";
 
+	// Token: 0x04000321 RID: 801
 	public const string TEXT_SPRITE_SKULL_ORANGE_32 = "<sprite name=\"SkullSymbolOrange32\">";
 
+	// Token: 0x04000322 RID: 802
 	public const string TEXT_SPRITE_SKULL_ORANGE_64 = "<sprite name=\"SkullSymbolOrange64\">";
 
+	// Token: 0x04000323 RID: 803
 	public const string TEXT_SPRITE_SKULL_WHITE_32 = "<sprite name=\"SkullSymbolWhite32\">";
 
+	// Token: 0x04000324 RID: 804
 	public const string TEXT_SPRITE_SKULL_WHITE_64 = "<sprite name=\"SkullSymbolWhite64\">";
 
+	// Token: 0x04000325 RID: 805
 	public const string TEXT_SPRITE_FINGER_POINTER_ORANGE_32 = "<sprite name=\"FingerPointerOrange\">";
 
+	// Token: 0x04000326 RID: 806
 	public const string TEXT_SPRITE_SPIN_SYMBOL_32 = "<sprite name=\"SpinSymbol32\">";
 
+	// Token: 0x04000327 RID: 807
 	public const string TEXT_SPRITE_PEPPER_VERTICAL = "<sprite name=\"PepperVertical\">";
 
+	// Token: 0x04000328 RID: 808
 	public const string TEXT_SPRITE_HORSE_SHOE = "<sprite name=\"Horse Shoe\">";
 
+	// Token: 0x04000329 RID: 809
 	public const string TEXT_SPRITE_RED_BUTTON = "<sprite name=\"RedButton\">";
 
+	// Token: 0x0400032A RID: 810
 	public const string TEXT_SPRITE_CHARGE = "<sprite name=\"Charge\">";
 
+	// Token: 0x0400032B RID: 811
 	public const string TEXT_SPRITE_INFINITE = "<sprite name=\"Infinite\">";
 
+	// Token: 0x0400032C RID: 812
 	public const string TEXT_SPRITE_BATTERY_RECHARING = "<sprite name=\"BatteryRecharging\">";
 
+	// Token: 0x0400032D RID: 813
 	public const string TEXT_SPRITE_BATTERY_BAR_BEGIN = "<sprite name=\"BS_Init\">";
 
+	// Token: 0x0400032E RID: 814
 	public const string TEXT_SPRITE_BATTERY_BAR_BEGIN_RED = "<sprite name=\"BS_InitRed\">";
 
+	// Token: 0x0400032F RID: 815
 	public const string TEXT_SPRITE_BATTERY_BAR_BAR = "<sprite name=\"BS_Charge\">";
 
+	// Token: 0x04000330 RID: 816
 	public const string TEXT_SPRITE_BATTERY_BAR_BAR_GREEN = "<sprite name=\"BS_ChargeGreen\">";
 
+	// Token: 0x04000331 RID: 817
 	public const string TEXT_SPRITE_BATTERY_BAR_BAR_GREEN_BIG = "<sprite name=\"BS_ChargeBigGreen\">";
 
+	// Token: 0x04000332 RID: 818
 	public const string TEXT_SPRITE_BATTERY_BAR_EMPTY = "<sprite name=\"BS_Empty\">";
 
+	// Token: 0x04000333 RID: 819
 	public const string TEXT_SPRITE_BATTERY_BAR_EMPTY_BIG = "<sprite name=\"BS_EmptyBig\">";
 
+	// Token: 0x04000334 RID: 820
 	public const string TEXT_SPRITE_BATTERY_BAR_END = "<sprite name=\"BS_End\">";
 
+	// Token: 0x04000335 RID: 821
 	public const string TEXT_SPRITE_BATTERY_BAR_END_RED = "<sprite name=\"BS_EndRed\">";
 
+	// Token: 0x04000336 RID: 822
 	public const string TEXT_SPRITE_BIG_EYE = "<sprite name=\"BigEye\">";
 
+	// Token: 0x04000337 RID: 823
 	public const string TEXT_RARITY_MILD = "<sprite name=\"Rarity_Mild\">";
 
+	// Token: 0x04000338 RID: 824
 	public const string TEXT_RARITY_SPICY = "<sprite name=\"Rarity_Spicy\">";
 
+	// Token: 0x04000339 RID: 825
 	public const string TEXT_RARITY_HOT = "<sprite name=\"Rarity_Hot\">";
 
+	// Token: 0x0400033A RID: 826
 	public const string TEXT_RARITY_HELL = "<sprite name=\"Rarity_Hell\">";
 
+	// Token: 0x0400033B RID: 827
 	public const string TEXT_SYMBOL_MODIFIER_INSTANT_REWARD = "<sprite name=\"ModInstantReward\">";
 
+	// Token: 0x0400033C RID: 828
 	public const string TEXT_SYMBOL_MODIFIER_TICKET = "<sprite name=\"ModTicket\">";
 
+	// Token: 0x0400033D RID: 829
 	public const string TEXT_SYMBOL_MODIFIER_GOLDEN = "<sprite name=\"ModGold\">";
 
+	// Token: 0x0400033E RID: 830
 	public const string TEXT_SYMBOL_MODIFIER_REPETITION = "<sprite name=\"ModRepetition\">";
 
+	// Token: 0x0400033F RID: 831
 	public const string TEXT_SYMBOL_MODIFIER_BATTERY = "<sprite name=\"ModBattery\">";
 
+	// Token: 0x04000340 RID: 832
 	public const string TEXT_SYMBOL_MODIFIER_CHAIN = "<sprite name=\"ModChain\">";
 
+	// Token: 0x04000341 RID: 833
 	public const string TEXT_SYMBOL_CARD_VICTORY = "<sprite name=\"CardSymb_Victory\">";
 
+	// Token: 0x04000342 RID: 834
 	public const string TEXT_SYMBOL_CARD_COPIES = "<sprite name=\"CardSymb_Copies\">";
 
+	// Token: 0x04000343 RID: 835
 	public const string TEXT_SYMBOL_LANGUAGES_ICON = "<sprite name=\"LanguagesIcon\">";
 
+	// Token: 0x04000344 RID: 836
 	public const string TEXT_SYMBOL_RED_LOCK = "<sprite name=\"RedLock\">";
 
+	// Token: 0x04000345 RID: 837
 	public const string TEXT_SYMBOL_TWITCH_POLL = "<sprite name=\"TwitchPoll\">";
 
+	// Token: 0x04000346 RID: 838
 	public const string TEXT_SYMBOL_BONE_FULL = "<sprite name=\"BoneFull\">";
 
+	// Token: 0x04000347 RID: 839
 	public const string TEXT_SYMBOL_BONE_EMPTY = "<sprite name=\"BoneEmpty\">";
 
+	// Token: 0x04000348 RID: 840
 	public const string TEXT_SYMBOL_SLOT_WARNING = "<sprite name=\"SlotWarning\">";
 
+	// Token: 0x04000349 RID: 841
 	public const string TEXT_SYMBOL_MEMORY_CARD = "<sprite name=\"MemoryCard\">";
 
+	// Token: 0x0400034A RID: 842
 	public const string TEXT_SPRITE_SLOT_SYMBOL_CHERRY = "<sprite name=\"S_Cherry\">";
 
+	// Token: 0x0400034B RID: 843
 	public const string TEXT_SPRITE_SLOT_SYMBOL_LEMON = "<sprite name=\"S_Lemon\">";
 
+	// Token: 0x0400034C RID: 844
 	public const string TEXT_SPRITE_SLOT_SYMBOL_CLOVER = "<sprite name=\"S_Clover\">";
 
+	// Token: 0x0400034D RID: 845
 	public const string TEXT_SPRITE_SLOT_SYMBOL_BELL = "<sprite name=\"S_Bell\">";
 
+	// Token: 0x0400034E RID: 846
 	public const string TEXT_SPRITE_SLOT_SYMBOL_DIAMOND = "<sprite name=\"S_Diamond\">";
 
+	// Token: 0x0400034F RID: 847
 	public const string TEXT_SPRITE_SLOT_SYMBOL_COINS = "<sprite name=\"S_Coins\">";
 
+	// Token: 0x04000350 RID: 848
 	public const string TEXT_SPRITE_SLOT_SYMBOL_SEVEN = "<sprite name=\"S_Seven\">";
 
+	// Token: 0x04000351 RID: 849
 	public const string TEXT_SPRITE_SLOT_PATTERN_1 = "<sprite name=\"Pt1\">";
 
+	// Token: 0x04000352 RID: 850
 	public const string TEXT_SPRITE_SLOT_PATTERN_2_HOR = "<sprite name=\"Pt2H\">";
 
+	// Token: 0x04000353 RID: 851
 	public const string TEXT_SPRITE_SLOT_PATTERN_3_HOR = "<sprite name=\"Pt3H\">";
 
+	// Token: 0x04000354 RID: 852
 	public const string TEXT_SPRITE_SLOT_PATTERN_4_HOR = "<sprite name=\"Pt4H\">";
 
+	// Token: 0x04000355 RID: 853
 	public const string TEXT_SPRITE_SLOT_PATTERN_5_HOR = "<sprite name=\"Pt5H\">";
 
+	// Token: 0x04000356 RID: 854
 	public const string TEXT_SPRITE_SLOT_PATTERN_2_VER = "<sprite name=\"Pt2V\">";
 
+	// Token: 0x04000357 RID: 855
 	public const string TEXT_SPRITE_SLOT_PATTERN_3_VER = "<sprite name=\"Pt3V\">";
 
+	// Token: 0x04000358 RID: 856
 	public const string TEXT_SPRITE_SLOT_PATTERN_2_DIAG = "<sprite name=\"Pt2D\">";
 
+	// Token: 0x04000359 RID: 857
 	public const string TEXT_SPRITE_SLOT_PATTERN_3_DIAG = "<sprite name=\"Pt3D\">";
 
+	// Token: 0x0400035A RID: 858
 	public const string TEXT_SPRITE_SLOT_PATTERN_PYRAMID = "<sprite name=\"PtP\">";
 
+	// Token: 0x0400035B RID: 859
 	public const string TEXT_SPRITE_SLOT_PATTERN_PYRAMID_UPSIDEDOWN = "<sprite name=\"PtPU\">";
 
+	// Token: 0x0400035C RID: 860
 	public const string TEXT_SPRITE_SLOT_PATTERN_TRIANGLE = "<sprite name=\"PtT\">";
 
+	// Token: 0x0400035D RID: 861
 	public const string TEXT_SPRITE_SLOT_PATTERN_TRIANGLE_UPSIDEDOWN = "<sprite name=\"PtTU\">";
 
+	// Token: 0x0400035E RID: 862
 	public const string TEXT_SPRITE_SLOT_PATTERN_SNAKE_UP_DOWN = "<sprite name=\"PtSnkUpDown\">";
 
+	// Token: 0x0400035F RID: 863
 	public const string TEXT_SPRITE_SLOT_PATTERN_SNAKE_DOWN_UP = "<sprite name=\"PtSnkDownUp\">";
 
+	// Token: 0x04000360 RID: 864
 	public const string TEXT_SPRITE_SLOT_PATTERN_EYE = "<sprite name=\"PtEye\">";
 
+	// Token: 0x04000361 RID: 865
 	public const string TEXT_SPRITE_SLOT_PATTERN_JACKPOT = "<sprite name=\"PtJ\">";
 
+	// Token: 0x04000362 RID: 866
 	public const string TEXT_SPRITE_DICE = "<sprite name=\"Dice\">";
 
+	// Token: 0x04000363 RID: 867
 	private static PowerupScript temporaryInspectedPowerup = null;
 
+	// Token: 0x04000364 RID: 868
 	private static int sanitize666999_Counter = 0;
 
+	// Token: 0x04000365 RID: 869
 	private static StringBuilder _sb = new StringBuilder();
 
+	// Token: 0x04000366 RID: 870
 	private static List<PatternScript.Kind> _patterns = new List<PatternScript.Kind>();
 
+	// Token: 0x0200003A RID: 58
 	public enum SantizationKind
 	{
+		// Token: 0x04000368 RID: 872
 		undefined = -1,
+		// Token: 0x04000369 RID: 873
 		all,
+		// Token: 0x0400036A RID: 874
 		ui,
+		// Token: 0x0400036B RID: 875
 		menus,
+		// Token: 0x0400036C RID: 876
 		uiAndMenus,
+		// Token: 0x0400036D RID: 877
 		powerupKeywords,
+		// Token: 0x0400036E RID: 878
 		endStats,
+		// Token: 0x0400036F RID: 879
 		count
 	}
 
+	// Token: 0x0200003B RID: 59
 	public enum SanitizationSubKind
 	{
+		// Token: 0x04000371 RID: 881
 		undefined = -1,
+		// Token: 0x04000372 RID: 882
 		none,
+		// Token: 0x04000373 RID: 883
 		powerup_ShowAllSymbolsAndPatternsValues,
+		// Token: 0x04000374 RID: 884
 		powerup_ShowPatternsValues,
+		// Token: 0x04000375 RID: 885
 		powerup_DebtPercentages,
+		// Token: 0x04000376 RID: 886
 		powerup_Skeleton,
+		// Token: 0x04000377 RID: 887
 		powerup_GrandmasPurse,
+		// Token: 0x04000378 RID: 888
 		powerup_Hole,
+		// Token: 0x04000379 RID: 889
 		powerup_Hourglass,
+		// Token: 0x0400037A RID: 890
 		powerup_SpicyPeppers,
+		// Token: 0x0400037B RID: 891
 		powerup_Baphomet,
+		// Token: 0x0400037C RID: 892
 		powerup_SymbolModifier,
+		// Token: 0x0400037D RID: 893
 		menu_ReducedSanitization,
+		// Token: 0x0400037E RID: 894
 		count
 	}
 }

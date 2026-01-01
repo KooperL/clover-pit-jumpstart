@@ -2,16 +2,17 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x020000E7 RID: 231
 public class ScreenColliderController : MonoBehaviour
 {
-	// Token: 0x060009FA RID: 2554 RVA: 0x00044176 File Offset: 0x00042376
+	// Token: 0x06000BA2 RID: 2978 RVA: 0x0000F8E4 File Offset: 0x0000DAE4
 	private void RefreshClickCounts()
 	{
 		this.clicksCount = 0;
 		this.clicksCountLuckValue = 666;
 	}
 
-	// Token: 0x060009FB RID: 2555 RVA: 0x0004418C File Offset: 0x0004238C
+	// Token: 0x06000BA3 RID: 2979 RVA: 0x0005DB3C File Offset: 0x0005BD3C
 	private bool IsMouseOver()
 	{
 		bool flag = VirtualCursors.IsCursorVisible(0, true);
@@ -41,13 +42,13 @@ public class ScreenColliderController : MonoBehaviour
 		return flag2;
 	}
 
-	// Token: 0x060009FC RID: 2556 RVA: 0x00044287 File Offset: 0x00042487
+	// Token: 0x06000BA4 RID: 2980 RVA: 0x0000F8F8 File Offset: 0x0000DAF8
 	private void Start()
 	{
 		this.gameCamera = CameraGame.list[0].myCamera;
 	}
 
-	// Token: 0x060009FD RID: 2557 RVA: 0x000442A0 File Offset: 0x000424A0
+	// Token: 0x06000BA5 RID: 2981 RVA: 0x0005DC38 File Offset: 0x0005BE38
 	private void Update()
 	{
 		if (PowerupTriggerAnimController.HasAnimations())
@@ -80,29 +81,36 @@ public class ScreenColliderController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009FE RID: 2558 RVA: 0x0004437A File Offset: 0x0004257A
+	// Token: 0x06000BA6 RID: 2982 RVA: 0x0000F910 File Offset: 0x0000DB10
 	private void OnEnable()
 	{
 		this.RefreshClickCounts();
 	}
 
-	// Token: 0x060009FF RID: 2559 RVA: 0x00044382 File Offset: 0x00042582
+	// Token: 0x06000BA7 RID: 2983 RVA: 0x0000F910 File Offset: 0x0000DB10
 	private void OnDisable()
 	{
 		this.RefreshClickCounts();
 	}
 
+	// Token: 0x04000C41 RID: 3137
 	private const int playerIndex = 0;
 
+	// Token: 0x04000C42 RID: 3138
 	private Camera gameCamera;
 
+	// Token: 0x04000C43 RID: 3139
 	private int clicksCount;
 
+	// Token: 0x04000C44 RID: 3140
 	private int clicksCountLuckValue = -1;
 
+	// Token: 0x04000C45 RID: 3141
 	private RaycastHit[] hits = new RaycastHit[2];
 
+	// Token: 0x04000C46 RID: 3142
 	private bool _mouseOver;
 
+	// Token: 0x04000C47 RID: 3143
 	private Vector3 _mouseOverPosition;
 }

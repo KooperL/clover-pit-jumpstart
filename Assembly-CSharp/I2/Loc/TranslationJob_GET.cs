@@ -5,9 +5,10 @@ using UnityEngine.Networking;
 
 namespace I2.Loc
 {
+	// Token: 0x0200019E RID: 414
 	public class TranslationJob_GET : TranslationJob_WWW
 	{
-		// Token: 0x06000E70 RID: 3696 RVA: 0x0005C7C8 File Offset: 0x0005A9C8
+		// Token: 0x0600121C RID: 4636 RVA: 0x000149F1 File Offset: 0x00012BF1
 		public TranslationJob_GET(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
 		{
 			this._requests = requests;
@@ -16,7 +17,7 @@ namespace I2.Loc
 			this.GetState();
 		}
 
-		// Token: 0x06000E71 RID: 3697 RVA: 0x0005C7F4 File Offset: 0x0005A9F4
+		// Token: 0x0600121D RID: 4637 RVA: 0x0007AF50 File Offset: 0x00079150
 		private void ExecuteNextQuery()
 		{
 			if (this.mQueries.Count == 0)
@@ -32,7 +33,7 @@ namespace I2.Loc
 			I2Utils.SendWebRequest(this.www);
 		}
 
-		// Token: 0x06000E72 RID: 3698 RVA: 0x0005C868 File Offset: 0x0005AA68
+		// Token: 0x0600121E RID: 4638 RVA: 0x0007AFC4 File Offset: 0x000791C4
 		public override TranslationJob.eJobState GetState()
 		{
 			if (this.www != null && this.www.isDone)
@@ -48,7 +49,7 @@ namespace I2.Loc
 			return this.mJobState;
 		}
 
-		// Token: 0x06000E73 RID: 3699 RVA: 0x0005C8D4 File Offset: 0x0005AAD4
+		// Token: 0x0600121F RID: 4639 RVA: 0x0007B030 File Offset: 0x00079230
 		public void ProcessResult(byte[] bytes, string errorMsg)
 		{
 			if (string.IsNullOrEmpty(errorMsg))
@@ -67,12 +68,16 @@ namespace I2.Loc
 			this.mErrorMessage = errorMsg;
 		}
 
+		// Token: 0x040012CE RID: 4814
 		private Dictionary<string, TranslationQuery> _requests;
 
+		// Token: 0x040012CF RID: 4815
 		private GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
 
+		// Token: 0x040012D0 RID: 4816
 		private List<string> mQueries;
 
+		// Token: 0x040012D1 RID: 4817
 		public string mErrorMessage;
 	}
 }

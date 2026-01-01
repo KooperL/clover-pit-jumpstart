@@ -3,9 +3,10 @@ using System.Collections;
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000089 RID: 137
 public class WCScript : MonoBehaviour
 {
-	// Token: 0x060007AE RID: 1966 RVA: 0x00032458 File Offset: 0x00030658
+	// Token: 0x060008AD RID: 2221 RVA: 0x000495EC File Offset: 0x000477EC
 	public static void StartAction(WCScript.ActionType actionType)
 	{
 		if (WCScript.instance == null)
@@ -19,7 +20,7 @@ public class WCScript : MonoBehaviour
 		WCScript.instance.actionCoroutine = WCScript.instance.StartCoroutine(WCScript.instance.ActionCoroutine(actionType));
 	}
 
-	// Token: 0x060007AF RID: 1967 RVA: 0x000324B2 File Offset: 0x000306B2
+	// Token: 0x060008AE RID: 2222 RVA: 0x0000CE2A File Offset: 0x0000B02A
 	private IEnumerator ActionCoroutine(WCScript.ActionType actionType)
 	{
 		CameraController.SetPosition((actionType == WCScript.ActionType.piss) ? CameraController.PositionKind.WcPiss : CameraController.PositionKind.WcPoop, false, 2f);
@@ -109,13 +110,13 @@ public class WCScript : MonoBehaviour
 		goto IL_01D9;
 	}
 
-	// Token: 0x060007B0 RID: 1968 RVA: 0x000324C8 File Offset: 0x000306C8
+	// Token: 0x060008AF RID: 2223 RVA: 0x0000CE40 File Offset: 0x0000B040
 	public static bool IsPerformingAction()
 	{
 		return !(WCScript.instance == null) && WCScript.instance.actionCoroutine != null;
 	}
 
-	// Token: 0x060007B1 RID: 1969 RVA: 0x000324E6 File Offset: 0x000306E6
+	// Token: 0x060008B0 RID: 2224 RVA: 0x0000CE5E File Offset: 0x0000B05E
 	public static void ForceClose_Death()
 	{
 		if (WCScript.instance == null)
@@ -125,20 +126,20 @@ public class WCScript : MonoBehaviour
 		WCScript.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x060007B2 RID: 1970 RVA: 0x00032501 File Offset: 0x00030701
+	// Token: 0x060008B1 RID: 2225 RVA: 0x0000CE79 File Offset: 0x0000B079
 	public static bool IsForceClosing()
 	{
 		return !(WCScript.instance == null) && WCScript.instance.forceClose_Death;
 	}
 
-	// Token: 0x060007B3 RID: 1971 RVA: 0x0003251C File Offset: 0x0003071C
+	// Token: 0x060008B2 RID: 2226 RVA: 0x0000CE94 File Offset: 0x0000B094
 	private void Awake()
 	{
 		WCScript.instance = this;
 		this.actualPiss.SetActive(false);
 	}
 
-	// Token: 0x060007B4 RID: 1972 RVA: 0x00032530 File Offset: 0x00030730
+	// Token: 0x060008B3 RID: 2227 RVA: 0x0000CEA8 File Offset: 0x0000B0A8
 	private void Start()
 	{
 		if (Data.GameData.IsGameCompletedFully())
@@ -147,7 +148,7 @@ public class WCScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007B5 RID: 1973 RVA: 0x0003254A File Offset: 0x0003074A
+	// Token: 0x060008B4 RID: 2228 RVA: 0x0000CEC2 File Offset: 0x0000B0C2
 	private void OnDestroy()
 	{
 		if (WCScript.instance == this)
@@ -156,24 +157,35 @@ public class WCScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000865 RID: 2149
 	public static WCScript instance;
 
+	// Token: 0x04000866 RID: 2150
 	public const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000867 RID: 2151
 	public GameObject actualPiss;
 
+	// Token: 0x04000868 RID: 2152
 	public MeshRenderer wcRenderer;
 
+	// Token: 0x04000869 RID: 2153
 	public Material matGoldenWc;
 
+	// Token: 0x0400086A RID: 2154
 	private Coroutine actionCoroutine;
 
+	// Token: 0x0400086B RID: 2155
 	private bool forceClose_Death;
 
+	// Token: 0x0200008A RID: 138
 	public enum ActionType
 	{
+		// Token: 0x0400086D RID: 2157
 		undefined,
+		// Token: 0x0400086E RID: 2158
 		piss,
+		// Token: 0x0400086F RID: 2159
 		poop
 	}
 }

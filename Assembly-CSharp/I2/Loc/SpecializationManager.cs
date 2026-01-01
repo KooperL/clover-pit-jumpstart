@@ -3,15 +3,16 @@ using System.Collections.Generic;
 
 namespace I2.Loc
 {
+	// Token: 0x02000190 RID: 400
 	public class SpecializationManager : BaseSpecializationManager
 	{
-		// Token: 0x06000E35 RID: 3637 RVA: 0x000578DA File Offset: 0x00055ADA
+		// Token: 0x060011D1 RID: 4561 RVA: 0x0001487B File Offset: 0x00012A7B
 		private SpecializationManager()
 		{
 			this.InitializeSpecializations();
 		}
 
-		// Token: 0x06000E36 RID: 3638 RVA: 0x000578E8 File Offset: 0x00055AE8
+		// Token: 0x060011D2 RID: 4562 RVA: 0x00076104 File Offset: 0x00074304
 		public static string GetSpecializedText(string text, string specialization = null)
 		{
 			int num = text.IndexOf("[i2s_", StringComparison.Ordinal);
@@ -42,7 +43,7 @@ namespace I2.Loc
 			return text.Substring(0, num);
 		}
 
-		// Token: 0x06000E37 RID: 3639 RVA: 0x00057998 File Offset: 0x00055B98
+		// Token: 0x060011D3 RID: 4563 RVA: 0x000761B4 File Offset: 0x000743B4
 		public static string SetSpecializedText(string text, string newText, string specialization)
 		{
 			if (string.IsNullOrEmpty(specialization))
@@ -58,7 +59,7 @@ namespace I2.Loc
 			return SpecializationManager.SetSpecializedText(specializations);
 		}
 
-		// Token: 0x06000E38 RID: 3640 RVA: 0x000579E8 File Offset: 0x00055BE8
+		// Token: 0x060011D4 RID: 4564 RVA: 0x00076204 File Offset: 0x00074404
 		public static string SetSpecializedText(Dictionary<string, string> specializations)
 		{
 			string text;
@@ -76,7 +77,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000E39 RID: 3641 RVA: 0x00057A9C File Offset: 0x00055C9C
+		// Token: 0x060011D5 RID: 4565 RVA: 0x000762B8 File Offset: 0x000744B8
 		public static Dictionary<string, string> GetSpecializations(string text, Dictionary<string, string> buffer = null)
 		{
 			if (buffer == null)
@@ -119,7 +120,7 @@ namespace I2.Loc
 			return buffer;
 		}
 
-		// Token: 0x06000E3A RID: 3642 RVA: 0x00057B6C File Offset: 0x00055D6C
+		// Token: 0x060011D6 RID: 4566 RVA: 0x00076388 File Offset: 0x00074588
 		public static void AppendSpecializations(string text, List<string> list = null)
 		{
 			if (text == null)
@@ -156,6 +157,7 @@ namespace I2.Loc
 			}
 		}
 
+		// Token: 0x040012AB RID: 4779
 		public static SpecializationManager Singleton = new SpecializationManager();
 	}
 }

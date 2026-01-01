@@ -3,27 +3,28 @@ using UnityEngine;
 
 namespace Panik
 {
+	// Token: 0x02000172 RID: 370
 	public class Pausable : MonoBehaviour
 	{
-		// Token: 0x06000D75 RID: 3445 RVA: 0x00055538 File Offset: 0x00053738
+		// Token: 0x060010FE RID: 4350 RVA: 0x00013E80 File Offset: 0x00012080
 		public bool PausedGet()
 		{
 			return this._isPaused;
 		}
 
-		// Token: 0x06000D76 RID: 3446 RVA: 0x00055540 File Offset: 0x00053740
+		// Token: 0x060010FF RID: 4351 RVA: 0x00013E88 File Offset: 0x00012088
 		public void PausableSet(bool isPausable)
 		{
 			this.isPausable = isPausable;
 		}
 
-		// Token: 0x06000D77 RID: 3447 RVA: 0x00055549 File Offset: 0x00053749
+		// Token: 0x06001100 RID: 4352 RVA: 0x00013E91 File Offset: 0x00012091
 		public bool PausableGet()
 		{
 			return this.isPausable;
 		}
 
-		// Token: 0x06000D78 RID: 3448 RVA: 0x00055554 File Offset: 0x00053754
+		// Token: 0x06001101 RID: 4353 RVA: 0x0007319C File Offset: 0x0007139C
 		private void _PauseMe()
 		{
 			this._isPaused = true;
@@ -36,7 +37,7 @@ namespace Panik
 				this.myRbs[i].linearVelocity = Vector3.zero;
 				this.myRbs[i].angularVelocity = Vector3.zero;
 				this.myRbs[i].useGravity = false;
-				this.myRbs[i].constraints = 126;
+				this.myRbs[i].constraints = RigidbodyConstraints.FreezeAll;
 				this.myRbs[i].detectCollisions = false;
 			}
 			for (int j = 0; j < this.myRbs2D.Length; j++)
@@ -47,8 +48,8 @@ namespace Panik
 				this.rbs2DConstraints[j] = this.myRbs2D[j].constraints;
 				this.myRbs2D[j].linearVelocity = Vector2.zero;
 				this.myRbs2D[j].angularVelocity = 0f;
-				this.myRbs2D[j].bodyType = 2;
-				this.myRbs2D[j].constraints = 7;
+				this.myRbs2D[j].bodyType = RigidbodyType2D.Static;
+				this.myRbs2D[j].constraints = RigidbodyConstraints2D.FreezeAll;
 			}
 			for (int k = 0; k < this.myAnimators.Length; k++)
 			{
@@ -63,7 +64,7 @@ namespace Panik
 			ev();
 		}
 
-		// Token: 0x06000D79 RID: 3449 RVA: 0x00055728 File Offset: 0x00053928
+		// Token: 0x06001102 RID: 4354 RVA: 0x00073370 File Offset: 0x00071570
 		private void _UnpauseMe()
 		{
 			this._isPaused = false;
@@ -94,7 +95,7 @@ namespace Panik
 			ev();
 		}
 
-		// Token: 0x06000D7A RID: 3450 RVA: 0x0005585C File Offset: 0x00053A5C
+		// Token: 0x06001103 RID: 4355 RVA: 0x000734A4 File Offset: 0x000716A4
 		private void Awake()
 		{
 			if (this.canPauseChilds)
@@ -133,13 +134,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D7B RID: 3451 RVA: 0x000559BD File Offset: 0x00053BBD
+		// Token: 0x06001104 RID: 4356 RVA: 0x00013E99 File Offset: 0x00012099
 		private void OnDisable()
 		{
 			this._UnpauseMe();
 		}
 
-		// Token: 0x06000D7C RID: 3452 RVA: 0x000559C8 File Offset: 0x00053BC8
+		// Token: 0x06001105 RID: 4357 RVA: 0x00073608 File Offset: 0x00071808
 		public void Update()
 		{
 			this.localPauseTimer -= Tick.Time;
@@ -154,56 +155,75 @@ namespace Panik
 			}
 		}
 
+		// Token: 0x040011EC RID: 4588
 		[NonSerialized]
 		public Rigidbody[] myRbs;
 
+		// Token: 0x040011ED RID: 4589
 		[NonSerialized]
 		public Rigidbody2D[] myRbs2D;
 
+		// Token: 0x040011EE RID: 4590
 		[NonSerialized]
 		public Animator[] myAnimators;
 
+		// Token: 0x040011EF RID: 4591
 		[NonSerialized]
 		public float localPauseTimer;
 
+		// Token: 0x040011F0 RID: 4592
 		public bool canPauseChilds = true;
 
+		// Token: 0x040011F1 RID: 4593
 		private bool _isPaused;
 
+		// Token: 0x040011F2 RID: 4594
 		private bool isPausable = true;
 
+		// Token: 0x040011F3 RID: 4595
 		[NonSerialized]
 		public Vector3[] velBackup;
 
+		// Token: 0x040011F4 RID: 4596
 		[NonSerialized]
 		public Vector3[] angularVelBackup;
 
+		// Token: 0x040011F5 RID: 4597
 		[NonSerialized]
 		public bool[] useGravityBackup;
 
+		// Token: 0x040011F6 RID: 4598
 		[NonSerialized]
 		public RigidbodyConstraints[] rbsConstraints;
 
+		// Token: 0x040011F7 RID: 4599
 		[NonSerialized]
 		public Vector2[] velBackup2D;
 
+		// Token: 0x040011F8 RID: 4600
 		[NonSerialized]
 		public float[] angularVelBackup2D;
 
+		// Token: 0x040011F9 RID: 4601
 		[NonSerialized]
 		public RigidbodyType2D[] rbs2DType;
 
+		// Token: 0x040011FA RID: 4602
 		[NonSerialized]
 		public RigidbodyConstraints2D[] rbs2DConstraints;
 
+		// Token: 0x040011FB RID: 4603
 		[NonSerialized]
 		public float[] animatorSpeedBackup;
 
+		// Token: 0x040011FC RID: 4604
 		public Pausable.Ev onPause;
 
+		// Token: 0x040011FD RID: 4605
 		public Pausable.Ev onResume;
 
-		// (Invoke) Token: 0x06001449 RID: 5193
+		// Token: 0x02000173 RID: 371
+		// (Invoke) Token: 0x06001108 RID: 4360
 		public delegate void Ev();
 	}
 }

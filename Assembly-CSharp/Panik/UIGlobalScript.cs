@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 namespace Panik
 {
+	// Token: 0x02000181 RID: 385
 	public class UIGlobalScript : MonoBehaviour
 	{
-		// Token: 0x06000DE1 RID: 3553 RVA: 0x0005686C File Offset: 0x00054A6C
+		// Token: 0x0600117D RID: 4477 RVA: 0x000754E8 File Offset: 0x000736E8
 		private void SaveIconAndTextUpdate()
 		{
 			bool flag = PlatformDataMaster.IsSavingOrLoadingOrDeleting();
@@ -46,13 +47,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DE2 RID: 3554 RVA: 0x00056971 File Offset: 0x00054B71
+		// Token: 0x0600117E RID: 4478 RVA: 0x0001446E File Offset: 0x0001266E
 		private void Awake()
 		{
 			UIGlobalScript.instance = this;
 		}
 
-		// Token: 0x06000DE3 RID: 3555 RVA: 0x00056979 File Offset: 0x00054B79
+		// Token: 0x0600117F RID: 4479 RVA: 0x00014476 File Offset: 0x00012676
 		private void Start()
 		{
 			this.saveIconImage = this.saveIconHolder.GetComponentInChildren<Image>();
@@ -60,7 +61,7 @@ namespace Panik
 			this.SaveIconAndTextUpdate();
 		}
 
-		// Token: 0x06000DE4 RID: 3556 RVA: 0x0005699E File Offset: 0x00054B9E
+		// Token: 0x06001180 RID: 4480 RVA: 0x0001449B File Offset: 0x0001269B
 		private void OnDestroy()
 		{
 			if (UIGlobalScript.instance == this)
@@ -69,36 +70,46 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DE5 RID: 3557 RVA: 0x000569B3 File Offset: 0x00054BB3
+		// Token: 0x06001181 RID: 4481 RVA: 0x000144B0 File Offset: 0x000126B0
 		private void Update()
 		{
 			this.SaveIconAndTextUpdate();
 		}
 
-		// Token: 0x06000DE6 RID: 3558 RVA: 0x000569BB File Offset: 0x00054BBB
+		// Token: 0x06001182 RID: 4482 RVA: 0x000144B8 File Offset: 0x000126B8
 		private void OnDrawGizmosSelected()
 		{
 			this.myCanvasScaler.referencePixelsPerUnit = 32f;
 		}
 
+		// Token: 0x0400128F RID: 4751
 		public static UIGlobalScript instance;
 
+		// Token: 0x04001290 RID: 4752
 		private const float SAV_ICO_LERP_SPEED = 20f;
 
+		// Token: 0x04001291 RID: 4753
 		public Canvas myCanvas;
 
+		// Token: 0x04001292 RID: 4754
 		public CanvasScaler myCanvasScaler;
 
+		// Token: 0x04001293 RID: 4755
 		public RectTransform saveIconShifter;
 
+		// Token: 0x04001294 RID: 4756
 		public GameObject saveIconHolder;
 
+		// Token: 0x04001295 RID: 4757
 		public TextMeshProUGUI saveText;
 
+		// Token: 0x04001296 RID: 4758
 		private Image saveIconImage;
 
+		// Token: 0x04001297 RID: 4759
 		private Color savIcColor_Full = new Color(1f, 1f, 1f, 1f);
 
+		// Token: 0x04001298 RID: 4760
 		private Color savIcColor_Transp = new Color(1f, 1f, 1f, 0.25f);
 	}
 }

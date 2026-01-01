@@ -4,15 +4,16 @@ using UnityEngine.UI;
 
 namespace I2.Loc
 {
+	// Token: 0x020001D4 RID: 468
 	public class LocalizeTarget_UnityUI_Text : LocalizeTarget<Text>
 	{
-		// Token: 0x06000FE4 RID: 4068 RVA: 0x0006380A File Offset: 0x00061A0A
+		// Token: 0x060013D2 RID: 5074 RVA: 0x000155D4 File Offset: 0x000137D4
 		static LocalizeTarget_UnityUI_Text()
 		{
 			LocalizeTarget_UnityUI_Text.AutoRegister();
 		}
 
-		// Token: 0x06000FE5 RID: 4069 RVA: 0x00063811 File Offset: 0x00061A11
+		// Token: 0x060013D3 RID: 5075 RVA: 0x000155DB File Offset: 0x000137DB
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -23,44 +24,44 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000FE6 RID: 4070 RVA: 0x00063830 File Offset: 0x00061A30
+		// Token: 0x060013D4 RID: 5076 RVA: 0x00008AE5 File Offset: 0x00006CE5
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000FE7 RID: 4071 RVA: 0x00063833 File Offset: 0x00061A33
+		// Token: 0x060013D5 RID: 5077 RVA: 0x00007C86 File Offset: 0x00005E86
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.Font;
 		}
 
-		// Token: 0x06000FE8 RID: 4072 RVA: 0x00063836 File Offset: 0x00061A36
+		// Token: 0x060013D6 RID: 5078 RVA: 0x00007C86 File Offset: 0x00005E86
 		public override bool CanUseSecondaryTerm()
 		{
 			return true;
 		}
 
-		// Token: 0x06000FE9 RID: 4073 RVA: 0x00063839 File Offset: 0x00061A39
+		// Token: 0x060013D7 RID: 5079 RVA: 0x00007C86 File Offset: 0x00005E86
 		public override bool AllowMainTermToBeRTL()
 		{
 			return true;
 		}
 
-		// Token: 0x06000FEA RID: 4074 RVA: 0x0006383C File Offset: 0x00061A3C
+		// Token: 0x060013D8 RID: 5080 RVA: 0x00008AE5 File Offset: 0x00006CE5
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000FEB RID: 4075 RVA: 0x00063840 File Offset: 0x00061A40
+		// Token: 0x060013D9 RID: 5081 RVA: 0x00081658 File Offset: 0x0007F858
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = (this.mTarget ? this.mTarget.text : null);
 			secondaryTerm = ((this.mTarget.font != null) ? this.mTarget.font.name : string.Empty);
 		}
 
-		// Token: 0x06000FEC RID: 4076 RVA: 0x00063898 File Offset: 0x00061A98
+		// Token: 0x060013DA RID: 5082 RVA: 0x000816B0 File Offset: 0x0007F8B0
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			Font secondaryTranslatedObj = cmp.GetSecondaryTranslatedObj<Font>(ref mainTranslation, ref secondaryTranslation);
@@ -97,7 +98,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000FED RID: 4077 RVA: 0x000639C4 File Offset: 0x00061BC4
+		// Token: 0x060013DB RID: 5083 RVA: 0x000817DC File Offset: 0x0007F9DC
 		private void InitAlignment(bool isRTL, TextAnchor alignment, out TextAnchor alignLTR, out TextAnchor alignRTL)
 		{
 			alignRTL = alignment;
@@ -106,27 +107,27 @@ namespace I2.Loc
 			{
 				switch (alignment)
 				{
-				case 0:
-					alignLTR = 2;
+				case TextAnchor.UpperLeft:
+					alignLTR = TextAnchor.UpperRight;
 					return;
-				case 1:
-				case 4:
-				case 7:
+				case TextAnchor.UpperCenter:
+				case TextAnchor.MiddleCenter:
+				case TextAnchor.LowerCenter:
 					break;
-				case 2:
-					alignLTR = 0;
+				case TextAnchor.UpperRight:
+					alignLTR = TextAnchor.UpperLeft;
 					return;
-				case 3:
-					alignLTR = 5;
+				case TextAnchor.MiddleLeft:
+					alignLTR = TextAnchor.MiddleRight;
 					return;
-				case 5:
-					alignLTR = 3;
+				case TextAnchor.MiddleRight:
+					alignLTR = TextAnchor.MiddleLeft;
 					return;
-				case 6:
-					alignLTR = 8;
+				case TextAnchor.LowerLeft:
+					alignLTR = TextAnchor.LowerRight;
 					return;
-				case 8:
-					alignLTR = 6;
+				case TextAnchor.LowerRight:
+					alignLTR = TextAnchor.LowerLeft;
 					return;
 				default:
 					return;
@@ -136,27 +137,27 @@ namespace I2.Loc
 			{
 				switch (alignment)
 				{
-				case 0:
-					alignRTL = 2;
+				case TextAnchor.UpperLeft:
+					alignRTL = TextAnchor.UpperRight;
 					return;
-				case 1:
-				case 4:
-				case 7:
+				case TextAnchor.UpperCenter:
+				case TextAnchor.MiddleCenter:
+				case TextAnchor.LowerCenter:
 					break;
-				case 2:
-					alignRTL = 0;
+				case TextAnchor.UpperRight:
+					alignRTL = TextAnchor.UpperLeft;
 					return;
-				case 3:
-					alignRTL = 5;
+				case TextAnchor.MiddleLeft:
+					alignRTL = TextAnchor.MiddleRight;
 					return;
-				case 5:
-					alignRTL = 3;
+				case TextAnchor.MiddleRight:
+					alignRTL = TextAnchor.MiddleLeft;
 					return;
-				case 6:
-					alignRTL = 8;
+				case TextAnchor.LowerLeft:
+					alignRTL = TextAnchor.LowerRight;
 					break;
-				case 8:
-					alignRTL = 6;
+				case TextAnchor.LowerRight:
+					alignRTL = TextAnchor.LowerLeft;
 					return;
 				default:
 					return;
@@ -164,12 +165,16 @@ namespace I2.Loc
 			}
 		}
 
-		private TextAnchor mAlignment_RTL = 2;
+		// Token: 0x040013A2 RID: 5026
+		private TextAnchor mAlignment_RTL = TextAnchor.UpperRight;
 
+		// Token: 0x040013A3 RID: 5027
 		private TextAnchor mAlignment_LTR;
 
+		// Token: 0x040013A4 RID: 5028
 		private bool mAlignmentWasRTL;
 
+		// Token: 0x040013A5 RID: 5029
 		private bool mInitializeAlignment = true;
 	}
 }

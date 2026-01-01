@@ -5,9 +5,10 @@ using Panik;
 using TMPro;
 using UnityEngine;
 
+// Token: 0x020000C3 RID: 195
 public class CardScript : MonoBehaviour
 {
-	// Token: 0x06000929 RID: 2345 RVA: 0x0003CC24 File Offset: 0x0003AE24
+	// Token: 0x06000A71 RID: 2673 RVA: 0x00054304 File Offset: 0x00052504
 	public static CardScript PoolSpawn(RunModifierScript.Identifier identifier, float scale, Transform parent)
 	{
 		CardScript component = Spawn.FromPool(RunModifierScript.GetCardPrefabName(identifier), Vector3.zero, parent).GetComponent<CardScript>();
@@ -18,7 +19,7 @@ public class CardScript : MonoBehaviour
 		return component;
 	}
 
-	// Token: 0x0600092A RID: 2346 RVA: 0x0003CC8C File Offset: 0x0003AE8C
+	// Token: 0x06000A72 RID: 2674 RVA: 0x0005436C File Offset: 0x0005256C
 	public void SetRenderingLayer(int layer)
 	{
 		for (int i = 0; i < this.transforms.Length; i++)
@@ -30,7 +31,7 @@ public class CardScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600092B RID: 2347 RVA: 0x0003CCCF File Offset: 0x0003AECF
+	// Token: 0x06000A73 RID: 2675 RVA: 0x0000E521 File Offset: 0x0000C721
 	public static void PoolDestroy(CardScript card)
 	{
 		if (!card.gameObject.activeSelf && card.transform.parent == null)
@@ -41,54 +42,55 @@ public class CardScript : MonoBehaviour
 		Pool.Destroy(card.gameObject, null);
 	}
 
-	// Token: 0x0600092C RID: 2348 RVA: 0x0003CD0A File Offset: 0x0003AF0A
+	// Token: 0x06000A74 RID: 2676 RVA: 0x0000E55C File Offset: 0x0000C75C
 	public void PoolDestroy()
 	{
 		CardScript.PoolDestroy(this);
 	}
 
-	// Token: 0x0600092D RID: 2349 RVA: 0x0003CD12 File Offset: 0x0003AF12
+	// Token: 0x06000A75 RID: 2677 RVA: 0x0000E564 File Offset: 0x0000C764
 	public bool IsHovered()
 	{
 		return CardsInspectorScript.InspectedCard_Get() == this;
 	}
 
-	// Token: 0x0600092E RID: 2350 RVA: 0x0003CD1F File Offset: 0x0003AF1F
+	// Token: 0x06000A76 RID: 2678 RVA: 0x0000E571 File Offset: 0x0000C771
 	public bool IsFaceDown()
 	{
 		return this.faceDown;
 	}
 
-	// Token: 0x0600092F RID: 2351 RVA: 0x0003CD27 File Offset: 0x0003AF27
+	// Token: 0x06000A77 RID: 2679 RVA: 0x0000E579 File Offset: 0x0000C779
 	public void FlipRequest()
 	{
 		this.flipRequest = true;
 	}
 
-	// Token: 0x06000930 RID: 2352 RVA: 0x0003CD30 File Offset: 0x0003AF30
+	// Token: 0x06000A78 RID: 2680 RVA: 0x0000E582 File Offset: 0x0000C782
 	public void ForceUnflipped()
 	{
 		this.faceDown = false;
 		this.meshHolder.SetLocalYAngle(0f);
 	}
 
-	// Token: 0x06000931 RID: 2353 RVA: 0x0003CD4A File Offset: 0x0003AF4A
+	// Token: 0x06000A79 RID: 2681 RVA: 0x0000E59C File Offset: 0x0000C79C
 	public void OutlineForceHidden(bool hide)
 	{
 		this.forceHideOutline = hide;
 	}
 
-	// Token: 0x06000932 RID: 2354 RVA: 0x0003CD53 File Offset: 0x0003AF53
+	// Token: 0x06000A7A RID: 2682 RVA: 0x0000E5A5 File Offset: 0x0000C7A5
 	public void OutlineSetColor(Color c)
 	{
 		this.myOutline.OutlineColor = c;
 	}
 
-	// Token: 0x06000933 RID: 2355 RVA: 0x0003CD64 File Offset: 0x0003AF64
+	// Token: 0x06000A7B RID: 2683 RVA: 0x000543B0 File Offset: 0x000525B0
 	public void TextUpdate()
 	{
 		int num = Data.game.RunModifier_OwnedCount_Get(this.identifier);
 		int num2 = Data.game.RunModifier_WonTimes_Get(this.identifier);
+		bool flag = Data.game.DesiredFoilLevelGet(this.identifier) >= 2 || Data.game.RunModifier_FoilLevel_Get(this.identifier) >= 2;
 		RunModifierScript.Identifier identifier = GameplayData.RunModifier_GetCurrent();
 		if (!DeckBoxScript.CanActuallyCountVictoriesForCards())
 		{
@@ -98,7 +100,7 @@ public class CardScript : MonoBehaviour
 		{
 			this.textVictories.text = "<sprite name=\"CardSymb_Victory\">" + num2.ToString();
 		}
-		if (num < 0)
+		if (num < 0 || flag)
 		{
 			this.textCopies.text = "<sprite name=\"Infinite\"><sprite name=\"CardSymb_Copies\">";
 		}
@@ -130,19 +132,19 @@ public class CardScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000934 RID: 2356 RVA: 0x0003CE8E File Offset: 0x0003B08E
+	// Token: 0x06000A7C RID: 2684 RVA: 0x0000E5B3 File Offset: 0x0000C7B3
 	public void TextForceHidden(bool hide)
 	{
 		this.forceHideText = hide;
 	}
 
-	// Token: 0x06000935 RID: 2357 RVA: 0x0003CE97 File Offset: 0x0003B097
+	// Token: 0x06000A7D RID: 2685 RVA: 0x0000E5BC File Offset: 0x0000C7BC
 	public void Bounce()
 	{
 		this.bounceScript.SetBounceScale(0.05f);
 	}
 
-	// Token: 0x06000936 RID: 2358 RVA: 0x0003CEAC File Offset: 0x0003B0AC
+	// Token: 0x06000A7E RID: 2686 RVA: 0x0005450C File Offset: 0x0005270C
 	private void FlipVfxAndSfx()
 	{
 		switch (RunModifierScript.RarityGet(this.identifier))
@@ -186,7 +188,7 @@ public class CardScript : MonoBehaviour
 		base.StartCoroutine(this.ShowParticlesCoroutine());
 	}
 
-	// Token: 0x06000937 RID: 2359 RVA: 0x0003D098 File Offset: 0x0003B298
+	// Token: 0x06000A7F RID: 2687 RVA: 0x0000E5CE File Offset: 0x0000C7CE
 	private IEnumerator ShowParticlesCoroutine()
 	{
 		float timer = 1.1f;
@@ -199,7 +201,7 @@ public class CardScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000938 RID: 2360 RVA: 0x0003D0A7 File Offset: 0x0003B2A7
+	// Token: 0x06000A80 RID: 2688 RVA: 0x0000E5DD File Offset: 0x0000C7DD
 	private void HideAllParticles()
 	{
 		this.particlesCommon.SetActive(false);
@@ -208,28 +210,19 @@ public class CardScript : MonoBehaviour
 		this.particlesEpic.SetActive(false);
 	}
 
-	// Token: 0x06000939 RID: 2361 RVA: 0x0003D0D9 File Offset: 0x0003B2D9
+	// Token: 0x06000A81 RID: 2689 RVA: 0x0000E60F File Offset: 0x0000C80F
 	public void CardColorSet(Color c)
 	{
 		this.cardMeshRenderer.sharedMaterial.SetColor("_Color", c);
 	}
 
-	// Token: 0x0600093A RID: 2362 RVA: 0x0003D0F4 File Offset: 0x0003B2F4
-	private int DesiredFoilLevelGet()
+	// Token: 0x06000A82 RID: 2690 RVA: 0x0000E627 File Offset: 0x0000C827
+	public int DesiredFoilLevelGet()
 	{
-		int num = Data.game.RunModifier_WonTimes_Get(this.identifier);
-		if (Data.game.RunModifier_WonTimesHARDCORE_Get(this.identifier) > 0)
-		{
-			return 2;
-		}
-		if (num > 0)
-		{
-			return 1;
-		}
-		return 0;
+		return Data.game.DesiredFoilLevelGet(this.identifier);
 	}
 
-	// Token: 0x0600093B RID: 2363 RVA: 0x0003D12E File Offset: 0x0003B32E
+	// Token: 0x06000A83 RID: 2691 RVA: 0x0000E639 File Offset: 0x0000C839
 	private IEnumerator FoilingCoroutine()
 	{
 		int desiredFoilingLevel = this.DesiredFoilLevelGet();
@@ -264,13 +257,13 @@ public class CardScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600093C RID: 2364 RVA: 0x0003D13D File Offset: 0x0003B33D
+	// Token: 0x06000A84 RID: 2692 RVA: 0x0000E648 File Offset: 0x0000C848
 	public bool IsFoiling()
 	{
 		return this.coroutineFoiling != null;
 	}
 
-	// Token: 0x0600093D RID: 2365 RVA: 0x0003D148 File Offset: 0x0003B348
+	// Token: 0x06000A85 RID: 2693 RVA: 0x000546F8 File Offset: 0x000528F8
 	public static bool IsAnyCardFoiling()
 	{
 		for (int i = 0; i < CardScript.cardsEnabled.Count; i++)
@@ -283,7 +276,7 @@ public class CardScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600093E RID: 2366 RVA: 0x0003D194 File Offset: 0x0003B394
+	// Token: 0x06000A86 RID: 2694 RVA: 0x00054744 File Offset: 0x00052944
 	public void AnimatorApplyFoiling()
 	{
 		int num = this.DesiredFoilLevelGet();
@@ -317,7 +310,7 @@ public class CardScript : MonoBehaviour
 		this.foilingParticles1.SetActive(true);
 	}
 
-	// Token: 0x0600093F RID: 2367 RVA: 0x0003D284 File Offset: 0x0003B484
+	// Token: 0x06000A87 RID: 2695 RVA: 0x00054834 File Offset: 0x00052A34
 	private void ApplyFoilingSilently(int foilingLevel)
 	{
 		if (foilingLevel == 1)
@@ -334,7 +327,7 @@ public class CardScript : MonoBehaviour
 		this.cardMeshRenderer.sharedMaterial.SetFloat("_FoilLevel1", 1f);
 	}
 
-	// Token: 0x06000940 RID: 2368 RVA: 0x0003D304 File Offset: 0x0003B504
+	// Token: 0x06000A88 RID: 2696 RVA: 0x000548B4 File Offset: 0x00052AB4
 	private void Awake()
 	{
 		if (this.identifier == RunModifierScript.Identifier.undefined || this.identifier == RunModifierScript.Identifier.count)
@@ -350,7 +343,7 @@ public class CardScript : MonoBehaviour
 		this.cardMeshRenderer.sharedMaterial = this.materialCopy;
 	}
 
-	// Token: 0x06000941 RID: 2369 RVA: 0x0003D394 File Offset: 0x0003B594
+	// Token: 0x06000A89 RID: 2697 RVA: 0x00054944 File Offset: 0x00052B44
 	private void OnEnable()
 	{
 		CardScript.cardsEnabled.Add(this);
@@ -377,13 +370,13 @@ public class CardScript : MonoBehaviour
 		this.foilingParticles1.SetActive(false);
 	}
 
-	// Token: 0x06000942 RID: 2370 RVA: 0x0003D47C File Offset: 0x0003B67C
+	// Token: 0x06000A8A RID: 2698 RVA: 0x0000E653 File Offset: 0x0000C853
 	private void OnDisable()
 	{
 		CardScript.cardsEnabled.Remove(this);
 	}
 
-	// Token: 0x06000943 RID: 2371 RVA: 0x0003D48A File Offset: 0x0003B68A
+	// Token: 0x06000A8B RID: 2699 RVA: 0x0000E661 File Offset: 0x0000C861
 	private void OnDestroy()
 	{
 		if (this.materialCopy != null)
@@ -392,7 +385,7 @@ public class CardScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000944 RID: 2372 RVA: 0x0003D4A8 File Offset: 0x0003B6A8
+	// Token: 0x06000A8C RID: 2700 RVA: 0x00054A2C File Offset: 0x00052C2C
 	private void Update()
 	{
 		bool flag = this.IsHovered();
@@ -471,65 +464,95 @@ public class CardScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000A9C RID: 2716
 	private static List<CardScript> cardsEnabled = new List<CardScript>();
 
+	// Token: 0x04000A9D RID: 2717
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000A9E RID: 2718
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000A9F RID: 2719
 	private const string ANIM_IDLE = "CardIdleAnim";
 
+	// Token: 0x04000AA0 RID: 2720
 	private const string ANIM_FOILING = "CardFoilingAnim";
 
+	// Token: 0x04000AA1 RID: 2721
 	public GameObject holder;
 
+	// Token: 0x04000AA2 RID: 2722
 	public Transform meshHolder;
 
+	// Token: 0x04000AA3 RID: 2723
 	public MeshRenderer cardMeshRenderer;
 
+	// Token: 0x04000AA4 RID: 2724
 	private Material materialCopy;
 
+	// Token: 0x04000AA5 RID: 2725
 	private Transform[] transforms;
 
+	// Token: 0x04000AA6 RID: 2726
 	public TextMeshPro textVictories;
 
+	// Token: 0x04000AA7 RID: 2727
 	public TextMeshPro textCopies;
 
+	// Token: 0x04000AA8 RID: 2728
 	public TextMeshPro textActive;
 
+	// Token: 0x04000AA9 RID: 2729
 	[NonSerialized]
 	public RectTransform rectTransform;
 
+	// Token: 0x04000AAA RID: 2730
 	[NonSerialized]
 	public BounceScript bounceScript;
 
+	// Token: 0x04000AAB RID: 2731
 	public GameObject particlesCommon;
 
+	// Token: 0x04000AAC RID: 2732
 	public GameObject particlesUncommon;
 
+	// Token: 0x04000AAD RID: 2733
 	public GameObject particlesRare;
 
+	// Token: 0x04000AAE RID: 2734
 	public GameObject particlesEpic;
 
+	// Token: 0x04000AAF RID: 2735
 	public GameObject canFlipGlow;
 
+	// Token: 0x04000AB0 RID: 2736
 	private Outline myOutline;
 
+	// Token: 0x04000AB1 RID: 2737
 	private Animator animator;
 
+	// Token: 0x04000AB2 RID: 2738
 	public GameObject foilingParticles0;
 
+	// Token: 0x04000AB3 RID: 2739
 	public GameObject foilingParticles1;
 
+	// Token: 0x04000AB4 RID: 2740
 	public RunModifierScript.Identifier identifier = RunModifierScript.Identifier.undefined;
 
+	// Token: 0x04000AB5 RID: 2741
 	private bool faceDown;
 
+	// Token: 0x04000AB6 RID: 2742
 	private bool flipRequest;
 
+	// Token: 0x04000AB7 RID: 2743
 	private bool forceHideOutline;
 
+	// Token: 0x04000AB8 RID: 2744
 	private bool forceHideText;
 
+	// Token: 0x04000AB9 RID: 2745
 	private Coroutine coroutineFoiling;
 }

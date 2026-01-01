@@ -6,15 +6,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000E0 RID: 224
 public class PromptGuideScript : MonoBehaviour
 {
-	// Token: 0x060009D9 RID: 2521 RVA: 0x00041F8D File Offset: 0x0004018D
+	// Token: 0x06000B5C RID: 2908 RVA: 0x0000F092 File Offset: 0x0000D292
 	public static bool IsEnabled()
 	{
 		return !(PromptGuideScript.instance == null) && PromptGuideScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060009DA RID: 2522 RVA: 0x00041FB0 File Offset: 0x000401B0
+	// Token: 0x06000B5D RID: 2909 RVA: 0x0005BA7C File Offset: 0x00059C7C
 	public static void SetGuideType(PromptGuideScript.GuideType type)
 	{
 		if (PromptGuideScript.instance == null)
@@ -540,7 +541,7 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.instance.currentType = type;
 	}
 
-	// Token: 0x060009DB RID: 2523 RVA: 0x000432FE File Offset: 0x000414FE
+	// Token: 0x06000B5E RID: 2910 RVA: 0x0000F0B2 File Offset: 0x0000D2B2
 	public static PromptGuideScript.GuideType GetGuideType()
 	{
 		if (PromptGuideScript.instance == null)
@@ -551,13 +552,13 @@ public class PromptGuideScript : MonoBehaviour
 		return PromptGuideScript.instance.currentType;
 	}
 
-	// Token: 0x060009DC RID: 2524 RVA: 0x00043323 File Offset: 0x00041523
+	// Token: 0x06000B5F RID: 2911 RVA: 0x0000F0D7 File Offset: 0x0000D2D7
 	public static void ResetGuide()
 	{
 		PromptGuideScript.instance.currentType = PromptGuideScript.GuideType.Undefined;
 	}
 
-	// Token: 0x060009DD RID: 2525 RVA: 0x00043331 File Offset: 0x00041531
+	// Token: 0x06000B60 RID: 2912 RVA: 0x0000F0E5 File Offset: 0x0000D2E5
 	public static void ForceClose(bool resetType)
 	{
 		if (resetType)
@@ -567,7 +568,7 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x060009DE RID: 2526 RVA: 0x0004334B File Offset: 0x0004154B
+	// Token: 0x06000B61 RID: 2913 RVA: 0x0000F0FF File Offset: 0x0000D2FF
 	private static void SetText(string textString, bool sanitizeString = true)
 	{
 		if (PromptGuideScript.instance == null)
@@ -582,13 +583,13 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.instance.text.text = textString;
 	}
 
-	// Token: 0x060009DF RID: 2527 RVA: 0x00043386 File Offset: 0x00041586
+	// Token: 0x06000B62 RID: 2914 RVA: 0x0000F13A File Offset: 0x0000D33A
 	public static bool PreventDepositDuringFlashing()
 	{
 		return !(PromptGuideScript.instance == null) && PromptGuideScript.instance._textFlashPreventsDeposit;
 	}
 
-	// Token: 0x060009E0 RID: 2528 RVA: 0x000433A1 File Offset: 0x000415A1
+	// Token: 0x06000B63 RID: 2915 RVA: 0x0000F155 File Offset: 0x0000D355
 	private void OnInputChange_ForceUpdate(Controls.InputActionMap map)
 	{
 		if (!PromptGuideScript.IsEnabled())
@@ -602,7 +603,7 @@ public class PromptGuideScript : MonoBehaviour
 		PromptGuideScript.SetGuideType(this.currentType);
 	}
 
-	// Token: 0x060009E1 RID: 2529 RVA: 0x000433CB File Offset: 0x000415CB
+	// Token: 0x06000B64 RID: 2916 RVA: 0x0000F17F File Offset: 0x0000D37F
 	private void Awake()
 	{
 		PromptGuideScript.instance = this;
@@ -610,7 +611,7 @@ public class PromptGuideScript : MonoBehaviour
 		this.imageStartingPos = this.textBackImage.rectTransform.anchoredPosition;
 	}
 
-	// Token: 0x060009E2 RID: 2530 RVA: 0x000433F5 File Offset: 0x000415F5
+	// Token: 0x06000B65 RID: 2917 RVA: 0x0000F1A9 File Offset: 0x0000D3A9
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -618,7 +619,7 @@ public class PromptGuideScript : MonoBehaviour
 		PlatformMaster.IsInitialized();
 	}
 
-	// Token: 0x060009E3 RID: 2531 RVA: 0x0004340F File Offset: 0x0004160F
+	// Token: 0x06000B66 RID: 2918 RVA: 0x0000F1C3 File Offset: 0x0000D3C3
 	private void OnDestroy()
 	{
 		if (PromptGuideScript.instance == this)
@@ -632,7 +633,7 @@ public class PromptGuideScript : MonoBehaviour
 		Controls.onLastInputKindChangedAny = (Controls.MapCallback)Delegate.Remove(Controls.onLastInputKindChangedAny, new Controls.MapCallback(this.OnInputChange_ForceUpdate));
 	}
 
-	// Token: 0x060009E4 RID: 2532 RVA: 0x0004344C File Offset: 0x0004164C
+	// Token: 0x06000B67 RID: 2919 RVA: 0x0005CDCC File Offset: 0x0005AFCC
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -835,79 +836,132 @@ public class PromptGuideScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000BDC RID: 3036
 	public static PromptGuideScript instance;
 
+	// Token: 0x04000BDD RID: 3037
 	public const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000BDE RID: 3038
 	private const float FLASHING_TIMER_RESET_VISIBLE = 0.75f;
 
+	// Token: 0x04000BDF RID: 3039
 	private const float FLASHING_TIMER_RESET_VISIBLE_LONG = 1f;
 
+	// Token: 0x04000BE0 RID: 3040
 	private Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000BE1 RID: 3041
 	private Controls.PlayerExt player;
 
+	// Token: 0x04000BE2 RID: 3042
 	private RectTransform myRect;
 
+	// Token: 0x04000BE3 RID: 3043
 	public GameObject holder;
 
+	// Token: 0x04000BE4 RID: 3044
 	public RectTransform holderRect;
 
+	// Token: 0x04000BE5 RID: 3045
 	public TextMeshProUGUI text;
 
+	// Token: 0x04000BE6 RID: 3046
 	public RawImage textBackImage;
 
+	// Token: 0x04000BE7 RID: 3047
 	private PromptGuideScript.GuideType currentType = PromptGuideScript.GuideType.Undefined;
 
+	// Token: 0x04000BE8 RID: 3048
 	private global::UnityEngine.Vector2 imageStartingPos;
 
+	// Token: 0x04000BE9 RID: 3049
 	private Dictionary<PromptGuideScript.GuideType, float> flashingTimers = new Dictionary<PromptGuideScript.GuideType, float>();
 
+	// Token: 0x04000BEA RID: 3050
 	private bool _textFlashPreventsDeposit;
 
+	// Token: 0x04000BEB RID: 3051
 	private BigInteger nextDepositOld = -1;
 
+	// Token: 0x04000BEC RID: 3052
 	private Controls.InputKind lastInputKind;
 
+	// Token: 0x04000BED RID: 3053
 	public PromptGuideScript.ShouldEnableCallback shouldEnableCallback;
 
+	// Token: 0x020000E1 RID: 225
 	public enum GuideType
 	{
+		// Token: 0x04000BEF RID: 3055
 		slot_Play,
+		// Token: 0x04000BF0 RID: 3056
 		slot_Spin,
+		// Token: 0x04000BF1 RID: 3057
 		slot_AutoSpin,
+		// Token: 0x04000BF2 RID: 3058
 		slot_Exit,
+		// Token: 0x04000BF3 RID: 3059
 		atm_insertCoin,
+		// Token: 0x04000BF4 RID: 3060
 		atm_GetRevenue,
+		// Token: 0x04000BF5 RID: 3061
 		door_Lock,
+		// Token: 0x04000BF6 RID: 3062
 		store_box0,
+		// Token: 0x04000BF7 RID: 3063
 		store_box1,
+		// Token: 0x04000BF8 RID: 3064
 		store_box2,
+		// Token: 0x04000BF9 RID: 3065
 		store_refresh,
+		// Token: 0x04000BFA RID: 3066
 		drawer0,
+		// Token: 0x04000BFB RID: 3067
 		drawer1,
+		// Token: 0x04000BFC RID: 3068
 		drawer2,
+		// Token: 0x04000BFD RID: 3069
 		drawer3,
+		// Token: 0x04000BFE RID: 3070
 		powerup,
+		// Token: 0x04000BFF RID: 3071
 		powerupTriggerHold,
+		// Token: 0x04000C00 RID: 3072
 		store_speedyBox0,
+		// Token: 0x04000C01 RID: 3073
 		store_speedyBox1,
+		// Token: 0x04000C02 RID: 3074
 		store_speedyBox2,
+		// Token: 0x04000C03 RID: 3075
 		menuDrawer_Menu,
+		// Token: 0x04000C04 RID: 3076
 		menuDrawer_PowerupInfos,
+		// Token: 0x04000C05 RID: 3077
 		rewardBox,
+		// Token: 0x04000C06 RID: 3078
 		terminal,
+		// Token: 0x04000C07 RID: 3079
 		pickupPhone,
+		// Token: 0x04000C08 RID: 3080
 		slot_RedButton,
+		// Token: 0x04000C09 RID: 3081
 		toyPhone,
+		// Token: 0x04000C0A RID: 3082
 		magazineRead,
+		// Token: 0x04000C0B RID: 3083
 		wcInspect,
+		// Token: 0x04000C0C RID: 3084
 		deckBoxAltar,
+		// Token: 0x04000C0D RID: 3085
 		twitchVote,
+		// Token: 0x04000C0E RID: 3086
 		Count,
+		// Token: 0x04000C0F RID: 3087
 		Undefined
 	}
 
-	// (Invoke) Token: 0x0600124B RID: 4683
+	// Token: 0x020000E2 RID: 226
+	// (Invoke) Token: 0x06000B6A RID: 2922
 	public delegate bool ShouldEnableCallback();
 }

@@ -1,53 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.CompilerServices;
 using Panik;
 using Steamworks;
 using Steamworks.Data;
+using UnityEngine;
 
+// Token: 0x02000030 RID: 48
 public class PlatformAPI_Steam : PlatformAPI
 {
-	// Token: 0x0600035D RID: 861 RVA: 0x000155F0 File Offset: 0x000137F0
-	protected override UniTask<bool> _InitializationBeing()
+	// Token: 0x060003B3 RID: 947 RVA: 0x00028BC0 File Offset: 0x00026DC0
+	protected override async UniTask<bool> _InitializationBeing()
 	{
-		PlatformAPI_Steam.<_InitializationBeing>d__0 <_InitializationBeing>d__;
-		<_InitializationBeing>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<_InitializationBeing>d__.<>4__this = this;
-		<_InitializationBeing>d__.<>1__state = -1;
-		<_InitializationBeing>d__.<>t__builder.Start<PlatformAPI_Steam.<_InitializationBeing>d__0>(ref <_InitializationBeing>d__);
-		return <_InitializationBeing>d__.<>t__builder.Task;
+		bool flag;
+		if (SteamClient.RestartAppIfNecessary(this.GetAppId_UInt()))
+		{
+			Application.Quit();
+			Debug.LogError("Will try to open the application throguht steam! Restarting!");
+			flag = false;
+		}
+		else
+		{
+			try
+			{
+				SteamClient.Init(this.GetAppId_UInt(), true);
+			}
+			catch (Exception)
+			{
+				Debug.LogError("Steamworks failed to initialize client!");
+				return 0;
+			}
+			flag = true;
+		}
+		return flag;
 	}
 
-	// Token: 0x0600035E RID: 862 RVA: 0x00015634 File Offset: 0x00013834
-	protected override UniTask<bool> _InitializationFinalize()
+	// Token: 0x060003B4 RID: 948 RVA: 0x00028C04 File Offset: 0x00026E04
+	protected override async UniTask<bool> _InitializationFinalize()
 	{
-		PlatformAPI_Steam.<_InitializationFinalize>d__1 <_InitializationFinalize>d__;
-		<_InitializationFinalize>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<_InitializationFinalize>d__.<>1__state = -1;
-		<_InitializationFinalize>d__.<>t__builder.Start<PlatformAPI_Steam.<_InitializationFinalize>d__1>(ref <_InitializationFinalize>d__);
-		return <_InitializationFinalize>d__.<>t__builder.Task;
+		return 1;
 	}
 
-	// Token: 0x0600035F RID: 863 RVA: 0x0001566F File Offset: 0x0001386F
+	// Token: 0x060003B5 RID: 949 RVA: 0x00008B62 File Offset: 0x00006D62
 	public override bool IsUsable()
 	{
 		return PlatformAPI.IsInitialized() && SteamClient.IsValid;
 	}
 
-	// Token: 0x06000360 RID: 864 RVA: 0x0001567F File Offset: 0x0001387F
+	// Token: 0x060003B6 RID: 950 RVA: 0x00008B72 File Offset: 0x00006D72
 	public override bool SupportsOnlineFunctionalities()
 	{
 		return this.IsOnline();
 	}
 
-	// Token: 0x06000361 RID: 865 RVA: 0x00015687 File Offset: 0x00013887
+	// Token: 0x060003B7 RID: 951 RVA: 0x00008B7A File Offset: 0x00006D7A
 	public override bool IsOnline()
 	{
 		return PlatformAPI.IsInitialized() && this.IsUsable() && SteamClient.IsLoggedOn;
 	}
 
-	// Token: 0x06000362 RID: 866 RVA: 0x000156A0 File Offset: 0x000138A0
+	// Token: 0x060003B8 RID: 952 RVA: 0x00028C40 File Offset: 0x00026E40
 	private void EnsureSteamAchievements()
 	{
 		this.steamAchievementsDict.Clear();
@@ -59,125 +71,180 @@ public class PlatformAPI_Steam : PlatformAPI
 		this._firstTimeEnsuringSteamAchievements = false;
 	}
 
-	// Token: 0x06000363 RID: 867 RVA: 0x0001570C File Offset: 0x0001390C
+	// Token: 0x060003B9 RID: 953 RVA: 0x00008B92 File Offset: 0x00006D92
 	private bool SteamDictionaryCheck_Demo(PlatformAPI.AchievementDemo achievement)
 	{
 		return this.steamAchievementsDict.ContainsKey(PlatformAPI.AchievemntGetEnumString_Demo(achievement));
 	}
 
-	// Token: 0x06000364 RID: 868 RVA: 0x00015724 File Offset: 0x00013924
+	// Token: 0x060003BA RID: 954 RVA: 0x00008BAA File Offset: 0x00006DAA
 	private bool SteamDictionaryCheck_FullGame(PlatformAPI.AchievementFullGame achievement)
 	{
 		return this.steamAchievementsDict.ContainsKey(PlatformAPI.AchievemntGetEnumString_FullGame(achievement));
 	}
 
-	// Token: 0x06000365 RID: 869 RVA: 0x0001573C File Offset: 0x0001393C
+	// Token: 0x060003BB RID: 955 RVA: 0x00008BC2 File Offset: 0x00006DC2
 	public override bool SupportsOnlineAchievements()
 	{
 		return this.SupportsOnlineFunctionalities();
 	}
 
-	// Token: 0x06000366 RID: 870 RVA: 0x00015744 File Offset: 0x00013944
-	protected override UniTask<bool> AchievementIsUnlocked_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
+	// Token: 0x060003BC RID: 956 RVA: 0x00028CAC File Offset: 0x00026EAC
+	protected override async UniTask<bool> AchievementIsUnlocked_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
 	{
-		PlatformAPI_Steam.<AchievementIsUnlocked_Online_Demo>d__11 <AchievementIsUnlocked_Online_Demo>d__;
-		<AchievementIsUnlocked_Online_Demo>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementIsUnlocked_Online_Demo>d__.<>4__this = this;
-		<AchievementIsUnlocked_Online_Demo>d__.achievement = achievement;
-		<AchievementIsUnlocked_Online_Demo>d__.<>1__state = -1;
-		<AchievementIsUnlocked_Online_Demo>d__.<>t__builder.Start<PlatformAPI_Steam.<AchievementIsUnlocked_Online_Demo>d__11>(ref <AchievementIsUnlocked_Online_Demo>d__);
-		return <AchievementIsUnlocked_Online_Demo>d__.<>t__builder.Task;
+		bool flag;
+		if (!this.SteamDictionaryCheck_Demo(achievement))
+		{
+			flag = false;
+		}
+		else
+		{
+			flag = this.steamAchievementsDict[PlatformAPI.AchievemntGetEnumString_Demo(achievement)].State;
+		}
+		return flag;
 	}
 
-	// Token: 0x06000367 RID: 871 RVA: 0x00015790 File Offset: 0x00013990
-	protected override UniTask<bool> AchievementIsUnlocked_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
+	// Token: 0x060003BD RID: 957 RVA: 0x00028CF8 File Offset: 0x00026EF8
+	protected override async UniTask<bool> AchievementIsUnlocked_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
 	{
-		PlatformAPI_Steam.<AchievementIsUnlocked_Online_FullGame>d__12 <AchievementIsUnlocked_Online_FullGame>d__;
-		<AchievementIsUnlocked_Online_FullGame>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementIsUnlocked_Online_FullGame>d__.<>4__this = this;
-		<AchievementIsUnlocked_Online_FullGame>d__.achievement = achievement;
-		<AchievementIsUnlocked_Online_FullGame>d__.<>1__state = -1;
-		<AchievementIsUnlocked_Online_FullGame>d__.<>t__builder.Start<PlatformAPI_Steam.<AchievementIsUnlocked_Online_FullGame>d__12>(ref <AchievementIsUnlocked_Online_FullGame>d__);
-		return <AchievementIsUnlocked_Online_FullGame>d__.<>t__builder.Task;
+		bool flag;
+		if (!this.SteamDictionaryCheck_FullGame(achievement))
+		{
+			flag = false;
+		}
+		else
+		{
+			flag = this.steamAchievementsDict[PlatformAPI.AchievemntGetEnumString_FullGame(achievement)].State;
+		}
+		return flag;
 	}
 
-	// Token: 0x06000368 RID: 872 RVA: 0x000157DC File Offset: 0x000139DC
-	protected override UniTask<bool> AchievementUnlock_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
+	// Token: 0x060003BE RID: 958 RVA: 0x00028D44 File Offset: 0x00026F44
+	protected override async UniTask<bool> AchievementUnlock_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
 	{
-		PlatformAPI_Steam.<AchievementUnlock_Online_Demo>d__13 <AchievementUnlock_Online_Demo>d__;
-		<AchievementUnlock_Online_Demo>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementUnlock_Online_Demo>d__.<>4__this = this;
-		<AchievementUnlock_Online_Demo>d__.achievement = achievement;
-		<AchievementUnlock_Online_Demo>d__.<>1__state = -1;
-		<AchievementUnlock_Online_Demo>d__.<>t__builder.Start<PlatformAPI_Steam.<AchievementUnlock_Online_Demo>d__13>(ref <AchievementUnlock_Online_Demo>d__);
-		return <AchievementUnlock_Online_Demo>d__.<>t__builder.Task;
+		string text = PlatformAPI.AchievemntGetEnumString_Demo(achievement);
+		bool flag;
+		if (!this.SteamDictionaryCheck_Demo(achievement))
+		{
+			flag = false;
+		}
+		else
+		{
+			Achievement achievement2 = this.steamAchievementsDict[text];
+			if (achievement2.State)
+			{
+				flag = false;
+			}
+			else
+			{
+				try
+				{
+					achievement2.Trigger(true);
+				}
+				catch (Exception)
+				{
+					return 0;
+				}
+				flag = true;
+			}
+		}
+		return flag;
 	}
 
-	// Token: 0x06000369 RID: 873 RVA: 0x00015828 File Offset: 0x00013A28
-	protected override UniTask<bool> AchievementUnlock_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
+	// Token: 0x060003BF RID: 959 RVA: 0x00028D90 File Offset: 0x00026F90
+	protected override async UniTask<bool> AchievementUnlock_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
 	{
-		PlatformAPI_Steam.<AchievementUnlock_Online_FullGame>d__14 <AchievementUnlock_Online_FullGame>d__;
-		<AchievementUnlock_Online_FullGame>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementUnlock_Online_FullGame>d__.<>4__this = this;
-		<AchievementUnlock_Online_FullGame>d__.achievement = achievement;
-		<AchievementUnlock_Online_FullGame>d__.<>1__state = -1;
-		<AchievementUnlock_Online_FullGame>d__.<>t__builder.Start<PlatformAPI_Steam.<AchievementUnlock_Online_FullGame>d__14>(ref <AchievementUnlock_Online_FullGame>d__);
-		return <AchievementUnlock_Online_FullGame>d__.<>t__builder.Task;
+		string text = PlatformAPI.AchievemntGetEnumString_FullGame(achievement);
+		bool flag;
+		if (!this.SteamDictionaryCheck_FullGame(achievement))
+		{
+			flag = false;
+		}
+		else
+		{
+			Achievement achievement2 = this.steamAchievementsDict[text];
+			if (achievement2.State)
+			{
+				flag = false;
+			}
+			else
+			{
+				try
+				{
+					achievement2.Trigger(true);
+				}
+				catch (Exception)
+				{
+					return 0;
+				}
+				flag = true;
+			}
+		}
+		return flag;
 	}
 
-	// Token: 0x0600036A RID: 874 RVA: 0x00015874 File Offset: 0x00013A74
-	protected override UniTask<bool> AchievementsClearAll_Online(float maxTimeout)
+	// Token: 0x060003C0 RID: 960 RVA: 0x00028DDC File Offset: 0x00026FDC
+	protected override async UniTask<bool> AchievementsClearAll_Online(float maxTimeout)
 	{
-		PlatformAPI_Steam.<AchievementsClearAll_Online>d__15 <AchievementsClearAll_Online>d__;
-		<AchievementsClearAll_Online>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementsClearAll_Online>d__.<>4__this = this;
-		<AchievementsClearAll_Online>d__.<>1__state = -1;
-		<AchievementsClearAll_Online>d__.<>t__builder.Start<PlatformAPI_Steam.<AchievementsClearAll_Online>d__15>(ref <AchievementsClearAll_Online>d__);
-		return <AchievementsClearAll_Online>d__.<>t__builder.Task;
+		this.EnsureSteamAchievements();
+		try
+		{
+			foreach (KeyValuePair<string, Achievement> keyValuePair in this.steamAchievementsDict)
+			{
+				keyValuePair.Value.Clear();
+			}
+		}
+		catch (Exception)
+		{
+			return 0;
+		}
+		return 1;
 	}
 
-	// Token: 0x0600036B RID: 875 RVA: 0x000158B7 File Offset: 0x00013AB7
+	// Token: 0x060003C1 RID: 961 RVA: 0x00008BCA File Offset: 0x00006DCA
 	protected override void Achievements_Prewarm_Demo()
 	{
 		this.EnsureSteamAchievements();
 	}
 
-	// Token: 0x0600036C RID: 876 RVA: 0x000158BF File Offset: 0x00013ABF
+	// Token: 0x060003C2 RID: 962 RVA: 0x00008BCA File Offset: 0x00006DCA
 	protected override void Achievements_Prewarm_FullGame()
 	{
 		this.EnsureSteamAchievements();
 	}
 
-	// Token: 0x0600036D RID: 877 RVA: 0x000158C8 File Offset: 0x00013AC8
+	// Token: 0x060003C3 RID: 963 RVA: 0x00028E20 File Offset: 0x00027020
 	public override string GetUserID_String()
 	{
 		return SteamClient.SteamId.ToString();
 	}
 
-	// Token: 0x0600036E RID: 878 RVA: 0x000158E8 File Offset: 0x00013AE8
+	// Token: 0x060003C4 RID: 964 RVA: 0x00008BD2 File Offset: 0x00006DD2
 	public uint GetAppId_UInt()
 	{
 		return 3314790U;
 	}
 
-	// Token: 0x0600036F RID: 879 RVA: 0x000158EF File Offset: 0x00013AEF
+	// Token: 0x060003C5 RID: 965 RVA: 0x00008BD9 File Offset: 0x00006DD9
 	public static bool IsSteamDeck()
 	{
 		return SteamUtils.IsRunningOnSteamDeck;
 	}
 
-	// Token: 0x06000370 RID: 880 RVA: 0x000158F6 File Offset: 0x00013AF6
+	// Token: 0x060003C6 RID: 966 RVA: 0x0000774E File Offset: 0x0000594E
 	public override void _Update()
 	{
 	}
 
-	// Token: 0x06000371 RID: 881 RVA: 0x000158F8 File Offset: 0x00013AF8
+	// Token: 0x060003C7 RID: 967 RVA: 0x00008BE0 File Offset: 0x00006DE0
 	public override void _OnClose()
 	{
 		SteamClient.Shutdown();
 	}
 
+	// Token: 0x040002FA RID: 762
 	private Dictionary<string, Achievement> steamAchievementsDict = new Dictionary<string, Achievement>();
 
+	// Token: 0x040002FB RID: 763
 	private bool _firstTimeEnsuringSteamAchievements = true;
 }

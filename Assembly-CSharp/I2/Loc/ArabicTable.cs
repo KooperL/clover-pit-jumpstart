@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace I2.Loc
 {
+	// Token: 0x020001ED RID: 493
 	internal class ArabicTable
 	{
-		// Token: 0x0600103B RID: 4155 RVA: 0x00064DDC File Offset: 0x00062FDC
+		// Token: 0x0600142F RID: 5167 RVA: 0x000828D8 File Offset: 0x00080AD8
 		private ArabicTable()
 		{
 			ArabicTable.mapList = new List<ArabicMapping>();
@@ -52,7 +53,8 @@ namespace I2.Loc
 			ArabicTable.mapList.Add(new ArabicMapping(1705, 64398));
 		}
 
-		// (get) Token: 0x0600103C RID: 4156 RVA: 0x000651FA File Offset: 0x000633FA
+		// Token: 0x1700015F RID: 351
+		// (get) Token: 0x06001430 RID: 5168 RVA: 0x000158C1 File Offset: 0x00013AC1
 		internal static ArabicTable ArabicMapper
 		{
 			get
@@ -65,7 +67,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x0600103D RID: 4157 RVA: 0x00065214 File Offset: 0x00063414
+		// Token: 0x06001431 RID: 5169 RVA: 0x00082CF8 File Offset: 0x00080EF8
 		internal int Convert(int toBeConverted)
 		{
 			foreach (ArabicMapping arabicMapping in ArabicTable.mapList)
@@ -78,8 +80,10 @@ namespace I2.Loc
 			return toBeConverted;
 		}
 
+		// Token: 0x0400142B RID: 5163
 		private static List<ArabicMapping> mapList;
 
+		// Token: 0x0400142C RID: 5164
 		private static ArabicTable arabicMapper;
 	}
 }

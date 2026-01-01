@@ -2,23 +2,24 @@
 
 namespace I2.Loc.SimpleJSON
 {
+	// Token: 0x020001FF RID: 511
 	internal class JSONLazyCreator : JSONNode
 	{
-		// Token: 0x060010AD RID: 4269 RVA: 0x00067513 File Offset: 0x00065713
+		// Token: 0x060014D5 RID: 5333 RVA: 0x00015DE2 File Offset: 0x00013FE2
 		public JSONLazyCreator(JSONNode aNode)
 		{
 			this.m_Node = aNode;
 			this.m_Key = null;
 		}
 
-		// Token: 0x060010AE RID: 4270 RVA: 0x00067529 File Offset: 0x00065729
+		// Token: 0x060014D6 RID: 5334 RVA: 0x00015DF8 File Offset: 0x00013FF8
 		public JSONLazyCreator(JSONNode aNode, string aKey)
 		{
 			this.m_Node = aNode;
 			this.m_Key = aKey;
 		}
 
-		// Token: 0x060010AF RID: 4271 RVA: 0x0006753F File Offset: 0x0006573F
+		// Token: 0x060014D7 RID: 5335 RVA: 0x00015E0E File Offset: 0x0001400E
 		private void Set(JSONNode aVal)
 		{
 			if (this.m_Key == null)
@@ -32,6 +33,7 @@ namespace I2.Loc.SimpleJSON
 			this.m_Node = null;
 		}
 
+		// Token: 0x17000181 RID: 385
 		public override JSONNode this[int aIndex]
 		{
 			get
@@ -44,6 +46,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
+		// Token: 0x17000182 RID: 386
 		public override JSONNode this[string aKey]
 		{
 			get
@@ -56,56 +59,57 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x060010B4 RID: 4276 RVA: 0x000675C8 File Offset: 0x000657C8
+		// Token: 0x060014DC RID: 5340 RVA: 0x00085218 File Offset: 0x00083418
 		public override void Add(JSONNode aItem)
 		{
 			this.Set(new JSONArray { aItem });
 		}
 
-		// Token: 0x060010B5 RID: 4277 RVA: 0x000675EC File Offset: 0x000657EC
+		// Token: 0x060014DD RID: 5341 RVA: 0x000851F4 File Offset: 0x000833F4
 		public override void Add(string aKey, JSONNode aItem)
 		{
 			this.Set(new JSONClass { { aKey, aItem } });
 		}
 
-		// Token: 0x060010B6 RID: 4278 RVA: 0x0006760E File Offset: 0x0006580E
+		// Token: 0x060014DE RID: 5342 RVA: 0x00015E48 File Offset: 0x00014048
 		public static bool operator ==(JSONLazyCreator a, object b)
 		{
 			return b == null || a == b;
 		}
 
-		// Token: 0x060010B7 RID: 4279 RVA: 0x00067619 File Offset: 0x00065819
+		// Token: 0x060014DF RID: 5343 RVA: 0x00015E53 File Offset: 0x00014053
 		public static bool operator !=(JSONLazyCreator a, object b)
 		{
 			return !(a == b);
 		}
 
-		// Token: 0x060010B8 RID: 4280 RVA: 0x00067625 File Offset: 0x00065825
+		// Token: 0x060014E0 RID: 5344 RVA: 0x00015E48 File Offset: 0x00014048
 		public override bool Equals(object obj)
 		{
 			return obj == null || this == obj;
 		}
 
-		// Token: 0x060010B9 RID: 4281 RVA: 0x00067630 File Offset: 0x00065830
+		// Token: 0x060014E1 RID: 5345 RVA: 0x00015E5F File Offset: 0x0001405F
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
 		}
 
-		// Token: 0x060010BA RID: 4282 RVA: 0x00067638 File Offset: 0x00065838
+		// Token: 0x060014E2 RID: 5346 RVA: 0x0001593F File Offset: 0x00013B3F
 		public override string ToString()
 		{
 			return "";
 		}
 
-		// Token: 0x060010BB RID: 4283 RVA: 0x0006763F File Offset: 0x0006583F
+		// Token: 0x060014E3 RID: 5347 RVA: 0x0001593F File Offset: 0x00013B3F
 		public override string ToString(string aPrefix)
 		{
 			return "";
 		}
 
-		// (get) Token: 0x060010BC RID: 4284 RVA: 0x00067648 File Offset: 0x00065848
-		// (set) Token: 0x060010BD RID: 4285 RVA: 0x00067664 File Offset: 0x00065864
+		// Token: 0x17000183 RID: 387
+		// (get) Token: 0x060014E4 RID: 5348 RVA: 0x0008523C File Offset: 0x0008343C
+		// (set) Token: 0x060014E5 RID: 5349 RVA: 0x00085258 File Offset: 0x00083458
 		public override int AsInt
 		{
 			get
@@ -121,8 +125,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x060010BE RID: 4286 RVA: 0x00067680 File Offset: 0x00065880
-		// (set) Token: 0x060010BF RID: 4287 RVA: 0x000676A4 File Offset: 0x000658A4
+		// Token: 0x17000184 RID: 388
+		// (get) Token: 0x060014E6 RID: 5350 RVA: 0x00085274 File Offset: 0x00083474
+		// (set) Token: 0x060014E7 RID: 5351 RVA: 0x00085298 File Offset: 0x00083498
 		public override float AsFloat
 		{
 			get
@@ -138,8 +143,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x060010C0 RID: 4288 RVA: 0x000676C0 File Offset: 0x000658C0
-		// (set) Token: 0x060010C1 RID: 4289 RVA: 0x000676EC File Offset: 0x000658EC
+		// Token: 0x17000185 RID: 389
+		// (get) Token: 0x060014E8 RID: 5352 RVA: 0x000852B4 File Offset: 0x000834B4
+		// (set) Token: 0x060014E9 RID: 5353 RVA: 0x000852E0 File Offset: 0x000834E0
 		public override double AsDouble
 		{
 			get
@@ -155,8 +161,9 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x060010C2 RID: 4290 RVA: 0x00067708 File Offset: 0x00065908
-		// (set) Token: 0x060010C3 RID: 4291 RVA: 0x00067724 File Offset: 0x00065924
+		// Token: 0x17000186 RID: 390
+		// (get) Token: 0x060014EA RID: 5354 RVA: 0x000852FC File Offset: 0x000834FC
+		// (set) Token: 0x060014EB RID: 5355 RVA: 0x00085318 File Offset: 0x00083518
 		public override bool AsBool
 		{
 			get
@@ -172,7 +179,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x060010C4 RID: 4292 RVA: 0x00067740 File Offset: 0x00065940
+		// Token: 0x17000187 RID: 391
+		// (get) Token: 0x060014EC RID: 5356 RVA: 0x00085334 File Offset: 0x00083534
 		public override JSONArray AsArray
 		{
 			get
@@ -183,7 +191,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x060010C5 RID: 4293 RVA: 0x0006775C File Offset: 0x0006595C
+		// Token: 0x17000188 RID: 392
+		// (get) Token: 0x060014ED RID: 5357 RVA: 0x00085350 File Offset: 0x00083550
 		public override JSONClass AsObject
 		{
 			get
@@ -194,8 +203,10 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
+		// Token: 0x0400145A RID: 5210
 		private JSONNode m_Node;
 
+		// Token: 0x0400145B RID: 5211
 		private string m_Key;
 	}
 }

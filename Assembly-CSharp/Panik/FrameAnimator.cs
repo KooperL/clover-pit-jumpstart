@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 namespace Panik
 {
+	// Token: 0x0200010D RID: 269
 	public class FrameAnimator : MonoBehaviour
 	{
-		// (get) Token: 0x06000ACD RID: 2765 RVA: 0x000492DE File Offset: 0x000474DE
-		// (set) Token: 0x06000ACE RID: 2766 RVA: 0x000492E6 File Offset: 0x000474E6
+		// Token: 0x17000094 RID: 148
+		// (get) Token: 0x06000CA7 RID: 3239 RVA: 0x000105AE File Offset: 0x0000E7AE
+		// (set) Token: 0x06000CA8 RID: 3240 RVA: 0x000105B6 File Offset: 0x0000E7B6
 		public int FrameIndex
 		{
 			get
@@ -21,8 +23,9 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000ACF RID: 2767 RVA: 0x000492F5 File Offset: 0x000474F5
-		// (set) Token: 0x06000AD0 RID: 2768 RVA: 0x000492FD File Offset: 0x000474FD
+		// Token: 0x17000095 RID: 149
+		// (get) Token: 0x06000CA9 RID: 3241 RVA: 0x000105C5 File Offset: 0x0000E7C5
+		// (set) Token: 0x06000CAA RID: 3242 RVA: 0x000105CD File Offset: 0x0000E7CD
 		public FrameAnimation Animation
 		{
 			get
@@ -42,8 +45,9 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000AD1 RID: 2769 RVA: 0x0004931D File Offset: 0x0004751D
-		// (set) Token: 0x06000AD2 RID: 2770 RVA: 0x0004932C File Offset: 0x0004752C
+		// Token: 0x17000096 RID: 150
+		// (get) Token: 0x06000CAB RID: 3243 RVA: 0x000105ED File Offset: 0x0000E7ED
+		// (set) Token: 0x06000CAC RID: 3244 RVA: 0x000634B4 File Offset: 0x000616B4
 		public string AnimationName
 		{
 			get
@@ -64,8 +68,9 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000AD3 RID: 2771 RVA: 0x00049388 File Offset: 0x00047588
-		// (set) Token: 0x06000AD4 RID: 2772 RVA: 0x000493C0 File Offset: 0x000475C0
+		// Token: 0x17000097 RID: 151
+		// (get) Token: 0x06000CAD RID: 3245 RVA: 0x00063510 File Offset: 0x00061710
+		// (set) Token: 0x06000CAE RID: 3246 RVA: 0x000105FA File Offset: 0x0000E7FA
 		public int AnimationIndex
 		{
 			get
@@ -85,13 +90,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD5 RID: 2773 RVA: 0x000493D0 File Offset: 0x000475D0
+		// Token: 0x06000CAF RID: 3247 RVA: 0x0001060A File Offset: 0x0000E80A
 		public Sprite GetCurrentSprite()
 		{
 			return this.frameAnimationCurrent.frames[this._frameIndex];
 		}
 
-		// Token: 0x06000AD6 RID: 2774 RVA: 0x000493E4 File Offset: 0x000475E4
+		// Token: 0x06000CB0 RID: 3248 RVA: 0x00063548 File Offset: 0x00061748
 		private void UpdateRenderer()
 		{
 			if (this._frameIndex < 0)
@@ -157,7 +162,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD7 RID: 2775 RVA: 0x0004952C File Offset: 0x0004772C
+		// Token: 0x06000CB1 RID: 3249 RVA: 0x00063690 File Offset: 0x00061890
 		private void Awake()
 		{
 			this.mySpriteRenderer = base.GetComponent<SpriteRenderer>();
@@ -187,7 +192,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD8 RID: 2776 RVA: 0x000495E0 File Offset: 0x000477E0
+		// Token: 0x06000CB2 RID: 3250 RVA: 0x00063744 File Offset: 0x00061944
 		private void Update()
 		{
 			if (this.autoPause && !Tick.IsGameRunning)
@@ -213,7 +218,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AD9 RID: 2777 RVA: 0x0004968B File Offset: 0x0004788B
+		// Token: 0x06000CB3 RID: 3251 RVA: 0x0001061E File Offset: 0x0000E81E
 		private void OnDrawGizmosSelected()
 		{
 			if (this.defaultAnimation == null && this.animations.Length != 0)
@@ -222,42 +227,60 @@ namespace Panik
 			}
 		}
 
+		// Token: 0x04000D78 RID: 3448
 		private SpriteRenderer mySpriteRenderer;
 
+		// Token: 0x04000D79 RID: 3449
 		private Image myImageRenderer;
 
+		// Token: 0x04000D7A RID: 3450
 		private Renderer myGenericRenderer;
 
+		// Token: 0x04000D7B RID: 3451
 		private const bool IGNORE_GENERIC_RENDERER = true;
 
+		// Token: 0x04000D7C RID: 3452
 		public bool autoPause = true;
 
+		// Token: 0x04000D7D RID: 3453
 		private FrameAnimation frameAnimationCurrent;
 
+		// Token: 0x04000D7E RID: 3454
 		private int _frameIndex;
 
+		// Token: 0x04000D7F RID: 3455
 		public float frameSpeed = 12f;
 
+		// Token: 0x04000D80 RID: 3456
 		[NonSerialized]
 		public float frameSpeedMult = 1f;
 
+		// Token: 0x04000D81 RID: 3457
 		private float _actualframeSpd;
 
+		// Token: 0x04000D82 RID: 3458
 		private float _frameTimer = 1f;
 
+		// Token: 0x04000D83 RID: 3459
 		public FrameAnimation defaultAnimation;
 
+		// Token: 0x04000D84 RID: 3460
 		public FrameAnimation[] animations;
 
+		// Token: 0x04000D85 RID: 3461
 		public FrameAnimator.Ev onRendererUpdate;
 
+		// Token: 0x04000D86 RID: 3462
 		public FrameAnimator.Ev onAnimationEnd;
 
+		// Token: 0x04000D87 RID: 3463
 		public FrameAnimator.Ev onAnimationChange;
 
+		// Token: 0x04000D88 RID: 3464
 		public FrameAnimator.Ev onAnimationFrameChange;
 
-		// (Invoke) Token: 0x060012A2 RID: 4770
+		// Token: 0x0200010E RID: 270
+		// (Invoke) Token: 0x06000CB6 RID: 3254
 		public delegate void Ev(FrameAnimator self);
 	}
 }

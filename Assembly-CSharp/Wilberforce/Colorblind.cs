@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace Wilberforce
 {
+	// Token: 0x02000201 RID: 513
 	[ExecuteInEditMode]
 	[RequireComponent(typeof(Camera))]
 	[HelpURL("https://projectwilberforce.github.io/colorblind/")]
 	[AddComponentMenu("Image Effects/Color Adjustments/Colorblind")]
 	public class Colorblind : MonoBehaviour
 	{
-		// Token: 0x060010C7 RID: 4295 RVA: 0x0006777F File Offset: 0x0006597F
+		// Token: 0x060014EF RID: 5359 RVA: 0x00015E6F File Offset: 0x0001406F
 		private void ReportError(string error)
 		{
 			if (Debug.isDebugBuild)
@@ -18,7 +19,7 @@ namespace Wilberforce
 			}
 		}
 
-		// Token: 0x060010C8 RID: 4296 RVA: 0x00067798 File Offset: 0x00065998
+		// Token: 0x060014F0 RID: 5360 RVA: 0x0008536C File Offset: 0x0008356C
 		private void Start()
 		{
 			if (this.colorblindShader == null)
@@ -57,7 +58,7 @@ namespace Wilberforce
 			this.isSupported = true;
 		}
 
-		// Token: 0x060010C9 RID: 4297 RVA: 0x00067872 File Offset: 0x00065A72
+		// Token: 0x060014F1 RID: 5361 RVA: 0x00015E88 File Offset: 0x00014088
 		private static Material CreateMaterial(Shader shader)
 		{
 			if (!shader)
@@ -70,7 +71,7 @@ namespace Wilberforce
 			};
 		}
 
-		// Token: 0x060010CA RID: 4298 RVA: 0x0006788C File Offset: 0x00065A8C
+		// Token: 0x060014F2 RID: 5362 RVA: 0x00015EA2 File Offset: 0x000140A2
 		private static void DestroyMaterial(Material mat)
 		{
 			if (mat)
@@ -80,7 +81,7 @@ namespace Wilberforce
 			}
 		}
 
-		// Token: 0x060010CB RID: 4299 RVA: 0x000678A0 File Offset: 0x00065AA0
+		// Token: 0x060014F3 RID: 5363 RVA: 0x00085448 File Offset: 0x00083648
 		private void EnsureMaterials()
 		{
 			if (!this.ColorblindMaterial && this.colorblindShader.isSupported)
@@ -93,7 +94,7 @@ namespace Wilberforce
 			}
 		}
 
-		// Token: 0x060010CC RID: 4300 RVA: 0x000678F0 File Offset: 0x00065AF0
+		// Token: 0x060014F4 RID: 5364 RVA: 0x00085498 File Offset: 0x00083698
 		private void OnRenderImage(RenderTexture source, RenderTexture destination)
 		{
 			if (!this.isSupported || !this.colorblindShader.isSupported)
@@ -106,12 +107,16 @@ namespace Wilberforce
 			Graphics.Blit(source, destination, this.ColorblindMaterial, 0);
 		}
 
+		// Token: 0x0400145C RID: 5212
 		public int Type;
 
+		// Token: 0x0400145D RID: 5213
 		public Shader colorblindShader;
 
+		// Token: 0x0400145E RID: 5214
 		private bool isSupported;
 
+		// Token: 0x0400145F RID: 5215
 		private Material ColorblindMaterial;
 	}
 }

@@ -3,15 +3,16 @@ using Panik;
 using TMPro;
 using UnityEngine;
 
+// Token: 0x020000EC RID: 236
 public class SeedMenuScript : MonoBehaviour
 {
-	// Token: 0x06000A1E RID: 2590 RVA: 0x0004520C File Offset: 0x0004340C
+	// Token: 0x06000BCA RID: 3018 RVA: 0x0000FB29 File Offset: 0x0000DD29
 	public static bool IsEnabled()
 	{
 		return !(SeedMenuScript.instance == null) && SeedMenuScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A1F RID: 2591 RVA: 0x0004522C File Offset: 0x0004342C
+	// Token: 0x06000BCB RID: 3019 RVA: 0x0005E988 File Offset: 0x0005CB88
 	public static void Open()
 	{
 		SeedMenuScript.instance.holder.SetActive(true);
@@ -23,7 +24,7 @@ public class SeedMenuScript : MonoBehaviour
 		SeedMenuScript.instance.currentSeedMenuButton = SeedMenuScript.instance.initialButton;
 	}
 
-	// Token: 0x06000A20 RID: 2592 RVA: 0x0004529C File Offset: 0x0004349C
+	// Token: 0x06000BCC RID: 3020 RVA: 0x0005E9F8 File Offset: 0x0005CBF8
 	private static void Close()
 	{
 		SeedMenuScript.instance.holder.SetActive(false);
@@ -34,32 +35,32 @@ public class SeedMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A21 RID: 2593 RVA: 0x000452ED File Offset: 0x000434ED
+	// Token: 0x06000BCD RID: 3021 RVA: 0x0000FB49 File Offset: 0x0000DD49
 	private void TextUpdate()
 	{
 		this.titleText.text = Translation.Get("MENU_SEED_INPUT_TITLE");
 		this.descriptionText.text = Translation.Get("MENU_SEED_INPUT_DESCRIPTION");
 	}
 
-	// Token: 0x06000A22 RID: 2594 RVA: 0x00045319 File Offset: 0x00043519
+	// Token: 0x06000BCE RID: 3022 RVA: 0x0000FB75 File Offset: 0x0000DD75
 	private void Awake()
 	{
 		SeedMenuScript.instance = this;
 	}
 
-	// Token: 0x06000A23 RID: 2595 RVA: 0x00045321 File Offset: 0x00043521
+	// Token: 0x06000BCF RID: 3023 RVA: 0x0000FB7D File Offset: 0x0000DD7D
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A24 RID: 2596 RVA: 0x0004532F File Offset: 0x0004352F
+	// Token: 0x06000BD0 RID: 3024 RVA: 0x0000FB8B File Offset: 0x0000DD8B
 	private void OnEnable()
 	{
 		this.TextUpdate();
 	}
 
-	// Token: 0x06000A25 RID: 2597 RVA: 0x00045337 File Offset: 0x00043537
+	// Token: 0x06000BD1 RID: 3025 RVA: 0x0000FB93 File Offset: 0x0000DD93
 	private void OnDestroy()
 	{
 		if (SeedMenuScript.instance == this)
@@ -68,7 +69,7 @@ public class SeedMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A26 RID: 2598 RVA: 0x0004534C File Offset: 0x0004354C
+	// Token: 0x06000BD2 RID: 3026 RVA: 0x0005EA4C File Offset: 0x0005CC4C
 	private void Update()
 	{
 		if (!SeedMenuScript.IsEnabled())
@@ -331,7 +332,7 @@ public class SeedMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A27 RID: 2599 RVA: 0x00045B3A File Offset: 0x00043D3A
+	// Token: 0x06000BD3 RID: 3027 RVA: 0x0000FBA8 File Offset: 0x0000DDA8
 	private bool Back()
 	{
 		Sound.Play_Unpausable("SoundMenuBack", 1f, 1f);
@@ -339,7 +340,7 @@ public class SeedMenuScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000A28 RID: 2600 RVA: 0x00045B58 File Offset: 0x00043D58
+	// Token: 0x06000BD4 RID: 3028 RVA: 0x0005F23C File Offset: 0x0005D43C
 	private void ConfirmSeed()
 	{
 		Sound.Play_Unpausable("SoundMenuSelect", 1f, 1f);
@@ -352,29 +353,42 @@ public class SeedMenuScript : MonoBehaviour
 		SeedMenuScript.Close();
 	}
 
+	// Token: 0x04000C79 RID: 3193
 	public static SeedMenuScript instance;
 
+	// Token: 0x04000C7A RID: 3194
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000C7B RID: 3195
 	public GameObject holder;
 
+	// Token: 0x04000C7C RID: 3196
 	public TextMeshProUGUI titleText;
 
+	// Token: 0x04000C7D RID: 3197
 	public TextMeshProUGUI descriptionText;
 
+	// Token: 0x04000C7E RID: 3198
 	public SeedMenuButton[] buttons;
 
+	// Token: 0x04000C7F RID: 3199
 	public SeedMenuButton[] cypherButtonsInDecimalOrder;
 
+	// Token: 0x04000C80 RID: 3200
 	public SeedMenuButton initialButton;
 
+	// Token: 0x04000C81 RID: 3201
 	public SeedMenuButton okButton;
 
+	// Token: 0x04000C82 RID: 3202
 	public SeedMenuButton backButton;
 
+	// Token: 0x04000C83 RID: 3203
 	private Vector2 axisRawPrevious = Vector2.zero;
 
+	// Token: 0x04000C84 RID: 3204
 	private SeedMenuButton currentSeedMenuButton;
 
+	// Token: 0x04000C85 RID: 3205
 	private uint seedInputNum;
 }

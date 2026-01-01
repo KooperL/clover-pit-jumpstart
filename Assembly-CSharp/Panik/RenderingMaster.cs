@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 namespace Panik
 {
+	// Token: 0x0200016F RID: 367
 	public class RenderingMaster : MonoBehaviour
 	{
-		// Token: 0x06000D5C RID: 3420 RVA: 0x00054BA3 File Offset: 0x00052DA3
+		// Token: 0x060010E5 RID: 4325 RVA: 0x00013CF2 File Offset: 0x00011EF2
 		private void ReferencesRefresh()
 		{
 			if (this.myCanvas == null)
@@ -19,7 +20,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D5D RID: 3421 RVA: 0x00054BDC File Offset: 0x00052DDC
+		// Token: 0x060010E6 RID: 4326 RVA: 0x000729A4 File Offset: 0x00070BA4
 		public static Vector2 GetRawImageSize()
 		{
 			if (RenderingMaster.instance == null)
@@ -29,7 +30,7 @@ namespace Panik
 			return new Vector2(RenderingMaster.instance.renderingRawImage.rectTransform.sizeDelta.x, RenderingMaster.instance.renderingRawImage.rectTransform.sizeDelta.y);
 		}
 
-		// Token: 0x06000D5E RID: 3422 RVA: 0x00054C40 File Offset: 0x00052E40
+		// Token: 0x060010E7 RID: 4327 RVA: 0x00072A08 File Offset: 0x00070C08
 		public static bool CanSplitScreen(ref string warningString)
 		{
 			bool flag = true;
@@ -60,7 +61,7 @@ namespace Panik
 			return flag;
 		}
 
-		// Token: 0x06000D5F RID: 3423 RVA: 0x00054CAC File Offset: 0x00052EAC
+		// Token: 0x060010E8 RID: 4328 RVA: 0x00072A74 File Offset: 0x00070C74
 		public static void SplitScreenUpdate()
 		{
 			string text = "";
@@ -88,13 +89,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D60 RID: 3424 RVA: 0x00054D88 File Offset: 0x00052F88
+		// Token: 0x060010E9 RID: 4329 RVA: 0x00013D28 File Offset: 0x00011F28
 		public static void RenderingRefresh(bool applyScreenRes)
 		{
 			RenderingMaster.instance._RenderingRefresh(applyScreenRes);
 		}
 
-		// Token: 0x06000D61 RID: 3425 RVA: 0x00054D98 File Offset: 0x00052F98
+		// Token: 0x060010EA RID: 4330 RVA: 0x00072B50 File Offset: 0x00070D50
 		private void _RenderingRefresh(bool applyScreenRes)
 		{
 			if (!Master.instance.RENDER_TO_TEXTURE)
@@ -238,7 +239,7 @@ namespace Panik
 			RenderingMaster.firstBootUpdated = true;
 		}
 
-		// Token: 0x06000D62 RID: 3426 RVA: 0x000552C0 File Offset: 0x000534C0
+		// Token: 0x060010EB RID: 4331 RVA: 0x00013D35 File Offset: 0x00011F35
 		private void Awake()
 		{
 			if (RenderingMaster.instance != null)
@@ -251,7 +252,7 @@ namespace Panik
 			RenderingMaster.renderTextureCurrent = this.renderTextureInitial;
 		}
 
-		// Token: 0x06000D63 RID: 3427 RVA: 0x000552F2 File Offset: 0x000534F2
+		// Token: 0x060010EC RID: 4332 RVA: 0x00013D67 File Offset: 0x00011F67
 		private void Start()
 		{
 			if (Master.instance.RENDER_TO_TEXTURE)
@@ -267,7 +268,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D64 RID: 3428 RVA: 0x0005532F File Offset: 0x0005352F
+		// Token: 0x060010ED RID: 4333 RVA: 0x00013DA4 File Offset: 0x00011FA4
 		private void OnDestroy()
 		{
 			if (RenderingMaster.instance == this)
@@ -276,7 +277,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D65 RID: 3429 RVA: 0x00055344 File Offset: 0x00053544
+		// Token: 0x060010EE RID: 4334 RVA: 0x00073078 File Offset: 0x00071278
 		private void Update()
 		{
 			if (Master.instance.RENDER_TO_TEXTURE)
@@ -302,55 +303,74 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000D66 RID: 3430 RVA: 0x00055418 File Offset: 0x00053618
+		// Token: 0x060010EF RID: 4335 RVA: 0x00013DB9 File Offset: 0x00011FB9
 		public void _OnRenderImage(RenderTexture src, RenderTexture dest)
 		{
 			Graphics.Blit(src, dest, this.crtMaterial);
 		}
 
-		// Token: 0x06000D67 RID: 3431 RVA: 0x00055427 File Offset: 0x00053627
+		// Token: 0x060010F0 RID: 4336 RVA: 0x00013DC8 File Offset: 0x00011FC8
 		private void OnDrawGizmosSelected()
 		{
 			this.ReferencesRefresh();
 			this.myCanvasScaler.referencePixelsPerUnit = 32f;
 		}
 
+		// Token: 0x040011CB RID: 4555
 		public static RenderingMaster instance;
 
+		// Token: 0x040011CC RID: 4556
 		public Canvas myCanvas;
 
+		// Token: 0x040011CD RID: 4557
 		public CanvasScaler myCanvasScaler;
 
+		// Token: 0x040011CE RID: 4558
 		public RenderTexture renderTextureInitial;
 
+		// Token: 0x040011CF RID: 4559
 		public static RenderTexture renderTextureCurrent;
 
+		// Token: 0x040011D0 RID: 4560
 		public Image renderingBackgroundImage;
 
+		// Token: 0x040011D1 RID: 4561
 		public RawImage renderingRawImage;
 
+		// Token: 0x040011D2 RID: 4562
 		public RectTransform tateModeTransform;
 
+		// Token: 0x040011D3 RID: 4563
 		public const FilterMode RENDER_TEXTURE_FILTER_MODE = FilterMode.Point;
 
+		// Token: 0x040011D4 RID: 4564
 		public const bool RENDER_TEXTURE_USE_MIP_MAPS = false;
 
+		// Token: 0x040011D5 RID: 4565
 		public const bool RENDER_TEXTURE_AUTO_MIP_MAPS = false;
 
+		// Token: 0x040011D6 RID: 4566
 		public const int RENDER_TEXTURE_ANISO_LEVEL = 0;
 
+		// Token: 0x040011D7 RID: 4567
 		public const TextureWrapMode RENDER_TEXTURE_WRAP_MODE = TextureWrapMode.Clamp;
 
+		// Token: 0x040011D8 RID: 4568
 		private Vector2Int displayOldSize = Vector2Int.zero;
 
+		// Token: 0x040011D9 RID: 4569
 		public Material crtMaterial;
 
+		// Token: 0x040011DA RID: 4570
 		private static bool _splitScreenWarningLogged;
 
+		// Token: 0x040011DB RID: 4571
 		private static bool firstBootUpdated;
 
+		// Token: 0x040011DC RID: 4572
 		private float? diffOld;
 
+		// Token: 0x040011DD RID: 4573
 		private float diffDelayTimer;
 	}
 }

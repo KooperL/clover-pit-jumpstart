@@ -6,9 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x020000F9 RID: 249
 public class ToyPhoneUIButtonScript : MonoBehaviour
 {
-	// Token: 0x06000A59 RID: 2649 RVA: 0x00047214 File Offset: 0x00045414
+	// Token: 0x06000C1D RID: 3101 RVA: 0x000612B0 File Offset: 0x0005F4B0
 	public void Highlight(bool useSoundAndVibration)
 	{
 		if (!this.highlighted && base.gameObject.activeInHierarchy && useSoundAndVibration)
@@ -22,25 +23,25 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A5A RID: 2650 RVA: 0x0004727D File Offset: 0x0004547D
+	// Token: 0x06000C1E RID: 3102 RVA: 0x0000FF08 File Offset: 0x0000E108
 	public void HighlightOff()
 	{
 		this.highlighted = false;
 	}
 
-	// Token: 0x06000A5B RID: 2651 RVA: 0x00047286 File Offset: 0x00045486
+	// Token: 0x06000C1F RID: 3103 RVA: 0x0000FF11 File Offset: 0x0000E111
 	public bool IsHighlighted()
 	{
 		return this.highlighted;
 	}
 
-	// Token: 0x06000A5C RID: 2652 RVA: 0x0004728E File Offset: 0x0004548E
+	// Token: 0x06000C20 RID: 3104 RVA: 0x0000FF19 File Offset: 0x0000E119
 	public bool IsHovered()
 	{
 		return this.mouseOver;
 	}
 
-	// Token: 0x06000A5D RID: 2653 RVA: 0x00047298 File Offset: 0x00045498
+	// Token: 0x06000C21 RID: 3105 RVA: 0x0006131C File Offset: 0x0005F51C
 	private bool MouseIsOver()
 	{
 		Vector2 vector;
@@ -50,13 +51,13 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		return RectTransformUtility.RectangleContainsScreenPoint(this.myRectTransform, vector2, CameraUiGlobal.instance.myCamera);
 	}
 
-	// Token: 0x06000A5E RID: 2654 RVA: 0x00047318 File Offset: 0x00045518
+	// Token: 0x06000C22 RID: 3106 RVA: 0x0000FF21 File Offset: 0x0000E121
 	public void SetText(string text)
 	{
 		this.myText.text = text;
 	}
 
-	// Token: 0x06000A5F RID: 2655 RVA: 0x00047328 File Offset: 0x00045528
+	// Token: 0x06000C23 RID: 3107 RVA: 0x0006139C File Offset: 0x0005F59C
 	public ToyPhoneUIButtonScript GetButtonLeft()
 	{
 		if (this.leftButton == null)
@@ -70,7 +71,7 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		return this.leftButton.GetButtonLeft();
 	}
 
-	// Token: 0x06000A60 RID: 2656 RVA: 0x00047378 File Offset: 0x00045578
+	// Token: 0x06000C24 RID: 3108 RVA: 0x000613EC File Offset: 0x0005F5EC
 	public ToyPhoneUIButtonScript GetButtonRight()
 	{
 		if (this.rightButton == null)
@@ -84,7 +85,7 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		return this.rightButton.GetButtonRight();
 	}
 
-	// Token: 0x06000A61 RID: 2657 RVA: 0x000473C8 File Offset: 0x000455C8
+	// Token: 0x06000C25 RID: 3109 RVA: 0x0006143C File Offset: 0x0005F63C
 	public void SetEnabled(bool enabled)
 	{
 		this.isEnabled = enabled;
@@ -103,13 +104,13 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A62 RID: 2658 RVA: 0x00047443 File Offset: 0x00045643
+	// Token: 0x06000C26 RID: 3110 RVA: 0x0000FF2F File Offset: 0x0000E12F
 	public bool IsEnabled()
 	{
 		return this.isEnabled;
 	}
 
-	// Token: 0x06000A63 RID: 2659 RVA: 0x0004744B File Offset: 0x0004564B
+	// Token: 0x06000C27 RID: 3111 RVA: 0x0000FF37 File Offset: 0x0000E137
 	private void Awake()
 	{
 		ToyPhoneUIButtonScript.allButtons.Add(this);
@@ -117,13 +118,13 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		this.myText = base.GetComponentInChildren<TextMeshProUGUI>();
 	}
 
-	// Token: 0x06000A64 RID: 2660 RVA: 0x00047470 File Offset: 0x00045670
+	// Token: 0x06000C28 RID: 3112 RVA: 0x0000FF5C File Offset: 0x0000E15C
 	private void OnDestroy()
 	{
 		ToyPhoneUIButtonScript.allButtons.Remove(this);
 	}
 
-	// Token: 0x06000A65 RID: 2661 RVA: 0x0004747E File Offset: 0x0004567E
+	// Token: 0x06000C29 RID: 3113 RVA: 0x0000FF6A File Offset: 0x0000E16A
 	private void Start()
 	{
 		if (this.buttonIndex < 0)
@@ -134,7 +135,7 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		this.HighlightOff();
 	}
 
-	// Token: 0x06000A66 RID: 2662 RVA: 0x000474B5 File Offset: 0x000456B5
+	// Token: 0x06000C2A RID: 3114 RVA: 0x0000FFA1 File Offset: 0x0000E1A1
 	private void Update()
 	{
 		if (this.isEnabled)
@@ -147,31 +148,45 @@ public class ToyPhoneUIButtonScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000CF5 RID: 3317
 	public static List<ToyPhoneUIButtonScript> allButtons = new List<ToyPhoneUIButtonScript>();
 
+	// Token: 0x04000CF6 RID: 3318
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000CF7 RID: 3319
 	private Controls.PlayerExt player;
 
+	// Token: 0x04000CF8 RID: 3320
 	private RectTransform myRectTransform;
 
+	// Token: 0x04000CF9 RID: 3321
 	public Image highlightImage;
 
+	// Token: 0x04000CFA RID: 3322
 	public AudioClip highlightSound;
 
+	// Token: 0x04000CFB RID: 3323
 	public ToyPhoneUIButtonScript leftButton;
 
+	// Token: 0x04000CFC RID: 3324
 	public ToyPhoneUIButtonScript rightButton;
 
+	// Token: 0x04000CFD RID: 3325
 	private TextMeshProUGUI myText;
 
+	// Token: 0x04000CFE RID: 3326
 	public int buttonIndex = -1;
 
+	// Token: 0x04000CFF RID: 3327
 	private bool highlighted;
 
+	// Token: 0x04000D00 RID: 3328
 	private bool mouseOver;
 
+	// Token: 0x04000D01 RID: 3329
 	private bool isEnabled = true;
 
+	// Token: 0x04000D02 RID: 3330
 	public UnityEvent onSelect;
 }

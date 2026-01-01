@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 namespace Panik
 {
+	// Token: 0x02000145 RID: 325
 	public static class Level
 	{
-		// (get) Token: 0x06000CCB RID: 3275 RVA: 0x00053588 File Offset: 0x00051788
+		// Token: 0x17000109 RID: 265
+		// (get) Token: 0x0600100A RID: 4106 RVA: 0x0006F6B0 File Offset: 0x0006D8B0
 		public static int CurrentScene
 		{
 			get
@@ -16,7 +18,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CCC RID: 3276 RVA: 0x000535A2 File Offset: 0x000517A2
+		// Token: 0x1700010A RID: 266
+		// (get) Token: 0x0600100B RID: 4107 RVA: 0x00013446 File Offset: 0x00011646
 		public static Level.SceneIndex CurrentSceneIndex
 		{
 			get
@@ -25,7 +28,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CCD RID: 3277 RVA: 0x000535A9 File Offset: 0x000517A9
+		// Token: 0x1700010B RID: 267
+		// (get) Token: 0x0600100C RID: 4108 RVA: 0x0001344D File Offset: 0x0001164D
 		public static int PreviousScene
 		{
 			get
@@ -34,7 +38,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CCE RID: 3278 RVA: 0x000535B0 File Offset: 0x000517B0
+		// Token: 0x1700010C RID: 268
+		// (get) Token: 0x0600100D RID: 4109 RVA: 0x0001344D File Offset: 0x0001164D
 		public static Level.SceneIndex PreviousSceneIndex
 		{
 			get
@@ -43,7 +48,8 @@ namespace Panik
 			}
 		}
 
-		// (get) Token: 0x06000CCF RID: 3279 RVA: 0x000535B7 File Offset: 0x000517B7
+		// Token: 0x1700010D RID: 269
+		// (get) Token: 0x0600100E RID: 4110 RVA: 0x00013454 File Offset: 0x00011654
 		public static float GetLoadingStatus
 		{
 			get
@@ -56,25 +62,25 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000CD0 RID: 3280 RVA: 0x000535D0 File Offset: 0x000517D0
+		// Token: 0x0600100F RID: 4111 RVA: 0x0001346D File Offset: 0x0001166D
 		public static void GoToNext(bool asyncLoad = true)
 		{
 			Level.GoTo(Level.CurrentScene + 1, asyncLoad);
 		}
 
-		// Token: 0x06000CD1 RID: 3281 RVA: 0x000535DF File Offset: 0x000517DF
+		// Token: 0x06001010 RID: 4112 RVA: 0x0001347C File Offset: 0x0001167C
 		public static void GoPrevious(bool asyncLoad = true)
 		{
 			Level.GoTo(Level.CurrentScene - 1, asyncLoad);
 		}
 
-		// Token: 0x06000CD2 RID: 3282 RVA: 0x000535EE File Offset: 0x000517EE
+		// Token: 0x06001011 RID: 4113 RVA: 0x0001348B File Offset: 0x0001168B
 		public static void Restart(bool asyncLoad = true)
 		{
 			Level.GoTo(Level.CurrentScene, asyncLoad);
 		}
 
-		// Token: 0x06000CD3 RID: 3283 RVA: 0x000535FB File Offset: 0x000517FB
+		// Token: 0x06001012 RID: 4114 RVA: 0x00013498 File Offset: 0x00011698
 		public static void GoTo(int sceneIndexToLoad, bool asyncLoad = true)
 		{
 			Level._prevScene = Level.CurrentScene;
@@ -91,13 +97,13 @@ namespace Panik
 			Debug.LogWarning("Cannot start the loading of a scene as it looks like an other one is in act!");
 		}
 
-		// Token: 0x06000CD4 RID: 3284 RVA: 0x00053638 File Offset: 0x00051838
+		// Token: 0x06001013 RID: 4115 RVA: 0x000134D5 File Offset: 0x000116D5
 		public static void GoTo(Level.SceneIndex sceneIndexToLoad, bool asyncLoad = true)
 		{
 			Level.GoTo((int)sceneIndexToLoad, asyncLoad);
 		}
 
-		// Token: 0x06000CD5 RID: 3285 RVA: 0x00053641 File Offset: 0x00051841
+		// Token: 0x06001014 RID: 4116 RVA: 0x000134DE File Offset: 0x000116DE
 		private static IEnumerator LoadSceneAsync(int sceneIndexToLoad)
 		{
 			SceneManager.LoadScene(Level.loadingSceneIndex);
@@ -130,7 +136,7 @@ namespace Panik
 			yield break;
 		}
 
-		// Token: 0x06000CD6 RID: 3286 RVA: 0x00053650 File Offset: 0x00051850
+		// Token: 0x06001015 RID: 4117 RVA: 0x000134ED File Offset: 0x000116ED
 		public static void StartLoadedScene()
 		{
 			if (Level.loadingOperationReference == null)
@@ -146,38 +152,55 @@ namespace Panik
 			Level.loadingOperationReference.allowSceneActivation = true;
 		}
 
+		// Token: 0x040010AE RID: 4270
 		public static int loadingSceneIndex = 0;
 
+		// Token: 0x040010AF RID: 4271
 		private static int _prevScene = 0;
 
+		// Token: 0x040010B0 RID: 4272
 		public static float loadingStartDelay = 0f;
 
+		// Token: 0x040010B1 RID: 4273
 		public static float loadingEndDelay = 0f;
 
+		// Token: 0x040010B2 RID: 4274
 		public static bool autoTransitToLoadedScene = true;
 
+		// Token: 0x040010B3 RID: 4275
 		private static AsyncOperation loadingOperationReference = null;
 
+		// Token: 0x040010B4 RID: 4276
 		public static Coroutine levelLoadingCoroutine = null;
 
+		// Token: 0x040010B5 RID: 4277
 		public static Level.Ev onSceneAwake;
 
+		// Token: 0x040010B6 RID: 4278
 		public static Level.Ev onSceneStart;
 
+		// Token: 0x040010B7 RID: 4279
 		public static Level.Ev onSceneEnd;
 
+		// Token: 0x040010B8 RID: 4280
 		public static Level.Ev onLoadingSceneStart;
 
+		// Token: 0x040010B9 RID: 4281
 		public static Level.Ev onLoadingSceneEnd;
 
+		// Token: 0x02000146 RID: 326
 		public enum SceneIndex
 		{
+			// Token: 0x040010BB RID: 4283
 			Loading,
+			// Token: 0x040010BC RID: 4284
 			Intro,
+			// Token: 0x040010BD RID: 4285
 			Game
 		}
 
-		// (Invoke) Token: 0x06001400 RID: 5120
+		// Token: 0x02000147 RID: 327
+		// (Invoke) Token: 0x06001018 RID: 4120
 		public delegate void Ev();
 	}
 }

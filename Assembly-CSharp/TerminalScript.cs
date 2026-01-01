@@ -8,9 +8,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x0200009E RID: 158
 public class TerminalScript : MonoBehaviour
 {
-	// Token: 0x0600081A RID: 2074 RVA: 0x00033DD4 File Offset: 0x00031FD4
+	// Token: 0x0600092B RID: 2347 RVA: 0x0004AEB4 File Offset: 0x000490B4
 	public static void SetState(TerminalScript.State state)
 	{
 		if (TerminalScript.instance == null)
@@ -108,7 +109,7 @@ public class TerminalScript : MonoBehaviour
 		TerminalScript.instance.state = state;
 	}
 
-	// Token: 0x0600081B RID: 2075 RVA: 0x000340A4 File Offset: 0x000322A4
+	// Token: 0x0600092C RID: 2348 RVA: 0x0004B184 File Offset: 0x00049384
 	public static bool IsLoggedIn()
 	{
 		if (TerminalScript.instance == null)
@@ -130,7 +131,7 @@ public class TerminalScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600081C RID: 2076 RVA: 0x000340F8 File Offset: 0x000322F8
+	// Token: 0x0600092D RID: 2349 RVA: 0x0000D3DC File Offset: 0x0000B5DC
 	public void PowerupMesh_Steal(PowerupScript powerupScript, Transform targetParent, bool normalizeScale, float scaleMult)
 	{
 		powerupScript.MeshSteal(targetParent, normalizeScale, scaleMult);
@@ -138,7 +139,7 @@ public class TerminalScript : MonoBehaviour
 		this.powerupStealedMeshes.Add(powerupScript);
 	}
 
-	// Token: 0x0600081D RID: 2077 RVA: 0x00034116 File Offset: 0x00032316
+	// Token: 0x0600092E RID: 2350 RVA: 0x0000D3FA File Offset: 0x0000B5FA
 	public void PowerupMesh_Restore(PowerupScript powerupScript)
 	{
 		powerupScript.MeshRestore(true);
@@ -146,7 +147,7 @@ public class TerminalScript : MonoBehaviour
 		this.powerupStealedMeshes.Remove(powerupScript);
 	}
 
-	// Token: 0x0600081E RID: 2078 RVA: 0x00034134 File Offset: 0x00032334
+	// Token: 0x0600092F RID: 2351 RVA: 0x0004B1D8 File Offset: 0x000493D8
 	public void PowerupMeshes_RestoreAll()
 	{
 		foreach (PowerupScript powerupScript in this.powerupStealedMeshes)
@@ -157,13 +158,13 @@ public class TerminalScript : MonoBehaviour
 		this.powerupStealedMeshes.Clear();
 	}
 
-	// Token: 0x0600081F RID: 2079 RVA: 0x00034198 File Offset: 0x00032398
+	// Token: 0x06000930 RID: 2352 RVA: 0x0000D416 File Offset: 0x0000B616
 	public bool IsPowerupBuyable(PowerupScript.Identifier powerupIdentifier)
 	{
 		return this.buyablePowerups.Contains(powerupIdentifier);
 	}
 
-	// Token: 0x06000820 RID: 2080 RVA: 0x000341A8 File Offset: 0x000323A8
+	// Token: 0x06000931 RID: 2353 RVA: 0x0004B23C File Offset: 0x0004943C
 	private TerminalScript.TerminalPowerupState PowerupState_Get(PowerupScript powerup)
 	{
 		if (powerup == null)
@@ -192,19 +193,19 @@ public class TerminalScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000821 RID: 2081 RVA: 0x00034200 File Offset: 0x00032400
+	// Token: 0x06000932 RID: 2354 RVA: 0x0000D424 File Offset: 0x0000B624
 	private void OffTranslations()
 	{
 		this.offerNotificationText.text = Translation.Get("TERMINAL_OFFER_NOTIFICATION_TEXT");
 	}
 
-	// Token: 0x06000822 RID: 2082 RVA: 0x00034217 File Offset: 0x00032417
+	// Token: 0x06000933 RID: 2355 RVA: 0x0000D43B File Offset: 0x0000B63B
 	public static void NotificationSet(PowerupScript.Identifier powerupIdentifier)
 	{
 		Data.game.TerminalNotification_Set(new Data.GameData.TerminalNotification(powerupIdentifier, "TERMINAL_NOTIFICATION_TITLE_CONGRATULATIONS", "TERMINAL_NOTIFICATION_BODY_YOU_UNLOCKED"));
 	}
 
-	// Token: 0x06000823 RID: 2083 RVA: 0x00034233 File Offset: 0x00032433
+	// Token: 0x06000934 RID: 2356 RVA: 0x0000D457 File Offset: 0x0000B657
 	public IEnumerator NotificationsCoroutine()
 	{
 		yield return null;
@@ -257,7 +258,7 @@ public class TerminalScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000824 RID: 2084 RVA: 0x00034242 File Offset: 0x00032442
+	// Token: 0x06000935 RID: 2357 RVA: 0x0000D466 File Offset: 0x0000B666
 	public IEnumerator OfferNotificationCoroutine()
 	{
 		yield return null;
@@ -286,7 +287,7 @@ public class TerminalScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000825 RID: 2085 RVA: 0x00034254 File Offset: 0x00032454
+	// Token: 0x06000936 RID: 2358 RVA: 0x0004B294 File Offset: 0x00049494
 	public void Buttons_EnableStateSet(bool state)
 	{
 		TerminalNodeScript[] array = this.navigationButtons_PowerupNodes;
@@ -298,7 +299,7 @@ public class TerminalScript : MonoBehaviour
 		this.navigationButton_PageDown.enabled = state;
 	}
 
-	// Token: 0x06000826 RID: 2086 RVA: 0x00034297 File Offset: 0x00032497
+	// Token: 0x06000937 RID: 2359 RVA: 0x0000D475 File Offset: 0x0000B675
 	public static PowerupScript HoveredPowerupGet()
 	{
 		if (TerminalScript.instance == null)
@@ -308,7 +309,7 @@ public class TerminalScript : MonoBehaviour
 		return TerminalScript.instance.hoveredPowerup;
 	}
 
-	// Token: 0x06000827 RID: 2087 RVA: 0x000342B2 File Offset: 0x000324B2
+	// Token: 0x06000938 RID: 2360 RVA: 0x0000D490 File Offset: 0x0000B690
 	public int MaxPowerupsPerPage(int pageIndex)
 	{
 		if (pageIndex == this.pagesCount - 1)
@@ -318,7 +319,7 @@ public class TerminalScript : MonoBehaviour
 		return this.navigationButtons_PowerupNodes.Length;
 	}
 
-	// Token: 0x06000828 RID: 2088 RVA: 0x000342DC File Offset: 0x000324DC
+	// Token: 0x06000939 RID: 2361 RVA: 0x0000D4BA File Offset: 0x0000B6BA
 	private void NavigationReset()
 	{
 		this.pageIndex = 0;
@@ -327,7 +328,7 @@ public class TerminalScript : MonoBehaviour
 		this.nodeIndexOld = -1;
 	}
 
-	// Token: 0x06000829 RID: 2089 RVA: 0x000342FC File Offset: 0x000324FC
+	// Token: 0x0600093A RID: 2362 RVA: 0x0004B2D8 File Offset: 0x000494D8
 	private void NavigationRoutine()
 	{
 		this.hoveredPowerup = null;
@@ -553,11 +554,11 @@ public class TerminalScript : MonoBehaviour
 				}
 				if ((terminalPowerupState2 == TerminalScript.TerminalPowerupState.owned || terminalPowerupState2 == TerminalScript.TerminalPowerupState.justUnlocked) && !this.hoveredPowerup.IsBaseSet())
 				{
-					this.inspector_UnlockInfosText.fontStyle = 64;
+					this.inspector_UnlockInfosText.fontStyle = FontStyles.Strikethrough;
 				}
 				else
 				{
-					this.inspector_UnlockInfosText.fontStyle = 0;
+					this.inspector_UnlockInfosText.fontStyle = FontStyles.Normal;
 				}
 				this.inspector_UnlockInfosText.text = text3;
 				if (terminalPowerupState2 == TerminalScript.TerminalPowerupState.offered)
@@ -657,7 +658,7 @@ public class TerminalScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600082A RID: 2090 RVA: 0x00034F48 File Offset: 0x00033148
+	// Token: 0x0600093B RID: 2363 RVA: 0x0004BF24 File Offset: 0x0004A124
 	public static void Initialize()
 	{
 		if (TerminalScript.instance == null)
@@ -763,13 +764,13 @@ public class TerminalScript : MonoBehaviour
 		TerminalScript.instance.pagesCount = Mathf.CeilToInt((float)TerminalScript.instance.allPowerups.Count / (float)TerminalScript.instance.navigationButtons_PowerupNodes.Length);
 	}
 
-	// Token: 0x0600082B RID: 2091 RVA: 0x000353B1 File Offset: 0x000335B1
+	// Token: 0x0600093C RID: 2364 RVA: 0x0000D4D8 File Offset: 0x0000B6D8
 	private void Awake()
 	{
 		TerminalScript.instance = this;
 	}
 
-	// Token: 0x0600082C RID: 2092 RVA: 0x000353BC File Offset: 0x000335BC
+	// Token: 0x0600093D RID: 2365 RVA: 0x0004C390 File Offset: 0x0004A590
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -787,7 +788,7 @@ public class TerminalScript : MonoBehaviour
 		this.OffTranslations();
 	}
 
-	// Token: 0x0600082D RID: 2093 RVA: 0x0003544F File Offset: 0x0003364F
+	// Token: 0x0600093E RID: 2366 RVA: 0x0000D4E0 File Offset: 0x0000B6E0
 	private void OnDestroy()
 	{
 		if (TerminalScript.instance == this)
@@ -797,7 +798,7 @@ public class TerminalScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.OffTranslations));
 	}
 
-	// Token: 0x0600082E RID: 2094 RVA: 0x00035484 File Offset: 0x00033684
+	// Token: 0x0600093F RID: 2367 RVA: 0x0004C424 File Offset: 0x0004A624
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -840,7 +841,7 @@ public class TerminalScript : MonoBehaviour
 				}
 				if (this.youGotMailTimer <= 0f)
 				{
-					Sound.Play3D("SoundTerminalYouGotMail", base.transform.position, 20f, 1f, 1f, 1);
+					Sound.Play3D("SoundTerminalYouGotMail", base.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 			}
 			break;
@@ -937,7 +938,7 @@ public class TerminalScript : MonoBehaviour
 		bool flag6 = TerminalScript.IsLoggedIn();
 		if (flag6 && !Sound.IsPlaying("SoundTerminalFanLoop"))
 		{
-			Sound.Play3D("SoundTerminalFanLoop", base.transform.position, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundTerminalFanLoop", base.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		if (!flag6 && this.powerupStealedMeshes.Count > 0)
 		{
@@ -945,144 +946,219 @@ public class TerminalScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040008E5 RID: 2277
 	public static TerminalScript instance;
 
+	// Token: 0x040008E6 RID: 2278
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040008E7 RID: 2279
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x040008E8 RID: 2280
 	private static Color C_ORANGE_FADED = new Color(1f, 0.5f, 0f, 0.25f);
 
+	// Token: 0x040008E9 RID: 2281
 	private static Color C_YELLOW = new Color(1f, 0.75f, 0f, 1f);
 
+	// Token: 0x040008EA RID: 2282
 	private Camera gameCamera;
 
+	// Token: 0x040008EB RID: 2283
 	private Controls.PlayerExt player;
 
+	// Token: 0x040008EC RID: 2284
 	public DiegeticMenuController myMenuController;
 
+	// Token: 0x040008ED RID: 2285
 	public GameObject offNothingHolder;
 
+	// Token: 0x040008EE RID: 2286
 	public TextMeshProUGUI offNothingText;
 
+	// Token: 0x040008EF RID: 2287
 	public GameObject offerPreviewHolder;
 
+	// Token: 0x040008F0 RID: 2288
 	public TextMeshProUGUI offerNotificationText;
 
+	// Token: 0x040008F1 RID: 2289
 	public GameObject mailHolder;
 
+	// Token: 0x040008F2 RID: 2290
 	public GameObject navigationHolder;
 
+	// Token: 0x040008F3 RID: 2291
 	public Transform navigationInspectorMeshHolder;
 
+	// Token: 0x040008F4 RID: 2292
 	public Image navigationGlobBehindInspectorPowerup;
 
+	// Token: 0x040008F5 RID: 2293
 	public TerminalButton navigationButton_Buy;
 
+	// Token: 0x040008F6 RID: 2294
 	public TerminalButton navigationButton_Logout;
 
+	// Token: 0x040008F7 RID: 2295
 	public TerminalButton navigationButton_PageUp;
 
+	// Token: 0x040008F8 RID: 2296
 	public TerminalButton navigationButton_PageDown;
 
+	// Token: 0x040008F9 RID: 2297
 	public TerminalNodeScript[] navigationButtons_PowerupNodes;
 
+	// Token: 0x040008FA RID: 2298
 	public TextMeshProUGUI collectionTitleText;
 
+	// Token: 0x040008FB RID: 2299
 	public TextMeshProUGUI buyText;
 
+	// Token: 0x040008FC RID: 2300
 	public TextMeshProUGUI pageText;
 
+	// Token: 0x040008FD RID: 2301
 	public TextMeshProUGUI inspector_BuyAnnoyingText;
 
+	// Token: 0x040008FE RID: 2302
 	public TextMeshProUGUI inspector_BannedText;
 
+	// Token: 0x040008FF RID: 2303
 	public TextMeshProUGUI inspector_StateText;
 
+	// Token: 0x04000900 RID: 2304
 	public BounceScript inspector_StateTextBounceScr;
 
+	// Token: 0x04000901 RID: 2305
 	public TextMeshProUGUI inspector_TitleText;
 
+	// Token: 0x04000902 RID: 2306
 	public TextMeshProUGUI inspector_DescriptionText;
 
+	// Token: 0x04000903 RID: 2307
 	public TextMeshProUGUI inspector_UnlockInfosText;
 
+	// Token: 0x04000904 RID: 2308
 	public GameObject notificationsHolder;
 
+	// Token: 0x04000905 RID: 2309
 	public TextMeshProUGUI notificationTitle;
 
+	// Token: 0x04000906 RID: 2310
 	public TextMeshProUGUI notificationBody;
 
+	// Token: 0x04000907 RID: 2311
 	public GameObject notificationMeshHolder;
 
+	// Token: 0x04000908 RID: 2312
 	public RectTransform notificationStarCutoutRectTr;
 
+	// Token: 0x04000909 RID: 2313
 	public GameObject offerNotificationHolder;
 
+	// Token: 0x0400090A RID: 2314
 	public TextMeshProUGUI offerNotification_TitleText;
 
+	// Token: 0x0400090B RID: 2315
 	public TextMeshProUGUI offerNotification_PriceText;
 
+	// Token: 0x0400090C RID: 2316
 	public GameObject offerNotification_MeshHolder;
 
+	// Token: 0x0400090D RID: 2317
 	[NonSerialized]
 	public TerminalScript.State state;
 
+	// Token: 0x0400090E RID: 2318
 	private List<PowerupScript> powerupStealedMeshes = new List<PowerupScript>();
 
+	// Token: 0x0400090F RID: 2319
 	private List<PowerupScript> allPowerups = new List<PowerupScript>(200);
 
+	// Token: 0x04000910 RID: 2320
 	private List<PowerupScript.Identifier> buyablePowerups = new List<PowerupScript.Identifier>();
 
+	// Token: 0x04000911 RID: 2321
 	private PowerupScript offeredPowerup;
 
+	// Token: 0x04000912 RID: 2322
 	private float youGotMailTimer;
 
+	// Token: 0x04000913 RID: 2323
 	private Coroutine notificationsCoroutine;
 
+	// Token: 0x04000914 RID: 2324
 	private PowerupScript notificationCurrentPowerup;
 
+	// Token: 0x04000915 RID: 2325
 	private List<PowerupScript> justUnlockedPowerups = new List<PowerupScript>();
 
+	// Token: 0x04000916 RID: 2326
 	private bool offerNotificationShown;
 
+	// Token: 0x04000917 RID: 2327
 	private Coroutine offerNotificationCoroutine;
 
+	// Token: 0x04000918 RID: 2328
 	private global::UnityEngine.Vector2 axisPrevious;
 
+	// Token: 0x04000919 RID: 2329
 	private int pageIndex;
 
+	// Token: 0x0400091A RID: 2330
 	private int nodeIndex;
 
+	// Token: 0x0400091B RID: 2331
 	private int pagesCount = -1;
 
+	// Token: 0x0400091C RID: 2332
 	private PowerupScript hoveredPowerup;
 
+	// Token: 0x0400091D RID: 2333
 	private int pageIndexOld = -1;
 
+	// Token: 0x0400091E RID: 2334
 	private int nodeIndexOld = -1;
 
+	// Token: 0x0400091F RID: 2335
 	private PowerupScript hoveredPowerupOld;
 
+	// Token: 0x0200009F RID: 159
 	public enum State
 	{
+		// Token: 0x04000921 RID: 2337
 		turnedOff_Request,
+		// Token: 0x04000922 RID: 2338
 		turnedOff_nothing,
+		// Token: 0x04000923 RID: 2339
 		turnedOff_Email,
+		// Token: 0x04000924 RID: 2340
 		turnedOff_OfferPreview,
+		// Token: 0x04000925 RID: 2341
 		turnedOn_Request,
+		// Token: 0x04000926 RID: 2342
 		navigation,
+		// Token: 0x04000927 RID: 2343
 		notification,
+		// Token: 0x04000928 RID: 2344
 		offerNotification
 	}
 
+	// Token: 0x020000A0 RID: 160
 	public enum TerminalPowerupState
 	{
+		// Token: 0x0400092A RID: 2346
 		undefined,
+		// Token: 0x0400092B RID: 2347
 		owned,
+		// Token: 0x0400092C RID: 2348
 		offered,
+		// Token: 0x0400092D RID: 2349
 		locked,
+		// Token: 0x0400092E RID: 2350
 		outOfStock,
+		// Token: 0x0400092F RID: 2351
 		justUnlocked
 	}
 }

@@ -2,15 +2,16 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000090 RID: 144
 public class DeckBoxScript : MonoBehaviour
 {
-	// Token: 0x060007D1 RID: 2001 RVA: 0x00032AA9 File Offset: 0x00030CA9
+	// Token: 0x060008DC RID: 2268 RVA: 0x0000D05F File Offset: 0x0000B25F
 	public static bool IsEnabled()
 	{
 		return !(DeckBoxScript.instance == null) && DeckBoxScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060007D2 RID: 2002 RVA: 0x00032ACC File Offset: 0x00030CCC
+	// Token: 0x060008DD RID: 2269 RVA: 0x00049D4C File Offset: 0x00047F4C
 	public void MenuConnectionUpdate(DeckBoxScript.MenuConnectionKind menuConnectionKind)
 	{
 		if (!this.holder.activeSelf)
@@ -48,7 +49,7 @@ public class DeckBoxScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007D3 RID: 2003 RVA: 0x00032C44 File Offset: 0x00030E44
+	// Token: 0x060008DE RID: 2270 RVA: 0x00049EC4 File Offset: 0x000480C4
 	public static void SetSummonedCard()
 	{
 		if (DeckBoxScript.instance == null)
@@ -68,7 +69,7 @@ public class DeckBoxScript : MonoBehaviour
 		DeckBoxScript.instance.summonedCard = cardScript;
 	}
 
-	// Token: 0x060007D4 RID: 2004 RVA: 0x00032CC4 File Offset: 0x00030EC4
+	// Token: 0x060008DF RID: 2271 RVA: 0x00049F44 File Offset: 0x00048144
 	public static bool ItsMemoryCardTime()
 	{
 		RewardBoxScript.RewardKind rewardKind = RewardBoxScript.GetRewardKind();
@@ -90,7 +91,7 @@ public class DeckBoxScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060007D5 RID: 2005 RVA: 0x00032D24 File Offset: 0x00030F24
+	// Token: 0x060008E0 RID: 2272 RVA: 0x00049FA4 File Offset: 0x000481A4
 	public static bool CanActuallyCountVictoriesForCards()
 	{
 		RewardBoxScript.RewardKind rewardKind = RewardBoxScript.GetRewardKind();
@@ -110,7 +111,7 @@ public class DeckBoxScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060007D6 RID: 2006 RVA: 0x00032D80 File Offset: 0x00030F80
+	// Token: 0x060008E1 RID: 2273 RVA: 0x0004A000 File Offset: 0x00048200
 	public static void CandlesStateUpdate(bool forceNormal)
 	{
 		if (!forceNormal && Data.game.RunModifier_HardcoreMode_Get(GameplayData.RunModifier_GetCurrent()))
@@ -123,27 +124,27 @@ public class DeckBoxScript : MonoBehaviour
 		DeckBoxScript.instance.candlesHolder_Skull.SetActive(false);
 	}
 
-	// Token: 0x060007D7 RID: 2007 RVA: 0x00032DE2 File Offset: 0x00030FE2
+	// Token: 0x060008E2 RID: 2274 RVA: 0x0000D07F File Offset: 0x0000B27F
 	private void Awake()
 	{
 		DeckBoxScript.instance = this;
 		this.summonedCardHolderStartPosition_Local = this.summonedCardHolder.localPosition;
 	}
 
-	// Token: 0x060007D8 RID: 2008 RVA: 0x00032DFB File Offset: 0x00030FFB
+	// Token: 0x060008E3 RID: 2275 RVA: 0x0000D098 File Offset: 0x0000B298
 	private void Start()
 	{
 		this.holder.SetActive(false);
 		this.summonedCardHolder.localScale = Vector3.zero;
 	}
 
-	// Token: 0x060007D9 RID: 2009 RVA: 0x00032E19 File Offset: 0x00031019
+	// Token: 0x060008E4 RID: 2276 RVA: 0x0000D0B6 File Offset: 0x0000B2B6
 	private void OnDestroy()
 	{
 		DeckBoxScript.instance == this;
 	}
 
-	// Token: 0x060007DA RID: 2010 RVA: 0x00032E28 File Offset: 0x00031028
+	// Token: 0x060008E5 RID: 2277 RVA: 0x0004A064 File Offset: 0x00048264
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -202,32 +203,47 @@ public class DeckBoxScript : MonoBehaviour
 		this.summonedCardHolder.localPosition = this.summonedCardHolderStartPosition_Local + new Vector3(0f, Util.AngleSin(Tick.PassedTime * 90f), 0f) * 0.05f;
 	}
 
+	// Token: 0x0400088D RID: 2189
 	public static DeckBoxScript instance;
 
+	// Token: 0x0400088E RID: 2190
 	public GameObject holder;
 
+	// Token: 0x0400088F RID: 2191
 	public DiegeticMenuElement myDiegeticMenuElement;
 
+	// Token: 0x04000890 RID: 2192
 	public MeshRenderer meshOpened;
 
+	// Token: 0x04000891 RID: 2193
 	public MeshRenderer meshClosed;
 
+	// Token: 0x04000892 RID: 2194
 	public Transform summonedCardHolder;
 
+	// Token: 0x04000893 RID: 2195
 	public GameObject headset;
 
+	// Token: 0x04000894 RID: 2196
 	public GameObject candlesHolder_Normal;
 
+	// Token: 0x04000895 RID: 2197
 	public GameObject candlesHolder_Skull;
 
+	// Token: 0x04000896 RID: 2198
 	private CardScript summonedCard;
 
+	// Token: 0x04000897 RID: 2199
 	private Vector3 summonedCardHolderStartPosition_Local;
 
+	// Token: 0x02000091 RID: 145
 	public enum MenuConnectionKind
 	{
+		// Token: 0x04000899 RID: 2201
 		undefined,
+		// Token: 0x0400089A RID: 2202
 		freeRoamMenu,
+		// Token: 0x0400089B RID: 2203
 		slotMenu
 	}
 }

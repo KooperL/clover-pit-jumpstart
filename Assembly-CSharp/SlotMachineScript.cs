@@ -9,9 +9,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x0200006D RID: 109
 public class SlotMachineScript : MonoBehaviour
 {
-	// Token: 0x060006F3 RID: 1779 RVA: 0x0002C9A8 File Offset: 0x0002ABA8
+	// Token: 0x0600079A RID: 1946 RVA: 0x0000C345 File Offset: 0x0000A545
 	private void ScoreSquareEnableSet(int columnX, int lineY, bool enable)
 	{
 		if (this.scoreSquares[columnX + lineY * 5].activeSelf != enable)
@@ -20,13 +21,13 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F4 RID: 1780 RVA: 0x0002C9D0 File Offset: 0x0002ABD0
+	// Token: 0x0600079B RID: 1947 RVA: 0x0000C36D File Offset: 0x0000A56D
 	private bool ScoreSquareEnabledGet(int columnX, int lineY)
 	{
 		return this.scoreSquares[columnX + lineY * 5].activeSelf;
 	}
 
-	// Token: 0x060006F5 RID: 1781 RVA: 0x0002C9E4 File Offset: 0x0002ABE4
+	// Token: 0x0600079C RID: 1948 RVA: 0x0003EA94 File Offset: 0x0003CC94
 	private void ScoreSquareEnableSetAll(bool enable)
 	{
 		for (int i = 0; i < this.scoreSquares.Length; i++)
@@ -38,7 +39,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F6 RID: 1782 RVA: 0x0002CA24 File Offset: 0x0002AC24
+	// Token: 0x0600079D RID: 1949 RVA: 0x0003EAD4 File Offset: 0x0003CCD4
 	private void ReplacementSquaresInit()
 	{
 		this.replacementSquaresStartingAnchoredPosition = new global::UnityEngine.Vector2[this.replacementSquaresRectTr.Length];
@@ -49,7 +50,8 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// (get) Token: 0x060006F7 RID: 1783 RVA: 0x0002CA83 File Offset: 0x0002AC83
+	// Token: 0x17000041 RID: 65
+	// (get) Token: 0x0600079E RID: 1950 RVA: 0x0000C380 File Offset: 0x0000A580
 	private global::UnityEngine.Vector3 Audio3dPosition
 	{
 		get
@@ -58,7 +60,8 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// (get) Token: 0x060006F8 RID: 1784 RVA: 0x0002CA9B File Offset: 0x0002AC9B
+	// Token: 0x17000042 RID: 66
+	// (get) Token: 0x0600079F RID: 1951 RVA: 0x0000C398 File Offset: 0x0000A598
 	private global::UnityEngine.Vector3 Audio3dPositionLow
 	{
 		get
@@ -67,7 +70,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F9 RID: 1785 RVA: 0x0002CAA8 File Offset: 0x0002ACA8
+	// Token: 0x060007A0 RID: 1952 RVA: 0x0000C3A5 File Offset: 0x0000A5A5
 	public static SlotMachineScript.State StateGet()
 	{
 		if (SlotMachineScript.instance == null)
@@ -77,7 +80,7 @@ public class SlotMachineScript : MonoBehaviour
 		return SlotMachineScript.instance._state;
 	}
 
-	// Token: 0x060006FA RID: 1786 RVA: 0x0002CAC3 File Offset: 0x0002ACC3
+	// Token: 0x060007A1 RID: 1953 RVA: 0x0000C3C0 File Offset: 0x0000A5C0
 	public static void StateSet(SlotMachineScript.State newState)
 	{
 		if (SlotMachineScript.instance == null)
@@ -95,13 +98,13 @@ public class SlotMachineScript : MonoBehaviour
 		SlotMachineScript.instance._state = newState;
 	}
 
-	// Token: 0x060006FB RID: 1787 RVA: 0x0002CAF9 File Offset: 0x0002ACF9
+	// Token: 0x060007A2 RID: 1954 RVA: 0x0000C3F6 File Offset: 0x0000A5F6
 	public static bool IsTurnedOn()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._state > SlotMachineScript.State.off;
 	}
 
-	// Token: 0x060006FC RID: 1788 RVA: 0x0002CB18 File Offset: 0x0002AD18
+	// Token: 0x060007A3 RID: 1955 RVA: 0x0003EB34 File Offset: 0x0003CD34
 	public void AutoSpinToggle()
 	{
 		if (this._state != SlotMachineScript.State.idle && this._state != SlotMachineScript.State.spinning)
@@ -124,13 +127,13 @@ public class SlotMachineScript : MonoBehaviour
 		this.AutoSpinTopTextSet();
 	}
 
-	// Token: 0x060006FD RID: 1789 RVA: 0x0002CBAD File Offset: 0x0002ADAD
+	// Token: 0x060007A4 RID: 1956 RVA: 0x0000C414 File Offset: 0x0000A614
 	public bool IsAutoSpinning()
 	{
 		return this.autoSpin;
 	}
 
-	// Token: 0x060006FE RID: 1790 RVA: 0x0002CBB5 File Offset: 0x0002ADB5
+	// Token: 0x060007A5 RID: 1957 RVA: 0x0000C41C File Offset: 0x0000A61C
 	private void AutoSpinTopTextSet()
 	{
 		if (this.autoSpin)
@@ -141,7 +144,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.SetTopScreenText(Translation.Get("SLOT_TOP_SCREEN_MANUAL_MODE"), false);
 	}
 
-	// Token: 0x060006FF RID: 1791 RVA: 0x0002CBE4 File Offset: 0x0002ADE4
+	// Token: 0x060007A6 RID: 1958 RVA: 0x0003EBCC File Offset: 0x0003CDCC
 	public void TurnOn()
 	{
 		if (SlotMachineScript.IsTurnedOn())
@@ -153,7 +156,7 @@ public class SlotMachineScript : MonoBehaviour
 		GameplayData.RoundEarnedCoinsReset();
 		this.SetTopScreenText(Translation.Get("SLOT_TOP_SCREEN_LETS_GO_GAMBLING"), false);
 		this.onTopText_LoopsAround_Temp = (SlotMachineScript.Event)Delegate.Combine(this.onTopText_LoopsAround_Temp, new SlotMachineScript.Event(this.TopTextSet_666Or999_ChancesShow));
-		Sound.Play3D("SoundSlotMachineStartupJingle", this.Audio3dPosition, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundSlotMachineStartupJingle", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		this.myMenuController.OpenMe();
 		if (this.bootUpCoroutine == null)
 		{
@@ -167,7 +170,7 @@ public class SlotMachineScript : MonoBehaviour
 		onRoundBeing();
 	}
 
-	// Token: 0x06000700 RID: 1792 RVA: 0x0002CC98 File Offset: 0x0002AE98
+	// Token: 0x060007A7 RID: 1959 RVA: 0x0003EC80 File Offset: 0x0003CE80
 	public void TurnOff(bool forceTurnOff)
 	{
 		if (!SlotMachineScript.IsTurnedOn() && !forceTurnOff)
@@ -187,7 +190,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 		if (obj2 != null)
 		{
-			Sound.Play3D("SoundSlotMachineTurnOff", this.Audio3dPosition, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundSlotMachineTurnOff", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		if (obj2 != null)
 		{
@@ -199,13 +202,13 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000701 RID: 1793 RVA: 0x0002CD3C File Offset: 0x0002AF3C
+	// Token: 0x060007A8 RID: 1960 RVA: 0x0000C449 File Offset: 0x0000A649
 	private static bool HasGoldenKnob()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance.hasGoldenKnob;
 	}
 
-	// Token: 0x06000702 RID: 1794 RVA: 0x0002CD57 File Offset: 0x0002AF57
+	// Token: 0x060007A9 RID: 1961 RVA: 0x0000C464 File Offset: 0x0000A664
 	public static void SpinExtraCoinsAdd(BigInteger coins)
 	{
 		if (SlotMachineScript.instance == null)
@@ -215,13 +218,13 @@ public class SlotMachineScript : MonoBehaviour
 		SlotMachineScript.instance.spinExtraCoins += coins;
 	}
 
-	// Token: 0x06000703 RID: 1795 RVA: 0x0002CD7D File Offset: 0x0002AF7D
+	// Token: 0x060007AA RID: 1962 RVA: 0x0000C48A File Offset: 0x0000A68A
 	public static bool IsReplacingSymbols()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance.replaceVisibleSymbolsCallN > 0;
 	}
 
-	// Token: 0x06000704 RID: 1796 RVA: 0x0002CD9C File Offset: 0x0002AF9C
+	// Token: 0x060007AB RID: 1963 RVA: 0x0003ED24 File Offset: 0x0003CF24
 	public static void Symbol_ReplaceVisible(SymbolScript.Kind newKind, SymbolScript.Modifier modifier, int columnX, int lineY, bool pickRandomModifier)
 	{
 		if (SlotMachineScript.instance == null)
@@ -240,7 +243,7 @@ public class SlotMachineScript : MonoBehaviour
 		SlotMachineScript.instance.StartCoroutine(SlotMachineScript.instance._SymbolReplacementAnimationCoroutine(newKind, modifier, columnX, lineY, pickRandomModifier));
 	}
 
-	// Token: 0x06000705 RID: 1797 RVA: 0x0002CE12 File Offset: 0x0002B012
+	// Token: 0x060007AC RID: 1964 RVA: 0x0000C4A8 File Offset: 0x0000A6A8
 	private IEnumerator _SymbolReplacementAnimationCoroutine(SymbolScript.Kind newKind, SymbolScript.Modifier modifier, int columnX, int lineY, bool pickRandomModifier)
 	{
 		this.replaceVisibleSymbolsCallN++;
@@ -268,7 +271,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000706 RID: 1798 RVA: 0x0002CE48 File Offset: 0x0002B048
+	// Token: 0x060007AD RID: 1965 RVA: 0x0003ED9C File Offset: 0x0003CF9C
 	public static void Symbol_ReplaceAllVisible(SymbolScript.Kind kind, SymbolScript.Modifier modifier, bool pickRandomModifier)
 	{
 		for (int i = 0; i < 3; i++)
@@ -280,7 +283,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000707 RID: 1799 RVA: 0x0002CE78 File Offset: 0x0002B078
+	// Token: 0x060007AE RID: 1966 RVA: 0x0003EDCC File Offset: 0x0003CFCC
 	public static void Symbol_ReplaceAllVisibleSymbols(SymbolScript.Kind kindToReplace, SymbolScript.Kind newKind, SymbolScript.Modifier modifier, bool pickRandomModifier)
 	{
 		for (int i = 0; i < 3; i++)
@@ -295,7 +298,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000708 RID: 1800 RVA: 0x0002CEB8 File Offset: 0x0002B0B8
+	// Token: 0x060007AF RID: 1967 RVA: 0x0003EE0C File Offset: 0x0003D00C
 	public static int SymbolsCount(SymbolScript.Kind kind)
 	{
 		int num = 0;
@@ -312,13 +315,13 @@ public class SlotMachineScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000709 RID: 1801 RVA: 0x0002CEF5 File Offset: 0x0002B0F5
+	// Token: 0x060007B0 RID: 1968 RVA: 0x0000C4DC File Offset: 0x0000A6DC
 	public static bool IsFirstSpinOfRound()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._isFirstSpinOfRound;
 	}
 
-	// Token: 0x0600070A RID: 1802 RVA: 0x0002CF10 File Offset: 0x0002B110
+	// Token: 0x060007B1 RID: 1969 RVA: 0x0000C4F7 File Offset: 0x0000A6F7
 	public static void FirstSpinFlagReset_ToTrue()
 	{
 		if (SlotMachineScript.instance == null)
@@ -328,25 +331,25 @@ public class SlotMachineScript : MonoBehaviour
 		SlotMachineScript.instance._isFirstSpinOfRound = true;
 	}
 
-	// Token: 0x0600070B RID: 1803 RVA: 0x0002CF2B File Offset: 0x0002B12B
+	// Token: 0x060007B2 RID: 1970 RVA: 0x0000C512 File Offset: 0x0000A712
 	public static bool IsSpinning()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._state == SlotMachineScript.State.spinning;
 	}
 
-	// Token: 0x0600070C RID: 1804 RVA: 0x0002CF49 File Offset: 0x0002B149
+	// Token: 0x060007B3 RID: 1971 RVA: 0x0000C530 File Offset: 0x0000A730
 	public static bool IsSpinningBeforeCoinsReward()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._spinningBeforeCoinsReward;
 	}
 
-	// Token: 0x0600070D RID: 1805 RVA: 0x0002CF64 File Offset: 0x0002B164
+	// Token: 0x060007B4 RID: 1972 RVA: 0x0003EE4C File Offset: 0x0003D04C
 	public static bool Has666()
 	{
 		return !(SlotMachineScript.instance == null) && (SlotMachineScript.instance.lines[1][1] == SymbolScript.Kind.six && SlotMachineScript.instance.lines[1][2] == SymbolScript.Kind.six) && SlotMachineScript.instance.lines[1][3] == SymbolScript.Kind.six;
 	}
 
-	// Token: 0x0600070E RID: 1806 RVA: 0x0002CFB5 File Offset: 0x0002B1B5
+	// Token: 0x060007B5 RID: 1973 RVA: 0x0000C54B File Offset: 0x0000A74B
 	public static void RemoveVisible666()
 	{
 		SlotMachineScript.Symbol_ReplaceVisible(GameplayData.Symbol_GetRandom_BasedOnSymbolChance(), SymbolScript.Modifier.none, 1, 1, true);
@@ -354,19 +357,19 @@ public class SlotMachineScript : MonoBehaviour
 		SlotMachineScript.Symbol_ReplaceVisible(GameplayData.Symbol_GetRandom_BasedOnSymbolChance(), SymbolScript.Modifier.none, 3, 1, true);
 	}
 
-	// Token: 0x0600070F RID: 1807 RVA: 0x0002CFE1 File Offset: 0x0002B1E1
+	// Token: 0x060007B6 RID: 1974 RVA: 0x0000C577 File Offset: 0x0000A777
 	public static bool HasShown666()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._hasShown666;
 	}
 
-	// Token: 0x06000710 RID: 1808 RVA: 0x0002CFFC File Offset: 0x0002B1FC
+	// Token: 0x060007B7 RID: 1975 RVA: 0x0000C592 File Offset: 0x0000A792
 	public void _666RoundLostCoinsReset()
 	{
 		this._666RoundLostCoins = 0;
 	}
 
-	// Token: 0x06000711 RID: 1809 RVA: 0x0002D00A File Offset: 0x0002B20A
+	// Token: 0x060007B8 RID: 1976 RVA: 0x0000C5A0 File Offset: 0x0000A7A0
 	private void _666RoundLostCoinsAdd(BigInteger n)
 	{
 		if (n < 0L)
@@ -376,25 +379,25 @@ public class SlotMachineScript : MonoBehaviour
 		this._666RoundLostCoins += n;
 	}
 
-	// Token: 0x06000712 RID: 1810 RVA: 0x0002D030 File Offset: 0x0002B230
+	// Token: 0x060007B9 RID: 1977 RVA: 0x0000C5C6 File Offset: 0x0000A7C6
 	private BigInteger _666RoundLostCoinsGet()
 	{
 		return this._666RoundLostCoins;
 	}
 
-	// Token: 0x06000713 RID: 1811 RVA: 0x0002D038 File Offset: 0x0002B238
+	// Token: 0x060007BA RID: 1978 RVA: 0x0003EEA0 File Offset: 0x0003D0A0
 	public static bool Has999()
 	{
 		return !(SlotMachineScript.instance == null) && (SlotMachineScript.instance.lines[1][1] == SymbolScript.Kind.nine && SlotMachineScript.instance.lines[1][2] == SymbolScript.Kind.nine) && SlotMachineScript.instance.lines[1][3] == SymbolScript.Kind.nine;
 	}
 
-	// Token: 0x06000714 RID: 1812 RVA: 0x0002D089 File Offset: 0x0002B289
+	// Token: 0x060007BB RID: 1979 RVA: 0x0000C5CE File Offset: 0x0000A7CE
 	public static bool HasShown999()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._hasTransformedInto999;
 	}
 
-	// Token: 0x06000715 RID: 1813 RVA: 0x0002D0A4 File Offset: 0x0002B2A4
+	// Token: 0x060007BC RID: 1980 RVA: 0x0003EEF4 File Offset: 0x0003D0F4
 	public static bool HasJackpot()
 	{
 		if (SlotMachineScript.instance == null)
@@ -415,31 +418,31 @@ public class SlotMachineScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000716 RID: 1814 RVA: 0x0002D0FB File Offset: 0x0002B2FB
+	// Token: 0x060007BD RID: 1981 RVA: 0x0000C5E9 File Offset: 0x0000A7E9
 	public void ForceNextLuck_Set(int luck)
 	{
 		this.forcedLuckNext = luck;
 	}
 
-	// Token: 0x06000717 RID: 1815 RVA: 0x0002D104 File Offset: 0x0002B304
+	// Token: 0x060007BE RID: 1982 RVA: 0x0000C5F2 File Offset: 0x0000A7F2
 	public void ForceNextLuck_Add(int luck)
 	{
 		this.forcedLuckNext += luck;
 	}
 
-	// Token: 0x06000718 RID: 1816 RVA: 0x0002D114 File Offset: 0x0002B314
+	// Token: 0x060007BF RID: 1983 RVA: 0x0000C602 File Offset: 0x0000A802
 	public void ForceNextLuck_Reset()
 	{
 		this.forcedLuckNext = 0;
 	}
 
-	// Token: 0x06000719 RID: 1817 RVA: 0x0002D11D File Offset: 0x0002B31D
+	// Token: 0x060007C0 RID: 1984 RVA: 0x0000C60B File Offset: 0x0000A80B
 	public static bool IsAllSamePattern()
 	{
 		return !(SlotMachineScript.instance == null) && SlotMachineScript.instance._isAllSamePattern;
 	}
 
-	// Token: 0x0600071A RID: 1818 RVA: 0x0002D138 File Offset: 0x0002B338
+	// Token: 0x060007C1 RID: 1985 RVA: 0x0000C626 File Offset: 0x0000A826
 	public static PatternScript.Kind GetBiggestPatternScored()
 	{
 		if (SlotMachineScript.instance == null)
@@ -449,19 +452,19 @@ public class SlotMachineScript : MonoBehaviour
 		return SlotMachineScript.instance._biggestPatternScored;
 	}
 
-	// Token: 0x0600071B RID: 1819 RVA: 0x0002D153 File Offset: 0x0002B353
+	// Token: 0x060007C2 RID: 1986 RVA: 0x0000C641 File Offset: 0x0000A841
 	public SymbolScript.Kind Symbol_GetAtPosition(int columnX, int lineY)
 	{
 		return this.lines[lineY][columnX];
 	}
 
-	// Token: 0x0600071C RID: 1820 RVA: 0x0002D15F File Offset: 0x0002B35F
+	// Token: 0x060007C3 RID: 1987 RVA: 0x0000C64D File Offset: 0x0000A84D
 	public SymbolScript Symbol_GetInstanceAtPosition(int columnX, int lineY)
 	{
 		return SymbolScript.GetSymbolScript_ByScoringPosition(new Vector2Int(columnX, lineY));
 	}
 
-	// Token: 0x0600071D RID: 1821 RVA: 0x0002D170 File Offset: 0x0002B370
+	// Token: 0x060007C4 RID: 1988 RVA: 0x0003EF4C File Offset: 0x0003D14C
 	public void Spin()
 	{
 		if (this._state != SlotMachineScript.State.idle)
@@ -485,7 +488,7 @@ public class SlotMachineScript : MonoBehaviour
 		Controls.VibrationSet_PreferMax(this.player, 0.5f);
 	}
 
-	// Token: 0x0600071E RID: 1822 RVA: 0x0002D214 File Offset: 0x0002B414
+	// Token: 0x060007C5 RID: 1989 RVA: 0x0003EFF0 File Offset: 0x0003D1F0
 	public void StopSpin()
 	{
 		if (this.spinCoroutine != null)
@@ -510,7 +513,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600071F RID: 1823 RVA: 0x0002D2A7 File Offset: 0x0002B4A7
+	// Token: 0x060007C6 RID: 1990 RVA: 0x0000C65B File Offset: 0x0000A85B
 	private IEnumerator _SpinFailsafeCoroutine()
 	{
 		this.failSafeTimer = 40f;
@@ -545,13 +548,13 @@ public class SlotMachineScript : MonoBehaviour
 		goto IL_0104;
 	}
 
-	// Token: 0x06000720 RID: 1824 RVA: 0x0002D2B6 File Offset: 0x0002B4B6
+	// Token: 0x060007C7 RID: 1991 RVA: 0x0000C66A File Offset: 0x0000A86A
 	private void SpinFailsafeRestartTimer()
 	{
 		this.failSafeTimer = 40f;
 	}
 
-	// Token: 0x06000721 RID: 1825 RVA: 0x0002D2C3 File Offset: 0x0002B4C3
+	// Token: 0x060007C8 RID: 1992 RVA: 0x0000C677 File Offset: 0x0000A877
 	private IEnumerator _SpinCoroutine()
 	{
 		this.spinExtraCoins = 0;
@@ -794,8 +797,8 @@ public class SlotMachineScript : MonoBehaviour
 		{
 			lastWheelIsSlow = true;
 		}
-		Sound.Play3D("SoundSlotMachineRollingTick", this.Audio3dPosition, 10f, 1f, global::UnityEngine.Random.Range(0.95f, 1.05f), 1);
-		Sound.Play3D("SoundSlotMachineFanfare", this.Audio3dPosition, 10f, Mathf.Min(0.75f, (float)(GameplayData.SpinsLeftGet() + 1) * 0.075f), 1f, 1);
+		Sound.Play3D("SoundSlotMachineRollingTick", this.Audio3dPosition, 10f, 1f, global::UnityEngine.Random.Range(0.95f, 1.05f), AudioRolloffMode.Linear);
+		Sound.Play3D("SoundSlotMachineFanfare", this.Audio3dPosition, 10f, Mathf.Min(0.75f, (float)(GameplayData.SpinsLeftGet() + 1) * 0.075f), 1f, AudioRolloffMode.Linear);
 		int symbolsPerColumn = this._SymbolsSpawn(false, lastWheelIsSlow);
 		for (int num13 = 0; num13 < this.spinOffsetPerColumn.Length; num13++)
 		{
@@ -1215,32 +1218,32 @@ public class SlotMachineScript : MonoBehaviour
 			float num31 = 1f + (float)(jackpotsPerformed - 1) * 0.1f;
 			if (isJackpot)
 			{
-				Sound.Play3D("SoundSlotMachineJackpot", this.Audio3dPosition, 10f, 1f, num31, 1);
-				Sound.Play3D("SoundSlotMachineJackpotBell", this.Audio3dPosition, 10f, Mathf.Max(0f, 1f - (float)(jackpotsPerformed - 1) * 0.1f), 1f, 1);
+				Sound.Play3D("SoundSlotMachineJackpot", this.Audio3dPosition, 10f, 1f, num31, AudioRolloffMode.Linear);
+				Sound.Play3D("SoundSlotMachineJackpotBell", this.Audio3dPosition, 10f, Mathf.Max(0f, 1f - (float)(jackpotsPerformed - 1) * 0.1f), 1f, AudioRolloffMode.Linear);
 			}
 			else if (is666)
 			{
-				Sound.Play3D("SoundSlotMachineScored666", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSlotMachineScored666", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 			else if (is667)
 			{
-				Sound.Play3D("SoundSlotMachineScored999", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSlotMachineScored999", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 			else
 			{
 				if (hasJackpot)
 				{
-					Sound.Play3D("SoundSlotMachineScoredWithJackpot", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, 1);
+					Sound.Play3D("SoundSlotMachineScoredWithJackpot", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, AudioRolloffMode.Linear);
 				}
 				else
 				{
-					Sound.Play3D("SoundSlotMachineScored", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, 1);
+					Sound.Play3D("SoundSlotMachineScored", this.Audio3dPosition, 10f, 1f, scoredSoundPitch, AudioRolloffMode.Linear);
 				}
 				scoredSoundPitch = Mathf.Min(scoredSoundPitch + 0.1f, 1.6f);
 			}
 			if (isRepeatingPattern)
 			{
-				Sound.Play3D("SoundSlotMachineAgainScore", this.Audio3dPosition, 10f, 1f, againSoundPitch, 1);
+				Sound.Play3D("SoundSlotMachineAgainScore", this.Audio3dPosition, 10f, 1f, againSoundPitch, AudioRolloffMode.Linear);
 				againSoundPitch = Mathf.Min(againSoundPitch + 0.1f, 1.6f);
 			}
 			else
@@ -1282,15 +1285,15 @@ public class SlotMachineScript : MonoBehaviour
 			switch (patternInfos.patternKind)
 			{
 			case PatternScript.Kind.triangle:
-				Sound.Play3D("SoundSpecialPattern_Light", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSpecialPattern_Light", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				SlotMachineScript.ShowSpecialPatternImage(PatternScript.Kind.triangle);
 				break;
 			case PatternScript.Kind.triangleInverted:
-				Sound.Play3D("SoundSpecialPattern_Dark", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSpecialPattern_Dark", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				SlotMachineScript.ShowSpecialPatternImage(PatternScript.Kind.triangleInverted);
 				break;
 			case PatternScript.Kind.eye:
-				Sound.Play3D("SoundSpecialPattern_Mistery", this.Audio3dPosition, 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSpecialPattern_Mistery", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				SlotMachineScript.ShowSpecialPatternImage(PatternScript.Kind.eye);
 				break;
 			}
@@ -1656,7 +1659,7 @@ public class SlotMachineScript : MonoBehaviour
 						break;
 					}
 					scTxt.text = text2;
-					Sound.Play3D("SoundSlotMachineModifierScore", this.Audio3dPosition, 10f, 1f, num44, 1);
+					Sound.Play3D("SoundSlotMachineModifierScore", this.Audio3dPosition, 10f, 1f, num44, AudioRolloffMode.Linear);
 					Controls.VibrationSet_PreferMax(this.player, 0.25f);
 				}
 				scTxt.ForceMeshUpdate(false, false);
@@ -1772,7 +1775,7 @@ public class SlotMachineScript : MonoBehaviour
 					if (playLastPatternAnticipationSound && !lastPatternAnticipationSoundPlayed)
 					{
 						lastPatternAnticipationSoundPlayed = true;
-						Sound.Play3D("SoundSlotMachineLongStreakEndAnticipation", this.Audio3dPosition, 10f, 1f, 1f, 1);
+						Sound.Play3D("SoundSlotMachineLongStreakEndAnticipation", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 					}
 					if (jackpotsPerformed > 0)
 					{
@@ -1801,7 +1804,7 @@ public class SlotMachineScript : MonoBehaviour
 					CameraGame.Shake(num49);
 					if (isJackpot && playLastPatternAnticipationSound)
 					{
-						Sound.Play3D("SoundSlotMachineApplause", this.Audio3dPosition, 10f, 1f, 1f, 1);
+						Sound.Play3D("SoundSlotMachineApplause", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 						this.confettiHolder.SetActive(true);
 						timer = (num47 - 1f) / 2f;
 						timer = Mathf.Min(timer, 0.5f);
@@ -2250,7 +2253,7 @@ public class SlotMachineScript : MonoBehaviour
 				}
 				if (text3 == null)
 				{
-					Sound.Play3D("SoundCoinsMultipleFall", this.Audio3dPositionLow, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), 1);
+					Sound.Play3D("SoundCoinsMultipleFall", this.Audio3dPositionLow, 10f, 1f, global::UnityEngine.Random.Range(0.9f, 1.1f), AudioRolloffMode.Linear);
 				}
 				CoinVisualizerScript.ArrayCheckShow(this.coinsVisualizers, animCoinsRewardInt - 1, 0.05f, 0.01f, text3);
 				timer = 0.5f;
@@ -2261,7 +2264,7 @@ public class SlotMachineScript : MonoBehaviour
 				}
 				if (animCoinsRewardInt > 0)
 				{
-					Sound.Play3D("SoundInterestRetrieved", this.Audio3dPositionLow, 10f, 1f, 1f, 1);
+					Sound.Play3D("SoundInterestRetrieved", this.Audio3dPositionLow, 10f, 1f, 1f, AudioRolloffMode.Linear);
 				}
 				CoinVisualizerScript.HideAll(this.coinsVisualizers);
 				timer = 0.25f;
@@ -2292,7 +2295,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000722 RID: 1826 RVA: 0x0002D2D4 File Offset: 0x0002B4D4
+	// Token: 0x060007C9 RID: 1993 RVA: 0x0003F084 File Offset: 0x0003D284
 	private int _SymbolsSpawn(bool onlyTheDataOnes, bool lastWheelIsSlow)
 	{
 		int num = 0;
@@ -2347,7 +2350,7 @@ public class SlotMachineScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000723 RID: 1827 RVA: 0x0002D534 File Offset: 0x0002B734
+	// Token: 0x060007CA RID: 1994 RVA: 0x0003F2E4 File Offset: 0x0003D4E4
 	public SymbolScript Symbol_SpawnInstance(bool isScoringSymbol, SymbolScript.Kind kind, SymbolScript.Modifier modifier, int columnX, int lineY, bool pickRandomModifier)
 	{
 		global::UnityEngine.Vector3 vector = new global::UnityEngine.Vector3(0f, 0f, 100f);
@@ -2377,7 +2380,7 @@ public class SlotMachineScript : MonoBehaviour
 		return component;
 	}
 
-	// Token: 0x06000724 RID: 1828 RVA: 0x0002D5DF File Offset: 0x0002B7DF
+	// Token: 0x060007CB RID: 1995 RVA: 0x0000C686 File Offset: 0x0000A886
 	private IEnumerator WaitForTriggerAnimation()
 	{
 		yield return null;
@@ -2388,7 +2391,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000725 RID: 1829 RVA: 0x0002D5E8 File Offset: 0x0002B7E8
+	// Token: 0x060007CC RID: 1996 RVA: 0x0003F390 File Offset: 0x0003D590
 	private void PatternInfosResetPool()
 	{
 		for (int i = 0; i < this._patternInfos.Count; i++)
@@ -2397,7 +2400,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000726 RID: 1830 RVA: 0x0002D620 File Offset: 0x0002B820
+	// Token: 0x060007CD RID: 1997 RVA: 0x0003F3C8 File Offset: 0x0003D5C8
 	public void PatternInfoSetup(PatternScript.Kind _patternKind, BigInteger _coins, List<Vector2Int> _positionsToCopy)
 	{
 		SlotMachineScript.PatternInfos patternInfos = null;
@@ -2424,7 +2427,7 @@ public class SlotMachineScript : MonoBehaviour
 		patternInfos.Setup(_patternKind, _coins, _positionsToCopy);
 	}
 
-	// Token: 0x06000727 RID: 1831 RVA: 0x0002D6AC File Offset: 0x0002B8AC
+	// Token: 0x060007CE RID: 1998 RVA: 0x0003F454 File Offset: 0x0003D654
 	public SlotMachineScript.PatternInfos PatternInfosGetLastPattern()
 	{
 		for (int i = this._patternInfos.Count - 1; i >= 0; i--)
@@ -2437,7 +2440,7 @@ public class SlotMachineScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06000728 RID: 1832 RVA: 0x0002D6F4 File Offset: 0x0002B8F4
+	// Token: 0x060007CF RID: 1999 RVA: 0x0003F49C File Offset: 0x0003D69C
 	public List<SlotMachineScript.PatternInfos> GetPatternsEnabled()
 	{
 		this._PatInf_GetEnabledList.Clear();
@@ -2451,7 +2454,7 @@ public class SlotMachineScript : MonoBehaviour
 		return this._PatInf_GetEnabledList;
 	}
 
-	// Token: 0x06000729 RID: 1833 RVA: 0x0002D754 File Offset: 0x0002B954
+	// Token: 0x060007D0 RID: 2000 RVA: 0x0003F4FC File Offset: 0x0003D6FC
 	public List<SlotMachineScript.PatternInfos> GetPatternsOfKind(PatternScript.Kind patternKind)
 	{
 		this._PatInf_GetByKindList.Clear();
@@ -2465,7 +2468,7 @@ public class SlotMachineScript : MonoBehaviour
 		return this._PatInf_GetByKindList;
 	}
 
-	// Token: 0x0600072A RID: 1834 RVA: 0x0002D7C8 File Offset: 0x0002B9C8
+	// Token: 0x060007D1 RID: 2001 RVA: 0x0003F570 File Offset: 0x0003D770
 	public static int GetPatternsCount()
 	{
 		if (SlotMachineScript.instance == null)
@@ -2483,7 +2486,7 @@ public class SlotMachineScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600072B RID: 1835 RVA: 0x0002D81C File Offset: 0x0002BA1C
+	// Token: 0x060007D2 RID: 2002 RVA: 0x0003F5C4 File Offset: 0x0003D7C4
 	public static int GetPatternsCount_BySymbol(SymbolScript.Kind symbol)
 	{
 		if (SlotMachineScript.instance == null)
@@ -2501,13 +2504,13 @@ public class SlotMachineScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600072C RID: 1836 RVA: 0x0002D888 File Offset: 0x0002BA88
+	// Token: 0x060007D3 RID: 2003 RVA: 0x0000C68E File Offset: 0x0000A88E
 	private static bool PatternContainsPosition(SlotMachineScript.PatternInfos patternInfo, Vector2Int position)
 	{
 		return patternInfo != null && SlotMachineScript.ListContainsPosition(patternInfo.positions, position);
 	}
 
-	// Token: 0x0600072D RID: 1837 RVA: 0x0002D89C File Offset: 0x0002BA9C
+	// Token: 0x060007D4 RID: 2004 RVA: 0x0003F630 File Offset: 0x0003D830
 	private static bool ListContainsPosition(List<Vector2Int> listToCheck, Vector2Int position)
 	{
 		if (listToCheck == null)
@@ -2524,7 +2527,7 @@ public class SlotMachineScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600072E RID: 1838 RVA: 0x0002D8D1 File Offset: 0x0002BAD1
+	// Token: 0x060007D5 RID: 2005 RVA: 0x0000C6A1 File Offset: 0x0000A8A1
 	private IEnumerator PatternsCompute_Coroutine()
 	{
 		bool has666 = false;
@@ -2806,7 +2809,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600072F RID: 1839 RVA: 0x0002D8E0 File Offset: 0x0002BAE0
+	// Token: 0x060007D6 RID: 2006 RVA: 0x0003F668 File Offset: 0x0003D868
 	private bool PatternsAreAllTheSameOne(int patternsCount)
 	{
 		if (patternsCount == 0)
@@ -2826,7 +2829,7 @@ public class SlotMachineScript : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x06000730 RID: 1840 RVA: 0x0002D944 File Offset: 0x0002BB44
+	// Token: 0x060007D7 RID: 2007 RVA: 0x0003F6CC File Offset: 0x0003D8CC
 	private SymbolScript.Kind GetFirstSymbolOfMask(bool[][] patternMask, int x, int y, int COLUMNS_N, int LINES_N)
 	{
 		for (int i = 0; i < patternMask.Length; i++)
@@ -2841,7 +2844,7 @@ public class SlotMachineScript : MonoBehaviour
 		return SymbolScript.Kind.undefined;
 	}
 
-	// Token: 0x06000731 RID: 1841 RVA: 0x0002D980 File Offset: 0x0002BB80
+	// Token: 0x060007D8 RID: 2008 RVA: 0x0003F708 File Offset: 0x0003D908
 	private bool PatternMaskCompare(SymbolScript.Kind symbolKind, bool[][] patternMask, int x, int y, int COLUMNS_N, int LINES_N)
 	{
 		bool flag = true;
@@ -2868,7 +2871,7 @@ public class SlotMachineScript : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x06000732 RID: 1842 RVA: 0x0002D9F4 File Offset: 0x0002BBF4
+	// Token: 0x060007D9 RID: 2009 RVA: 0x0003F77C File Offset: 0x0003D97C
 	private string _PatternId_ComputeIdFromPositions(List<Vector2Int> positions)
 	{
 		string text = "";
@@ -2886,19 +2889,19 @@ public class SlotMachineScript : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x06000733 RID: 1843 RVA: 0x0002DA6D File Offset: 0x0002BC6D
+	// Token: 0x060007DA RID: 2010 RVA: 0x0000C6B0 File Offset: 0x0000A8B0
 	private void _PatternId_AddToList(string id)
 	{
 		this._antiduplicateIdsList.Add(id);
 	}
 
-	// Token: 0x06000734 RID: 1844 RVA: 0x0002DA7B File Offset: 0x0002BC7B
+	// Token: 0x060007DB RID: 2011 RVA: 0x0000C6BE File Offset: 0x0000A8BE
 	private bool _PatternId_IsAlreadyInList(string id)
 	{
 		return this._antiduplicateIdsList.Contains(id);
 	}
 
-	// Token: 0x06000735 RID: 1845 RVA: 0x0002DA8C File Offset: 0x0002BC8C
+	// Token: 0x060007DC RID: 2012 RVA: 0x0003F7F8 File Offset: 0x0003D9F8
 	private bool FirstTimeAddingThisPattern(List<Vector2Int> positions)
 	{
 		string text = this._PatternId_ComputeIdFromPositions(positions);
@@ -2910,19 +2913,19 @@ public class SlotMachineScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000736 RID: 1846 RVA: 0x0002DAB4 File Offset: 0x0002BCB4
+	// Token: 0x060007DD RID: 2013 RVA: 0x0000C6CC File Offset: 0x0000A8CC
 	private void PatternComputtaion_ResetResultVariables()
 	{
 		this._patternComputationResult_Coins = 0;
 	}
 
-	// Token: 0x06000737 RID: 1847 RVA: 0x0002DAC2 File Offset: 0x0002BCC2
+	// Token: 0x060007DE RID: 2014 RVA: 0x0000C6DA File Offset: 0x0000A8DA
 	private void PatternComputation_GetResults(out BigInteger coins)
 	{
 		coins = this._patternComputationResult_Coins;
 	}
 
-	// Token: 0x06000738 RID: 1848 RVA: 0x0002DAD0 File Offset: 0x0002BCD0
+	// Token: 0x060007DF RID: 2015 RVA: 0x0003F820 File Offset: 0x0003DA20
 	private int _RepetitionModifiersInsidePattern_GetCount(List<Vector2Int> positions)
 	{
 		int num = 0;
@@ -2937,7 +2940,7 @@ public class SlotMachineScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000739 RID: 1849 RVA: 0x0002DB2C File Offset: 0x0002BD2C
+	// Token: 0x060007E0 RID: 2016 RVA: 0x0003F87C File Offset: 0x0003DA7C
 	private static BigInteger _ComputePatternValue(PatternScript.Kind patternKind, SymbolScript.Kind symbolKind)
 	{
 		if (patternKind == PatternScript.Kind.undefined)
@@ -2976,7 +2979,7 @@ public class SlotMachineScript : MonoBehaviour
 		return bigInteger * bigInteger2 * bigInteger3 * bigInteger4 / 100;
 	}
 
-	// Token: 0x0600073A RID: 1850 RVA: 0x0002DBF8 File Offset: 0x0002BDF8
+	// Token: 0x060007E1 RID: 2017 RVA: 0x0003F948 File Offset: 0x0003DB48
 	public static SlotMachineScript.SensationalLevel GetPatternSensationalLevel(PatternScript.Kind pKind, SymbolScript.Kind symbolKind)
 	{
 		if (symbolKind == SymbolScript.Kind.six)
@@ -3150,19 +3153,19 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600073B RID: 1851 RVA: 0x0002DE70 File Offset: 0x0002C070
+	// Token: 0x060007E2 RID: 2018 RVA: 0x0003FBC0 File Offset: 0x0003DDC0
 	private void SpinWinSetText(BigInteger coins)
 	{
 		this.SpinWinText_StopIfAny();
 		this.spinWinScreenHolder.SetActive(true);
 		this.textSpinWin.text = Translation.Get("SLOT_MAIN_TOTAL_SPIN_WIN") + "\n" + coins.ToStringSmart();
-		Sound.Play3D("SoundSlotMachineSpinWin", this.Audio3dPosition, 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundSlotMachineSpinWin", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		this.bounceScript.SetBounceScale(0.015f);
 		Controls.VibrationSet_PreferMax(this.player, 0.25f);
 		this.spinWinTextCoroutine = base.StartCoroutine(this._SpinWinTextCoroutine());
 	}
 
-	// Token: 0x0600073C RID: 1852 RVA: 0x0002DF08 File Offset: 0x0002C108
+	// Token: 0x060007E3 RID: 2019 RVA: 0x0003FC58 File Offset: 0x0003DE58
 	private void SpinWinText_StopIfAny()
 	{
 		if (this.spinWinTextCoroutine != null)
@@ -3175,13 +3178,13 @@ public class SlotMachineScript : MonoBehaviour
 		Sound.Stop("SoundSlotMachineSpinWin", true);
 	}
 
-	// Token: 0x0600073D RID: 1853 RVA: 0x0002DF57 File Offset: 0x0002C157
+	// Token: 0x060007E4 RID: 2020 RVA: 0x0000C6E8 File Offset: 0x0000A8E8
 	public bool IsSpinWinTextPlaying()
 	{
 		return this.spinWinTextCoroutine != null;
 	}
 
-	// Token: 0x0600073E RID: 1854 RVA: 0x0002DF62 File Offset: 0x0002C162
+	// Token: 0x060007E5 RID: 2021 RVA: 0x0000C6F3 File Offset: 0x0000A8F3
 	private IEnumerator _SpinWinTextCoroutine()
 	{
 		float timer = 1f;
@@ -3194,7 +3197,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600073F RID: 1855 RVA: 0x0002DF74 File Offset: 0x0002C174
+	// Token: 0x060007E6 RID: 2022 RVA: 0x0003FCA8 File Offset: 0x0003DEA8
 	public TextMeshProUGUI GetScoreTextFromPool(string textStr, bool enable)
 	{
 		if (this.scoreTextsPool.Count == 0)
@@ -3217,7 +3220,7 @@ public class SlotMachineScript : MonoBehaviour
 		return textMeshProUGUI2;
 	}
 
-	// Token: 0x06000740 RID: 1856 RVA: 0x0002E02A File Offset: 0x0002C22A
+	// Token: 0x060007E7 RID: 2023 RVA: 0x0000C702 File Offset: 0x0000A902
 	public void ScoreTextDestroy(TextMeshProUGUI text)
 	{
 		this.scoreTextsActive.Remove(text);
@@ -3225,7 +3228,7 @@ public class SlotMachineScript : MonoBehaviour
 		text.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06000741 RID: 1857 RVA: 0x0002E051 File Offset: 0x0002C251
+	// Token: 0x060007E8 RID: 2024 RVA: 0x0000C729 File Offset: 0x0000A929
 	private IEnumerator BootUpCoroutine()
 	{
 		int num = GameplayMaster.SlotAnimationCoinsGet().CastToInt();
@@ -3253,7 +3256,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000742 RID: 1858 RVA: 0x0002E060 File Offset: 0x0002C260
+	// Token: 0x060007E9 RID: 2025 RVA: 0x0003FD60 File Offset: 0x0003DF60
 	private void Set_NoMoreSpins()
 	{
 		this._state = SlotMachineScript.State.noMoreCoins;
@@ -3270,7 +3273,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.noMoreCoinsCoroutine = base.StartCoroutine(this.NoMoreSpinsCoroutine());
 	}
 
-	// Token: 0x06000743 RID: 1859 RVA: 0x0002E0EE File Offset: 0x0002C2EE
+	// Token: 0x060007EA RID: 2026 RVA: 0x0000C738 File Offset: 0x0000A938
 	private IEnumerator NoMoreSpinsCoroutine()
 	{
 		this.textNoMoreCoins.enabled = true;
@@ -3307,7 +3310,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000744 RID: 1860 RVA: 0x0002E0FD File Offset: 0x0002C2FD
+	// Token: 0x060007EB RID: 2027 RVA: 0x0000C747 File Offset: 0x0000A947
 	private void Stop_NoMoreSpins()
 	{
 		if (this.noMoreCoinsCoroutine != null)
@@ -3319,7 +3322,8 @@ public class SlotMachineScript : MonoBehaviour
 		this.noMoreSpinsScreenHolder.SetActive(false);
 	}
 
-	// (get) Token: 0x06000745 RID: 1861 RVA: 0x0002E131 File Offset: 0x0002C331
+	// Token: 0x17000043 RID: 67
+	// (get) Token: 0x060007EC RID: 2028 RVA: 0x0000C77B File Offset: 0x0000A97B
 	private int TopScreenMaxChars
 	{
 		get
@@ -3332,7 +3336,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000746 RID: 1862 RVA: 0x0002E145 File Offset: 0x0002C345
+	// Token: 0x060007ED RID: 2029 RVA: 0x0000C78F File Offset: 0x0000A98F
 	public void SetTopScreenText(string text, bool flashWhite = false)
 	{
 		if (this.topScreenString == text)
@@ -3345,7 +3349,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.flashWhite = flashWhite;
 	}
 
-	// Token: 0x06000747 RID: 1863 RVA: 0x0002E180 File Offset: 0x0002C380
+	// Token: 0x060007EE RID: 2030 RVA: 0x0003FDF0 File Offset: 0x0003DFF0
 	private void TopTextUpdate()
 	{
 		if (!this.flashWhite)
@@ -3419,14 +3423,14 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000748 RID: 1864 RVA: 0x0002E3E8 File Offset: 0x0002C5E8
+	// Token: 0x060007EF RID: 2031 RVA: 0x00040058 File Offset: 0x0003E258
 	private void TopTextSet_BetMultiplier_DEPRECATED()
 	{
 		BigInteger bigInteger = GameplayData.AllSymbolsMultiplierGet(true) * GameplayData.AllPatternsMultiplierGet(true);
 		this.SetTopScreenText("X" + bigInteger.ToStringSmart(), false);
 	}
 
-	// Token: 0x06000749 RID: 1865 RVA: 0x0002E420 File Offset: 0x0002C620
+	// Token: 0x060007F0 RID: 2032 RVA: 0x00040090 File Offset: 0x0003E290
 	public void TopTextSet_666Or999_ChancesShow()
 	{
 		if (!(GameplayData.DebtIndexGet() < GameplayData.SixSixSix_GetMinimumDebtIndex()))
@@ -3442,13 +3446,13 @@ public class SlotMachineScript : MonoBehaviour
 		this.TopTextSet_Spin();
 	}
 
-	// Token: 0x0600074A RID: 1866 RVA: 0x0002E482 File Offset: 0x0002C682
+	// Token: 0x060007F1 RID: 2033 RVA: 0x0000C7C7 File Offset: 0x0000A9C7
 	private void TopTextSet_Spin()
 	{
 		this.SetTopScreenText(Translation.Get("SLOT_TOP_SCREEN_SPIN"), false);
 	}
 
-	// Token: 0x0600074B RID: 1867 RVA: 0x0002E498 File Offset: 0x0002C698
+	// Token: 0x060007F2 RID: 2034 RVA: 0x000400F4 File Offset: 0x0003E2F4
 	public void TopTextSet_RoundsOverMaxRounds()
 	{
 		int num = GameplayData.RoundsOfDeadline_PlayedGet();
@@ -3463,7 +3467,7 @@ public class SlotMachineScript : MonoBehaviour
 		}), false);
 	}
 
-	// Token: 0x0600074C RID: 1868 RVA: 0x0002E4F8 File Offset: 0x0002C6F8
+	// Token: 0x060007F3 RID: 2035 RVA: 0x00040154 File Offset: 0x0003E354
 	public void TopTextSet_BetCost(bool forceUpdate)
 	{
 		int hypotehticalMaxSpinsBuyable = GameplayData.GetHypotehticalMaxSpinsBuyable();
@@ -3489,7 +3493,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.betCostOld = bigInteger;
 	}
 
-	// Token: 0x0600074D RID: 1869 RVA: 0x0002E5B4 File Offset: 0x0002C7B4
+	// Token: 0x060007F4 RID: 2036 RVA: 0x0000C7DA File Offset: 0x0000A9DA
 	private void UpdateTopText_BetCost()
 	{
 		if (this._state == SlotMachineScript.State.off)
@@ -3498,7 +3502,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600074E RID: 1870 RVA: 0x0002E5C8 File Offset: 0x0002C7C8
+	// Token: 0x060007F5 RID: 2037 RVA: 0x00040210 File Offset: 0x0003E410
 	private void EffectsInitialization()
 	{
 		this.effect_LeverSparks.SetActive(false);
@@ -3529,24 +3533,24 @@ public class SlotMachineScript : MonoBehaviour
 		this.JackpotGalaxyReset();
 	}
 
-	// Token: 0x0600074F RID: 1871 RVA: 0x0002E683 File Offset: 0x0002C883
+	// Token: 0x060007F6 RID: 2038 RVA: 0x0000C7EB File Offset: 0x0000A9EB
 	private void EffectsUpdate()
 	{
 		this.BurningLevelAnimationUpdate();
 	}
 
-	// Token: 0x06000750 RID: 1872 RVA: 0x0002E68C File Offset: 0x0002C88C
+	// Token: 0x060007F7 RID: 2039 RVA: 0x000402CC File Offset: 0x0003E4CC
 	public static void EffectPlay_LeverSparks()
 	{
 		if (SlotMachineScript.instance == null)
 		{
 			return;
 		}
-		Sound.Play3D("SoundSpark", SlotMachineScript.instance.effect_LeverSparks.transform.position, 5f, 1f, 1f, 1);
+		Sound.Play3D("SoundSpark", SlotMachineScript.instance.effect_LeverSparks.transform.position, 5f, 1f, 1f, AudioRolloffMode.Linear);
 		SlotMachineScript.instance.effect_LeverSparks.SetActive(true);
 	}
 
-	// Token: 0x06000751 RID: 1873 RVA: 0x0002E6E8 File Offset: 0x0002C8E8
+	// Token: 0x060007F8 RID: 2040 RVA: 0x00040328 File Offset: 0x0003E528
 	public static void ShowSpecialPatternImage(PatternScript.Kind patternKind)
 	{
 		if (SlotMachineScript.instance.specialPatternImageCoroutine != null)
@@ -3582,7 +3586,7 @@ public class SlotMachineScript : MonoBehaviour
 		SlotMachineScript.instance.specialPatternImageCoroutine = SlotMachineScript.instance.StartCoroutine(SlotMachineScript.instance.SpecialPatternImageCoroutine(spriteRenderer));
 	}
 
-	// Token: 0x06000752 RID: 1874 RVA: 0x0002E830 File Offset: 0x0002CA30
+	// Token: 0x060007F9 RID: 2041 RVA: 0x0000C7F3 File Offset: 0x0000A9F3
 	private IEnumerator SpecialPatternImageCoroutine(SpriteRenderer choosenSpriteRenderer)
 	{
 		SlotMachineScript.instance.specialPatternImagesHolder.gameObject.SetActive(true);
@@ -3604,14 +3608,14 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000753 RID: 1875 RVA: 0x0002E846 File Offset: 0x0002CA46
+	// Token: 0x060007FA RID: 2042 RVA: 0x0000C809 File Offset: 0x0000AA09
 	private void SpecialPatternImageReset()
 	{
 		this.specialPatternImageCoroutine = null;
 		SlotMachineScript.instance.specialPatternImagesHolder.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06000754 RID: 1876 RVA: 0x0002E864 File Offset: 0x0002CA64
+	// Token: 0x060007FB RID: 2043 RVA: 0x00040470 File Offset: 0x0003E670
 	private void JackpotGlowShow(int particlesIntensity_0To2)
 	{
 		if (this.shrinkCoroutine != null)
@@ -3621,6 +3625,10 @@ public class SlotMachineScript : MonoBehaviour
 		}
 		this.jackpotGlowHolder.SetActive(true);
 		this.jackpotGlowScaler.localScale = global::UnityEngine.Vector3.one;
+		if (Data.settings.flashingLightsReducedEnabled)
+		{
+			particlesIntensity_0To2 = 0;
+		}
 		for (int i = 0; i < this.jackpotGlowParticleHolders.Length; i++)
 		{
 			bool flag = i <= particlesIntensity_0To2;
@@ -3628,7 +3636,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000755 RID: 1877 RVA: 0x0002E8D1 File Offset: 0x0002CAD1
+	// Token: 0x060007FC RID: 2044 RVA: 0x0000C827 File Offset: 0x0000AA27
 	private void JackpotGlowShrink()
 	{
 		if (this.shrinkCoroutine != null)
@@ -3638,7 +3646,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.shrinkCoroutine = base.StartCoroutine(this.JackpotGlowShrinkCoroutine());
 	}
 
-	// Token: 0x06000756 RID: 1878 RVA: 0x0002E8EE File Offset: 0x0002CAEE
+	// Token: 0x060007FD RID: 2045 RVA: 0x0000C844 File Offset: 0x0000AA44
 	private IEnumerator JackpotGlowShrinkCoroutine()
 	{
 		while (this.jackpotGlowScaler.localScale.z > 0.1f)
@@ -3651,7 +3659,7 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000757 RID: 1879 RVA: 0x0002E8FD File Offset: 0x0002CAFD
+	// Token: 0x060007FE RID: 2046 RVA: 0x0000C853 File Offset: 0x0000AA53
 	private IEnumerator JackpotGlowVibration()
 	{
 		float falloffValue = 1f;
@@ -3664,21 +3672,21 @@ public class SlotMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000758 RID: 1880 RVA: 0x0002E90C File Offset: 0x0002CB0C
+	// Token: 0x060007FF RID: 2047 RVA: 0x0000C862 File Offset: 0x0000AA62
 	private void JackpotLightReset()
 	{
 		this.jackpotLight.intensity = 2f;
 		this.jackpotLight.enabled = false;
 	}
 
-	// Token: 0x06000759 RID: 1881 RVA: 0x0002E92A File Offset: 0x0002CB2A
+	// Token: 0x06000800 RID: 2048 RVA: 0x0000C880 File Offset: 0x0000AA80
 	private void JackpotLightSet(float intensity)
 	{
 		this.jackpotLight.intensity = intensity;
 		this.jackpotLight.enabled = true;
 	}
 
-	// Token: 0x0600075A RID: 1882 RVA: 0x0002E944 File Offset: 0x0002CB44
+	// Token: 0x06000801 RID: 2049 RVA: 0x000404EC File Offset: 0x0003E6EC
 	public void AllArroundSparksSet(int repeatN)
 	{
 		repeatN = Mathf.Clamp(repeatN, 0, this.allArroundSparks.Length);
@@ -3688,7 +3696,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075B RID: 1883 RVA: 0x0002E989 File Offset: 0x0002CB89
+	// Token: 0x06000802 RID: 2050 RVA: 0x0000C89A File Offset: 0x0000AA9A
 	private Material[] BurningLevelGetMaterials_Slot()
 	{
 		if (SlotMachineScript.HasGoldenKnob())
@@ -3698,7 +3706,7 @@ public class SlotMachineScript : MonoBehaviour
 		return this.materialBurningSlotMachine;
 	}
 
-	// Token: 0x0600075C RID: 1884 RVA: 0x0002E99F File Offset: 0x0002CB9F
+	// Token: 0x06000803 RID: 2051 RVA: 0x0000C8B0 File Offset: 0x0000AAB0
 	private Material[] BurningLevelGetMaterials_Knob()
 	{
 		if (SlotMachineScript.HasGoldenKnob())
@@ -3708,7 +3716,7 @@ public class SlotMachineScript : MonoBehaviour
 		return this.materialBurningKnob;
 	}
 
-	// Token: 0x0600075D RID: 1885 RVA: 0x0002E9B8 File Offset: 0x0002CBB8
+	// Token: 0x06000804 RID: 2052 RVA: 0x00040534 File Offset: 0x0003E734
 	private void BurningLevelAnimationUpdate()
 	{
 		this._burningLevelAnimationTimer -= Tick.Time;
@@ -3736,7 +3744,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075E RID: 1886 RVA: 0x0002EAC4 File Offset: 0x0002CCC4
+	// Token: 0x06000805 RID: 2053 RVA: 0x00040640 File Offset: 0x0003E840
 	public void BurningLevelSet(BigInteger currentSpinCoins)
 	{
 		BigInteger bigInteger = GameplayData.DebtGet();
@@ -3804,7 +3812,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075F RID: 1887 RVA: 0x0002EC0C File Offset: 0x0002CE0C
+	// Token: 0x06000806 RID: 2054 RVA: 0x00040788 File Offset: 0x0003E988
 	public void BurningLevelSteamOff()
 	{
 		if (this._burningLevel > 0)
@@ -3815,7 +3823,7 @@ public class SlotMachineScript : MonoBehaviour
 				this.steamOffParticles[i].SetActive(flag);
 			}
 			FlashScreen.SpawnCamera(Color.white, 0.5f, 2f, CameraGame.firstInstance.myCamera, 0.5f);
-			Sound.Play3D("SoundSlotMachineSteamOff", this.Audio3dPosition, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundSlotMachineSteamOff", this.Audio3dPosition, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		GameObject[] array = this.steamBurningParticles;
 		for (int j = 0; j < array.Length; j++)
@@ -3828,7 +3836,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.meshRendererLever.sharedMaterial = this.BurningLevelGetMaterials_Slot()[this._burningLevel];
 	}
 
-	// Token: 0x06000760 RID: 1888 RVA: 0x0002ECF4 File Offset: 0x0002CEF4
+	// Token: 0x06000807 RID: 2055 RVA: 0x00040870 File Offset: 0x0003EA70
 	public void JackpotGalaxyReset()
 	{
 		for (int i = 0; i < this.jackpotGalaxyParticles.Length; i++)
@@ -3837,9 +3845,13 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000761 RID: 1889 RVA: 0x0002ED24 File Offset: 0x0002CF24
+	// Token: 0x06000808 RID: 2056 RVA: 0x000408A0 File Offset: 0x0003EAA0
 	public void JackpotGalaxySetLevel(int level0To7)
 	{
+		if (Data.settings.flashingLightsReducedEnabled)
+		{
+			level0To7 = 0;
+		}
 		level0To7 = Mathf.Clamp(level0To7, 0, 7);
 		if (level0To7 <= 0)
 		{
@@ -3851,7 +3863,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000762 RID: 1890 RVA: 0x0002ED60 File Offset: 0x0002CF60
+	// Token: 0x06000809 RID: 2057 RVA: 0x000408EC File Offset: 0x0003EAEC
 	public void PlayInsertCoinAnimation(float pitchMod)
 	{
 		this.insertCoinHolder.SetLocalZ(1f);
@@ -3860,7 +3872,7 @@ public class SlotMachineScript : MonoBehaviour
 		Controls.VibrationSet_PreferMax(this.player, 0.25f + pitchMod);
 	}
 
-	// Token: 0x06000763 RID: 1891 RVA: 0x0002EDAC File Offset: 0x0002CFAC
+	// Token: 0x0600080A RID: 2058 RVA: 0x00040938 File Offset: 0x0003EB38
 	private void Awake()
 	{
 		SlotMachineScript.instance = this;
@@ -3877,7 +3889,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000764 RID: 1892 RVA: 0x0002EE60 File Offset: 0x0002D060
+	// Token: 0x0600080B RID: 2059 RVA: 0x000409EC File Offset: 0x0003EBEC
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -3908,7 +3920,7 @@ public class SlotMachineScript : MonoBehaviour
 		this.goldenKnobLight.enabled = this.hasGoldenKnob;
 	}
 
-	// Token: 0x06000765 RID: 1893 RVA: 0x0002EF44 File Offset: 0x0002D144
+	// Token: 0x0600080C RID: 2060 RVA: 0x00040AD0 File Offset: 0x0003ECD0
 	private void OnDestroy()
 	{
 		if (SlotMachineScript.instance == this)
@@ -3923,7 +3935,7 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000766 RID: 1894 RVA: 0x0002EFB4 File Offset: 0x0002D1B4
+	// Token: 0x0600080D RID: 2061 RVA: 0x00040B40 File Offset: 0x0003ED40
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -4057,202 +4069,301 @@ public class SlotMachineScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040006C5 RID: 1733
 	public static SlotMachineScript instance = null;
 
+	// Token: 0x040006C6 RID: 1734
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040006C7 RID: 1735
 	private const float INSET_COIN_LERP_SPEED = 20f;
 
+	// Token: 0x040006C8 RID: 1736
 	private const float TOP_SCREEN_UPDATE_INTERVAL = 0.25f;
 
+	// Token: 0x040006C9 RID: 1737
 	private const float AUTO_SPIN_DELAY = 0.5f;
 
+	// Token: 0x040006CA RID: 1738
 	private const float SPIN_ANIMATION_SPEED = 0.5f;
 
+	// Token: 0x040006CB RID: 1739
 	public AnimationCurve spinAnimationCurve;
 
+	// Token: 0x040006CC RID: 1740
 	private const int ANIMATION_REPEAT_TIMES_MODIFIER = 2;
 
+	// Token: 0x040006CD RID: 1741
 	private const int ANIMATION_REPEAT_TIMES_JACKPOT = 3;
 
+	// Token: 0x040006CE RID: 1742
 	private const int ANIMATION_REPEAT_TIMES_666 = 3;
 
+	// Token: 0x040006CF RID: 1743
 	private const int ANIMATION_REPEAT_TIMES_999 = 3;
 
+	// Token: 0x040006D0 RID: 1744
 	private const float SLOT_MACHINE_ANIM_SPEED_INCREMENT = 0.125f;
 
+	// Token: 0x040006D1 RID: 1745
 	private const float MAX_ANIM_SPEED = 1.75f;
 
+	// Token: 0x040006D2 RID: 1746
 	private const int MAX_LINES = 3;
 
+	// Token: 0x040006D3 RID: 1747
 	private const int MAX_COLUMNS = 5;
 
+	// Token: 0x040006D4 RID: 1748
 	private readonly global::UnityEngine.Vector2 COLUMNS_END_POS = new global::UnityEngine.Vector2(0f, 0f);
 
+	// Token: 0x040006D5 RID: 1749
 	private const float COLUMN_VERTICAL_UNIT = 0.5f;
 
+	// Token: 0x040006D6 RID: 1750
 	private const float LINE_HORIZONTAL_UNIT = 0.275f;
 
+	// Token: 0x040006D7 RID: 1751
 	private const int GARBAGE_SYMBOLS_PER_COLUMN = 24;
 
+	// Token: 0x040006D8 RID: 1752
 	private const int GARBAGE_SYMBOLS_PER_COLUMN_EXTRA = 12;
 
+	// Token: 0x040006D9 RID: 1753
 	private const float LUCK_ELEMENT_COPIES_ANOTHER = 0.0025f;
 
+	// Token: 0x040006DA RID: 1754
 	private const int INITIAL_ROUNDS_OF_LUCK_BONUS = 31;
 
+	// Token: 0x040006DB RID: 1755
 	public const int JACKPOT_LUCK_BONUS = 15;
 
+	// Token: 0x040006DC RID: 1756
 	private const int SCORE_SQUARES_WIDTH = 5;
 
+	// Token: 0x040006DD RID: 1757
 	private const float BOUNCE_MINIMUM = 0.00175f;
 
+	// Token: 0x040006DE RID: 1758
 	private const float BOUNCE_REALLY_SMALL = 0.0035f;
 
+	// Token: 0x040006DF RID: 1759
 	private const float BOUNCE_SMALL = 0.0075f;
 
+	// Token: 0x040006E0 RID: 1760
 	private const float BOUNCE_MEDIUM = 0.015f;
 
+	// Token: 0x040006E1 RID: 1761
 	private const float BOUNCE_HIGH = 0.025f;
 
+	// Token: 0x040006E2 RID: 1762
 	private static Color C_KNOB_NO_EMISSION = new Color(0f, 0f, 0f, 1f);
 
+	// Token: 0x040006E3 RID: 1763
 	private static Color C_KNOB_FULL_EMISSION = new Color(0.5f, 0.25f, 0f, 1f);
 
+	// Token: 0x040006E4 RID: 1764
 	private Controls.PlayerExt player;
 
+	// Token: 0x040006E5 RID: 1765
 	public DiegeticMenuController myMenuController;
 
+	// Token: 0x040006E6 RID: 1766
 	public DiegeticMenuElement leverMenuElement;
 
+	// Token: 0x040006E7 RID: 1767
 	public DiegeticMenuElement redButtonElement;
 
+	// Token: 0x040006E8 RID: 1768
 	public Transform insertCoinHolder;
 
+	// Token: 0x040006E9 RID: 1769
 	public TextMeshProUGUI ledTextTop;
 
+	// Token: 0x040006EA RID: 1770
 	public BounceScript bounceScript;
 
+	// Token: 0x040006EB RID: 1771
 	public GameObject gameUiHolder;
 
+	// Token: 0x040006EC RID: 1772
 	public RawImage mainScreenRendererImage;
 
+	// Token: 0x040006ED RID: 1773
 	public GameObject screenCollider;
 
+	// Token: 0x040006EE RID: 1774
 	public GameObject noMoreSpinsScreenHolder;
 
+	// Token: 0x040006EF RID: 1775
 	public TextMeshProUGUI textNoMoreCoins;
 
+	// Token: 0x040006F0 RID: 1776
 	public GameObject spinWinScreenHolder;
 
+	// Token: 0x040006F1 RID: 1777
 	public TextMeshProUGUI textSpinWin;
 
+	// Token: 0x040006F2 RID: 1778
 	public RawImage titleScreenRawImage;
 
+	// Token: 0x040006F3 RID: 1779
 	private Camera slotCamera;
 
+	// Token: 0x040006F4 RID: 1780
 	public Canvas slotMachineCanvas;
 
+	// Token: 0x040006F5 RID: 1781
 	public RectTransform[] columnsRectTr;
 
+	// Token: 0x040006F6 RID: 1782
 	private CoinVisualizerScript[] coinsVisualizers;
 
+	// Token: 0x040006F7 RID: 1783
 	public ButtonVisualizerScript leverButtonVisualizer;
 
+	// Token: 0x040006F8 RID: 1784
 	public TextMeshProUGUI templateSlotScoreText;
 
+	// Token: 0x040006F9 RID: 1785
 	public Material fontMaterial_ScoreYellow;
 
+	// Token: 0x040006FA RID: 1786
 	public Material fontMaterial_ScoreOrange;
 
+	// Token: 0x040006FB RID: 1787
 	public GameObject[] scoreSquares;
 
+	// Token: 0x040006FC RID: 1788
 	public RectTransform[] replacementSquaresRectTr;
 
+	// Token: 0x040006FD RID: 1789
 	private global::UnityEngine.Vector2[] replacementSquaresStartingAnchoredPosition;
 
+	// Token: 0x040006FE RID: 1790
 	public GameObject effect_LeverSparks;
 
+	// Token: 0x040006FF RID: 1791
 	public Transform specialPatternImagesHolder;
 
+	// Token: 0x04000700 RID: 1792
 	public SpriteRenderer specialPSpriteRend_Eye;
 
+	// Token: 0x04000701 RID: 1793
 	public SpriteRenderer specialPSpriteRend_Above;
 
+	// Token: 0x04000702 RID: 1794
 	public SpriteRenderer specialPSpriteRend_Below;
 
+	// Token: 0x04000703 RID: 1795
 	public GameObject jackpotGlowHolder;
 
+	// Token: 0x04000704 RID: 1796
 	public Transform jackpotGlowScaler;
 
+	// Token: 0x04000705 RID: 1797
 	public GameObject[] jackpotGlowParticleHolders;
 
+	// Token: 0x04000706 RID: 1798
 	public Light jackpotLight;
 
+	// Token: 0x04000707 RID: 1799
 	public GameObject confettiHolder;
 
+	// Token: 0x04000708 RID: 1800
 	public GameObject[] allArroundSparks;
 
+	// Token: 0x04000709 RID: 1801
 	public MeshRenderer meshRendererSlotMachine;
 
+	// Token: 0x0400070A RID: 1802
 	public MeshRenderer meshRendererLever;
 
+	// Token: 0x0400070B RID: 1803
 	public Material[] materialBurningSlotMachine;
 
+	// Token: 0x0400070C RID: 1804
 	public Material[] materialBurningSlotMachine_GoldenKnobAlt;
 
+	// Token: 0x0400070D RID: 1805
 	private Material[] materialBurningKnob;
 
+	// Token: 0x0400070E RID: 1806
 	private Material[] materialBurningKnob_GoldenKnobAlt;
 
+	// Token: 0x0400070F RID: 1807
 	public GameObject[] steamOffParticles;
 
+	// Token: 0x04000710 RID: 1808
 	public GameObject[] steamBurningParticles;
 
+	// Token: 0x04000711 RID: 1809
 	public Light goldenKnobLight;
 
+	// Token: 0x04000712 RID: 1810
 	public GameObject[] jackpotGalaxyParticles;
 
+	// Token: 0x04000713 RID: 1811
 	private global::UnityEngine.Vector3 audio3dOffset = new global::UnityEngine.Vector3(0f, 1f, 0f);
 
+	// Token: 0x04000714 RID: 1812
 	private SlotMachineScript.State _state;
 
+	// Token: 0x04000715 RID: 1813
 	private bool autoSpin;
 
+	// Token: 0x04000716 RID: 1814
 	private float autoSpinDelay = 0.5f;
 
+	// Token: 0x04000717 RID: 1815
 	private float titleScreenTimer;
 
+	// Token: 0x04000718 RID: 1816
 	private bool? menuControllerEnabled_Old;
 
+	// Token: 0x04000719 RID: 1817
 	private const string MENU_DISABLED_REASON = "smd";
 
+	// Token: 0x0400071A RID: 1818
 	private bool hasGoldenKnob;
 
+	// Token: 0x0400071B RID: 1819
 	private BigInteger spinExtraCoins = 0;
 
+	// Token: 0x0400071C RID: 1820
 	private bool _legalToReplaceSymbols;
 
+	// Token: 0x0400071D RID: 1821
 	private int replaceVisibleSymbolsCallN;
 
+	// Token: 0x0400071E RID: 1822
 	private bool _isFirstSpinOfRound = true;
 
+	// Token: 0x0400071F RID: 1823
 	private bool _spinningBeforeCoinsReward;
 
+	// Token: 0x04000720 RID: 1824
 	private bool _hasShown666;
 
+	// Token: 0x04000721 RID: 1825
 	private BigInteger _666RoundLostCoins = 0;
 
+	// Token: 0x04000722 RID: 1826
 	private bool _666GotCoinsRestoredFromJackpot;
 
+	// Token: 0x04000723 RID: 1827
 	private bool _hasTransformedInto999;
 
+	// Token: 0x04000724 RID: 1828
 	private int forcedLuckNext;
 
+	// Token: 0x04000725 RID: 1829
 	private bool _isAllSamePattern;
 
+	// Token: 0x04000726 RID: 1830
 	private PatternScript.Kind _biggestPatternScored = PatternScript.Kind.undefined;
 
+	// Token: 0x04000727 RID: 1831
 	private SymbolScript.Kind[][] lines = new SymbolScript.Kind[][]
 	{
 		new SymbolScript.Kind[5],
@@ -4260,6 +4371,7 @@ public class SlotMachineScript : MonoBehaviour
 		new SymbolScript.Kind[5]
 	};
 
+	// Token: 0x04000728 RID: 1832
 	private SymbolScript.Kind[][] linesOld = new SymbolScript.Kind[][]
 	{
 		new SymbolScript.Kind[5],
@@ -4267,134 +4379,198 @@ public class SlotMachineScript : MonoBehaviour
 		new SymbolScript.Kind[5]
 	};
 
+	// Token: 0x04000729 RID: 1833
 	private float[] spinOffsetPerColumn = new float[5];
 
+	// Token: 0x0400072A RID: 1834
 	private Coroutine spinCoroutine;
 
+	// Token: 0x0400072B RID: 1835
 	private Coroutine spinFailsafeCoroutine;
 
+	// Token: 0x0400072C RID: 1836
 	private List<Vector2Int> _luckPositions = new List<Vector2Int>();
 
+	// Token: 0x0400072D RID: 1837
 	private List<Vector2Int> _aureolaChangedPositions = new List<Vector2Int>();
 
+	// Token: 0x0400072E RID: 1838
 	private const float FAILSAFE_RESET_TIMER_VALUE = 40f;
 
+	// Token: 0x0400072F RID: 1839
 	private float failSafeTimer = 40f;
 
+	// Token: 0x04000730 RID: 1840
 	private List<Transform> elementsInColumn = new List<Transform>(39);
 
+	// Token: 0x04000731 RID: 1841
 	private List<SymbolScript.Modifier> _modifiersToAnimate_Temp = new List<SymbolScript.Modifier>(4);
 
+	// Token: 0x04000732 RID: 1842
 	private List<SlotMachineScript.PatternInfos> _patternInfos = new List<SlotMachineScript.PatternInfos>(8);
 
+	// Token: 0x04000733 RID: 1843
 	private List<SlotMachineScript.PatternInfos> _PatInf_GetEnabledList = new List<SlotMachineScript.PatternInfos>(8);
 
+	// Token: 0x04000734 RID: 1844
 	private List<SlotMachineScript.PatternInfos> _PatInf_GetByKindList = new List<SlotMachineScript.PatternInfos>(8);
 
+	// Token: 0x04000735 RID: 1845
 	private List<Vector2Int> _patternCordsListTemp = new List<Vector2Int>(16);
 
+	// Token: 0x04000736 RID: 1846
 	private List<string> _antiduplicateIdsList = new List<string>(16);
 
+	// Token: 0x04000737 RID: 1847
 	private StringBuilder _pIdSb = new StringBuilder(64);
 
+	// Token: 0x04000738 RID: 1848
 	private BigInteger _patternComputationResult_Coins = 0;
 
+	// Token: 0x04000739 RID: 1849
 	private Coroutine spinWinTextCoroutine;
 
+	// Token: 0x0400073A RID: 1850
 	private float scoreTextFlashingTimer;
 
+	// Token: 0x0400073B RID: 1851
 	[NonSerialized]
 	public List<TextMeshProUGUI> scoreTextsPool = new List<TextMeshProUGUI>();
 
+	// Token: 0x0400073C RID: 1852
 	[NonSerialized]
 	public List<TextMeshProUGUI> scoreTextsActive = new List<TextMeshProUGUI>();
 
+	// Token: 0x0400073D RID: 1853
 	private Coroutine bootUpCoroutine;
 
+	// Token: 0x0400073E RID: 1854
 	private Coroutine noMoreCoinsCoroutine;
 
+	// Token: 0x0400073F RID: 1855
 	private bool flashWhite;
 
+	// Token: 0x04000740 RID: 1856
 	private float flashTimer;
 
+	// Token: 0x04000741 RID: 1857
 	private Color topTextColor_Orange = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000742 RID: 1858
 	private Color topTextColor_White = new Color(1f, 1f, 1f, 1f);
 
+	// Token: 0x04000743 RID: 1859
 	private string topScreenString = "";
 
+	// Token: 0x04000744 RID: 1860
 	private string topScreenStringDouble = "";
 
+	// Token: 0x04000745 RID: 1861
 	private const string separator = " ~ ";
 
+	// Token: 0x04000746 RID: 1862
 	private int topScreenStringOffset;
 
+	// Token: 0x04000747 RID: 1863
 	private float topScreenOffsetTimer;
 
+	// Token: 0x04000748 RID: 1864
 	private BigInteger betCostOld = -1;
 
+	// Token: 0x04000749 RID: 1865
 	private float betCostUpdateTimer;
 
+	// Token: 0x0400074A RID: 1866
 	private Coroutine specialPatternImageCoroutine;
 
+	// Token: 0x0400074B RID: 1867
 	private Coroutine shrinkCoroutine;
 
+	// Token: 0x0400074C RID: 1868
 	private int _burningLevel;
 
+	// Token: 0x0400074D RID: 1869
 	private int _burningLevelAnimationIndex;
 
+	// Token: 0x0400074E RID: 1870
 	private float _burningLevelAnimationTimer;
 
+	// Token: 0x0400074F RID: 1871
 	private float mainMenuInputDelay = 0.5f;
 
+	// Token: 0x04000750 RID: 1872
 	private const float MAIN_MENU_INPUT_DELAY = 0.5f;
 
+	// Token: 0x04000751 RID: 1873
 	public SlotMachineScript.Event OnRoundBeing;
 
+	// Token: 0x04000752 RID: 1874
 	public SlotMachineScript.Event OnRoundEnd;
 
+	// Token: 0x04000753 RID: 1875
 	public SlotMachineScript.Event OnInterestEarn;
 
+	// Token: 0x04000754 RID: 1876
 	public SlotMachineScript.Event OnInterestEarnPost;
 
+	// Token: 0x04000755 RID: 1877
 	public SlotMachineScript.Event OnSpinPreLuckApplication;
 
+	// Token: 0x04000756 RID: 1878
 	public SlotMachineScript.Event OnSpinStart;
 
+	// Token: 0x04000757 RID: 1879
 	public SlotMachineScript.Event OnSpinEnd;
 
+	// Token: 0x04000758 RID: 1880
 	public SlotMachineScript.Event OnScoreEvaluationBegin;
 
+	// Token: 0x04000759 RID: 1881
 	public SlotMachineScript.Event OnScoreEvaluationEnd;
 
+	// Token: 0x0400075A RID: 1882
 	public SlotMachineScript.Event OnScoreEvaluationEnd_Late;
 
+	// Token: 0x0400075B RID: 1883
 	public SlotMachineScript.PatternEvent OnPatternEvaluationStart;
 
+	// Token: 0x0400075C RID: 1884
 	public SlotMachineScript.PatternEvent OnPatternEvaluationEnd;
 
+	// Token: 0x0400075D RID: 1885
 	public SlotMachineScript.PatternEvent On666;
 
+	// Token: 0x0400075E RID: 1886
 	public SlotMachineScript.PatternEvent On999;
 
+	// Token: 0x0400075F RID: 1887
 	public SlotMachineScript.PatternEvent OnModifierScored;
 
+	// Token: 0x04000760 RID: 1888
 	public SlotMachineScript.Event onTopText_LoopsAround_Temp;
 
+	// Token: 0x04000761 RID: 1889
 	public SlotMachineScript.Event onTopText_LoopsAround_Permanent;
 
+	// Token: 0x0200006E RID: 110
 	public enum State
 	{
+		// Token: 0x04000763 RID: 1891
 		off,
+		// Token: 0x04000764 RID: 1892
 		bootingUp,
+		// Token: 0x04000765 RID: 1893
 		noMoreCoins,
+		// Token: 0x04000766 RID: 1894
 		idle,
+		// Token: 0x04000767 RID: 1895
 		spinning
 	}
 
+	// Token: 0x0200006F RID: 111
 	public class PatternInfos
 	{
-		// Token: 0x06001171 RID: 4465 RVA: 0x0006AD40 File Offset: 0x00068F40
+		// Token: 0x06000810 RID: 2064 RVA: 0x000410F4 File Offset: 0x0003F2F4
 		public void Setup(PatternScript.Kind _patternKind, BigInteger _coins, List<Vector2Int> _positionsToCopy)
 		{
 			if (_positionsToCopy.Count == 0)
@@ -4419,7 +4595,7 @@ public class SlotMachineScript : MonoBehaviour
 			this.symbolKind = SlotMachineScript.instance.Symbol_GetAtPosition(this.positions[0].x, this.positions[0].y);
 		}
 
-		// Token: 0x06001172 RID: 4466 RVA: 0x0006AE1C File Offset: 0x0006901C
+		// Token: 0x06000811 RID: 2065 RVA: 0x000411D0 File Offset: 0x0003F3D0
 		public global::UnityEngine.Vector3 GetScoringPosition_World()
 		{
 			switch (this.patternKind)
@@ -4462,7 +4638,7 @@ public class SlotMachineScript : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06001173 RID: 4467 RVA: 0x0006B26C File Offset: 0x0006946C
+		// Token: 0x06000812 RID: 2066 RVA: 0x00041620 File Offset: 0x0003F820
 		public global::UnityEngine.Vector3 GetMedianPlatePosition()
 		{
 			global::UnityEngine.Vector3 zero = global::UnityEngine.Vector3.zero;
@@ -4476,7 +4652,7 @@ public class SlotMachineScript : MonoBehaviour
 			return zero;
 		}
 
-		// Token: 0x06001174 RID: 4468 RVA: 0x0006B304 File Offset: 0x00069504
+		// Token: 0x06000813 RID: 2067 RVA: 0x000416B8 File Offset: 0x0003F8B8
 		public bool IsEqualToOtherPattern(SlotMachineScript.PatternInfos otherPattern)
 		{
 			if (otherPattern.symbolKind != this.symbolKind)
@@ -4497,46 +4673,69 @@ public class SlotMachineScript : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x06001175 RID: 4469 RVA: 0x0006B36D File Offset: 0x0006956D
+		// Token: 0x06000814 RID: 2068 RVA: 0x0000C8C6 File Offset: 0x0000AAC6
 		public ulong GetOrderWeight()
 		{
 			return SymbolScript.SymbolsOrderWeightMask(this.symbolKind) | PatternScript.PatternOrderWeightMask(this.patternKind);
 		}
 
+		// Token: 0x04000768 RID: 1896
 		public bool enabled;
 
+		// Token: 0x04000769 RID: 1897
 		public PatternScript.Kind patternKind = PatternScript.Kind.undefined;
 
+		// Token: 0x0400076A RID: 1898
 		public SymbolScript.Kind symbolKind = SymbolScript.Kind.undefined;
 
+		// Token: 0x0400076B RID: 1899
 		public BigInteger coins = 0;
 
+		// Token: 0x0400076C RID: 1900
 		public List<Vector2Int> positions = new List<Vector2Int>(16);
 
+		// Token: 0x0400076D RID: 1901
 		public int repeatingNChached = 1;
 	}
 
+	// Token: 0x02000070 RID: 112
 	public enum SensationalLevel
 	{
+		// Token: 0x0400076F RID: 1903
 		noone,
+		// Token: 0x04000770 RID: 1904
 		lowNice,
+		// Token: 0x04000771 RID: 1905
 		lowGreat,
+		// Token: 0x04000772 RID: 1906
 		lowFantastic,
+		// Token: 0x04000773 RID: 1907
 		lowJackpot,
+		// Token: 0x04000774 RID: 1908
 		mediumNice,
+		// Token: 0x04000775 RID: 1909
 		mediumGreat,
+		// Token: 0x04000776 RID: 1910
 		mediumFantastic,
+		// Token: 0x04000777 RID: 1911
 		mediumJackpot,
+		// Token: 0x04000778 RID: 1912
 		highNice,
+		// Token: 0x04000779 RID: 1913
 		highGreat,
+		// Token: 0x0400077A RID: 1914
 		highFantastic,
+		// Token: 0x0400077B RID: 1915
 		highJackpot,
+		// Token: 0x0400077C RID: 1916
 		Count
 	}
 
-	// (Invoke) Token: 0x06001178 RID: 4472
+	// Token: 0x02000071 RID: 113
+	// (Invoke) Token: 0x06000817 RID: 2071
 	public delegate void Event();
 
-	// (Invoke) Token: 0x0600117C RID: 4476
+	// Token: 0x02000072 RID: 114
+	// (Invoke) Token: 0x0600081B RID: 2075
 	public delegate void PatternEvent(SlotMachineScript.PatternInfos patternInfo);
 }

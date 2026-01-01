@@ -8,9 +8,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x02000058 RID: 88
 public class PowerupScript : MonoBehaviour
 {
-	// Token: 0x06000473 RID: 1139 RVA: 0x0001E4A4 File Offset: 0x0001C6A4
+	// Token: 0x06000501 RID: 1281 RVA: 0x00032970 File Offset: 0x00030B70
 	public long StartingPriceGet(bool considerModifier, bool considerRunModifiers)
 	{
 		long num = this.startingPrice;
@@ -22,10 +23,14 @@ public class PowerupScript : MonoBehaviour
 		{
 			num = 0L;
 		}
+		if (this.identifier == PowerupScript.Identifier.Cigarettes)
+		{
+			num += GameplayData.Powerup_Cigarettes_PriceIncrease;
+		}
 		return num;
 	}
 
-	// Token: 0x06000474 RID: 1140 RVA: 0x0001E4D0 File Offset: 0x0001C6D0
+	// Token: 0x06000502 RID: 1282 RVA: 0x000329B0 File Offset: 0x00030BB0
 	private long ModifierExtraPrice()
 	{
 		PowerupScript.Modifier modifier = GameplayData.Powerup_Modifier_Get(this.identifier);
@@ -53,7 +58,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000475 RID: 1141 RVA: 0x0001E548 File Offset: 0x0001C748
+	// Token: 0x06000503 RID: 1283 RVA: 0x00032A28 File Offset: 0x00030C28
 	public long ResellValueGet()
 	{
 		long num = 1L;
@@ -64,62 +69,62 @@ public class PowerupScript : MonoBehaviour
 		return this.StartingPriceGet(true, true) * num / 2L + (long)GameplayData.Powerup_ResellBonus_Get(this.identifier) * num;
 	}
 
-	// Token: 0x06000476 RID: 1142 RVA: 0x0001E581 File Offset: 0x0001C781
+	// Token: 0x06000504 RID: 1284 RVA: 0x000098BB File Offset: 0x00007ABB
 	public bool IsInstantPowerup()
 	{
 		return this.isInstantPowerup;
 	}
 
-	// Token: 0x06000477 RID: 1143 RVA: 0x0001E589 File Offset: 0x0001C789
+	// Token: 0x06000505 RID: 1285 RVA: 0x000098C3 File Offset: 0x00007AC3
 	public int MaxBuyTimesGet()
 	{
 		return this.maxBuyTimes;
 	}
 
-	// Token: 0x06000478 RID: 1144 RVA: 0x0001E594 File Offset: 0x0001C794
+	// Token: 0x06000506 RID: 1286 RVA: 0x00032A64 File Offset: 0x00030C64
 	public bool StoreRerollEvaluate()
 	{
 		float num = GameplayData.StoreLuckGet();
 		return R.Rng_Store.Value * num <= this.storeRerollChance;
 	}
 
-	// Token: 0x06000479 RID: 1145 RVA: 0x0001E5BE File Offset: 0x0001C7BE
+	// Token: 0x06000507 RID: 1287 RVA: 0x000098CB File Offset: 0x00007ACB
 	public bool IsCommon()
 	{
 		return this.storeRerollChance < 0.1f;
 	}
 
-	// Token: 0x0600047A RID: 1146 RVA: 0x0001E5CD File Offset: 0x0001C7CD
+	// Token: 0x06000508 RID: 1288 RVA: 0x000098DA File Offset: 0x00007ADA
 	public bool IsUncommon()
 	{
 		return this.storeRerollChance < 0.2f && this.storeRerollChance >= 0.1f;
 	}
 
-	// Token: 0x0600047B RID: 1147 RVA: 0x0001E5EE File Offset: 0x0001C7EE
+	// Token: 0x06000509 RID: 1289 RVA: 0x000098FB File Offset: 0x00007AFB
 	public bool IsMildlyRare()
 	{
 		return this.storeRerollChance < 0.35f && this.storeRerollChance >= 0.2f;
 	}
 
-	// Token: 0x0600047C RID: 1148 RVA: 0x0001E60F File Offset: 0x0001C80F
+	// Token: 0x0600050A RID: 1290 RVA: 0x0000991C File Offset: 0x00007B1C
 	public bool IsRare()
 	{
 		return this.storeRerollChance < 0.5f && this.storeRerollChance >= 0.35f;
 	}
 
-	// Token: 0x0600047D RID: 1149 RVA: 0x0001E630 File Offset: 0x0001C830
+	// Token: 0x0600050B RID: 1291 RVA: 0x0000993D File Offset: 0x00007B3D
 	public bool IsVeryRare()
 	{
 		return this.storeRerollChance < 0.65f && this.storeRerollChance >= 0.5f;
 	}
 
-	// Token: 0x0600047E RID: 1150 RVA: 0x0001E651 File Offset: 0x0001C851
+	// Token: 0x0600050C RID: 1292 RVA: 0x0000995E File Offset: 0x00007B5E
 	public bool IsLegendary()
 	{
 		return this.storeRerollChance >= 0.65f;
 	}
 
-	// Token: 0x0600047F RID: 1151 RVA: 0x0001E664 File Offset: 0x0001C864
+	// Token: 0x0600050D RID: 1293 RVA: 0x00032A90 File Offset: 0x00030C90
 	public PowerupScript.PublicRarity RarityPublicGet()
 	{
 		if (this.IsCommon())
@@ -150,7 +155,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript.PublicRarity.common;
 	}
 
-	// Token: 0x06000480 RID: 1152 RVA: 0x0001E6D0 File Offset: 0x0001C8D0
+	// Token: 0x0600050E RID: 1294 RVA: 0x00032AFC File Offset: 0x00030CFC
 	private Strings.SanitizationSubKind _GetPowerupStringSanitizationSubKind()
 	{
 		Strings.SanitizationSubKind sanitizationSubKind = Strings.SanitizationSubKind.none;
@@ -246,7 +251,7 @@ public class PowerupScript : MonoBehaviour
 		return sanitizationSubKind;
 	}
 
-	// Token: 0x06000481 RID: 1153 RVA: 0x0001E7F4 File Offset: 0x0001C9F4
+	// Token: 0x0600050F RID: 1295 RVA: 0x00032C20 File Offset: 0x00030E20
 	public string NameGet(bool includeModTag, bool sanitize)
 	{
 		if (string.IsNullOrEmpty(this.nameKey))
@@ -297,13 +302,13 @@ public class PowerupScript : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x06000482 RID: 1154 RVA: 0x0001E972 File Offset: 0x0001CB72
+	// Token: 0x06000510 RID: 1296 RVA: 0x00009970 File Offset: 0x00007B70
 	public string NameKeyGet()
 	{
 		return this.nameKey;
 	}
 
-	// Token: 0x06000483 RID: 1155 RVA: 0x0001E97C File Offset: 0x0001CB7C
+	// Token: 0x06000511 RID: 1297 RVA: 0x00032DA0 File Offset: 0x00030FA0
 	public string DescriptionGet(bool includeRarity, bool includeBaseCost, bool includeModifier, float extrasNewLineSize)
 	{
 		if (string.IsNullOrEmpty(this.descriptionKey))
@@ -348,13 +353,13 @@ public class PowerupScript : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x06000484 RID: 1156 RVA: 0x0001EAB7 File Offset: 0x0001CCB7
+	// Token: 0x06000512 RID: 1298 RVA: 0x00009978 File Offset: 0x00007B78
 	public string ModifierDescriptionGet()
 	{
 		return PowerupScript.ModifierDescriptionGet(GameplayData.Powerup_Modifier_Get(this.identifier));
 	}
 
-	// Token: 0x06000485 RID: 1157 RVA: 0x0001EACC File Offset: 0x0001CCCC
+	// Token: 0x06000513 RID: 1299 RVA: 0x00032EDC File Offset: 0x000310DC
 	public static string ModifierDescriptionGet(PowerupScript.Modifier powerupModifier)
 	{
 		switch (powerupModifier)
@@ -381,14 +386,14 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000486 RID: 1158 RVA: 0x0001EB75 File Offset: 0x0001CD75
+	// Token: 0x06000514 RID: 1300 RVA: 0x0000998A File Offset: 0x00007B8A
 	public string GetBatteryString()
 	{
 		Strings.SetTemporaryInspectedPowerup(this);
 		return Strings.Sanitize(Strings.SantizationKind.powerupKeywords, "[CHARGE_BAR]", Strings.SanitizationSubKind.none);
 	}
 
-	// Token: 0x06000487 RID: 1159 RVA: 0x0001EB8C File Offset: 0x0001CD8C
+	// Token: 0x06000515 RID: 1301 RVA: 0x00032F88 File Offset: 0x00031188
 	public string UnlockMissionGet()
 	{
 		if (string.IsNullOrEmpty(this.unlockMissionKey))
@@ -399,19 +404,19 @@ public class PowerupScript : MonoBehaviour
 		return Strings.Sanitize(Strings.SantizationKind.powerupKeywords, Translation.Get(this.unlockMissionKey), this._GetPowerupStringSanitizationSubKind());
 	}
 
-	// Token: 0x06000488 RID: 1160 RVA: 0x0001EBD9 File Offset: 0x0001CDD9
+	// Token: 0x06000516 RID: 1302 RVA: 0x0000999E File Offset: 0x00007B9E
 	public static bool IsUnlocked(PowerupScript.Identifier powerupIdentifier)
 	{
 		return !PowerupScript.dict_IsLocked.ContainsKey(powerupIdentifier) || !PowerupScript.dict_IsLocked[powerupIdentifier];
 	}
 
-	// Token: 0x06000489 RID: 1161 RVA: 0x0001EBF8 File Offset: 0x0001CDF8
+	// Token: 0x06000517 RID: 1303 RVA: 0x000099BD File Offset: 0x00007BBD
 	public static bool Unlock(PowerupScript.Identifier powerupIdentifier)
 	{
 		return PowerupScript.UnlockExt(powerupIdentifier, true, true);
 	}
 
-	// Token: 0x0600048A RID: 1162 RVA: 0x0001EC04 File Offset: 0x0001CE04
+	// Token: 0x06000518 RID: 1304 RVA: 0x00032FD8 File Offset: 0x000311D8
 	public static bool UnlockExt(PowerupScript.Identifier powerupIdentifier, bool notifyPlayer, bool saveGame)
 	{
 		if (PowerupScript.IsUnlocked(powerupIdentifier))
@@ -450,19 +455,19 @@ public class PowerupScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600048B RID: 1163 RVA: 0x0001EC99 File Offset: 0x0001CE99
+	// Token: 0x06000519 RID: 1305 RVA: 0x000099C7 File Offset: 0x00007BC7
 	public BigInteger UnlockPriceGet()
 	{
 		return this.unlockPrice;
 	}
 
-	// Token: 0x0600048C RID: 1164 RVA: 0x0001ECA1 File Offset: 0x0001CEA1
+	// Token: 0x0600051A RID: 1306 RVA: 0x000099CF File Offset: 0x00007BCF
 	public bool IsBaseSet()
 	{
 		return this._isBaseSet;
 	}
 
-	// Token: 0x0600048D RID: 1165 RVA: 0x0001ECAC File Offset: 0x0001CEAC
+	// Token: 0x0600051B RID: 1307 RVA: 0x00033070 File Offset: 0x00031270
 	public static GameObject GetPrefab(PowerupScript.Identifier identifier)
 	{
 		if (PowerupScript.dict_IdentifierToPrefabName.ContainsKey(identifier))
@@ -474,7 +479,7 @@ public class PowerupScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600048E RID: 1166 RVA: 0x0001ECFC File Offset: 0x0001CEFC
+	// Token: 0x0600051C RID: 1308 RVA: 0x000330C0 File Offset: 0x000312C0
 	public static PowerupScript FindPowerup(PowerupScript.Identifier identifier, out bool isEquipped, out bool isInDrawer)
 	{
 		if (identifier == PowerupScript.Identifier.undefined)
@@ -540,7 +545,7 @@ public class PowerupScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600048F RID: 1167 RVA: 0x0001EED0 File Offset: 0x0001D0D0
+	// Token: 0x0600051D RID: 1309 RVA: 0x000099D7 File Offset: 0x00007BD7
 	public static PowerupScript GetPowerup_Quick(PowerupScript.Identifier identifier)
 	{
 		if (PowerupScript.dict_IdentifierToInstance.ContainsKey(identifier))
@@ -550,13 +555,13 @@ public class PowerupScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06000490 RID: 1168 RVA: 0x0001EEEC File Offset: 0x0001D0EC
+	// Token: 0x0600051E RID: 1310 RVA: 0x000099F3 File Offset: 0x00007BF3
 	public static PowerupScript GetDrawerPowerup(int index)
 	{
 		return PowerupScript.array_InDrawer[index];
 	}
 
-	// Token: 0x06000491 RID: 1169 RVA: 0x0001EEF8 File Offset: 0x0001D0F8
+	// Token: 0x0600051F RID: 1311 RVA: 0x00033294 File Offset: 0x00031494
 	public static bool IsEquipped(PowerupScript.Identifier identifier)
 	{
 		if (identifier == PowerupScript.Identifier.undefined)
@@ -590,7 +595,7 @@ public class PowerupScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000492 RID: 1170 RVA: 0x0001EFA8 File Offset: 0x0001D1A8
+	// Token: 0x06000520 RID: 1312 RVA: 0x00033344 File Offset: 0x00031544
 	public static int IsInDrawer(PowerupScript.Identifier identifier)
 	{
 		if (identifier == PowerupScript.Identifier.undefined)
@@ -611,13 +616,13 @@ public class PowerupScript : MonoBehaviour
 		return -1;
 	}
 
-	// Token: 0x06000493 RID: 1171 RVA: 0x0001EFF8 File Offset: 0x0001D1F8
+	// Token: 0x06000521 RID: 1313 RVA: 0x000099FC File Offset: 0x00007BFC
 	public static bool IsDrawerAvailable(int drawerIndex)
 	{
 		return DrawersScript.IsDrawerUnlocked(drawerIndex) && PowerupScript.array_InDrawer[drawerIndex] == null;
 	}
 
-	// Token: 0x06000494 RID: 1172 RVA: 0x0001F018 File Offset: 0x0001D218
+	// Token: 0x06000522 RID: 1314 RVA: 0x00033394 File Offset: 0x00031594
 	public static bool IsNotBought(PowerupScript.Identifier identifier)
 	{
 		if (identifier == PowerupScript.Identifier.undefined)
@@ -641,27 +646,27 @@ public class PowerupScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000495 RID: 1173 RVA: 0x0001F084 File Offset: 0x0001D284
+	// Token: 0x06000523 RID: 1315 RVA: 0x00033400 File Offset: 0x00031600
 	public static bool IsEquipped_Quick(PowerupScript.Identifier identifier)
 	{
 		PowerupScript powerup_Quick = PowerupScript.GetPowerup_Quick(identifier);
 		return !(powerup_Quick == null) && powerup_Quick.equippedChached;
 	}
 
-	// Token: 0x06000496 RID: 1174 RVA: 0x0001F0AC File Offset: 0x0001D2AC
+	// Token: 0x06000524 RID: 1316 RVA: 0x00033428 File Offset: 0x00031628
 	public static bool IsInDrawer_Quick(PowerupScript.Identifier identifier)
 	{
 		PowerupScript powerup_Quick = PowerupScript.GetPowerup_Quick(identifier);
 		return !(powerup_Quick == null) && powerup_Quick.inDrawerChached;
 	}
 
-	// Token: 0x06000497 RID: 1175 RVA: 0x0001F0D1 File Offset: 0x0001D2D1
+	// Token: 0x06000525 RID: 1317 RVA: 0x00009A1A File Offset: 0x00007C1A
 	public DiegeticMenuElement DiegeticMenuElement_Get()
 	{
 		return this.diegeticMenuElement;
 	}
 
-	// Token: 0x06000498 RID: 1176 RVA: 0x0001F0DC File Offset: 0x0001D2DC
+	// Token: 0x06000526 RID: 1318 RVA: 0x00033450 File Offset: 0x00031650
 	public void DiegeticStateUpdate(bool enable, PowerupScript.MenuControllerTarget targetMenu)
 	{
 		if (!enable)
@@ -695,13 +700,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000499 RID: 1177 RVA: 0x0001F1EA File Offset: 0x0001D3EA
+	// Token: 0x06000527 RID: 1319 RVA: 0x00009A22 File Offset: 0x00007C22
 	public static void EquipFlag_IgnoreSpaceCondition()
 	{
 		PowerupScript.equipFlag_DontCheckForSpace = true;
 	}
 
-	// Token: 0x0600049A RID: 1178 RVA: 0x0001F1F4 File Offset: 0x0001D3F4
+	// Token: 0x06000528 RID: 1320 RVA: 0x00033560 File Offset: 0x00031760
 	public static bool Equip(PowerupScript.Identifier identifier, bool isInitializationCall, bool putInNotBoughtListIfFull)
 	{
 		bool flag = PowerupScript.equipFlag_DontCheckForSpace;
@@ -829,7 +834,7 @@ public class PowerupScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600049B RID: 1179 RVA: 0x0001F478 File Offset: 0x0001D678
+	// Token: 0x06000529 RID: 1321 RVA: 0x000337E4 File Offset: 0x000319E4
 	public static bool PutInDrawer(PowerupScript.Identifier identifier, bool isInitializationCall, int desiredDrawerIndex = -1)
 	{
 		bool flag = false;
@@ -944,13 +949,13 @@ public class PowerupScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600049C RID: 1180 RVA: 0x0001F716 File Offset: 0x0001D916
+	// Token: 0x0600052A RID: 1322 RVA: 0x00009A2A File Offset: 0x00007C2A
 	public static bool PutInDrawer_Quick(PowerupScript.Identifier kind)
 	{
 		return PowerupScript.PutInDrawer(kind, false, -1);
 	}
 
-	// Token: 0x0600049D RID: 1181 RVA: 0x0001F720 File Offset: 0x0001D920
+	// Token: 0x0600052B RID: 1323 RVA: 0x00033A84 File Offset: 0x00031C84
 	public static bool ThrowAway(PowerupScript.Identifier identifier, bool isInitializationCall)
 	{
 		bool flag = false;
@@ -1045,49 +1050,49 @@ public class PowerupScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600049E RID: 1182 RVA: 0x0001F8F7 File Offset: 0x0001DAF7
+	// Token: 0x0600052C RID: 1324 RVA: 0x00009A34 File Offset: 0x00007C34
 	public static void SuppressThrowAwaySound()
 	{
 		PowerupScript._suppressThrowAwaySound = true;
 	}
 
-	// Token: 0x0600049F RID: 1183 RVA: 0x0001F8FF File Offset: 0x0001DAFF
+	// Token: 0x0600052D RID: 1325 RVA: 0x00009A3C File Offset: 0x00007C3C
 	public static void SuppressThrowAwayAnimation()
 	{
 		PowerupScript._suppressThrowAwayAnimation = true;
 	}
 
-	// Token: 0x060004A0 RID: 1184 RVA: 0x0001F907 File Offset: 0x0001DB07
+	// Token: 0x0600052E RID: 1326 RVA: 0x00009A44 File Offset: 0x00007C44
 	public static void PlayTriggeredAnimation(PowerupScript.Identifier identifier)
 	{
 		PowerupTriggerAnimController.AddAnimation(PowerupScript.GetPowerup_Quick(identifier), RunModifierScript.Identifier.undefined, PowerupTriggerAnimController.AnimationCapsule.AnimationKind.normalTrigger);
 	}
 
-	// Token: 0x060004A1 RID: 1185 RVA: 0x0001F917 File Offset: 0x0001DB17
+	// Token: 0x0600052F RID: 1327 RVA: 0x00009A54 File Offset: 0x00007C54
 	public static void PlayUnlockedAnimation(PowerupScript.Identifier identifier)
 	{
 		PowerupTriggerAnimController.AddAnimation(PowerupScript.GetPowerup_Quick(identifier), RunModifierScript.Identifier.undefined, PowerupTriggerAnimController.AnimationCapsule.AnimationKind.unlock);
 	}
 
-	// Token: 0x060004A2 RID: 1186 RVA: 0x0001F927 File Offset: 0x0001DB27
+	// Token: 0x06000530 RID: 1328 RVA: 0x00009A64 File Offset: 0x00007C64
 	public static void PlayDiscardedAnimation(PowerupScript.Identifier identifier)
 	{
 		PowerupTriggerAnimController.AddAnimation(PowerupScript.GetPowerup_Quick(identifier), RunModifierScript.Identifier.undefined, PowerupTriggerAnimController.AnimationCapsule.AnimationKind.discard);
 	}
 
-	// Token: 0x060004A3 RID: 1187 RVA: 0x0001F937 File Offset: 0x0001DB37
+	// Token: 0x06000531 RID: 1329 RVA: 0x00009A74 File Offset: 0x00007C74
 	public static void PlayRechargeAnimation(PowerupScript.Identifier identifier)
 	{
 		PowerupTriggerAnimController.AddAnimation(PowerupScript.GetPowerup_Quick(identifier), RunModifierScript.Identifier.undefined, PowerupTriggerAnimController.AnimationCapsule.AnimationKind.recharge_RedButton);
 	}
 
-	// Token: 0x060004A4 RID: 1188 RVA: 0x0001F947 File Offset: 0x0001DB47
+	// Token: 0x06000532 RID: 1330 RVA: 0x00009A84 File Offset: 0x00007C84
 	public static void PlayPowerDownAnimation(PowerupScript.Identifier identifier)
 	{
 		PowerupTriggerAnimController.AddAnimation(PowerupScript.GetPowerup_Quick(identifier), RunModifierScript.Identifier.undefined, PowerupTriggerAnimController.AnimationCapsule.AnimationKind.powerDown);
 	}
 
-	// Token: 0x060004A5 RID: 1189 RVA: 0x0001F958 File Offset: 0x0001DB58
+	// Token: 0x06000533 RID: 1331 RVA: 0x00033C5C File Offset: 0x00031E5C
 	public Bounds? GetBoundingBox()
 	{
 		if (this.meshRenderer != null)
@@ -1101,7 +1106,7 @@ public class PowerupScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060004A6 RID: 1190 RVA: 0x0001F9AC File Offset: 0x0001DBAC
+	// Token: 0x06000534 RID: 1332 RVA: 0x00033CB0 File Offset: 0x00031EB0
 	public global::UnityEngine.Vector3 GetBoundingBoxCenter()
 	{
 		Bounds? boundingBox = this.GetBoundingBox();
@@ -1112,7 +1117,7 @@ public class PowerupScript : MonoBehaviour
 		return boundingBox.Value.center;
 	}
 
-	// Token: 0x060004A7 RID: 1191 RVA: 0x0001F9E4 File Offset: 0x0001DBE4
+	// Token: 0x06000535 RID: 1333 RVA: 0x00033CE8 File Offset: 0x00031EE8
 	public global::UnityEngine.Vector3 GetBoundingBoxSize()
 	{
 		Bounds? boundingBox = this.GetBoundingBox();
@@ -1123,7 +1128,7 @@ public class PowerupScript : MonoBehaviour
 		return boundingBox.Value.size;
 	}
 
-	// Token: 0x060004A8 RID: 1192 RVA: 0x0001FA20 File Offset: 0x0001DC20
+	// Token: 0x06000536 RID: 1334 RVA: 0x00033D24 File Offset: 0x00031F24
 	public global::UnityEngine.Vector3 GetBoundingBoxSizeNormalized()
 	{
 		if (this._boundsSize == null)
@@ -1138,7 +1143,7 @@ public class PowerupScript : MonoBehaviour
 		});
 	}
 
-	// Token: 0x060004A9 RID: 1193 RVA: 0x0001FA9C File Offset: 0x0001DC9C
+	// Token: 0x06000537 RID: 1335 RVA: 0x00033DA0 File Offset: 0x00031FA0
 	public void MeshSteal(Transform targetParent, bool normalizeScale, float scaleMult)
 	{
 		this.meshIsStolen = true;
@@ -1149,7 +1154,7 @@ public class PowerupScript : MonoBehaviour
 		this.meshHolder.transform.localScale = (normalizeScale ? boundingBoxSizeNormalized : global::UnityEngine.Vector3.one) * scaleMult;
 	}
 
-	// Token: 0x060004AA RID: 1194 RVA: 0x0001FB14 File Offset: 0x0001DD14
+	// Token: 0x06000538 RID: 1336 RVA: 0x00033E18 File Offset: 0x00032018
 	public void MeshRestore(bool resetMaterial)
 	{
 		if (!this.meshIsStolen)
@@ -1166,13 +1171,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004AB RID: 1195 RVA: 0x0001FB88 File Offset: 0x0001DD88
+	// Token: 0x06000539 RID: 1337 RVA: 0x00009A94 File Offset: 0x00007C94
 	public bool MeshIsStolen()
 	{
 		return this.meshIsStolen;
 	}
 
-	// Token: 0x060004AC RID: 1196 RVA: 0x0001FB90 File Offset: 0x0001DD90
+	// Token: 0x0600053A RID: 1338 RVA: 0x00033E8C File Offset: 0x0003208C
 	public void MaterialColorReset()
 	{
 		if (GameplayData.Powerup_Modifier_Get(this.identifier) != PowerupScript.Modifier.none)
@@ -1192,7 +1197,7 @@ public class PowerupScript : MonoBehaviour
 		this.MaterialColor(PowerupScript.colorGrayedOut);
 	}
 
-	// Token: 0x060004AD RID: 1197 RVA: 0x0001FBE8 File Offset: 0x0001DDE8
+	// Token: 0x0600053B RID: 1339 RVA: 0x00009A9C File Offset: 0x00007C9C
 	public void MaterialColor(Color color)
 	{
 		if (this.meshRenderer != null)
@@ -1205,7 +1210,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004AE RID: 1198 RVA: 0x0001FC28 File Offset: 0x0001DE28
+	// Token: 0x0600053C RID: 1340 RVA: 0x00033EE4 File Offset: 0x000320E4
 	public void MaterialRefresh()
 	{
 		Material material = this.materialDefault;
@@ -1231,7 +1236,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004AF RID: 1199 RVA: 0x0001FD20 File Offset: 0x0001DF20
+	// Token: 0x0600053D RID: 1341 RVA: 0x00033FDC File Offset: 0x000321DC
 	public Material MaterialModifier_Get(PowerupScript.Modifier modifier)
 	{
 		switch (modifier)
@@ -1286,13 +1291,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004B0 RID: 1200 RVA: 0x0001FE84 File Offset: 0x0001E084
+	// Token: 0x0600053E RID: 1342 RVA: 0x00009ADC File Offset: 0x00007CDC
 	public Material MaterialDefault_Get()
 	{
 		return this.materialDefault;
 	}
 
-	// Token: 0x060004B1 RID: 1201 RVA: 0x0001FE8C File Offset: 0x0001E08C
+	// Token: 0x0600053F RID: 1343 RVA: 0x00034140 File Offset: 0x00032340
 	public void ApplyModifierEffects(PowerupScript.Modifier modifier)
 	{
 		if (this._modifierEffects_LastModifier == modifier)
@@ -1380,19 +1385,19 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004B2 RID: 1202 RVA: 0x00020199 File Offset: 0x0001E399
+	// Token: 0x06000540 RID: 1344 RVA: 0x00009AE4 File Offset: 0x00007CE4
 	public MeshRenderer MeshRendererGet()
 	{
 		return this.meshRenderer;
 	}
 
-	// Token: 0x060004B3 RID: 1203 RVA: 0x000201A1 File Offset: 0x0001E3A1
+	// Token: 0x06000541 RID: 1345 RVA: 0x00009AEC File Offset: 0x00007CEC
 	public SkinnedMeshRenderer SkinnedMeshRendererGet()
 	{
 		return this.skinnedMeshRenderer;
 	}
 
-	// Token: 0x060004B4 RID: 1204 RVA: 0x000201A9 File Offset: 0x0001E3A9
+	// Token: 0x06000542 RID: 1346 RVA: 0x00009AF4 File Offset: 0x00007CF4
 	public Mesh MeshGet()
 	{
 		if (this.meshFilter != null)
@@ -1406,7 +1411,7 @@ public class PowerupScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060004B5 RID: 1205 RVA: 0x000201E0 File Offset: 0x0001E3E0
+	// Token: 0x06000543 RID: 1347 RVA: 0x00034450 File Offset: 0x00032650
 	public void ModifierReEvaluate(bool canForceNone, bool forceSomeModifier)
 	{
 		if (this.isInstantPowerup)
@@ -1453,7 +1458,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_Modifier_Set(this.identifier, modifier, true);
 	}
 
-	// Token: 0x060004B6 RID: 1206 RVA: 0x000202AC File Offset: 0x0001E4AC
+	// Token: 0x06000544 RID: 1348 RVA: 0x0003451C File Offset: 0x0003271C
 	public static void ModifiedPowerups_EquippedCounter_Refresh()
 	{
 		PowerupScript.modifiedPowerups_EquippedCounter_SymbolMult = 0;
@@ -1525,7 +1530,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004B7 RID: 1207 RVA: 0x00020488 File Offset: 0x0001E688
+	// Token: 0x06000545 RID: 1349 RVA: 0x000346F8 File Offset: 0x000328F8
 	public static int ModifiedPowerups_GetCount(PowerupScript.Modifier modifier)
 	{
 		switch (modifier)
@@ -1550,25 +1555,25 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004B8 RID: 1208 RVA: 0x00020502 File Offset: 0x0001E702
+	// Token: 0x06000546 RID: 1350 RVA: 0x00009B2B File Offset: 0x00007D2B
 	public static int ModifiedPowerups_GetTicketsBonus()
 	{
 		return PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.cloverTicket) * 3;
 	}
 
-	// Token: 0x060004B9 RID: 1209 RVA: 0x0002050C File Offset: 0x0001E70C
+	// Token: 0x06000547 RID: 1351 RVA: 0x00009B35 File Offset: 0x00007D35
 	public static int ModifiedPowerups_GetInterestBonus()
 	{
 		return PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.speculative) * 3;
 	}
 
-	// Token: 0x060004BA RID: 1210 RVA: 0x00020516 File Offset: 0x0001E716
+	// Token: 0x06000548 RID: 1352 RVA: 0x00009B3F File Offset: 0x00007D3F
 	public static float ModifiedPowerups_Get666AdditionalChance()
 	{
 		return (float)PowerupScript.ModifiedPowerups_GetCount(PowerupScript.Modifier.devious) * 0.006f;
 	}
 
-	// Token: 0x060004BB RID: 1211 RVA: 0x00020528 File Offset: 0x0001E728
+	// Token: 0x06000549 RID: 1353 RVA: 0x00034774 File Offset: 0x00032974
 	public void Inspect()
 	{
 		if (PowerupScript.inspectedPowerup != null)
@@ -1661,7 +1666,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004BC RID: 1212 RVA: 0x000207DF File Offset: 0x0001E9DF
+	// Token: 0x0600054A RID: 1354 RVA: 0x00009B4E File Offset: 0x00007D4E
 	private IEnumerator InspectionCameraZoomRoutine()
 	{
 		PowerupScript._cameraInspectionRunning = true;
@@ -1733,13 +1738,13 @@ public class PowerupScript : MonoBehaviour
 		goto IL_0380;
 	}
 
-	// Token: 0x060004BD RID: 1213 RVA: 0x000207EE File Offset: 0x0001E9EE
+	// Token: 0x0600054B RID: 1355 RVA: 0x00009B5D File Offset: 0x00007D5D
 	public static bool CameraIsInspecting()
 	{
 		return PowerupScript._cameraInspectionRunning;
 	}
 
-	// Token: 0x060004BE RID: 1214 RVA: 0x000207F5 File Offset: 0x0001E9F5
+	// Token: 0x0600054C RID: 1356 RVA: 0x00009B64 File Offset: 0x00007D64
 	private void _InspectClose()
 	{
 		if (PowerupScript.inspectedPowerup == null)
@@ -1756,21 +1761,21 @@ public class PowerupScript : MonoBehaviour
 		InspectorScript.Close();
 	}
 
-	// Token: 0x060004BF RID: 1215 RVA: 0x00020832 File Offset: 0x0001EA32
+	// Token: 0x0600054D RID: 1357 RVA: 0x00009BA1 File Offset: 0x00007DA1
 	private void _InspectEquipTry()
 	{
 		this._InspectClose();
 		PowerupScript.Equip(this.identifier, false, false);
 	}
 
-	// Token: 0x060004C0 RID: 1216 RVA: 0x00020848 File Offset: 0x0001EA48
+	// Token: 0x0600054E RID: 1358 RVA: 0x00009BB7 File Offset: 0x00007DB7
 	private void _InspectPutInDrawerTry()
 	{
 		this._InspectClose();
 		PowerupScript.PutInDrawer(this.identifier, false, -1);
 	}
 
-	// Token: 0x060004C1 RID: 1217 RVA: 0x00020860 File Offset: 0x0001EA60
+	// Token: 0x0600054F RID: 1359 RVA: 0x00034A2C File Offset: 0x00032C2C
 	private void _InspectThrowAway()
 	{
 		this._InspectClose();
@@ -1785,26 +1790,26 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004C2 RID: 1218 RVA: 0x00020895 File Offset: 0x0001EA95
+	// Token: 0x06000550 RID: 1360 RVA: 0x00009BCD File Offset: 0x00007DCD
 	public static void ForceCloseInspection_Death()
 	{
 		PowerupScript._forceClosingInspection_Death = true;
 	}
 
-	// Token: 0x060004C3 RID: 1219 RVA: 0x0002089D File Offset: 0x0001EA9D
+	// Token: 0x06000551 RID: 1361 RVA: 0x00009BD5 File Offset: 0x00007DD5
 	private static bool ForceClosingInspection()
 	{
 		return PowerupScript._forceClosingInspection_Death;
 	}
 
-	// Token: 0x060004C4 RID: 1220 RVA: 0x000208A4 File Offset: 0x0001EAA4
+	// Token: 0x06000552 RID: 1362 RVA: 0x00034A64 File Offset: 0x00032C64
 	public static bool RedButtonUsesFinished(PowerupScript.Identifier identifier)
 	{
 		int num = GameplayData.Powerup_ButtonChargesMax_Get(identifier);
 		return GameplayData.Powerup_ButtonChargesUsed_Get(identifier) >= num;
 	}
 
-	// Token: 0x060004C5 RID: 1221 RVA: 0x000208C4 File Offset: 0x0001EAC4
+	// Token: 0x06000553 RID: 1363 RVA: 0x00034A84 File Offset: 0x00032C84
 	public static bool RedButtonCallback_IdentityCheck(PowerupScript powerup, PowerupScript.Identifier desiredIdentifier, bool log)
 	{
 		if (powerup.identifier != desiredIdentifier)
@@ -1820,7 +1825,7 @@ public class PowerupScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060004C6 RID: 1222 RVA: 0x00020922 File Offset: 0x0001EB22
+	// Token: 0x06000554 RID: 1364 RVA: 0x00009BDC File Offset: 0x00007DDC
 	public bool IsRedButtonCharm()
 	{
 		if (this._isRedButtonCharm == null)
@@ -1830,14 +1835,14 @@ public class PowerupScript : MonoBehaviour
 		return this._isRedButtonCharm.Value;
 	}
 
-	// Token: 0x060004C7 RID: 1223 RVA: 0x00020958 File Offset: 0x0001EB58
+	// Token: 0x06000555 RID: 1365 RVA: 0x00034AE4 File Offset: 0x00032CE4
 	public static bool IsRedButtonCharm(PowerupScript.Identifier identifier)
 	{
 		PowerupScript powerup_Quick = PowerupScript.GetPowerup_Quick(identifier);
 		return !(powerup_Quick == null) && powerup_Quick.IsRedButtonCharm();
 	}
 
-	// Token: 0x060004C8 RID: 1224 RVA: 0x00020980 File Offset: 0x0001EB80
+	// Token: 0x06000556 RID: 1366 RVA: 0x00034B0C File Offset: 0x00032D0C
 	private void RedButtonText_PositionInit()
 	{
 		Bounds? boundingBox = this.GetBoundingBox();
@@ -1853,14 +1858,14 @@ public class PowerupScript : MonoBehaviour
 		this.redButtonUiCanvas.transform.SetLocalY(num);
 	}
 
-	// Token: 0x060004C9 RID: 1225 RVA: 0x000209F8 File Offset: 0x0001EBF8
+	// Token: 0x06000557 RID: 1367 RVA: 0x00009C12 File Offset: 0x00007E12
 	private void _RedButtonTextRefresh()
 	{
 		this._redButton_TextUpdateRequest = true;
 		this._redButton_TextString = this.GetBatteryString();
 	}
 
-	// Token: 0x060004CA RID: 1226 RVA: 0x00020A10 File Offset: 0x0001EC10
+	// Token: 0x06000558 RID: 1368 RVA: 0x00034B84 File Offset: 0x00032D84
 	public static void RedButtonTextRefresh_All()
 	{
 		for (int i = 0; i < PowerupScript.list_EquippedNormal.Count; i++)
@@ -1873,13 +1878,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004CB RID: 1227 RVA: 0x00020A68 File Offset: 0x0001EC68
+	// Token: 0x06000559 RID: 1369 RVA: 0x00034BDC File Offset: 0x00032DDC
 	public static bool IsBanned(PowerupScript.Identifier identifer, PowerupScript.Archetype archetype)
 	{
 		return identifer != PowerupScript.Identifier.undefined && identifer != PowerupScript.Identifier.count && ((GameplayData.RunModifier_GetCurrent() == RunModifierScript.Identifier.smallItemPool && (archetype == PowerupScript.Archetype.symbolInstants || archetype - PowerupScript.Archetype.goldenSymbols <= 2)) || (PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hole_Circle) && identifer == GameplayData.PowerupHoleCircle_CharmGet()) || (PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hole_Romboid) && identifer == GameplayData.PowerupHoleRomboid_CharmGet()));
 	}
 
-	// Token: 0x060004CC RID: 1228 RVA: 0x00020ABE File Offset: 0x0001ECBE
+	// Token: 0x0600055A RID: 1370 RVA: 0x00009C27 File Offset: 0x00007E27
 	private void JustEquippedGlowSet()
 	{
 		if (this.category == PowerupScript.Category.skeleton)
@@ -1895,7 +1900,7 @@ public class PowerupScript : MonoBehaviour
 		this.justEquippedGlowTimer = 60f;
 	}
 
-	// Token: 0x060004CD RID: 1229 RVA: 0x00020B00 File Offset: 0x0001ED00
+	// Token: 0x0600055B RID: 1371 RVA: 0x00034C34 File Offset: 0x00032E34
 	public static List<PowerupScript.Identifier> _SkeletonPiecesSpawnable_GetListReference(bool computeAvailability)
 	{
 		if (!computeAvailability)
@@ -1932,7 +1937,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript._skeletonPiecesSpawnable;
 	}
 
-	// Token: 0x060004CE RID: 1230 RVA: 0x00020BD8 File Offset: 0x0001EDD8
+	// Token: 0x0600055C RID: 1372 RVA: 0x00034D0C File Offset: 0x00032F0C
 	public static PowerupScript SacredCharm_GetRandom(bool onlyIfNotEquippedOrNotInDrawers, bool favorLockedOnes)
 	{
 		if (favorLockedOnes)
@@ -1963,7 +1968,7 @@ public class PowerupScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060004CF RID: 1231 RVA: 0x00020CBC File Offset: 0x0001EEBC
+	// Token: 0x0600055D RID: 1373 RVA: 0x00034DF0 File Offset: 0x00032FF0
 	private void PlaceFarAway()
 	{
 		base.transform.SetParent(null);
@@ -1972,7 +1977,7 @@ public class PowerupScript : MonoBehaviour
 		this.myOutline.enabled = false;
 	}
 
-	// Token: 0x060004D0 RID: 1232 RVA: 0x00020D20 File Offset: 0x0001EF20
+	// Token: 0x0600055E RID: 1374 RVA: 0x00034E54 File Offset: 0x00033054
 	private static void PlaceFarAwayAll()
 	{
 		foreach (PowerupScript powerupScript in PowerupScript.all)
@@ -1981,7 +1986,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004D1 RID: 1233 RVA: 0x00020D70 File Offset: 0x0001EF70
+	// Token: 0x0600055F RID: 1375 RVA: 0x00034EA4 File Offset: 0x000330A4
 	private static void PlacementRefresh_EquippedSkeleton()
 	{
 		for (int i = 0; i < PowerupScript.list_EquippedSkeleton.Count; i++)
@@ -2002,7 +2007,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004D2 RID: 1234 RVA: 0x00020DFC File Offset: 0x0001EFFC
+	// Token: 0x06000560 RID: 1376 RVA: 0x00034F30 File Offset: 0x00033130
 	private static void PlacementRefresh_EquippedNormal()
 	{
 		for (int i = 0; i < PowerupScript.list_EquippedNormal.Count; i++)
@@ -2023,7 +2028,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004D3 RID: 1235 RVA: 0x00020E88 File Offset: 0x0001F088
+	// Token: 0x06000561 RID: 1377 RVA: 0x00034FBC File Offset: 0x000331BC
 	private static void PlacementRefresh_Drawer()
 	{
 		for (int i = 0; i < PowerupScript.array_InDrawer.Length; i++)
@@ -2039,7 +2044,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004D4 RID: 1236 RVA: 0x00020EFC File Offset: 0x0001F0FC
+	// Token: 0x06000562 RID: 1378 RVA: 0x00035030 File Offset: 0x00033230
 	private static void PlacementRefresh_Store()
 	{
 		for (int i = 0; i < StoreCapsuleScript.storePowerups.Length; i++)
@@ -2055,7 +2060,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004D5 RID: 1237 RVA: 0x00020F6E File Offset: 0x0001F16E
+	// Token: 0x06000563 RID: 1379 RVA: 0x00009C67 File Offset: 0x00007E67
 	public static void RefreshPlacementAll()
 	{
 		PowerupScript.PlaceFarAwayAll();
@@ -2066,13 +2071,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.ModifiedPowerups_EquippedCounter_Refresh();
 	}
 
-	// Token: 0x060004D6 RID: 1238 RVA: 0x00020F8E File Offset: 0x0001F18E
+	// Token: 0x06000564 RID: 1380 RVA: 0x00009C87 File Offset: 0x00007E87
 	public static global::UnityEngine.Vector3 PowerupScaleGet_Equipped(PowerupScript powerup)
 	{
 		return global::UnityEngine.Vector3.one;
 	}
 
-	// Token: 0x060004D7 RID: 1239 RVA: 0x00020F95 File Offset: 0x0001F195
+	// Token: 0x06000565 RID: 1381 RVA: 0x00009C8E File Offset: 0x00007E8E
 	public static global::UnityEngine.Vector3 PowerupScaleGet_InDrawer(PowerupScript powerup)
 	{
 		if (powerup.category == PowerupScript.Category.skeleton)
@@ -2082,37 +2087,37 @@ public class PowerupScript : MonoBehaviour
 		return global::UnityEngine.Vector3.one;
 	}
 
-	// Token: 0x060004D8 RID: 1240 RVA: 0x00020FB4 File Offset: 0x0001F1B4
+	// Token: 0x06000566 RID: 1382 RVA: 0x00009C87 File Offset: 0x00007E87
 	public static global::UnityEngine.Vector3 PowerupScaleGet_Store(PowerupScript powerup)
 	{
 		return global::UnityEngine.Vector3.one;
 	}
 
-	// Token: 0x060004D9 RID: 1241 RVA: 0x00020FBB File Offset: 0x0001F1BB
+	// Token: 0x06000567 RID: 1383 RVA: 0x00009C87 File Offset: 0x00007E87
 	public static global::UnityEngine.Vector3 PowerupScaleGet_NotEquipped(PowerupScript powerup)
 	{
 		return global::UnityEngine.Vector3.one;
 	}
 
-	// Token: 0x060004DA RID: 1242 RVA: 0x00020FC2 File Offset: 0x0001F1C2
+	// Token: 0x06000568 RID: 1384 RVA: 0x00009CAD File Offset: 0x00007EAD
 	public static bool ThrowAwayCanTriggerEffects_Get()
 	{
 		return PowerupScript.throwAwayCanTriggerEffects;
 	}
 
-	// Token: 0x060004DB RID: 1243 RVA: 0x00020FC9 File Offset: 0x0001F1C9
+	// Token: 0x06000569 RID: 1385 RVA: 0x00009CB4 File Offset: 0x00007EB4
 	public static void ThrowAwayCanTriggerEffects_Set(bool value)
 	{
 		PowerupScript.throwAwayCanTriggerEffects = value;
 	}
 
-	// Token: 0x060004DC RID: 1244 RVA: 0x00020FD1 File Offset: 0x0001F1D1
+	// Token: 0x0600056A RID: 1386 RVA: 0x00009CBC File Offset: 0x00007EBC
 	public static int SkeletonPiecesDebtIncreasePercentage()
 	{
 		return 100 + PowerupScript.list_EquippedSkeleton.Count * 5;
 	}
 
-	// Token: 0x060004DD RID: 1245 RVA: 0x00020FE4 File Offset: 0x0001F1E4
+	// Token: 0x0600056B RID: 1387 RVA: 0x000350A4 File Offset: 0x000332A4
 	public static bool SkeletonFillDrawersWithCharms_Try()
 	{
 		if (DrawersScript.instance == null)
@@ -2148,7 +2153,7 @@ public class PowerupScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060004DE RID: 1246 RVA: 0x0002106C File Offset: 0x0001F26C
+	// Token: 0x0600056C RID: 1388 RVA: 0x0003512C File Offset: 0x0003332C
 	public static void SkeletonEreasePiecesLeftIntoDrawers()
 	{
 		if (DrawersScript.instance == null)
@@ -2165,19 +2170,19 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004DF RID: 1247 RVA: 0x000210C2 File Offset: 0x0001F2C2
+	// Token: 0x0600056D RID: 1389 RVA: 0x00009CCD File Offset: 0x00007ECD
 	public static void PFunc_OnEquip_SkeletonPiecesCommon(PowerupScript powerup)
 	{
 		PlatformAPI.AchievementUnlock_FullGame(PlatformAPI.AchievementFullGame.ThisWillHurt);
 	}
 
-	// Token: 0x060004E0 RID: 1248 RVA: 0x000210CB File Offset: 0x0001F2CB
+	// Token: 0x0600056E RID: 1390 RVA: 0x00009CD6 File Offset: 0x00007ED6
 	public static void ShroomsReset()
 	{
 		PowerupScript._shromsActivationsCounter = 0;
 	}
 
-	// Token: 0x060004E1 RID: 1249 RVA: 0x000210D3 File Offset: 0x0001F2D3
+	// Token: 0x0600056F RID: 1391 RVA: 0x00009CDE File Offset: 0x00007EDE
 	public static int ShroomsRawBonusGet()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Mushrooms))
@@ -2187,7 +2192,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript._shromsActivationsCounter;
 	}
 
-	// Token: 0x060004E2 RID: 1250 RVA: 0x000210E5 File Offset: 0x0001F2E5
+	// Token: 0x06000570 RID: 1392 RVA: 0x00009CF0 File Offset: 0x00007EF0
 	public static long ShroomsBonusGet(SymbolScript.Kind symbolKind)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Mushrooms))
@@ -2197,7 +2202,7 @@ public class PowerupScript : MonoBehaviour
 		return (long)(PowerupScript._shromsActivationsCounter * GameplayData.Symbol_CoinsValue_GetBasic(symbolKind));
 	}
 
-	// Token: 0x060004E3 RID: 1251 RVA: 0x00021100 File Offset: 0x0001F300
+	// Token: 0x06000571 RID: 1393 RVA: 0x00035184 File Offset: 0x00033384
 	public static void PFunc_OnEquip_Shrooms(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2206,7 +2211,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.ShroomsReset));
 	}
 
-	// Token: 0x060004E4 RID: 1252 RVA: 0x0002115C File Offset: 0x0001F35C
+	// Token: 0x06000572 RID: 1394 RVA: 0x000351E0 File Offset: 0x000333E0
 	public static void PFunc_OnUnequip_Shrooms(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2216,7 +2221,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.ShroomsReset();
 	}
 
-	// Token: 0x060004E5 RID: 1253 RVA: 0x000211BC File Offset: 0x0001F3BC
+	// Token: 0x06000573 RID: 1395 RVA: 0x00035240 File Offset: 0x00033440
 	private static void Trigger_Shrooms()
 	{
 		int patternsCount = SlotMachineScript.GetPatternsCount();
@@ -2228,13 +2233,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Mushrooms);
 	}
 
-	// Token: 0x060004E6 RID: 1254 RVA: 0x000211EF File Offset: 0x0001F3EF
+	// Token: 0x06000574 RID: 1396 RVA: 0x00009D0B File Offset: 0x00007F0B
 	public static void RorschachReset()
 	{
 		PowerupScript._rorschachActivationsCounter = 0;
 	}
 
-	// Token: 0x060004E7 RID: 1255 RVA: 0x000211F7 File Offset: 0x0001F3F7
+	// Token: 0x06000575 RID: 1397 RVA: 0x00009D13 File Offset: 0x00007F13
 	public static double RorschachBonusMultiplierGet()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Rorschach))
@@ -2244,7 +2249,7 @@ public class PowerupScript : MonoBehaviour
 		return (double)PowerupScript._rorschachActivationsCounter;
 	}
 
-	// Token: 0x060004E8 RID: 1256 RVA: 0x00021214 File Offset: 0x0001F414
+	// Token: 0x06000576 RID: 1398 RVA: 0x00035274 File Offset: 0x00033474
 	public static void PFunc_OnEquip_Rorschach(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2253,7 +2258,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.RorschachReset));
 	}
 
-	// Token: 0x060004E9 RID: 1257 RVA: 0x00021270 File Offset: 0x0001F470
+	// Token: 0x06000577 RID: 1399 RVA: 0x000352D0 File Offset: 0x000334D0
 	public static void PFunc_OnUnequip_Rorschach(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2263,7 +2268,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.RorschachReset();
 	}
 
-	// Token: 0x060004EA RID: 1258 RVA: 0x000212D0 File Offset: 0x0001F4D0
+	// Token: 0x06000578 RID: 1400 RVA: 0x00035330 File Offset: 0x00033530
 	private static void Trigger_Rorschach()
 	{
 		PatternScript.Kind biggestPatternScored = SlotMachineScript.GetBiggestPatternScored();
@@ -2279,7 +2284,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Rorschach);
 	}
 
-	// Token: 0x060004EB RID: 1259 RVA: 0x00021308 File Offset: 0x0001F508
+	// Token: 0x06000579 RID: 1401 RVA: 0x00035368 File Offset: 0x00033568
 	public static long CloverPotTicketsBonus(bool considerEquippedState, bool rewardTime)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.CloverPot) && considerEquippedState)
@@ -2295,26 +2300,26 @@ public class PowerupScript : MonoBehaviour
 		return num / num2;
 	}
 
-	// Token: 0x060004EC RID: 1260 RVA: 0x0002134C File Offset: 0x0001F54C
+	// Token: 0x0600057A RID: 1402 RVA: 0x00009D2E File Offset: 0x00007F2E
 	public static void PFunc_OnEquip_CloverPot(PowerupScript powerup)
 	{
 		GameplayMaster instance = GameplayMaster.instance;
 		instance.onDeadlineBonus = (GameplayMaster.Event)Delegate.Combine(instance.onDeadlineBonus, new GameplayMaster.Event(PowerupScript.Trigger_CloverPot));
 	}
 
-	// Token: 0x060004ED RID: 1261 RVA: 0x00021374 File Offset: 0x0001F574
+	// Token: 0x0600057B RID: 1403 RVA: 0x00009D56 File Offset: 0x00007F56
 	public static void PFunc_OnUnequip_CloverPot(PowerupScript powerup)
 	{
 		GameplayMaster instance = GameplayMaster.instance;
 		instance.onDeadlineBonus = (GameplayMaster.Event)Delegate.Remove(instance.onDeadlineBonus, new GameplayMaster.Event(PowerupScript.Trigger_CloverPot));
 	}
 
-	// Token: 0x060004EE RID: 1262 RVA: 0x0002139C File Offset: 0x0001F59C
+	// Token: 0x0600057C RID: 1404 RVA: 0x0000774E File Offset: 0x0000594E
 	public static void CloverPot_ComputeTickets()
 	{
 	}
 
-	// Token: 0x060004EF RID: 1263 RVA: 0x0002139E File Offset: 0x0001F59E
+	// Token: 0x0600057D RID: 1405 RVA: 0x00009D7E File Offset: 0x00007F7E
 	private static void Trigger_CloverPot()
 	{
 		if (PowerupScript.CloverPotTicketsBonus(false, true) > 0L)
@@ -2323,28 +2328,28 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004F0 RID: 1264 RVA: 0x000213B2 File Offset: 0x0001F5B2
+	// Token: 0x0600057E RID: 1406 RVA: 0x00009D92 File Offset: 0x00007F92
 	public static void PFunc_OnEquip_Hourglass(PowerupScript powerup)
 	{
 		GameplayMaster instance = GameplayMaster.instance;
 		instance.onDeadlineBonus_Late = (GameplayMaster.Event)Delegate.Combine(instance.onDeadlineBonus_Late, new GameplayMaster.Event(PowerupScript.Trigger_Hourglass));
 	}
 
-	// Token: 0x060004F1 RID: 1265 RVA: 0x000213DA File Offset: 0x0001F5DA
+	// Token: 0x0600057F RID: 1407 RVA: 0x00009DBA File Offset: 0x00007FBA
 	public static void PFunc_OnUnequip_Hourglass(PowerupScript powerup)
 	{
 		GameplayMaster instance = GameplayMaster.instance;
 		instance.onDeadlineBonus_Late = (GameplayMaster.Event)Delegate.Remove(instance.onDeadlineBonus_Late, new GameplayMaster.Event(PowerupScript.Trigger_Hourglass));
 	}
 
-	// Token: 0x060004F2 RID: 1266 RVA: 0x00021402 File Offset: 0x0001F602
+	// Token: 0x06000580 RID: 1408 RVA: 0x00009DE2 File Offset: 0x00007FE2
 	public static void Trigger_Hourglass()
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Hourglass);
 		GameplayData.Powerup_Hourglass_DeadlinesCounter++;
 	}
 
-	// Token: 0x060004F3 RID: 1267 RVA: 0x00021417 File Offset: 0x0001F617
+	// Token: 0x06000581 RID: 1409 RVA: 0x00009DF7 File Offset: 0x00007FF7
 	public static int Hourglass_SymbolsMultiplierBonusGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hourglass))
@@ -2354,7 +2359,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_Hourglass_DeadlinesCounter / 2 + GameplayData.Powerup_Hourglass_DeadlinesCounter % 2;
 	}
 
-	// Token: 0x060004F4 RID: 1268 RVA: 0x00021436 File Offset: 0x0001F636
+	// Token: 0x06000582 RID: 1410 RVA: 0x00009E16 File Offset: 0x00008016
 	public static int Hourglass_PatternsMultiplierBonusGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hourglass))
@@ -2364,7 +2369,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_Hourglass_DeadlinesCounter / 2;
 	}
 
-	// Token: 0x060004F5 RID: 1269 RVA: 0x0002144D File Offset: 0x0001F64D
+	// Token: 0x06000583 RID: 1411 RVA: 0x00009E2D File Offset: 0x0000802D
 	public static int FruitBasketBonusGet()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.FruitBasket))
@@ -2374,7 +2379,7 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x060004F6 RID: 1270 RVA: 0x0002145C File Offset: 0x0001F65C
+	// Token: 0x06000584 RID: 1412 RVA: 0x000353AC File Offset: 0x000335AC
 	public static void PFunc_OnEquip_FruitBasket(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2383,7 +2388,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.FrutiBasket_OnRoundEnd));
 	}
 
-	// Token: 0x060004F7 RID: 1271 RVA: 0x000214B8 File Offset: 0x0001F6B8
+	// Token: 0x06000585 RID: 1413 RVA: 0x00035408 File Offset: 0x00033608
 	public static void PFunc_OnUnequip_FruitBasket(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2392,20 +2397,20 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Remove(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.FrutiBasket_OnRoundEnd));
 	}
 
-	// Token: 0x060004F8 RID: 1272 RVA: 0x00021511 File Offset: 0x0001F711
+	// Token: 0x06000586 RID: 1414 RVA: 0x00009E3B File Offset: 0x0000803B
 	public static void PFunc_OnThrowAway_FruitBasket(PowerupScript powerup)
 	{
 		GameplayData.Powerup_FruitBasket_RoundsLeftReset();
 	}
 
-	// Token: 0x060004F9 RID: 1273 RVA: 0x00021518 File Offset: 0x0001F718
+	// Token: 0x06000587 RID: 1415 RVA: 0x00009E42 File Offset: 0x00008042
 	private static void FrutiBasket_OnRoundStart()
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.FruitBasket);
 		GameplayData.Powerup_FruitsBasket_RoundsLeftSet(GameplayData.Powerup_FruitsBasket_RoundsLeftGet() - 1);
 	}
 
-	// Token: 0x060004FA RID: 1274 RVA: 0x0002152D File Offset: 0x0001F72D
+	// Token: 0x06000588 RID: 1416 RVA: 0x00009E57 File Offset: 0x00008057
 	private static void FrutiBasket_OnRoundEnd()
 	{
 		if (GameplayData.Powerup_FruitsBasket_RoundsLeftGet() <= 0)
@@ -2416,21 +2421,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayPowerDownAnimation(PowerupScript.Identifier.FruitBasket);
 	}
 
-	// Token: 0x060004FB RID: 1275 RVA: 0x00021548 File Offset: 0x0001F748
+	// Token: 0x06000589 RID: 1417 RVA: 0x00009E72 File Offset: 0x00008072
 	public static void PFunc_OnEquip_7SinsStone(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_7SinsStone));
 	}
 
-	// Token: 0x060004FC RID: 1276 RVA: 0x00021570 File Offset: 0x0001F770
+	// Token: 0x0600058A RID: 1418 RVA: 0x00009E9A File Offset: 0x0000809A
 	public static void PFunc_OnUnequip_7SinsStone(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_7SinsStone));
 	}
 
-	// Token: 0x060004FD RID: 1277 RVA: 0x00021598 File Offset: 0x0001F798
+	// Token: 0x0600058B RID: 1419 RVA: 0x00009EC2 File Offset: 0x000080C2
 	private static void Trigger_7SinsStone()
 	{
 		if (SlotMachineScript.SymbolsCount(SymbolScript.Kind.seven) < 7)
@@ -2441,7 +2446,7 @@ public class PowerupScript : MonoBehaviour
 		SlotMachineScript.Symbol_ReplaceAllVisibleSymbols(SymbolScript.Kind.seven, SymbolScript.Kind.seven, SymbolScript.Modifier.golden, false);
 	}
 
-	// Token: 0x060004FE RID: 1278 RVA: 0x000215B4 File Offset: 0x0001F7B4
+	// Token: 0x0600058C RID: 1420 RVA: 0x00009EDE File Offset: 0x000080DE
 	public static int NecklaceBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Necklace) && considerEquippedState)
@@ -2451,21 +2456,21 @@ public class PowerupScript : MonoBehaviour
 		return 2;
 	}
 
-	// Token: 0x060004FF RID: 1279 RVA: 0x000215C7 File Offset: 0x0001F7C7
+	// Token: 0x0600058D RID: 1421 RVA: 0x00009EF1 File Offset: 0x000080F1
 	public static void PFunc_OnEquip_CloverBell(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_CloverBell));
 	}
 
-	// Token: 0x06000500 RID: 1280 RVA: 0x000215EF File Offset: 0x0001F7EF
+	// Token: 0x0600058E RID: 1422 RVA: 0x00009F19 File Offset: 0x00008119
 	public static void PFunc_OnUnequip_CloverBell(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_CloverBell));
 	}
 
-	// Token: 0x06000501 RID: 1281 RVA: 0x00021618 File Offset: 0x0001F818
+	// Token: 0x0600058F RID: 1423 RVA: 0x00035464 File Offset: 0x00033664
 	private static void Trigger_CloverBell()
 	{
 		int patternsCount_BySymbol = SlotMachineScript.GetPatternsCount_BySymbol(SymbolScript.Kind.clover);
@@ -2478,24 +2483,22 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.StoreFreeRestocksSet(GameplayData.StoreFreeRestocksGet() + 3L);
 	}
 
-	// Token: 0x06000502 RID: 1282 RVA: 0x0002164E File Offset: 0x0001F84E
+	// Token: 0x06000590 RID: 1424 RVA: 0x00009F41 File Offset: 0x00008141
 	public static BigInteger CigarettesGetSymbolBonus(SymbolScript.Kind symbKind)
 	{
 		return GameplayData.Symbol_CoinsValue_GetBasic(symbKind) * GameplayData.Powerup_Cigarettes_ActivationsCounter;
 	}
 
-	// Token: 0x06000503 RID: 1283 RVA: 0x00021664 File Offset: 0x0001F864
+	// Token: 0x06000591 RID: 1425 RVA: 0x00009F54 File Offset: 0x00008154
 	public static void PFunc_OnEquip_Cigarettes(PowerupScript powerup)
 	{
 		GameplayData.Powerup_Cigarettes_ActivationsCounter++;
+		GameplayData.Powerup_Cigarettes_PriceIncrease += 1L;
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Cigarettes);
-		if (R.Rng_Powerup(PowerupScript.Identifier.Cigarettes).Range(0, 100) > 20)
-		{
-			StoreCapsuleScript.Restock(false, true, new PowerupScript[] { PowerupScript.GetPowerup_Quick(PowerupScript.Identifier.Cigarettes) }, false, true);
-		}
+		StoreCapsuleScript.Restock(false, true, new PowerupScript[] { PowerupScript.GetPowerup_Quick(PowerupScript.Identifier.Cigarettes) }, false, true);
 	}
 
-	// Token: 0x06000504 RID: 1284 RVA: 0x000216B0 File Offset: 0x0001F8B0
+	// Token: 0x06000592 RID: 1426 RVA: 0x0003549C File Offset: 0x0003369C
 	public static void ElectrcityCounter_TryRecharge()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.ElectricityCounter))
@@ -2524,21 +2527,21 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000505 RID: 1285 RVA: 0x00021724 File Offset: 0x0001F924
+	// Token: 0x06000593 RID: 1427 RVA: 0x00009F8F File Offset: 0x0000818F
 	public static void PFunc_OnEquip_PotatoPower(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd_Late = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd_Late, new SlotMachineScript.Event(PowerupScript.Trigger_PotatoPower));
 	}
 
-	// Token: 0x06000506 RID: 1286 RVA: 0x0002174C File Offset: 0x0001F94C
+	// Token: 0x06000594 RID: 1428 RVA: 0x00009FB7 File Offset: 0x000081B7
 	public static void PFunc_OnUnequip_PotatoPower(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd_Late = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd_Late, new SlotMachineScript.Event(PowerupScript.Trigger_PotatoPower));
 	}
 
-	// Token: 0x06000507 RID: 1287 RVA: 0x00021774 File Offset: 0x0001F974
+	// Token: 0x06000595 RID: 1429 RVA: 0x00035510 File Offset: 0x00033710
 	private static void Trigger_PotatoPower()
 	{
 		if (GameplayData.SpinsWithoutReward_Get() < 2)
@@ -2557,20 +2560,20 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000508 RID: 1288 RVA: 0x000217C7 File Offset: 0x0001F9C7
+	// Token: 0x06000596 RID: 1430 RVA: 0x00009FDF File Offset: 0x000081DF
 	public static void PFunc_OnEquip_CardboardHouse(PowerupScript powerup)
 	{
 		GameplayData.MaxEquippablePowerupsAdd(1);
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.CardboardHouse);
 	}
 
-	// Token: 0x06000509 RID: 1289 RVA: 0x000217D6 File Offset: 0x0001F9D6
+	// Token: 0x06000597 RID: 1431 RVA: 0x00009FEE File Offset: 0x000081EE
 	public static void PFunc_OnEquip_CrowBar(PowerupScript powerup)
 	{
 		GameplayData.StoreFreeRestocksSet(GameplayData.StoreFreeRestocksGet() + 3L);
 	}
 
-	// Token: 0x0600050A RID: 1290 RVA: 0x000217E5 File Offset: 0x0001F9E5
+	// Token: 0x06000598 RID: 1432 RVA: 0x00009FFD File Offset: 0x000081FD
 	public static long ShoppingCart_MultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.ShoppingCart) && considerEquippedState)
@@ -2580,7 +2583,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.StoreFreeRestocksGet() * 2L;
 	}
 
-	// Token: 0x0600050B RID: 1291 RVA: 0x00021800 File Offset: 0x0001FA00
+	// Token: 0x06000599 RID: 1433 RVA: 0x0000A018 File Offset: 0x00008218
 	public static void ShoppingCart_TriggerAtDeadlineBegin()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.ShoppingCart))
@@ -2591,7 +2594,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.ShoppingCart);
 	}
 
-	// Token: 0x0600050C RID: 1292 RVA: 0x00021820 File Offset: 0x0001FA20
+	// Token: 0x0600059A RID: 1434 RVA: 0x00035564 File Offset: 0x00033764
 	public static void PFunc_OnEquip_Jimbo(PowerupScript powerup)
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Jimbo);
@@ -2601,7 +2604,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Jimbo_OnPreLuckApplication));
 	}
 
-	// Token: 0x0600050D RID: 1293 RVA: 0x00021884 File Offset: 0x0001FA84
+	// Token: 0x0600059B RID: 1435 RVA: 0x000355C8 File Offset: 0x000337C8
 	public static void PFunc_OnUnequip_Jimbo(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2610,13 +2613,13 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Jimbo_OnPreLuckApplication));
 	}
 
-	// Token: 0x0600050E RID: 1294 RVA: 0x000218DD File Offset: 0x0001FADD
+	// Token: 0x0600059C RID: 1436 RVA: 0x0000A038 File Offset: 0x00008238
 	public static void PFunc_OnThrowAway_Jimbo(PowerupScript powerup)
 	{
 		GameplayData.Powerup_Jimbo_ReshuffleAndReset();
 	}
 
-	// Token: 0x0600050F RID: 1295 RVA: 0x000218E4 File Offset: 0x0001FAE4
+	// Token: 0x0600059D RID: 1437 RVA: 0x0000A03F File Offset: 0x0000823F
 	private static void Jimbo_OnRoundEnd()
 	{
 		if (!GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Bad_Discard3, true) && !GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Bad_Discard6, true))
@@ -2631,7 +2634,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000510 RID: 1296 RVA: 0x0002191F File Offset: 0x0001FB1F
+	// Token: 0x0600059E RID: 1438 RVA: 0x0000A07A File Offset: 0x0000827A
 	private static void Jimbo_OnPreLuckApplication()
 	{
 		if (!GameplayData.Powerup_Jimbo_IsAbilityAvailable(GameplayData.JimboAbility.Good_Luck, true))
@@ -2646,7 +2649,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Jimbo);
 	}
 
-	// Token: 0x06000511 RID: 1297 RVA: 0x00021950 File Offset: 0x0001FB50
+	// Token: 0x0600059F RID: 1439 RVA: 0x00035624 File Offset: 0x00033824
 	public static void PFunc_OnEquip_DiscC(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2655,7 +2658,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.DiscC_FinalizeSpin));
 	}
 
-	// Token: 0x06000512 RID: 1298 RVA: 0x000219AC File Offset: 0x0001FBAC
+	// Token: 0x060005A0 RID: 1440 RVA: 0x00035680 File Offset: 0x00033880
 	public static void PFunc_OnUnequip_DiscC(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2664,13 +2667,13 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.DiscC_FinalizeSpin));
 	}
 
-	// Token: 0x06000513 RID: 1299 RVA: 0x00021A05 File Offset: 0x0001FC05
+	// Token: 0x060005A1 RID: 1441 RVA: 0x0000A0AA File Offset: 0x000082AA
 	private static void DiscC_TriggerTry()
 	{
 		GameplayData.Powerup_DiscC_SpinsCounter++;
 	}
 
-	// Token: 0x06000514 RID: 1300 RVA: 0x00021A14 File Offset: 0x0001FC14
+	// Token: 0x060005A2 RID: 1442 RVA: 0x000356DC File Offset: 0x000338DC
 	private static void DiscC_FinalizeSpin()
 	{
 		int num = GameplayData.Powerup_DiscC_SpinsCounter;
@@ -2681,19 +2684,19 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_DiscC_SpinsCounter = num;
 	}
 
-	// Token: 0x06000515 RID: 1301 RVA: 0x00021A35 File Offset: 0x0001FC35
+	// Token: 0x060005A3 RID: 1443 RVA: 0x0000A0B8 File Offset: 0x000082B8
 	public static bool DiscC_IsTriggeringTime()
 	{
 		return PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.DiscC) && !SlotMachineScript.Has666() && !SlotMachineScript.Has999() && GameplayData.Powerup_DiscC_SpinsCounter == 7;
 	}
 
-	// Token: 0x06000516 RID: 1302 RVA: 0x00021A5A File Offset: 0x0001FC5A
+	// Token: 0x060005A4 RID: 1444 RVA: 0x0000A0DD File Offset: 0x000082DD
 	public static int DiscC_MissingSpinsGet()
 	{
 		return 7 - GameplayData.Powerup_DiscC_SpinsCounter;
 	}
 
-	// Token: 0x06000517 RID: 1303 RVA: 0x00021A64 File Offset: 0x0001FC64
+	// Token: 0x060005A5 RID: 1445 RVA: 0x00035700 File Offset: 0x00033900
 	public static void PFunc_OnEquip_DiscB(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2702,7 +2705,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.DiscB_FinalizeSpin));
 	}
 
-	// Token: 0x06000518 RID: 1304 RVA: 0x00021AC0 File Offset: 0x0001FCC0
+	// Token: 0x060005A6 RID: 1446 RVA: 0x0003575C File Offset: 0x0003395C
 	public static void PFunc_OnUnequip_DiscB(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2711,7 +2714,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.DiscB_FinalizeSpin));
 	}
 
-	// Token: 0x06000519 RID: 1305 RVA: 0x00021B19 File Offset: 0x0001FD19
+	// Token: 0x060005A7 RID: 1447 RVA: 0x0000A0E6 File Offset: 0x000082E6
 	private static void DiscB_TriggerTry()
 	{
 		int num = GameplayData.Powerup_DiscB_SpinsCounter + 1;
@@ -2723,7 +2726,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_DiscB_SpinsCounter = num;
 	}
 
-	// Token: 0x0600051A RID: 1306 RVA: 0x00021B44 File Offset: 0x0001FD44
+	// Token: 0x060005A8 RID: 1448 RVA: 0x000357B8 File Offset: 0x000339B8
 	private static void DiscB_FinalizeSpin()
 	{
 		int num = GameplayData.Powerup_DiscB_SpinsCounter;
@@ -2734,13 +2737,13 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_DiscB_SpinsCounter = num;
 	}
 
-	// Token: 0x0600051B RID: 1307 RVA: 0x00021B65 File Offset: 0x0001FD65
+	// Token: 0x060005A9 RID: 1449 RVA: 0x0000A110 File Offset: 0x00008310
 	public static int DiscB_MissingSpinsGet()
 	{
 		return 7 - GameplayData.Powerup_DiscB_SpinsCounter;
 	}
 
-	// Token: 0x0600051C RID: 1308 RVA: 0x00021B70 File Offset: 0x0001FD70
+	// Token: 0x060005AA RID: 1450 RVA: 0x000357DC File Offset: 0x000339DC
 	public static void PFunc_OnEquip_DiscA(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2749,7 +2752,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.DiscA_FinalizeSpin));
 	}
 
-	// Token: 0x0600051D RID: 1309 RVA: 0x00021BCC File Offset: 0x0001FDCC
+	// Token: 0x060005AB RID: 1451 RVA: 0x00035838 File Offset: 0x00033A38
 	public static void PFunc_OnUnequip_DiscA(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -2758,7 +2761,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.DiscA_FinalizeSpin));
 	}
 
-	// Token: 0x0600051E RID: 1310 RVA: 0x00021C25 File Offset: 0x0001FE25
+	// Token: 0x060005AC RID: 1452 RVA: 0x0000A119 File Offset: 0x00008319
 	private static void DiscA_TriggerTry()
 	{
 		int num = GameplayData.Powerup_DiscA_SpinsCounter + 1;
@@ -2769,7 +2772,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_DiscA_SpinsCounter = num;
 	}
 
-	// Token: 0x0600051F RID: 1311 RVA: 0x00021C40 File Offset: 0x0001FE40
+	// Token: 0x060005AD RID: 1453 RVA: 0x00035894 File Offset: 0x00033A94
 	private static void DiscA_FinalizeSpin()
 	{
 		int num = GameplayData.Powerup_DiscA_SpinsCounter;
@@ -2780,26 +2783,26 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_DiscA_SpinsCounter = num;
 	}
 
-	// Token: 0x06000520 RID: 1312 RVA: 0x00021C61 File Offset: 0x0001FE61
+	// Token: 0x060005AE RID: 1454 RVA: 0x0000A132 File Offset: 0x00008332
 	public static bool DiscA_IsTriggeringTime()
 	{
 		return PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.DiscA) && GameplayData.Powerup_DiscA_SpinsCounter == 7;
 	}
 
-	// Token: 0x06000521 RID: 1313 RVA: 0x00021C76 File Offset: 0x0001FE76
+	// Token: 0x060005AF RID: 1455 RVA: 0x0000A147 File Offset: 0x00008347
 	public static int DiscA_MissingSpinsGet()
 	{
 		return 7 - GameplayData.Powerup_DiscA_SpinsCounter;
 	}
 
-	// Token: 0x06000522 RID: 1314 RVA: 0x00021C7F File Offset: 0x0001FE7F
+	// Token: 0x060005B0 RID: 1456 RVA: 0x0000A150 File Offset: 0x00008350
 	public static void PFunc_OnEquip_MusicTape(PowerupScript powerup)
 	{
 		GameplayData.DeadlineRoundsIncrement_Manual(1);
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.MusicTape);
 	}
 
-	// Token: 0x06000523 RID: 1315 RVA: 0x00021C8E File Offset: 0x0001FE8E
+	// Token: 0x060005B1 RID: 1457 RVA: 0x0000A15F File Offset: 0x0000835F
 	public static void PFunc_OnEquip_WeirdClock(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.WeirdClock_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.noTiming, null);
@@ -2807,7 +2810,7 @@ public class PowerupScript : MonoBehaviour
 		instance.onButtonActivatedSomething = (RedButtonScript.RedButtonEvent)Delegate.Combine(instance.onButtonActivatedSomething, new RedButtonScript.RedButtonEvent(PowerupScript.WeirdClockThrowAwayCheck));
 	}
 
-	// Token: 0x06000524 RID: 1316 RVA: 0x00021CCA File Offset: 0x0001FECA
+	// Token: 0x060005B2 RID: 1458 RVA: 0x0000A19B File Offset: 0x0000839B
 	public static void PFunc_OnUnequip_WeirdClock(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
@@ -2815,7 +2818,7 @@ public class PowerupScript : MonoBehaviour
 		instance.onButtonActivatedSomething = (RedButtonScript.RedButtonEvent)Delegate.Remove(instance.onButtonActivatedSomething, new RedButtonScript.RedButtonEvent(PowerupScript.WeirdClockThrowAwayCheck));
 	}
 
-	// Token: 0x06000525 RID: 1317 RVA: 0x00021CF8 File Offset: 0x0001FEF8
+	// Token: 0x060005B3 RID: 1459 RVA: 0x0000A1C9 File Offset: 0x000083C9
 	private static void WeirdClock_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.WeirdClock, true))
@@ -2827,13 +2830,13 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_WeirdClock_DeadlineUses++;
 	}
 
-	// Token: 0x06000526 RID: 1318 RVA: 0x00021D1F File Offset: 0x0001FF1F
+	// Token: 0x060005B4 RID: 1460 RVA: 0x0000A1F0 File Offset: 0x000083F0
 	public static void WeirdClockDeadlineReset()
 	{
 		GameplayData.Powerup_WeirdClock_DeadlineUses = 0;
 	}
 
-	// Token: 0x06000527 RID: 1319 RVA: 0x00021D27 File Offset: 0x0001FF27
+	// Token: 0x060005B5 RID: 1461 RVA: 0x0000A1F8 File Offset: 0x000083F8
 	private static void WeirdClockThrowAwayCheck()
 	{
 		if (PowerupScript.WeirdClockActivationsLimitReached())
@@ -2842,27 +2845,27 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000528 RID: 1320 RVA: 0x00021D39 File Offset: 0x0001FF39
+	// Token: 0x060005B6 RID: 1462 RVA: 0x0000A20A File Offset: 0x0000840A
 	public static bool WeirdClockActivationsLimitReached()
 	{
 		return GameplayData.Powerup_WeirdClock_DeadlineUses >= 5;
 	}
 
-	// Token: 0x06000529 RID: 1321 RVA: 0x00021D46 File Offset: 0x0001FF46
+	// Token: 0x060005B7 RID: 1463 RVA: 0x0000A217 File Offset: 0x00008417
 	public static void PFunc_OnEquip_SteamLocomotive(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd_Late = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd_Late, new SlotMachineScript.Event(PowerupScript.Trigger_SteamLocomotive));
 	}
 
-	// Token: 0x0600052A RID: 1322 RVA: 0x00021D6E File Offset: 0x0001FF6E
+	// Token: 0x060005B8 RID: 1464 RVA: 0x0000A23F File Offset: 0x0000843F
 	public static void PFunc_OnUnequip_SteamLocomotive(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd_Late = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd_Late, new SlotMachineScript.Event(PowerupScript.Trigger_SteamLocomotive));
 	}
 
-	// Token: 0x0600052B RID: 1323 RVA: 0x00021D96 File Offset: 0x0001FF96
+	// Token: 0x060005B9 RID: 1465 RVA: 0x0000A267 File Offset: 0x00008467
 	private static void Trigger_SteamLocomotive()
 	{
 		if (GameplayData.SpinsWithoutReward_Get() < 3)
@@ -2873,27 +2876,27 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_SteamLocomotive_Bonus_Set(GameplayData.Powerup_SteamLocomotive_Bonus_Get() + 1);
 	}
 
-	// Token: 0x0600052C RID: 1324 RVA: 0x00021DB4 File Offset: 0x0001FFB4
+	// Token: 0x060005BA RID: 1466 RVA: 0x0000A285 File Offset: 0x00008485
 	public static long SteamLocomotive_SymbolsBonus_Get(SymbolScript.Kind symbolKind)
 	{
 		return (long)(GameplayData.Symbol_CoinsValue_GetBasic(symbolKind) * GameplayData.Powerup_SteamLocomotive_Bonus_Get());
 	}
 
-	// Token: 0x0600052D RID: 1325 RVA: 0x00021DC3 File Offset: 0x0001FFC3
+	// Token: 0x060005BB RID: 1467 RVA: 0x0000A294 File Offset: 0x00008494
 	public static void PFunc_OnEquip_DieselLocomotive(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd_Late = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd_Late, new SlotMachineScript.Event(PowerupScript.Trigger_DieselLocomotive));
 	}
 
-	// Token: 0x0600052E RID: 1326 RVA: 0x00021DEB File Offset: 0x0001FFEB
+	// Token: 0x060005BC RID: 1468 RVA: 0x0000A2BC File Offset: 0x000084BC
 	public static void PFunc_OnUnequip_DieselLocomotive(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd_Late = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd_Late, new SlotMachineScript.Event(PowerupScript.Trigger_DieselLocomotive));
 	}
 
-	// Token: 0x0600052F RID: 1327 RVA: 0x00021E13 File Offset: 0x00020013
+	// Token: 0x060005BD RID: 1469 RVA: 0x0000A2E4 File Offset: 0x000084E4
 	private static void Trigger_DieselLocomotive()
 	{
 		if (GameplayData.SpinsWithoutReward_Get() < 3)
@@ -2904,19 +2907,19 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_DieselLocomotive_Bonus_Set(GameplayData.Powerup_DieselLocomotive_Bonus_Get() + 1);
 	}
 
-	// Token: 0x06000530 RID: 1328 RVA: 0x00021E31 File Offset: 0x00020031
+	// Token: 0x060005BE RID: 1470 RVA: 0x0000A302 File Offset: 0x00008502
 	public static double DieselLocomotive_PatternsBonus_Get(PatternScript.Kind patternKind)
 	{
 		return GameplayData.Pattern_Value_GetBasic(patternKind) * (double)GameplayData.Powerup_DieselLocomotive_Bonus_Get();
 	}
 
-	// Token: 0x06000531 RID: 1329 RVA: 0x00021E40 File Offset: 0x00020040
+	// Token: 0x060005BF RID: 1471 RVA: 0x0000A311 File Offset: 0x00008511
 	public static void PFunc_OnEquip_Depression(PowerupScript powerup)
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Depression);
 	}
 
-	// Token: 0x06000532 RID: 1330 RVA: 0x00021E4C File Offset: 0x0002004C
+	// Token: 0x060005C0 RID: 1472 RVA: 0x000358B8 File Offset: 0x00033AB8
 	public static void PFunc_OnEquip_StepsCounter(PowerupScript powerup)
 	{
 		RedButtonScript instance = RedButtonScript.instance;
@@ -2925,7 +2928,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.StepsCounter_SpinTrigger));
 	}
 
-	// Token: 0x06000533 RID: 1331 RVA: 0x00021EA8 File Offset: 0x000200A8
+	// Token: 0x060005C1 RID: 1473 RVA: 0x00035914 File Offset: 0x00033B14
 	public static void PFunc_OnUnequip_StepsCounter(PowerupScript powerup)
 	{
 		RedButtonScript instance = RedButtonScript.instance;
@@ -2934,13 +2937,13 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.StepsCounter_SpinTrigger));
 	}
 
-	// Token: 0x06000534 RID: 1332 RVA: 0x00021F01 File Offset: 0x00020101
+	// Token: 0x060005C2 RID: 1474 RVA: 0x0000A31A File Offset: 0x0000851A
 	public static void StepsCounter_ButtonTrigger()
 	{
 		GameplayData.Powerup_StepsCounter_TriggersCounter_Set(GameplayData.Powerup_StepsCounter_TriggersCounter_Get() + 1);
 	}
 
-	// Token: 0x06000535 RID: 1333 RVA: 0x00021F10 File Offset: 0x00020110
+	// Token: 0x060005C3 RID: 1475 RVA: 0x00035970 File Offset: 0x00033B70
 	public static void StepsCounter_SpinTrigger()
 	{
 		int num = GameplayData.Powerup_StepsCounter_TriggersCounter_Get();
@@ -2954,13 +2957,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.StepsCounter);
 	}
 
-	// Token: 0x06000536 RID: 1334 RVA: 0x00021F4A File Offset: 0x0002014A
+	// Token: 0x060005C4 RID: 1476 RVA: 0x0000A328 File Offset: 0x00008528
 	public static int StepsCounter_TriggersNeededGet()
 	{
 		return 3 - GameplayData.Powerup_StepsCounter_TriggersCounter_Get();
 	}
 
-	// Token: 0x06000537 RID: 1335 RVA: 0x00021F54 File Offset: 0x00020154
+	// Token: 0x060005C5 RID: 1477 RVA: 0x000359AC File Offset: 0x00033BAC
 	public static long DarkLotus_MultiplierBonus_Get(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.DarkLotus) && considerEquippedState)
@@ -2979,21 +2982,21 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000538 RID: 1336 RVA: 0x00021FA9 File Offset: 0x000201A9
+	// Token: 0x060005C6 RID: 1478 RVA: 0x0000A331 File Offset: 0x00008531
 	public static void PFunc_OnEquip_FieldOfClovers(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.FieldOfClovers_Trigger));
 	}
 
-	// Token: 0x06000539 RID: 1337 RVA: 0x00021FD1 File Offset: 0x000201D1
+	// Token: 0x060005C7 RID: 1479 RVA: 0x0000A359 File Offset: 0x00008559
 	public static void PFunc_OnUnequip_FieldOfClovers(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnRoundEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.FieldOfClovers_Trigger));
 	}
 
-	// Token: 0x0600053A RID: 1338 RVA: 0x00021FFC File Offset: 0x000201FC
+	// Token: 0x060005C8 RID: 1480 RVA: 0x00035A04 File Offset: 0x00033C04
 	private static void FieldOfClovers_Trigger()
 	{
 		for (int i = 0; i < PowerupScript.list_EquippedNormal.Count; i++)
@@ -3007,21 +3010,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.CloversLandPatch);
 	}
 
-	// Token: 0x0600053B RID: 1339 RVA: 0x00022052 File Offset: 0x00020252
+	// Token: 0x060005C9 RID: 1481 RVA: 0x0000A381 File Offset: 0x00008581
 	public static void PFunc_OnEquip_ConsolationPrize(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.TriggerConsolationPrize));
 	}
 
-	// Token: 0x0600053C RID: 1340 RVA: 0x0002207A File Offset: 0x0002027A
+	// Token: 0x060005CA RID: 1482 RVA: 0x0000A3A9 File Offset: 0x000085A9
 	public static void PFunc_OnUnequip_ConsolationPrize(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.TriggerConsolationPrize));
 	}
 
-	// Token: 0x0600053D RID: 1341 RVA: 0x000220A4 File Offset: 0x000202A4
+	// Token: 0x060005CB RID: 1483 RVA: 0x00035A5C File Offset: 0x00033C5C
 	public static void TriggerConsolationPrize()
 	{
 		if (SlotMachineScript.GetPatternsCount() > 0)
@@ -3039,25 +3042,25 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.ConsolationPrize);
 	}
 
-	// Token: 0x0600053E RID: 1342 RVA: 0x00022104 File Offset: 0x00020304
+	// Token: 0x060005CC RID: 1484 RVA: 0x0000A3D1 File Offset: 0x000085D1
 	public static long ConsolationPrizeBonusGet(SymbolScript.Kind symbolKind)
 	{
 		return (long)GameplayData.Symbol_CoinsValue_GetBasic(symbolKind) * GameplayData.Powerup_ConsolationPrize_Bonus_Get();
 	}
 
-	// Token: 0x0600053F RID: 1343 RVA: 0x00022113 File Offset: 0x00020313
+	// Token: 0x060005CD RID: 1485 RVA: 0x0000A3E0 File Offset: 0x000085E0
 	public static void PFunc_OnEquip_RingBell(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.RingBell_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.noTiming, null);
 	}
 
-	// Token: 0x06000540 RID: 1344 RVA: 0x00022129 File Offset: 0x00020329
+	// Token: 0x060005CE RID: 1486 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_RingBell(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000541 RID: 1345 RVA: 0x00022131 File Offset: 0x00020331
+	// Token: 0x060005CF RID: 1487 RVA: 0x0000A3FE File Offset: 0x000085FE
 	private static void RingBell_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.RingBell, true))
@@ -3068,13 +3071,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.RingBell);
 	}
 
-	// Token: 0x06000542 RID: 1346 RVA: 0x00022153 File Offset: 0x00020353
+	// Token: 0x060005D0 RID: 1488 RVA: 0x0000A420 File Offset: 0x00008620
 	public static long RingBell_BonusGet()
 	{
 		return GameplayData.Powerup_RingBell_Bonus_Get();
 	}
 
-	// Token: 0x06000543 RID: 1347 RVA: 0x0002215A File Offset: 0x0002035A
+	// Token: 0x060005D1 RID: 1489 RVA: 0x0000A427 File Offset: 0x00008627
 	public static long AllIn_MultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.AllIn) && considerEquippedState)
@@ -3084,7 +3087,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.JackpotsScoredCounter;
 	}
 
-	// Token: 0x06000544 RID: 1348 RVA: 0x00022172 File Offset: 0x00020372
+	// Token: 0x060005D2 RID: 1490 RVA: 0x0000A43F File Offset: 0x0000863F
 	public static void AllIn_TryTriggeringAnimation()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.AllIn))
@@ -3094,7 +3097,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.AllIn);
 	}
 
-	// Token: 0x06000545 RID: 1349 RVA: 0x00022185 File Offset: 0x00020385
+	// Token: 0x060005D3 RID: 1491 RVA: 0x0000A452 File Offset: 0x00008652
 	public static long Garbage_MultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Garbage) && considerEquippedState)
@@ -3104,7 +3107,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.SmallBetPickCount();
 	}
 
-	// Token: 0x06000546 RID: 1350 RVA: 0x0002219D File Offset: 0x0002039D
+	// Token: 0x060005D4 RID: 1492 RVA: 0x0000A46A File Offset: 0x0000866A
 	public static void Garbage_TryTriggeringAnimation()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Garbage))
@@ -3114,7 +3117,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Garbage);
 	}
 
-	// Token: 0x06000547 RID: 1351 RVA: 0x000221B0 File Offset: 0x000203B0
+	// Token: 0x060005D5 RID: 1493 RVA: 0x00035ABC File Offset: 0x00033CBC
 	public static long VoiceMail_MultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.VoiceMailTape) && considerEquippedState)
@@ -3129,27 +3132,27 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000548 RID: 1352 RVA: 0x000221DD File Offset: 0x000203DD
+	// Token: 0x060005D6 RID: 1494 RVA: 0x0000A47D File Offset: 0x0000867D
 	public static void PFunc_OnEquip_Pareidolia(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_Pareidolia));
 	}
 
-	// Token: 0x06000549 RID: 1353 RVA: 0x00022205 File Offset: 0x00020405
+	// Token: 0x060005D7 RID: 1495 RVA: 0x0000A4A5 File Offset: 0x000086A5
 	public static void PFunc_OnUnequip_Pareidolia(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_Pareidolia));
 	}
 
-	// Token: 0x0600054A RID: 1354 RVA: 0x0002222D File Offset: 0x0002042D
+	// Token: 0x060005D8 RID: 1496 RVA: 0x0000A4CD File Offset: 0x000086CD
 	public static double PareidoliaBonusMultiplierGet(PatternScript.Kind kind)
 	{
 		return GameplayData.Powerup_PareidoliaMultiplierBonus_Get(kind);
 	}
 
-	// Token: 0x0600054B RID: 1355 RVA: 0x00022238 File Offset: 0x00020438
+	// Token: 0x060005D9 RID: 1497 RVA: 0x00035AEC File Offset: 0x00033CEC
 	private static void Trigger_Pareidolia()
 	{
 		if (SlotMachineScript.GetBiggestPatternScored() != PatternScript.Kind.eye)
@@ -3168,7 +3171,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Pareidolia);
 	}
 
-	// Token: 0x0600054C RID: 1356 RVA: 0x00022284 File Offset: 0x00020484
+	// Token: 0x060005DA RID: 1498 RVA: 0x00035B38 File Offset: 0x00033D38
 	public static void AbstractPaintingDictEnsure()
 	{
 		if (PowerupScript._abstractPaintingBonusValue == null)
@@ -3186,7 +3189,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600054D RID: 1357 RVA: 0x000222D4 File Offset: 0x000204D4
+	// Token: 0x060005DB RID: 1499 RVA: 0x00035B88 File Offset: 0x00033D88
 	public static void PFunc_OnEquip_AbstractPainting(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -3195,7 +3198,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.AbstractPaintingReset));
 	}
 
-	// Token: 0x0600054E RID: 1358 RVA: 0x00022330 File Offset: 0x00020530
+	// Token: 0x060005DC RID: 1500 RVA: 0x00035BE4 File Offset: 0x00033DE4
 	public static void PFunc_OnUnequip_AbstractPainting(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -3205,7 +3208,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.AbstractPaintingReset();
 	}
 
-	// Token: 0x0600054F RID: 1359 RVA: 0x00022390 File Offset: 0x00020590
+	// Token: 0x060005DD RID: 1501 RVA: 0x00035C44 File Offset: 0x00033E44
 	public static void AbstractPaintingReset()
 	{
 		PowerupScript.AbstractPaintingDictEnsure();
@@ -3216,7 +3219,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000550 RID: 1360 RVA: 0x000223C5 File Offset: 0x000205C5
+	// Token: 0x060005DE RID: 1502 RVA: 0x0000A4D5 File Offset: 0x000086D5
 	public static double AbstractPaintingBonusMultiplierGet(PatternScript.Kind kind)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.AbstractPainting))
@@ -3226,7 +3229,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript._abstractPaintingBonusValue[kind];
 	}
 
-	// Token: 0x06000551 RID: 1361 RVA: 0x000223E8 File Offset: 0x000205E8
+	// Token: 0x060005DF RID: 1503 RVA: 0x00035C7C File Offset: 0x00033E7C
 	private static void Trigger_AbstractPainting()
 	{
 		PatternScript.Kind biggestPatternScored = SlotMachineScript.GetBiggestPatternScored();
@@ -3249,19 +3252,19 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.AbstractPainting);
 	}
 
-	// Token: 0x06000552 RID: 1362 RVA: 0x00022446 File Offset: 0x00020646
+	// Token: 0x060005E0 RID: 1504 RVA: 0x0000A4F5 File Offset: 0x000086F5
 	public static bool EyeJar_IsTriggerTime()
 	{
 		return PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.EyeJar) && GameplayData.ConsecutiveSpinsWithDiamondTreasureOrSeven_Get() >= 3 && !SlotMachineScript.Has666() && !SlotMachineScript.Has999();
 	}
 
-	// Token: 0x06000553 RID: 1363 RVA: 0x0002246E File Offset: 0x0002066E
+	// Token: 0x060005E1 RID: 1505 RVA: 0x0000A51D File Offset: 0x0000871D
 	public static bool Nose_IsTriggerTime()
 	{
 		return PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Nose) && GameplayData.ConsecutiveSpinsWithout5PlusPatterns_Get() >= 3 && !SlotMachineScript.Has666() && !SlotMachineScript.Has999();
 	}
 
-	// Token: 0x06000554 RID: 1364 RVA: 0x00022498 File Offset: 0x00020698
+	// Token: 0x060005E2 RID: 1506 RVA: 0x00035CDC File Offset: 0x00033EDC
 	public static void PFunc_OnEquip_ChannelerOfFortune(PowerupScript powerup)
 	{
 		PowerupTriggerAnimController instance = PowerupTriggerAnimController.instance;
@@ -3270,7 +3273,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.ChannelerOfFortune_ReleaseTry));
 	}
 
-	// Token: 0x06000555 RID: 1365 RVA: 0x000224F4 File Offset: 0x000206F4
+	// Token: 0x060005E3 RID: 1507 RVA: 0x00035D38 File Offset: 0x00033F38
 	public static void PFunc_OnUnequip_ChannelerOfFortune(PowerupScript powerup)
 	{
 		PowerupTriggerAnimController instance = PowerupTriggerAnimController.instance;
@@ -3279,7 +3282,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.ChannelerOfFortune_ReleaseTry));
 	}
 
-	// Token: 0x06000556 RID: 1366 RVA: 0x0002254D File Offset: 0x0002074D
+	// Token: 0x060005E4 RID: 1508 RVA: 0x0000A545 File Offset: 0x00008745
 	private static void ChannelerOfFortune_GrowActivationsCounter(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier == PowerupScript.Identifier.FortuneChanneler)
@@ -3297,7 +3300,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_ChannelerOfFortune_ActivationsCounterSet(GameplayData.Powerup_ChannelerOfFortune_ActivationsCounterGet() + 1);
 	}
 
-	// Token: 0x06000557 RID: 1367 RVA: 0x00022580 File Offset: 0x00020780
+	// Token: 0x060005E5 RID: 1509 RVA: 0x00035D94 File Offset: 0x00033F94
 	private static void ChannelerOfFortune_ReleaseTry()
 	{
 		int num = GameplayData.Powerup_ChannelerOfFortune_ActivationsCounterGet();
@@ -3311,7 +3314,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.FortuneChanneler);
 	}
 
-	// Token: 0x06000558 RID: 1368 RVA: 0x000225BC File Offset: 0x000207BC
+	// Token: 0x060005E6 RID: 1510 RVA: 0x00035DD0 File Offset: 0x00033FD0
 	public static int TheCollector_MultiplierGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.TheCollector) && considerEquippedState)
@@ -3336,7 +3339,7 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000559 RID: 1369 RVA: 0x00022664 File Offset: 0x00020864
+	// Token: 0x060005E7 RID: 1511 RVA: 0x00035E78 File Offset: 0x00034078
 	public static void PFunc_OnEquip_BrokenCalculator(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -3345,7 +3348,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.BrokenCalculatorReset));
 	}
 
-	// Token: 0x0600055A RID: 1370 RVA: 0x000226C0 File Offset: 0x000208C0
+	// Token: 0x060005E8 RID: 1512 RVA: 0x00035ED4 File Offset: 0x000340D4
 	public static void PFunc_OnUnequip_BrokenCalculator(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -3355,7 +3358,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.BrokenCalculatorReset();
 	}
 
-	// Token: 0x0600055B RID: 1371 RVA: 0x00022720 File Offset: 0x00020920
+	// Token: 0x060005E9 RID: 1513 RVA: 0x00035F34 File Offset: 0x00034134
 	private static void BrokenCalculatorTriggerTry()
 	{
 		float num = GameplayData.ActivationLuckGet();
@@ -3369,19 +3372,19 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.BrokenCalculator);
 	}
 
-	// Token: 0x0600055C RID: 1372 RVA: 0x00022770 File Offset: 0x00020970
+	// Token: 0x060005EA RID: 1514 RVA: 0x0000A575 File Offset: 0x00008775
 	private static void BrokenCalculatorReset()
 	{
 		PowerupScript._brokenCalculatorIsActive = false;
 	}
 
-	// Token: 0x0600055D RID: 1373 RVA: 0x00022778 File Offset: 0x00020978
+	// Token: 0x060005EB RID: 1515 RVA: 0x0000A57D File Offset: 0x0000877D
 	public static bool BrokenCalculatorIsActive()
 	{
 		return PowerupScript._brokenCalculatorIsActive;
 	}
 
-	// Token: 0x0600055E RID: 1374 RVA: 0x0002277F File Offset: 0x0002097F
+	// Token: 0x060005EC RID: 1516 RVA: 0x0000A584 File Offset: 0x00008784
 	public static int FideltyCard_DiscountGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.FideltyCard) && considerEquippedState)
@@ -3391,40 +3394,40 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x0600055F RID: 1375 RVA: 0x00022792 File Offset: 0x00020992
+	// Token: 0x060005ED RID: 1517 RVA: 0x0000A597 File Offset: 0x00008797
 	public static void PFunc_OnEquip_FideltyCard(PowerupScript powerup)
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.FideltyCard);
 		StoreCapsuleScript.RefreshCostTextAll();
 	}
 
-	// Token: 0x06000560 RID: 1376 RVA: 0x000227A0 File Offset: 0x000209A0
+	// Token: 0x060005EE RID: 1518 RVA: 0x0000A5A5 File Offset: 0x000087A5
 	public static void PFunc_OnUnequip_FideltyCard(PowerupScript powerup)
 	{
 		StoreCapsuleScript.RefreshCostTextAll();
 	}
 
-	// Token: 0x06000561 RID: 1377 RVA: 0x000227A7 File Offset: 0x000209A7
+	// Token: 0x060005EF RID: 1519 RVA: 0x0000A5AC File Offset: 0x000087AC
 	public static BigInteger GiantShroom_MultiplierBonusGet(SymbolScript.Kind kind)
 	{
 		return GameplayData.Powerup_GigaMushroom_SymbolValueGet(kind);
 	}
 
-	// Token: 0x06000562 RID: 1378 RVA: 0x000227AF File Offset: 0x000209AF
+	// Token: 0x060005F0 RID: 1520 RVA: 0x0000A5B4 File Offset: 0x000087B4
 	public static void PFunc_OnEquip_GiantShroom(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_GiantShroom));
 	}
 
-	// Token: 0x06000563 RID: 1379 RVA: 0x000227D7 File Offset: 0x000209D7
+	// Token: 0x060005F1 RID: 1521 RVA: 0x0000A5DC File Offset: 0x000087DC
 	public static void PFunc_OnUnequip_GiantShroom(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_GiantShroom));
 	}
 
-	// Token: 0x06000564 RID: 1380 RVA: 0x00022800 File Offset: 0x00020A00
+	// Token: 0x060005F2 RID: 1522 RVA: 0x00035F84 File Offset: 0x00034184
 	private static void Trigger_GiantShroom()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 15)
@@ -3439,7 +3442,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.GiantShroom);
 	}
 
-	// Token: 0x06000565 RID: 1381 RVA: 0x00022844 File Offset: 0x00020A44
+	// Token: 0x060005F3 RID: 1523 RVA: 0x00035FC8 File Offset: 0x000341C8
 	public static void GiantShroom_DeadlineEndReset()
 	{
 		bool flag = false;
@@ -3457,7 +3460,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000566 RID: 1382 RVA: 0x0002288C File Offset: 0x00020A8C
+	// Token: 0x060005F4 RID: 1524 RVA: 0x00036010 File Offset: 0x00034210
 	public static void VinesoupDictEnsure()
 	{
 		if (PowerupScript._vinesoupBonusValue == null)
@@ -3475,7 +3478,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000567 RID: 1383 RVA: 0x000228D8 File Offset: 0x00020AD8
+	// Token: 0x060005F5 RID: 1525 RVA: 0x0003605C File Offset: 0x0003425C
 	public static void VineShroomsReset()
 	{
 		PowerupScript.VinesoupDictEnsure();
@@ -3486,7 +3489,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000568 RID: 1384 RVA: 0x0002290A File Offset: 0x00020B0A
+	// Token: 0x060005F6 RID: 1526 RVA: 0x0000A604 File Offset: 0x00008804
 	public static BigInteger VineShroomsBonusGet_Min0(SymbolScript.Kind symbolKind)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.VineSoupShroom))
@@ -3497,7 +3500,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript._vinesoupBonusValue[symbolKind];
 	}
 
-	// Token: 0x06000569 RID: 1385 RVA: 0x0002292C File Offset: 0x00020B2C
+	// Token: 0x060005F7 RID: 1527 RVA: 0x00036090 File Offset: 0x00034290
 	public static void PFunc_OnEquip_VineShroom(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -3506,7 +3509,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.VineShroomsReset));
 	}
 
-	// Token: 0x0600056A RID: 1386 RVA: 0x00022988 File Offset: 0x00020B88
+	// Token: 0x060005F8 RID: 1528 RVA: 0x000360EC File Offset: 0x000342EC
 	public static void PFunc_OnUnequip_VineShroom(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -3516,7 +3519,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.VineShroomsReset();
 	}
 
-	// Token: 0x0600056B RID: 1387 RVA: 0x000229E8 File Offset: 0x00020BE8
+	// Token: 0x060005F9 RID: 1529 RVA: 0x0003614C File Offset: 0x0003434C
 	private static void Trigger_VineShroom()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 5)
@@ -3534,7 +3537,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.VineSoupShroom);
 	}
 
-	// Token: 0x0600056C RID: 1388 RVA: 0x00022A3C File Offset: 0x00020C3C
+	// Token: 0x060005FA RID: 1530 RVA: 0x000361A0 File Offset: 0x000343A0
 	public static void PFunc_OnEquip_FortuneCookie(PowerupScript powerup)
 	{
 		for (int i = 0; i < PowerupScript._fortuneCookiePowerups.Length; i++)
@@ -3559,7 +3562,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.FortuneCookie);
 	}
 
-	// Token: 0x0600056D RID: 1389 RVA: 0x00022B05 File Offset: 0x00020D05
+	// Token: 0x060005FB RID: 1531 RVA: 0x0000A626 File Offset: 0x00008826
 	public static void WolfTrigger(bool considerEquippedState, PowerupScript powerup)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Wolf) && considerEquippedState)
@@ -3574,21 +3577,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Wolf);
 	}
 
-	// Token: 0x0600056E RID: 1390 RVA: 0x00022B2D File Offset: 0x00020D2D
+	// Token: 0x060005FC RID: 1532 RVA: 0x0000A64E File Offset: 0x0000884E
 	public static void PFunc_OnEquip_YellowStar(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_YellowStar));
 	}
 
-	// Token: 0x0600056F RID: 1391 RVA: 0x00022B55 File Offset: 0x00020D55
+	// Token: 0x060005FD RID: 1533 RVA: 0x0000A676 File Offset: 0x00008876
 	public static void PFunc_OnUnequip_YellowStar(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_YellowStar));
 	}
 
-	// Token: 0x06000570 RID: 1392 RVA: 0x00022B80 File Offset: 0x00020D80
+	// Token: 0x060005FE RID: 1534 RVA: 0x0003626C File Offset: 0x0003446C
 	private static void Trigger_YellowStar()
 	{
 		if (GameplayData.SpinsWithoutReward_Get() < 1)
@@ -3612,7 +3615,7 @@ public class PowerupScript : MonoBehaviour
 		SlotMachineScript.Symbol_ReplaceVisible(kind, SymbolScript.Modifier.none, 4, 1, true);
 	}
 
-	// Token: 0x06000571 RID: 1393 RVA: 0x00022C2A File Offset: 0x00020E2A
+	// Token: 0x060005FF RID: 1535 RVA: 0x0000A69E File Offset: 0x0000889E
 	public static BigInteger Calendar_GetSymbolsMultiplierBonus(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Calendar) && considerEquippedState)
@@ -3622,7 +3625,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_Calendar_SymbolsIncreaseN_Get();
 	}
 
-	// Token: 0x06000572 RID: 1394 RVA: 0x00022C46 File Offset: 0x00020E46
+	// Token: 0x06000600 RID: 1536 RVA: 0x0000A6BA File Offset: 0x000088BA
 	public static void Calendar_IncreaseBonus(bool considerEquippedState, int roundsSkipped)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Calendar) && considerEquippedState)
@@ -3633,14 +3636,14 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Calendar);
 	}
 
-	// Token: 0x06000573 RID: 1395 RVA: 0x00022C7E File Offset: 0x00020E7E
+	// Token: 0x06000601 RID: 1537 RVA: 0x0000A6F2 File Offset: 0x000088F2
 	public static void PFunc_OnEquip_MoneyBriefCase(PowerupScript powerup)
 	{
 		GameplayData.CoinsAdd(GameplayData.DebtGet() * 30 / 100, true);
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.MoneyBriefCase);
 	}
 
-	// Token: 0x06000574 RID: 1396 RVA: 0x00022CAC File Offset: 0x00020EAC
+	// Token: 0x06000602 RID: 1538 RVA: 0x00036318 File Offset: 0x00034518
 	public static long Wallet_PatternsMultiplierBonus(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Wallet) && considerEquippedState)
@@ -3655,7 +3658,7 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000575 RID: 1397 RVA: 0x00022CE0 File Offset: 0x00020EE0
+	// Token: 0x06000603 RID: 1539 RVA: 0x0003634C File Offset: 0x0003454C
 	public static int PoopJar_CurrentlyActiveN(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PoopJar) && considerEquippedState)
@@ -3670,19 +3673,19 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000576 RID: 1398 RVA: 0x00022D0C File Offset: 0x00020F0C
+	// Token: 0x06000604 RID: 1540 RVA: 0x0000A71E File Offset: 0x0000891E
 	public static void PFunc_OnEquip_PoopJar(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.PoopJar_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perRound, null);
 	}
 
-	// Token: 0x06000577 RID: 1399 RVA: 0x00022D22 File Offset: 0x00020F22
+	// Token: 0x06000605 RID: 1541 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_PoopJar(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000578 RID: 1400 RVA: 0x00022D2A File Offset: 0x00020F2A
+	// Token: 0x06000606 RID: 1542 RVA: 0x0000A734 File Offset: 0x00008934
 	private static void PoopJar_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.PoopJar, true))
@@ -3692,7 +3695,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.PoopJar);
 	}
 
-	// Token: 0x06000579 RID: 1401 RVA: 0x00022D40 File Offset: 0x00020F40
+	// Token: 0x06000607 RID: 1543 RVA: 0x00036378 File Offset: 0x00034578
 	public static int PissJar_CurrentlyActiveN(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PissJar) && considerEquippedState)
@@ -3707,19 +3710,19 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600057A RID: 1402 RVA: 0x00022D6C File Offset: 0x00020F6C
+	// Token: 0x06000608 RID: 1544 RVA: 0x0000A749 File Offset: 0x00008949
 	public static void PFunc_OnEquip_PissJar(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.PissJar_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perRound, null);
 	}
 
-	// Token: 0x0600057B RID: 1403 RVA: 0x00022D82 File Offset: 0x00020F82
+	// Token: 0x06000609 RID: 1545 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_PissJar(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x0600057C RID: 1404 RVA: 0x00022D8A File Offset: 0x00020F8A
+	// Token: 0x0600060A RID: 1546 RVA: 0x0000A75F File Offset: 0x0000895F
 	private static void PissJar_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.PissJar, true))
@@ -3729,7 +3732,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.PissJar);
 	}
 
-	// Token: 0x0600057D RID: 1405 RVA: 0x00022DA0 File Offset: 0x00020FA0
+	// Token: 0x0600060B RID: 1547 RVA: 0x000363A4 File Offset: 0x000345A4
 	public static int GoldenHandMidaTouch_CurrentlyActiveN(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenHand_MidasTouch))
@@ -3744,19 +3747,19 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600057E RID: 1406 RVA: 0x00022DCA File Offset: 0x00020FCA
+	// Token: 0x0600060C RID: 1548 RVA: 0x0000A774 File Offset: 0x00008974
 	public static void PFunc_OnEquip_GoldenHandMidaTouch(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.GoldenHandMidaTouch_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perRound, null);
 	}
 
-	// Token: 0x0600057F RID: 1407 RVA: 0x00022DE0 File Offset: 0x00020FE0
+	// Token: 0x0600060D RID: 1549 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_GoldenHandMidaTouch(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000580 RID: 1408 RVA: 0x00022DE8 File Offset: 0x00020FE8
+	// Token: 0x0600060E RID: 1550 RVA: 0x0000A78A File Offset: 0x0000898A
 	private static void GoldenHandMidaTouch_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.GoldenHand_MidasTouch, true))
@@ -3766,27 +3769,27 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.GoldenHand_MidasTouch);
 	}
 
-	// Token: 0x06000581 RID: 1409 RVA: 0x00022DFD File Offset: 0x00020FFD
+	// Token: 0x0600060F RID: 1551 RVA: 0x0000A79F File Offset: 0x0000899F
 	public static bool ExpiredMeds_SettingChancesToZeroForSymbol(SymbolScript.Kind symbolKind, bool considerEquippedState)
 	{
 		return (PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.ExpiredMedicines) || !considerEquippedState) && GameplayData.MostValuableSymbols_GetList().Contains(symbolKind);
 	}
 
-	// Token: 0x06000582 RID: 1410 RVA: 0x00022E1A File Offset: 0x0002101A
+	// Token: 0x06000610 RID: 1552 RVA: 0x0000A7BC File Offset: 0x000089BC
 	public static void PFunc_OnEquip_CloverVoucher(PowerupScript powerup)
 	{
 		GameplayData.CloverTicketsAdd(4L, true);
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.CloverVoucher);
 	}
 
-	// Token: 0x06000583 RID: 1411 RVA: 0x00022E2B File Offset: 0x0002102B
+	// Token: 0x06000611 RID: 1553 RVA: 0x0000A7CD File Offset: 0x000089CD
 	public static void PFunc_OnEquip_CarBattery(PowerupScript powerup)
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.CarBattery);
 		GameplayData.Powerup_ButtonChargesUsed_ResetAll(true);
 	}
 
-	// Token: 0x06000584 RID: 1412 RVA: 0x00022E3B File Offset: 0x0002103B
+	// Token: 0x06000612 RID: 1554 RVA: 0x0000A7DD File Offset: 0x000089DD
 	public static float StonksInterestBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Stonks) && considerEquippedState)
@@ -3796,21 +3799,21 @@ public class PowerupScript : MonoBehaviour
 		return 5f;
 	}
 
-	// Token: 0x06000585 RID: 1413 RVA: 0x00022E56 File Offset: 0x00021056
+	// Token: 0x06000613 RID: 1555 RVA: 0x0000A7F8 File Offset: 0x000089F8
 	public static void PFunc_OnEquip_ToyTrain(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Trigger_ToyTrain));
 	}
 
-	// Token: 0x06000586 RID: 1414 RVA: 0x00022E7E File Offset: 0x0002107E
+	// Token: 0x06000614 RID: 1556 RVA: 0x0000A820 File Offset: 0x00008A20
 	public static void PFunc_OnUnequip_ToyTrain(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Trigger_ToyTrain));
 	}
 
-	// Token: 0x06000587 RID: 1415 RVA: 0x00022EA8 File Offset: 0x000210A8
+	// Token: 0x06000615 RID: 1557 RVA: 0x000363D0 File Offset: 0x000345D0
 	private static void Trigger_ToyTrain()
 	{
 		int num = GameplayData.SpinsWithoutReward_Get();
@@ -3825,7 +3828,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.ExtraLuck_SetEntry("tl_TTrain", 5f + num3, 1, true);
 	}
 
-	// Token: 0x06000588 RID: 1416 RVA: 0x00022EF3 File Offset: 0x000210F3
+	// Token: 0x06000616 RID: 1558 RVA: 0x0000A848 File Offset: 0x00008A48
 	public static float ScratchAndWin_ChanceBonusGet(bool considerEquippedState, SymbolScript.Kind symbolKind)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GrattaEVinci_ScratchAndWin) && considerEquippedState)
@@ -3839,21 +3842,21 @@ public class PowerupScript : MonoBehaviour
 		return 0.8f;
 	}
 
-	// Token: 0x06000589 RID: 1417 RVA: 0x00022F21 File Offset: 0x00021121
+	// Token: 0x06000617 RID: 1559 RVA: 0x0000A876 File Offset: 0x00008A76
 	public static void PFunc_OnEquip_CrankGenerator(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.Trigger_CrankGenerator));
 	}
 
-	// Token: 0x0600058A RID: 1418 RVA: 0x00022F49 File Offset: 0x00021149
+	// Token: 0x06000618 RID: 1560 RVA: 0x0000A89E File Offset: 0x00008A9E
 	public static void PFunc_OnUnequip_CrankGenerator(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnRoundEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.Trigger_CrankGenerator));
 	}
 
-	// Token: 0x0600058B RID: 1419 RVA: 0x00022F74 File Offset: 0x00021174
+	// Token: 0x06000619 RID: 1561 RVA: 0x0003641C File Offset: 0x0003461C
 	private static void Trigger_CrankGenerator()
 	{
 		float num = GameplayData.ActivationLuckGet();
@@ -3875,21 +3878,21 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600058C RID: 1420 RVA: 0x00022FF4 File Offset: 0x000211F4
+	// Token: 0x0600061A RID: 1562 RVA: 0x0000A8C6 File Offset: 0x00008AC6
 	public static void PFunc_OnEquip_SuperCapacitor(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_SuperCapacitor));
 	}
 
-	// Token: 0x0600058D RID: 1421 RVA: 0x0002301C File Offset: 0x0002121C
+	// Token: 0x0600061B RID: 1563 RVA: 0x0000A8EE File Offset: 0x00008AEE
 	public static void PFunc_OnUnequip_SuperCapacitor(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_SuperCapacitor));
 	}
 
-	// Token: 0x0600058E RID: 1422 RVA: 0x00023044 File Offset: 0x00021244
+	// Token: 0x0600061C RID: 1564 RVA: 0x0003649C File Offset: 0x0003469C
 	private static void Trigger_SuperCapacitor()
 	{
 		List<PowerupScript> list = RedButtonScript.RegisteredPowerupsGet();
@@ -3930,7 +3933,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600058F RID: 1423 RVA: 0x000230E5 File Offset: 0x000212E5
+	// Token: 0x0600061D RID: 1565 RVA: 0x0000A916 File Offset: 0x00008B16
 	public static int Megaphone_SpaceMalusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Megaphone) && considerEquippedState)
@@ -3940,7 +3943,7 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x06000590 RID: 1424 RVA: 0x000230F8 File Offset: 0x000212F8
+	// Token: 0x0600061E RID: 1566 RVA: 0x0000A916 File Offset: 0x00008B16
 	public static int Megaphone_PickMultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Megaphone) && considerEquippedState)
@@ -3950,19 +3953,19 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x06000591 RID: 1425 RVA: 0x0002310B File Offset: 0x0002130B
+	// Token: 0x0600061F RID: 1567 RVA: 0x0000A929 File Offset: 0x00008B29
 	public static void PFunc_OnEquip_DearDiary(PowerupScript powerup)
 	{
 		GameplayData.PhoneAbilitiesNumber_SetToMAX();
 	}
 
-	// Token: 0x06000592 RID: 1426 RVA: 0x00023112 File Offset: 0x00021312
+	// Token: 0x06000620 RID: 1568 RVA: 0x0000A930 File Offset: 0x00008B30
 	public static void PFunc_OnUnequip_DearDiary(PowerupScript powerup)
 	{
 		GameplayData.PhoneAbilitiesNumber_SetToDefault();
 	}
 
-	// Token: 0x06000593 RID: 1427 RVA: 0x00023119 File Offset: 0x00021319
+	// Token: 0x06000621 RID: 1569 RVA: 0x0000A937 File Offset: 0x00008B37
 	public static int Button2x_SpaceMalusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Button2X) && considerEquippedState)
@@ -3972,7 +3975,7 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x06000594 RID: 1428 RVA: 0x0002312C File Offset: 0x0002132C
+	// Token: 0x06000622 RID: 1570 RVA: 0x0000A937 File Offset: 0x00008B37
 	public static int Button2X_ActivationsMultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Button2X) && considerEquippedState)
@@ -3982,7 +3985,7 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x06000595 RID: 1429 RVA: 0x00023140 File Offset: 0x00021340
+	// Token: 0x06000623 RID: 1571 RVA: 0x00036540 File Offset: 0x00034740
 	public static long CloverPetSymbolsMultiplierBonus(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.CloverPet) && considerEquippedState)
@@ -3997,7 +4000,7 @@ public class PowerupScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000596 RID: 1430 RVA: 0x00023170 File Offset: 0x00021370
+	// Token: 0x06000624 RID: 1572 RVA: 0x0000A94A File Offset: 0x00008B4A
 	public static int CatTreatsBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.CatTreats) && considerEquippedState)
@@ -4007,7 +4010,7 @@ public class PowerupScript : MonoBehaviour
 		return 2;
 	}
 
-	// Token: 0x06000597 RID: 1431 RVA: 0x00023183 File Offset: 0x00021383
+	// Token: 0x06000625 RID: 1573 RVA: 0x0000A95D File Offset: 0x00008B5D
 	public static int HouseContractBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.HouseContract) && considerEquippedState)
@@ -4017,14 +4020,14 @@ public class PowerupScript : MonoBehaviour
 		return 2;
 	}
 
-	// Token: 0x06000598 RID: 1432 RVA: 0x00023196 File Offset: 0x00021396
+	// Token: 0x06000626 RID: 1574 RVA: 0x0000A970 File Offset: 0x00008B70
 	public static void PFunc_OnEquip_HouseContract(PowerupScript powerup)
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.HouseContract);
 		PowerupScript.Unlock(PowerupScript.Identifier.CardboardHouse);
 	}
 
-	// Token: 0x06000599 RID: 1433 RVA: 0x000231A7 File Offset: 0x000213A7
+	// Token: 0x06000627 RID: 1575 RVA: 0x0000A981 File Offset: 0x00008B81
 	public static int PentacleBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Pentacle) && considerEquippedState)
@@ -4034,14 +4037,14 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_Pentacle_TriggeredTimesGet() + 1;
 	}
 
-	// Token: 0x0600059A RID: 1434 RVA: 0x000231C0 File Offset: 0x000213C0
+	// Token: 0x06000628 RID: 1576 RVA: 0x0000A99A File Offset: 0x00008B9A
 	public static void PFunc_OnEquip_Pentacle(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_Pentacle));
 	}
 
-	// Token: 0x0600059B RID: 1435 RVA: 0x000231E8 File Offset: 0x000213E8
+	// Token: 0x06000629 RID: 1577 RVA: 0x0000A9C2 File Offset: 0x00008BC2
 	public static void PFunc_OnUnequip_Pentacle(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -4049,7 +4052,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.ShroomsReset();
 	}
 
-	// Token: 0x0600059C RID: 1436 RVA: 0x00023215 File Offset: 0x00021415
+	// Token: 0x0600062A RID: 1578 RVA: 0x0000A9EF File Offset: 0x00008BEF
 	private static void Trigger_Pentacle()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 5)
@@ -4060,7 +4063,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Pentacle);
 	}
 
-	// Token: 0x0600059D RID: 1437 RVA: 0x0002322D File Offset: 0x0002142D
+	// Token: 0x0600062B RID: 1579 RVA: 0x0000AA07 File Offset: 0x00008C07
 	public static int GrandmasPurse_ExtraInterestGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GrandmasPurse))
@@ -4070,27 +4073,27 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_GrandmasPurse_ExtraInterestGet();
 	}
 
-	// Token: 0x0600059E RID: 1438 RVA: 0x00023242 File Offset: 0x00021442
+	// Token: 0x0600062C RID: 1580 RVA: 0x0000AA1C File Offset: 0x00008C1C
 	public static void PFunc_OnEquip_GrandmasPurse(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnInterestEarnPost = (SlotMachineScript.Event)Delegate.Combine(instance.OnInterestEarnPost, new SlotMachineScript.Event(PowerupScript.PFunc_GrandmasPurse_OnInterestPost));
 	}
 
-	// Token: 0x0600059F RID: 1439 RVA: 0x0002326A File Offset: 0x0002146A
+	// Token: 0x0600062D RID: 1581 RVA: 0x0000AA44 File Offset: 0x00008C44
 	public static void PFunc_OnUnequip_GrandmasPurse(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnInterestEarnPost = (SlotMachineScript.Event)Delegate.Remove(instance.OnInterestEarnPost, new SlotMachineScript.Event(PowerupScript.PFunc_GrandmasPurse_OnInterestPost));
 	}
 
-	// Token: 0x060005A0 RID: 1440 RVA: 0x00023292 File Offset: 0x00021492
+	// Token: 0x0600062E RID: 1582 RVA: 0x0000AA6C File Offset: 0x00008C6C
 	public static void PFunc_OnThrowAway_GrandmasPurse(PowerupScript powerup)
 	{
 		GameplayData.Powerup_GrandmasPurse_ExtraInterestReset();
 	}
 
-	// Token: 0x060005A1 RID: 1441 RVA: 0x00023299 File Offset: 0x00021499
+	// Token: 0x0600062F RID: 1583 RVA: 0x0000AA73 File Offset: 0x00008C73
 	private static void PFunc_GrandmasPurse_OnInterestPost()
 	{
 		PowerupScript.PlayPowerDownAnimation(PowerupScript.Identifier.GrandmasPurse);
@@ -4101,7 +4104,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005A2 RID: 1442 RVA: 0x000232BA File Offset: 0x000214BA
+	// Token: 0x06000630 RID: 1584 RVA: 0x0000AA94 File Offset: 0x00008C94
 	public static BigInteger TarotDeckRewardGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.TarotDeck))
@@ -4111,7 +4114,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_TarotDeck_RewardGet();
 	}
 
-	// Token: 0x060005A3 RID: 1443 RVA: 0x000232D4 File Offset: 0x000214D4
+	// Token: 0x06000631 RID: 1585 RVA: 0x00036570 File Offset: 0x00034770
 	public static void PFunc_OnEquip_TarotDeck(PowerupScript powerup)
 	{
 		PowerupTriggerAnimController instance = PowerupTriggerAnimController.instance;
@@ -4120,7 +4123,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.PFunc_OnSpinEnd_TarotDeck));
 	}
 
-	// Token: 0x060005A4 RID: 1444 RVA: 0x00023330 File Offset: 0x00021530
+	// Token: 0x06000632 RID: 1586 RVA: 0x000365CC File Offset: 0x000347CC
 	public static void PFunc_OnUnequip_TarotDeck(PowerupScript powerup)
 	{
 		PowerupTriggerAnimController instance = PowerupTriggerAnimController.instance;
@@ -4129,7 +4132,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnSpinEnd = (SlotMachineScript.Event)Delegate.Remove(instance2.OnSpinEnd, new SlotMachineScript.Event(PowerupScript.PFunc_OnSpinEnd_TarotDeck));
 	}
 
-	// Token: 0x060005A5 RID: 1445 RVA: 0x0002338C File Offset: 0x0002158C
+	// Token: 0x06000633 RID: 1587 RVA: 0x00036628 File Offset: 0x00034828
 	private static void Trigger_TarotDeck(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier == PowerupScript.Identifier.TarotDeck)
@@ -4149,7 +4152,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_TarotDeck_RewardAdd(1);
 	}
 
-	// Token: 0x060005A6 RID: 1446 RVA: 0x000233D9 File Offset: 0x000215D9
+	// Token: 0x06000634 RID: 1588 RVA: 0x0000AAAE File Offset: 0x00008CAE
 	private static void PFunc_OnSpinEnd_TarotDeck()
 	{
 		if (PowerupScript._tarotDeck_TriggersPerSpin <= 0L && GameplayData.Powerup_TarotDeck_RewardGet() > 0L)
@@ -4160,21 +4163,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript._tarotDeck_TriggersPerSpin = 0L;
 	}
 
-	// Token: 0x060005A7 RID: 1447 RVA: 0x0002340B File Offset: 0x0002160B
+	// Token: 0x06000635 RID: 1589 RVA: 0x0000AAE0 File Offset: 0x00008CE0
 	public static void PFunc_OnEquip_FakeCoin(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_FakeCoin));
 	}
 
-	// Token: 0x060005A8 RID: 1448 RVA: 0x00023433 File Offset: 0x00021633
+	// Token: 0x06000636 RID: 1590 RVA: 0x0000AB08 File Offset: 0x00008D08
 	public static void PFunc_OnUnequip_FakeCoin(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_FakeCoin));
 	}
 
-	// Token: 0x060005A9 RID: 1449 RVA: 0x0002345C File Offset: 0x0002165C
+	// Token: 0x06000637 RID: 1591 RVA: 0x00036678 File Offset: 0x00034878
 	private static void Trigger_FakeCoin()
 	{
 		float num = GameplayData.ActivationLuckGet();
@@ -4193,7 +4196,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005AA RID: 1450 RVA: 0x000234D8 File Offset: 0x000216D8
+	// Token: 0x06000638 RID: 1592 RVA: 0x000366F4 File Offset: 0x000348F4
 	public static void PFunc_OnEquip_AncientCoin(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.AncientCoin_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.noTiming, null);
@@ -4203,7 +4206,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.AncientCoinOnRoundEnd));
 	}
 
-	// Token: 0x060005AB RID: 1451 RVA: 0x00023548 File Offset: 0x00021748
+	// Token: 0x06000639 RID: 1593 RVA: 0x00036764 File Offset: 0x00034964
 	public static void PFunc_OnUnequip_AncientCoin(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
@@ -4214,7 +4217,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.AncientCoinOnRoundEnd();
 	}
 
-	// Token: 0x060005AC RID: 1452 RVA: 0x000235AC File Offset: 0x000217AC
+	// Token: 0x0600063A RID: 1594 RVA: 0x0000AB30 File Offset: 0x00008D30
 	private static void AncientCoin_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.AncientCoin, true))
@@ -4225,7 +4228,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.AncientCoin);
 	}
 
-	// Token: 0x060005AD RID: 1453 RVA: 0x000235D0 File Offset: 0x000217D0
+	// Token: 0x0600063B RID: 1595 RVA: 0x000367C8 File Offset: 0x000349C8
 	private static void AncientCoinTrigger()
 	{
 		if (GameplayData.Powerup_AncientCoin_SpinsLeftGet() <= 0)
@@ -4244,13 +4247,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005AE RID: 1454 RVA: 0x00023645 File Offset: 0x00021845
+	// Token: 0x0600063C RID: 1596 RVA: 0x0000AB51 File Offset: 0x00008D51
 	private static void AncientCoinOnRoundEnd()
 	{
 		PowerupScript._ancientCoinRoundTriggersCounter = 0;
 	}
 
-	// Token: 0x060005AF RID: 1455 RVA: 0x00023650 File Offset: 0x00021850
+	// Token: 0x0600063D RID: 1597 RVA: 0x00036840 File Offset: 0x00034A40
 	public static void PFunc_OnEquip_OneTrickPony(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -4259,7 +4262,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Combine(instance2.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_OneTrickPony));
 	}
 
-	// Token: 0x060005B0 RID: 1456 RVA: 0x000236AC File Offset: 0x000218AC
+	// Token: 0x0600063E RID: 1598 RVA: 0x0003689C File Offset: 0x00034A9C
 	public static void PFunc_OnUnequip_OneTrickPony(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -4268,14 +4271,14 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Remove(instance2.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_OneTrickPony));
 	}
 
-	// Token: 0x060005B1 RID: 1457 RVA: 0x00023708 File Offset: 0x00021908
+	// Token: 0x0600063F RID: 1599 RVA: 0x000368F8 File Offset: 0x00034AF8
 	private static void OneTrickPony_EvaluateTargetSpin_AtRoundBegin()
 	{
 		int num = GameplayData.SpinsLeftGet();
 		GameplayData.Powerup_OneTrickPony_TargetSpinIndexSet(R.Rng_Powerup(PowerupScript.Identifier.OneTrickPony).Range(0, num));
 	}
 
-	// Token: 0x060005B2 RID: 1458 RVA: 0x0002372E File Offset: 0x0002192E
+	// Token: 0x06000640 RID: 1600 RVA: 0x0000AB59 File Offset: 0x00008D59
 	private static void Trigger_OneTrickPony()
 	{
 		if (GameplayData.Powerup_OneTrickPony_TargetSpinIndexGet() != GameplayData.SpinsLeftGet())
@@ -4287,21 +4290,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.ThrowAway(PowerupScript.Identifier.OneTrickPony, false);
 	}
 
-	// Token: 0x060005B3 RID: 1459 RVA: 0x00023759 File Offset: 0x00021959
+	// Token: 0x06000641 RID: 1601 RVA: 0x0000AB84 File Offset: 0x00008D84
 	public static void PFunc_OnEquip_Ankh(PowerupScript powerup)
 	{
 		GameplayMaster instance = GameplayMaster.instance;
 		instance.onDeathLastChance = (GameplayMaster.Event)Delegate.Combine(instance.onDeathLastChance, new GameplayMaster.Event(PowerupScript.Trigger_Ankh));
 	}
 
-	// Token: 0x060005B4 RID: 1460 RVA: 0x00023781 File Offset: 0x00021981
+	// Token: 0x06000642 RID: 1602 RVA: 0x0000ABAC File Offset: 0x00008DAC
 	public static void PFunc_OnUnequip_Ankh(PowerupScript powerup)
 	{
 		GameplayMaster instance = GameplayMaster.instance;
 		instance.onDeathLastChance = (GameplayMaster.Event)Delegate.Remove(instance.onDeathLastChance, new GameplayMaster.Event(PowerupScript.Trigger_Ankh));
 	}
 
-	// Token: 0x060005B5 RID: 1461 RVA: 0x000237AC File Offset: 0x000219AC
+	// Token: 0x06000643 RID: 1603 RVA: 0x00036920 File Offset: 0x00034B20
 	private static void Trigger_Ankh()
 	{
 		GameplayData.DeadlineRoundsIncrement_Manual(2);
@@ -4315,7 +4318,7 @@ public class PowerupScript : MonoBehaviour
 		ScreenMenuScript.ForceClose_Death();
 	}
 
-	// Token: 0x060005B6 RID: 1462 RVA: 0x00023828 File Offset: 0x00021A28
+	// Token: 0x06000644 RID: 1604 RVA: 0x0000ABD4 File Offset: 0x00008DD4
 	private static void AnkhOnTriggerAnimStart(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Ankh)
@@ -4331,7 +4334,7 @@ public class PowerupScript : MonoBehaviour
 		TrapdoorScript.SetAnimation(TrapdoorScript.AnimationKind.Shake);
 	}
 
-	// Token: 0x060005B7 RID: 1463 RVA: 0x00023860 File Offset: 0x00021A60
+	// Token: 0x06000645 RID: 1605 RVA: 0x0003699C File Offset: 0x00034B9C
 	private static void AnkhOnTriggerAnimEnd(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Ankh)
@@ -4349,26 +4352,26 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B8 RID: 1464 RVA: 0x000238BB File Offset: 0x00021ABB
+	// Token: 0x06000646 RID: 1606 RVA: 0x0000AC0A File Offset: 0x00008E0A
 	public static float HorseShoesLuckGet()
 	{
 		return PowerupScript.horseShoesLuck;
 	}
 
-	// Token: 0x060005B9 RID: 1465 RVA: 0x000238C2 File Offset: 0x00021AC2
+	// Token: 0x06000647 RID: 1607 RVA: 0x0000AC11 File Offset: 0x00008E11
 	public static void PFunc_OnEquip_HorseShoe(PowerupScript powerup)
 	{
 		PowerupScript.horseShoesLuck += 1f;
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.HorseShoe);
 	}
 
-	// Token: 0x060005BA RID: 1466 RVA: 0x000238DA File Offset: 0x00021ADA
+	// Token: 0x06000648 RID: 1608 RVA: 0x0000AC29 File Offset: 0x00008E29
 	public static void PFunc_OnUnequip_HorseShoe(PowerupScript powerup)
 	{
 		PowerupScript.horseShoesLuck -= 1f;
 	}
 
-	// Token: 0x060005BB RID: 1467 RVA: 0x000238EC File Offset: 0x00021AEC
+	// Token: 0x06000649 RID: 1609 RVA: 0x0000AC3B File Offset: 0x00008E3B
 	public static float GoldenHorseShoe_RandomActivationChanceBonusGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.HorseShoeGold))
@@ -4382,7 +4385,7 @@ public class PowerupScript : MonoBehaviour
 		return 1000f;
 	}
 
-	// Token: 0x060005BC RID: 1468 RVA: 0x00023914 File Offset: 0x00021B14
+	// Token: 0x0600064A RID: 1610 RVA: 0x000369F8 File Offset: 0x00034BF8
 	public static void PFunc_OnEquip_GoldenHorseShoe(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.GoldenHorseShoe_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.noTiming, null);
@@ -4392,7 +4395,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.GoldenHorseShoe_OnRoundEndReset));
 	}
 
-	// Token: 0x060005BD RID: 1469 RVA: 0x00023984 File Offset: 0x00021B84
+	// Token: 0x0600064B RID: 1611 RVA: 0x00036A68 File Offset: 0x00034C68
 	public static void PFunc_OnUnequip_GoldenHorseShoe(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
@@ -4403,7 +4406,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_GoldenHorseShoe_SpinsLeftSet(0);
 	}
 
-	// Token: 0x060005BE RID: 1470 RVA: 0x000239E9 File Offset: 0x00021BE9
+	// Token: 0x0600064C RID: 1612 RVA: 0x0000AC61 File Offset: 0x00008E61
 	private static void GoldenHorseShoe_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.HorseShoeGold, true))
@@ -4415,7 +4418,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript._goldenHorseShoeRoundUsesCounter++;
 	}
 
-	// Token: 0x060005BF RID: 1471 RVA: 0x00023A14 File Offset: 0x00021C14
+	// Token: 0x0600064D RID: 1613 RVA: 0x0000AC8C File Offset: 0x00008E8C
 	public static void GoldenHorseShoe_DecreaseSpinsForBonus()
 	{
 		GameplayData.Powerup_GoldenHorseShoe_SpinsLeftSet(GameplayData.Powerup_GoldenHorseShoe_SpinsLeftGet() - 1);
@@ -4425,34 +4428,34 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005C0 RID: 1472 RVA: 0x00023A44 File Offset: 0x00021C44
+	// Token: 0x0600064E RID: 1614 RVA: 0x0000ACBC File Offset: 0x00008EBC
 	private static void GoldenHorseShoe_OnRoundEndReset()
 	{
 		PowerupScript._goldenHorseShoeRoundUsesCounter = 0;
 	}
 
-	// Token: 0x060005C1 RID: 1473 RVA: 0x00023A4C File Offset: 0x00021C4C
+	// Token: 0x0600064F RID: 1615 RVA: 0x00036AD0 File Offset: 0x00034CD0
 	public static BigInteger _LuckyCatBonusCoinsGet()
 	{
 		double num = (double)GameplayData.PowerupCoinsMultiplierGet();
 		return GameplayData.InterestEarnedHypotetically() * (BigInteger)(num * 100.0) / 100;
 	}
 
-	// Token: 0x060005C2 RID: 1474 RVA: 0x00023A86 File Offset: 0x00021C86
+	// Token: 0x06000650 RID: 1616 RVA: 0x0000ACC4 File Offset: 0x00008EC4
 	public static void PFunc_OnEquip_LuckyCat(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_LuckyCat));
 	}
 
-	// Token: 0x060005C3 RID: 1475 RVA: 0x00023AAE File Offset: 0x00021CAE
+	// Token: 0x06000651 RID: 1617 RVA: 0x0000ACEC File Offset: 0x00008EEC
 	public static void PFunc_OnUnequip_LuckyCat(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_LuckyCat));
 	}
 
-	// Token: 0x060005C4 RID: 1476 RVA: 0x00023AD8 File Offset: 0x00021CD8
+	// Token: 0x06000652 RID: 1618 RVA: 0x00036B0C File Offset: 0x00034D0C
 	private static void Trigger_LuckyCat()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 3)
@@ -4466,28 +4469,28 @@ public class PowerupScript : MonoBehaviour
 		game.UnlockSteps_LuckyCatFat = unlockSteps_LuckyCatFat + 1;
 	}
 
-	// Token: 0x060005C5 RID: 1477 RVA: 0x00023B14 File Offset: 0x00021D14
+	// Token: 0x06000653 RID: 1619 RVA: 0x00036B48 File Offset: 0x00034D48
 	public static BigInteger _LuckyCatFatBonusCoinsGet()
 	{
 		double num = (double)GameplayData.PowerupCoinsMultiplierGet();
 		return GameplayData.InterestEarnedHypotetically() * (BigInteger)(num * 100.0) / 100 * 2;
 	}
 
-	// Token: 0x060005C6 RID: 1478 RVA: 0x00023B59 File Offset: 0x00021D59
+	// Token: 0x06000654 RID: 1620 RVA: 0x0000AD14 File Offset: 0x00008F14
 	public static void PFunc_OnEquip_LuckyCatFat(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_LuckyCatFat));
 	}
 
-	// Token: 0x060005C7 RID: 1479 RVA: 0x00023B81 File Offset: 0x00021D81
+	// Token: 0x06000655 RID: 1621 RVA: 0x0000AD3C File Offset: 0x00008F3C
 	public static void PFunc_OnUnequip_LuckyCatFat(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_LuckyCatFat));
 	}
 
-	// Token: 0x060005C8 RID: 1480 RVA: 0x00023BAC File Offset: 0x00021DAC
+	// Token: 0x06000656 RID: 1622 RVA: 0x00036B90 File Offset: 0x00034D90
 	private static void Trigger_LuckyCatFat()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 7)
@@ -4501,28 +4504,28 @@ public class PowerupScript : MonoBehaviour
 		game.UnlockSteps_LuckyCatSwole = unlockSteps_LuckyCatSwole + 1;
 	}
 
-	// Token: 0x060005C9 RID: 1481 RVA: 0x00023BE8 File Offset: 0x00021DE8
+	// Token: 0x06000657 RID: 1623 RVA: 0x00036BCC File Offset: 0x00034DCC
 	public static BigInteger _LuckyCatSwoleBonusCoinsGet()
 	{
 		double num = (double)GameplayData.PowerupCoinsMultiplierGet();
 		return GameplayData.InterestEarnedHypotetically() * (BigInteger)(num * 100.0) / 100 * 4;
 	}
 
-	// Token: 0x060005CA RID: 1482 RVA: 0x00023C2D File Offset: 0x00021E2D
+	// Token: 0x06000658 RID: 1624 RVA: 0x0000AD64 File Offset: 0x00008F64
 	public static void PFunc_OnEquip_LuckyCatSwole(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_LuckyCatSwole));
 	}
 
-	// Token: 0x060005CB RID: 1483 RVA: 0x00023C55 File Offset: 0x00021E55
+	// Token: 0x06000659 RID: 1625 RVA: 0x0000AD8C File Offset: 0x00008F8C
 	public static void PFunc_OnUnequip_LuckyCatSwole(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_LuckyCatSwole));
 	}
 
-	// Token: 0x060005CC RID: 1484 RVA: 0x00023C7D File Offset: 0x00021E7D
+	// Token: 0x0600065A RID: 1626 RVA: 0x0000ADB4 File Offset: 0x00008FB4
 	private static void Trigger_LuckyCatSwole()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 15)
@@ -4533,21 +4536,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.LuckyCatSwole);
 	}
 
-	// Token: 0x060005CD RID: 1485 RVA: 0x00023C9A File Offset: 0x00021E9A
+	// Token: 0x0600065B RID: 1627 RVA: 0x0000ADD1 File Offset: 0x00008FD1
 	public static void PFunc_OnEquip_InvertedHamsa(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Trigger_InvertedHamsa));
 	}
 
-	// Token: 0x060005CE RID: 1486 RVA: 0x00023CC2 File Offset: 0x00021EC2
+	// Token: 0x0600065C RID: 1628 RVA: 0x0000ADF9 File Offset: 0x00008FF9
 	public static void PFunc_OnUnequip_InvertedHamsa(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Trigger_InvertedHamsa));
 	}
 
-	// Token: 0x060005CF RID: 1487 RVA: 0x00023CEC File Offset: 0x00021EEC
+	// Token: 0x0600065D RID: 1629 RVA: 0x00036C14 File Offset: 0x00034E14
 	private static void Trigger_InvertedHamsa()
 	{
 		if (GameplayData.SpinsLeftGet() > 0)
@@ -4561,21 +4564,21 @@ public class PowerupScript : MonoBehaviour
 		game.UnlockSteps_HamsaUpside = unlockSteps_HamsaUpside + 1;
 	}
 
-	// Token: 0x060005D0 RID: 1488 RVA: 0x00023D2E File Offset: 0x00021F2E
+	// Token: 0x0600065E RID: 1630 RVA: 0x0000AE21 File Offset: 0x00009021
 	public static void PFunc_OnEquip_UpsideHamsa(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Trigger_UpsideHamsa));
 	}
 
-	// Token: 0x060005D1 RID: 1489 RVA: 0x00023D56 File Offset: 0x00021F56
+	// Token: 0x0600065F RID: 1631 RVA: 0x0000AE49 File Offset: 0x00009049
 	public static void PFunc_OnUnequip_UpsideHamsa(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.Trigger_UpsideHamsa));
 	}
 
-	// Token: 0x060005D2 RID: 1490 RVA: 0x00023D7E File Offset: 0x00021F7E
+	// Token: 0x06000660 RID: 1632 RVA: 0x0000AE71 File Offset: 0x00009071
 	private static void Trigger_UpsideHamsa()
 	{
 		if (!PowerupScript._HamsaUpside_CanTrigger())
@@ -4585,7 +4588,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.HamsaUpside);
 	}
 
-	// Token: 0x060005D3 RID: 1491 RVA: 0x00023D8E File Offset: 0x00021F8E
+	// Token: 0x06000661 RID: 1633 RVA: 0x0000AE81 File Offset: 0x00009081
 	public static int UpsideHamsa_BonusTriggersGet()
 	{
 		if (!PowerupScript._HamsaUpside_CanTrigger())
@@ -4595,13 +4598,13 @@ public class PowerupScript : MonoBehaviour
 		return 1;
 	}
 
-	// Token: 0x060005D4 RID: 1492 RVA: 0x00023D9A File Offset: 0x00021F9A
+	// Token: 0x06000662 RID: 1634 RVA: 0x0000AE8D File Offset: 0x0000908D
 	private static bool _HamsaUpside_CanTrigger()
 	{
 		return PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.HamsaUpside) && SlotMachineScript.IsFirstSpinOfRound();
 	}
 
-	// Token: 0x060005D5 RID: 1493 RVA: 0x00023DB0 File Offset: 0x00021FB0
+	// Token: 0x06000663 RID: 1635 RVA: 0x00036C58 File Offset: 0x00034E58
 	public static float CrystalLuckIncreaseGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.RedCrystal) && considerEquippedState)
@@ -4616,19 +4619,19 @@ public class PowerupScript : MonoBehaviour
 		return 4f * (float)num * GameplayData.PowerupLuckGet();
 	}
 
-	// Token: 0x060005D6 RID: 1494 RVA: 0x00023DF1 File Offset: 0x00021FF1
+	// Token: 0x06000664 RID: 1636 RVA: 0x0000AEA3 File Offset: 0x000090A3
 	public static void PFunc_OnEquip_RedCrystal(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.RedCrystal_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perSpin, null);
 	}
 
-	// Token: 0x060005D7 RID: 1495 RVA: 0x00023E07 File Offset: 0x00022007
+	// Token: 0x06000665 RID: 1637 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_RedCrystal(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x060005D8 RID: 1496 RVA: 0x00023E0F File Offset: 0x0002200F
+	// Token: 0x06000666 RID: 1638 RVA: 0x0000AEB9 File Offset: 0x000090B9
 	private static void RedCrystal_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.RedCrystal, true))
@@ -4638,7 +4641,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.RedCrystal);
 	}
 
-	// Token: 0x060005D9 RID: 1497 RVA: 0x00023E24 File Offset: 0x00022024
+	// Token: 0x06000667 RID: 1639 RVA: 0x0000AECE File Offset: 0x000090CE
 	public static BigInteger PoopBeetle_ExtraCoinsForAllSymbolsGet(bool considerEquippedState, SymbolScript.Kind symbolKind)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PoopBeetle))
@@ -4648,19 +4651,19 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_PoopBeetle_SymbolsIncreaseN_Get() * GameplayData.Symbol_CoinsValue_GetBasic(symbolKind);
 	}
 
-	// Token: 0x060005DA RID: 1498 RVA: 0x00023E4E File Offset: 0x0002204E
+	// Token: 0x06000668 RID: 1640 RVA: 0x0000AEF8 File Offset: 0x000090F8
 	public static void PFunc_OnEquip_PoopBeetle(PowerupScript powerup)
 	{
 		PowerupScript.onThrowAwayStatic = (PowerupScript.PowerupEvent)Delegate.Combine(PowerupScript.onThrowAwayStatic, new PowerupScript.PowerupEvent(PowerupScript.Trigger_PoopBeetle));
 	}
 
-	// Token: 0x060005DB RID: 1499 RVA: 0x00023E70 File Offset: 0x00022070
+	// Token: 0x06000669 RID: 1641 RVA: 0x0000AF1A File Offset: 0x0000911A
 	public static void PFunc_OnUnequip_PoopBeetle(PowerupScript powerup)
 	{
 		PowerupScript.onThrowAwayStatic = (PowerupScript.PowerupEvent)Delegate.Remove(PowerupScript.onThrowAwayStatic, new PowerupScript.PowerupEvent(PowerupScript.Trigger_PoopBeetle));
 	}
 
-	// Token: 0x060005DC RID: 1500 RVA: 0x00023E92 File Offset: 0x00022092
+	// Token: 0x0600066A RID: 1642 RVA: 0x0000AF3C File Offset: 0x0000913C
 	private static void Trigger_PoopBeetle(PowerupScript powerup)
 	{
 		if (!PowerupScript.ThrowAwayCanTriggerEffects_Get())
@@ -4679,33 +4682,33 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_PoopBeetle_SymbolsIncreaseN_Add(1);
 	}
 
-	// Token: 0x060005DD RID: 1501 RVA: 0x00023EC3 File Offset: 0x000220C3
+	// Token: 0x0600066B RID: 1643 RVA: 0x0000AF6D File Offset: 0x0000916D
 	public static int RedPepper_ActivationsLeft()
 	{
 		return 12 - GameplayData.Powerup_RedPepper_ActivationsCounterGet();
 	}
 
-	// Token: 0x060005DE RID: 1502 RVA: 0x00023ECD File Offset: 0x000220CD
+	// Token: 0x0600066C RID: 1644 RVA: 0x0000AF77 File Offset: 0x00009177
 	public static void PFunc_OnEquip_SpicyPepper_Red(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.PFunc_Trigger_SpicyPepper_Red));
 	}
 
-	// Token: 0x060005DF RID: 1503 RVA: 0x00023EF5 File Offset: 0x000220F5
+	// Token: 0x0600066D RID: 1645 RVA: 0x0000AF9F File Offset: 0x0000919F
 	public static void PFunc_OnUnequip_SpicyPepper_Red(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.PFunc_Trigger_SpicyPepper_Red));
 	}
 
-	// Token: 0x060005E0 RID: 1504 RVA: 0x00023F1D File Offset: 0x0002211D
+	// Token: 0x0600066E RID: 1646 RVA: 0x0000AFC7 File Offset: 0x000091C7
 	public static void PFunc_OnThrowAway_SpicyPepper_Red(PowerupScript powerup)
 	{
 		GameplayData.Powerup_RedPepper_ActivationsCounterSet(0);
 	}
 
-	// Token: 0x060005E1 RID: 1505 RVA: 0x00023F28 File Offset: 0x00022128
+	// Token: 0x0600066F RID: 1647 RVA: 0x00036C9C File Offset: 0x00034E9C
 	public static void PFunc_Trigger_SpicyPepper_Red()
 	{
 		float num = GameplayData.ActivationLuckGet();
@@ -4725,7 +4728,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.HornChilyRed);
 	}
 
-	// Token: 0x060005E2 RID: 1506 RVA: 0x00023FB8 File Offset: 0x000221B8
+	// Token: 0x06000670 RID: 1648 RVA: 0x0000AFCF File Offset: 0x000091CF
 	private static void _RedPepper_RemoveAtLimit(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.HornChilyRed)
@@ -4739,33 +4742,33 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.ThrowAway(PowerupScript.Identifier.HornChilyRed, false);
 	}
 
-	// Token: 0x060005E3 RID: 1507 RVA: 0x00023FDC File Offset: 0x000221DC
+	// Token: 0x06000671 RID: 1649 RVA: 0x0000AFF3 File Offset: 0x000091F3
 	public static int GreenPepper_ActivationsLeft()
 	{
 		return 9 - GameplayData.Powerup_GreenPepper_ActivationsCounterGet();
 	}
 
-	// Token: 0x060005E4 RID: 1508 RVA: 0x00023FE6 File Offset: 0x000221E6
+	// Token: 0x06000672 RID: 1650 RVA: 0x0000AFFD File Offset: 0x000091FD
 	public static void PFunc_OnEquip_SpicyPepper_Green(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.PFunc_Trigger_SpicyPepper_Green));
 	}
 
-	// Token: 0x060005E5 RID: 1509 RVA: 0x0002400E File Offset: 0x0002220E
+	// Token: 0x06000673 RID: 1651 RVA: 0x0000B025 File Offset: 0x00009225
 	public static void PFunc_OnUnequip_SpicyPepper_Green(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.PFunc_Trigger_SpicyPepper_Green));
 	}
 
-	// Token: 0x060005E6 RID: 1510 RVA: 0x00024036 File Offset: 0x00022236
+	// Token: 0x06000674 RID: 1652 RVA: 0x0000B04D File Offset: 0x0000924D
 	public static void PFunc_OnThrowAway_SpicyPepper_Green(PowerupScript powerup)
 	{
 		GameplayData.Powerup_GreenPepper_ActivationsCounterSet(0);
 	}
 
-	// Token: 0x060005E7 RID: 1511 RVA: 0x00024040 File Offset: 0x00022240
+	// Token: 0x06000675 RID: 1653 RVA: 0x00036D2C File Offset: 0x00034F2C
 	public static void PFunc_Trigger_SpicyPepper_Green()
 	{
 		float num = GameplayData.ActivationLuckGet();
@@ -4785,7 +4788,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.HornChilyGreen);
 	}
 
-	// Token: 0x060005E8 RID: 1512 RVA: 0x000240D0 File Offset: 0x000222D0
+	// Token: 0x06000676 RID: 1654 RVA: 0x0000B055 File Offset: 0x00009255
 	private static void _GreenPepper_RemoveAtLimit(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.HornChilyGreen)
@@ -4799,27 +4802,27 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.ThrowAway(PowerupScript.Identifier.HornChilyGreen, false);
 	}
 
-	// Token: 0x060005E9 RID: 1513 RVA: 0x000240F4 File Offset: 0x000222F4
+	// Token: 0x06000677 RID: 1655 RVA: 0x0000B079 File Offset: 0x00009279
 	public static void PFunc_OnEquip_GoldenPepper(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.TriggerGoldenPepper));
 	}
 
-	// Token: 0x060005EA RID: 1514 RVA: 0x0002411C File Offset: 0x0002231C
+	// Token: 0x06000678 RID: 1656 RVA: 0x0000B0A1 File Offset: 0x000092A1
 	public static void PFunc_OnUnequip_GoldenPepper(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.TriggerGoldenPepper));
 	}
 
-	// Token: 0x060005EB RID: 1515 RVA: 0x00024144 File Offset: 0x00022344
+	// Token: 0x06000679 RID: 1657 RVA: 0x0000B0C9 File Offset: 0x000092C9
 	public static void PFunc_OnThrowAway_GoldenPepper(PowerupScript powerup)
 	{
 		GameplayData.Powerup_GoldenPepper_LuckBonusSet(0);
 	}
 
-	// Token: 0x060005EC RID: 1516 RVA: 0x0002414C File Offset: 0x0002234C
+	// Token: 0x0600067A RID: 1658 RVA: 0x00036DBC File Offset: 0x00034FBC
 	public static void TriggerGoldenPepper()
 	{
 		float num = (float)GameplayData.Powerup_GoldenPepper_LuckBonusGet();
@@ -4838,7 +4841,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.GoldenPepper);
 	}
 
-	// Token: 0x060005ED RID: 1517 RVA: 0x000241B4 File Offset: 0x000223B4
+	// Token: 0x0600067B RID: 1659 RVA: 0x00036E24 File Offset: 0x00035024
 	public static void PFunc_OnEquip_RottenPepper(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -4849,7 +4852,7 @@ public class PowerupScript : MonoBehaviour
 		instance3.onDeadlineBonus_Late = (GameplayMaster.Event)Delegate.Combine(instance3.onDeadlineBonus_Late, new GameplayMaster.Event(PowerupScript.RottenPepper_Reset));
 	}
 
-	// Token: 0x060005EE RID: 1518 RVA: 0x00024234 File Offset: 0x00022434
+	// Token: 0x0600067C RID: 1660 RVA: 0x00036EA4 File Offset: 0x000350A4
 	public static void PFunc_OnUnequip_RottenPepper(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -4861,13 +4864,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.RottenPepper_Reset();
 	}
 
-	// Token: 0x060005EF RID: 1519 RVA: 0x000242B8 File Offset: 0x000224B8
+	// Token: 0x0600067D RID: 1661 RVA: 0x0000B0D1 File Offset: 0x000092D1
 	public static void PFunc_OnThrowAway_RottenPepper(PowerupScript powerup)
 	{
 		PowerupScript.RottenPepper_Reset();
 	}
 
-	// Token: 0x060005F0 RID: 1520 RVA: 0x000242C0 File Offset: 0x000224C0
+	// Token: 0x0600067E RID: 1662 RVA: 0x00036F28 File Offset: 0x00035128
 	public static void TriggerRottenPepper()
 	{
 		float num = (float)GameplayData.Powerup_RottenPepper_LuckBonusGet();
@@ -4886,7 +4889,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.RottenPepper);
 	}
 
-	// Token: 0x060005F1 RID: 1521 RVA: 0x00024328 File Offset: 0x00022528
+	// Token: 0x0600067F RID: 1663 RVA: 0x0000B0D8 File Offset: 0x000092D8
 	private static void RottenPepper_GrowthTrigger()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 3)
@@ -4897,33 +4900,33 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.RottenPepper);
 	}
 
-	// Token: 0x060005F2 RID: 1522 RVA: 0x00024346 File Offset: 0x00022546
+	// Token: 0x06000680 RID: 1664 RVA: 0x0000B0F6 File Offset: 0x000092F6
 	private static void RottenPepper_Reset()
 	{
 		GameplayData.Powerup_RottenPepper_LuckBonusSet(0);
 	}
 
-	// Token: 0x060005F3 RID: 1523 RVA: 0x0002434E File Offset: 0x0002254E
+	// Token: 0x06000681 RID: 1665 RVA: 0x0000B0FE File Offset: 0x000092FE
 	public static void PFunc_OnEquip_BellPepper(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Combine(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.TriggerBellPepper));
 	}
 
-	// Token: 0x060005F4 RID: 1524 RVA: 0x00024376 File Offset: 0x00022576
+	// Token: 0x06000682 RID: 1666 RVA: 0x0000B126 File Offset: 0x00009326
 	public static void PFunc_OnUnequip_BellPepper(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnSpinPreLuckApplication = (SlotMachineScript.Event)Delegate.Remove(instance.OnSpinPreLuckApplication, new SlotMachineScript.Event(PowerupScript.TriggerBellPepper));
 	}
 
-	// Token: 0x060005F5 RID: 1525 RVA: 0x0002439E File Offset: 0x0002259E
+	// Token: 0x06000683 RID: 1667 RVA: 0x0000B14E File Offset: 0x0000934E
 	public static void PFunc_OnThrowAway_BellPepper(PowerupScript powerup)
 	{
 		GameplayData.Powerup_BellPepper_LuckBonusSet(0);
 	}
 
-	// Token: 0x060005F6 RID: 1526 RVA: 0x000243A8 File Offset: 0x000225A8
+	// Token: 0x06000684 RID: 1668 RVA: 0x00036F90 File Offset: 0x00035190
 	public static void TriggerBellPepper()
 	{
 		float num = (float)GameplayData.Powerup_BellPepper_LuckBonusGet();
@@ -4942,21 +4945,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.BellPepper);
 	}
 
-	// Token: 0x060005F7 RID: 1527 RVA: 0x00024410 File Offset: 0x00022610
+	// Token: 0x06000685 RID: 1669 RVA: 0x0000B156 File Offset: 0x00009356
 	public static void PFunc_OnEquip_DevilHorn(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_DevilHorn));
 	}
 
-	// Token: 0x060005F8 RID: 1528 RVA: 0x00024438 File Offset: 0x00022638
+	// Token: 0x06000686 RID: 1670 RVA: 0x0000B17E File Offset: 0x0000937E
 	public static void PFunc_OnUnequip_DevilHorn(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_DevilHorn));
 	}
 
-	// Token: 0x060005F9 RID: 1529 RVA: 0x00024460 File Offset: 0x00022660
+	// Token: 0x06000687 RID: 1671 RVA: 0x0000B1A6 File Offset: 0x000093A6
 	private static void Trigger_DevilHorn()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -4967,7 +4970,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.HornDevil);
 	}
 
-	// Token: 0x060005FA RID: 1530 RVA: 0x00024482 File Offset: 0x00022682
+	// Token: 0x06000688 RID: 1672 RVA: 0x0000B1C8 File Offset: 0x000093C8
 	public static int Necronomicon_AdditionalPatternsMultiplierGet()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Necronomicon))
@@ -4977,7 +4980,7 @@ public class PowerupScript : MonoBehaviour
 		return 2;
 	}
 
-	// Token: 0x060005FB RID: 1531 RVA: 0x00024490 File Offset: 0x00022690
+	// Token: 0x06000689 RID: 1673 RVA: 0x0000B1D6 File Offset: 0x000093D6
 	public static float Necronomicon_666AdditionalChanceGet()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Necronomicon))
@@ -4987,27 +4990,27 @@ public class PowerupScript : MonoBehaviour
 		return 0.03f;
 	}
 
-	// Token: 0x060005FC RID: 1532 RVA: 0x000244A6 File Offset: 0x000226A6
+	// Token: 0x0600068A RID: 1674 RVA: 0x0000B1EC File Offset: 0x000093EC
 	public static void PFunc_OnEquip_Necronomicon(PowerupScript powerup)
 	{
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Necronomicon);
 	}
 
-	// Token: 0x060005FD RID: 1533 RVA: 0x000244AF File Offset: 0x000226AF
+	// Token: 0x0600068B RID: 1675 RVA: 0x0000B1F5 File Offset: 0x000093F5
 	public static void PFunc_OnEquip_HolyBible(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_HolyBible));
 	}
 
-	// Token: 0x060005FE RID: 1534 RVA: 0x000244D7 File Offset: 0x000226D7
+	// Token: 0x0600068C RID: 1676 RVA: 0x0000B21D File Offset: 0x0000941D
 	public static void PFunc_OnUnequip_HolyBible(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_HolyBible));
 	}
 
-	// Token: 0x060005FF RID: 1535 RVA: 0x00024500 File Offset: 0x00022700
+	// Token: 0x0600068D RID: 1677 RVA: 0x00036FF8 File Offset: 0x000351F8
 	private static void Trigger_HolyBible()
 	{
 		if (!SlotMachineScript.Has666())
@@ -5026,7 +5029,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000600 RID: 1536 RVA: 0x00024572 File Offset: 0x00022772
+	// Token: 0x0600068E RID: 1678 RVA: 0x0000B245 File Offset: 0x00009445
 	private static void _OnHolyBibleAnimationEnd(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.HolyBible)
@@ -5040,21 +5043,21 @@ public class PowerupScript : MonoBehaviour
 		SlotMachineScript.RemoveVisible666();
 	}
 
-	// Token: 0x06000601 RID: 1537 RVA: 0x00024592 File Offset: 0x00022792
+	// Token: 0x0600068F RID: 1679 RVA: 0x0000B265 File Offset: 0x00009465
 	public static void PFunc_OnEquip_Rosary(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_Rosary));
 	}
 
-	// Token: 0x06000602 RID: 1538 RVA: 0x000245BA File Offset: 0x000227BA
+	// Token: 0x06000690 RID: 1680 RVA: 0x0000B28D File Offset: 0x0000948D
 	public static void PFunc_OnUnequip_Rosary(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.Trigger_Rosary));
 	}
 
-	// Token: 0x06000603 RID: 1539 RVA: 0x000245E4 File Offset: 0x000227E4
+	// Token: 0x06000691 RID: 1681 RVA: 0x0003706C File Offset: 0x0003526C
 	private static void Trigger_Rosary()
 	{
 		if (!SlotMachineScript.Has666())
@@ -5073,7 +5076,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Rosary);
 	}
 
-	// Token: 0x06000604 RID: 1540 RVA: 0x0002465C File Offset: 0x0002285C
+	// Token: 0x06000692 RID: 1682 RVA: 0x0000B2B5 File Offset: 0x000094B5
 	private static void _OnRosaryAnimationEnd(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Rosary)
@@ -5087,21 +5090,21 @@ public class PowerupScript : MonoBehaviour
 		SlotMachineScript.RemoveVisible666();
 	}
 
-	// Token: 0x06000605 RID: 1541 RVA: 0x0002467C File Offset: 0x0002287C
+	// Token: 0x06000693 RID: 1683 RVA: 0x0000B2D5 File Offset: 0x000094D5
 	public static void PFunc_OnEquip_Baphomet(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_Baphomet));
 	}
 
-	// Token: 0x06000606 RID: 1542 RVA: 0x000246A4 File Offset: 0x000228A4
+	// Token: 0x06000694 RID: 1684 RVA: 0x0000B2FD File Offset: 0x000094FD
 	public static void PFunc_OnUnequip_Baphomet(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_Baphomet));
 	}
 
-	// Token: 0x06000607 RID: 1543 RVA: 0x000246CC File Offset: 0x000228CC
+	// Token: 0x06000695 RID: 1685 RVA: 0x000370E4 File Offset: 0x000352E4
 	private static void Trigger_Baphomet()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -5115,19 +5118,19 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Pattern_ValueExtra_Add(PatternScript.Kind.triangleInverted, num2);
 	}
 
-	// Token: 0x06000608 RID: 1544 RVA: 0x0002470A File Offset: 0x0002290A
+	// Token: 0x06000696 RID: 1686 RVA: 0x0000B325 File Offset: 0x00009525
 	public static void PFunc_OnEquip_Cross(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.Cross_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.noTiming, null);
 	}
 
-	// Token: 0x06000609 RID: 1545 RVA: 0x00024720 File Offset: 0x00022920
+	// Token: 0x06000697 RID: 1687 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_Cross(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x0600060A RID: 1546 RVA: 0x00024728 File Offset: 0x00022928
+	// Token: 0x06000698 RID: 1688 RVA: 0x00037124 File Offset: 0x00035324
 	private static void Cross_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.Cross, true))
@@ -5156,13 +5159,13 @@ public class PowerupScript : MonoBehaviour
 		SlotMachineScript.instance.TopTextSet_666Or999_ChancesShow();
 	}
 
-	// Token: 0x0600060B RID: 1547 RVA: 0x000247C1 File Offset: 0x000229C1
+	// Token: 0x06000699 RID: 1689 RVA: 0x0000B33B File Offset: 0x0000953B
 	public static bool CrossIsUp()
 	{
 		return GameplayData.Powerup_Cross_TriggersCount_Get() % 2L == 0L;
 	}
 
-	// Token: 0x0600060C RID: 1548 RVA: 0x000247CF File Offset: 0x000229CF
+	// Token: 0x0600069A RID: 1690 RVA: 0x0000B349 File Offset: 0x00009549
 	public static long Cross_PatternsMultiplierBonus_Get(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Cross))
@@ -5172,7 +5175,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_Cross_TriggersCount_Get() / 2L;
 	}
 
-	// Token: 0x0600060D RID: 1549 RVA: 0x000247E8 File Offset: 0x000229E8
+	// Token: 0x0600069B RID: 1691 RVA: 0x0000B362 File Offset: 0x00009562
 	public static float Cross_666Malus_Get(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Cross))
@@ -5186,7 +5189,7 @@ public class PowerupScript : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x0600060E RID: 1550 RVA: 0x00024810 File Offset: 0x00022A10
+	// Token: 0x0600069C RID: 1692 RVA: 0x000371C0 File Offset: 0x000353C0
 	public static void PFunc_OnEquip_BookOfShadows(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5195,7 +5198,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.BookOfShadowsReset));
 	}
 
-	// Token: 0x0600060F RID: 1551 RVA: 0x0002486C File Offset: 0x00022A6C
+	// Token: 0x0600069D RID: 1693 RVA: 0x0003721C File Offset: 0x0003541C
 	public static void PFunc_OnUnequip_BookOfShadows(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5205,7 +5208,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.BookOfShadowsReset();
 	}
 
-	// Token: 0x06000610 RID: 1552 RVA: 0x000248CC File Offset: 0x00022ACC
+	// Token: 0x0600069E RID: 1694 RVA: 0x0003727C File Offset: 0x0003547C
 	private static void Trigger_BookOfShadows()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -5236,7 +5239,7 @@ public class PowerupScript : MonoBehaviour
 		GeneralUiScript.CoinsTextForceUpdate();
 	}
 
-	// Token: 0x06000611 RID: 1553 RVA: 0x0002493C File Offset: 0x00022B3C
+	// Token: 0x0600069F RID: 1695 RVA: 0x0000B388 File Offset: 0x00009588
 	public static float BookOfShadows_SixSixSixChanceGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.BookOfShadows) && considerEquippedState)
@@ -5246,13 +5249,13 @@ public class PowerupScript : MonoBehaviour
 		return 0.015f;
 	}
 
-	// Token: 0x06000612 RID: 1554 RVA: 0x00024957 File Offset: 0x00022B57
+	// Token: 0x060006A0 RID: 1696 RVA: 0x0000B3A3 File Offset: 0x000095A3
 	private static void BookOfShadowsReset()
 	{
 		PowerupScript._bookOfShadowsRoundActivationsCounter = 0;
 	}
 
-	// Token: 0x06000613 RID: 1555 RVA: 0x0002495F File Offset: 0x00022B5F
+	// Token: 0x060006A1 RID: 1697 RVA: 0x0000B3AB File Offset: 0x000095AB
 	public static long GabibbhMultiplierGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Gabibbh))
@@ -5262,7 +5265,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript._gabibbhMultiplier;
 	}
 
-	// Token: 0x06000614 RID: 1556 RVA: 0x00024978 File Offset: 0x00022B78
+	// Token: 0x060006A2 RID: 1698 RVA: 0x000372EC File Offset: 0x000354EC
 	public static void PFunc_OnEquip_Gabibbh(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5271,7 +5274,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.GabibbhReset));
 	}
 
-	// Token: 0x06000615 RID: 1557 RVA: 0x000249D4 File Offset: 0x00022BD4
+	// Token: 0x060006A3 RID: 1699 RVA: 0x00037348 File Offset: 0x00035548
 	public static void PFunc_OnUnequip_Gabibbh(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5281,7 +5284,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.GabibbhReset();
 	}
 
-	// Token: 0x06000616 RID: 1558 RVA: 0x00024A32 File Offset: 0x00022C32
+	// Token: 0x060006A4 RID: 1700 RVA: 0x0000B3C1 File Offset: 0x000095C1
 	private static void Trigger_Gabibbh()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -5292,26 +5295,26 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Gabibbh);
 	}
 
-	// Token: 0x06000617 RID: 1559 RVA: 0x00024A50 File Offset: 0x00022C50
+	// Token: 0x060006A5 RID: 1701 RVA: 0x0000B3DF File Offset: 0x000095DF
 	private static void GabibbhReset()
 	{
 		PowerupScript._gabibbhMultiplier = 1L;
 	}
 
-	// Token: 0x06000618 RID: 1560 RVA: 0x00024A59 File Offset: 0x00022C59
+	// Token: 0x060006A6 RID: 1702 RVA: 0x0000B3E8 File Offset: 0x000095E8
 	public static void PFunc_OnEquip_PossessedPhone(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.PossessedPhone_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perSpin, null);
 	}
 
-	// Token: 0x06000619 RID: 1561 RVA: 0x00024A6F File Offset: 0x00022C6F
+	// Token: 0x060006A7 RID: 1703 RVA: 0x0000B3FE File Offset: 0x000095FE
 	public static void PFunc_OnUnequip_PossessedPhone(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 		GameplayData.Powerup_PossessedPhone_TriggersCount_Set(0);
 	}
 
-	// Token: 0x0600061A RID: 1562 RVA: 0x00024A7D File Offset: 0x00022C7D
+	// Token: 0x060006A8 RID: 1704 RVA: 0x0000B40C File Offset: 0x0000960C
 	private static void PossessedPhone_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.PossessedPhone, true))
@@ -5322,7 +5325,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_PossessedPhone_TriggersCount_Set(GameplayData.Powerup_PossessedPhone_TriggersCount_Get() + 1);
 	}
 
-	// Token: 0x0600061B RID: 1563 RVA: 0x00024AA0 File Offset: 0x00022CA0
+	// Token: 0x060006A9 RID: 1705 RVA: 0x000373A8 File Offset: 0x000355A8
 	public static void PFunc_OnEquip_MysticalTomato(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5331,7 +5334,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.MysticalTomatoReset));
 	}
 
-	// Token: 0x0600061C RID: 1564 RVA: 0x00024AFC File Offset: 0x00022CFC
+	// Token: 0x060006AA RID: 1706 RVA: 0x00037404 File Offset: 0x00035604
 	public static void PFunc_OnUnequip_MysticalTomato(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5341,7 +5344,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.MysticalTomatoReset();
 	}
 
-	// Token: 0x0600061D RID: 1565 RVA: 0x00024B5A File Offset: 0x00022D5A
+	// Token: 0x060006AB RID: 1707 RVA: 0x0000B42D File Offset: 0x0000962D
 	private static void Trigger_MysticalTomato()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -5352,33 +5355,33 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.MysticalTomato);
 	}
 
-	// Token: 0x0600061E RID: 1566 RVA: 0x00024B77 File Offset: 0x00022D77
+	// Token: 0x060006AC RID: 1708 RVA: 0x0000B44A File Offset: 0x0000964A
 	private static void MysticalTomatoReset()
 	{
 		PowerupScript._mysticalTomatoRepetitions = 0;
 	}
 
-	// Token: 0x0600061F RID: 1567 RVA: 0x00024B7F File Offset: 0x00022D7F
+	// Token: 0x060006AD RID: 1709 RVA: 0x0000B452 File Offset: 0x00009652
 	public static int MysticalTomatoGetRepetitions()
 	{
 		return PowerupScript._mysticalTomatoRepetitions;
 	}
 
-	// Token: 0x06000620 RID: 1568 RVA: 0x00024B86 File Offset: 0x00022D86
+	// Token: 0x060006AE RID: 1710 RVA: 0x0000B459 File Offset: 0x00009659
 	public static void PFunc_OnEquip_RitualBell(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_RitualBell));
 	}
 
-	// Token: 0x06000621 RID: 1569 RVA: 0x00024BAE File Offset: 0x00022DAE
+	// Token: 0x060006AF RID: 1711 RVA: 0x0000B481 File Offset: 0x00009681
 	public static void PFunc_OnUnequip_RitualBell(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_RitualBell));
 	}
 
-	// Token: 0x06000622 RID: 1570 RVA: 0x00024BD6 File Offset: 0x00022DD6
+	// Token: 0x060006B0 RID: 1712 RVA: 0x0000B4A9 File Offset: 0x000096A9
 	private static void Trigger_RitualBell()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -5389,7 +5392,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.RitualBell);
 	}
 
-	// Token: 0x06000623 RID: 1571 RVA: 0x00024BF4 File Offset: 0x00022DF4
+	// Token: 0x060006B1 RID: 1713 RVA: 0x0000B4C7 File Offset: 0x000096C7
 	public static BigInteger CrystalSkullMultiplierGet(SymbolScript.Kind symbolKind)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.CrystalSkull))
@@ -5409,7 +5412,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000624 RID: 1572 RVA: 0x00024C34 File Offset: 0x00022E34
+	// Token: 0x060006B2 RID: 1714 RVA: 0x00037464 File Offset: 0x00035664
 	public static void PFunc_OnEquip_CrystalSkull(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5418,7 +5421,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.CrystalSkullReset));
 	}
 
-	// Token: 0x06000625 RID: 1573 RVA: 0x00024C90 File Offset: 0x00022E90
+	// Token: 0x060006B3 RID: 1715 RVA: 0x000374C0 File Offset: 0x000356C0
 	public static void PFunc_OnUnequip_CrystalSkull(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -5428,7 +5431,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.CrystalSkullReset();
 	}
 
-	// Token: 0x06000626 RID: 1574 RVA: 0x00024CF0 File Offset: 0x00022EF0
+	// Token: 0x060006B4 RID: 1716 RVA: 0x00037520 File Offset: 0x00035720
 	private static void Trigger_CrystalSkull()
 	{
 		if (!SlotMachineScript.HasShown666())
@@ -5441,7 +5444,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.CrystalSkull);
 	}
 
-	// Token: 0x06000627 RID: 1575 RVA: 0x00024D6C File Offset: 0x00022F6C
+	// Token: 0x060006B5 RID: 1717 RVA: 0x0000B507 File Offset: 0x00009707
 	private static void CrystalSkullReset()
 	{
 		PowerupScript._crystalSkullBonus_Diamonds = 0;
@@ -5449,13 +5452,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript._crystalSkullBonus_Sevens = 0;
 	}
 
-	// Token: 0x06000628 RID: 1576 RVA: 0x00024D8F File Offset: 0x00022F8F
+	// Token: 0x060006B6 RID: 1718 RVA: 0x0000B52A File Offset: 0x0000972A
 	public static float EvilDealBonusMultiplier_Float()
 	{
 		return (float)PowerupScript.EvilDealBonusMultiplier();
 	}
 
-	// Token: 0x06000629 RID: 1577 RVA: 0x00024D97 File Offset: 0x00022F97
+	// Token: 0x060006B7 RID: 1719 RVA: 0x0000B532 File Offset: 0x00009732
 	public static int EvilDealBonusMultiplier()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.EvilDeal))
@@ -5465,7 +5468,7 @@ public class PowerupScript : MonoBehaviour
 		return 2;
 	}
 
-	// Token: 0x0600062A RID: 1578 RVA: 0x00024DA5 File Offset: 0x00022FA5
+	// Token: 0x060006B8 RID: 1720 RVA: 0x0000B540 File Offset: 0x00009740
 	public static int ChastityBelt_MultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.ChastityBelt) && considerEquippedState)
@@ -5475,7 +5478,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.PhoneAbilities_GetSkippedCount_Evil();
 	}
 
-	// Token: 0x0600062B RID: 1579 RVA: 0x00024DBC File Offset: 0x00022FBC
+	// Token: 0x060006B9 RID: 1721 RVA: 0x0003759C File Offset: 0x0003579C
 	public static void PFunc_OnEquip_PhotoBook(PowerupScript powerup)
 	{
 		for (int i = 0; i < PowerupScript._photoBookPowerups.Length; i++)
@@ -5500,7 +5503,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.PhotoBook);
 	}
 
-	// Token: 0x0600062C RID: 1580 RVA: 0x00024E88 File Offset: 0x00023088
+	// Token: 0x060006BA RID: 1722 RVA: 0x00037668 File Offset: 0x00035868
 	public static float LemonPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Lemon))
@@ -5515,19 +5518,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x0600062D RID: 1581 RVA: 0x00024EC1 File Offset: 0x000230C1
+	// Token: 0x060006BB RID: 1723 RVA: 0x0000B557 File Offset: 0x00009757
 	public static void PFunc_OnEquip_LemonPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.LemonPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x0600062E RID: 1582 RVA: 0x00024ED7 File Offset: 0x000230D7
+	// Token: 0x060006BC RID: 1724 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_LemonPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x0600062F RID: 1583 RVA: 0x00024EDF File Offset: 0x000230DF
+	// Token: 0x060006BD RID: 1725 RVA: 0x0000B56D File Offset: 0x0000976D
 	private static void LemonPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Lemon, true))
@@ -5537,7 +5540,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Lemon);
 	}
 
-	// Token: 0x06000630 RID: 1584 RVA: 0x00024EF4 File Offset: 0x000230F4
+	// Token: 0x060006BE RID: 1726 RVA: 0x000376A4 File Offset: 0x000358A4
 	public static float CherryPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Cherry))
@@ -5552,19 +5555,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x06000631 RID: 1585 RVA: 0x00024F2D File Offset: 0x0002312D
+	// Token: 0x060006BF RID: 1727 RVA: 0x0000B582 File Offset: 0x00009782
 	public static void PFunc_OnEquip_CherryPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.CherryPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x06000632 RID: 1586 RVA: 0x00024F43 File Offset: 0x00023143
+	// Token: 0x060006C0 RID: 1728 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_CherryPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000633 RID: 1587 RVA: 0x00024F4B File Offset: 0x0002314B
+	// Token: 0x060006C1 RID: 1729 RVA: 0x0000B598 File Offset: 0x00009798
 	private static void CherryPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Cherry, true))
@@ -5574,7 +5577,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Cherry);
 	}
 
-	// Token: 0x06000634 RID: 1588 RVA: 0x00024F60 File Offset: 0x00023160
+	// Token: 0x060006C2 RID: 1730 RVA: 0x000376E0 File Offset: 0x000358E0
 	public static float CloverPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Clover))
@@ -5589,19 +5592,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x06000635 RID: 1589 RVA: 0x00024F99 File Offset: 0x00023199
+	// Token: 0x060006C3 RID: 1731 RVA: 0x0000B5AD File Offset: 0x000097AD
 	public static void PFunc_OnEquip_CloverPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.CloverPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x06000636 RID: 1590 RVA: 0x00024FAF File Offset: 0x000231AF
+	// Token: 0x060006C4 RID: 1732 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_CloverPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000637 RID: 1591 RVA: 0x00024FB7 File Offset: 0x000231B7
+	// Token: 0x060006C5 RID: 1733 RVA: 0x0000B5C3 File Offset: 0x000097C3
 	private static void CloverPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Clover, true))
@@ -5611,7 +5614,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Clover);
 	}
 
-	// Token: 0x06000638 RID: 1592 RVA: 0x00024FCC File Offset: 0x000231CC
+	// Token: 0x060006C6 RID: 1734 RVA: 0x0003771C File Offset: 0x0003591C
 	public static float BellPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Bell))
@@ -5626,19 +5629,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x06000639 RID: 1593 RVA: 0x00025005 File Offset: 0x00023205
+	// Token: 0x060006C7 RID: 1735 RVA: 0x0000B5D8 File Offset: 0x000097D8
 	public static void PFunc_OnEquip_BellPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.BellPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x0600063A RID: 1594 RVA: 0x0002501B File Offset: 0x0002321B
+	// Token: 0x060006C8 RID: 1736 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_BellPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x0600063B RID: 1595 RVA: 0x00025023 File Offset: 0x00023223
+	// Token: 0x060006C9 RID: 1737 RVA: 0x0000B5EE File Offset: 0x000097EE
 	private static void BellPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Bell, true))
@@ -5648,7 +5651,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Bell);
 	}
 
-	// Token: 0x0600063C RID: 1596 RVA: 0x00025038 File Offset: 0x00023238
+	// Token: 0x060006CA RID: 1738 RVA: 0x00037758 File Offset: 0x00035958
 	public static float DiamondPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Diamond))
@@ -5663,19 +5666,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x0600063D RID: 1597 RVA: 0x00025071 File Offset: 0x00023271
+	// Token: 0x060006CB RID: 1739 RVA: 0x0000B603 File Offset: 0x00009803
 	public static void PFunc_OnEquip_DiamondPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.DiamondPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x0600063E RID: 1598 RVA: 0x00025087 File Offset: 0x00023287
+	// Token: 0x060006CC RID: 1740 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_DiamondPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x0600063F RID: 1599 RVA: 0x0002508F File Offset: 0x0002328F
+	// Token: 0x060006CD RID: 1741 RVA: 0x0000B619 File Offset: 0x00009819
 	private static void DiamondPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Diamond, true))
@@ -5685,7 +5688,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Diamond);
 	}
 
-	// Token: 0x06000640 RID: 1600 RVA: 0x000250A4 File Offset: 0x000232A4
+	// Token: 0x060006CE RID: 1742 RVA: 0x00037794 File Offset: 0x00035994
 	public static float CoinsPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Treasure))
@@ -5700,19 +5703,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x06000641 RID: 1601 RVA: 0x000250DD File Offset: 0x000232DD
+	// Token: 0x060006CF RID: 1743 RVA: 0x0000B62E File Offset: 0x0000982E
 	public static void PFunc_OnEquip_CoinsPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.CoinsPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x06000642 RID: 1602 RVA: 0x000250F3 File Offset: 0x000232F3
+	// Token: 0x060006D0 RID: 1744 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_CoinsPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000643 RID: 1603 RVA: 0x000250FB File Offset: 0x000232FB
+	// Token: 0x060006D1 RID: 1745 RVA: 0x0000B644 File Offset: 0x00009844
 	private static void CoinsPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Treasure, true))
@@ -5722,7 +5725,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Treasure);
 	}
 
-	// Token: 0x06000644 RID: 1604 RVA: 0x00025110 File Offset: 0x00023310
+	// Token: 0x060006D2 RID: 1746 RVA: 0x000377D0 File Offset: 0x000359D0
 	public static float SevenPicture_ChanceIncreaseGet(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.SymbolInstant_Seven))
@@ -5737,19 +5740,19 @@ public class PowerupScript : MonoBehaviour
 		return 1.6f * (float)num;
 	}
 
-	// Token: 0x06000645 RID: 1605 RVA: 0x00025149 File Offset: 0x00023349
+	// Token: 0x060006D3 RID: 1747 RVA: 0x0000B659 File Offset: 0x00009859
 	public static void PFunc_OnEquip_SevenPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.SevenPicture_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perDeadline, null);
 	}
 
-	// Token: 0x06000646 RID: 1606 RVA: 0x0002515F File Offset: 0x0002335F
+	// Token: 0x060006D4 RID: 1748 RVA: 0x0000A3F6 File Offset: 0x000085F6
 	public static void PFunc_OnUnequip_SevenPicture(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
 	}
 
-	// Token: 0x06000647 RID: 1607 RVA: 0x00025167 File Offset: 0x00023367
+	// Token: 0x060006D5 RID: 1749 RVA: 0x0000B66F File Offset: 0x0000986F
 	private static void SevenPicture_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier.SymbolInstant_Seven, true))
@@ -5759,7 +5762,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.SymbolInstant_Seven);
 	}
 
-	// Token: 0x06000648 RID: 1608 RVA: 0x0002517C File Offset: 0x0002337C
+	// Token: 0x060006D6 RID: 1750 RVA: 0x0000B684 File Offset: 0x00009884
 	public static float GeneralModCharm_Clicker_GetModChance(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GeneralModCharm_Clicker) && considerEquippedState)
@@ -5769,7 +5772,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.15f;
 	}
 
-	// Token: 0x06000649 RID: 1609 RVA: 0x00025197 File Offset: 0x00023397
+	// Token: 0x060006D7 RID: 1751 RVA: 0x0000B69F File Offset: 0x0000989F
 	public static float GeneralModCharm_CloverBellBattery_GetModChance(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GeneralModCharm_CloverBellBattery) && considerEquippedState)
@@ -5779,7 +5782,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.06f;
 	}
 
-	// Token: 0x0600064A RID: 1610 RVA: 0x000251B2 File Offset: 0x000233B2
+	// Token: 0x060006D8 RID: 1752 RVA: 0x0000B6BA File Offset: 0x000098BA
 	public static float GeneralModCharm_CrystalBall_GetModChance(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GeneralModCharm_CrystalSphere) && considerEquippedState)
@@ -5789,7 +5792,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.12f;
 	}
 
-	// Token: 0x0600064B RID: 1611 RVA: 0x000251CD File Offset: 0x000233CD
+	// Token: 0x060006D9 RID: 1753 RVA: 0x0000B6D5 File Offset: 0x000098D5
 	public static float GoldenKingMida_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenKingMida))
@@ -5799,7 +5802,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.03f + GameplayData.Powerup_GoldenKingMida_ExtraBonusGet();
 	}
 
-	// Token: 0x0600064C RID: 1612 RVA: 0x000251EC File Offset: 0x000233EC
+	// Token: 0x060006DA RID: 1754 RVA: 0x0003780C File Offset: 0x00035A0C
 	public static void GoldenKingMida_GrowValue(int skippedRounds)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenKingMida))
@@ -5819,7 +5822,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600064D RID: 1613 RVA: 0x00025238 File Offset: 0x00023438
+	// Token: 0x060006DB RID: 1755 RVA: 0x0000B6F4 File Offset: 0x000098F4
 	public static float Dealer_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Dealer))
@@ -5829,7 +5832,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.05f + GameplayData.Powerup_Dealer_ExtraBonusGet();
 	}
 
-	// Token: 0x0600064E RID: 1614 RVA: 0x00025258 File Offset: 0x00023458
+	// Token: 0x060006DC RID: 1756 RVA: 0x00037858 File Offset: 0x00035A58
 	public static void Dealer_GrowValue()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Dealer))
@@ -5849,21 +5852,21 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600064F RID: 1615 RVA: 0x000252A5 File Offset: 0x000234A5
+	// Token: 0x060006DD RID: 1757 RVA: 0x0000B713 File Offset: 0x00009913
 	public static void PFunc_OnEquip_Dealer(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Dealer_GrowValue));
 	}
 
-	// Token: 0x06000650 RID: 1616 RVA: 0x000252CD File Offset: 0x000234CD
+	// Token: 0x060006DE RID: 1758 RVA: 0x0000B73B File Offset: 0x0000993B
 	public static void PFunc_OnUnequip_Dealer(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Dealer_GrowValue));
 	}
 
-	// Token: 0x06000651 RID: 1617 RVA: 0x000252F5 File Offset: 0x000234F5
+	// Token: 0x060006DF RID: 1759 RVA: 0x0000B763 File Offset: 0x00009963
 	public static float Capitalist_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Capitalist))
@@ -5873,7 +5876,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.03f + GameplayData.Powerup_Capitalist_ExtraBonusGet();
 	}
 
-	// Token: 0x06000652 RID: 1618 RVA: 0x00025314 File Offset: 0x00023514
+	// Token: 0x060006E0 RID: 1760 RVA: 0x000378A8 File Offset: 0x00035AA8
 	public static void Capitalist_GrowValue(PowerupScript powerup)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Capitalist))
@@ -5893,7 +5896,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000653 RID: 1619 RVA: 0x00025363 File Offset: 0x00023563
+	// Token: 0x060006E1 RID: 1761 RVA: 0x0000B782 File Offset: 0x00009982
 	public static float PuppetPersonalTrainer_BonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PuppetPersonalTrainer) && considerEquippedState)
@@ -5903,7 +5906,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_PersonalTrainer_BonusGet();
 	}
 
-	// Token: 0x06000654 RID: 1620 RVA: 0x0002537E File Offset: 0x0002357E
+	// Token: 0x060006E2 RID: 1762 RVA: 0x0000B79D File Offset: 0x0000999D
 	public static void PuppetPersonalTrainer_ShrinkBonus()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PuppetPersonalTrainer))
@@ -5919,13 +5922,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000655 RID: 1621 RVA: 0x000253B9 File Offset: 0x000235B9
+	// Token: 0x060006E3 RID: 1763 RVA: 0x0000B7D8 File Offset: 0x000099D8
 	public static void PFunc_OnThrowAway_PuppetPersonalTrainer(PowerupScript powerup)
 	{
 		GameplayData.Powerup_PersonalTrainer_BonusReset();
 	}
 
-	// Token: 0x06000656 RID: 1622 RVA: 0x000253C0 File Offset: 0x000235C0
+	// Token: 0x060006E4 RID: 1764 RVA: 0x0000B7DF File Offset: 0x000099DF
 	public static float PuppetEletrician_BonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PuppetElectrician) && considerEquippedState)
@@ -5935,7 +5938,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_Electrician_BonusGet();
 	}
 
-	// Token: 0x06000657 RID: 1623 RVA: 0x000253DB File Offset: 0x000235DB
+	// Token: 0x060006E5 RID: 1765 RVA: 0x0000B7FA File Offset: 0x000099FA
 	public static void PuppetEletrician_ShrinkBonus()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PuppetElectrician))
@@ -5951,13 +5954,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000658 RID: 1624 RVA: 0x00025416 File Offset: 0x00023616
+	// Token: 0x060006E6 RID: 1766 RVA: 0x0000B835 File Offset: 0x00009A35
 	public static void PFunc_OnThrowAway_PuppetElectrician(PowerupScript powerup)
 	{
 		GameplayData.Powerup_Electrician_BonusReset();
 	}
 
-	// Token: 0x06000659 RID: 1625 RVA: 0x0002541D File Offset: 0x0002361D
+	// Token: 0x060006E7 RID: 1767 RVA: 0x0000B83C File Offset: 0x00009A3C
 	public static float PuppetFortuneTeller_BonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PuppetFortuneTeller) && considerEquippedState)
@@ -5967,7 +5970,7 @@ public class PowerupScript : MonoBehaviour
 		return GameplayData.Powerup_FortuneTeller_BonusGet();
 	}
 
-	// Token: 0x0600065A RID: 1626 RVA: 0x00025438 File Offset: 0x00023638
+	// Token: 0x060006E8 RID: 1768 RVA: 0x0000B857 File Offset: 0x00009A57
 	public static void PuppetFortuneTeller_ShrinkBonus()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PuppetFortuneTeller))
@@ -5983,13 +5986,13 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600065B RID: 1627 RVA: 0x00025473 File Offset: 0x00023673
+	// Token: 0x060006E9 RID: 1769 RVA: 0x0000B892 File Offset: 0x00009A92
 	public static void PFunc_OnThrowAway_PuppetFortuneTeller(PowerupScript powerup)
 	{
 		GameplayData.Powerup_FortuneTeller_BonusReset();
 	}
 
-	// Token: 0x0600065C RID: 1628 RVA: 0x0002547A File Offset: 0x0002367A
+	// Token: 0x060006EA RID: 1770 RVA: 0x0000B899 File Offset: 0x00009A99
 	public static float GoldenSymbol_Lemon_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Lemon))
@@ -5999,7 +6002,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600065D RID: 1629 RVA: 0x00025493 File Offset: 0x00023693
+	// Token: 0x060006EB RID: 1771 RVA: 0x0000B8B2 File Offset: 0x00009AB2
 	public static float GoldenSymbol_Cherry_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Cherry))
@@ -6009,7 +6012,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600065E RID: 1630 RVA: 0x000254AC File Offset: 0x000236AC
+	// Token: 0x060006EC RID: 1772 RVA: 0x0000B8CB File Offset: 0x00009ACB
 	public static float GoldenSymbol_Clover_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Clover))
@@ -6019,7 +6022,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600065F RID: 1631 RVA: 0x000254C5 File Offset: 0x000236C5
+	// Token: 0x060006ED RID: 1773 RVA: 0x0000B8E4 File Offset: 0x00009AE4
 	public static float GoldenSymbol_Bell_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Bell))
@@ -6029,7 +6032,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x06000660 RID: 1632 RVA: 0x000254E1 File Offset: 0x000236E1
+	// Token: 0x060006EE RID: 1774 RVA: 0x0000B900 File Offset: 0x00009B00
 	public static float GoldenSymbol_Diamond_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Diamond))
@@ -6039,7 +6042,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.25f;
 	}
 
-	// Token: 0x06000661 RID: 1633 RVA: 0x000254FD File Offset: 0x000236FD
+	// Token: 0x060006EF RID: 1775 RVA: 0x0000B91C File Offset: 0x00009B1C
 	public static float GoldenSymbol_Coins_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Treasure))
@@ -6049,7 +6052,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.25f;
 	}
 
-	// Token: 0x06000662 RID: 1634 RVA: 0x00025519 File Offset: 0x00023719
+	// Token: 0x060006F0 RID: 1776 RVA: 0x0000B938 File Offset: 0x00009B38
 	public static float GoldenSymbol_Seven_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.GoldenSymbol_Seven))
@@ -6059,27 +6062,27 @@ public class PowerupScript : MonoBehaviour
 		return 0.3f;
 	}
 
-	// Token: 0x06000663 RID: 1635 RVA: 0x00025535 File Offset: 0x00023735
+	// Token: 0x060006F1 RID: 1777 RVA: 0x0000B954 File Offset: 0x00009B54
 	public static float BoardgameC_Bricks_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Bricks))
 		{
 			return 0f;
 		}
-		return 0.2f;
+		return 0.25f;
 	}
 
-	// Token: 0x06000664 RID: 1636 RVA: 0x00025551 File Offset: 0x00023751
+	// Token: 0x060006F2 RID: 1778 RVA: 0x0000B970 File Offset: 0x00009B70
 	public static float BoardgameC_Wood_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Wood))
 		{
 			return 0f;
 		}
-		return 0.2f;
+		return 0.25f;
 	}
 
-	// Token: 0x06000665 RID: 1637 RVA: 0x0002556D File Offset: 0x0002376D
+	// Token: 0x060006F3 RID: 1779 RVA: 0x0000B98C File Offset: 0x00009B8C
 	public static float BoardgameC_Sheep_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Sheep))
@@ -6089,7 +6092,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.15f;
 	}
 
-	// Token: 0x06000666 RID: 1638 RVA: 0x00025589 File Offset: 0x00023789
+	// Token: 0x060006F4 RID: 1780 RVA: 0x0000B9A8 File Offset: 0x00009BA8
 	public static float BoardgameC_Wheat_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Wheat))
@@ -6099,7 +6102,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.15f;
 	}
 
-	// Token: 0x06000667 RID: 1639 RVA: 0x000255A5 File Offset: 0x000237A5
+	// Token: 0x060006F5 RID: 1781 RVA: 0x0000B9C4 File Offset: 0x00009BC4
 	public static float BoardgameC_Stone_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Stone))
@@ -6109,7 +6112,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.1f;
 	}
 
-	// Token: 0x06000668 RID: 1640 RVA: 0x000255C1 File Offset: 0x000237C1
+	// Token: 0x060006F6 RID: 1782 RVA: 0x0000B9E0 File Offset: 0x00009BE0
 	public static float BoardgameC_Harbor_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Harbor))
@@ -6119,7 +6122,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.1f;
 	}
 
-	// Token: 0x06000669 RID: 1641 RVA: 0x000255DD File Offset: 0x000237DD
+	// Token: 0x060006F7 RID: 1783 RVA: 0x0000B9FC File Offset: 0x00009BFC
 	public static float BoardgameC_Thief_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_C_Thief))
@@ -6129,7 +6132,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.1f;
 	}
 
-	// Token: 0x0600066A RID: 1642 RVA: 0x000255F9 File Offset: 0x000237F9
+	// Token: 0x060006F8 RID: 1784 RVA: 0x0000BA18 File Offset: 0x00009C18
 	public static float BoardgameM_Carriola_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Carriola))
@@ -6139,7 +6142,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600066B RID: 1643 RVA: 0x00025615 File Offset: 0x00023815
+	// Token: 0x060006F9 RID: 1785 RVA: 0x0000BA34 File Offset: 0x00009C34
 	public static float BoardgameM_Shoe_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Shoe))
@@ -6149,7 +6152,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600066C RID: 1644 RVA: 0x00025631 File Offset: 0x00023831
+	// Token: 0x060006FA RID: 1786 RVA: 0x0000BA50 File Offset: 0x00009C50
 	public static float BoardgameM_Ditale_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Ditale))
@@ -6159,7 +6162,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600066D RID: 1645 RVA: 0x0002564D File Offset: 0x0002384D
+	// Token: 0x060006FB RID: 1787 RVA: 0x0000BA6C File Offset: 0x00009C6C
 	public static float BoardgameM_FerroDaStiro_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_FerroDaStiro))
@@ -6169,7 +6172,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600066E RID: 1646 RVA: 0x00025669 File Offset: 0x00023869
+	// Token: 0x060006FC RID: 1788 RVA: 0x0000BA88 File Offset: 0x00009C88
 	public static float BoardgameM_Car_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Car))
@@ -6179,7 +6182,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x0600066F RID: 1647 RVA: 0x00025685 File Offset: 0x00023885
+	// Token: 0x060006FD RID: 1789 RVA: 0x0000BAA4 File Offset: 0x00009CA4
 	public static float BoardgameM_Ship_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Ship))
@@ -6189,7 +6192,7 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x06000670 RID: 1648 RVA: 0x000256A1 File Offset: 0x000238A1
+	// Token: 0x060006FE RID: 1790 RVA: 0x0000BAC0 File Offset: 0x00009CC0
 	public static float BoardgameM_Hat_GetModChance(bool considerEquippedState)
 	{
 		if (considerEquippedState && !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Boardgame_M_Hat))
@@ -6199,21 +6202,21 @@ public class PowerupScript : MonoBehaviour
 		return 0.2f;
 	}
 
-	// Token: 0x06000671 RID: 1649 RVA: 0x000256BD File Offset: 0x000238BD
+	// Token: 0x060006FF RID: 1791 RVA: 0x0000BADC File Offset: 0x00009CDC
 	public static void PFunc_OnEquip_ClassicPlayingCard_AceOfHearts(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_AceOfHearts));
 	}
 
-	// Token: 0x06000672 RID: 1650 RVA: 0x000256E5 File Offset: 0x000238E5
+	// Token: 0x06000700 RID: 1792 RVA: 0x0000BB04 File Offset: 0x00009D04
 	public static void PFunc_OnUnequip_ClassicPlayingCard_AceOfHearts(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_AceOfHearts));
 	}
 
-	// Token: 0x06000673 RID: 1651 RVA: 0x0002570D File Offset: 0x0002390D
+	// Token: 0x06000701 RID: 1793 RVA: 0x0000BB2C File Offset: 0x00009D2C
 	public static void Trigger_AceOfHearts()
 	{
 		if (SlotMachineScript.GetPatternsCount() < 3)
@@ -6225,7 +6228,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.PlayingCard_HeartsAce);
 	}
 
-	// Token: 0x06000674 RID: 1652 RVA: 0x00025744 File Offset: 0x00023944
+	// Token: 0x06000702 RID: 1794 RVA: 0x000378F8 File Offset: 0x00035AF8
 	public static void ClassicPlayingCards_AceOfClubs_ProcessSpendedTickets(bool considerEquippedState, long ticketsToAdd)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PlayingCard_ClubsAce) && considerEquippedState)
@@ -6249,21 +6252,21 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_AceOfClubs_TicketsSpentSet(num % 3L);
 	}
 
-	// Token: 0x06000675 RID: 1653 RVA: 0x000257BF File Offset: 0x000239BF
+	// Token: 0x06000703 RID: 1795 RVA: 0x0000BB63 File Offset: 0x00009D63
 	public static void PFunc_OnEquip_ClassicPlayingCard_AceOfDiamonds(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_AceOfDiamonds));
 	}
 
-	// Token: 0x06000676 RID: 1654 RVA: 0x000257E7 File Offset: 0x000239E7
+	// Token: 0x06000704 RID: 1796 RVA: 0x0000BB8B File Offset: 0x00009D8B
 	public static void PFunc_OnUnequip_ClassicPlayingCard_AceOfDiamonds(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.Trigger_AceOfDiamonds));
 	}
 
-	// Token: 0x06000677 RID: 1655 RVA: 0x00025810 File Offset: 0x00023A10
+	// Token: 0x06000705 RID: 1797 RVA: 0x00037974 File Offset: 0x00035B74
 	public static void Trigger_AceOfDiamonds()
 	{
 		PatternScript.Kind biggestPatternScored = SlotMachineScript.GetBiggestPatternScored();
@@ -6280,7 +6283,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.PlayingCard_DiamondsAce);
 	}
 
-	// Token: 0x06000678 RID: 1656 RVA: 0x00025860 File Offset: 0x00023A60
+	// Token: 0x06000706 RID: 1798 RVA: 0x000379C4 File Offset: 0x00035BC4
 	public static void ClassicPlayingCards_AceOfSpades_ProcessActivation(bool considerEquippedState, PowerupScript.Identifier powerupTriggered)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.PlayingCard_SpadesAce) && considerEquippedState)
@@ -6304,13 +6307,13 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.Powerup_AceOfSpades_ActivationsCounterSet(num);
 	}
 
-	// Token: 0x06000679 RID: 1657 RVA: 0x000258C9 File Offset: 0x00023AC9
+	// Token: 0x06000707 RID: 1799 RVA: 0x0000BBB3 File Offset: 0x00009DB3
 	private static void DiceD4_Reset()
 	{
 		PowerupScript._dice4UntriggeredPositions.Clear();
 	}
 
-	// Token: 0x0600067A RID: 1658 RVA: 0x000258D8 File Offset: 0x00023AD8
+	// Token: 0x06000708 RID: 1800 RVA: 0x00037A30 File Offset: 0x00035C30
 	public static bool Dice4_TriggerTry()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Dice_4))
@@ -6332,21 +6335,21 @@ public class PowerupScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600067B RID: 1659 RVA: 0x00025941 File Offset: 0x00023B41
+	// Token: 0x06000709 RID: 1801 RVA: 0x0000BBBF File Offset: 0x00009DBF
 	private static void PFunc_Dice6_OnEquipped(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnInterestEarn = (SlotMachineScript.Event)Delegate.Combine(instance.OnInterestEarn, new SlotMachineScript.Event(PowerupScript.Dice6_TriggerTry));
 	}
 
-	// Token: 0x0600067C RID: 1660 RVA: 0x00025969 File Offset: 0x00023B69
+	// Token: 0x0600070A RID: 1802 RVA: 0x0000BBE7 File Offset: 0x00009DE7
 	private static void PFunc_Dice6_OnUnequipped(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnInterestEarn = (SlotMachineScript.Event)Delegate.Remove(instance.OnInterestEarn, new SlotMachineScript.Event(PowerupScript.Dice6_TriggerTry));
 	}
 
-	// Token: 0x0600067D RID: 1661 RVA: 0x00025994 File Offset: 0x00023B94
+	// Token: 0x0600070B RID: 1803 RVA: 0x00037A9C File Offset: 0x00035C9C
 	public static void Dice6_TriggerTry()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Dice_6))
@@ -6363,7 +6366,7 @@ public class PowerupScript : MonoBehaviour
 		StoreCapsuleScript.Restock(false, true, null, false, false);
 	}
 
-	// Token: 0x0600067E RID: 1662 RVA: 0x00025A2D File Offset: 0x00023C2D
+	// Token: 0x0600070C RID: 1804 RVA: 0x0000BC0F File Offset: 0x00009E0F
 	public static void _Dice6_CameraSet(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Dice_6)
@@ -6378,7 +6381,7 @@ public class PowerupScript : MonoBehaviour
 		CameraController.SetPosition(CameraController.PositionKind.Store, false, 1f);
 	}
 
-	// Token: 0x0600067F RID: 1663 RVA: 0x00025A64 File Offset: 0x00023C64
+	// Token: 0x0600070D RID: 1805 RVA: 0x00037B38 File Offset: 0x00035D38
 	public static void _Dice6_CameraReset(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Dice_6)
@@ -6397,21 +6400,21 @@ public class PowerupScript : MonoBehaviour
 		CameraController.SetPosition(PowerupScript._diceD6CameraPosition, false, 1f);
 	}
 
-	// Token: 0x06000680 RID: 1664 RVA: 0x00025AB3 File Offset: 0x00023CB3
+	// Token: 0x0600070E RID: 1806 RVA: 0x0000BC43 File Offset: 0x00009E43
 	private static void PFunc_Dice20_OnEquipped(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnInterestEarn = (SlotMachineScript.Event)Delegate.Combine(instance.OnInterestEarn, new SlotMachineScript.Event(PowerupScript.D20_Trigger));
 	}
 
-	// Token: 0x06000681 RID: 1665 RVA: 0x00025ADB File Offset: 0x00023CDB
+	// Token: 0x0600070F RID: 1807 RVA: 0x0000BC6B File Offset: 0x00009E6B
 	private static void PFunc_Dice20_OnUnequipped(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnInterestEarn = (SlotMachineScript.Event)Delegate.Remove(instance.OnInterestEarn, new SlotMachineScript.Event(PowerupScript.D20_Trigger));
 	}
 
-	// Token: 0x06000682 RID: 1666 RVA: 0x00025B04 File Offset: 0x00023D04
+	// Token: 0x06000710 RID: 1808 RVA: 0x00037B88 File Offset: 0x00035D88
 	public static void D20_Trigger()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Dice_20))
@@ -6430,7 +6433,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupTriggerAnimController.AnimationSetSpeed(1f);
 	}
 
-	// Token: 0x06000683 RID: 1667 RVA: 0x00025B87 File Offset: 0x00023D87
+	// Token: 0x06000711 RID: 1809 RVA: 0x0000BC93 File Offset: 0x00009E93
 	public static void _Dice20_CameraSet(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Dice_20)
@@ -6445,7 +6448,7 @@ public class PowerupScript : MonoBehaviour
 		CameraController.SetPosition(CameraController.PositionKind.DrawersAll, false, 1f);
 	}
 
-	// Token: 0x06000684 RID: 1668 RVA: 0x00025BBC File Offset: 0x00023DBC
+	// Token: 0x06000712 RID: 1810 RVA: 0x00037C0C File Offset: 0x00035E0C
 	public static void _Dice20_CameraReset(PowerupTriggerAnimController.AnimationCapsule animationCapsule)
 	{
 		if (animationCapsule.powerup.identifier != PowerupScript.Identifier.Dice_20)
@@ -6464,7 +6467,7 @@ public class PowerupScript : MonoBehaviour
 		CameraController.SetPosition(PowerupScript._diceD20CameraPosition, false, 1f);
 	}
 
-	// Token: 0x06000685 RID: 1669 RVA: 0x00025C0C File Offset: 0x00023E0C
+	// Token: 0x06000713 RID: 1811 RVA: 0x00037C5C File Offset: 0x00035E5C
 	public static void PFunc_OnThrowAway_HoleCircle(PowerupScript powerup)
 	{
 		if (PowerupScript.IsInDrawer_Quick(powerup.identifier))
@@ -6482,7 +6485,7 @@ public class PowerupScript : MonoBehaviour
 		RedButtonScript.ButtonVisualsRefresh();
 	}
 
-	// Token: 0x06000686 RID: 1670 RVA: 0x00025C53 File Offset: 0x00023E53
+	// Token: 0x06000714 RID: 1812 RVA: 0x0000BCC8 File Offset: 0x00009EC8
 	public static void HoleCircle_RecordCharmTry(PowerupScript.Identifier identifier)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hole_Circle))
@@ -6493,7 +6496,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Hole_Circle);
 	}
 
-	// Token: 0x06000687 RID: 1671 RVA: 0x00025C6C File Offset: 0x00023E6C
+	// Token: 0x06000715 RID: 1813 RVA: 0x00037CA4 File Offset: 0x00035EA4
 	public static void PFunc_OnThrowAway_HoleRomboid(PowerupScript powerup)
 	{
 		if (PowerupScript.IsInDrawer_Quick(powerup.identifier))
@@ -6515,7 +6518,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000688 RID: 1672 RVA: 0x00025CBD File Offset: 0x00023EBD
+	// Token: 0x06000716 RID: 1814 RVA: 0x0000BCE1 File Offset: 0x00009EE1
 	public static void HoleRomboid_RecordCharmTry(PowerupScript.Identifier identifier)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hole_Romboid))
@@ -6526,7 +6529,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Hole_Romboid);
 	}
 
-	// Token: 0x06000689 RID: 1673 RVA: 0x00025CD8 File Offset: 0x00023ED8
+	// Token: 0x06000717 RID: 1815 RVA: 0x00037CF8 File Offset: 0x00035EF8
 	public static void PFunc_OnThrowAway_HoleCross(PowerupScript powerup)
 	{
 		if (PowerupScript.IsInDrawer_Quick(powerup.identifier))
@@ -6543,7 +6546,7 @@ public class PowerupScript : MonoBehaviour
 		RedButtonScript.ButtonVisualsRefresh();
 	}
 
-	// Token: 0x0600068A RID: 1674 RVA: 0x00025D1E File Offset: 0x00023F1E
+	// Token: 0x06000718 RID: 1816 RVA: 0x0000BCFA File Offset: 0x00009EFA
 	public static void HoleCross_RecordAbilityTry(AbilityScript.Identifier identifier)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hole_Cross))
@@ -6554,7 +6557,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier.Hole_Cross);
 	}
 
-	// Token: 0x0600068B RID: 1675 RVA: 0x00025D37 File Offset: 0x00023F37
+	// Token: 0x06000719 RID: 1817 RVA: 0x0000BD13 File Offset: 0x00009F13
 	public static void PFunc_OnEquip_AngelHand(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Add(powerup, new RedButtonScript.ButtonCallback(PowerupScript.AngelHand_RedButtonCallback_OnPress), RedButtonScript.RegistrationCapsule.Timing.perRound, null);
@@ -6562,7 +6565,7 @@ public class PowerupScript : MonoBehaviour
 		instance.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.AngelHand_RemovePatterns));
 	}
 
-	// Token: 0x0600068C RID: 1676 RVA: 0x00025D73 File Offset: 0x00023F73
+	// Token: 0x0600071A RID: 1818 RVA: 0x0000BD4F File Offset: 0x00009F4F
 	public static void PFunc_OnUnequip_AngelHand(PowerupScript powerup)
 	{
 		RedButtonScript.PowerupRegistration_Remove(powerup);
@@ -6571,7 +6574,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.AngelHand_RemovePatterns();
 	}
 
-	// Token: 0x0600068D RID: 1677 RVA: 0x00025DA8 File Offset: 0x00023FA8
+	// Token: 0x0600071B RID: 1819 RVA: 0x00037D40 File Offset: 0x00035F40
 	private static void AngelHand_RedButtonCallback_OnPress(PowerupScript powerup)
 	{
 		if (PowerupScript.RedButtonCallback_IdentityCheck(powerup, PowerupScript.Identifier._999_AngelHand, true))
@@ -6604,7 +6607,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600068E RID: 1678 RVA: 0x00025E4F File Offset: 0x0002404F
+	// Token: 0x0600071C RID: 1820 RVA: 0x0000BD82 File Offset: 0x00009F82
 	private static void AngelHand_RemovePatterns()
 	{
 		GameplayData.PatternsAvailable_Remove(PatternScript.Kind.horizontal2);
@@ -6612,21 +6615,21 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.PatternsAvailable_Remove(PatternScript.Kind.diagonal2);
 	}
 
-	// Token: 0x0600068F RID: 1679 RVA: 0x00025E63 File Offset: 0x00024063
+	// Token: 0x0600071D RID: 1821 RVA: 0x0000BD96 File Offset: 0x00009F96
 	public static void PFunc_OnEquip_EyeOfGod(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.EyeOfGodTrigger));
 	}
 
-	// Token: 0x06000690 RID: 1680 RVA: 0x00025E8B File Offset: 0x0002408B
+	// Token: 0x0600071E RID: 1822 RVA: 0x0000BDBE File Offset: 0x00009FBE
 	public static void PFunc_OnUnequip_EyeOfGod(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.EyeOfGodTrigger));
 	}
 
-	// Token: 0x06000691 RID: 1681 RVA: 0x00025EB3 File Offset: 0x000240B3
+	// Token: 0x0600071F RID: 1823 RVA: 0x0000BDE6 File Offset: 0x00009FE6
 	private static void EyeOfGodTrigger()
 	{
 		if (SlotMachineScript.instance.GetPatternsOfKind(PatternScript.Kind.eye).Count <= 0)
@@ -6637,21 +6640,21 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier._999_EyeOfGod);
 	}
 
-	// Token: 0x06000692 RID: 1682 RVA: 0x00025EDE File Offset: 0x000240DE
+	// Token: 0x06000720 RID: 1824 RVA: 0x0000BE11 File Offset: 0x0000A011
 	public static void PFunc_OnEquip_HolySpirit(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Combine(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.HolySpiritTrigger));
 	}
 
-	// Token: 0x06000693 RID: 1683 RVA: 0x00025F06 File Offset: 0x00024106
+	// Token: 0x06000721 RID: 1825 RVA: 0x0000BE39 File Offset: 0x0000A039
 	public static void PFunc_OnUnequip_HolySpirit(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
 		instance.OnScoreEvaluationEnd = (SlotMachineScript.Event)Delegate.Remove(instance.OnScoreEvaluationEnd, new SlotMachineScript.Event(PowerupScript.HolySpiritTrigger));
 	}
 
-	// Token: 0x06000694 RID: 1684 RVA: 0x00025F30 File Offset: 0x00024130
+	// Token: 0x06000722 RID: 1826 RVA: 0x00037DE8 File Offset: 0x00035FE8
 	private static void HolySpiritTrigger()
 	{
 		if (!SlotMachineScript.Has999())
@@ -6669,7 +6672,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier._999_HolySpirit);
 	}
 
-	// Token: 0x06000695 RID: 1685 RVA: 0x00025F84 File Offset: 0x00024184
+	// Token: 0x06000723 RID: 1827 RVA: 0x00037E3C File Offset: 0x0003603C
 	public static bool SacredHeart_EvaluateNoChargeConsumption()
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier._999_SacredHeart))
@@ -6686,7 +6689,7 @@ public class PowerupScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000696 RID: 1686 RVA: 0x00025FD8 File Offset: 0x000241D8
+	// Token: 0x06000724 RID: 1828 RVA: 0x00037E90 File Offset: 0x00036090
 	public static void PFunc_OnEquip_Eternity(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -6695,7 +6698,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.EternityReset));
 	}
 
-	// Token: 0x06000697 RID: 1687 RVA: 0x00026034 File Offset: 0x00024234
+	// Token: 0x06000725 RID: 1829 RVA: 0x00037EEC File Offset: 0x000360EC
 	public static void PFunc_OnUnequip_Eternity(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -6705,7 +6708,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.EternityReset();
 	}
 
-	// Token: 0x06000698 RID: 1688 RVA: 0x00026092 File Offset: 0x00024292
+	// Token: 0x06000726 RID: 1830 RVA: 0x0000BE61 File Offset: 0x0000A061
 	private static void EternityTrigger()
 	{
 		if (!SlotMachineScript.Has999())
@@ -6716,19 +6719,19 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier._999_Eternity);
 	}
 
-	// Token: 0x06000699 RID: 1689 RVA: 0x000260B2 File Offset: 0x000242B2
+	// Token: 0x06000727 RID: 1831 RVA: 0x0000BE81 File Offset: 0x0000A081
 	private static void EternityReset()
 	{
 		PowerupScript.eternityRepetitionsCounter = 0;
 	}
 
-	// Token: 0x0600069A RID: 1690 RVA: 0x000260BA File Offset: 0x000242BA
+	// Token: 0x06000728 RID: 1832 RVA: 0x0000BE89 File Offset: 0x0000A089
 	public static int EternityRepetitionsCounterGet()
 	{
 		return PowerupScript.eternityRepetitionsCounter;
 	}
 
-	// Token: 0x0600069B RID: 1691 RVA: 0x000260C4 File Offset: 0x000242C4
+	// Token: 0x06000729 RID: 1833 RVA: 0x00037F4C File Offset: 0x0003614C
 	public static void PFunc_OnEquip_AdamsRibCage(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -6737,7 +6740,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnRoundEnd = (SlotMachineScript.Event)Delegate.Combine(instance2.OnRoundEnd, new SlotMachineScript.Event(PowerupScript.AdamsRibCageReset));
 	}
 
-	// Token: 0x0600069C RID: 1692 RVA: 0x00026120 File Offset: 0x00024320
+	// Token: 0x0600072A RID: 1834 RVA: 0x00037FA8 File Offset: 0x000361A8
 	public static void PFunc_OnUnequip_AdamsRibCage(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -6747,7 +6750,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.AdamsRibCageReset();
 	}
 
-	// Token: 0x0600069D RID: 1693 RVA: 0x0002617E File Offset: 0x0002437E
+	// Token: 0x0600072B RID: 1835 RVA: 0x0000BE90 File Offset: 0x0000A090
 	private static void AdamsRibCageTrigger()
 	{
 		if (!SlotMachineScript.Has999())
@@ -6758,13 +6761,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier._999_AdamsRibcage);
 	}
 
-	// Token: 0x0600069E RID: 1694 RVA: 0x0002619F File Offset: 0x0002439F
+	// Token: 0x0600072C RID: 1836 RVA: 0x0000BEB1 File Offset: 0x0000A0B1
 	private static void AdamsRibCageReset()
 	{
 		PowerupScript._adamsRibCageCounter = 1L;
 	}
 
-	// Token: 0x0600069F RID: 1695 RVA: 0x000261A8 File Offset: 0x000243A8
+	// Token: 0x0600072D RID: 1837 RVA: 0x0000BEBA File Offset: 0x0000A0BA
 	public static long AdamsRibCage_PatternsMultiplierBonusGet(bool considerEquippedState)
 	{
 		if (!PowerupScript.IsEquipped_Quick(PowerupScript.Identifier._999_AdamsRibcage) && considerEquippedState)
@@ -6774,7 +6777,7 @@ public class PowerupScript : MonoBehaviour
 		return PowerupScript._adamsRibCageCounter;
 	}
 
-	// Token: 0x060006A0 RID: 1696 RVA: 0x000261C4 File Offset: 0x000243C4
+	// Token: 0x0600072E RID: 1838 RVA: 0x00038008 File Offset: 0x00036208
 	public static void PFunc_OnEquip_OphanimWheels(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -6783,7 +6786,7 @@ public class PowerupScript : MonoBehaviour
 		instance2.OnScoreEvaluationBegin = (SlotMachineScript.Event)Delegate.Combine(instance2.OnScoreEvaluationBegin, new SlotMachineScript.Event(PowerupScript.OphanimWheels_TransformJackpotCheck));
 	}
 
-	// Token: 0x060006A1 RID: 1697 RVA: 0x00026220 File Offset: 0x00024420
+	// Token: 0x0600072F RID: 1839 RVA: 0x00038064 File Offset: 0x00036264
 	public static void PFunc_OnUnequip_OphanimWheels(PowerupScript powerup)
 	{
 		SlotMachineScript instance = SlotMachineScript.instance;
@@ -6793,7 +6796,7 @@ public class PowerupScript : MonoBehaviour
 		GameplayData.PowerupOphanimWheels_JackpotsCounter = 0;
 	}
 
-	// Token: 0x060006A2 RID: 1698 RVA: 0x0002627F File Offset: 0x0002447F
+	// Token: 0x06000730 RID: 1840 RVA: 0x0000BED5 File Offset: 0x0000A0D5
 	private static void OphanimWheelsTrigger()
 	{
 		if (!SlotMachineScript.Has999())
@@ -6804,7 +6807,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier._999_OphanimWheels);
 	}
 
-	// Token: 0x060006A3 RID: 1699 RVA: 0x0002629F File Offset: 0x0002449F
+	// Token: 0x06000731 RID: 1841 RVA: 0x0000BEF5 File Offset: 0x0000A0F5
 	public static int OphanimWheels_JackpotsBookedGet(bool decreaseCounter)
 	{
 		int powerupOphanimWheels_JackpotsCounter = GameplayData.PowerupOphanimWheels_JackpotsCounter;
@@ -6815,7 +6818,7 @@ public class PowerupScript : MonoBehaviour
 		return powerupOphanimWheels_JackpotsCounter;
 	}
 
-	// Token: 0x060006A4 RID: 1700 RVA: 0x000262B5 File Offset: 0x000244B5
+	// Token: 0x06000732 RID: 1842 RVA: 0x0000BF0B File Offset: 0x0000A10B
 	private static void OphanimWheels_TransformJackpotCheck()
 	{
 		if (SlotMachineScript.Has666() || SlotMachineScript.Has999())
@@ -6830,13 +6833,13 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.PlayTriggeredAnimation(PowerupScript.Identifier._999_OphanimWheels);
 	}
 
-	// Token: 0x060006A5 RID: 1701 RVA: 0x000262E8 File Offset: 0x000244E8
+	// Token: 0x06000733 RID: 1843 RVA: 0x0000BF3E File Offset: 0x0000A13E
 	public static PowerupScript Spawn(PowerupScript.Identifier identifier)
 	{
 		return global::UnityEngine.Object.Instantiate<GameObject>(PowerupScript.GetPrefab(identifier)).GetComponent<PowerupScript>();
 	}
 
-	// Token: 0x060006A6 RID: 1702 RVA: 0x000262FC File Offset: 0x000244FC
+	// Token: 0x06000734 RID: 1844 RVA: 0x000380C4 File Offset: 0x000362C4
 	public void Initialize(bool isNewGame, PowerupScript.Category category, PowerupScript.Identifier identifier, PowerupScript.Archetype archetype, bool isInstantPowerup, int maxBuyTimes, float storeRerollChance, int startingPrice, BigInteger unlockPrice, string nameKey, string descriptionKey, string unlockMissionKey, PowerupScript.PowerupEvent onEquip, PowerupScript.PowerupEvent onUnequip, PowerupScript.PowerupEvent onPutInDrawer, PowerupScript.PowerupEvent onThrowAway)
 	{
 		if (unlockPrice > 0L && unlockMissionKey != "POWERUP_UNLOCK_MISSION_BUY_FROM_THE_TERMINAL")
@@ -6923,7 +6926,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006A7 RID: 1703 RVA: 0x0002661D File Offset: 0x0002481D
+	// Token: 0x06000735 RID: 1845 RVA: 0x0000BF50 File Offset: 0x0000A150
 	private void _Uninitialize()
 	{
 		if (PowerupScript.dict_IdentifierToInstance.ContainsKey(this.identifier))
@@ -6932,7 +6935,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006A8 RID: 1704 RVA: 0x00026644 File Offset: 0x00024844
+	// Token: 0x06000736 RID: 1846 RVA: 0x000383E8 File Offset: 0x000365E8
 	public static void InitializeAll(bool placePowerups, bool isNewGame)
 	{
 		PowerupScript.throwAwayCanTriggerEffects = true;
@@ -6997,7 +7000,7 @@ public class PowerupScript : MonoBehaviour
 		PowerupScript.Spawn(PowerupScript.Identifier.SevenSinsStone).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.SevenSinsStone, PowerupScript.Archetype.generic, false, -1, 0.65f, 2, -1L, "POWERUP_NAME_7_SINS_STONE", "POWERUP_DESCR_7_SINS_STONE", "POWERUP_UNLOCK_MISSION_7_SINS_STONE", new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnEquip_7SinsStone), new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnUnequip_7SinsStone), null, null);
 		PowerupScript.Spawn(PowerupScript.Identifier.Necklace).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.Necklace, PowerupScript.Archetype.generic, false, -1, 0.35f, 1, -1L, "POWERUP_NAME_WIFE_NECKLACE", "POWERUP_DESCR_WIFE_NECKLACE", "POWERUP_UNLOCK_MISSION_WIFE_NECKLACE", null, null, null, null);
 		PowerupScript.Spawn(PowerupScript.Identifier.CloverBell).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.CloverBell, PowerupScript.Archetype.generic, false, -1, 0.35f, 1, -1L, "POWERUP_NAME_CLOVERBELL", "POWERUP_DESCR_CLOVERBELL", "POWERUP_UNLOCK_MISSION_CLOVERBELL", new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnEquip_CloverBell), new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnUnequip_CloverBell), null, null);
-		PowerupScript.Spawn(PowerupScript.Identifier.Cigarettes).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.Cigarettes, PowerupScript.Archetype.generic, true, -1, 0f, 3, -1L, "POWERUP_NAME_CIGARETTES", "POWERUP_DESCR_CIGARETTES", "POWERUP_UNLOCK_CIGARETTES", new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnEquip_Cigarettes), null, null, null);
+		PowerupScript.Spawn(PowerupScript.Identifier.Cigarettes).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.Cigarettes, PowerupScript.Archetype.generic, true, -1, 0f, 1, -1L, "POWERUP_NAME_CIGARETTES", "POWERUP_DESCR_CIGARETTES", "POWERUP_UNLOCK_CIGARETTES", new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnEquip_Cigarettes), null, null, null);
 		PowerupScript.Spawn(PowerupScript.Identifier.ElectricityCounter).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.ElectricityCounter, PowerupScript.Archetype.generic, false, -1, 0.8f, 4, -1L, "POWERUP_NAME_ELECTRICITY_METER", "POWERUP_DESCR_ELECTRICITY_METER", "POWERUP_UNLOCK_ELECTRICITY_METER", null, null, null, null);
 		PowerupScript.Spawn(PowerupScript.Identifier.PotatoPower).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.PotatoPower, PowerupScript.Archetype.generic, false, -1, 0.35f, 1, -1L, "POWERUP_NAME_POTATO_BATTERY", "POWERUP_DESCR_POTATO_BATTERY", "POWERUP_UNLOCK_POTATO_BATTERY", new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnEquip_PotatoPower), new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnUnequip_PotatoPower), null, null);
 		PowerupScript.Spawn(PowerupScript.Identifier.CardboardHouse).Initialize(isNewGame, PowerupScript.Category.normal, PowerupScript.Identifier.CardboardHouse, PowerupScript.Archetype.generic, true, 1, 0f, 2, -1L, "POWERUP_NAME_CARDBOARD_HOUSE", "POWERUP_DESCR_CARDBOARD_HOUSE", "POWERUP_UNLOCK_CARDBOARD_HOUSE", new PowerupScript.PowerupEvent(PowerupScript.PFunc_OnEquip_CardboardHouse), null, null, null);
@@ -7208,11 +7211,11 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006A9 RID: 1705 RVA: 0x00029298 File Offset: 0x00027498
+	// Token: 0x06000737 RID: 1847 RVA: 0x0003B03C File Offset: 0x0003923C
 	private void Awake()
 	{
 		PowerupScript.all.Add(this);
-		this.myOutline = base.GetComponent<Outline>();
+		this.myOutline = base.GetComponent<global::Outline>();
 		this.meshFilter = this.meshHolder.GetComponentInChildren<MeshFilter>(true);
 		this.meshRenderer = this.meshHolder.GetComponentInChildren<MeshRenderer>(true);
 		this.skinnedMeshRenderer = this.meshHolder.GetComponentInChildren<SkinnedMeshRenderer>(true);
@@ -7237,7 +7240,7 @@ public class PowerupScript : MonoBehaviour
 		this.diegeticMenuElement.enabled = false;
 	}
 
-	// Token: 0x060006AA RID: 1706 RVA: 0x000293CC File Offset: 0x000275CC
+	// Token: 0x06000738 RID: 1848 RVA: 0x0003B170 File Offset: 0x00039370
 	private void Start()
 	{
 		if (this.category == PowerupScript.Category.undefined)
@@ -7283,14 +7286,14 @@ public class PowerupScript : MonoBehaviour
 		this.RedButtonText_PositionInit();
 	}
 
-	// Token: 0x060006AB RID: 1707 RVA: 0x0002957D File Offset: 0x0002777D
+	// Token: 0x06000739 RID: 1849 RVA: 0x0000BF75 File Offset: 0x0000A175
 	private void OnDestroy()
 	{
 		PowerupScript.all.Remove(this);
 		this._Uninitialize();
 	}
 
-	// Token: 0x060006AC RID: 1708 RVA: 0x00029594 File Offset: 0x00027794
+	// Token: 0x0600073A RID: 1850 RVA: 0x0003B324 File Offset: 0x00039524
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -7355,7 +7358,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006AD RID: 1709 RVA: 0x00029844 File Offset: 0x00027A44
+	// Token: 0x0600073B RID: 1851 RVA: 0x0003B5D4 File Offset: 0x000397D4
 	public static void UpdateAllVisibles()
 	{
 		for (int i = 0; i < PowerupScript.list_EquippedNormal.Count; i++)
@@ -7382,7 +7385,7 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006AE RID: 1710 RVA: 0x000298F8 File Offset: 0x00027AF8
+	// Token: 0x0600073C RID: 1852 RVA: 0x0003B688 File Offset: 0x00039888
 	public void UpdateVisible()
 	{
 		this.MaterialRefresh();
@@ -7404,18 +7407,25 @@ public class PowerupScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040004A9 RID: 1193
 	public static List<PowerupScript> all = new List<PowerupScript>();
 
+	// Token: 0x040004AA RID: 1194
 	public static List<PowerupScript> list_NotBought = new List<PowerupScript>();
 
+	// Token: 0x040004AB RID: 1195
 	public static List<PowerupScript> list_EquippedSkeleton = new List<PowerupScript>();
 
+	// Token: 0x040004AC RID: 1196
 	public static List<PowerupScript> list_EquippedNormal = new List<PowerupScript>();
 
+	// Token: 0x040004AD RID: 1197
 	public static PowerupScript[] array_InDrawer = new PowerupScript[4];
 
+	// Token: 0x040004AE RID: 1198
 	public static Dictionary<PowerupScript.Identifier, bool> dict_IsLocked = new Dictionary<PowerupScript.Identifier, bool>();
 
+	// Token: 0x040004AF RID: 1199
 	private static Dictionary<PowerupScript.Identifier, string> dict_IdentifierToPrefabName = new Dictionary<PowerupScript.Identifier, string>
 	{
 		{
@@ -8076,403 +8086,601 @@ public class PowerupScript : MonoBehaviour
 		}
 	};
 
+	// Token: 0x040004B0 RID: 1200
 	private static Dictionary<PowerupScript.Identifier, PowerupScript> dict_IdentifierToInstance = new Dictionary<PowerupScript.Identifier, PowerupScript>();
 
+	// Token: 0x040004B1 RID: 1201
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040004B2 RID: 1202
 	public const float FAR_AWAY_Z = 25f;
 
+	// Token: 0x040004B3 RID: 1203
 	public const bool ALLOW_SKELETON_PIECES_INSPECTION = true;
 
+	// Token: 0x040004B4 RID: 1204
 	public const float STORE_REROLL_CHANCE_COMMON = 0f;
 
+	// Token: 0x040004B5 RID: 1205
 	public const float STORE_REROLL_CHANCE_UNCOMMON = 0.1f;
 
+	// Token: 0x040004B6 RID: 1206
 	public const float STORE_REROLL_CHANCE_MILDLY_RARE = 0.2f;
 
+	// Token: 0x040004B7 RID: 1207
 	public const float STORE_REROLL_CHANCE_RARE = 0.35f;
 
+	// Token: 0x040004B8 RID: 1208
 	public const float STORE_REROLL_CHANCE_VERY_RARE = 0.5f;
 
+	// Token: 0x040004B9 RID: 1209
 	public const float STORE_REROLL_CHANCE_LEGENDARY = 0.65f;
 
+	// Token: 0x040004BA RID: 1210
 	public const float STORE_REROLL_CHANCE_LEGENDARY_ULTRA = 0.8f;
 
+	// Token: 0x040004BB RID: 1211
 	public const int PRICE_FREE = 0;
 
+	// Token: 0x040004BC RID: 1212
 	public const int PRICE_CHEAPEST = 1;
 
+	// Token: 0x040004BD RID: 1213
 	public const int PRICE_CHEAP = 2;
 
+	// Token: 0x040004BE RID: 1214
 	public const int PRICE_NORMAL = 3;
 
+	// Token: 0x040004BF RID: 1215
 	public const int PRICE_NORMAL_HIGH = 4;
 
+	// Token: 0x040004C0 RID: 1216
 	public const int PRICE_HIGH = 5;
 
+	// Token: 0x040004C1 RID: 1217
 	public const int PRICE_HIGH_HIGH = 6;
 
+	// Token: 0x040004C2 RID: 1218
 	public const int PRICE_REALLY_HIGH = 7;
 
+	// Token: 0x040004C3 RID: 1219
 	public const int PRICE_REALLY_HIGH_HIGH = 8;
 
+	// Token: 0x040004C4 RID: 1220
 	public const int PRICE_INCREDIBLY_HIGH = 9;
 
+	// Token: 0x040004C5 RID: 1221
 	public const int PRICE_INCREDIBLY_HIGH_HIGH = 10;
 
+	// Token: 0x040004C6 RID: 1222
 	public const int PRICE_OVERLY_HIGH = 15;
 
+	// Token: 0x040004C7 RID: 1223
 	public const int PRICE_OVERLY_HIGH_HIGH = 25;
 
+	// Token: 0x040004C8 RID: 1224
 	public const int PRICE_UNREACHABLE = 50;
 
+	// Token: 0x040004C9 RID: 1225
 	public const int PRICE_UNREACHABLE_HIGH = 100;
 
+	// Token: 0x040004CA RID: 1226
 	public const int PRICE_UNREACHABLE_HIGH_HIGH = 500;
 
+	// Token: 0x040004CB RID: 1227
 	public const int PRICE_IMPOSSIBLE = 1000;
 
+	// Token: 0x040004CC RID: 1228
 	private const long UNLOCK_PRICE_NONE = -1L;
 
+	// Token: 0x040004CD RID: 1229
 	private const string UNLOCK_MISSION_NONE = "POWERUP_UNLOCK_MISSION_NONE";
 
+	// Token: 0x040004CE RID: 1230
 	private const string UNLOCK_MISSION_BUY_TERMINAL = "POWERUP_UNLOCK_MISSION_BUY_FROM_THE_TERMINAL";
 
+	// Token: 0x040004CF RID: 1231
 	public const string TEMP_LUCK_TAG_FORTUNE_CHANNELER = "tl_frtnChnlr";
 
+	// Token: 0x040004D0 RID: 1232
 	public const string TEMP_LUCK_TAG_SPICY_PEPPER_RED = "tl_spPeppR";
 
+	// Token: 0x040004D1 RID: 1233
 	public const string TEMP_LUCK_TAG_SPICY_PEPPER_GREEN = "tl_spPeppG";
 
+	// Token: 0x040004D2 RID: 1234
 	public const string TEMP_LUCK_TAG_GOLDEN_PEPPER = "tl_spGdPpr";
 
+	// Token: 0x040004D3 RID: 1235
 	public const string TEMP_LUCK_TAG_ROTTEN_PEPPER = "tl_spRtnPpr";
 
+	// Token: 0x040004D4 RID: 1236
 	public const string TEMP_LUCK_TAG_BELL_PEPPER = "tl_spBllPpr";
 
+	// Token: 0x040004D5 RID: 1237
 	public const string TEMP_LUCK_TAG_HAMSA = "tl_hamsa";
 
+	// Token: 0x040004D6 RID: 1238
 	public const string TEMP_LUCK_TAG_LUCKY_COIN = "tl_LckCn";
 
+	// Token: 0x040004D7 RID: 1239
 	public const string TEMP_LUCK_TAG_ANCIENT_COIN = "tl_AncntCn";
 
+	// Token: 0x040004D8 RID: 1240
 	public const string TEMP_LUCK_TAG_TOY_TRAIN = "tl_TTrain";
 
+	// Token: 0x040004D9 RID: 1241
 	public const string TEMP_LUCK_STEPS_COUNTER = "tl_StpsCntr";
 
+	// Token: 0x040004DA RID: 1242
 	public const string TEMP_LUCK_DISC_B = "tl_DskB";
 
+	// Token: 0x040004DB RID: 1243
 	public const string TEMP_LUCK_JIMBO = "tl_jmb";
 
+	// Token: 0x040004DC RID: 1244
 	public const string TEMP_LUCK_DEVIL_HORN = "tl_dvlhrn";
 
+	// Token: 0x040004DD RID: 1245
 	private const int MAX_BUY_TIMES_ENDLESS = -1;
 
+	// Token: 0x040004DE RID: 1246
 	private const int MAX_BUY_TIMES_NEVER = 0;
 
+	// Token: 0x040004DF RID: 1247
 	private const int MAX_BUY_TIMES_ONCE = 1;
 
+	// Token: 0x040004E0 RID: 1248
 	public const float CHANCE_INCREASE_UNIT_HALF = 0.4f;
 
+	// Token: 0x040004E1 RID: 1249
 	public const float CHANCE_INCREASE_UNIT = 0.8f;
 
+	// Token: 0x040004E2 RID: 1250
 	public const float CHANCE_INCREASE_UNIT_AND_A_HALF = 1.2f;
 
+	// Token: 0x040004E3 RID: 1251
 	public const float CHANCE_INCREASE_UNIT_DOUBLE = 1.6f;
 
+	// Token: 0x040004E4 RID: 1252
 	public const float CHANCE_INCREASE_UNIT_TRIPLE = 2.4f;
 
+	// Token: 0x040004E5 RID: 1253
 	public const float LUCK_UNIT_REALLY_SMALL = 2f;
 
+	// Token: 0x040004E6 RID: 1254
 	public const float LUCK_UNIT_SMALL = 4f;
 
+	// Token: 0x040004E7 RID: 1255
 	public const float LUCK_UNIT_ONE = 5f;
 
+	// Token: 0x040004E8 RID: 1256
 	public const float LUCK_UNIT_ONE_AND_HALF = 7f;
 
+	// Token: 0x040004E9 RID: 1257
 	public const float LUCK_UNIT_TWO = 9f;
 
+	// Token: 0x040004EA RID: 1258
 	public const float LUCK_UNIT_TWO_TRUE = 10f;
 
+	// Token: 0x040004EB RID: 1259
 	private const string POWERUP_ZOOM_CAMERA_TAG = "pzct";
 
+	// Token: 0x040004EC RID: 1260
 	public AudioClip triggerSpecificSound;
 
+	// Token: 0x040004ED RID: 1261
 	private DiegeticMenuElement diegeticMenuElement;
 
+	// Token: 0x040004EE RID: 1262
 	public GameObject meshHolder;
 
+	// Token: 0x040004EF RID: 1263
 	private MeshFilter meshFilter;
 
+	// Token: 0x040004F0 RID: 1264
 	private MeshRenderer meshRenderer;
 
+	// Token: 0x040004F1 RID: 1265
 	private SkinnedMeshRenderer skinnedMeshRenderer;
 
+	// Token: 0x040004F2 RID: 1266
 	private Animator animator_IfAny;
 
+	// Token: 0x040004F3 RID: 1267
 	private Material materialDefault;
 
+	// Token: 0x040004F4 RID: 1268
 	private Material materialMod_SymbolMult;
 
+	// Token: 0x040004F5 RID: 1269
 	private Material materialMod_PatternMult;
 
+	// Token: 0x040004F6 RID: 1270
 	private Material materialMod_CloverTicket;
 
+	// Token: 0x040004F7 RID: 1271
 	private Material materialMod_Obsessive;
 
+	// Token: 0x040004F8 RID: 1272
 	private Material materialMod_Gambler;
 
+	// Token: 0x040004F9 RID: 1273
 	private Material materialMod_Speculative;
 
+	// Token: 0x040004FA RID: 1274
 	private Material materialMod_Devious;
 
+	// Token: 0x040004FB RID: 1275
 	public Transform modEffetctsHolder;
 
+	// Token: 0x040004FC RID: 1276
 	public Transform modHolder_OutlineSwitcher;
 
+	// Token: 0x040004FD RID: 1277
 	public GameObject modEffect_SymbolMult;
 
+	// Token: 0x040004FE RID: 1278
 	public GameObject modEffect_PatternMult;
 
+	// Token: 0x040004FF RID: 1279
 	public GameObject modEffect_CloverTicket;
 
+	// Token: 0x04000500 RID: 1280
 	public GameObject modEffect_Obsessive;
 
+	// Token: 0x04000501 RID: 1281
 	public GameObject modEffect_Gambler;
 
+	// Token: 0x04000502 RID: 1282
 	public GameObject modEffect_Speculative;
 
+	// Token: 0x04000503 RID: 1283
 	public GameObject modEffect_Devious;
 
-	private Outline myOutline;
+	// Token: 0x04000504 RID: 1284
+	private global::Outline myOutline;
 
+	// Token: 0x04000505 RID: 1285
 	public GameObject glowHolder;
 
+	// Token: 0x04000506 RID: 1286
 	public Transform glowTransform;
 
+	// Token: 0x04000507 RID: 1287
 	public SpriteRenderer[] glowSprites;
 
+	// Token: 0x04000508 RID: 1288
 	public GameObject sacredGlowHolder;
 
+	// Token: 0x04000509 RID: 1289
 	public Transform sacredGlowTransform;
 
+	// Token: 0x0400050A RID: 1290
 	public SpriteRenderer[] sacredGlowSprites;
 
+	// Token: 0x0400050B RID: 1291
 	public GameObject redButtonUiHolder;
 
+	// Token: 0x0400050C RID: 1292
 	public Canvas redButtonUiCanvas;
 
+	// Token: 0x0400050D RID: 1293
 	public TextMeshProUGUI redButtonUiText;
 
+	// Token: 0x0400050E RID: 1294
 	public Image redButtonUiBackgruondImage;
 
+	// Token: 0x0400050F RID: 1295
 	[NonSerialized]
 	public PowerupScript.Identifier identifier = PowerupScript.Identifier.undefined;
 
+	// Token: 0x04000510 RID: 1296
 	[NonSerialized]
 	public PowerupScript.Category category = PowerupScript.Category.undefined;
 
+	// Token: 0x04000511 RID: 1297
 	[NonSerialized]
 	public PowerupScript.Archetype archetype = PowerupScript.Archetype.undefined;
 
+	// Token: 0x04000512 RID: 1298
 	private long startingPrice = -1L;
 
+	// Token: 0x04000513 RID: 1299
 	private bool isInstantPowerup;
 
+	// Token: 0x04000514 RID: 1300
 	private int maxBuyTimes = -1;
 
+	// Token: 0x04000515 RID: 1301
 	private float storeRerollChance;
 
+	// Token: 0x04000516 RID: 1302
 	private string nameKey;
 
+	// Token: 0x04000517 RID: 1303
 	private string descriptionKey;
 
+	// Token: 0x04000518 RID: 1304
 	private string unlockMissionKey;
 
+	// Token: 0x04000519 RID: 1305
 	private bool _isBaseSet;
 
+	// Token: 0x0400051A RID: 1306
 	private BigInteger unlockPrice = -1;
 
+	// Token: 0x0400051B RID: 1307
 	private bool equippedChached;
 
+	// Token: 0x0400051C RID: 1308
 	private bool inDrawerChached;
 
+	// Token: 0x0400051D RID: 1309
 	private static bool equipFlag_DontCheckForSpace = false;
 
+	// Token: 0x0400051E RID: 1310
 	private static bool _suppressThrowAwaySound = false;
 
+	// Token: 0x0400051F RID: 1311
 	private static bool _suppressThrowAwayAnimation = false;
 
+	// Token: 0x04000520 RID: 1312
 	private global::UnityEngine.Vector3? _boundsSize;
 
+	// Token: 0x04000521 RID: 1313
 	private bool meshIsStolen;
 
+	// Token: 0x04000522 RID: 1314
 	private static Color colorGrayedOut = new Color(0.75f, 0.75f, 0.75f, 1f);
 
+	// Token: 0x04000523 RID: 1315
 	private bool sacredPropertyApplied;
 
+	// Token: 0x04000524 RID: 1316
 	private PowerupScript.Modifier _modifierEffects_LastModifier = PowerupScript.Modifier.count;
 
+	// Token: 0x04000525 RID: 1317
 	private static int modifiedPowerups_EquippedCounter_SymbolMult = 0;
 
+	// Token: 0x04000526 RID: 1318
 	private static int modifiedPowerups_EquippedCounter_PatternMult = 0;
 
+	// Token: 0x04000527 RID: 1319
 	private static int modifiedPowerups_EquippedCounter_CloverTicket = 0;
 
+	// Token: 0x04000528 RID: 1320
 	private static int modifiedPowerups_EquippedCounter_Obsessive = 0;
 
+	// Token: 0x04000529 RID: 1321
 	private static int modifiedPowerups_EquippedCounter_Gambler = 0;
 
+	// Token: 0x0400052A RID: 1322
 	private static int modifiedPowerups_EquippedCounter_Speculative = 0;
 
+	// Token: 0x0400052B RID: 1323
 	private static int modifiedPowerups_EquippedCounter_Devious = 0;
 
+	// Token: 0x0400052C RID: 1324
 	public static PowerupScript inspectedPowerup = null;
 
+	// Token: 0x0400052D RID: 1325
 	private Coroutine inspectionZoomCoroutine;
 
+	// Token: 0x0400052E RID: 1326
 	private static bool _cameraInspectionRunning = false;
 
+	// Token: 0x0400052F RID: 1327
 	private static bool _forceClosingInspection_Death = false;
 
+	// Token: 0x04000530 RID: 1328
 	private bool? _isRedButtonCharm;
 
+	// Token: 0x04000531 RID: 1329
 	private bool _redButton_TextUpdateRequest;
 
+	// Token: 0x04000532 RID: 1330
 	private string _redButton_TextString;
 
+	// Token: 0x04000533 RID: 1331
 	private float updateTimer;
 
+	// Token: 0x04000534 RID: 1332
 	private float justEquippedGlowTimer;
 
+	// Token: 0x04000535 RID: 1333
 	private static List<PowerupScript.Identifier> _skeletonPiecesSpawnable = new List<PowerupScript.Identifier>();
 
+	// Token: 0x04000536 RID: 1334
 	private static List<PowerupScript> sacredCharms = new List<PowerupScript>();
 
+	// Token: 0x04000537 RID: 1335
 	private static List<PowerupScript> luckBasedCharms = new List<PowerupScript>();
 
+	// Token: 0x04000538 RID: 1336
 	private static List<PowerupScript> picturesOfSymbols = new List<PowerupScript>();
 
+	// Token: 0x04000539 RID: 1337
 	private PowerupScript.PowerupEvent onEquip;
 
+	// Token: 0x0400053A RID: 1338
 	private PowerupScript.PowerupEvent onUnequip;
 
+	// Token: 0x0400053B RID: 1339
 	private PowerupScript.PowerupEvent onPutInDrawer;
 
+	// Token: 0x0400053C RID: 1340
 	private PowerupScript.PowerupEvent onThrowAway;
 
+	// Token: 0x0400053D RID: 1341
 	private static PowerupScript.PowerupEvent onEquipStatic;
 
+	// Token: 0x0400053E RID: 1342
 	private static PowerupScript.PowerupEvent onUnequipStatic;
 
+	// Token: 0x0400053F RID: 1343
 	private static PowerupScript.PowerupEvent onPutInDrawerStatic;
 
+	// Token: 0x04000540 RID: 1344
 	private static PowerupScript.PowerupEvent onThrowAwayStatic;
 
+	// Token: 0x04000541 RID: 1345
 	private static bool throwAwayCanTriggerEffects = true;
 
+	// Token: 0x04000542 RID: 1346
 	private static int _shromsActivationsCounter = 0;
 
+	// Token: 0x04000543 RID: 1347
 	private static int _rorschachActivationsCounter = 0;
 
+	// Token: 0x04000544 RID: 1348
 	private const int POTATO_POWERUP_THRESHOLD = 2;
 
+	// Token: 0x04000545 RID: 1349
 	private const int DISC_C_SPINS_THRESHOLD = 7;
 
+	// Token: 0x04000546 RID: 1350
 	private const int DISC_B_SPINS_THRESHOLD = 7;
 
+	// Token: 0x04000547 RID: 1351
 	private const int DISC_A_SPINS_THRESHOLD = 7;
 
+	// Token: 0x04000548 RID: 1352
 	private const int STEAM_LOCOMOTIVE_THRESHOLD = 3;
 
+	// Token: 0x04000549 RID: 1353
 	private const int DIESEL_LOCOMOTIVE_THRESHOLD = 3;
 
+	// Token: 0x0400054A RID: 1354
 	private const int STEPS_COUNTER_TRIGGERS_NEEDED = 3;
 
+	// Token: 0x0400054B RID: 1355
 	private static Dictionary<PatternScript.Kind, double> _abstractPaintingBonusValue = new Dictionary<PatternScript.Kind, double>();
 
+	// Token: 0x0400054C RID: 1356
 	private static bool _brokenCalculatorIsActive = false;
 
+	// Token: 0x0400054D RID: 1357
 	private static Dictionary<SymbolScript.Kind, BigInteger> _vinesoupBonusValue = new Dictionary<SymbolScript.Kind, BigInteger>();
 
+	// Token: 0x0400054E RID: 1358
 	private static PowerupScript[] _fortuneCookiePowerups = new PowerupScript[4];
 
+	// Token: 0x0400054F RID: 1359
 	private const int YELLOW_STAR_SPINS_THRESHOLD = 1;
 
+	// Token: 0x04000550 RID: 1360
 	private const int TOY_TRAIN_SPINS_THRESHOLD = 2;
 
+	// Token: 0x04000551 RID: 1361
 	private static long _tarotDeck_TriggersPerSpin = 0L;
 
+	// Token: 0x04000552 RID: 1362
 	private static int _ancientCoinRoundTriggersCounter = 0;
 
+	// Token: 0x04000553 RID: 1363
 	private static CameraController.PositionKind _ankhCameraPositionRestore = CameraController.PositionKind.Undefined;
 
+	// Token: 0x04000554 RID: 1364
 	private static float horseShoesLuck = 0f;
 
+	// Token: 0x04000555 RID: 1365
 	private const float HORSESHOE_LUCK_SMALL = 1f;
 
+	// Token: 0x04000556 RID: 1366
 	private static int _goldenHorseShoeRoundUsesCounter = 0;
 
+	// Token: 0x04000557 RID: 1367
 	private const int RED_PEPPER_MAX_ACTIVATIONS = 12;
 
+	// Token: 0x04000558 RID: 1368
 	private const int GREEN_PEPPER_MAX_ACTIVATIONS = 9;
 
+	// Token: 0x04000559 RID: 1369
 	private const string _CROSS_ANIM_TURN_DOWN = "TurnDown";
 
+	// Token: 0x0400055A RID: 1370
 	private const string _CROSS_ANIM_TURN_UP = "TurnUp";
 
+	// Token: 0x0400055B RID: 1371
 	private static int _bookOfShadowsRoundActivationsCounter = 0;
 
+	// Token: 0x0400055C RID: 1372
 	private static long _gabibbhMultiplier = 1L;
 
+	// Token: 0x0400055D RID: 1373
 	private static int _mysticalTomatoRepetitions = 0;
 
+	// Token: 0x0400055E RID: 1374
 	private static BigInteger _crystalSkullBonus_Diamonds;
 
+	// Token: 0x0400055F RID: 1375
 	private static BigInteger _crystalSkullBonus_Coins;
 
+	// Token: 0x04000560 RID: 1376
 	private static BigInteger _crystalSkullBonus_Sevens;
 
+	// Token: 0x04000561 RID: 1377
 	private const RedButtonScript.RegistrationCapsule.Timing SYMBOL_INSTANTS_TIMING = RedButtonScript.RegistrationCapsule.Timing.perDeadline;
 
+	// Token: 0x04000562 RID: 1378
 	private const float SYMBOLS_INSTANT_CHANCE_BONUS = 1.6f;
 
+	// Token: 0x04000563 RID: 1379
 	private static PowerupScript[] _photoBookPowerups = new PowerupScript[4];
 
+	// Token: 0x04000564 RID: 1380
 	private const float GOLDEN_KING_MIDA_BASE_MOD_CHANCE = 0.03f;
 
+	// Token: 0x04000565 RID: 1381
 	private const float DEALER_BASE_MOD_CHANCE = 0.05f;
 
+	// Token: 0x04000566 RID: 1382
 	private const float CAPITALIST_BASE_MOD_CHANCE = 0.03f;
 
+	// Token: 0x04000567 RID: 1383
 	private const float GOLDEN_SYMBOL_MOD_CHANCE_FRUITS = 0.2f;
 
+	// Token: 0x04000568 RID: 1384
 	private const float GOLDEN_SYMBOL_MOD_CHANCE_CLOVERBELLS = 0.2f;
 
+	// Token: 0x04000569 RID: 1385
 	private const float GOLDEN_SYMBOL_MOD_CHANCE_DIAMONDCOINS = 0.25f;
 
+	// Token: 0x0400056A RID: 1386
 	private const float GOLDEN_SYMBOL_MOD_CHANCE_SEVEN = 0.3f;
 
-	private const float BOARDGAME_C_MOD_CHANCE_FRUITS = 0.2f;
+	// Token: 0x0400056B RID: 1387
+	private const float BOARDGAME_C_MOD_CHANCE_FRUITS = 0.25f;
 
+	// Token: 0x0400056C RID: 1388
 	private const float BOARDGAME_C_MOD_CHANCE_CLOVERBELLS = 0.15f;
 
+	// Token: 0x0400056D RID: 1389
 	private const float BOARDGAME_C_MOD_CHANCE_DIAMONDCOINS = 0.1f;
 
+	// Token: 0x0400056E RID: 1390
 	private const float BOARDGAME_C_MOD_CHANCE_SEVEN = 0.1f;
 
+	// Token: 0x0400056F RID: 1391
 	private const float BOARDGAME_M_FRUITS_MOD_CHANCE = 0.2f;
 
+	// Token: 0x04000570 RID: 1392
 	private const float BOARDGAME_M_CLOVERBELL_MOD_CHANCE = 0.2f;
 
+	// Token: 0x04000571 RID: 1393
 	private const float BOARDGAME_M_DIAMOND_COINS_SEVEN_MOD_CHANCE = 0.2f;
 
+	// Token: 0x04000572 RID: 1394
 	public static List<Vector2Int> _dice4UntriggeredPositions = new List<Vector2Int>(16);
 
+	// Token: 0x04000573 RID: 1395
 	private static CameraController.PositionKind _diceD6CameraPosition = CameraController.PositionKind.Undefined;
 
+	// Token: 0x04000574 RID: 1396
 	private static CameraController.PositionKind _diceD20CameraPosition = CameraController.PositionKind.Undefined;
 
+	// Token: 0x04000575 RID: 1397
 	private static List<PatternScript.Kind> angelPatterns = new List<PatternScript.Kind>
 	{
 		PatternScript.Kind.horizontal2,
@@ -8480,236 +8688,446 @@ public class PowerupScript : MonoBehaviour
 		PatternScript.Kind.vertical2
 	};
 
+	// Token: 0x04000576 RID: 1398
 	private static int eternityRepetitionsCounter = 0;
 
+	// Token: 0x04000577 RID: 1399
 	private static long _adamsRibCageCounter = 1L;
 
+	// Token: 0x04000578 RID: 1400
 	private static List<PowerupScript> _initializationTempList = new List<PowerupScript>();
 
+	// Token: 0x02000059 RID: 89
 	public enum Identifier
 	{
+		// Token: 0x0400057A RID: 1402
 		undefined = -1,
+		// Token: 0x0400057B RID: 1403
 		Skeleton_Arm1,
+		// Token: 0x0400057C RID: 1404
 		Skeleton_Arm2,
+		// Token: 0x0400057D RID: 1405
 		Skeleton_Leg1,
+		// Token: 0x0400057E RID: 1406
 		Skeleton_Leg2,
+		// Token: 0x0400057F RID: 1407
 		Skeleton_Head,
+		// Token: 0x04000580 RID: 1408
 		Ankh,
+		// Token: 0x04000581 RID: 1409
 		HorseShoe,
+		// Token: 0x04000582 RID: 1410
 		HorseShoeGold,
+		// Token: 0x04000583 RID: 1411
 		HamsaUpside,
+		// Token: 0x04000584 RID: 1412
 		HamsaInverted,
+		// Token: 0x04000585 RID: 1413
 		LuckyCat,
+		// Token: 0x04000586 RID: 1414
 		LuckyCatFat,
+		// Token: 0x04000587 RID: 1415
 		LuckyCatSwole,
+		// Token: 0x04000588 RID: 1416
 		OneTrickPony,
+		// Token: 0x04000589 RID: 1417
 		RedCrystal,
+		// Token: 0x0400058A RID: 1418
 		TarotDeck,
+		// Token: 0x0400058B RID: 1419
 		PoopBeetle,
+		// Token: 0x0400058C RID: 1420
 		GrandmasPurse,
+		// Token: 0x0400058D RID: 1421
 		Pentacle,
+		// Token: 0x0400058E RID: 1422
 		HouseContract,
+		// Token: 0x0400058F RID: 1423
 		Button2X,
+		// Token: 0x04000590 RID: 1424
 		DearDiary,
+		// Token: 0x04000591 RID: 1425
 		Megaphone,
+		// Token: 0x04000592 RID: 1426
 		SuperCapacitor,
+		// Token: 0x04000593 RID: 1427
 		CrankGenerator,
+		// Token: 0x04000594 RID: 1428
 		GrattaEVinci_ScratchAndWin,
+		// Token: 0x04000595 RID: 1429
 		Stonks,
+		// Token: 0x04000596 RID: 1430
 		CarBattery,
+		// Token: 0x04000597 RID: 1431
 		ExpiredMedicines,
+		// Token: 0x04000598 RID: 1432
 		GoldenHand_MidasTouch,
+		// Token: 0x04000599 RID: 1433
 		PissJar,
+		// Token: 0x0400059A RID: 1434
 		PoopJar,
+		// Token: 0x0400059B RID: 1435
 		Painkillers,
+		// Token: 0x0400059C RID: 1436
 		Wallet,
+		// Token: 0x0400059D RID: 1437
 		MoneyBriefCase,
+		// Token: 0x0400059E RID: 1438
 		Calendar,
+		// Token: 0x0400059F RID: 1439
 		YellowStar,
+		// Token: 0x040005A0 RID: 1440
 		Wolf,
+		// Token: 0x040005A1 RID: 1441
 		FortuneCookie,
+		// Token: 0x040005A2 RID: 1442
 		FideltyCard,
+		// Token: 0x040005A3 RID: 1443
 		Sardines,
+		// Token: 0x040005A4 RID: 1444
 		BrokenCalculator,
+		// Token: 0x040005A5 RID: 1445
 		TheCollector,
+		// Token: 0x040005A6 RID: 1446
 		FortuneChanneler,
+		// Token: 0x040005A7 RID: 1447
 		Nose,
+		// Token: 0x040005A8 RID: 1448
 		EyeJar,
+		// Token: 0x040005A9 RID: 1449
 		VoiceMailTape,
+		// Token: 0x040005AA RID: 1450
 		Garbage,
+		// Token: 0x040005AB RID: 1451
 		AllIn,
+		// Token: 0x040005AC RID: 1452
 		RingBell,
+		// Token: 0x040005AD RID: 1453
 		ConsolationPrize,
+		// Token: 0x040005AE RID: 1454
 		DarkLotus,
+		// Token: 0x040005AF RID: 1455
 		StepsCounter,
+		// Token: 0x040005B0 RID: 1456
 		WeirdClock,
+		// Token: 0x040005B1 RID: 1457
 		MusicTape,
+		// Token: 0x040005B2 RID: 1458
 		ShoppingCart,
+		// Token: 0x040005B3 RID: 1459
 		CrowBar,
+		// Token: 0x040005B4 RID: 1460
 		DiscA,
+		// Token: 0x040005B5 RID: 1461
 		DiscB,
+		// Token: 0x040005B6 RID: 1462
 		DiscC,
+		// Token: 0x040005B7 RID: 1463
 		CardboardHouse,
+		// Token: 0x040005B8 RID: 1464
 		Cigarettes,
+		// Token: 0x040005B9 RID: 1465
 		ElectricityCounter,
+		// Token: 0x040005BA RID: 1466
 		PotatoPower,
+		// Token: 0x040005BB RID: 1467
 		FakeCoin,
+		// Token: 0x040005BC RID: 1468
 		AncientCoin,
+		// Token: 0x040005BD RID: 1469
 		CatTreats,
+		// Token: 0x040005BE RID: 1470
 		Depression,
+		// Token: 0x040005BF RID: 1471
 		ToyTrain,
+		// Token: 0x040005C0 RID: 1472
 		LocomotiveSteam,
+		// Token: 0x040005C1 RID: 1473
 		LocomotiveDiesel,
+		// Token: 0x040005C2 RID: 1474
 		CloverVoucher,
+		// Token: 0x040005C3 RID: 1475
 		CloverPot,
+		// Token: 0x040005C4 RID: 1476
 		CloverPet,
+		// Token: 0x040005C5 RID: 1477
 		CloversLandPatch,
+		// Token: 0x040005C6 RID: 1478
 		Mushrooms,
+		// Token: 0x040005C7 RID: 1479
 		VineSoupShroom,
+		// Token: 0x040005C8 RID: 1480
 		GiantShroom,
+		// Token: 0x040005C9 RID: 1481
 		Hole_Circle,
+		// Token: 0x040005CA RID: 1482
 		Hole_Romboid,
+		// Token: 0x040005CB RID: 1483
 		Hole_Cross,
+		// Token: 0x040005CC RID: 1484
 		Rorschach,
+		// Token: 0x040005CD RID: 1485
 		AbstractPainting,
+		// Token: 0x040005CE RID: 1486
 		Pareidolia,
+		// Token: 0x040005CF RID: 1487
 		Hourglass,
+		// Token: 0x040005D0 RID: 1488
 		FruitBasket,
+		// Token: 0x040005D1 RID: 1489
 		SevenSinsStone,
+		// Token: 0x040005D2 RID: 1490
 		Necklace,
+		// Token: 0x040005D3 RID: 1491
 		CloverBell,
+		// Token: 0x040005D4 RID: 1492
 		HornChilyRed,
+		// Token: 0x040005D5 RID: 1493
 		HornChilyGreen,
+		// Token: 0x040005D6 RID: 1494
 		RottenPepper,
+		// Token: 0x040005D7 RID: 1495
 		BellPepper,
+		// Token: 0x040005D8 RID: 1496
 		GoldenPepper,
+		// Token: 0x040005D9 RID: 1497
 		HornDevil,
+		// Token: 0x040005DA RID: 1498
 		Necronomicon,
+		// Token: 0x040005DB RID: 1499
 		HolyBible,
+		// Token: 0x040005DC RID: 1500
 		Baphomet,
+		// Token: 0x040005DD RID: 1501
 		Cross,
+		// Token: 0x040005DE RID: 1502
 		Rosary,
+		// Token: 0x040005DF RID: 1503
 		BookOfShadows,
+		// Token: 0x040005E0 RID: 1504
 		Gabibbh,
+		// Token: 0x040005E1 RID: 1505
 		PossessedPhone,
+		// Token: 0x040005E2 RID: 1506
 		MysticalTomato,
+		// Token: 0x040005E3 RID: 1507
 		RitualBell,
+		// Token: 0x040005E4 RID: 1508
 		CrystalSkull,
+		// Token: 0x040005E5 RID: 1509
 		EvilDeal,
+		// Token: 0x040005E6 RID: 1510
 		ChastityBelt,
+		// Token: 0x040005E7 RID: 1511
 		PhotoBook,
+		// Token: 0x040005E8 RID: 1512
 		SymbolInstant_Lemon,
+		// Token: 0x040005E9 RID: 1513
 		SymbolInstant_Cherry,
+		// Token: 0x040005EA RID: 1514
 		SymbolInstant_Clover,
+		// Token: 0x040005EB RID: 1515
 		SymbolInstant_Bell,
+		// Token: 0x040005EC RID: 1516
 		SymbolInstant_Diamond,
+		// Token: 0x040005ED RID: 1517
 		SymbolInstant_Treasure,
+		// Token: 0x040005EE RID: 1518
 		SymbolInstant_Seven,
+		// Token: 0x040005EF RID: 1519
 		GeneralModCharm_Clicker,
+		// Token: 0x040005F0 RID: 1520
 		GeneralModCharm_CloverBellBattery,
+		// Token: 0x040005F1 RID: 1521
 		GeneralModCharm_CrystalSphere,
+		// Token: 0x040005F2 RID: 1522
 		Boardgame_C_Dealer,
+		// Token: 0x040005F3 RID: 1523
 		GoldenKingMida,
+		// Token: 0x040005F4 RID: 1524
 		Boardgame_M_Capitalist,
+		// Token: 0x040005F5 RID: 1525
 		PuppetPersonalTrainer,
+		// Token: 0x040005F6 RID: 1526
 		PuppetElectrician,
+		// Token: 0x040005F7 RID: 1527
 		PuppetFortuneTeller,
+		// Token: 0x040005F8 RID: 1528
 		GoldenSymbol_Lemon,
+		// Token: 0x040005F9 RID: 1529
 		GoldenSymbol_Cherry,
+		// Token: 0x040005FA RID: 1530
 		GoldenSymbol_Clover,
+		// Token: 0x040005FB RID: 1531
 		GoldenSymbol_Bell,
+		// Token: 0x040005FC RID: 1532
 		GoldenSymbol_Diamond,
+		// Token: 0x040005FD RID: 1533
 		GoldenSymbol_Treasure,
+		// Token: 0x040005FE RID: 1534
 		GoldenSymbol_Seven,
+		// Token: 0x040005FF RID: 1535
 		Boardgame_C_Bricks,
+		// Token: 0x04000600 RID: 1536
 		Boardgame_C_Wood,
+		// Token: 0x04000601 RID: 1537
 		Boardgame_C_Sheep,
+		// Token: 0x04000602 RID: 1538
 		Boardgame_C_Wheat,
+		// Token: 0x04000603 RID: 1539
 		Boardgame_C_Stone,
+		// Token: 0x04000604 RID: 1540
 		Boardgame_C_Harbor,
+		// Token: 0x04000605 RID: 1541
 		Boardgame_C_Thief,
+		// Token: 0x04000606 RID: 1542
 		Boardgame_M_Carriola,
+		// Token: 0x04000607 RID: 1543
 		Boardgame_M_Shoe,
+		// Token: 0x04000608 RID: 1544
 		Boardgame_M_Ditale,
+		// Token: 0x04000609 RID: 1545
 		Boardgame_M_FerroDaStiro,
+		// Token: 0x0400060A RID: 1546
 		Boardgame_M_Car,
+		// Token: 0x0400060B RID: 1547
 		Boardgame_M_Ship,
+		// Token: 0x0400060C RID: 1548
 		Boardgame_M_Hat,
+		// Token: 0x0400060D RID: 1549
 		PlayingCard_HeartsAce,
+		// Token: 0x0400060E RID: 1550
 		PlayingCard_ClubsAce,
+		// Token: 0x0400060F RID: 1551
 		PlayingCard_DiamondsAce,
+		// Token: 0x04000610 RID: 1552
 		PlayingCard_SpadesAce,
+		// Token: 0x04000611 RID: 1553
 		Jimbo,
+		// Token: 0x04000612 RID: 1554
 		Dice_4,
+		// Token: 0x04000613 RID: 1555
 		Dice_6,
+		// Token: 0x04000614 RID: 1556
 		Dice_20,
+		// Token: 0x04000615 RID: 1557
 		_999_AngelHand,
+		// Token: 0x04000616 RID: 1558
 		_999_EyeOfGod,
+		// Token: 0x04000617 RID: 1559
 		_999_HolySpirit,
+		// Token: 0x04000618 RID: 1560
 		_999_SacredHeart,
+		// Token: 0x04000619 RID: 1561
 		_999_Aureola,
+		// Token: 0x0400061A RID: 1562
 		_999_TheBlood,
+		// Token: 0x0400061B RID: 1563
 		_999_TheBody,
+		// Token: 0x0400061C RID: 1564
 		_999_Eternity,
+		// Token: 0x0400061D RID: 1565
 		_999_AdamsRibcage,
+		// Token: 0x0400061E RID: 1566
 		_999_OphanimWheels,
+		// Token: 0x0400061F RID: 1567
 		count
 	}
 
+	// Token: 0x0200005A RID: 90
 	public enum Category
 	{
+		// Token: 0x04000621 RID: 1569
 		undefined = -1,
+		// Token: 0x04000622 RID: 1570
 		skeleton,
+		// Token: 0x04000623 RID: 1571
 		normal,
+		// Token: 0x04000624 RID: 1572
 		count
 	}
 
+	// Token: 0x0200005B RID: 91
 	public enum Archetype
 	{
+		// Token: 0x04000626 RID: 1574
 		undefined = -1,
+		// Token: 0x04000627 RID: 1575
 		generic,
+		// Token: 0x04000628 RID: 1576
 		spicyPeppers,
+		// Token: 0x04000629 RID: 1577
 		religious,
+		// Token: 0x0400062A RID: 1578
 		symbolInstants,
+		// Token: 0x0400062B RID: 1579
 		generalModifierCharm,
+		// Token: 0x0400062C RID: 1580
 		commonModPuppets,
+		// Token: 0x0400062D RID: 1581
 		goldenSymbols,
+		// Token: 0x0400062E RID: 1582
 		boardgameC,
+		// Token: 0x0400062F RID: 1583
 		boardgameM,
+		// Token: 0x04000630 RID: 1584
 		classicPlayingCards,
+		// Token: 0x04000631 RID: 1585
 		dices,
+		// Token: 0x04000632 RID: 1586
 		skeleton,
+		// Token: 0x04000633 RID: 1587
 		sacred,
+		// Token: 0x04000634 RID: 1588
 		count
 	}
 
+	// Token: 0x0200005C RID: 92
 	public enum Modifier
 	{
+		// Token: 0x04000636 RID: 1590
 		none,
+		// Token: 0x04000637 RID: 1591
 		symbolMultiplier,
+		// Token: 0x04000638 RID: 1592
 		patternMultiplier,
+		// Token: 0x04000639 RID: 1593
 		cloverTicket,
+		// Token: 0x0400063A RID: 1594
 		obsessive,
+		// Token: 0x0400063B RID: 1595
 		gambler,
+		// Token: 0x0400063C RID: 1596
 		speculative,
+		// Token: 0x0400063D RID: 1597
 		devious,
+		// Token: 0x0400063E RID: 1598
 		count
 	}
 
+	// Token: 0x0200005D RID: 93
 	public enum PublicRarity
 	{
+		// Token: 0x04000640 RID: 1600
 		common,
+		// Token: 0x04000641 RID: 1601
 		uncommon,
+		// Token: 0x04000642 RID: 1602
 		rare,
+		// Token: 0x04000643 RID: 1603
 		epic
 	}
 
+	// Token: 0x0200005E RID: 94
 	public enum MenuControllerTarget
 	{
+		// Token: 0x04000645 RID: 1605
 		Room,
+		// Token: 0x04000646 RID: 1606
 		Slot
 	}
 
-	// (Invoke) Token: 0x06001159 RID: 4441
+	// Token: 0x0200005F RID: 95
+	// (Invoke) Token: 0x06000740 RID: 1856
 	public delegate void PowerupEvent(PowerupScript powerup);
 }

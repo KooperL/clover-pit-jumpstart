@@ -4,9 +4,10 @@ using System.Numerics;
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000081 RID: 129
 public class SymbolScript : MonoBehaviour
 {
-	// Token: 0x06000782 RID: 1922 RVA: 0x00031537 File Offset: 0x0002F737
+	// Token: 0x0600087B RID: 2171 RVA: 0x0000CAEE File Offset: 0x0000ACEE
 	public static string GetPrefabName(SymbolScript.Kind kind)
 	{
 		if (kind == SymbolScript.Kind.undefined)
@@ -22,13 +23,13 @@ public class SymbolScript : MonoBehaviour
 		return SymbolScript.prefabDict[kind];
 	}
 
-	// Token: 0x06000783 RID: 1923 RVA: 0x00031565 File Offset: 0x0002F765
+	// Token: 0x0600087C RID: 2172 RVA: 0x0000CB1C File Offset: 0x0000AD1C
 	public static GameObject GetPrefab(SymbolScript.Kind kind)
 	{
 		return AssetMaster.GetPrefab(SymbolScript.GetPrefabName(kind));
 	}
 
-	// Token: 0x06000784 RID: 1924 RVA: 0x00031574 File Offset: 0x0002F774
+	// Token: 0x0600087D RID: 2173 RVA: 0x00048804 File Offset: 0x00046A04
 	public static BigInteger ModifierInstantReward_GetAmmount()
 	{
 		if (GameplayData.Instance == null)
@@ -43,7 +44,7 @@ public class SymbolScript : MonoBehaviour
 		return bigInteger;
 	}
 
-	// Token: 0x06000785 RID: 1925 RVA: 0x000315B2 File Offset: 0x0002F7B2
+	// Token: 0x0600087E RID: 2174 RVA: 0x0000CB29 File Offset: 0x0000AD29
 	public void MarkAsScoringSymbol(int columnX, int lineY)
 	{
 		if (this._isScoringSymbol)
@@ -56,7 +57,7 @@ public class SymbolScript : MonoBehaviour
 		SymbolScript.scoringSymbols.Add(this);
 	}
 
-	// Token: 0x06000786 RID: 1926 RVA: 0x000315DD File Offset: 0x0002F7DD
+	// Token: 0x0600087F RID: 2175 RVA: 0x0000CB54 File Offset: 0x0000AD54
 	public void RemoveFromScoringSymbols()
 	{
 		SymbolScript.scoringSymbols.Remove(this);
@@ -65,7 +66,7 @@ public class SymbolScript : MonoBehaviour
 		this.scoringSymbol_Y = -1;
 	}
 
-	// Token: 0x06000787 RID: 1927 RVA: 0x00031600 File Offset: 0x0002F800
+	// Token: 0x06000880 RID: 2176 RVA: 0x00048844 File Offset: 0x00046A44
 	public void ModifierSet(SymbolScript.Modifier _modifier)
 	{
 		this.modifier = _modifier;
@@ -139,13 +140,13 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000788 RID: 1928 RVA: 0x000318B2 File Offset: 0x0002FAB2
+	// Token: 0x06000881 RID: 2177 RVA: 0x0000CB77 File Offset: 0x0000AD77
 	public SymbolScript.Modifier ModifierGet()
 	{
 		return this.modifier;
 	}
 
-	// Token: 0x06000789 RID: 1929 RVA: 0x000318BC File Offset: 0x0002FABC
+	// Token: 0x06000882 RID: 2178 RVA: 0x00048AF8 File Offset: 0x00046CF8
 	public static int ModifierGetArrayIndex(SymbolScript.Modifier modifier)
 	{
 		switch (modifier)
@@ -170,7 +171,7 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078A RID: 1930 RVA: 0x00031918 File Offset: 0x0002FB18
+	// Token: 0x06000883 RID: 2179 RVA: 0x00048B54 File Offset: 0x00046D54
 	public static SymbolScript.Modifier ModifierFromArrayIndex(int index)
 	{
 		switch (index)
@@ -195,7 +196,7 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078B RID: 1931 RVA: 0x00031970 File Offset: 0x0002FB70
+	// Token: 0x06000884 RID: 2180 RVA: 0x00048BAC File Offset: 0x00046DAC
 	public static SymbolScript GetSymbolScript_ByScoringPosition(Vector2Int columnXLineY)
 	{
 		foreach (SymbolScript symbolScript in SymbolScript.scoringSymbols)
@@ -208,7 +209,7 @@ public class SymbolScript : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600078C RID: 1932 RVA: 0x000319E0 File Offset: 0x0002FBE0
+	// Token: 0x06000885 RID: 2181 RVA: 0x0000CB7F File Offset: 0x0000AD7F
 	public void MaterialUpdate()
 	{
 		this.mainSkinnedMeshRenderer.sharedMaterial = this.matDefault;
@@ -218,7 +219,7 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078D RID: 1933 RVA: 0x00031A20 File Offset: 0x0002FC20
+	// Token: 0x06000886 RID: 2182 RVA: 0x00048C1C File Offset: 0x00046E1C
 	public static ulong SymbolsOrderWeightMask(SymbolScript.Kind kind)
 	{
 		ulong num = 1UL;
@@ -257,7 +258,7 @@ public class SymbolScript : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600078E RID: 1934 RVA: 0x00031AAC File Offset: 0x0002FCAC
+	// Token: 0x06000887 RID: 2183 RVA: 0x00048CA8 File Offset: 0x00046EA8
 	public static bool IsYellow(SymbolScript.Kind kind)
 	{
 		switch (kind)
@@ -286,7 +287,7 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078F RID: 1935 RVA: 0x00031B14 File Offset: 0x0002FD14
+	// Token: 0x06000888 RID: 2184 RVA: 0x0000CBBD File Offset: 0x0000ADBD
 	public static bool SymbolCanRepeatTrigger(SymbolScript.Kind kind)
 	{
 		if (kind <= SymbolScript.Kind.seven)
@@ -301,13 +302,13 @@ public class SymbolScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000790 RID: 1936 RVA: 0x00031B43 File Offset: 0x0002FD43
+	// Token: 0x06000889 RID: 2185 RVA: 0x0000CBEC File Offset: 0x0000ADEC
 	public bool IsAnimationPlaying()
 	{
 		return this.animationTimer > 0f;
 	}
 
-	// Token: 0x06000791 RID: 1937 RVA: 0x00031B52 File Offset: 0x0002FD52
+	// Token: 0x0600088A RID: 2186 RVA: 0x0000CBFB File Offset: 0x0000ADFB
 	public void PlayAnimation(float speed)
 	{
 		this.animationTimer = 0.833f;
@@ -316,7 +317,7 @@ public class SymbolScript : MonoBehaviour
 		this.outlineAnimator.SetTrigger("playAnim");
 	}
 
-	// Token: 0x06000792 RID: 1938 RVA: 0x00031B8C File Offset: 0x0002FD8C
+	// Token: 0x0600088B RID: 2187 RVA: 0x00048D10 File Offset: 0x00046F10
 	public void SpinScalingSet(bool state)
 	{
 		if (state != this.spinScaling)
@@ -331,7 +332,7 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000793 RID: 1939 RVA: 0x00031BD8 File Offset: 0x0002FDD8
+	// Token: 0x0600088C RID: 2188 RVA: 0x00048D5C File Offset: 0x00046F5C
 	private void Awake()
 	{
 		this.animator = base.GetComponentInChildren<Animator>();
@@ -357,7 +358,7 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000794 RID: 1940 RVA: 0x00031D29 File Offset: 0x0002FF29
+	// Token: 0x0600088D RID: 2189 RVA: 0x0000CC34 File Offset: 0x0000AE34
 	private void OnEnable()
 	{
 		SymbolScript.allEnabled.Add(this);
@@ -365,7 +366,7 @@ public class SymbolScript : MonoBehaviour
 		base.transform.localScale = global::UnityEngine.Vector3.one;
 	}
 
-	// Token: 0x06000795 RID: 1941 RVA: 0x00031D4D File Offset: 0x0002FF4D
+	// Token: 0x0600088E RID: 2190 RVA: 0x0000CC58 File Offset: 0x0000AE58
 	private void OnDisable()
 	{
 		SymbolScript.allEnabled.Remove(this);
@@ -373,7 +374,7 @@ public class SymbolScript : MonoBehaviour
 		this.SpinScalingSet(false);
 	}
 
-	// Token: 0x06000796 RID: 1942 RVA: 0x00031D68 File Offset: 0x0002FF68
+	// Token: 0x0600088F RID: 2191 RVA: 0x00048EB0 File Offset: 0x000470B0
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -414,10 +415,13 @@ public class SymbolScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000812 RID: 2066
 	public static List<SymbolScript> allEnabled = new List<SymbolScript>();
 
+	// Token: 0x04000813 RID: 2067
 	public static List<SymbolScript> scoringSymbols = new List<SymbolScript>();
 
+	// Token: 0x04000814 RID: 2068
 	public static Dictionary<SymbolScript.Kind, string> prefabDict = new Dictionary<SymbolScript.Kind, string>
 	{
 		{
@@ -458,73 +462,115 @@ public class SymbolScript : MonoBehaviour
 		}
 	};
 
+	// Token: 0x04000815 RID: 2069
 	public const float SCORE_ANIMATION_TIME = 0.833f;
 
+	// Token: 0x04000816 RID: 2070
 	private SkinnedMeshRenderer mainSkinnedMeshRenderer;
 
+	// Token: 0x04000817 RID: 2071
 	private SkinnedMeshRenderer outlineSkinnedMeshrenderer;
 
+	// Token: 0x04000818 RID: 2072
 	private Material matDefault;
 
+	// Token: 0x04000819 RID: 2073
 	public Material matAlternative;
 
+	// Token: 0x0400081A RID: 2074
 	private Animator animator;
 
+	// Token: 0x0400081B RID: 2075
 	private Animator outlineAnimator;
 
+	// Token: 0x0400081C RID: 2076
 	public GameObject modifierHolder_InstantReward;
 
+	// Token: 0x0400081D RID: 2077
 	public GameObject modifierHolder_Ticket;
 
+	// Token: 0x0400081E RID: 2078
 	public GameObject modifierHolder_Golden;
 
+	// Token: 0x0400081F RID: 2079
 	public GameObject modifierHolder_Repetition;
 
+	// Token: 0x04000820 RID: 2080
 	public GameObject modifierHolder_Battery;
 
+	// Token: 0x04000821 RID: 2081
 	public GameObject modifierHolder_Chain;
 
+	// Token: 0x04000822 RID: 2082
 	public SymbolScript.Kind kind = SymbolScript.Kind.undefined;
 
+	// Token: 0x04000823 RID: 2083
 	private SymbolScript.Modifier modifier;
 
+	// Token: 0x04000824 RID: 2084
 	private bool _isScoringSymbol;
 
+	// Token: 0x04000825 RID: 2085
 	private int scoringSymbol_X = -1;
 
+	// Token: 0x04000826 RID: 2086
 	private int scoringSymbol_Y = -1;
 
+	// Token: 0x04000827 RID: 2087
 	public int layer = 11;
 
+	// Token: 0x04000828 RID: 2088
 	private float animationTimer;
 
+	// Token: 0x04000829 RID: 2089
 	private bool spinScaling;
 
+	// Token: 0x0400082A RID: 2090
 	private float spinScalingOldY;
 
+	// Token: 0x02000082 RID: 130
 	public enum Kind
 	{
+		// Token: 0x0400082C RID: 2092
 		undefined = -1,
+		// Token: 0x0400082D RID: 2093
 		lemon,
+		// Token: 0x0400082E RID: 2094
 		cherry,
+		// Token: 0x0400082F RID: 2095
 		clover,
+		// Token: 0x04000830 RID: 2096
 		bell,
+		// Token: 0x04000831 RID: 2097
 		diamond,
+		// Token: 0x04000832 RID: 2098
 		coins,
+		// Token: 0x04000833 RID: 2099
 		seven,
+		// Token: 0x04000834 RID: 2100
 		six,
+		// Token: 0x04000835 RID: 2101
 		nine,
+		// Token: 0x04000836 RID: 2102
 		count
 	}
 
+	// Token: 0x02000083 RID: 131
 	public enum Modifier
 	{
+		// Token: 0x04000838 RID: 2104
 		none,
+		// Token: 0x04000839 RID: 2105
 		instantReward,
+		// Token: 0x0400083A RID: 2106
 		cloverTicket,
+		// Token: 0x0400083B RID: 2107
 		golden,
+		// Token: 0x0400083C RID: 2108
 		repetition,
+		// Token: 0x0400083D RID: 2109
 		battery,
+		// Token: 0x0400083E RID: 2110
 		chain
 	}
 }

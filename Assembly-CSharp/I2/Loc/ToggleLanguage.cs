@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x0200018A RID: 394
 	public class ToggleLanguage : MonoBehaviour
 	{
-		// Token: 0x06000E16 RID: 3606 RVA: 0x000571D0 File Offset: 0x000553D0
+		// Token: 0x060011B2 RID: 4530 RVA: 0x00014701 File Offset: 0x00012901
 		private void Start()
 		{
 			base.Invoke("test", 3f);
 		}
 
-		// Token: 0x06000E17 RID: 3607 RVA: 0x000571E4 File Offset: 0x000553E4
+		// Token: 0x060011B3 RID: 4531 RVA: 0x00075B90 File Offset: 0x00073D90
 		private void test()
 		{
 			List<string> allLanguages = LocalizationManager.GetAllLanguages(true);

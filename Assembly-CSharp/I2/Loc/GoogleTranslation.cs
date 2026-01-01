@@ -9,15 +9,16 @@ using UnityEngine.Networking;
 
 namespace I2.Loc
 {
+	// Token: 0x02000195 RID: 405
 	public static class GoogleTranslation
 	{
-		// Token: 0x06000E4F RID: 3663 RVA: 0x0005BA3B File Offset: 0x00059C3B
+		// Token: 0x060011EB RID: 4587 RVA: 0x00014900 File Offset: 0x00012B00
 		public static bool CanTranslate()
 		{
 			return LocalizationManager.Sources.Count > 0 && !string.IsNullOrEmpty(LocalizationManager.GetWebServiceURL(null));
 		}
 
-		// Token: 0x06000E50 RID: 3664 RVA: 0x0005BA5C File Offset: 0x00059C5C
+		// Token: 0x060011EC RID: 4588 RVA: 0x0007A1E0 File Offset: 0x000783E0
 		public static void Translate(string text, string LanguageCodeFrom, string LanguageCodeTo, GoogleTranslation.fnOnTranslated OnTranslationReady)
 		{
 			LocalizationManager.InitializeIfNeeded();
@@ -50,7 +51,7 @@ namespace I2.Loc
 			}, true);
 		}
 
-		// Token: 0x06000E51 RID: 3665 RVA: 0x0005BB24 File Offset: 0x00059D24
+		// Token: 0x060011ED RID: 4589 RVA: 0x0007A2A8 File Offset: 0x000784A8
 		public static string ForceTranslate(string text, string LanguageCodeFrom, string LanguageCodeTo)
 		{
 			Dictionary<string, TranslationQuery> dictionary = new Dictionary<string, TranslationQuery>(StringComparer.Ordinal);
@@ -69,13 +70,13 @@ namespace I2.Loc
 			return GoogleTranslation.GetQueryResult(text, "", dictionary);
 		}
 
-		// Token: 0x06000E52 RID: 3666 RVA: 0x0005BB69 File Offset: 0x00059D69
+		// Token: 0x060011EE RID: 4590 RVA: 0x0001491F File Offset: 0x00012B1F
 		public static void Translate(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady, bool usePOST = true)
 		{
 			GoogleTranslation.AddTranslationJob(new TranslationJob_Main(requests, OnTranslationReady));
 		}
 
-		// Token: 0x06000E53 RID: 3667 RVA: 0x0005BB78 File Offset: 0x00059D78
+		// Token: 0x060011EF RID: 4591 RVA: 0x0007A2F0 File Offset: 0x000784F0
 		public static bool ForceTranslate(Dictionary<string, TranslationQuery> requests, bool usePOST = true)
 		{
 			TranslationJob_Main translationJob_Main = new TranslationJob_Main(requests, null);
@@ -88,7 +89,7 @@ namespace I2.Loc
 			return state != TranslationJob.eJobState.Failed;
 		}
 
-		// Token: 0x06000E54 RID: 3668 RVA: 0x0005BBA0 File Offset: 0x00059DA0
+		// Token: 0x060011F0 RID: 4592 RVA: 0x0007A318 File Offset: 0x00078518
 		public static List<string> ConvertTranslationRequest(Dictionary<string, TranslationQuery> requests, bool encodeGET)
 		{
 			List<string> list = new List<string>();
@@ -130,7 +131,7 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000E55 RID: 3669 RVA: 0x0005BD08 File Offset: 0x00059F08
+		// Token: 0x060011F1 RID: 4593 RVA: 0x0001492D File Offset: 0x00012B2D
 		private static void AddTranslationJob(TranslationJob job)
 		{
 			GoogleTranslation.mTranslationJobs.Add(job);
@@ -140,7 +141,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E56 RID: 3670 RVA: 0x0005BD2D File Offset: 0x00059F2D
+		// Token: 0x060011F2 RID: 4594 RVA: 0x00014952 File Offset: 0x00012B52
 		private static IEnumerator WaitForTranslations()
 		{
 			while (GoogleTranslation.mTranslationJobs.Count > 0)
@@ -157,7 +158,7 @@ namespace I2.Loc
 			yield break;
 		}
 
-		// Token: 0x06000E57 RID: 3671 RVA: 0x0005BD38 File Offset: 0x00059F38
+		// Token: 0x060011F3 RID: 4595 RVA: 0x0007A480 File Offset: 0x00078680
 		public static string ParseTranslationResult(string html, Dictionary<string, TranslationQuery> requests)
 		{
 			if (!html.StartsWith("<!DOCTYPE html>") && !html.StartsWith("<HTML>"))
@@ -199,13 +200,13 @@ namespace I2.Loc
 			return "There was a problem contacting the WebService. Please try again later\n" + html;
 		}
 
-		// Token: 0x06000E58 RID: 3672 RVA: 0x0005BE93 File Offset: 0x0005A093
+		// Token: 0x060011F4 RID: 4596 RVA: 0x0001495A File Offset: 0x00012B5A
 		public static bool IsTranslating()
 		{
 			return GoogleTranslation.mCurrentTranslations.Count > 0 || GoogleTranslation.mTranslationJobs.Count > 0;
 		}
 
-		// Token: 0x06000E59 RID: 3673 RVA: 0x0005BEB4 File Offset: 0x0005A0B4
+		// Token: 0x060011F5 RID: 4597 RVA: 0x0007A5DC File Offset: 0x000787DC
 		public static void CancelCurrentGoogleTranslations()
 		{
 			GoogleTranslation.mCurrentTranslations.Clear();
@@ -216,7 +217,7 @@ namespace I2.Loc
 			GoogleTranslation.mTranslationJobs.Clear();
 		}
 
-		// Token: 0x06000E5A RID: 3674 RVA: 0x0005BF18 File Offset: 0x0005A118
+		// Token: 0x060011F6 RID: 4598 RVA: 0x0007A640 File Offset: 0x00078840
 		public static void CreateQueries(string text, string LanguageCodeFrom, string LanguageCodeTo, Dictionary<string, TranslationQuery> dict)
 		{
 			if (!text.Contains("[i2s_"))
@@ -230,7 +231,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E5B RID: 3675 RVA: 0x0005BF8C File Offset: 0x0005A18C
+		// Token: 0x060011F7 RID: 4599 RVA: 0x0007A6B4 File Offset: 0x000788B4
 		private static void CreateQueries_Plurals(string text, string LanguageCodeFrom, string LanguageCodeTo, Dictionary<string, TranslationQuery> dict)
 		{
 			bool flag = text.Contains("{[#");
@@ -258,7 +259,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E5C RID: 3676 RVA: 0x0005C034 File Offset: 0x0005A234
+		// Token: 0x060011F8 RID: 4600 RVA: 0x0007A75C File Offset: 0x0007895C
 		public static void AddQuery(string text, string LanguageCodeFrom, string LanguageCodeTo, Dictionary<string, TranslationQuery> dict)
 		{
 			if (string.IsNullOrEmpty(text))
@@ -286,7 +287,7 @@ namespace I2.Loc
 			dict[text] = translationQuery2;
 		}
 
-		// Token: 0x06000E5D RID: 3677 RVA: 0x0005C0DC File Offset: 0x0005A2DC
+		// Token: 0x060011F9 RID: 4601 RVA: 0x0007A804 File Offset: 0x00078A04
 		private static string GetTranslation(string text, string LanguageCodeTo, Dictionary<string, TranslationQuery> dict)
 		{
 			if (!dict.ContainsKey(text))
@@ -306,7 +307,7 @@ namespace I2.Loc
 			return translationQuery.Results[num];
 		}
 
-		// Token: 0x06000E5E RID: 3678 RVA: 0x0005C12C File Offset: 0x0005A32C
+		// Token: 0x060011FA RID: 4602 RVA: 0x0007A854 File Offset: 0x00078A54
 		private static TranslationQuery FindQueryFromOrigText(string origText, Dictionary<string, TranslationQuery> dict)
 		{
 			foreach (KeyValuePair<string, TranslationQuery> keyValuePair in dict)
@@ -319,14 +320,14 @@ namespace I2.Loc
 			return default(TranslationQuery);
 		}
 
-		// Token: 0x06000E5F RID: 3679 RVA: 0x0005C19C File Offset: 0x0005A39C
+		// Token: 0x060011FB RID: 4603 RVA: 0x0007A8C4 File Offset: 0x00078AC4
 		public static bool HasParameters(string text)
 		{
 			int num = text.IndexOf("{[", StringComparison.Ordinal);
 			return num >= 0 && text.IndexOf("]}", num, StringComparison.Ordinal) > 0;
 		}
 
-		// Token: 0x06000E60 RID: 3680 RVA: 0x0005C1CC File Offset: 0x0005A3CC
+		// Token: 0x060011FC RID: 4604 RVA: 0x0007A8F4 File Offset: 0x00078AF4
 		public static string GetPluralParameter(string text, bool forceTag)
 		{
 			int num = text.IndexOf("{[#", StringComparison.Ordinal);
@@ -350,7 +351,7 @@ namespace I2.Loc
 			return text.Substring(num, num2 - num + 2);
 		}
 
-		// Token: 0x06000E61 RID: 3681 RVA: 0x0005C224 File Offset: 0x0005A424
+		// Token: 0x060011FD RID: 4605 RVA: 0x0007A94C File Offset: 0x00078B4C
 		public static string GetPluralText(string text, string pluralType)
 		{
 			pluralType = "[i2p_" + pluralType + "]";
@@ -388,7 +389,7 @@ namespace I2.Loc
 			return text.Substring(num, num3 - num);
 		}
 
-		// Token: 0x06000E62 RID: 3682 RVA: 0x0005C2D8 File Offset: 0x0005A4D8
+		// Token: 0x060011FE RID: 4606 RVA: 0x0007AA00 File Offset: 0x00078C00
 		private static int FindClosingTag(string tag, MatchCollection matches, int startIndex)
 		{
 			int i = startIndex;
@@ -405,7 +406,7 @@ namespace I2.Loc
 			return -1;
 		}
 
-		// Token: 0x06000E63 RID: 3683 RVA: 0x0005C324 File Offset: 0x0005A524
+		// Token: 0x060011FF RID: 4607 RVA: 0x0007AA4C File Offset: 0x00078C4C
 		private static string GetGoogleNoTranslateTag(int tagNumber)
 		{
 			if (tagNumber < 70)
@@ -420,7 +421,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000E64 RID: 3684 RVA: 0x0005C364 File Offset: 0x0005A564
+		// Token: 0x06001200 RID: 4608 RVA: 0x0007AA8C File Offset: 0x00078C8C
 		private static void ParseNonTranslatableElements(ref TranslationQuery query)
 		{
 			MatchCollection matchCollection = Regex.Matches(query.Text, "\\{\\[(.*?)]}|\\[(.*?)]|\\<(.*?)>");
@@ -466,7 +467,7 @@ namespace I2.Loc
 			query.Tags = list.ToArray();
 		}
 
-		// Token: 0x06000E65 RID: 3685 RVA: 0x0005C524 File Offset: 0x0005A724
+		// Token: 0x06001201 RID: 4609 RVA: 0x0007AC4C File Offset: 0x00078E4C
 		public static string GetQueryResult(string text, string LanguageCodeTo, Dictionary<string, TranslationQuery> dict)
 		{
 			if (!dict.ContainsKey(text))
@@ -490,7 +491,7 @@ namespace I2.Loc
 			return translationQuery.Results[num];
 		}
 
-		// Token: 0x06000E66 RID: 3686 RVA: 0x0005C588 File Offset: 0x0005A788
+		// Token: 0x06001202 RID: 4610 RVA: 0x0007ACB0 File Offset: 0x00078EB0
 		public static string RebuildTranslation(string text, Dictionary<string, TranslationQuery> dict, string LanguageCodeTo)
 		{
 			if (!text.Contains("[i2s_"))
@@ -506,7 +507,7 @@ namespace I2.Loc
 			return SpecializationManager.SetSpecializedText(dictionary);
 		}
 
-		// Token: 0x06000E67 RID: 3687 RVA: 0x0005C618 File Offset: 0x0005A818
+		// Token: 0x06001203 RID: 4611 RVA: 0x0007AD40 File Offset: 0x00078F40
 		private static string RebuildTranslation_Plural(string text, Dictionary<string, TranslationQuery> dict, string LanguageCodeTo)
 		{
 			bool flag = text.Contains("{[#");
@@ -554,7 +555,7 @@ namespace I2.Loc
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000E68 RID: 3688 RVA: 0x0005C724 File Offset: 0x0005A924
+		// Token: 0x06001204 RID: 4612 RVA: 0x0007AE4C File Offset: 0x0007904C
 		public static string UppercaseFirst(string s)
 		{
 			if (string.IsNullOrEmpty(s))
@@ -566,7 +567,7 @@ namespace I2.Loc
 			return new string(array);
 		}
 
-		// Token: 0x06000E69 RID: 3689 RVA: 0x0005C75C File Offset: 0x0005A95C
+		// Token: 0x06001205 RID: 4613 RVA: 0x00014978 File Offset: 0x00012B78
 		public static string TitleCase(string s)
 		{
 			if (string.IsNullOrEmpty(s))
@@ -576,14 +577,18 @@ namespace I2.Loc
 			return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(s);
 		}
 
+		// Token: 0x040012BA RID: 4794
 		private static List<UnityWebRequest> mCurrentTranslations = new List<UnityWebRequest>();
 
+		// Token: 0x040012BB RID: 4795
 		private static List<TranslationJob> mTranslationJobs = new List<TranslationJob>();
 
-		// (Invoke) Token: 0x06001459 RID: 5209
+		// Token: 0x02000196 RID: 406
+		// (Invoke) Token: 0x06001208 RID: 4616
 		public delegate void fnOnTranslated(string Translation, string Error);
 
-		// (Invoke) Token: 0x0600145D RID: 5213
+		// Token: 0x02000197 RID: 407
+		// (Invoke) Token: 0x0600120C RID: 4620
 		public delegate void fnOnTranslationReady(Dictionary<string, TranslationQuery> dict, string error);
 	}
 }

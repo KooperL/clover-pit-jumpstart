@@ -3,9 +3,10 @@ using Panik;
 using TMPro;
 using UnityEngine;
 
+// Token: 0x02000094 RID: 148
 public class GoldenToiletStickerScript : MonoBehaviour
 {
-	// Token: 0x060007E0 RID: 2016 RVA: 0x000330C0 File Offset: 0x000312C0
+	// Token: 0x060008EB RID: 2283 RVA: 0x0004A2BC File Offset: 0x000484BC
 	private void RefreshVisuals()
 	{
 		if (Master.IsDemo)
@@ -20,7 +21,7 @@ public class GoldenToiletStickerScript : MonoBehaviour
 		this.percText.text = num.ToString("00") + "%";
 	}
 
-	// Token: 0x060007E1 RID: 2017 RVA: 0x00033133 File Offset: 0x00031333
+	// Token: 0x060008EC RID: 2284 RVA: 0x0000D0ED File Offset: 0x0000B2ED
 	public static void RefreshVisualsStatic()
 	{
 		if (GoldenToiletStickerScript.instance == null)
@@ -30,13 +31,13 @@ public class GoldenToiletStickerScript : MonoBehaviour
 		GoldenToiletStickerScript.instance.RefreshVisuals();
 	}
 
-	// Token: 0x060007E2 RID: 2018 RVA: 0x0003314D File Offset: 0x0003134D
+	// Token: 0x060008ED RID: 2285 RVA: 0x0000D107 File Offset: 0x0000B307
 	private void Awake()
 	{
 		GoldenToiletStickerScript.instance = this;
 	}
 
-	// Token: 0x060007E3 RID: 2019 RVA: 0x00033155 File Offset: 0x00031355
+	// Token: 0x060008EE RID: 2286 RVA: 0x0000D10F File Offset: 0x0000B30F
 	private void Start()
 	{
 		if (Master.IsDemo)
@@ -47,7 +48,7 @@ public class GoldenToiletStickerScript : MonoBehaviour
 		this.RefreshVisuals();
 	}
 
-	// Token: 0x060007E4 RID: 2020 RVA: 0x00033171 File Offset: 0x00031371
+	// Token: 0x060008EF RID: 2287 RVA: 0x0000D12B File Offset: 0x0000B32B
 	private void OnDestroy()
 	{
 		if (GoldenToiletStickerScript.instance == this)
@@ -56,9 +57,12 @@ public class GoldenToiletStickerScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x0400089D RID: 2205
 	public static GoldenToiletStickerScript instance;
 
+	// Token: 0x0400089E RID: 2206
 	public SpriteRenderer sprRend;
 
+	// Token: 0x0400089F RID: 2207
 	public TextMeshPro percText;
 }

@@ -3,9 +3,10 @@ using System.Linq;
 
 namespace I2.Loc
 {
+	// Token: 0x020001DC RID: 476
 	public class HindiFixer
 	{
-		// Token: 0x06001006 RID: 4102 RVA: 0x00063DEC File Offset: 0x00061FEC
+		// Token: 0x060013F4 RID: 5108 RVA: 0x00081AC8 File Offset: 0x0007FCC8
 		internal static string Fix(string text)
 		{
 			char[] array = text.ToCharArray();

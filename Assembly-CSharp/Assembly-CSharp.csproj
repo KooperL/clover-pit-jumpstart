@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FAA40978-915B-4ABC-896D-6DD7A51EF88C}</ProjectGuid>
+    <ProjectGuid>{D52F0C88-313C-4967-A0E3-A9752D77D4BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Assembly-CSharp</RootNamespace>
@@ -31,33 +31,81 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp-firstpass" />
-    <Reference Include="Facepunch.Steamworks.Win64" />
-    <Reference Include="Rewired_Core" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="TwitchSDK" />
-    <Reference Include="UniTask" />
-    <Reference Include="Unity.Postprocessing.Runtime" />
-    <Reference Include="Unity.TextMeshPro" />
-    <Reference Include="Unity.VisualScripting.Core" />
-    <Reference Include="UnityEngine.AnimationModule" />
-    <Reference Include="UnityEngine.AudioModule" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lil Gator Game\Lil Gator Game_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.IMGUIModule" />
-    <Reference Include="UnityEngine.InputLegacyModule" />
-    <Reference Include="UnityEngine.JSONSerializeModule" />
-    <Reference Include="UnityEngine.ParticleSystemModule" />
-    <Reference Include="UnityEngine.Physics2DModule" />
-    <Reference Include="UnityEngine.PhysicsModule" />
-    <Reference Include="UnityEngine.TextRenderingModule" />
-    <Reference Include="UnityEngine.UI" />
-    <Reference Include="UnityEngine.UIModule" />
-    <Reference Include="UnityEngine.UnityWebRequestModule" />
-    <Reference Include="UnityEngine.VideoModule" />
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Core">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\Rewired_Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="TwitchSDK">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\TwitchSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UniTask.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\CloverPit\CloverPit\CloverPit_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
@@ -277,6 +325,7 @@
     <Compile Include="StatsScript.cs" />
     <Compile Include="StoreCapsuleScript.cs" />
     <Compile Include="Strings.cs" />
+    <Compile Include="SurgeryMachine.cs" />
     <Compile Include="SymbolScript.cs" />
     <Compile Include="TerminalButton.cs" />
     <Compile Include="TerminalNodeScript.cs" />

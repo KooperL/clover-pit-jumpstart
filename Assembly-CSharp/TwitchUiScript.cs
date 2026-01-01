@@ -10,15 +10,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x02000100 RID: 256
 public class TwitchUiScript : MonoBehaviour
 {
-	// Token: 0x06000A88 RID: 2696 RVA: 0x00047B6C File Offset: 0x00045D6C
+	// Token: 0x06000C5B RID: 3163 RVA: 0x0001025F File Offset: 0x0000E45F
 	public static bool IsEnabled()
 	{
 		return !(TwitchUiScript.instance == null) && TwitchUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A89 RID: 2697 RVA: 0x00047B8C File Offset: 0x00045D8C
+	// Token: 0x06000C5C RID: 3164 RVA: 0x00062048 File Offset: 0x00060248
 	public static void Open(List<string> optionsKeys)
 	{
 		TwitchUiScript.instance.showingResults = false;
@@ -41,11 +42,11 @@ public class TwitchUiScript : MonoBehaviour
 			TwitchUiScript.instance.voteChoicesTranslated[j] = TwitchUiScript.instance.optionsTranslated[j + 1];
 			TwitchUiScript.instance.choicesNumberOfVotes[j] = 0L;
 		}
-		string text = StringUtility.Truncate(Translation.Get("TWITCH_UI_VOTE"), 50, "..");
+		string text = Translation.Get("TWITCH_UI_VOTE").Truncate(50, "..");
 		TwitchUiScript.instance.StartPoll(text, TwitchUiScript.instance.voteChoicesTranslated);
 	}
 
-	// Token: 0x06000A8A RID: 2698 RVA: 0x00047CF0 File Offset: 0x00045EF0
+	// Token: 0x06000C5D RID: 3165 RVA: 0x000621AC File Offset: 0x000603AC
 	private int ChoicePercentageGet(int index)
 	{
 		long num = 0L;
@@ -69,7 +70,7 @@ public class TwitchUiScript : MonoBehaviour
 		return num2;
 	}
 
-	// Token: 0x06000A8B RID: 2699 RVA: 0x00047D48 File Offset: 0x00045F48
+	// Token: 0x06000C5E RID: 3166 RVA: 0x00062204 File Offset: 0x00060404
 	private void TextCompose(bool showVictoryResults)
 	{
 		if (!showVictoryResults)
@@ -134,13 +135,13 @@ public class TwitchUiScript : MonoBehaviour
 		this.ImageSizeUpdateToText();
 	}
 
-	// Token: 0x06000A8C RID: 2700 RVA: 0x00047F9D File Offset: 0x0004619D
+	// Token: 0x06000C5F RID: 3167 RVA: 0x0001027F File Offset: 0x0000E47F
 	private void ImageSizeUpdateToText()
 	{
 		this.back.rectTransform.sizeDelta = this.text.GetRenderedValues() + new Vector2(40f, 40f);
 	}
 
-	// Token: 0x06000A8D RID: 2701 RVA: 0x00047FD0 File Offset: 0x000461D0
+	// Token: 0x06000C60 RID: 3168 RVA: 0x0006245C File Offset: 0x0006065C
 	public static void Close(bool abortVote)
 	{
 		TwitchUiScript.instance.holder.SetActive(false);
@@ -163,7 +164,7 @@ public class TwitchUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A8E RID: 2702 RVA: 0x0004805C File Offset: 0x0004625C
+	// Token: 0x06000C61 RID: 3169 RVA: 0x000624E8 File Offset: 0x000606E8
 	private bool CanStartPool()
 	{
 		if (this.ActivePoll != null)
@@ -174,7 +175,7 @@ public class TwitchUiScript : MonoBehaviour
 		return ((api != null) ? api.GetAuthState().MaybeResult : null).Scopes.Any((string a) => a == TwitchOAuthScope.Channel.ManagePolls.Scope) && TwitchMaster.IsLoggedInAndEnabled() && !TwitchUiScript.IsEnabled();
 	}
 
-	// Token: 0x06000A8F RID: 2703 RVA: 0x000480C8 File Offset: 0x000462C8
+	// Token: 0x06000C62 RID: 3170 RVA: 0x00062554 File Offset: 0x00060754
 	public void PollStartTry()
 	{
 		if (!this.CanStartPool())
@@ -198,7 +199,7 @@ public class TwitchUiScript : MonoBehaviour
 		CameraGame.Shake(1f);
 	}
 
-	// Token: 0x06000A90 RID: 2704 RVA: 0x0004813C File Offset: 0x0004633C
+	// Token: 0x06000C63 RID: 3171 RVA: 0x000625C8 File Offset: 0x000607C8
 	private void _CALLBACK_PoolCharms()
 	{
 		Sound.Play("SoundTwitchVoteBegin", 1f, 1f);
@@ -215,7 +216,7 @@ public class TwitchUiScript : MonoBehaviour
 		TwitchUiScript.Open(this.keysTemp);
 	}
 
-	// Token: 0x06000A91 RID: 2705 RVA: 0x000481CC File Offset: 0x000463CC
+	// Token: 0x06000C64 RID: 3172 RVA: 0x00062658 File Offset: 0x00060858
 	private void _CALLBACK_PoolPhone()
 	{
 		Sound.Play("SoundTwitchVoteBegin", 1f, 1f);
@@ -232,7 +233,7 @@ public class TwitchUiScript : MonoBehaviour
 		TwitchUiScript.Open(this.keysTemp);
 	}
 
-	// Token: 0x06000A92 RID: 2706 RVA: 0x00048280 File Offset: 0x00046480
+	// Token: 0x06000C65 RID: 3173 RVA: 0x0006270C File Offset: 0x0006090C
 	private void VotingVisualUpdate()
 	{
 		if (!TwitchUiScript.IsEnabled())
@@ -254,7 +255,7 @@ public class TwitchUiScript : MonoBehaviour
 					try
 					{
 						Poll maybeResult = TwitchUiScript.instance.ActivePoll.MaybeResult;
-						if (maybeResult.Info.Status == null)
+						if (maybeResult.Info.Status == PollStatus.Active)
 						{
 							maybeResult.FinishPoll();
 						}
@@ -285,7 +286,7 @@ public class TwitchUiScript : MonoBehaviour
 		this.ImageSizeUpdateToText();
 	}
 
-	// Token: 0x06000A93 RID: 2707 RVA: 0x000483B8 File Offset: 0x000465B8
+	// Token: 0x06000C66 RID: 3174 RVA: 0x00062844 File Offset: 0x00060A44
 	public bool StartPoll(string pollTitle, string[] pollChoices)
 	{
 		if (!TwitchMaster.IsTwitchSupported())
@@ -298,7 +299,7 @@ public class TwitchUiScript : MonoBehaviour
 		}
 		TwitchSDKApi api = Twitch.API;
 		AuthState authState = ((api != null) ? api.GetAuthState().MaybeResult : null);
-		if (authState == null || authState.Status != 3)
+		if (authState == null || authState.Status != AuthStatus.LoggedIn)
 		{
 			return false;
 		}
@@ -318,7 +319,7 @@ public class TwitchUiScript : MonoBehaviour
 			}
 			else
 			{
-				pollChoices[i] = StringUtility.Truncate(pollChoices[i], 20, "..");
+				pollChoices[i] = pollChoices[i].Truncate(20, "..");
 			}
 		}
 		this.ActivePoll = Twitch.API.NewPoll(new PollDefinition
@@ -330,7 +331,7 @@ public class TwitchUiScript : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000A94 RID: 2708 RVA: 0x000484C0 File Offset: 0x000466C0
+	// Token: 0x06000C67 RID: 3175 RVA: 0x0006294C File Offset: 0x00060B4C
 	private void PollUpdate()
 	{
 		if (!TwitchMaster.IsTwitchSupported())
@@ -351,13 +352,13 @@ public class TwitchUiScript : MonoBehaviour
 			{
 				GameTask<Poll> activePoll = this.ActivePoll;
 				Poll poll = ((activePoll != null) ? activePoll.MaybeResult : null);
-				if (poll != null && !(poll.Info == null) && poll.Info.Status != 2 && poll.Info.Status != 3 && poll.Info.Status != 4 && poll.Info.Status != 5)
+				if (poll != null && !(poll.Info == null) && poll.Info.Status != PollStatus.Terminated && poll.Info.Status != PollStatus.Archived && poll.Info.Status != PollStatus.Moderated && poll.Info.Status != PollStatus.Invalid)
 				{
-					if (poll.Info.Status == null)
+					if (poll.Info.Status == PollStatus.Active)
 					{
 						this.PrematureAbortCheckUpdate();
 					}
-					else if (poll.Info.Status == 1)
+					else if (poll.Info.Status == PollStatus.Completed)
 					{
 						int i;
 						Func<PollChoiceInfo, bool> <>9__0;
@@ -389,7 +390,7 @@ public class TwitchUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A95 RID: 2709 RVA: 0x0004863C File Offset: 0x0004683C
+	// Token: 0x06000C68 RID: 3176 RVA: 0x00062AC8 File Offset: 0x00060CC8
 	private void PrematureAbortCheckUpdate()
 	{
 		if (!TwitchUiScript.IsEnabled())
@@ -453,14 +454,14 @@ public class TwitchUiScript : MonoBehaviour
 		this.oldGamePhase = gamePhase;
 	}
 
-	// Token: 0x06000A96 RID: 2710 RVA: 0x000486ED File Offset: 0x000468ED
+	// Token: 0x06000C69 RID: 3177 RVA: 0x000102B0 File Offset: 0x0000E4B0
 	private void Awake()
 	{
 		TwitchUiScript.instance = this;
 		this.backStartPos = this.back.rectTransform.anchoredPosition;
 	}
 
-	// Token: 0x06000A97 RID: 2711 RVA: 0x0004870B File Offset: 0x0004690B
+	// Token: 0x06000C6A RID: 3178 RVA: 0x000102CE File Offset: 0x0000E4CE
 	private void OnDestroy()
 	{
 		if (TwitchUiScript.instance == this)
@@ -469,13 +470,13 @@ public class TwitchUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A98 RID: 2712 RVA: 0x00048720 File Offset: 0x00046920
+	// Token: 0x06000C6B RID: 3179 RVA: 0x000102E3 File Offset: 0x0000E4E3
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A99 RID: 2713 RVA: 0x00048730 File Offset: 0x00046930
+	// Token: 0x06000C6C RID: 3180 RVA: 0x00062B7C File Offset: 0x00060D7C
 	private void Update()
 	{
 		Vector2 zero = new Vector2(global::UnityEngine.Random.Range(-1f, 1f), global::UnityEngine.Random.Range(-1f, 1f));
@@ -488,43 +489,63 @@ public class TwitchUiScript : MonoBehaviour
 		this.PollUpdate();
 	}
 
+	// Token: 0x04000D28 RID: 3368
 	public static TwitchUiScript instance;
 
+	// Token: 0x04000D29 RID: 3369
 	private const int VOTE_TIME = 30;
 
+	// Token: 0x04000D2A RID: 3370
 	private const string DOTS = "..";
 
+	// Token: 0x04000D2B RID: 3371
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000D2C RID: 3372
 	public GameObject holder;
 
+	// Token: 0x04000D2D RID: 3373
 	public Image back;
 
+	// Token: 0x04000D2E RID: 3374
 	public TextMeshProUGUI text;
 
+	// Token: 0x04000D2F RID: 3375
 	private Vector2 backStartPos;
 
+	// Token: 0x04000D30 RID: 3376
 	private List<string> optionsKeys = new List<string>(8);
 
+	// Token: 0x04000D31 RID: 3377
 	private List<string> optionsTranslated = new List<string>(8);
 
+	// Token: 0x04000D32 RID: 3378
 	private string[] voteChoicesTranslated = new string[8];
 
+	// Token: 0x04000D33 RID: 3379
 	private long[] choicesNumberOfVotes = new long[8];
 
+	// Token: 0x04000D34 RID: 3380
 	public bool showingResults;
 
+	// Token: 0x04000D35 RID: 3381
 	private StringBuilder _sb = new StringBuilder();
 
+	// Token: 0x04000D36 RID: 3382
 	private List<string> keysTemp = new List<string>(8);
 
+	// Token: 0x04000D37 RID: 3383
 	private int votingSeconds;
 
+	// Token: 0x04000D38 RID: 3384
 	private float votingTimer = 1f;
 
+	// Token: 0x04000D39 RID: 3385
 	private float showResultsTimer;
 
+	// Token: 0x04000D3A RID: 3386
 	private GameTask<Poll> ActivePoll;
 
+	// Token: 0x04000D3B RID: 3387
 	private GameplayMaster.GamePhase oldGamePhase = GameplayMaster.GamePhase.Undefined;
 }

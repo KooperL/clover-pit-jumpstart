@@ -4,34 +4,37 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x020000D7 RID: 215
 public class PlaytestSurveyScript : MonoBehaviour
 {
-	// Token: 0x060009AE RID: 2478 RVA: 0x000400B2 File Offset: 0x0003E2B2
+	// Token: 0x06000B26 RID: 2854 RVA: 0x0000EDF0 File Offset: 0x0000CFF0
 	private void UpdateButtonText()
 	{
 		this.buttonText.text = Translation.Get("SURVEY_MEMO");
 	}
 
-	// Token: 0x060009AF RID: 2479 RVA: 0x000400C9 File Offset: 0x0003E2C9
+	// Token: 0x06000B27 RID: 2855 RVA: 0x0000EE07 File Offset: 0x0000D007
 	private void Awake()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x060009B0 RID: 2480 RVA: 0x000400D7 File Offset: 0x0003E2D7
+	// Token: 0x06000B28 RID: 2856 RVA: 0x0000EE15 File Offset: 0x0000D015
 	private void Start()
 	{
 		this.UpdateButtonText();
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.UpdateButtonText));
 	}
 
-	// Token: 0x060009B1 RID: 2481 RVA: 0x000400FF File Offset: 0x0003E2FF
+	// Token: 0x06000B29 RID: 2857 RVA: 0x0000EE3D File Offset: 0x0000D03D
 	private void OnDestroy()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.UpdateButtonText));
 	}
 
+	// Token: 0x04000B8A RID: 2954
 	public TextMeshProUGUI buttonText;
 
+	// Token: 0x04000B8B RID: 2955
 	public GameObject holder;
 }

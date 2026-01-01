@@ -10,9 +10,10 @@ using UnityEngine.Video;
 
 namespace Panik
 {
+	// Token: 0x0200017C RID: 380
 	public class IntroScript : MonoBehaviour
 	{
-		// Token: 0x06000DD2 RID: 3538 RVA: 0x0005661C File Offset: 0x0005481C
+		// Token: 0x0600115F RID: 4447 RVA: 0x00073E00 File Offset: 0x00072000
 		private void PromptsUpdate(Controls.InputActionMap map)
 		{
 			this.selectPromptSpriteString = Controls.MapGetLastPrompt_TextSprite(0, Controls.InputAction.menuSelect, true, 0);
@@ -22,7 +23,7 @@ namespace Panik
 			this.popupAnswerPrompt_No.text = Translation.Get("MENU_OPTION_NO");
 		}
 
-		// Token: 0x06000DD3 RID: 3539 RVA: 0x000566AC File Offset: 0x000548AC
+		// Token: 0x06001160 RID: 4448 RVA: 0x0001431C File Offset: 0x0001251C
 		private IEnumerator IntroCoroutine()
 		{
 			this.PromptsUpdate(null);
@@ -158,6 +159,36 @@ namespace Panik
 				VirtualCursors.CursorDesiredVisibilitySet(0, false);
 				this.languageSelectionHolder.gameObject.SetActive(false);
 			}
+			string pathGameDataCorrupted = PlatformDataMaster.PathGet_GameDataFile(0, "_CORRUPTED");
+			if (Data.JsonErrorWhileLoadingGame_Get())
+			{
+				Sound.Play_Unpausable("SoundSlotSymbolShowUp_6", 1f, 1f);
+				yield return this.PopUpShow(Translation.Get("INTRO_POPUP_GENERAL_DATA_CORRUPTION_TITLE"), Translation.Get("INTRO_POPUP_GENERAL_DATA_CORRUPTION_DESCR"), 0.5f, 1f, false, null, null);
+				string gameFolderPath = PlatformDataMaster.GameFolderPath;
+				if (!Directory.Exists(gameFolderPath))
+				{
+					Directory.CreateDirectory(gameFolderPath);
+				}
+				string text = PlatformDataMaster.PathGet_GameDataFile(0, "");
+				if (File.Exists(text))
+				{
+					if (File.Exists(pathGameDataCorrupted))
+					{
+						File.Delete(pathGameDataCorrupted);
+					}
+					File.Move(text, pathGameDataCorrupted);
+				}
+				Application.Quit();
+				yield break;
+			}
+			if (File.Exists(pathGameDataCorrupted))
+			{
+				Sound.Play_Unpausable("SoundSlotSymbolShowUp_6", 1f, 1f);
+				yield return this.PopUpShow(Translation.Get("INTRO_POPUP_GENERAL_DATA_CORRUPTION_REMINDER_TITLE"), Translation.Get("INTRO_POPUP_GENERAL_DATA_CORRUPTION_REMINDER_DESCR"), 0.5f, 1f, true, null, delegate
+				{
+					Application.Quit();
+				});
+			}
 			if (Data.settingsResetFlag)
 			{
 				yield return this.PopUpShow(Translation.Get("INTRO_POPUP_SETTINGS_CHANGED_TITLE"), Translation.Get("INTRO_POPUP_SETTINGS_CHANGED_DESCR"), 0.5f, 1f, false, null, null);
@@ -176,11 +207,11 @@ namespace Panik
 			if (PlatformMaster.PlatformIsComputer())
 			{
 				bool flag3 = false;
-				string gameFolderPath = PlatformDataMaster.GameFolderPath;
-				string text = PlatformDataMaster.PathGet_GameDataFile(0, "");
+				string gameFolderPath2 = PlatformDataMaster.GameFolderPath;
+				string text2 = PlatformDataMaster.PathGet_GameDataFile(0, "");
 				string gameDir_Demo = PlatformDataMaster.OutsideExecutablePath + "CloverPit Demo/SaveData/GameData/";
 				string gameDataPath_Demo = gameDir_Demo + "GameDataDemo.json";
-				if (!Directory.Exists(gameFolderPath) || !File.Exists(text))
+				if (!Directory.Exists(gameFolderPath2) || !File.Exists(text2))
 				{
 					yield return this.PopUpShow(Translation.Get("INTRO_POPUP_QUESTION_DO_YOU_WANT_TO_IMPORT_DEMO_DATA_TITLE"), Translation.Get("INTRO_POPUP_QUESTION_DO_YOU_WANT_TO_IMPORT_DEMO_DATA_DESCR_NEW_1"), 0.5f, 1f, true, null, null);
 					flag3 = this.popupQuestionAnswer == 0;
@@ -198,22 +229,22 @@ namespace Panik
 						yield return null;
 						try
 						{
-							string text2 = null;
+							string text3 = null;
 							if (!string.IsNullOrEmpty(gameDir_Demo) && Directory.Exists(gameDir_Demo) && !string.IsNullOrEmpty(gameDataPath_Demo) && File.Exists(gameDataPath_Demo))
 							{
-								text2 = File.ReadAllText(gameDataPath_Demo);
+								text3 = File.ReadAllText(gameDataPath_Demo);
 							}
-							if (!string.IsNullOrEmpty(text2))
+							if (!string.IsNullOrEmpty(text3))
 							{
 								bool flag4 = false;
-								string text3 = null;
-								Data.GameData gameData = PlatformDataMaster.FromJsonExt<Data.GameData>(text2, out flag4, out text3);
+								string text4 = null;
+								Data.GameData gameData = PlatformDataMaster.FromJsonExt<Data.GameData>(text3, out flag4, out text4);
 								if (flag4)
 								{
 									for (int m = 3; m >= 0; m--)
 									{
-										string text4 = Data.PGameDataGet_LastOne(m);
-										gameData = PlatformDataMaster.FromJsonExt<Data.GameData>(Data.Decrypt_Wrapped(text2, text4), out flag4, out text3);
+										string text5 = Data.PGameDataGet_LastOne(m);
+										gameData = PlatformDataMaster.FromJsonExt<Data.GameData>(Data.Decrypt_Wrapped(text3, text5), out flag4, out text4);
 										if (!flag4)
 										{
 											break;
@@ -243,19 +274,19 @@ namespace Panik
 									success = true;
 									GameplayMaster.drawerFromDemoUnlocked = true;
 								}
-								if (flag4 && !string.IsNullOrEmpty(text3) && PlatformMaster.PlatformIsComputer())
+								if (flag4 && !string.IsNullOrEmpty(text4) && PlatformMaster.PlatformIsComputer())
 								{
-									ConsolePrompt.LogWarning(text3, "");
+									ConsolePrompt.LogWarning(text4, "");
 								}
 							}
 						}
 						catch (Exception ex)
 						{
-							string text5 = "Error while looking for Demo data. Error: " + ex.Message;
-							Debug.LogError(text5);
+							string text6 = "Error while looking for Demo data. Error: " + ex.Message;
+							Debug.LogError(text6);
 							if (PlatformMaster.PlatformIsComputer())
 							{
-								ConsolePrompt.LogError(text5, "", 0f);
+								ConsolePrompt.LogError(text6, "", 0f);
 							}
 							success = false;
 						}
@@ -263,7 +294,7 @@ namespace Panik
 						Cursor.lockState = oldLockState;
 						if (success)
 						{
-							goto IL_0997;
+							goto IL_0AE5;
 						}
 						yield return this.PopUpShow(Translation.Get("INTRO_POPUP_QUESTION_DEMO_DATA_FAIL_TITLE"), Translation.Get("INTRO_POPUP_QUESTION_DEMO_DATA_FAIL_DESCR_NEW_1"), 0.5f, 1f, true, null, null);
 						if (this.popupQuestionAnswer == 1)
@@ -272,11 +303,11 @@ namespace Panik
 						}
 						yield return null;
 					}
-					goto IL_09F4;
-					IL_0997:
+					goto IL_0B42;
+					IL_0AE5:
 					yield return this.PopUpShow(Translation.Get("INTRO_POPUP_DEMO_DATA_SUCCESFULL_TITLE"), Translation.Get("INTRO_POPUP_DEMO_DATA_SUCCESFULL_DESCR"), 0.5f, 1f, false, null, null);
 				}
-				IL_09F4:
+				IL_0B42:
 				gameDir_Demo = null;
 				gameDataPath_Demo = null;
 			}
@@ -349,28 +380,28 @@ namespace Panik
 			this.publisherIntroHolder.SetActive(false);
 			yield return new WaitForSeconds(1f);
 			pubIntroColor = default(Color);
-			IL_0E7E:
+			IL_0FCC:
 			Controls.onPromptsUpdateRequest = (Controls.MapCallback)Delegate.Remove(Controls.onPromptsUpdateRequest, new Controls.MapCallback(this.PromptsUpdate));
 			Level.GoTo(Level.SceneIndex.Game, false);
 			yield break;
-			IL_0E09:
+			IL_0F57:
 			timer += Tick.Time;
 			if (Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true) && !ConsolePrompt.ConsoleIsEnabled())
 			{
-				goto IL_0E51;
+				goto IL_0F9F;
 			}
 			yield return null;
 			if (timer < 3f)
 			{
-				goto IL_0E09;
+				goto IL_0F57;
 			}
-			IL_0E51:
+			IL_0F9F:
 			this.musicianIntroHolder.SetActive(false);
 			yield return new WaitForSeconds(1f);
-			goto IL_0E7E;
+			goto IL_0FCC;
 		}
 
-		// Token: 0x06000DD4 RID: 3540 RVA: 0x000566BC File Offset: 0x000548BC
+		// Token: 0x06001161 RID: 4449 RVA: 0x00073E90 File Offset: 0x00072090
 		public IEnumerator PopUpShow(string title, string description, float inputDelay, float endDelay, bool isQuestion, UnityAction onYes, UnityAction onNo)
 		{
 			this.popupQuestionAnswer = -1;
@@ -491,7 +522,7 @@ namespace Panik
 			yield break;
 		}
 
-		// Token: 0x06000DD5 RID: 3541 RVA: 0x0005670B File Offset: 0x0005490B
+		// Token: 0x06001162 RID: 4450 RVA: 0x0001432B File Offset: 0x0001252B
 		private void Awake()
 		{
 			IntroScript.instance = this;
@@ -499,14 +530,14 @@ namespace Panik
 			this.myCanvasScaler = base.GetComponent<CanvasScaler>();
 		}
 
-		// Token: 0x06000DD6 RID: 3542 RVA: 0x0005672B File Offset: 0x0005492B
+		// Token: 0x06001163 RID: 4451 RVA: 0x0001434B File Offset: 0x0001254B
 		private void Start()
 		{
 			base.StartCoroutine(this.IntroCoroutine());
 			VirtualCursors.CursorDesiredVisibilitySet(0, false);
 		}
 
-		// Token: 0x06000DD7 RID: 3543 RVA: 0x00056741 File Offset: 0x00054941
+		// Token: 0x06001164 RID: 4452 RVA: 0x00014361 File Offset: 0x00012561
 		private void OnDestroy()
 		{
 			if (IntroScript.instance == this)
@@ -515,72 +546,103 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000DD8 RID: 3544 RVA: 0x00056756 File Offset: 0x00054956
+		// Token: 0x06001165 RID: 4453 RVA: 0x00014376 File Offset: 0x00012576
 		private void OnDrawGizmosSelected()
 		{
 			this.myCanvasScaler.referencePixelsPerUnit = 64f;
 		}
 
+		// Token: 0x0400124E RID: 4686
 		public static IntroScript instance;
 
+		// Token: 0x0400124F RID: 4687
 		private const int PLAYER_INDEX = 0;
 
+		// Token: 0x04001250 RID: 4688
 		public const bool SKIP_PUBLISHER = false;
 
+		// Token: 0x04001251 RID: 4689
 		public const bool SKIP_MUSICIAN = true;
 
+		// Token: 0x04001252 RID: 4690
 		public const bool MUTE_DEV_VIDEO = false;
 
+		// Token: 0x04001253 RID: 4691
 		private const float SELECTED_ALPHA = 1f;
 
+		// Token: 0x04001254 RID: 4692
 		private const float UNSELECTED_ALPHA = 0.25f;
 
+		// Token: 0x04001255 RID: 4693
 		public Canvas myCanvas;
 
+		// Token: 0x04001256 RID: 4694
 		public CanvasScaler myCanvasScaler;
 
+		// Token: 0x04001257 RID: 4695
 		public RectTransform languageSelectionHolder;
 
+		// Token: 0x04001258 RID: 4696
 		public TextMeshProUGUI languageTitle;
 
+		// Token: 0x04001259 RID: 4697
 		public TextMeshProUGUI[] languagesButtons;
 
+		// Token: 0x0400125A RID: 4698
 		public GameObject autosaveWarningHolder;
 
+		// Token: 0x0400125B RID: 4699
 		public TextMeshProUGUI autosaveWarningTitle;
 
+		// Token: 0x0400125C RID: 4700
 		public TextMeshProUGUI autosaveWarningBody;
 
+		// Token: 0x0400125D RID: 4701
 		public TextMeshProUGUI autosaveWarningPrompt;
 
+		// Token: 0x0400125E RID: 4702
 		public GameObject publisherIntroHolder;
 
+		// Token: 0x0400125F RID: 4703
 		public GameObject developerIntroHolder;
 
+		// Token: 0x04001260 RID: 4704
 		public GameObject musicianIntroHolder;
 
+		// Token: 0x04001261 RID: 4705
 		public VideoPlayer developerVideoPlayer;
 
+		// Token: 0x04001262 RID: 4706
 		public RawImage developerVideoRawImage;
 
+		// Token: 0x04001263 RID: 4707
 		public VideoPlayer publisherVideoPlayer;
 
+		// Token: 0x04001264 RID: 4708
 		public RawImage publisherVideoRawImage;
 
+		// Token: 0x04001265 RID: 4709
 		public GameObject popUpHolder;
 
+		// Token: 0x04001266 RID: 4710
 		public TextMeshProUGUI popupTitle;
 
+		// Token: 0x04001267 RID: 4711
 		public TextMeshProUGUI popupDescr;
 
+		// Token: 0x04001268 RID: 4712
 		public TextMeshProUGUI popupPrompt;
 
+		// Token: 0x04001269 RID: 4713
 		public TextMeshProUGUI popupAnswerPrompt_Yes;
 
+		// Token: 0x0400126A RID: 4714
 		public TextMeshProUGUI popupAnswerPrompt_No;
 
+		// Token: 0x0400126B RID: 4715
 		private string selectPromptSpriteString;
 
+		// Token: 0x0400126C RID: 4716
 		private int popupQuestionAnswer = -1;
 	}
 }
