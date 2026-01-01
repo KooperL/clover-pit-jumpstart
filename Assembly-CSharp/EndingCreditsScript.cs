@@ -4,15 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x02000040 RID: 64
 public class EndingCreditsScript : MonoBehaviour
 {
-	// Token: 0x060003AF RID: 943 RVA: 0x00019A76 File Offset: 0x00017C76
+	// Token: 0x06000415 RID: 1045 RVA: 0x00008E6E File Offset: 0x0000706E
 	public static bool IsEnabled()
 	{
 		return !(EndingCreditsScript.instance == null) && EndingCreditsScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060003B0 RID: 944 RVA: 0x00019A98 File Offset: 0x00017C98
+	// Token: 0x06000416 RID: 1046 RVA: 0x0002D274 File Offset: 0x0002B474
 	public static void Open(bool goodEnding, bool skippable)
 	{
 		EndingCreditsScript.instance.holder.SetActive(true);
@@ -28,13 +29,13 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B1 RID: 945 RVA: 0x00019B0A File Offset: 0x00017D0A
+	// Token: 0x06000417 RID: 1047 RVA: 0x00008E8E File Offset: 0x0000708E
 	private static void Close()
 	{
 		EndingCreditsScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x060003B2 RID: 946 RVA: 0x00019B1C File Offset: 0x00017D1C
+	// Token: 0x06000418 RID: 1048 RVA: 0x0002D2E8 File Offset: 0x0002B4E8
 	private void UpdateText()
 	{
 		this.titleText.text = Translation.Get("VARIOUS_MAGAZINE_CREDITS_TITLE");
@@ -43,13 +44,13 @@ public class EndingCreditsScript : MonoBehaviour
 		this.creditsBodyText.ForceMeshUpdate(false, false);
 	}
 
-	// Token: 0x060003B3 RID: 947 RVA: 0x00019B68 File Offset: 0x00017D68
+	// Token: 0x06000419 RID: 1049 RVA: 0x00008EA0 File Offset: 0x000070A0
 	private void Awake()
 	{
 		EndingCreditsScript.instance = this;
 	}
 
-	// Token: 0x060003B4 RID: 948 RVA: 0x00019B70 File Offset: 0x00017D70
+	// Token: 0x0600041A RID: 1050 RVA: 0x00008EA8 File Offset: 0x000070A8
 	private void OnDestroy()
 	{
 		if (EndingCreditsScript.instance == this)
@@ -58,7 +59,7 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B5 RID: 949 RVA: 0x00019B88 File Offset: 0x00017D88
+	// Token: 0x0600041B RID: 1051 RVA: 0x0002D334 File Offset: 0x0002B534
 	private void Start()
 	{
 		this.holder.SetActive(false);
@@ -68,7 +69,7 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B6 RID: 950 RVA: 0x00019BC4 File Offset: 0x00017DC4
+	// Token: 0x0600041C RID: 1052 RVA: 0x0002D370 File Offset: 0x0002B570
 	private void Update()
 	{
 		if (!EndingCreditsScript.IsEnabled())
@@ -111,25 +112,36 @@ public class EndingCreditsScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000399 RID: 921
 	private const float CREDITS_TIME = 92f;
 
+	// Token: 0x0400039A RID: 922
 	public static EndingCreditsScript instance;
 
+	// Token: 0x0400039B RID: 923
 	public GameObject holder;
 
+	// Token: 0x0400039C RID: 924
 	public RectTransform scroller;
 
+	// Token: 0x0400039D RID: 925
 	public TextMeshProUGUI titleText;
 
+	// Token: 0x0400039E RID: 926
 	public TextMeshProUGUI creditsBodyText;
 
+	// Token: 0x0400039F RID: 927
 	public Image backBlackImage;
 
+	// Token: 0x040003A0 RID: 928
 	public RawImage[] goodEndingBackgrounds;
 
+	// Token: 0x040003A1 RID: 929
 	private float scrollDelayTimer = 2f;
 
+	// Token: 0x040003A2 RID: 930
 	private bool skippable;
 
+	// Token: 0x040003A3 RID: 931
 	private bool skip;
 }

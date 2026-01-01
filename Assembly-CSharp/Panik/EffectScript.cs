@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Panik
 {
+	// Token: 0x0200010A RID: 266
 	public class EffectScript : MonoBehaviour
 	{
-		// Token: 0x06000ABC RID: 2748 RVA: 0x00048FB4 File Offset: 0x000471B4
+		// Token: 0x06000C96 RID: 3222 RVA: 0x00063234 File Offset: 0x00061434
 		public void KillMe()
 		{
 			if (this.dead)
@@ -20,13 +21,13 @@ namespace Panik
 			Pool.Destroy(base.gameObject, null);
 		}
 
-		// Token: 0x06000ABD RID: 2749 RVA: 0x00048FFD File Offset: 0x000471FD
+		// Token: 0x06000C97 RID: 3223 RVA: 0x00010503 File Offset: 0x0000E703
 		private void Awake()
 		{
 			this.myParticleSystems = base.GetComponentsInChildren<ParticleSystem>(true);
 		}
 
-		// Token: 0x06000ABE RID: 2750 RVA: 0x0004900C File Offset: 0x0004720C
+		// Token: 0x06000C98 RID: 3224 RVA: 0x00063280 File Offset: 0x00061480
 		private void OnEnable()
 		{
 			this.paused = false;
@@ -37,7 +38,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000ABF RID: 2751 RVA: 0x00049048 File Offset: 0x00047248
+		// Token: 0x06000C99 RID: 3225 RVA: 0x000632BC File Offset: 0x000614BC
 		private void Update()
 		{
 			if (this.pausable)
@@ -79,12 +80,16 @@ namespace Panik
 			}
 		}
 
+		// Token: 0x04000D6E RID: 3438
 		private ParticleSystem[] myParticleSystems;
 
+		// Token: 0x04000D6F RID: 3439
 		public bool pausable = true;
 
+		// Token: 0x04000D70 RID: 3440
 		private bool paused;
 
+		// Token: 0x04000D71 RID: 3441
 		private bool dead;
 	}
 }

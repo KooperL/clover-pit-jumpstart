@@ -6,8 +6,10 @@ using System.Linq;
 
 namespace I2.Loc.SimpleJSON
 {
+	// Token: 0x020001FA RID: 506
 	public class JSONClass : JSONNode, IEnumerable
 	{
+		// Token: 0x17000178 RID: 376
 		public override JSONNode this[string aKey]
 		{
 			get
@@ -29,6 +31,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
+		// Token: 0x17000179 RID: 377
 		public override JSONNode this[int aIndex]
 		{
 			get
@@ -50,7 +53,8 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// (get) Token: 0x06001098 RID: 4248 RVA: 0x00066FF2 File Offset: 0x000651F2
+		// Token: 0x1700017A RID: 378
+		// (get) Token: 0x060014AE RID: 5294 RVA: 0x00015C72 File Offset: 0x00013E72
 		public override int Count
 		{
 			get
@@ -59,7 +63,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x06001099 RID: 4249 RVA: 0x00067000 File Offset: 0x00065200
+		// Token: 0x060014AF RID: 5295 RVA: 0x00084BA0 File Offset: 0x00082DA0
 		public override void Add(string aKey, JSONNode aItem)
 		{
 			if (string.IsNullOrEmpty(aKey))
@@ -75,7 +79,7 @@ namespace I2.Loc.SimpleJSON
 			this.m_Dict.Add(aKey, aItem);
 		}
 
-		// Token: 0x0600109A RID: 4250 RVA: 0x0006705E File Offset: 0x0006525E
+		// Token: 0x060014B0 RID: 5296 RVA: 0x00015C7F File Offset: 0x00013E7F
 		public override JSONNode Remove(string aKey)
 		{
 			if (!this.m_Dict.ContainsKey(aKey))
@@ -87,7 +91,7 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// Token: 0x0600109B RID: 4251 RVA: 0x0006708C File Offset: 0x0006528C
+		// Token: 0x060014B1 RID: 5297 RVA: 0x00084C00 File Offset: 0x00082E00
 		public override JSONNode Remove(int aIndex)
 		{
 			if (aIndex < 0 || aIndex >= this.m_Dict.Count)
@@ -99,7 +103,7 @@ namespace I2.Loc.SimpleJSON
 			return keyValuePair.Value;
 		}
 
-		// Token: 0x0600109C RID: 4252 RVA: 0x000670D4 File Offset: 0x000652D4
+		// Token: 0x060014B2 RID: 5298 RVA: 0x00084C48 File Offset: 0x00082E48
 		public override JSONNode Remove(JSONNode aNode)
 		{
 			JSONNode jsonnode;
@@ -116,7 +120,8 @@ namespace I2.Loc.SimpleJSON
 			return jsonnode;
 		}
 
-		// (get) Token: 0x0600109D RID: 4253 RVA: 0x00067140 File Offset: 0x00065340
+		// Token: 0x1700017B RID: 379
+		// (get) Token: 0x060014B3 RID: 5299 RVA: 0x00015CAA File Offset: 0x00013EAA
 		public override IEnumerable<JSONNode> Childs
 		{
 			get
@@ -131,7 +136,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
-		// Token: 0x0600109E RID: 4254 RVA: 0x00067150 File Offset: 0x00065350
+		// Token: 0x060014B4 RID: 5300 RVA: 0x00015CBA File Offset: 0x00013EBA
 		public IEnumerator GetEnumerator()
 		{
 			foreach (KeyValuePair<string, JSONNode> keyValuePair in this.m_Dict)
@@ -143,7 +148,7 @@ namespace I2.Loc.SimpleJSON
 			yield break;
 		}
 
-		// Token: 0x0600109F RID: 4255 RVA: 0x00067160 File Offset: 0x00065360
+		// Token: 0x060014B5 RID: 5301 RVA: 0x00084CB4 File Offset: 0x00082EB4
 		public override string ToString()
 		{
 			string text = "{";
@@ -166,7 +171,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x060010A0 RID: 4256 RVA: 0x00067214 File Offset: 0x00065414
+		// Token: 0x060014B6 RID: 5302 RVA: 0x00084D68 File Offset: 0x00082F68
 		public override string ToString(string aPrefix)
 		{
 			string text = "{ ";
@@ -190,7 +195,7 @@ namespace I2.Loc.SimpleJSON
 			return text;
 		}
 
-		// Token: 0x060010A1 RID: 4257 RVA: 0x000672EC File Offset: 0x000654EC
+		// Token: 0x060014B7 RID: 5303 RVA: 0x00084E40 File Offset: 0x00083040
 		public override void Serialize(BinaryWriter aWriter)
 		{
 			aWriter.Write(2);
@@ -202,6 +207,7 @@ namespace I2.Loc.SimpleJSON
 			}
 		}
 
+		// Token: 0x0400144E RID: 5198
 		private Dictionary<string, JSONNode> m_Dict = new Dictionary<string, JSONNode>(StringComparer.Ordinal);
 	}
 }

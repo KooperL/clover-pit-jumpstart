@@ -3,15 +3,16 @@ using UnityEngine;
 
 namespace Panik
 {
+	// Token: 0x02000116 RID: 278
 	public static class Spawn
 	{
-		// Token: 0x06000B43 RID: 2883 RVA: 0x0004B7B9 File Offset: 0x000499B9
+		// Token: 0x06000D27 RID: 3367 RVA: 0x000109EA File Offset: 0x0000EBEA
 		public static GameObject Instance(string prefabName, Vector3 position, Transform parent = null)
 		{
 			return global::UnityEngine.Object.Instantiate<GameObject>(AssetMaster.GetPrefab(prefabName), position, Quaternion.identity, parent);
 		}
 
-		// Token: 0x06000B44 RID: 2884 RVA: 0x0004B7CD File Offset: 0x000499CD
+		// Token: 0x06000D28 RID: 3368 RVA: 0x000109FE File Offset: 0x0000EBFE
 		public static GameObject FromPool(string prefabName, Vector3 position, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Pool.Get(prefabName);
@@ -23,7 +24,7 @@ namespace Panik
 			return Spawn.gObjAppoggio;
 		}
 
-		// Token: 0x06000B45 RID: 2885 RVA: 0x0004B808 File Offset: 0x00049A08
+		// Token: 0x06000D29 RID: 3369 RVA: 0x00010A39 File Offset: 0x0000EC39
 		public static Rigidbody2D InstanceMoving2D(string prefabName, Vector3 position, Vector2 velocity, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.Instance(prefabName, position, parent);
@@ -32,7 +33,7 @@ namespace Panik
 			return Spawn.rb2DAppoggio;
 		}
 
-		// Token: 0x06000B46 RID: 2886 RVA: 0x0004B836 File Offset: 0x00049A36
+		// Token: 0x06000D2A RID: 3370 RVA: 0x00010A67 File Offset: 0x0000EC67
 		public static Rigidbody2D InstanceMoving2D(string prefabName, Vector3 position, float direction, float speed, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.Instance(prefabName, position, parent);
@@ -41,7 +42,7 @@ namespace Panik
 			return Spawn.rb2DAppoggio;
 		}
 
-		// Token: 0x06000B47 RID: 2887 RVA: 0x0004B86B File Offset: 0x00049A6B
+		// Token: 0x06000D2B RID: 3371 RVA: 0x00010A9C File Offset: 0x0000EC9C
 		public static Rigidbody InstanceMoving3D(string prefabName, Vector3 position, Vector3 velocity, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.Instance(prefabName, position, parent);
@@ -50,7 +51,7 @@ namespace Panik
 			return Spawn.rbAppoggio;
 		}
 
-		// Token: 0x06000B48 RID: 2888 RVA: 0x0004B899 File Offset: 0x00049A99
+		// Token: 0x06000D2C RID: 3372 RVA: 0x00010ACA File Offset: 0x0000ECCA
 		public static Rigidbody InstanceMoving3D(string prefabName, Vector3 position, float yEulerDirection, float zEulerDirection, float speed, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.Instance(prefabName, position, parent);
@@ -59,7 +60,7 @@ namespace Panik
 			return Spawn.rbAppoggio;
 		}
 
-		// Token: 0x06000B49 RID: 2889 RVA: 0x0004B8D5 File Offset: 0x00049AD5
+		// Token: 0x06000D2D RID: 3373 RVA: 0x00010B06 File Offset: 0x0000ED06
 		public static Rigidbody2D FromPoolMoving2D(string prefabName, Vector3 position, Vector2 velocity, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.FromPool(prefabName, position, parent);
@@ -68,7 +69,7 @@ namespace Panik
 			return Spawn.rb2DAppoggio;
 		}
 
-		// Token: 0x06000B4A RID: 2890 RVA: 0x0004B903 File Offset: 0x00049B03
+		// Token: 0x06000D2E RID: 3374 RVA: 0x00010B34 File Offset: 0x0000ED34
 		public static Rigidbody2D FromPoolMoving2D(string prefabName, Vector3 position, float direction, float speed, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.FromPool(prefabName, position, parent);
@@ -77,7 +78,7 @@ namespace Panik
 			return Spawn.rb2DAppoggio;
 		}
 
-		// Token: 0x06000B4B RID: 2891 RVA: 0x0004B938 File Offset: 0x00049B38
+		// Token: 0x06000D2F RID: 3375 RVA: 0x00010B69 File Offset: 0x0000ED69
 		public static Rigidbody FromPoolMoving3D(string prefabName, Vector3 position, Vector3 velocity, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.FromPool(prefabName, position, parent);
@@ -86,7 +87,7 @@ namespace Panik
 			return Spawn.rbAppoggio;
 		}
 
-		// Token: 0x06000B4C RID: 2892 RVA: 0x0004B966 File Offset: 0x00049B66
+		// Token: 0x06000D30 RID: 3376 RVA: 0x00010B97 File Offset: 0x0000ED97
 		public static Rigidbody FromPoolMoving3D(string prefabName, Vector3 position, float yEulerDirection, float zEulerDirection, float speed, Transform parent = null)
 		{
 			Spawn.gObjAppoggio = Spawn.FromPool(prefabName, position, parent);
@@ -95,10 +96,13 @@ namespace Panik
 			return Spawn.rbAppoggio;
 		}
 
+		// Token: 0x04000DCB RID: 3531
 		private static GameObject gObjAppoggio;
 
+		// Token: 0x04000DCC RID: 3532
 		private static Rigidbody rbAppoggio;
 
+		// Token: 0x04000DCD RID: 3533
 		private static Rigidbody2D rb2DAppoggio;
 	}
 }

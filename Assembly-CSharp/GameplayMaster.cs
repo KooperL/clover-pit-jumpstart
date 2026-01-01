@@ -4,9 +4,10 @@ using System.Numerics;
 using Panik;
 using UnityEngine;
 
+// Token: 0x0200001A RID: 26
 public class GameplayMaster : MonoBehaviour
 {
-	// Token: 0x060002F0 RID: 752 RVA: 0x00012098 File Offset: 0x00010298
+	// Token: 0x0600030E RID: 782 RVA: 0x00024FA8 File Offset: 0x000231A8
 	private void ControllerDisconnectionCheckUpdate()
 	{
 		int joystickCount = this.player.rePlayer.controllers.joystickCount;
@@ -31,7 +32,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002F1 RID: 753 RVA: 0x0001213C File Offset: 0x0001033C
+	// Token: 0x0600030F RID: 783 RVA: 0x0002504C File Offset: 0x0002324C
 	private void TimePlayedCount()
 	{
 		GameplayMaster.GamePhase gamePhase = GameplayMaster.GetGamePhase();
@@ -52,7 +53,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002F2 RID: 754 RVA: 0x000121A4 File Offset: 0x000103A4
+	// Token: 0x06000310 RID: 784 RVA: 0x00008608 File Offset: 0x00006808
 	public static int DeathCountdownGet()
 	{
 		if (GameplayMaster.instance == null)
@@ -62,13 +63,13 @@ public class GameplayMaster : MonoBehaviour
 		return GameplayMaster.instance.deathCountDown;
 	}
 
-	// Token: 0x060002F3 RID: 755 RVA: 0x000121BF File Offset: 0x000103BF
+	// Token: 0x06000311 RID: 785 RVA: 0x00008623 File Offset: 0x00006823
 	public static bool DeathCountdownHasStarted()
 	{
 		return !(GameplayMaster.instance == null) && GameplayMaster.instance.deathCountDownStarted;
 	}
 
-	// Token: 0x060002F4 RID: 756 RVA: 0x000121DC File Offset: 0x000103DC
+	// Token: 0x06000312 RID: 786 RVA: 0x000250B4 File Offset: 0x000232B4
 	public static void DeathCountdownResetRequest(bool byRoundsIncrease)
 	{
 		if (GameplayMaster.instance == null)
@@ -88,7 +89,7 @@ public class GameplayMaster : MonoBehaviour
 		PlatformAPI.AchievementUnlock_FullGame(PlatformAPI.AchievementFullGame.NearDeathExperience);
 	}
 
-	// Token: 0x060002F5 RID: 757 RVA: 0x0001222F File Offset: 0x0001042F
+	// Token: 0x06000313 RID: 787 RVA: 0x0000863E File Offset: 0x0000683E
 	private void _DeathCountdownReset(bool stopAmbience)
 	{
 		this.deathCountDownResetRequest = false;
@@ -102,7 +103,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002F6 RID: 758 RVA: 0x00012266 File Offset: 0x00010466
+	// Token: 0x06000314 RID: 788 RVA: 0x00008675 File Offset: 0x00006875
 	public static GameplayMaster.GamePhase GetGamePhase()
 	{
 		if (GameplayMaster.instance == null)
@@ -112,7 +113,7 @@ public class GameplayMaster : MonoBehaviour
 		return GameplayMaster.instance.gamePhase;
 	}
 
-	// Token: 0x060002F7 RID: 759 RVA: 0x00012284 File Offset: 0x00010484
+	// Token: 0x06000315 RID: 789 RVA: 0x00025108 File Offset: 0x00023308
 	public static void SetGamePhase(GameplayMaster.GamePhase phase, bool forceSame, string extraInfos = null)
 	{
 		if (GameplayMaster.instance == null)
@@ -184,7 +185,7 @@ public class GameplayMaster : MonoBehaviour
 		GameplayMaster.instance.gamePhase = phase;
 	}
 
-	// Token: 0x060002F8 RID: 760 RVA: 0x000123FB File Offset: 0x000105FB
+	// Token: 0x06000316 RID: 790 RVA: 0x00008691 File Offset: 0x00006891
 	private void IntroPhaseBehaviour()
 	{
 		if (!GeneralUiScript.instance.HasFadedIn())
@@ -196,13 +197,13 @@ public class GameplayMaster : MonoBehaviour
 		CameraController.SetFreeCameraRotation_ToCamera();
 	}
 
-	// Token: 0x060002F9 RID: 761 RVA: 0x00012423 File Offset: 0x00010623
+	// Token: 0x06000317 RID: 791 RVA: 0x000086B9 File Offset: 0x000068B9
 	public static bool IsIntroDialogueFinished()
 	{
 		return !(GameplayMaster.instance == null) && GameplayMaster.instance.introCutscenePhase == GameplayMaster.IntroCutscenePhase.done;
 	}
 
-	// Token: 0x060002FA RID: 762 RVA: 0x00012444 File Offset: 0x00010644
+	// Token: 0x06000318 RID: 792 RVA: 0x00025280 File Offset: 0x00023480
 	private void CutscenePhaseBehaviour()
 	{
 		bool flag = Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true);
@@ -569,17 +570,17 @@ public class GameplayMaster : MonoBehaviour
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.preparation, false, null);
 	}
 
-	// Token: 0x060002FB RID: 763 RVA: 0x00012C24 File Offset: 0x00010E24
+	// Token: 0x06000319 RID: 793 RVA: 0x0000774E File Offset: 0x0000594E
 	private void IntroFinalization()
 	{
 	}
 
-	// Token: 0x060002FC RID: 764 RVA: 0x00012C26 File Offset: 0x00010E26
+	// Token: 0x0600031A RID: 794 RVA: 0x0000774E File Offset: 0x0000594E
 	private void TutorialPhaseBehaviour()
 	{
 	}
 
-	// Token: 0x060002FD RID: 765 RVA: 0x00012C28 File Offset: 0x00010E28
+	// Token: 0x0600031B RID: 795 RVA: 0x00025A60 File Offset: 0x00023C60
 	private void PreparationPhaseBehaviour()
 	{
 		float num = (float)Data.settings.transitionSpeed;
@@ -726,7 +727,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002FE RID: 766 RVA: 0x000130C8 File Offset: 0x000112C8
+	// Token: 0x0600031C RID: 796 RVA: 0x00025F00 File Offset: 0x00024100
 	private void OnDeathCountdown_During()
 	{
 		float num = (5f - (float)this.deathCountDown) / 5f;
@@ -738,7 +739,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002FF RID: 767 RVA: 0x0001311C File Offset: 0x0001131C
+	// Token: 0x0600031D RID: 797 RVA: 0x00025F54 File Offset: 0x00024154
 	private void OnDeathCountdown_Tick(bool finalTick)
 	{
 		float num = (5f - (float)this.deathCountDown) / 5f;
@@ -757,23 +758,23 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000300 RID: 768 RVA: 0x000131AA File Offset: 0x000113AA
+	// Token: 0x0600031E RID: 798 RVA: 0x000086D7 File Offset: 0x000068D7
 	private void _DealIsOff_CameraReset()
 	{
 		CameraController.SetPosition(CameraController.PositionKind.Free, false, 0f);
 	}
 
-	// Token: 0x06000301 RID: 769 RVA: 0x000131B8 File Offset: 0x000113B8
+	// Token: 0x0600031F RID: 799 RVA: 0x0000774E File Offset: 0x0000594E
 	private void EquippingPhaseBehaviour()
 	{
 	}
 
-	// Token: 0x06000302 RID: 770 RVA: 0x000131BA File Offset: 0x000113BA
+	// Token: 0x06000320 RID: 800 RVA: 0x0000774E File Offset: 0x0000594E
 	private void GamblingPhaseBehaviour()
 	{
 	}
 
-	// Token: 0x06000303 RID: 771 RVA: 0x000131BC File Offset: 0x000113BC
+	// Token: 0x06000321 RID: 801 RVA: 0x00025FE4 File Offset: 0x000241E4
 	private void DeathPhaseBehaviour()
 	{
 		bool flag = GameplayMaster.IsCustomSeed();
@@ -1003,7 +1004,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000304 RID: 772 RVA: 0x00013628 File Offset: 0x00011828
+	// Token: 0x06000322 RID: 802 RVA: 0x00026450 File Offset: 0x00024650
 	private void EndingWithoutDeathPhaseBehaviour()
 	{
 		if (DialogueScript.IsEnabled())
@@ -1032,7 +1033,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000305 RID: 773 RVA: 0x000136A9 File Offset: 0x000118A9
+	// Token: 0x06000323 RID: 803 RVA: 0x000086E5 File Offset: 0x000068E5
 	private IEnumerator EndingCoroutine_Main()
 	{
 		bool isGoodEnding = GameplayData.IsInGoodEndingCondition(false);
@@ -1149,7 +1150,7 @@ public class GameplayMaster : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000306 RID: 774 RVA: 0x000136B8 File Offset: 0x000118B8
+	// Token: 0x06000324 RID: 804 RVA: 0x000086F4 File Offset: 0x000068F4
 	private IEnumerator EndingCoroutine_Bad()
 	{
 		while (!this._endingGotoCreditsFlag)
@@ -1161,7 +1162,7 @@ public class GameplayMaster : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000307 RID: 775 RVA: 0x000136C7 File Offset: 0x000118C7
+	// Token: 0x06000325 RID: 805 RVA: 0x00008703 File Offset: 0x00006903
 	private IEnumerator EndingCoroutine_Good()
 	{
 		while (!this._endingGotoCreditsFlag)
@@ -1173,7 +1174,7 @@ public class GameplayMaster : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000308 RID: 776 RVA: 0x000136D6 File Offset: 0x000118D6
+	// Token: 0x06000326 RID: 806 RVA: 0x00008712 File Offset: 0x00006912
 	private IEnumerator EndingWithoutDeath_CommonEarlyCoroutine()
 	{
 		while (DialogueScript.IsEnabled())
@@ -1205,7 +1206,7 @@ public class GameplayMaster : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000309 RID: 777 RVA: 0x000136DE File Offset: 0x000118DE
+	// Token: 0x06000327 RID: 807 RVA: 0x0000871A File Offset: 0x0000691A
 	private IEnumerator EndingWithoutDeath_Saving()
 	{
 		bool flag = GameplayMaster.IsCustomSeed();
@@ -1241,13 +1242,13 @@ public class GameplayMaster : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600030A RID: 778 RVA: 0x000136E6 File Offset: 0x000118E6
+	// Token: 0x06000328 RID: 808 RVA: 0x00008722 File Offset: 0x00006922
 	private void EndingWithoutDeath_CommonEnding()
 	{
 		GeneralUiScript.ComingFromVictoryFlag_Set(true);
 	}
 
-	// Token: 0x0600030B RID: 779 RVA: 0x000136EE File Offset: 0x000118EE
+	// Token: 0x06000329 RID: 809 RVA: 0x0000872A File Offset: 0x0000692A
 	private void ClosingGamePhaseBehaviour()
 	{
 		if (PlatformDataMaster.IsSaving())
@@ -1257,42 +1258,43 @@ public class GameplayMaster : MonoBehaviour
 		Application.Quit();
 	}
 
-	// Token: 0x0600030C RID: 780 RVA: 0x000136FD File Offset: 0x000118FD
+	// Token: 0x0600032A RID: 810 RVA: 0x0000774E File Offset: 0x0000594E
 	private void TerminalPhaseBehaviour()
 	{
 	}
 
-	// Token: 0x0600030D RID: 781 RVA: 0x000136FF File Offset: 0x000118FF
+	// Token: 0x0600032B RID: 811 RVA: 0x0000774E File Offset: 0x0000594E
 	private void PhonePhaseBehaviour()
 	{
 	}
 
-	// Token: 0x0600030E RID: 782 RVA: 0x00013701 File Offset: 0x00011901
+	// Token: 0x0600032C RID: 812 RVA: 0x00008739 File Offset: 0x00006939
 	public static bool IsCustomSeed()
 	{
 		return !(GameplayMaster.instance == null) && GameplayMaster.instance._isCustomSeedRun;
 	}
 
-	// Token: 0x0600030F RID: 783 RVA: 0x0001371C File Offset: 0x0001191C
+	// Token: 0x0600032D RID: 813 RVA: 0x00008754 File Offset: 0x00006954
 	public static bool CanInputSeed()
 	{
 		return Data.game != null && Data.game.doorOpenedCounter > 0;
 	}
 
-	// Token: 0x06000310 RID: 784 RVA: 0x00013734 File Offset: 0x00011934
+	// Token: 0x0600032E RID: 814 RVA: 0x0000876C File Offset: 0x0000696C
 	public static BigInteger SlotAnimationCoinsGet()
 	{
 		return GameplayMaster.instance._slotAnimationCoins_AnimationOnly;
 	}
 
-	// Token: 0x06000311 RID: 785 RVA: 0x00013740 File Offset: 0x00011940
+	// Token: 0x0600032F RID: 815 RVA: 0x00008778 File Offset: 0x00006978
 	public static void SlotAnimationCoinsSet(BigInteger ammount)
 	{
 		GameplayMaster.instance._slotAnimationCoins_AnimationOnly = ammount;
 	}
 
-	// (get) Token: 0x06000312 RID: 786 RVA: 0x0001374D File Offset: 0x0001194D
-	// (set) Token: 0x06000313 RID: 787 RVA: 0x00013759 File Offset: 0x00011959
+	// Token: 0x17000025 RID: 37
+	// (get) Token: 0x06000330 RID: 816 RVA: 0x00008785 File Offset: 0x00006985
+	// (set) Token: 0x06000331 RID: 817 RVA: 0x00008791 File Offset: 0x00006991
 	public static bool EndingFreeRoaming
 	{
 		get
@@ -1305,19 +1307,19 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000314 RID: 788 RVA: 0x00013766 File Offset: 0x00011966
+	// Token: 0x06000332 RID: 818 RVA: 0x0000879E File Offset: 0x0000699E
 	public void EndingGotoCredits_FlagSet()
 	{
 		this._endingGotoCreditsFlag = true;
 	}
 
-	// Token: 0x06000315 RID: 789 RVA: 0x0001376F File Offset: 0x0001196F
+	// Token: 0x06000333 RID: 819 RVA: 0x000087A7 File Offset: 0x000069A7
 	public static bool MemoryPack_TheDealIsOff_FlagGet()
 	{
 		return !(GameplayMaster.instance == null) && GameplayMaster.instance._theDealIsOff_BookedDialogue;
 	}
 
-	// Token: 0x06000316 RID: 790 RVA: 0x0001378A File Offset: 0x0001198A
+	// Token: 0x06000334 RID: 820 RVA: 0x000087C2 File Offset: 0x000069C2
 	public static void MemoryPack_TheDealIsOff_FlagSet(bool setFlag, bool setOffByCoins)
 	{
 		if (GameplayMaster.instance == null)
@@ -1328,7 +1330,7 @@ public class GameplayMaster : MonoBehaviour
 		GameplayMaster.instance._theDealIsOff_ByCoins = setOffByCoins;
 	}
 
-	// Token: 0x06000317 RID: 791 RVA: 0x000137B0 File Offset: 0x000119B0
+	// Token: 0x06000335 RID: 821 RVA: 0x000087E8 File Offset: 0x000069E8
 	public static void MemoryPack_DealIsOff_EvaluateFlag(bool offByCoins)
 	{
 		if (GameplayMaster.instance == null)
@@ -1341,19 +1343,19 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000318 RID: 792 RVA: 0x000137CE File Offset: 0x000119CE
+	// Token: 0x06000336 RID: 822 RVA: 0x00008806 File Offset: 0x00006A06
 	public static int SpinsDoneSinceStartup_Get()
 	{
 		return GameplayMaster.spinsDoneSinceStartup;
 	}
 
-	// Token: 0x06000319 RID: 793 RVA: 0x000137D5 File Offset: 0x000119D5
+	// Token: 0x06000337 RID: 823 RVA: 0x0000880D File Offset: 0x00006A0D
 	public static void SpinsDoneSinceStartup_Increment()
 	{
 		GameplayMaster.spinsDoneSinceStartup++;
 	}
 
-	// Token: 0x0600031A RID: 794 RVA: 0x000137E3 File Offset: 0x000119E3
+	// Token: 0x06000338 RID: 824 RVA: 0x0000881B File Offset: 0x00006A1B
 	public static void TwitchAffiliationMessageBook()
 	{
 		if (GameplayMaster.instance == null)
@@ -1363,19 +1365,19 @@ public class GameplayMaster : MonoBehaviour
 		GameplayMaster.instance._twitchAffiliationMessageBooked = true;
 	}
 
-	// Token: 0x0600031B RID: 795 RVA: 0x000137FE File Offset: 0x000119FE
+	// Token: 0x06000339 RID: 825 RVA: 0x00008836 File Offset: 0x00006A36
 	public static void FailsafeOverDeposit_SetTriggered()
 	{
 		GameplayMaster._failsafeTriggered_NeverDeposited = true;
 	}
 
-	// Token: 0x0600031C RID: 796 RVA: 0x00013806 File Offset: 0x00011A06
+	// Token: 0x0600033A RID: 826 RVA: 0x0000883E File Offset: 0x00006A3E
 	public static void FailsafeCharms_SetTriggered()
 	{
 		GameplayMaster._failsafeTriggered_NeverEquippedACharm = true;
 	}
 
-	// Token: 0x0600031D RID: 797 RVA: 0x0001380E File Offset: 0x00011A0E
+	// Token: 0x0600033B RID: 827 RVA: 0x00008846 File Offset: 0x00006A46
 	public static void GameDataReset_FlagIt()
 	{
 		GameplayMaster.instance._dataResetFlag = true;
@@ -1387,13 +1389,13 @@ public class GameplayMaster : MonoBehaviour
 		LoadingScreenNotifications.ClearNotifications();
 	}
 
-	// Token: 0x0600031E RID: 798 RVA: 0x0001383E File Offset: 0x00011A3E
+	// Token: 0x0600033C RID: 828 RVA: 0x00008876 File Offset: 0x00006A76
 	public static bool GameIsResetting()
 	{
 		return !(GameplayMaster.instance == null) && GameplayMaster.instance._dataResetFlag;
 	}
 
-	// Token: 0x0600031F RID: 799 RVA: 0x0001385C File Offset: 0x00011A5C
+	// Token: 0x0600033D RID: 829 RVA: 0x000264D4 File Offset: 0x000246D4
 	public void FCall_SlotMachineTurnOnTry()
 	{
 		int num = GameplayData.RoundsLeftToDeadline();
@@ -1501,28 +1503,28 @@ public class GameplayMaster : MonoBehaviour
 		Sound.Play("SoundMenuError", 1f, 1f);
 	}
 
-	// Token: 0x06000320 RID: 800 RVA: 0x00013C52 File Offset: 0x00011E52
+	// Token: 0x0600033E RID: 830 RVA: 0x00008891 File Offset: 0x00006A91
 	private void _GotoGambling_Free()
 	{
 		this._BetFree();
 		this._GotoGambling();
 	}
 
-	// Token: 0x06000321 RID: 801 RVA: 0x00013C60 File Offset: 0x00011E60
+	// Token: 0x0600033F RID: 831 RVA: 0x0000889F File Offset: 0x00006A9F
 	private void _GotoGambling_Mid()
 	{
 		this._BetMid();
 		this._GotoGambling();
 	}
 
-	// Token: 0x06000322 RID: 802 RVA: 0x00013C6E File Offset: 0x00011E6E
+	// Token: 0x06000340 RID: 832 RVA: 0x000088AD File Offset: 0x00006AAD
 	private void _GotoGambling_Max()
 	{
 		this._BetMax();
 		this._GotoGambling();
 	}
 
-	// Token: 0x06000323 RID: 803 RVA: 0x00013C7C File Offset: 0x00011E7C
+	// Token: 0x06000341 RID: 833 RVA: 0x000268CC File Offset: 0x00024ACC
 	private void _GotoGambling()
 	{
 		BigInteger bigInteger = GameplayData.DebtIndexGet();
@@ -1560,7 +1562,7 @@ public class GameplayMaster : MonoBehaviour
 		Data.SaveGame(Data.GameSavingReason.beginOfPlayingAtTheSlotMachine, -1);
 	}
 
-	// Token: 0x06000324 RID: 804 RVA: 0x00013D74 File Offset: 0x00011F74
+	// Token: 0x06000342 RID: 834 RVA: 0x000269C4 File Offset: 0x00024BC4
 	private void _BetFree()
 	{
 		int num = GameplayData.ExtraSpinsGet(true);
@@ -1570,7 +1572,7 @@ public class GameplayMaster : MonoBehaviour
 		GameplayData.SmallAndBigBet_CountIncrease(0, 1);
 	}
 
-	// Token: 0x06000325 RID: 805 RVA: 0x00013DB0 File Offset: 0x00011FB0
+	// Token: 0x06000343 RID: 835 RVA: 0x00026A00 File Offset: 0x00024C00
 	private void _BetMid()
 	{
 		int hypotehticalMidSpinsBuyable = GameplayData.GetHypotehticalMidSpinsBuyable();
@@ -1587,7 +1589,7 @@ public class GameplayMaster : MonoBehaviour
 		GameplayMaster.SlotAnimationCoinsSet(bigInteger);
 	}
 
-	// Token: 0x06000326 RID: 806 RVA: 0x00013E14 File Offset: 0x00012014
+	// Token: 0x06000344 RID: 836 RVA: 0x00026A64 File Offset: 0x00024C64
 	private void _BetMax()
 	{
 		int hypotehticalMaxSpinsBuyable = GameplayData.GetHypotehticalMaxSpinsBuyable();
@@ -1600,7 +1602,7 @@ public class GameplayMaster : MonoBehaviour
 		GameplayMaster.SlotAnimationCoinsSet(bigInteger);
 	}
 
-	// Token: 0x06000327 RID: 807 RVA: 0x00013E5E File Offset: 0x0001205E
+	// Token: 0x06000345 RID: 837 RVA: 0x000088BB File Offset: 0x00006ABB
 	private void _CancelSlotMachine()
 	{
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
@@ -1608,7 +1610,7 @@ public class GameplayMaster : MonoBehaviour
 		CameraController.ScreenMenuIgnore_RemoveReason("slotPickSpins");
 	}
 
-	// Token: 0x06000328 RID: 808 RVA: 0x00013E80 File Offset: 0x00012080
+	// Token: 0x06000346 RID: 838 RVA: 0x00026AB0 File Offset: 0x00024CB0
 	public void FCall_StopPlaying()
 	{
 		this.interestsAwarded = false;
@@ -1628,7 +1630,7 @@ public class GameplayMaster : MonoBehaviour
 		DrawersScript.TryPuttingEasterEgg();
 	}
 
-	// Token: 0x06000329 RID: 809 RVA: 0x00013EDC File Offset: 0x000120DC
+	// Token: 0x06000347 RID: 839 RVA: 0x00026B0C File Offset: 0x00024D0C
 	public void FCall_SlotSpinTry(bool calledByAutoSpin)
 	{
 		if (SlotMachineScript.StateGet() == SlotMachineScript.State.idle && !SlotMachineScript.IsSpinning() && (!SlotMachineScript.instance.IsAutoSpinning() || calledByAutoSpin) && !DialogueScript.IsEnabled() && GameplayData.SpinsLeftGet() > 0)
@@ -1647,18 +1649,18 @@ public class GameplayMaster : MonoBehaviour
 					}
 				}
 				this.leverButton.GetComponent<ButtonVisualizerScript>().Press();
-				Sound.Play3D("SoundSlotLever", SlotMachineScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 1f, 0f), 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundSlotLever", SlotMachineScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 1f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 			GameplayData.SpinConsume();
 			GeneralUiScript.CoinsTextForceUpdate();
 			SlotMachineScript.instance.Spin();
 			return;
 		}
-		Sound.Play3D("SoundMenuError", SlotMachineScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 1f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundMenuError", SlotMachineScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 1f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(1f);
 	}
 
-	// Token: 0x0600032A RID: 810 RVA: 0x00014018 File Offset: 0x00012218
+	// Token: 0x06000348 RID: 840 RVA: 0x00026C48 File Offset: 0x00024E48
 	public void FCall_DoorOpenTry()
 	{
 		if (this.doorGameObject == null)
@@ -1683,10 +1685,10 @@ public class GameplayMaster : MonoBehaviour
 		{
 			DialogueScript.SetDialogue(true, new string[] { "DIALOGUE_DOOR_CLOSED_0" });
 		}
-		Sound.Play3D("SoundDoorLocked", this.doorGameObject.transform.position + new global::UnityEngine.Vector3(0f, 4f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundDoorLocked", this.doorGameObject.transform.position + new global::UnityEngine.Vector3(0f, 4f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 	}
 
-	// Token: 0x0600032B RID: 811 RVA: 0x00014104 File Offset: 0x00012304
+	// Token: 0x06000349 RID: 841 RVA: 0x00026D34 File Offset: 0x00024F34
 	public void FCall_DepositTry()
 	{
 		if (ATMScript.IsDepositButtonDelayed())
@@ -1721,7 +1723,7 @@ public class GameplayMaster : MonoBehaviour
 				GameplayData.CoinsAdd(-bigInteger2, false);
 				GameplayData.DepositAdd(bigInteger2);
 				GeneralUiScript.CoinsTextInstantUpdate();
-				Sound.Play3D("SoundCoinDeposit", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+				Sound.Play3D("SoundCoinDeposit", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 				ATMScript.instance.InsertCoinAnimation();
 				PromptGuideScript.ResetGuide();
 				PromptGuideScript.SetGuideType(PromptGuideScript.GuideType.atm_insertCoin);
@@ -1738,26 +1740,26 @@ public class GameplayMaster : MonoBehaviour
 				return;
 			}
 		}
-		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(1f);
 	}
 
-	// Token: 0x0600032C RID: 812 RVA: 0x000142B0 File Offset: 0x000124B0
+	// Token: 0x0600034A RID: 842 RVA: 0x00026EE0 File Offset: 0x000250E0
 	public void FCall_InterestsGetTry()
 	{
 		if (GameplayData.InterestEarnedGet() > 0L)
 		{
 			GameplayData.InterestPickUp();
-			Sound.Play3D("SoundInterestRetrieved", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundInterestRetrieved", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 			PromptGuideScript.ResetGuide();
 			PromptGuideScript.SetGuideType(PromptGuideScript.GuideType.atm_GetRevenue);
 			return;
 		}
-		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, 1);
+		Sound.Play3D("SoundMenuError", ATMScript.instance.transform.position + new global::UnityEngine.Vector3(0f, 2f, 0f), 10f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(1f);
 	}
 
-	// Token: 0x0600032D RID: 813 RVA: 0x0001436C File Offset: 0x0001256C
+	// Token: 0x0600034B RID: 843 RVA: 0x00026F9C File Offset: 0x0002519C
 	public void FCall_BuyTry(int id)
 	{
 		StoreCapsuleScript.BuyResult buyResult = StoreCapsuleScript.BuyTry(id);
@@ -1777,13 +1779,13 @@ public class GameplayMaster : MonoBehaviour
 		PromptGuideScript.SetGuideType(guideType);
 	}
 
-	// Token: 0x0600032E RID: 814 RVA: 0x000143C1 File Offset: 0x000125C1
+	// Token: 0x0600034C RID: 844 RVA: 0x000088DA File Offset: 0x00006ADA
 	public void FCall_DrawerOpenTry(int id)
 	{
 		DrawersScript.OpenTry(id);
 	}
 
-	// Token: 0x0600032F RID: 815 RVA: 0x000143CC File Offset: 0x000125CC
+	// Token: 0x0600034D RID: 845 RVA: 0x00026FF4 File Offset: 0x000251F4
 	public static void FCall_DebtNext(bool increaseRoundsAsWell, bool lastDemoDeadline)
 	{
 		int num = GameplayData.RoundsLeftToDeadline();
@@ -1941,7 +1943,7 @@ public class GameplayMaster : MonoBehaviour
 		PowerupScript.RefreshPlacementAll();
 	}
 
-	// Token: 0x06000330 RID: 816 RVA: 0x0001473C File Offset: 0x0001293C
+	// Token: 0x0600034E RID: 846 RVA: 0x00027364 File Offset: 0x00025564
 	public bool IsDeathCondition(bool considerCoins, bool considerRounds)
 	{
 		BigInteger bigInteger = GameplayData.CoinsGet() + GameplayData.InterestEarnedGet();
@@ -1959,7 +1961,7 @@ public class GameplayMaster : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x06000331 RID: 817 RVA: 0x0001478C File Offset: 0x0001298C
+	// Token: 0x0600034F RID: 847 RVA: 0x000273B4 File Offset: 0x000255B4
 	public bool DieTry(GameplayMaster.DeathStep initialDeathStep, bool callLastChanceCallback)
 	{
 		ScreenMenuScript.ForceClose_Death();
@@ -1999,19 +2001,19 @@ public class GameplayMaster : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06000332 RID: 818 RVA: 0x00014856 File Offset: 0x00012A56
+	// Token: 0x06000350 RID: 848 RVA: 0x000088E3 File Offset: 0x00006AE3
 	public static bool HasDiedOnce()
 	{
 		return GameplayMaster.deathsNumSinceStartup > 0;
 	}
 
-	// Token: 0x06000333 RID: 819 RVA: 0x00014860 File Offset: 0x00012A60
+	// Token: 0x06000351 RID: 849 RVA: 0x000088ED File Offset: 0x00006AED
 	public static int DeathsSinceStartup_GetNum()
 	{
 		return GameplayMaster.deathsNumSinceStartup;
 	}
 
-	// Token: 0x06000334 RID: 820 RVA: 0x00014868 File Offset: 0x00012A68
+	// Token: 0x06000352 RID: 850 RVA: 0x00027480 File Offset: 0x00025680
 	public void FCall_MenuDrawer_MainMenu_OpenTry()
 	{
 		MenuDrawerScript.Open(MenuDrawerScript.Kind.mainMenu);
@@ -2023,7 +2025,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000335 RID: 821 RVA: 0x0001489A File Offset: 0x00012A9A
+	// Token: 0x06000353 RID: 851 RVA: 0x000088F4 File Offset: 0x00006AF4
 	public void FCall_MenuDrawer_MainMenu_CloseTry()
 	{
 		MainMenuScript.Close();
@@ -2034,7 +2036,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000336 RID: 822 RVA: 0x000148BC File Offset: 0x00012ABC
+	// Token: 0x06000354 RID: 852 RVA: 0x000274B4 File Offset: 0x000256B4
 	public void FCall_RewardBoxPickTry()
 	{
 		if (!RewardBoxScript.IsOpened())
@@ -2076,7 +2078,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000337 RID: 823 RVA: 0x0001498C File Offset: 0x00012B8C
+	// Token: 0x06000355 RID: 853 RVA: 0x00027584 File Offset: 0x00025784
 	public void FCall_Terminal_Login()
 	{
 		if (GameplayMaster.DeathCountdownHasStarted())
@@ -2086,7 +2088,7 @@ public class GameplayMaster : MonoBehaviour
 			return;
 		}
 		TerminalScript.SetState(TerminalScript.State.turnedOn_Request);
-		Sound.Play3D("SoundTerminalLogin", TerminalScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundTerminalLogin", TerminalScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		Controls.VibrationSet_PreferMax(this.player, 0.5f);
 		MemoScript.Close(false);
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.terminal, false, null);
@@ -2094,18 +2096,18 @@ public class GameplayMaster : MonoBehaviour
 		TerminalScript.instance.myMenuController.OpenMe();
 	}
 
-	// Token: 0x06000338 RID: 824 RVA: 0x00014A2C File Offset: 0x00012C2C
+	// Token: 0x06000356 RID: 854 RVA: 0x00027624 File Offset: 0x00025824
 	public void FCall_Terminal_Logout()
 	{
 		TerminalScript.SetState(TerminalScript.State.turnedOff_Request);
-		Sound.Play3D("SoundTerminalTurnOff", TerminalScript.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundTerminalTurnOff", TerminalScript.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		Controls.VibrationSet_PreferMax(this.player, 0.5f);
 		GameplayMaster.SetGamePhase(GameplayMaster.GamePhase.preparation, false, null);
 		CameraController.SetPosition(CameraController.PositionKind.Free, false, 1f);
 		TerminalScript.instance.myMenuController.Back();
 	}
 
-	// Token: 0x06000339 RID: 825 RVA: 0x00014A9C File Offset: 0x00012C9C
+	// Token: 0x06000357 RID: 855 RVA: 0x00008914 File Offset: 0x00006B14
 	public void FCall_Phone_Pickup()
 	{
 		PhoneScript.StateSet(PhoneScript.State.onIntro);
@@ -2113,38 +2115,38 @@ public class GameplayMaster : MonoBehaviour
 		PromptGuideScript.ForceClose(true);
 	}
 
-	// Token: 0x0600033A RID: 826 RVA: 0x00014AB7 File Offset: 0x00012CB7
+	// Token: 0x06000358 RID: 856 RVA: 0x0000892F File Offset: 0x00006B2F
 	public void FCall_Phone_Hangup()
 	{
 		PhoneScript.StateSet(PhoneScript.State.offNothing);
 		CameraController.SetPosition(CameraController.PositionKind.Free, false, 0f);
 	}
 
-	// Token: 0x0600033B RID: 827 RVA: 0x00014ACB File Offset: 0x00012CCB
+	// Token: 0x06000359 RID: 857 RVA: 0x00008943 File Offset: 0x00006B43
 	public void FCall_ToyPhone_Pickup()
 	{
 		ToyPhoneUIScript.instance.PickUp();
 	}
 
-	// Token: 0x0600033C RID: 828 RVA: 0x00014AD7 File Offset: 0x00012CD7
+	// Token: 0x0600035A RID: 858 RVA: 0x0000894F File Offset: 0x00006B4F
 	public void FCAll_ToyPhone_Hangup()
 	{
 		ToyPhoneUIScript.instance.HangUp();
 	}
 
-	// Token: 0x0600033D RID: 829 RVA: 0x00014AE3 File Offset: 0x00012CE3
+	// Token: 0x0600035B RID: 859 RVA: 0x0000895B File Offset: 0x00006B5B
 	public void FCall_MagazineRead()
 	{
 		MagazineUiScript.Open();
 	}
 
-	// Token: 0x0600033E RID: 830 RVA: 0x00014AEA File Offset: 0x00012CEA
+	// Token: 0x0600035C RID: 860 RVA: 0x00008962 File Offset: 0x00006B62
 	public void FCall_MagazineClose()
 	{
 		MagazineUiScript.Close(false);
 	}
 
-	// Token: 0x0600033F RID: 831 RVA: 0x00014AF4 File Offset: 0x00012CF4
+	// Token: 0x0600035D RID: 861 RVA: 0x00027694 File Offset: 0x00025894
 	public void FCall_WcMenuOpen()
 	{
 		ScreenMenuScript.Positioning positioning = ScreenMenuScript.Positioning.center;
@@ -2168,7 +2170,7 @@ public class GameplayMaster : MonoBehaviour
 		VirtualCursors.CursorDesiredVisibilitySet(0, true);
 	}
 
-	// Token: 0x06000340 RID: 832 RVA: 0x00014BD6 File Offset: 0x00012DD6
+	// Token: 0x0600035E RID: 862 RVA: 0x0000896A File Offset: 0x00006B6A
 	private void _WcScreenMenu_Piss()
 	{
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
@@ -2176,7 +2178,7 @@ public class GameplayMaster : MonoBehaviour
 		WCScript.StartAction(WCScript.ActionType.piss);
 	}
 
-	// Token: 0x06000341 RID: 833 RVA: 0x00014BEF File Offset: 0x00012DEF
+	// Token: 0x0600035F RID: 863 RVA: 0x00008983 File Offset: 0x00006B83
 	private void _WcScreenMenu_Poop()
 	{
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
@@ -2184,26 +2186,26 @@ public class GameplayMaster : MonoBehaviour
 		WCScript.StartAction(WCScript.ActionType.poop);
 	}
 
-	// Token: 0x06000342 RID: 834 RVA: 0x00014C08 File Offset: 0x00012E08
+	// Token: 0x06000360 RID: 864 RVA: 0x0000899C File Offset: 0x00006B9C
 	private void _WcScreenMenu_Cancel()
 	{
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
 		CameraController.DisableReason_Remove("WC");
 	}
 
-	// Token: 0x06000343 RID: 835 RVA: 0x00014C1B File Offset: 0x00012E1B
+	// Token: 0x06000361 RID: 865 RVA: 0x000089AF File Offset: 0x00006BAF
 	public void FCall_DeckBoxOpen()
 	{
 		DeckBoxUI.Open(GameplayData.RunModifier_AlreadyPicked() ? DeckBoxUI.UiKind.seeCollection : DeckBoxUI.UiKind.pickCardForTheRun);
 	}
 
-	// Token: 0x06000344 RID: 836 RVA: 0x00014C2D File Offset: 0x00012E2D
+	// Token: 0x06000362 RID: 866 RVA: 0x000089C1 File Offset: 0x00006BC1
 	public void FCall_DeckBoxClose()
 	{
 		DeckBoxUI.Close();
 	}
 
-	// Token: 0x06000345 RID: 837 RVA: 0x00014C34 File Offset: 0x00012E34
+	// Token: 0x06000363 RID: 867 RVA: 0x000089C8 File Offset: 0x00006BC8
 	private void Awake()
 	{
 		if (GameplayMaster.instance != null)
@@ -2216,7 +2218,7 @@ public class GameplayMaster : MonoBehaviour
 		this.unlockChecksCooldownTimer = 0.5f;
 	}
 
-	// Token: 0x06000346 RID: 838 RVA: 0x00014C68 File Offset: 0x00012E68
+	// Token: 0x06000364 RID: 868 RVA: 0x00027778 File Offset: 0x00025978
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -2335,7 +2337,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000347 RID: 839 RVA: 0x00014EAC File Offset: 0x000130AC
+	// Token: 0x06000365 RID: 869 RVA: 0x000089F9 File Offset: 0x00006BF9
 	private void OnDestroy()
 	{
 		if (GameplayMaster.instance == this)
@@ -2344,7 +2346,7 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000348 RID: 840 RVA: 0x00014EC4 File Offset: 0x000130C4
+	// Token: 0x06000366 RID: 870 RVA: 0x000279BC File Offset: 0x00025BBC
 	private void Update()
 	{
 		if (!Music.IsPlaying("SoundtrackLoopAmbience1") && this.gamePhase != GameplayMaster.GamePhase.endingWithoutDeath)
@@ -2517,185 +2519,286 @@ public class GameplayMaster : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000261 RID: 609
 	public static GameplayMaster instance;
 
+	// Token: 0x04000262 RID: 610
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000263 RID: 611
 	public const string EXTRA_INFOS_FROM_INTRO_DIALOGUE = "From Intro Dialogue";
 
+	// Token: 0x04000264 RID: 612
 	private const float DEATH_DIALOGUES_SELF_CLOSE_TIME = 5f;
 
+	// Token: 0x04000265 RID: 613
 	private const float DEATH_DIALOGUES_SELF_CLOSE_TIME_SHORT = 3f;
 
+	// Token: 0x04000266 RID: 614
 	private Controls.PlayerExt player;
 
+	// Token: 0x04000267 RID: 615
 	public GameObject deathRoomParticles;
 
+	// Token: 0x04000268 RID: 616
 	private int oldJoystickCount = -1;
 
+	// Token: 0x04000269 RID: 617
 	private int joysticDisconnectionCount = -1;
 
+	// Token: 0x0400026A RID: 618
 	private double timePlayed_SecondsTimer;
 
+	// Token: 0x0400026B RID: 619
 	private const int DEATH_COUNTDOWN_RESET = 5;
 
+	// Token: 0x0400026C RID: 620
 	private int deathCountDown = 5;
 
+	// Token: 0x0400026D RID: 621
 	private float deathCountDownTimer;
 
+	// Token: 0x0400026E RID: 622
 	private bool deathCountDownStarted;
 
+	// Token: 0x0400026F RID: 623
 	private bool deathCountDownResetRequest;
 
+	// Token: 0x04000270 RID: 624
 	private bool deathCDResetRequest_RoundsFlag;
 
+	// Token: 0x04000271 RID: 625
 	private GameplayMaster.GamePhase gamePhase = GameplayMaster.GamePhase.Undefined;
 
+	// Token: 0x04000272 RID: 626
 	private GameplayMaster.IntroCutscenePhase introCutscenePhase;
 
+	// Token: 0x04000273 RID: 627
 	private GameplayMaster.InterestsAndTicketsPhase interestsAndTicketsPhase = GameplayMaster.InterestsAndTicketsPhase.done;
 
+	// Token: 0x04000274 RID: 628
 	private bool interestsAwarded;
 
+	// Token: 0x04000275 RID: 629
 	private bool intAndTickets_ShakedTrapdoor;
 
+	// Token: 0x04000276 RID: 630
 	private float interestsAndTicketsTimer;
 
+	// Token: 0x04000277 RID: 631
 	private const float interestsAndTicketsTimerDelay = 0.5f;
 
+	// Token: 0x04000278 RID: 632
 	private bool _1RoundLeftWarned;
 
+	// Token: 0x04000279 RID: 633
 	private const float delayReset = 0.5f;
 
+	// Token: 0x0400027A RID: 634
 	private float delay = 0.5f;
 
+	// Token: 0x0400027B RID: 635
 	public static bool unlockPowerupFirstTimeDialogueBooked;
 
+	// Token: 0x0400027C RID: 636
 	private GameplayMaster.DeathStep deathStep;
 
+	// Token: 0x0400027D RID: 637
 	private float deathStepTimer;
 
+	// Token: 0x0400027E RID: 638
 	private bool _deathFadeOutTensionSound;
 
+	// Token: 0x0400027F RID: 639
 	private bool deathSaved;
 
+	// Token: 0x04000280 RID: 640
 	private GameplayMaster.EndingWithoutDeath_Phase endingWithoutDeath_Phase;
 
+	// Token: 0x04000281 RID: 641
 	private float glowLerpTime;
 
+	// Token: 0x04000282 RID: 642
 	private Color endingGlowColor = new Color(1f, 1f, 1f, 1f);
 
+	// Token: 0x04000283 RID: 643
 	private Coroutine endingCoroutine;
 
+	// Token: 0x04000284 RID: 644
 	private static bool _cranePackDialogueShown;
 
+	// Token: 0x04000285 RID: 645
 	public static int? specificSeedRequest_ForNewGame;
 
+	// Token: 0x04000286 RID: 646
 	private bool _isCustomSeedRun;
 
+	// Token: 0x04000287 RID: 647
 	private BigInteger _slotAnimationCoins_AnimationOnly = 0;
 
+	// Token: 0x04000288 RID: 648
 	public static bool drawerFromDemoUnlocked;
 
+	// Token: 0x04000289 RID: 649
 	private bool _endingFreeRoaming;
 
+	// Token: 0x0400028A RID: 650
 	private bool _endingGotoCreditsFlag;
 
+	// Token: 0x0400028B RID: 651
 	private bool _theDealIsOff_BookedDialogue;
 
+	// Token: 0x0400028C RID: 652
 	private bool _theDealIsOff_ByCoins;
 
+	// Token: 0x0400028D RID: 653
 	private static int spinsDoneSinceStartup;
 
+	// Token: 0x0400028E RID: 654
 	private static int deathsNumSinceStartup;
 
+	// Token: 0x0400028F RID: 655
 	public static bool restartQuickDeath;
 
+	// Token: 0x04000290 RID: 656
 	private static int provocativeSentencesCounter_PreGoodEnding;
 
+	// Token: 0x04000291 RID: 657
 	private static int provocativeSentencesCounter_AfterGoodEnding;
 
+	// Token: 0x04000292 RID: 658
 	private bool unlockCheckPerformed_PossessedPhone;
 
+	// Token: 0x04000293 RID: 659
 	private bool unlockCheckPerformed_EvilDeal;
 
+	// Token: 0x04000294 RID: 660
 	private bool unlockCheckPerformed_Wallet;
 
+	// Token: 0x04000295 RID: 661
 	private bool _twitchAffiliationMessageBooked;
 
+	// Token: 0x04000296 RID: 662
 	private static bool _failsafeTriggered_OverDeposit;
 
+	// Token: 0x04000297 RID: 663
 	private static bool _failsafeTriggered_NeverDeposited;
 
+	// Token: 0x04000298 RID: 664
 	private static bool _failsafeTriggered_NeverEquippedACharm;
 
+	// Token: 0x04000299 RID: 665
 	private bool _dataResetFlag;
 
+	// Token: 0x0400029A RID: 666
 	public GameplayMaster.Event onDeathLastChance;
 
+	// Token: 0x0400029B RID: 667
 	public GameplayMaster.Event onDeadlineBonus;
 
+	// Token: 0x0400029C RID: 668
 	public GameplayMaster.Event onDeadlineBonus_Late;
 
+	// Token: 0x0400029D RID: 669
 	private bool dialogueJustInterruptedTurnOn;
 
+	// Token: 0x0400029E RID: 670
 	private DiegeticMenuElement leverButton;
 
+	// Token: 0x0400029F RID: 671
 	private GameObject doorGameObject;
 
+	// Token: 0x040002A0 RID: 672
 	private float unlockChecksCooldownTimer;
 
+	// Token: 0x0200001B RID: 27
 	public enum GamePhase
 	{
+		// Token: 0x040002A2 RID: 674
 		intro,
+		// Token: 0x040002A3 RID: 675
 		cutscene,
+		// Token: 0x040002A4 RID: 676
 		tutorialObsolete,
+		// Token: 0x040002A5 RID: 677
 		preparation,
+		// Token: 0x040002A6 RID: 678
 		equipping,
+		// Token: 0x040002A7 RID: 679
 		gambling,
+		// Token: 0x040002A8 RID: 680
 		death,
+		// Token: 0x040002A9 RID: 681
 		endingWithoutDeath,
+		// Token: 0x040002AA RID: 682
 		closingGame,
+		// Token: 0x040002AB RID: 683
 		terminal,
+		// Token: 0x040002AC RID: 684
 		phone,
+		// Token: 0x040002AD RID: 685
 		Count,
+		// Token: 0x040002AE RID: 686
 		Undefined
 	}
 
+	// Token: 0x0200001C RID: 28
 	private enum IntroCutscenePhase
 	{
+		// Token: 0x040002B0 RID: 688
 		introDialogueOrDeckBox,
+		// Token: 0x040002B1 RID: 689
 		tutorial,
+		// Token: 0x040002B2 RID: 690
 		finalization,
+		// Token: 0x040002B3 RID: 691
 		done
 	}
 
+	// Token: 0x0200001D RID: 29
 	private enum InterestsAndTicketsPhase
 	{
+		// Token: 0x040002B5 RID: 693
 		beforeInterestsAndClovers,
+		// Token: 0x040002B6 RID: 694
 		interestsAtAtm,
+		// Token: 0x040002B7 RID: 695
 		cloverTickets,
+		// Token: 0x040002B8 RID: 696
 		cloverTicketsWait,
+		// Token: 0x040002B9 RID: 697
 		shakeTrapdoor_Optional,
+		// Token: 0x040002BA RID: 698
 		done
 	}
 
+	// Token: 0x0200001E RID: 30
 	public enum DeathStep
 	{
+		// Token: 0x040002BC RID: 700
 		lookAtAtm,
+		// Token: 0x040002BD RID: 701
 		lookAtTrapdoor,
+		// Token: 0x040002BE RID: 702
 		startFalling,
+		// Token: 0x040002BF RID: 703
 		falling,
+		// Token: 0x040002C0 RID: 704
 		done
 	}
 
+	// Token: 0x0200001F RID: 31
 	private enum EndingWithoutDeath_Phase
 	{
+		// Token: 0x040002C2 RID: 706
 		begin,
+		// Token: 0x040002C3 RID: 707
 		waitingCoroutine,
+		// Token: 0x040002C4 RID: 708
 		done
 	}
 
-	// (Invoke) Token: 0x060010E9 RID: 4329
+	// Token: 0x02000020 RID: 32
+	// (Invoke) Token: 0x06000369 RID: 873
 	public delegate void Event();
 }

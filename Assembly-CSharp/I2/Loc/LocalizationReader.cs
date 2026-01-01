@@ -6,9 +6,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x020001B1 RID: 433
 	public class LocalizationReader
 	{
-		// Token: 0x06000EE5 RID: 3813 RVA: 0x0005FC70 File Offset: 0x0005DE70
+		// Token: 0x060012A8 RID: 4776 RVA: 0x0007E1E4 File Offset: 0x0007C3E4
 		public static Dictionary<string, string> ReadTextAsset(TextAsset asset)
 		{
 			StringReader stringReader = new StringReader(Encoding.UTF8.GetString(asset.bytes, 0, asset.bytes.Length).Replace("\r\n", "\n").Replace("\r", "\n"));
@@ -29,7 +30,7 @@ namespace I2.Loc
 			return dictionary;
 		}
 
-		// Token: 0x06000EE6 RID: 3814 RVA: 0x0005FD00 File Offset: 0x0005DF00
+		// Token: 0x060012A9 RID: 4777 RVA: 0x0007E274 File Offset: 0x0007C474
 		public static bool TextAsset_ReadLine(string line, out string key, out string value, out string category, out string comment, out string termType)
 		{
 			key = string.Empty;
@@ -66,7 +67,7 @@ namespace I2.Loc
 			return true;
 		}
 
-		// Token: 0x06000EE7 RID: 3815 RVA: 0x0005FE0C File Offset: 0x0005E00C
+		// Token: 0x060012AA RID: 4778 RVA: 0x0007E380 File Offset: 0x0007C580
 		public static string ReadCSVfile(string Path, Encoding encoding)
 		{
 			string text = string.Empty;
@@ -79,7 +80,7 @@ namespace I2.Loc
 			return text;
 		}
 
-		// Token: 0x06000EE8 RID: 3816 RVA: 0x0005FE70 File Offset: 0x0005E070
+		// Token: 0x060012AB RID: 4779 RVA: 0x0007E3E4 File Offset: 0x0007C5E4
 		public static List<string[]> ReadCSV(string Text, char Separator = ',')
 		{
 			int i = 0;
@@ -96,7 +97,7 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000EE9 RID: 3817 RVA: 0x0005FEA8 File Offset: 0x0005E0A8
+		// Token: 0x060012AC RID: 4780 RVA: 0x0007E41C File Offset: 0x0007C61C
 		private static string[] ParseCSVline(string Line, ref int iStart, char Separator)
 		{
 			List<string> list = new List<string>();
@@ -147,7 +148,7 @@ namespace I2.Loc
 			return list.ToArray();
 		}
 
-		// Token: 0x06000EEA RID: 3818 RVA: 0x0005FF74 File Offset: 0x0005E174
+		// Token: 0x060012AD RID: 4781 RVA: 0x0007E4E8 File Offset: 0x0007C6E8
 		private static void AddCSVtoken(ref List<string> list, ref string Line, int iEnd, ref int iWordStart)
 		{
 			string text = Line.Substring(iWordStart, iEnd - iWordStart);
@@ -160,7 +161,7 @@ namespace I2.Loc
 			list.Add(text);
 		}
 
-		// Token: 0x06000EEB RID: 3819 RVA: 0x0005FFE4 File Offset: 0x0005E1E4
+		// Token: 0x060012AE RID: 4782 RVA: 0x0007E558 File Offset: 0x0007C758
 		public static List<string[]> ReadI2CSV(string Text)
 		{
 			string[] array = new string[] { "[*]" };
@@ -173,7 +174,7 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000EEC RID: 3820 RVA: 0x00060048 File Offset: 0x0005E248
+		// Token: 0x060012AF RID: 4783 RVA: 0x0007E5BC File Offset: 0x0007C7BC
 		public static void ValidateFullTerm(ref string Term)
 		{
 			Term = Term.Replace('\\', '/');
@@ -189,7 +190,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EED RID: 3821 RVA: 0x0006008A File Offset: 0x0005E28A
+		// Token: 0x060012B0 RID: 4784 RVA: 0x00014E0F File Offset: 0x0001300F
 		public static string EncodeString(string str)
 		{
 			if (string.IsNullOrEmpty(str))
@@ -199,7 +200,7 @@ namespace I2.Loc
 			return str.Replace("\r\n", "<\\n>").Replace("\r", "<\\n>").Replace("\n", "<\\n>");
 		}
 
-		// Token: 0x06000EEE RID: 3822 RVA: 0x000600C8 File Offset: 0x0005E2C8
+		// Token: 0x060012B1 RID: 4785 RVA: 0x00014E4D File Offset: 0x0001304D
 		public static string DecodeString(string str)
 		{
 			if (string.IsNullOrEmpty(str))

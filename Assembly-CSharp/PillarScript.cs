@@ -3,9 +3,10 @@ using Panik;
 using TMPro;
 using UnityEngine;
 
+// Token: 0x02000041 RID: 65
 public class PillarScript : MonoBehaviour
 {
-	// Token: 0x060003B8 RID: 952 RVA: 0x00019D84 File Offset: 0x00017F84
+	// Token: 0x0600041E RID: 1054 RVA: 0x0002D51C File Offset: 0x0002B71C
 	private void Start()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -67,7 +68,9 @@ public class PillarScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040003A4 RID: 932
 	public TextMeshPro numberText;
 
+	// Token: 0x040003A5 RID: 933
 	public int index;
 }

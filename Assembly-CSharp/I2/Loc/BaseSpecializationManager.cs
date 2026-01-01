@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x0200018F RID: 399
 	public class BaseSpecializationManager
 	{
-		// Token: 0x06000E30 RID: 3632 RVA: 0x00057774 File Offset: 0x00055974
+		// Token: 0x060011CC RID: 4556 RVA: 0x00075FC0 File Offset: 0x000741C0
 		public virtual void InitializeSpecializations()
 		{
 			this.mSpecializations = new string[]
@@ -26,7 +27,7 @@ namespace I2.Loc
 			};
 		}
 
-		// Token: 0x06000E31 RID: 3633 RVA: 0x00057883 File Offset: 0x00055A83
+		// Token: 0x060011CD RID: 4557 RVA: 0x0001485F File Offset: 0x00012A5F
 		public virtual string GetCurrentSpecialization()
 		{
 			if (this.mSpecializations == null)
@@ -36,13 +37,13 @@ namespace I2.Loc
 			return "PC";
 		}
 
-		// Token: 0x06000E32 RID: 3634 RVA: 0x00057898 File Offset: 0x00055A98
+		// Token: 0x060011CE RID: 4558 RVA: 0x00014874 File Offset: 0x00012A74
 		private bool IsTouchInputSupported()
 		{
 			return Input.touchSupported;
 		}
 
-		// Token: 0x06000E33 RID: 3635 RVA: 0x000578A0 File Offset: 0x00055AA0
+		// Token: 0x060011CF RID: 4559 RVA: 0x000760D0 File Offset: 0x000742D0
 		public virtual string GetFallbackSpecialization(string specialization)
 		{
 			if (this.mSpecializationsFallbacks == null)
@@ -57,8 +58,10 @@ namespace I2.Loc
 			return "Any";
 		}
 
+		// Token: 0x040012A9 RID: 4777
 		public string[] mSpecializations;
 
+		// Token: 0x040012AA RID: 4778
 		public Dictionary<string, string> mSpecializationsFallbacks;
 	}
 }

@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x020001E6 RID: 486
 	public class RegisterGlobalParameters : MonoBehaviour, ILocalizationParamsManager
 	{
-		// Token: 0x06001028 RID: 4136 RVA: 0x0006485D File Offset: 0x00062A5D
+		// Token: 0x0600141C RID: 5148 RVA: 0x00015787 File Offset: 0x00013987
 		public virtual void OnEnable()
 		{
 			if (!LocalizationManager.ParamManagers.Contains(this))
@@ -15,13 +16,13 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06001029 RID: 4137 RVA: 0x0006487D File Offset: 0x00062A7D
+		// Token: 0x0600141D RID: 5149 RVA: 0x000157A7 File Offset: 0x000139A7
 		public virtual void OnDisable()
 		{
 			LocalizationManager.ParamManagers.Remove(this);
 		}
 
-		// Token: 0x0600102A RID: 4138 RVA: 0x0006488B File Offset: 0x00062A8B
+		// Token: 0x0600141E RID: 5150 RVA: 0x000146FE File Offset: 0x000128FE
 		public virtual string GetParameterValue(string ParamName)
 		{
 			return null;

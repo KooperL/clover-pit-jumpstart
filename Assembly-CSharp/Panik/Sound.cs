@@ -4,10 +4,12 @@ using UnityEngine;
 
 namespace Panik
 {
+	// Token: 0x02000114 RID: 276
 	public static class Sound
 	{
-		// (get) Token: 0x06000B21 RID: 2849 RVA: 0x0004AE7A File Offset: 0x0004907A
-		// (set) Token: 0x06000B22 RID: 2850 RVA: 0x0004AE86 File Offset: 0x00049086
+		// Token: 0x1700009A RID: 154
+		// (get) Token: 0x06000D02 RID: 3330 RVA: 0x00010884 File Offset: 0x0000EA84
+		// (set) Token: 0x06000D03 RID: 3331 RVA: 0x00010890 File Offset: 0x0000EA90
 		private static float Volume
 		{
 			get
@@ -20,7 +22,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B23 RID: 2851 RVA: 0x0004AE94 File Offset: 0x00049094
+		// Token: 0x06000D04 RID: 3332 RVA: 0x00064E40 File Offset: 0x00063040
 		private static Sound.SoundCapsule GetSoundCapsule(AudioClip clip)
 		{
 			Sound.SoundCapsule soundCapsule;
@@ -45,13 +47,13 @@ namespace Panik
 			return soundCapsule;
 		}
 
-		// Token: 0x06000B24 RID: 2852 RVA: 0x0004AF87 File Offset: 0x00049187
+		// Token: 0x06000D05 RID: 3333 RVA: 0x0001089D File Offset: 0x0000EA9D
 		private static bool IsCapsuleOk(Sound.SoundCapsule capsule)
 		{
 			return capsule != null && !(capsule.myGameObject == null) && !(capsule.myAudioSource == null);
 		}
 
-		// Token: 0x06000B25 RID: 2853 RVA: 0x0004AFB0 File Offset: 0x000491B0
+		// Token: 0x06000D06 RID: 3334 RVA: 0x00064F34 File Offset: 0x00063134
 		private static void CheckListsForNullValues()
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -70,7 +72,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B26 RID: 2854 RVA: 0x0004B028 File Offset: 0x00049228
+		// Token: 0x06000D07 RID: 3335 RVA: 0x00064FAC File Offset: 0x000631AC
 		public static Sound.SoundCapsule _Play(AudioClip sound, bool _3d, Vector3 position, float distance3D, AudioRolloffMode rollOffMode, float vol, float pitch, bool pausable)
 		{
 			Sound.SoundCapsule soundCapsule = Sound.GetSoundCapsule(sound);
@@ -102,45 +104,45 @@ namespace Panik
 			return soundCapsule;
 		}
 
-		// Token: 0x06000B27 RID: 2855 RVA: 0x0004B11C File Offset: 0x0004931C
+		// Token: 0x06000D08 RID: 3336 RVA: 0x000108C5 File Offset: 0x0000EAC5
 		public static Sound.SoundCapsule Play(string soundName, float vol = 1f, float pitch = 1f)
 		{
-			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, 1, vol, pitch, true);
+			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, AudioRolloffMode.Linear, vol, pitch, true);
 		}
 
-		// Token: 0x06000B28 RID: 2856 RVA: 0x0004B138 File Offset: 0x00049338
+		// Token: 0x06000D09 RID: 3337 RVA: 0x000108E1 File Offset: 0x0000EAE1
 		public static Sound.SoundCapsule Play_Unpausable(string soundName, float vol = 1f, float pitch = 1f)
 		{
-			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, 1, vol, pitch, false);
+			return Sound._Play(AssetMaster.GetSound(soundName), false, Vector3.zero, 10f, AudioRolloffMode.Linear, vol, pitch, false);
 		}
 
-		// Token: 0x06000B29 RID: 2857 RVA: 0x0004B154 File Offset: 0x00049354
-		public static Sound.SoundCapsule Play3D(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = 1)
+		// Token: 0x06000D0A RID: 3338 RVA: 0x000108FD File Offset: 0x0000EAFD
+		public static Sound.SoundCapsule Play3D(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = AudioRolloffMode.Linear)
 		{
 			return Sound._Play(AssetMaster.GetSound(soundName), true, position, distance3D, rollOffMode, vol, pitch, true);
 		}
 
-		// Token: 0x06000B2A RID: 2858 RVA: 0x0004B16A File Offset: 0x0004936A
-		public static Sound.SoundCapsule Play3D_Unpausable(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = 1)
+		// Token: 0x06000D0B RID: 3339 RVA: 0x00010913 File Offset: 0x0000EB13
+		public static Sound.SoundCapsule Play3D_Unpausable(string soundName, Vector3 position, float distance3D, float vol = 1f, float pitch = 1f, AudioRolloffMode rollOffMode = AudioRolloffMode.Linear)
 		{
 			return Sound._Play(AssetMaster.GetSound(soundName), true, position, distance3D, rollOffMode, vol, pitch, false);
 		}
 
-		// Token: 0x06000B2B RID: 2859 RVA: 0x0004B180 File Offset: 0x00049380
+		// Token: 0x06000D0C RID: 3340 RVA: 0x00010929 File Offset: 0x0000EB29
 		public static Sound.SoundCapsule PlayDelayed(string soundName, float delay, float vol = 1f, float pitch = 1f)
 		{
 			Sound.tempDelayVar = delay;
 			return Sound.Play(soundName, vol, pitch);
 		}
 
-		// Token: 0x06000B2C RID: 2860 RVA: 0x0004B190 File Offset: 0x00049390
+		// Token: 0x06000D0D RID: 3341 RVA: 0x00010939 File Offset: 0x0000EB39
 		public static Sound.SoundCapsule PlayDelayed_Unpausable(string soundName, float delay, float vol = 1f, float pitch = 1f)
 		{
 			Sound.tempDelayVar = delay;
 			return Sound.Play_Unpausable(soundName, vol, pitch);
 		}
 
-		// Token: 0x06000B2D RID: 2861 RVA: 0x0004B1A0 File Offset: 0x000493A0
+		// Token: 0x06000D0E RID: 3342 RVA: 0x000650A0 File Offset: 0x000632A0
 		private static void _Stop(int index)
 		{
 			Sound.soundCapsulesPlaying[index].myAudioSource.Stop();
@@ -150,7 +152,7 @@ namespace Panik
 			Sound.soundCapsulesPlaying.RemoveAt(index);
 		}
 
-		// Token: 0x06000B2E RID: 2862 RVA: 0x0004B20C File Offset: 0x0004940C
+		// Token: 0x06000D0F RID: 3343 RVA: 0x0006510C File Offset: 0x0006330C
 		public static void Stop(string clipName, bool stopAllSoundsWithSameName = true)
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -166,7 +168,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B2F RID: 2863 RVA: 0x0004B268 File Offset: 0x00049468
+		// Token: 0x06000D10 RID: 3344 RVA: 0x00065168 File Offset: 0x00063368
 		public static void StopAll()
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -178,7 +180,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B30 RID: 2864 RVA: 0x0004B2A4 File Offset: 0x000494A4
+		// Token: 0x06000D11 RID: 3345 RVA: 0x000651A4 File Offset: 0x000633A4
 		public static Sound.SoundCapsule Find(string clipName)
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -191,7 +193,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000B31 RID: 2865 RVA: 0x0004B30C File Offset: 0x0004950C
+		// Token: 0x06000D12 RID: 3346 RVA: 0x0006520C File Offset: 0x0006340C
 		public static Sound.SoundCapsule FindUnpaused(string clipName)
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -204,7 +206,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000B32 RID: 2866 RVA: 0x0004B384 File Offset: 0x00049584
+		// Token: 0x06000D13 RID: 3347 RVA: 0x00065284 File Offset: 0x00063484
 		public static Sound.SoundCapsule FindPaused(string clipName)
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -217,7 +219,7 @@ namespace Panik
 			return null;
 		}
 
-		// Token: 0x06000B33 RID: 2867 RVA: 0x0004B3FC File Offset: 0x000495FC
+		// Token: 0x06000D14 RID: 3348 RVA: 0x000652FC File Offset: 0x000634FC
 		public static bool _IsPlaying(string clipName, bool returnTrueIfPausedSoundIsFound)
 		{
 			for (int i = Sound.soundCapsulesPlaying.Count - 1; i >= 0; i--)
@@ -230,19 +232,19 @@ namespace Panik
 			return false;
 		}
 
-		// Token: 0x06000B34 RID: 2868 RVA: 0x0004B497 File Offset: 0x00049697
+		// Token: 0x06000D15 RID: 3349 RVA: 0x00010949 File Offset: 0x0000EB49
 		public static bool IsPlaying(string clipName)
 		{
 			return Sound._IsPlaying(clipName, false);
 		}
 
-		// Token: 0x06000B35 RID: 2869 RVA: 0x0004B4A0 File Offset: 0x000496A0
+		// Token: 0x06000D16 RID: 3350 RVA: 0x00010952 File Offset: 0x0000EB52
 		public static bool IsPlayingOrPaused(string clipName)
 		{
 			return Sound._IsPlaying(clipName, true);
 		}
 
-		// Token: 0x06000B36 RID: 2870 RVA: 0x0004B4AC File Offset: 0x000496AC
+		// Token: 0x06000D17 RID: 3351 RVA: 0x00065398 File Offset: 0x00063598
 		public static float GetVolumeFinal(Sound.SoundCapsule capsule)
 		{
 			if (capsule == null)
@@ -252,14 +254,15 @@ namespace Panik
 			return capsule.localVolume * Sound.Volume * Sound.volumeFade * 0.75f * Data.settings.volumeMaster;
 		}
 
-		// Token: 0x06000B37 RID: 2871 RVA: 0x0004B4FC File Offset: 0x000496FC
+		// Token: 0x06000D18 RID: 3352 RVA: 0x0001095B File Offset: 0x0000EB5B
 		private static void _ApplyVolumeToSoundCapsule(Sound.SoundCapsule capsule)
 		{
 			capsule.myAudioSource.volume = capsule.localVolume * Sound.Volume * Sound.volumeFade * 0.75f * Data.settings.volumeMaster;
 		}
 
-		// (get) Token: 0x06000B38 RID: 2872 RVA: 0x0004B52C File Offset: 0x0004972C
-		// (set) Token: 0x06000B39 RID: 2873 RVA: 0x0004B533 File Offset: 0x00049733
+		// Token: 0x1700009B RID: 155
+		// (get) Token: 0x06000D19 RID: 3353 RVA: 0x0001098B File Offset: 0x0000EB8B
+		// (set) Token: 0x06000D1A RID: 3354 RVA: 0x00010992 File Offset: 0x0000EB92
 		public static float VolumeMain
 		{
 			get
@@ -272,51 +275,51 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B3A RID: 2874 RVA: 0x0004B53B File Offset: 0x0004973B
+		// Token: 0x06000D1B RID: 3355 RVA: 0x00010992 File Offset: 0x0000EB92
 		public static void SetVolumeMain(float val)
 		{
 			Sound.Volume = val;
 		}
 
-		// Token: 0x06000B3B RID: 2875 RVA: 0x0004B543 File Offset: 0x00049743
+		// Token: 0x06000D1C RID: 3356 RVA: 0x0001098B File Offset: 0x0000EB8B
 		public static float GetVolumeMain()
 		{
 			return Sound.Volume;
 		}
 
-		// Token: 0x06000B3C RID: 2876 RVA: 0x0004B54A File Offset: 0x0004974A
+		// Token: 0x06000D1D RID: 3357 RVA: 0x0001099A File Offset: 0x0000EB9A
 		public static void SetVolumeFade(float val, float changeSpeed)
 		{
 			Sound.volumeFadeTo = val;
 			Sound.volumeFadeSpeed = changeSpeed;
 		}
 
-		// Token: 0x06000B3D RID: 2877 RVA: 0x0004B558 File Offset: 0x00049758
+		// Token: 0x06000D1E RID: 3358 RVA: 0x000109A8 File Offset: 0x0000EBA8
 		public static void SetVolumeFadeInstant(float val)
 		{
 			Sound.volumeFade = val;
 			Sound.volumeFadeTo = val;
 		}
 
-		// Token: 0x06000B3E RID: 2878 RVA: 0x0004B566 File Offset: 0x00049766
+		// Token: 0x06000D1F RID: 3359 RVA: 0x000109B6 File Offset: 0x0000EBB6
 		public static float GetVolumeFade()
 		{
 			return Sound.volumeFade;
 		}
 
-		// Token: 0x06000B3F RID: 2879 RVA: 0x0004B56D File Offset: 0x0004976D
+		// Token: 0x06000D20 RID: 3360 RVA: 0x000109BD File Offset: 0x0000EBBD
 		public static float GetVolumeFadeTarget()
 		{
 			return Sound.volumeFadeTo;
 		}
 
-		// Token: 0x06000B40 RID: 2880 RVA: 0x0004B574 File Offset: 0x00049774
+		// Token: 0x06000D21 RID: 3361 RVA: 0x000109C4 File Offset: 0x0000EBC4
 		public static float GetVolumeFadeChangeSpeed()
 		{
 			return Sound.volumeFadeSpeed;
 		}
 
-		// Token: 0x06000B41 RID: 2881 RVA: 0x0004B57C File Offset: 0x0004977C
+		// Token: 0x06000D22 RID: 3362 RVA: 0x000653E8 File Offset: 0x000635E8
 		public static void Routine()
 		{
 			Sound.CheckListsForNullValues();
@@ -381,37 +384,52 @@ namespace Panik
 			}
 		}
 
+		// Token: 0x04000DB4 RID: 3508
 		public const float DIST_SMALLEST_FOR_REAL = 3f;
 
+		// Token: 0x04000DB5 RID: 3509
 		public const float DIST_SMALLEST = 5f;
 
+		// Token: 0x04000DB6 RID: 3510
 		public const float DIST_SMALL = 10f;
 
+		// Token: 0x04000DB7 RID: 3511
 		public const float DIST_MEDIUM = 20f;
 
+		// Token: 0x04000DB8 RID: 3512
 		public const float DIST_HIGH = 30f;
 
+		// Token: 0x04000DB9 RID: 3513
 		private const float VOLUME_ADJUST = 0.75f;
 
+		// Token: 0x04000DBA RID: 3514
 		private static float volumeFade = 1f;
 
+		// Token: 0x04000DBB RID: 3515
 		private static float volumeFadeTo = 1f;
 
+		// Token: 0x04000DBC RID: 3516
 		private static float volumeFadeSpeed = 1f;
 
+		// Token: 0x04000DBD RID: 3517
 		public static bool pausableByGame = true;
 
+		// Token: 0x04000DBE RID: 3518
 		private static List<Sound.SoundCapsule> soundCapsulesPool = new List<Sound.SoundCapsule>();
 
+		// Token: 0x04000DBF RID: 3519
 		public static List<Sound.SoundCapsule> soundCapsulesPlaying = new List<Sound.SoundCapsule>();
 
+		// Token: 0x04000DC0 RID: 3520
 		private static float tempDelayVar = 0f;
 
+		// Token: 0x04000DC1 RID: 3521
 		private static List<Sound.SoundCapsule> delayedSounds = new List<Sound.SoundCapsule>();
 
+		// Token: 0x02000115 RID: 277
 		public class SoundCapsule
 		{
-			// Token: 0x060012A8 RID: 4776 RVA: 0x00077168 File Offset: 0x00075368
+			// Token: 0x06000D24 RID: 3364 RVA: 0x00065628 File Offset: 0x00063828
 			public SoundCapsule(AudioClip sound)
 			{
 				this.myGameObject = new GameObject();
@@ -421,7 +439,7 @@ namespace Panik
 				this.myAudioSource.clip = sound;
 			}
 
-			// Token: 0x060012A9 RID: 4777 RVA: 0x000771EC File Offset: 0x000753EC
+			// Token: 0x06000D25 RID: 3365 RVA: 0x000656AC File Offset: 0x000638AC
 			~SoundCapsule()
 			{
 				if (this.myGameObject != null)
@@ -430,7 +448,7 @@ namespace Panik
 				}
 			}
 
-			// Token: 0x060012AA RID: 4778 RVA: 0x0007722C File Offset: 0x0007542C
+			// Token: 0x06000D26 RID: 3366 RVA: 0x000109CB File Offset: 0x0000EBCB
 			public void StopRequest()
 			{
 				this.myAudioSource.Stop();
@@ -438,22 +456,31 @@ namespace Panik
 				this.soundLife = 0f;
 			}
 
+			// Token: 0x04000DC2 RID: 3522
 			public float delayTimer;
 
+			// Token: 0x04000DC3 RID: 3523
 			public bool doneDelay;
 
+			// Token: 0x04000DC4 RID: 3524
 			public GameObject myGameObject;
 
+			// Token: 0x04000DC5 RID: 3525
 			public AudioSource myAudioSource;
 
+			// Token: 0x04000DC6 RID: 3526
 			public bool pausable = true;
 
+			// Token: 0x04000DC7 RID: 3527
 			public bool paused;
 
+			// Token: 0x04000DC8 RID: 3528
 			public float localVolume = 1f;
 
+			// Token: 0x04000DC9 RID: 3529
 			public float soundLife;
 
+			// Token: 0x04000DCA RID: 3530
 			public AudioClip clip;
 		}
 	}

@@ -3,9 +3,10 @@ using UnityEngine.Networking;
 
 namespace I2.Loc
 {
+	// Token: 0x0200019D RID: 413
 	public class TranslationJob_WWW : TranslationJob
 	{
-		// Token: 0x06000E6E RID: 3694 RVA: 0x0005C7A4 File Offset: 0x0005A9A4
+		// Token: 0x0600121A RID: 4634 RVA: 0x000149CD File Offset: 0x00012BCD
 		public override void Dispose()
 		{
 			if (this.www != null)
@@ -15,6 +16,7 @@ namespace I2.Loc
 			this.www = null;
 		}
 
+		// Token: 0x040012CD RID: 4813
 		public UnityWebRequest www;
 	}
 }

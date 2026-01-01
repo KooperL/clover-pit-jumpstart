@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using Panik;
 using UnityEngine;
 
+// Token: 0x0200000D RID: 13
 public class CameraPostProcessController : MonoBehaviour
 {
-	// Token: 0x06000051 RID: 81 RVA: 0x00006344 File Offset: 0x00004544
+	// Token: 0x0600005C RID: 92 RVA: 0x00019DA0 File Offset: 0x00017FA0
 	public static CameraPostProcessController GetTopmostCamera()
 	{
 		CameraPostProcessController cameraPostProcessController = null;
@@ -21,27 +22,27 @@ public class CameraPostProcessController : MonoBehaviour
 		return cameraPostProcessController;
 	}
 
-	// Token: 0x06000052 RID: 82 RVA: 0x000063B4 File Offset: 0x000045B4
+	// Token: 0x0600005D RID: 93 RVA: 0x00007812 File Offset: 0x00005A12
 	private void Awake()
 	{
 		this.myCamera = base.GetComponent<Camera>();
 	}
 
-	// Token: 0x06000053 RID: 83 RVA: 0x000063C2 File Offset: 0x000045C2
+	// Token: 0x0600005E RID: 94 RVA: 0x00007820 File Offset: 0x00005A20
 	private void OnEnable()
 	{
 		CameraPostProcessController.list.Add(this);
 		CameraPostProcessController.topMostCameraChached = null;
 	}
 
-	// Token: 0x06000054 RID: 84 RVA: 0x000063D5 File Offset: 0x000045D5
+	// Token: 0x0600005F RID: 95 RVA: 0x00007833 File Offset: 0x00005A33
 	private void OnDisable()
 	{
 		CameraPostProcessController.list.Remove(this);
 		CameraPostProcessController.topMostCameraChached = null;
 	}
 
-	// Token: 0x06000055 RID: 85 RVA: 0x000063E9 File Offset: 0x000045E9
+	// Token: 0x06000060 RID: 96 RVA: 0x00007847 File Offset: 0x00005A47
 	private void Update()
 	{
 		if (CameraPostProcessController.topMostCameraChached == null)
@@ -50,7 +51,7 @@ public class CameraPostProcessController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000056 RID: 86 RVA: 0x00006404 File Offset: 0x00004604
+	// Token: 0x06000061 RID: 97 RVA: 0x00019E10 File Offset: 0x00018010
 	private void OnRenderImage(RenderTexture src, RenderTexture dest)
 	{
 		if (CameraPostProcessController.topMostCameraChached != this)
@@ -71,11 +72,15 @@ public class CameraPostProcessController : MonoBehaviour
 		RenderingMaster.instance._OnRenderImage(src, dest);
 	}
 
+	// Token: 0x040000C7 RID: 199
 	public static List<CameraPostProcessController> list = new List<CameraPostProcessController>();
 
+	// Token: 0x040000C8 RID: 200
 	public static CameraPostProcessController topMostCameraChached = null;
 
+	// Token: 0x040000C9 RID: 201
 	private Camera myCamera;
 
+	// Token: 0x040000CA RID: 202
 	private bool errorDisplayed_RenderingMasterNotAvailable;
 }

@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x02000184 RID: 388
 	public class CallbackNotification : MonoBehaviour
 	{
-		// Token: 0x06000DFD RID: 3581 RVA: 0x00056C4C File Offset: 0x00054E4C
+		// Token: 0x06001199 RID: 4505 RVA: 0x00075718 File Offset: 0x00073918
 		public void OnModifyLocalization()
 		{
 			if (string.IsNullOrEmpty(Localize.MainTranslation))

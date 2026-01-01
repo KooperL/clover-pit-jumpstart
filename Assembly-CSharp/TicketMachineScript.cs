@@ -5,9 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x02000084 RID: 132
 public class TicketMachineScript : MonoBehaviour
 {
-	// Token: 0x06000799 RID: 1945 RVA: 0x00031FF8 File Offset: 0x000301F8
+	// Token: 0x06000892 RID: 2194 RVA: 0x0004911C File Offset: 0x0004731C
 	private void SetAnimation(string animTicket)
 	{
 		this.currentAnim = animTicket;
@@ -16,19 +17,19 @@ public class TicketMachineScript : MonoBehaviour
 		this.doneAnimating = animTicket == "Idle";
 	}
 
-	// Token: 0x0600079A RID: 1946 RVA: 0x0003204F File Offset: 0x0003024F
+	// Token: 0x06000893 RID: 2195 RVA: 0x0000CC98 File Offset: 0x0000AE98
 	private bool IsAnimation(string animTicket)
 	{
 		return this.currentAnim == animTicket;
 	}
 
-	// Token: 0x0600079B RID: 1947 RVA: 0x0003205D File Offset: 0x0003025D
+	// Token: 0x06000894 RID: 2196 RVA: 0x0000CCA6 File Offset: 0x0000AEA6
 	private bool IsAnimationDone()
 	{
 		return this.doneAnimating;
 	}
 
-	// Token: 0x0600079C RID: 1948 RVA: 0x00032068 File Offset: 0x00030268
+	// Token: 0x06000895 RID: 2197 RVA: 0x00049174 File Offset: 0x00047374
 	private string AnimationGetByIndex(int index)
 	{
 		switch (index)
@@ -61,13 +62,13 @@ public class TicketMachineScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600079D RID: 1949 RVA: 0x00032106 File Offset: 0x00030306
+	// Token: 0x06000896 RID: 2198 RVA: 0x0000CCAE File Offset: 0x0000AEAE
 	public static bool IsTicketMachineRunning()
 	{
 		return !(TicketMachineScript.instance == null) && !TicketMachineScript.instance.IsAnimation("Idle");
 	}
 
-	// Token: 0x0600079E RID: 1950 RVA: 0x00032129 File Offset: 0x00030329
+	// Token: 0x06000897 RID: 2199 RVA: 0x0000CCD1 File Offset: 0x0000AED1
 	private static void TicketMachineRun(int ticketsN)
 	{
 		if (TicketMachineScript.instance == null)
@@ -82,7 +83,7 @@ public class TicketMachineScript : MonoBehaviour
 		TicketMachineScript.instance.StartCoroutine(TicketMachineScript.instance.TicketMachineRunCoroutine(ticketsN));
 	}
 
-	// Token: 0x0600079F RID: 1951 RVA: 0x00032167 File Offset: 0x00030367
+	// Token: 0x06000898 RID: 2200 RVA: 0x0000CD0F File Offset: 0x0000AF0F
 	private IEnumerator TicketMachineRunCoroutine(int ticketsN)
 	{
 		GameplayMaster.GamePhase gamePhase = GameplayMaster.GetGamePhase();
@@ -93,7 +94,7 @@ public class TicketMachineScript : MonoBehaviour
 		}
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundTicketMachineRunning", base.transform.position, 10f, 1f, 2f, 1);
+			Sound.Play3D("SoundTicketMachineRunning", base.transform.position, 10f, 1f, 2f, AudioRolloffMode.Linear);
 		}
 		ticketsN = Mathf.Clamp(ticketsN, 1, 10);
 		this.SetAnimation(this.AnimationGetByIndex(ticketsN));
@@ -113,7 +114,7 @@ public class TicketMachineScript : MonoBehaviour
 		}
 		if (gamePhase != GameplayMaster.GamePhase.intro)
 		{
-			Sound.Play3D("SoundTicketsRetrieve", base.transform.position, 10f, 1f, 1f, 1);
+			Sound.Play3D("SoundTicketsRetrieve", base.transform.position, 10f, 1f, 1f, AudioRolloffMode.Linear);
 		}
 		timer = 0.2f;
 		while (timer > 0f)
@@ -132,27 +133,27 @@ public class TicketMachineScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007A0 RID: 1952 RVA: 0x0003217D File Offset: 0x0003037D
+	// Token: 0x06000899 RID: 2201 RVA: 0x0000CD25 File Offset: 0x0000AF25
 	private void TranslateText()
 	{
 		this.titleText.text = Translation.Get("TICKET_MACHINE_TITLE");
 	}
 
-	// Token: 0x060007A1 RID: 1953 RVA: 0x00032194 File Offset: 0x00030394
+	// Token: 0x0600089A RID: 2202 RVA: 0x0000CD3C File Offset: 0x0000AF3C
 	private void Awake()
 	{
 		TicketMachineScript.instance = this;
 		this.myAnimator = base.GetComponentInChildren<Animator>();
 	}
 
-	// Token: 0x060007A2 RID: 1954 RVA: 0x000321A8 File Offset: 0x000303A8
+	// Token: 0x0600089B RID: 2203 RVA: 0x0000CD50 File Offset: 0x0000AF50
 	private void Start()
 	{
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.TranslateText));
 		this.TranslateText();
 	}
 
-	// Token: 0x060007A3 RID: 1955 RVA: 0x000321D0 File Offset: 0x000303D0
+	// Token: 0x0600089C RID: 2204 RVA: 0x0000CD78 File Offset: 0x0000AF78
 	private void OnDestroy()
 	{
 		if (TicketMachineScript.instance == this)
@@ -162,7 +163,7 @@ public class TicketMachineScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.TranslateText));
 	}
 
-	// Token: 0x060007A4 RID: 1956 RVA: 0x00032208 File Offset: 0x00030408
+	// Token: 0x0600089D RID: 2205 RVA: 0x00049214 File Offset: 0x00047414
 	private void LateUpdate()
 	{
 		if (!Tick.IsGameRunning)
@@ -193,43 +194,63 @@ public class TicketMachineScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x0400083F RID: 2111
 	public static TicketMachineScript instance;
 
+	// Token: 0x04000840 RID: 2112
 	public const float ANIM_SPD = 2f;
 
+	// Token: 0x04000841 RID: 2113
 	public const string ANIM_IDLE = "Idle";
 
+	// Token: 0x04000842 RID: 2114
 	public const string ANIM_TICKET_1 = "Ticket 1_001";
 
+	// Token: 0x04000843 RID: 2115
 	public const string ANIM_TICKET_2 = "Ticket 2_001";
 
+	// Token: 0x04000844 RID: 2116
 	public const string ANIM_TICKET_3 = "Ticket 3_001";
 
+	// Token: 0x04000845 RID: 2117
 	public const string ANIM_TICKET_4 = "Ticket 4_001";
 
+	// Token: 0x04000846 RID: 2118
 	public const string ANIM_TICKET_5 = "Ticket 5_001";
 
+	// Token: 0x04000847 RID: 2119
 	public const string ANIM_TICKET_6 = "Ticket 6_001";
 
+	// Token: 0x04000848 RID: 2120
 	public const string ANIM_TICKET_7 = "Ticket 7_001";
 
+	// Token: 0x04000849 RID: 2121
 	public const string ANIM_TICKET_8 = "Ticket 8_001";
 
+	// Token: 0x0400084A RID: 2122
 	public const string ANIM_TICKET_9 = "Ticket 9";
 
+	// Token: 0x0400084B RID: 2123
 	public const string ANIM_TICKET_10 = "Ticket 10";
 
+	// Token: 0x0400084C RID: 2124
 	private Animator myAnimator;
 
+	// Token: 0x0400084D RID: 2125
 	public TextMeshPro titleText;
 
+	// Token: 0x0400084E RID: 2126
 	private string currentAnim = "";
 
+	// Token: 0x0400084F RID: 2127
 	private float animTimer;
 
+	// Token: 0x04000850 RID: 2128
 	private bool doneAnimating;
 
+	// Token: 0x04000851 RID: 2129
 	private bool _running;
 
+	// Token: 0x04000852 RID: 2130
 	private long cloverTicketsOld = 2L;
 }

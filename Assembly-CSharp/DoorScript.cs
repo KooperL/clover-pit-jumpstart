@@ -3,21 +3,22 @@ using System.Collections;
 using Panik;
 using UnityEngine;
 
+// Token: 0x0200004E RID: 78
 public class DoorScript : MonoBehaviour
 {
-	// Token: 0x06000430 RID: 1072 RVA: 0x0001C615 File Offset: 0x0001A815
+	// Token: 0x060004A6 RID: 1190 RVA: 0x00009529 File Offset: 0x00007729
 	public static bool IsInConditionToUnlock()
 	{
 		return RewardBoxScript.GetRewardKind() == RewardBoxScript.RewardKind.DoorKey && RewardBoxScript.IsOpened() && !RewardBoxScript.HasPrize() && !GameplayData.PrizeWasUsedGet();
 	}
 
-	// Token: 0x06000431 RID: 1073 RVA: 0x0001C639 File Offset: 0x0001A839
+	// Token: 0x060004A7 RID: 1191 RVA: 0x0000954D File Offset: 0x0000774D
 	public static bool OpenTry()
 	{
 		return DoorScript.IsInConditionToUnlock();
 	}
 
-	// Token: 0x06000432 RID: 1074 RVA: 0x0001C645 File Offset: 0x0001A845
+	// Token: 0x060004A8 RID: 1192 RVA: 0x00009559 File Offset: 0x00007759
 	public static void DoorKnockPlay_Try()
 	{
 		if (Data.game.jumperinoScarinoDoorino_DoneOnce && global::UnityEngine.Random.value > 0.3f)
@@ -28,7 +29,7 @@ public class DoorScript : MonoBehaviour
 		DoorScript.instance.StartCoroutine(DoorScript.instance.DoorKnockCoroutine());
 	}
 
-	// Token: 0x06000433 RID: 1075 RVA: 0x0001C680 File Offset: 0x0001A880
+	// Token: 0x060004A9 RID: 1193 RVA: 0x00009594 File Offset: 0x00007794
 	private IEnumerator DoorKnockCoroutine()
 	{
 		float timer = global::UnityEngine.Random.Range(1.75f, 3f);
@@ -40,7 +41,7 @@ public class DoorScript : MonoBehaviour
 			}
 			yield return null;
 		}
-		Sound.Play3D("SoundDoorKnock", base.transform.position + new Vector3(0f, 6f, 0f), 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundDoorKnock", base.transform.position + new Vector3(0f, 6f, 0f), 20f, 1f, 1f, AudioRolloffMode.Linear);
 		CameraGame.Shake(2f);
 		timer = 0.25f;
 		while (timer > 0f)
@@ -69,14 +70,14 @@ public class DoorScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000434 RID: 1076 RVA: 0x0001C68F File Offset: 0x0001A88F
+	// Token: 0x060004AA RID: 1194 RVA: 0x000095A3 File Offset: 0x000077A3
 	private void Awake()
 	{
 		DoorScript.instance = this;
 		this.startPos = base.transform.position;
 	}
 
-	// Token: 0x06000435 RID: 1077 RVA: 0x0001C6A8 File Offset: 0x0001A8A8
+	// Token: 0x060004AB RID: 1195 RVA: 0x000095BC File Offset: 0x000077BC
 	private void OnDestroy()
 	{
 		if (DoorScript.instance == this)
@@ -85,7 +86,9 @@ public class DoorScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x0400044A RID: 1098
 	public static DoorScript instance;
 
+	// Token: 0x0400044B RID: 1099
 	private Vector3 startPos;
 }

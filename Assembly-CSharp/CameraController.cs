@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000007 RID: 7
 public class CameraController : MonoBehaviour
 {
-	// Token: 0x0600001C RID: 28 RVA: 0x00002B3C File Offset: 0x00000D3C
+	// Token: 0x06000021 RID: 33 RVA: 0x00016830 File Offset: 0x00014A30
 	public static void SetPosition(CameraController.PositionKind kind, bool instant, float lerpSpeedMultiplier)
 	{
 		CameraController.instance.positionKind = kind;
@@ -139,19 +140,19 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600001D RID: 29 RVA: 0x00003007 File Offset: 0x00001207
+	// Token: 0x06000022 RID: 34 RVA: 0x000073F3 File Offset: 0x000055F3
 	public static CameraController.PositionKind GetPositionKind()
 	{
 		return CameraController.instance.positionKind;
 	}
 
-	// Token: 0x0600001E RID: 30 RVA: 0x00003013 File Offset: 0x00001213
+	// Token: 0x06000023 RID: 35 RVA: 0x000073FF File Offset: 0x000055FF
 	public static Transform GetTargetTransform()
 	{
 		return CameraController.instance.targetTransform;
 	}
 
-	// Token: 0x0600001F RID: 31 RVA: 0x0000301F File Offset: 0x0000121F
+	// Token: 0x06000024 RID: 36 RVA: 0x0000740B File Offset: 0x0000560B
 	public static void DisableReason_Add(string reason)
 	{
 		if (CameraController.instance == null)
@@ -164,7 +165,7 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000020 RID: 32 RVA: 0x00003051 File Offset: 0x00001251
+	// Token: 0x06000025 RID: 37 RVA: 0x0000743D File Offset: 0x0000563D
 	public static void DisableReason_Remove(string reason)
 	{
 		if (CameraController.instance == null)
@@ -174,25 +175,25 @@ public class CameraController : MonoBehaviour
 		CameraController.instance.disableReasons.Remove(reason);
 	}
 
-	// Token: 0x06000021 RID: 33 RVA: 0x00003072 File Offset: 0x00001272
+	// Token: 0x06000026 RID: 38 RVA: 0x0000745E File Offset: 0x0000565E
 	public static bool HasDisabledReasons()
 	{
 		return !(CameraController.instance == null) && CameraController.instance.disableReasons.Count > 0;
 	}
 
-	// Token: 0x06000022 RID: 34 RVA: 0x00003095 File Offset: 0x00001295
+	// Token: 0x06000027 RID: 39 RVA: 0x00007481 File Offset: 0x00005681
 	public static bool CanFreeLook()
 	{
 		return !(CameraController.instance == null) && CameraController.instance._canFreeLook;
 	}
 
-	// Token: 0x06000023 RID: 35 RVA: 0x000030B0 File Offset: 0x000012B0
+	// Token: 0x06000028 RID: 40 RVA: 0x0000749C File Offset: 0x0000569C
 	public static void SetSpeedNormalizationSpeed(float normalizationSpeed)
 	{
 		CameraController.instance.lerpSpeedNormalizationSpeed = normalizationSpeed;
 	}
 
-	// Token: 0x06000024 RID: 36 RVA: 0x000030BD File Offset: 0x000012BD
+	// Token: 0x06000029 RID: 41 RVA: 0x000074A9 File Offset: 0x000056A9
 	public static float GetEulersDifferenceMagnitude()
 	{
 		if (CameraController.instance == null)
@@ -202,7 +203,7 @@ public class CameraController : MonoBehaviour
 		return CameraController.instance.eulersDifferenceMagnitude;
 	}
 
-	// Token: 0x06000025 RID: 37 RVA: 0x000030DC File Offset: 0x000012DC
+	// Token: 0x0600002A RID: 42 RVA: 0x000074C8 File Offset: 0x000056C8
 	public static float GetPositionDifferenceMagnitude()
 	{
 		if (CameraController.instance == null)
@@ -212,13 +213,13 @@ public class CameraController : MonoBehaviour
 		return CameraController.instance.positionDifferenceMagnitude;
 	}
 
-	// Token: 0x06000026 RID: 38 RVA: 0x000030FB File Offset: 0x000012FB
+	// Token: 0x0600002B RID: 43 RVA: 0x000074E7 File Offset: 0x000056E7
 	public static bool IsCameraNearPositionAndAngle(float magnitude)
 	{
 		return CameraController.instance == null || (CameraController.instance.eulersDifferenceMagnitude < magnitude && CameraController.instance.positionDifferenceMagnitude < magnitude);
 	}
 
-	// Token: 0x06000027 RID: 39 RVA: 0x0000312C File Offset: 0x0000132C
+	// Token: 0x0600002C RID: 44 RVA: 0x00016CFC File Offset: 0x00014EFC
 	public static void ResetFreeCameraAtSlot(bool resetPlayerAsWell)
 	{
 		CameraController.instance.freeCameraRotation = new Vector3(15f, 0f, 0f);
@@ -251,26 +252,26 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000028 RID: 40 RVA: 0x0000328C File Offset: 0x0000148C
+	// Token: 0x0600002D RID: 45 RVA: 0x00007515 File Offset: 0x00005715
 	public static void SetFreeCameraRotation(Vector3 eulers)
 	{
 		CameraController.instance.freeCameraRotation = eulers;
 		CameraController.instance.freeCamTransform.eulerAngles = eulers;
 	}
 
-	// Token: 0x06000029 RID: 41 RVA: 0x000032A9 File Offset: 0x000014A9
+	// Token: 0x0600002E RID: 46 RVA: 0x00007532 File Offset: 0x00005732
 	public static void SetFreeCameraRotation_ToCamera()
 	{
 		CameraController.SetFreeCameraRotation(CameraGame.list[0].transform.eulerAngles);
 	}
 
-	// Token: 0x0600002A RID: 42 RVA: 0x000032C5 File Offset: 0x000014C5
+	// Token: 0x0600002F RID: 47 RVA: 0x0000754E File Offset: 0x0000574E
 	public static Vector3 GetFreeCameraRotation()
 	{
 		return CameraController.instance.freeCameraRotation;
 	}
 
-	// Token: 0x0600002B RID: 43 RVA: 0x000032D4 File Offset: 0x000014D4
+	// Token: 0x06000030 RID: 48 RVA: 0x00016E5C File Offset: 0x0001505C
 	private void LookUpDown_ScaryRoutine()
 	{
 		float x = this.freeCameraRotation.x;
@@ -289,7 +290,7 @@ public class CameraController : MonoBehaviour
 			if (this.lookDown_Timer > 0.5f && !this.lookdDown_ScarySoundPlayed)
 			{
 				this.lookdDown_ScarySoundPlayed = true;
-				Sound.Play3D("SoundScaryPit" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString(), new Vector3(0f, -2.5f, 0f), 30f, 1f, 1f, 1);
+				Sound.Play3D("SoundScaryPit" + Util.Choose<int>(new int[] { 1, 2, 3 }).ToString(), new Vector3(0f, -2.5f, 0f), 30f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 		}
 		else
@@ -312,7 +313,7 @@ public class CameraController : MonoBehaviour
 			if (this.lookUp_Timer > 2f && !this.lookdUp_ScarySoundPlayed)
 			{
 				this.lookdUp_ScarySoundPlayed = true;
-				Sound.Play3D("SoundScaryCeiling", new Vector3(0f, 15f, 0f), 30f, 1f, 1f, 1);
+				Sound.Play3D("SoundScaryCeiling", new Vector3(0f, 15f, 0f), 30f, 1f, 1f, AudioRolloffMode.Linear);
 			}
 		}
 		else
@@ -329,13 +330,13 @@ public class CameraController : MonoBehaviour
 		CameraGame.FieldOfViewExtraDecaySpeedSet("LUDS", 15f);
 	}
 
-	// Token: 0x0600002C RID: 44 RVA: 0x00003526 File Offset: 0x00001726
+	// Token: 0x06000031 RID: 49 RVA: 0x0000755A File Offset: 0x0000575A
 	public static bool DeathFallDone()
 	{
 		return CameraController.instance.deathCameraY <= CameraController.instance.deathFallMaxHeight;
 	}
 
-	// Token: 0x0600002D RID: 45 RVA: 0x00003541 File Offset: 0x00001741
+	// Token: 0x06000032 RID: 50 RVA: 0x00007575 File Offset: 0x00005775
 	private static void SlotMachineLookingOnSides_Reset()
 	{
 		if (CameraController.instance == null)
@@ -346,7 +347,7 @@ public class CameraController : MonoBehaviour
 		CameraController.instance._SMLOS_DelayTimer = 0f;
 	}
 
-	// Token: 0x0600002E RID: 46 RVA: 0x00003568 File Offset: 0x00001768
+	// Token: 0x06000033 RID: 51 RVA: 0x000170B0 File Offset: 0x000152B0
 	public static void SlotMachineLook_Set(CameraController.SlotMachineLookingSides side)
 	{
 		if (CameraController.instance == null)
@@ -495,7 +496,7 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600002F RID: 47 RVA: 0x000039D8 File Offset: 0x00001BD8
+	// Token: 0x06000034 RID: 52 RVA: 0x0000759A File Offset: 0x0000579A
 	public static CameraController.SlotMachineLookingSides SlotMachineLook_Get()
 	{
 		if (CameraController.instance == null)
@@ -505,49 +506,49 @@ public class CameraController : MonoBehaviour
 		return CameraController.instance._slotMachineLookingOnSides;
 	}
 
-	// Token: 0x06000030 RID: 48 RVA: 0x000039F3 File Offset: 0x00001BF3
+	// Token: 0x06000035 RID: 53 RVA: 0x000075B5 File Offset: 0x000057B5
 	public static bool SlotMachineLookingAtSides()
 	{
 		return !(CameraController.instance == null) && CameraController.instance._slotMachineLookingOnSides != CameraController.SlotMachineLookingSides.front;
 	}
 
-	// Token: 0x06000031 RID: 49 RVA: 0x00003A14 File Offset: 0x00001C14
+	// Token: 0x06000036 RID: 54 RVA: 0x000075D6 File Offset: 0x000057D6
 	public static bool SlotMachineLookingFrontOrUndefined()
 	{
 		return CameraController.instance == null || CameraController.instance._slotMachineLookingOnSides == CameraController.SlotMachineLookingSides.front || CameraController.instance._slotMachineLookingOnSides == CameraController.SlotMachineLookingSides.undefined;
 	}
 
-	// Token: 0x06000032 RID: 50 RVA: 0x00003A41 File Offset: 0x00001C41
+	// Token: 0x06000037 RID: 55 RVA: 0x00007603 File Offset: 0x00005803
 	public static bool SlotMachineLookingLeft()
 	{
 		return !(CameraController.instance == null) && CameraController.instance._slotMachineLookingOnSides == CameraController.SlotMachineLookingSides.left;
 	}
 
-	// Token: 0x06000033 RID: 51 RVA: 0x00003A5F File Offset: 0x00001C5F
+	// Token: 0x06000038 RID: 56 RVA: 0x00007621 File Offset: 0x00005821
 	public static bool SlotMachineLookingRight()
 	{
 		return !(CameraController.instance == null) && CameraController.instance._slotMachineLookingOnSides == CameraController.SlotMachineLookingSides.right;
 	}
 
-	// Token: 0x06000034 RID: 52 RVA: 0x00003A7D File Offset: 0x00001C7D
+	// Token: 0x06000039 RID: 57 RVA: 0x0000763F File Offset: 0x0000583F
 	public static void DollyZoomDividerSet(float divider)
 	{
 		CameraController.instance.dollyZoomDivider = divider;
 	}
 
-	// Token: 0x06000035 RID: 53 RVA: 0x00003A8A File Offset: 0x00001C8A
+	// Token: 0x0600003A RID: 58 RVA: 0x0000764C File Offset: 0x0000584C
 	public static void DollyZoomEnable(bool enable)
 	{
 		CameraController.instance.dollyZoomEnabled = enable;
 	}
 
-	// Token: 0x06000036 RID: 54 RVA: 0x00003A97 File Offset: 0x00001C97
+	// Token: 0x0600003B RID: 59 RVA: 0x00007659 File Offset: 0x00005859
 	public static bool DollyZoomIsEnabled()
 	{
 		return CameraController.instance.dollyZoomEnabled;
 	}
 
-	// Token: 0x06000037 RID: 55 RVA: 0x00003AA4 File Offset: 0x00001CA4
+	// Token: 0x0600003C RID: 60 RVA: 0x00017520 File Offset: 0x00015720
 	public static void HeartbeatPlay(int n, float speed)
 	{
 		if (CameraController.instance == null)
@@ -561,19 +562,19 @@ public class CameraController : MonoBehaviour
 		CameraController.instance.heartbeatCoroutine = CameraController.instance.StartCoroutine(CameraController.instance.HeartbeatCoroutine(n, speed));
 	}
 
-	// Token: 0x06000038 RID: 56 RVA: 0x00003AFF File Offset: 0x00001CFF
+	// Token: 0x0600003D RID: 61 RVA: 0x00007665 File Offset: 0x00005865
 	public static void HeartbeatPlay_Default()
 	{
 		CameraController.HeartbeatPlay(7, 2f);
 	}
 
-	// Token: 0x06000039 RID: 57 RVA: 0x00003B0C File Offset: 0x00001D0C
+	// Token: 0x0600003E RID: 62 RVA: 0x00007672 File Offset: 0x00005872
 	public static void HeartbeatPlay_Slow()
 	{
 		CameraController.HeartbeatPlay(5, 1f);
 	}
 
-	// Token: 0x0600003A RID: 58 RVA: 0x00003B19 File Offset: 0x00001D19
+	// Token: 0x0600003F RID: 63 RVA: 0x0000767F File Offset: 0x0000587F
 	private IEnumerator HeartbeatCoroutine(int n, float speed)
 	{
 		float vol = 1f;
@@ -603,7 +604,7 @@ public class CameraController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600003B RID: 59 RVA: 0x00003B36 File Offset: 0x00001D36
+	// Token: 0x06000040 RID: 64 RVA: 0x0000769C File Offset: 0x0000589C
 	public static void HeartbeatStop()
 	{
 		if (CameraController.instance == null)
@@ -617,7 +618,7 @@ public class CameraController : MonoBehaviour
 		CameraController.instance.StopCoroutine(CameraController.instance.heartbeatCoroutine);
 	}
 
-	// Token: 0x0600003C RID: 60 RVA: 0x00003B67 File Offset: 0x00001D67
+	// Token: 0x06000041 RID: 65 RVA: 0x000076CD File Offset: 0x000058CD
 	public static void ScreenMenuIgnore_SetReason(string reason)
 	{
 		if (CameraController.instance == null)
@@ -627,7 +628,7 @@ public class CameraController : MonoBehaviour
 		CameraController.instance.screenMenuIgnorePresence_Reasons.Add(reason);
 	}
 
-	// Token: 0x0600003D RID: 61 RVA: 0x00003B87 File Offset: 0x00001D87
+	// Token: 0x06000042 RID: 66 RVA: 0x000076ED File Offset: 0x000058ED
 	public static void ScreenMenuIgnore_RemoveReason(string reason)
 	{
 		if (CameraController.instance == null)
@@ -637,7 +638,7 @@ public class CameraController : MonoBehaviour
 		CameraController.instance.screenMenuIgnorePresence_Reasons.Remove(reason);
 	}
 
-	// Token: 0x0600003E RID: 62 RVA: 0x00003BA8 File Offset: 0x00001DA8
+	// Token: 0x06000043 RID: 67 RVA: 0x0001757C File Offset: 0x0001577C
 	private void Awake()
 	{
 		CameraController.instance = this;
@@ -656,7 +657,7 @@ public class CameraController : MonoBehaviour
 		this.fogEndDist = CameraController.fogEndDist_Default;
 	}
 
-	// Token: 0x0600003F RID: 63 RVA: 0x00003C1C File Offset: 0x00001E1C
+	// Token: 0x06000044 RID: 68 RVA: 0x000175F0 File Offset: 0x000157F0
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -668,7 +669,7 @@ public class CameraController : MonoBehaviour
 		this.freeCameraTransformStartingRotation = this.freeCamTransform.eulerAngles;
 	}
 
-	// Token: 0x06000040 RID: 64 RVA: 0x00003C6B File Offset: 0x00001E6B
+	// Token: 0x06000045 RID: 69 RVA: 0x0000770E File Offset: 0x0000590E
 	private void OnDestroy()
 	{
 		if (CameraController.instance == this)
@@ -677,7 +678,7 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000041 RID: 65 RVA: 0x00003C80 File Offset: 0x00001E80
+	// Token: 0x06000046 RID: 70 RVA: 0x00017640 File Offset: 0x00015840
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -1184,206 +1185,325 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000025 RID: 37
 	public static CameraController instance = null;
 
+	// Token: 0x04000026 RID: 38
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000027 RID: 39
 	private CameraGame myCamera;
 
+	// Token: 0x04000028 RID: 40
 	private Controls.PlayerExt player;
 
+	// Token: 0x04000029 RID: 41
 	public Transform freeCamTransform;
 
+	// Token: 0x0400002A RID: 42
 	public Transform slotTransform;
 
+	// Token: 0x0400002B RID: 43
 	public Transform slotCoinPlateTransform;
 
+	// Token: 0x0400002C RID: 44
 	public Transform slotFromTopTransform;
 
+	// Token: 0x0400002D RID: 45
 	public Transform ATMTransform;
 
+	// Token: 0x0400002E RID: 46
 	public Transform StoreTransform;
 
+	// Token: 0x0400002F RID: 47
 	public Transform ATMStraightTransform;
 
+	// Token: 0x04000030 RID: 48
 	public Transform trapDoorTransform;
 
+	// Token: 0x04000031 RID: 49
 	public Transform fallingTransform;
 
+	// Token: 0x04000032 RID: 50
 	public Transform drawer0;
 
+	// Token: 0x04000033 RID: 51
 	public Transform drawer1;
 
+	// Token: 0x04000034 RID: 52
 	public Transform drawer2;
 
+	// Token: 0x04000035 RID: 53
 	public Transform drawer3;
 
+	// Token: 0x04000036 RID: 54
 	public Transform menuDrawer_Menu;
 
+	// Token: 0x04000037 RID: 55
 	public Transform rewardBoxTransform;
 
+	// Token: 0x04000038 RID: 56
 	public Transform roomTopViewTransform;
 
+	// Token: 0x04000039 RID: 57
 	public Transform cloverTicketsMachineTransform;
 
+	// Token: 0x0400003A RID: 58
 	public Transform doorEndingTransform;
 
+	// Token: 0x0400003B RID: 59
 	public Transform terminalTransform;
 
+	// Token: 0x0400003C RID: 60
 	public Transform deadlineBonusTransform;
 
+	// Token: 0x0400003D RID: 61
 	public Transform phoneDoorTransform;
 
+	// Token: 0x0400003E RID: 62
 	public Transform slotScreenCloseUpTransform;
 
+	// Token: 0x0400003F RID: 63
 	public Transform toyPhoneTransform;
 
+	// Token: 0x04000040 RID: 64
 	public Transform wcPiss;
 
+	// Token: 0x04000041 RID: 65
 	public Transform wcPoop;
 
+	// Token: 0x04000042 RID: 66
 	public Transform drawer0Front;
 
+	// Token: 0x04000043 RID: 67
 	public Transform drawer1Front;
 
+	// Token: 0x04000044 RID: 68
 	public Transform drawer2Front;
 
+	// Token: 0x04000045 RID: 69
 	public Transform drawer3Front;
 
+	// Token: 0x04000046 RID: 70
 	public Transform drawersAllTransform;
 
+	// Token: 0x04000047 RID: 71
 	public Transform deckBoxTransform;
 
+	// Token: 0x04000048 RID: 72
 	public Transform cranePackTransform;
 
+	// Token: 0x04000049 RID: 73
 	private CameraController.PositionKind positionKind;
 
+	// Token: 0x0400004A RID: 74
 	private Transform targetTransform;
 
+	// Token: 0x0400004B RID: 75
 	private List<string> disableReasons = new List<string>();
 
+	// Token: 0x0400004C RID: 76
 	private bool _canFreeLook;
 
+	// Token: 0x0400004D RID: 77
 	private float lerpSpeedMultiplier = 1f;
 
+	// Token: 0x0400004E RID: 78
 	private float lerpSpeedNormalizationSpeed = 3f;
 
+	// Token: 0x0400004F RID: 79
 	private float lerpSpeedNormalizationSpeed_Default = 3f;
 
+	// Token: 0x04000050 RID: 80
 	private Vector3 offsetPosition;
 
+	// Token: 0x04000051 RID: 81
 	private Vector3 offsetEulers;
 
+	// Token: 0x04000052 RID: 82
 	private float eulersDifferenceMagnitude;
 
+	// Token: 0x04000053 RID: 83
 	private float positionDifferenceMagnitude;
 
+	// Token: 0x04000054 RID: 84
 	private Vector3 freeCameraTransformStartingPosition;
 
+	// Token: 0x04000055 RID: 85
 	private Vector3 freeCameraTransformStartingRotation;
 
+	// Token: 0x04000056 RID: 86
 	private Vector3 freeCameraRotation;
 
+	// Token: 0x04000057 RID: 87
 	private static float fogStartDist_Default = -1f;
 
+	// Token: 0x04000058 RID: 88
 	private static float fogEndDist_Default = -1f;
 
+	// Token: 0x04000059 RID: 89
 	private float fogStartDist = -1f;
 
+	// Token: 0x0400005A RID: 90
 	private float fogEndDist = -1f;
 
+	// Token: 0x0400005B RID: 91
 	private const string FOV_EXTRA_TAG_LOOK_UP_DOWN = "LUDS";
 
+	// Token: 0x0400005C RID: 92
 	private const float CAM_FOV_SPD = 5f;
 
+	// Token: 0x0400005D RID: 93
 	private bool lookdDown_ScarySoundPlayed;
 
+	// Token: 0x0400005E RID: 94
 	private bool lookdUp_ScarySoundPlayed;
 
+	// Token: 0x0400005F RID: 95
 	private float lookDown_Timer;
 
+	// Token: 0x04000060 RID: 96
 	private float lookUp_Timer;
 
+	// Token: 0x04000061 RID: 97
 	private float lookDownFov;
 
+	// Token: 0x04000062 RID: 98
 	private float lookUpFov;
 
+	// Token: 0x04000063 RID: 99
 	private bool nowIgnorePositionForLookingUp;
 
+	// Token: 0x04000064 RID: 100
 	private float deathCameraY = 6f;
 
+	// Token: 0x04000065 RID: 101
 	private float deathFallSpeed;
 
+	// Token: 0x04000066 RID: 102
 	private float deathCameraGravity = 24f;
 
+	// Token: 0x04000067 RID: 103
 	private float deathMaxFallSpeed = -32f;
 
+	// Token: 0x04000068 RID: 104
 	private float deathFallMaxHeight = -34f;
 
+	// Token: 0x04000069 RID: 105
 	private const string SLOT_MACHINE_LOOKING_RIGHT_FOV_EXTRA_TAG = "SMLRT";
 
+	// Token: 0x0400006A RID: 106
 	private CameraController.SlotMachineLookingSides _slotMachineLookingOnSides;
 
+	// Token: 0x0400006B RID: 107
 	private float _SMLOS_DelayTimer;
 
+	// Token: 0x0400006C RID: 108
 	private float _SMLOS_ForceDirectionPersistenceTimer;
 
+	// Token: 0x0400006D RID: 109
 	private int _slotForceDirection_PersistentVal;
 
+	// Token: 0x0400006E RID: 110
 	private const float DOLLY_ZOOM_DEFAULT_FOV = 60f;
 
+	// Token: 0x0400006F RID: 111
 	private float dollyZoomDivider = 25f;
 
+	// Token: 0x04000070 RID: 112
 	private bool dollyZoomEnabled = true;
 
+	// Token: 0x04000071 RID: 113
 	private Coroutine heartbeatCoroutine;
 
+	// Token: 0x04000072 RID: 114
 	private List<string> screenMenuIgnorePresence_Reasons = new List<string>();
 
+	// Token: 0x02000008 RID: 8
 	public enum PositionKind
 	{
+		// Token: 0x04000074 RID: 116
 		Free,
+		// Token: 0x04000075 RID: 117
 		Slot_Fixed,
+		// Token: 0x04000076 RID: 118
 		SlotCoinPlate_Fixed,
+		// Token: 0x04000077 RID: 119
 		SlotFromTop,
+		// Token: 0x04000078 RID: 120
 		ATM,
+		// Token: 0x04000079 RID: 121
 		Store,
+		// Token: 0x0400007A RID: 122
 		ATMStraight,
+		// Token: 0x0400007B RID: 123
 		TrapDoor,
+		// Token: 0x0400007C RID: 124
 		Falling,
+		// Token: 0x0400007D RID: 125
 		Drawer0,
+		// Token: 0x0400007E RID: 126
 		Drawer1,
+		// Token: 0x0400007F RID: 127
 		Drawer2,
+		// Token: 0x04000080 RID: 128
 		Drawer3,
+		// Token: 0x04000081 RID: 129
 		MenuDrawer_Menu,
+		// Token: 0x04000082 RID: 130
 		MenuDrawer_PowerupsInfo,
+		// Token: 0x04000083 RID: 131
 		RewardBox,
+		// Token: 0x04000084 RID: 132
 		RoomTopView,
+		// Token: 0x04000085 RID: 133
 		CloverTicketsMachine,
+		// Token: 0x04000086 RID: 134
 		doorEndingScene,
+		// Token: 0x04000087 RID: 135
 		terminal,
+		// Token: 0x04000088 RID: 136
 		DeadlineBonus,
+		// Token: 0x04000089 RID: 137
 		PhoneDoor,
+		// Token: 0x0400008A RID: 138
 		SlotScreenCloseUp,
+		// Token: 0x0400008B RID: 139
 		ToyPhone,
+		// Token: 0x0400008C RID: 140
 		WcPiss,
+		// Token: 0x0400008D RID: 141
 		WcPoop,
+		// Token: 0x0400008E RID: 142
 		Drawer0Front,
+		// Token: 0x0400008F RID: 143
 		Drawer1Front,
+		// Token: 0x04000090 RID: 144
 		Drawer2Front,
+		// Token: 0x04000091 RID: 145
 		Drawer3Front,
+		// Token: 0x04000092 RID: 146
 		DrawersAll,
+		// Token: 0x04000093 RID: 147
 		DeckBox,
+		// Token: 0x04000094 RID: 148
 		CranePack,
+		// Token: 0x04000095 RID: 149
 		Count,
+		// Token: 0x04000096 RID: 150
 		Undefined
 	}
 
+	// Token: 0x02000009 RID: 9
 	public enum SlotMachineLookingSides
 	{
+		// Token: 0x04000098 RID: 152
 		undefined,
+		// Token: 0x04000099 RID: 153
 		front,
+		// Token: 0x0400009A RID: 154
 		left,
+		// Token: 0x0400009B RID: 155
 		right
 	}
 }

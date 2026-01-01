@@ -9,15 +9,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000EE RID: 238
 public class StatsScript : MonoBehaviour
 {
-	// Token: 0x06000A32 RID: 2610 RVA: 0x00045E5C File Offset: 0x0004405C
+	// Token: 0x06000BDE RID: 3038 RVA: 0x0000FC62 File Offset: 0x0000DE62
 	public static bool IsEnabled()
 	{
 		return !(StatsScript.instance == null) && StatsScript.instance.statsHolder.activeSelf;
 	}
 
-	// Token: 0x06000A33 RID: 2611 RVA: 0x00045E7C File Offset: 0x0004407C
+	// Token: 0x06000BDF RID: 3039 RVA: 0x0005F49C File Offset: 0x0005D69C
 	private void UpdateTextString()
 	{
 		if (this.textAnimator_StatsText == null)
@@ -84,11 +85,6 @@ public class StatsScript : MonoBehaviour
 			this.sb.Append("\n");
 		}
 		this.sb.Append(GeneralUiScript.GameVersionString_Get());
-		if (Data.game != null && GameplayData.Instance != null && Data.game.RunModifier_HardcoreMode_Get(GameplayData.RunModifier_GetCurrent()))
-		{
-			this.sb.Append(" ");
-			this.sb.Append("<sprite name=\"SkullSymbolOrange64\">");
-		}
 		this.sb.Append("\n");
 		object obj = Data.game != null && PowerupScript.all.Count > 0 && Data.game.PowerupRealInstances_AreAllUnlocked() && Data.game.goodEndingCounter > 0;
 		this.sb.Append(Translation.Get("MENU_LABEL_SEED_DOUBLE_DOT"));
@@ -102,6 +98,11 @@ public class StatsScript : MonoBehaviour
 		if (obj2 != null)
 		{
 			this.sb.Append("</color>");
+		}
+		if (Data.game != null && GameplayData.Instance != null && Data.game.RunModifier_HardcoreMode_Get(GameplayData.RunModifier_GetCurrent()))
+		{
+			this.sb.Append(" ");
+			this.sb.Append("<sprite name=\"SkullSymbolOrange64\">");
 		}
 		this.sb.Append("\n");
 		this.sb.Append(Translation.Get("END_GAME_STATS_TIME_PLAYED"));
@@ -154,11 +155,11 @@ public class StatsScript : MonoBehaviour
 		}
 		if (this.promptTime)
 		{
-			this.textAnimator_StatsText.tmproText.verticalAlignment = 256;
+			this.textAnimator_StatsText.tmproText.verticalAlignment = VerticalAlignmentOptions.Top;
 		}
 		else
 		{
-			this.textAnimator_StatsText.tmproText.verticalAlignment = 512;
+			this.textAnimator_StatsText.tmproText.verticalAlignment = VerticalAlignmentOptions.Middle;
 		}
 		this.textAnimator_StatsText.tmproText.text = this.sb.ToString();
 		this.textAnimator_StatsText.tmproText.ForceMeshUpdate(false, false);
@@ -184,7 +185,7 @@ public class StatsScript : MonoBehaviour
 		this.noPhoneText.text = Translation.Get("END_GAME_STATS_NO_PHONE_ABILITIES");
 	}
 
-	// Token: 0x06000A34 RID: 2612 RVA: 0x00046578 File Offset: 0x00044778
+	// Token: 0x06000BE0 RID: 3040 RVA: 0x0005FB98 File Offset: 0x0005DD98
 	public static void Open(StatsScript.ShowKind showKind)
 	{
 		if (StatsScript.IsEnabled())
@@ -197,7 +198,7 @@ public class StatsScript : MonoBehaviour
 		StatsScript.instance.StartCoroutine(StatsScript.instance.ShowStatsCoroutine(showKind));
 	}
 
-	// Token: 0x06000A35 RID: 2613 RVA: 0x000465CD File Offset: 0x000447CD
+	// Token: 0x06000BE1 RID: 3041 RVA: 0x0000FC82 File Offset: 0x0000DE82
 	private IEnumerator ShowStatsCoroutine(StatsScript.ShowKind showKind)
 	{
 		this.promptTime = false;
@@ -282,7 +283,7 @@ public class StatsScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A36 RID: 2614 RVA: 0x000465DC File Offset: 0x000447DC
+	// Token: 0x06000BE2 RID: 3042 RVA: 0x0000FC91 File Offset: 0x0000DE91
 	private IEnumerator ShowCharms(float maxTime)
 	{
 		float timer = 0f;
@@ -348,7 +349,7 @@ public class StatsScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A37 RID: 2615 RVA: 0x000465F2 File Offset: 0x000447F2
+	// Token: 0x06000BE3 RID: 3043 RVA: 0x0000FCA7 File Offset: 0x0000DEA7
 	private IEnumerator ShowAbilities(float maxTime)
 	{
 		float timer = 0f;
@@ -405,7 +406,7 @@ public class StatsScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A38 RID: 2616 RVA: 0x00046608 File Offset: 0x00044808
+	// Token: 0x06000BE4 RID: 3044 RVA: 0x0000FCBD File Offset: 0x0000DEBD
 	private IEnumerator AbilityImagesAnimationCoroutine()
 	{
 		float timer = 2f;
@@ -429,7 +430,7 @@ public class StatsScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A39 RID: 2617 RVA: 0x00046617 File Offset: 0x00044817
+	// Token: 0x06000BE5 RID: 3045 RVA: 0x0000FCCC File Offset: 0x0000DECC
 	public static void Close()
 	{
 		if (!StatsScript.IsEnabled())
@@ -439,19 +440,19 @@ public class StatsScript : MonoBehaviour
 		StatsScript.instance.statsHolder.SetActive(false);
 	}
 
-	// Token: 0x06000A3A RID: 2618 RVA: 0x00046631 File Offset: 0x00044831
+	// Token: 0x06000BE6 RID: 3046 RVA: 0x0000FCE6 File Offset: 0x0000DEE6
 	private void OnPromptChange(Controls.InputActionMap map)
 	{
 		this.UpdateTextString();
 	}
 
-	// Token: 0x06000A3B RID: 2619 RVA: 0x00046639 File Offset: 0x00044839
+	// Token: 0x06000BE7 RID: 3047 RVA: 0x0000FCEE File Offset: 0x0000DEEE
 	private void Awake()
 	{
 		StatsScript.instance = this;
 	}
 
-	// Token: 0x06000A3C RID: 2620 RVA: 0x00046644 File Offset: 0x00044844
+	// Token: 0x06000BE8 RID: 3048 RVA: 0x0005FBF0 File Offset: 0x0005DDF0
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -461,62 +462,91 @@ public class StatsScript : MonoBehaviour
 		this.tooltipTextAnimator.gameObject.SetActive(false);
 	}
 
+	// Token: 0x04000C95 RID: 3221
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000C96 RID: 3222
 	public static StatsScript instance;
 
+	// Token: 0x04000C97 RID: 3223
 	private const float SHOW_SPEED = 10f;
 
+	// Token: 0x04000C98 RID: 3224
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000C99 RID: 3225
 	private Controls.PlayerExt player;
 
+	// Token: 0x04000C9A RID: 3226
 	public GameObject statsHolder;
 
+	// Token: 0x04000C9B RID: 3227
 	public Transform statsScaler;
 
+	// Token: 0x04000C9C RID: 3228
 	public TextAnimator textAnimator_StatsText;
 
+	// Token: 0x04000C9D RID: 3229
 	public TextAnimator textAnimator_CharmsTitle;
 
+	// Token: 0x04000C9E RID: 3230
 	public TextAnimator textAnimator_PhoneTitle;
 
+	// Token: 0x04000C9F RID: 3231
 	public TextAnimator textAnimator_Prompt;
 
+	// Token: 0x04000CA0 RID: 3232
 	public RectTransform charmsArea;
 
+	// Token: 0x04000CA1 RID: 3233
 	public RectTransform phoneAbilitiesArea;
 
+	// Token: 0x04000CA2 RID: 3234
 	public Image phoneAbilityTemplate;
 
+	// Token: 0x04000CA3 RID: 3235
 	public TextMeshProUGUI noCharmsText;
 
+	// Token: 0x04000CA4 RID: 3236
 	public TextMeshProUGUI noPhoneText;
 
+	// Token: 0x04000CA5 RID: 3237
 	public TextAnimator tooltipTextAnimator;
 
+	// Token: 0x04000CA6 RID: 3238
 	private static StatsScript.ShowKind myShowKind = StatsScript.ShowKind.endDeath;
 
+	// Token: 0x04000CA7 RID: 3239
 	private bool tooltipsTextUpdated;
 
+	// Token: 0x04000CA8 RID: 3240
 	private StringBuilder sb = new StringBuilder(256);
 
+	// Token: 0x04000CA9 RID: 3241
 	private bool charmsAndAbilitiesTime;
 
+	// Token: 0x04000CAA RID: 3242
 	private bool promptTime;
 
+	// Token: 0x04000CAB RID: 3243
 	private List<StatsScript.AbilityImageAnimation> abilityImagesAngularSpeed = new List<StatsScript.AbilityImageAnimation>(20);
 
+	// Token: 0x020000EF RID: 239
 	public enum ShowKind
 	{
+		// Token: 0x04000CAD RID: 3245
 		endDeath,
+		// Token: 0x04000CAE RID: 3246
 		endAlive
 	}
 
+	// Token: 0x020000F0 RID: 240
 	private struct AbilityImageAnimation
 	{
+		// Token: 0x04000CAF RID: 3247
 		public Image image;
 
+		// Token: 0x04000CB0 RID: 3248
 		public float speed;
 	}
 }

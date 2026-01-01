@@ -5,10 +5,12 @@ using UnityEngine;
 
 namespace Rewired.Localization
 {
+	// Token: 0x02000183 RID: 387
 	public abstract class LocalizedStringProviderBase : MonoBehaviour, ILocalizedStringProvider
 	{
-		// (get) Token: 0x06000DF1 RID: 3569 RVA: 0x00056AFB File Offset: 0x00054CFB
-		// (set) Token: 0x06000DF2 RID: 3570 RVA: 0x00056B03 File Offset: 0x00054D03
+		// Token: 0x17000147 RID: 327
+		// (get) Token: 0x0600118D RID: 4493 RVA: 0x0001453D File Offset: 0x0001273D
+		// (set) Token: 0x0600118E RID: 4494 RVA: 0x00014545 File Offset: 0x00012745
 		public virtual bool prefetch
 		{
 			get
@@ -25,10 +27,11 @@ namespace Rewired.Localization
 			}
 		}
 
-		// (get) Token: 0x06000DF3 RID: 3571
+		// Token: 0x17000148 RID: 328
+		// (get) Token: 0x0600118F RID: 4495
 		protected abstract bool initialized { get; }
 
-		// Token: 0x06000DF4 RID: 3572 RVA: 0x00056B40 File Offset: 0x00054D40
+		// Token: 0x06001190 RID: 4496 RVA: 0x00014582 File Offset: 0x00012782
 		protected virtual void OnEnable()
 		{
 			if (!this.initialized)
@@ -38,7 +41,7 @@ namespace Rewired.Localization
 			this.TrySetLocalizedStringProvider();
 		}
 
-		// Token: 0x06000DF5 RID: 3573 RVA: 0x00056B57 File Offset: 0x00054D57
+		// Token: 0x06001191 RID: 4497 RVA: 0x00014599 File Offset: 0x00012799
 		protected virtual void OnDisable()
 		{
 			if (ReInput.isReady && ReInput.localization.localizedStringProvider == this)
@@ -48,12 +51,12 @@ namespace Rewired.Localization
 			ReInput.InitializedEvent -= this.TrySetLocalizedStringProvider;
 		}
 
-		// Token: 0x06000DF6 RID: 3574 RVA: 0x00056B8A File Offset: 0x00054D8A
+		// Token: 0x06001192 RID: 4498 RVA: 0x0000774E File Offset: 0x0000594E
 		protected virtual void Update()
 		{
 		}
 
-		// Token: 0x06000DF7 RID: 3575 RVA: 0x00056B8C File Offset: 0x00054D8C
+		// Token: 0x06001193 RID: 4499 RVA: 0x000756A8 File Offset: 0x000738A8
 		protected virtual void TrySetLocalizedStringProvider()
 		{
 			ReInput.InitializedEvent -= this.TrySetLocalizedStringProvider;
@@ -71,9 +74,10 @@ namespace Rewired.Localization
 			ReInput.localization.prefetch = this._prefetch;
 		}
 
+		// Token: 0x06001194 RID: 4500
 		protected abstract bool Initialize();
 
-		// Token: 0x06000DF9 RID: 3577 RVA: 0x00056BFC File Offset: 0x00054DFC
+		// Token: 0x06001195 RID: 4501 RVA: 0x000145CC File Offset: 0x000127CC
 		public virtual void Reload()
 		{
 			this.Initialize();
@@ -83,14 +87,16 @@ namespace Rewired.Localization
 			}
 		}
 
+		// Token: 0x06001196 RID: 4502
 		protected abstract bool TryGetLocalizedString(string key, out string result);
 
-		// Token: 0x06000DFB RID: 3579 RVA: 0x00056C38 File Offset: 0x00054E38
+		// Token: 0x06001197 RID: 4503 RVA: 0x00014608 File Offset: 0x00012808
 		bool ILocalizedStringProvider.TryGetLocalizedString(string key, out string result)
 		{
 			return this.TryGetLocalizedString(key, out result);
 		}
 
+		// Token: 0x0400129C RID: 4764
 		[SerializeField]
 		[Tooltip("Determines if localized strings should be fetched immediately in bulk when available. If false, strings will be fetched when queried.")]
 		private bool _prefetch;

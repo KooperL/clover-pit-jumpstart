@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Panik
 {
+	// Token: 0x02000107 RID: 263
 	public class BounceScript : MonoBehaviour
 	{
-		// Token: 0x06000AA5 RID: 2725 RVA: 0x000489EE File Offset: 0x00046BEE
+		// Token: 0x06000C7E RID: 3198 RVA: 0x0001039C File Offset: 0x0000E59C
 		public void SetBounceScale(float force)
 		{
 			if (!base.enabled)
@@ -18,13 +19,13 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AA6 RID: 2726 RVA: 0x00048A0F File Offset: 0x00046C0F
+		// Token: 0x06000C7F RID: 3199 RVA: 0x000103BD File Offset: 0x0000E5BD
 		public void SetBounceScaleDecaySpeed(float decaySpeed)
 		{
 			this.additionalScaleDecay = decaySpeed;
 		}
 
-		// Token: 0x06000AA7 RID: 2727 RVA: 0x00048A18 File Offset: 0x00046C18
+		// Token: 0x06000C80 RID: 3200 RVA: 0x000103C6 File Offset: 0x0000E5C6
 		public void SetBouncesPerSecond(float bouncesPerSecond)
 		{
 			if (!base.enabled)
@@ -34,26 +35,26 @@ namespace Panik
 			this.bouncesPerSecond = bouncesPerSecond;
 		}
 
-		// Token: 0x06000AA8 RID: 2728 RVA: 0x00048A30 File Offset: 0x00046C30
+		// Token: 0x06000C81 RID: 3201 RVA: 0x000103DE File Offset: 0x0000E5DE
 		public void SetBouncesPerSecondDecaySpeed(float decaySpeed)
 		{
 			this.frequencyDecay = decaySpeed;
 		}
 
-		// Token: 0x06000AA9 RID: 2729 RVA: 0x00048A39 File Offset: 0x00046C39
+		// Token: 0x06000C82 RID: 3202 RVA: 0x000103E7 File Offset: 0x0000E5E7
 		public void ResetBounceFrequency()
 		{
 			this.bouncesPerSecond = this._bouncesPerSecondResetValue;
 		}
 
-		// Token: 0x06000AAA RID: 2730 RVA: 0x00048A47 File Offset: 0x00046C47
+		// Token: 0x06000C83 RID: 3203 RVA: 0x000103F5 File Offset: 0x0000E5F5
 		private void Awake()
 		{
 			this._additionalScaleResetValue = this.additionalScale;
 			this._bouncesPerSecondResetValue = this.bouncesPerSecond;
 		}
 
-		// Token: 0x06000AAB RID: 2731 RVA: 0x00048A64 File Offset: 0x00046C64
+		// Token: 0x06000C84 RID: 3204 RVA: 0x00062DC0 File Offset: 0x00060FC0
 		private void OnEnable()
 		{
 			if (this.resetOnEnable)
@@ -73,7 +74,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AAC RID: 2732 RVA: 0x00048AC9 File Offset: 0x00046CC9
+		// Token: 0x06000C85 RID: 3205 RVA: 0x0001040F File Offset: 0x0000E60F
 		private void OnDisable()
 		{
 			if (this.frequencyResets)
@@ -82,7 +83,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000AAD RID: 2733 RVA: 0x00048ADC File Offset: 0x00046CDC
+		// Token: 0x06000C86 RID: 3206 RVA: 0x00062E28 File Offset: 0x00061028
 		public void Update()
 		{
 			if (this.pausable && !Tick.IsGameRunning)
@@ -102,37 +103,53 @@ namespace Panik
 			}
 		}
 
+		// Token: 0x04000D4C RID: 3404
 		public Vector3 baseScale = Vector3.one;
 
+		// Token: 0x04000D4D RID: 3405
 		public Vector3 applicationMultiplier = Vector3.one;
 
+		// Token: 0x04000D4E RID: 3406
 		public bool pausable = true;
 
+		// Token: 0x04000D4F RID: 3407
 		public bool resetOnEnable = true;
 
+		// Token: 0x04000D50 RID: 3408
 		public bool syncTime;
 
+		// Token: 0x04000D51 RID: 3409
 		[NonSerialized]
 		public float passedTime;
 
+		// Token: 0x04000D52 RID: 3410
 		public float additionalScale = 0.1f;
 
+		// Token: 0x04000D53 RID: 3411
 		private float _additionalScaleResetValue;
 
+		// Token: 0x04000D54 RID: 3412
 		public float additionalScaleDecay;
 
+		// Token: 0x04000D55 RID: 3413
 		public float bouncesPerSecond = 4f;
 
+		// Token: 0x04000D56 RID: 3414
 		private float _bouncesPerSecondResetValue;
 
+		// Token: 0x04000D57 RID: 3415
 		public bool frequencyResets = true;
 
+		// Token: 0x04000D58 RID: 3416
 		public float frequencyDecay;
 
+		// Token: 0x04000D59 RID: 3417
 		private float calculationAng;
 
+		// Token: 0x04000D5A RID: 3418
 		private float calculationCos;
 
+		// Token: 0x04000D5B RID: 3419
 		private float calculationSin;
 	}
 }

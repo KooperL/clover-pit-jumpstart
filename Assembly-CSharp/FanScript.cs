@@ -2,9 +2,10 @@
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000092 RID: 146
 public class FanScript : MonoBehaviour
 {
-	// Token: 0x060007DC RID: 2012 RVA: 0x00033008 File Offset: 0x00031208
+	// Token: 0x060008E7 RID: 2279 RVA: 0x0004A23C File Offset: 0x0004843C
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -24,7 +25,7 @@ public class FanScript : MonoBehaviour
 		float fanVolume = Data.settings.fanVolume;
 		if (!flag)
 		{
-			Sound.Play3D("SoundFan", base.transform.position, 20f, Mathf.Min(1f, volumeFade * fanVolume), 1f, 1);
+			Sound.Play3D("SoundFan", base.transform.position, 20f, Mathf.Min(1f, volumeFade * fanVolume), 1f, AudioRolloffMode.Linear);
 		}
 	}
 }

@@ -10,9 +10,10 @@ using UnityEngine.SceneManagement;
 
 namespace I2.Loc
 {
+	// Token: 0x020001DE RID: 478
 	public static class I2Utils
 	{
-		// Token: 0x06001008 RID: 4104 RVA: 0x00063FD0 File Offset: 0x000621D0
+		// Token: 0x060013F9 RID: 5113 RVA: 0x00081CA4 File Offset: 0x0007FEA4
 		public static string ReverseText(string source)
 		{
 			I2Utils.<>c__DisplayClass3_0 CS$<>8__locals1;
@@ -39,7 +40,7 @@ namespace I2.Loc
 			return new string(CS$<>8__locals1.output);
 		}
 
-		// Token: 0x06001009 RID: 4105 RVA: 0x00064088 File Offset: 0x00062288
+		// Token: 0x060013FA RID: 5114 RVA: 0x00081D5C File Offset: 0x0007FF5C
 		public static string GetValidTermName(string text, bool allowCategory = false)
 		{
 			if (text == null)
@@ -100,7 +101,7 @@ namespace I2.Loc
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x0600100A RID: 4106 RVA: 0x000641AC File Offset: 0x000623AC
+		// Token: 0x060013FB RID: 5115 RVA: 0x00081E80 File Offset: 0x00080080
 		public static string SplitLine(string line, int maxCharacters)
 		{
 			if (maxCharacters <= 0 || line.Length < maxCharacters)
@@ -150,7 +151,7 @@ namespace I2.Loc
 			return new string(array.Where((char c) => c > '\0').ToArray<char>());
 		}
 
-		// Token: 0x0600100B RID: 4107 RVA: 0x00064268 File Offset: 0x00062468
+		// Token: 0x060013FC RID: 5116 RVA: 0x00081F3C File Offset: 0x0008013C
 		public static bool FindNextTag(string line, int iStart, out int tagStart, out int tagEnd)
 		{
 			tagStart = -1;
@@ -181,13 +182,13 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x0600100C RID: 4108 RVA: 0x00064318 File Offset: 0x00062518
+		// Token: 0x060013FD RID: 5117 RVA: 0x00015737 File Offset: 0x00013937
 		public static string RemoveTags(string text)
 		{
 			return Regex.Replace(text, "\\{\\[(.*?)]}|\\[(.*?)]|\\<(.*?)>", "");
 		}
 
-		// Token: 0x0600100D RID: 4109 RVA: 0x0006432C File Offset: 0x0006252C
+		// Token: 0x060013FE RID: 5118 RVA: 0x00081FEC File Offset: 0x000801EC
 		public static bool RemoveResourcesPath(ref string sPath)
 		{
 			int num = sPath.IndexOf("\\Resources\\", StringComparison.Ordinal);
@@ -217,13 +218,13 @@ namespace I2.Loc
 			return flag;
 		}
 
-		// Token: 0x0600100E RID: 4110 RVA: 0x000643F6 File Offset: 0x000625F6
+		// Token: 0x060013FF RID: 5119 RVA: 0x00015749 File Offset: 0x00013949
 		public static bool IsPlaying()
 		{
 			return Application.isPlaying;
 		}
 
-		// Token: 0x0600100F RID: 4111 RVA: 0x00064404 File Offset: 0x00062604
+		// Token: 0x06001400 RID: 5120 RVA: 0x000820B8 File Offset: 0x000802B8
 		public static string GetPath(this Transform tr)
 		{
 			Transform parent = tr.parent;
@@ -234,13 +235,13 @@ namespace I2.Loc
 			return parent.GetPath() + "/" + tr.name;
 		}
 
-		// Token: 0x06001010 RID: 4112 RVA: 0x0006443E File Offset: 0x0006263E
+		// Token: 0x06001401 RID: 5121 RVA: 0x00015755 File Offset: 0x00013955
 		public static Transform FindObject(string objectPath)
 		{
 			return I2Utils.FindObject(SceneManager.GetActiveScene(), objectPath);
 		}
 
-		// Token: 0x06001011 RID: 4113 RVA: 0x0006444C File Offset: 0x0006264C
+		// Token: 0x06001402 RID: 5122 RVA: 0x000820F4 File Offset: 0x000802F4
 		public static Transform FindObject(Scene scene, string objectPath)
 		{
 			GameObject[] rootGameObjects = scene.GetRootGameObjects();
@@ -259,7 +260,7 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06001012 RID: 4114 RVA: 0x000644BC File Offset: 0x000626BC
+		// Token: 0x06001403 RID: 5123 RVA: 0x00082164 File Offset: 0x00080364
 		public static Transform FindObject(Transform root, string objectPath)
 		{
 			for (int i = 0; i < root.childCount; i++)
@@ -277,7 +278,7 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06001013 RID: 4115 RVA: 0x00064528 File Offset: 0x00062728
+		// Token: 0x06001404 RID: 5124 RVA: 0x000821D0 File Offset: 0x000803D0
 		public static H FindInParents<H>(Transform tr) where H : Component
 		{
 			if (!tr)
@@ -293,7 +294,7 @@ namespace I2.Loc
 			return h;
 		}
 
-		// Token: 0x06001014 RID: 4116 RVA: 0x00064578 File Offset: 0x00062778
+		// Token: 0x06001405 RID: 5125 RVA: 0x00082220 File Offset: 0x00080420
 		public static string GetCaptureMatch(Match match)
 		{
 			for (int i = match.Groups.Count - 1; i >= 0; i--)
@@ -306,13 +307,13 @@ namespace I2.Loc
 			return match.ToString();
 		}
 
-		// Token: 0x06001015 RID: 4117 RVA: 0x000645C8 File Offset: 0x000627C8
+		// Token: 0x06001406 RID: 5126 RVA: 0x00015762 File Offset: 0x00013962
 		public static void SendWebRequest(UnityWebRequest www)
 		{
 			www.SendWebRequest();
 		}
 
-		// Token: 0x06001016 RID: 4118 RVA: 0x000645D4 File Offset: 0x000627D4
+		// Token: 0x06001407 RID: 5127 RVA: 0x00082270 File Offset: 0x00080470
 		[CompilerGenerated]
 		internal static void <ReverseText>g__Reverse|3_0(int start, int end, ref I2Utils.<>c__DisplayClass3_0 A_2)
 		{
@@ -322,10 +323,13 @@ namespace I2.Loc
 			}
 		}
 
+		// Token: 0x040013C1 RID: 5057
 		public const string ValidChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
 
+		// Token: 0x040013C2 RID: 5058
 		public const string NumberChars = "0123456789";
 
+		// Token: 0x040013C3 RID: 5059
 		public const string ValidNameSymbols = ".-_$#@*()[]{}+:?!&',^=<>~`";
 	}
 }

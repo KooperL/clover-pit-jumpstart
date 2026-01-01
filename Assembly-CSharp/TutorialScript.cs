@@ -3,15 +3,16 @@ using System.Collections;
 using Panik;
 using UnityEngine;
 
+// Token: 0x020000FC RID: 252
 public class TutorialScript : MonoBehaviour
 {
-	// Token: 0x06000A7A RID: 2682 RVA: 0x00047954 File Offset: 0x00045B54
+	// Token: 0x06000C44 RID: 3140 RVA: 0x00010168 File Offset: 0x0000E368
 	public static bool IsEnabled()
 	{
 		return !(TutorialScript.instance == null) && TutorialScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x06000A7B RID: 2683 RVA: 0x00047974 File Offset: 0x00045B74
+	// Token: 0x06000C45 RID: 3141 RVA: 0x00061BC0 File Offset: 0x0005FDC0
 	public static void StartTutorial()
 	{
 		if (TutorialScript.instance.tutorialCoroutine != null)
@@ -22,7 +23,7 @@ public class TutorialScript : MonoBehaviour
 		TutorialScript.instance.tutorialCoroutine = TutorialScript.instance.StartCoroutine(TutorialScript.instance.TutorialCoroutine());
 	}
 
-	// Token: 0x06000A7C RID: 2684 RVA: 0x000479C9 File Offset: 0x00045BC9
+	// Token: 0x06000C46 RID: 3142 RVA: 0x00010188 File Offset: 0x0000E388
 	private IEnumerator TutorialCoroutine()
 	{
 		this.holder.SetActive(true);
@@ -96,19 +97,19 @@ public class TutorialScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A7D RID: 2685 RVA: 0x000479D8 File Offset: 0x00045BD8
+	// Token: 0x06000C47 RID: 3143 RVA: 0x00010197 File Offset: 0x0000E397
 	private void Awake()
 	{
 		TutorialScript.instance = this;
 	}
 
-	// Token: 0x06000A7E RID: 2686 RVA: 0x000479E0 File Offset: 0x00045BE0
+	// Token: 0x06000C48 RID: 3144 RVA: 0x0001019F File Offset: 0x0000E39F
 	private void Start()
 	{
 		this.holder.SetActive(false);
 	}
 
-	// Token: 0x06000A7F RID: 2687 RVA: 0x000479EE File Offset: 0x00045BEE
+	// Token: 0x06000C49 RID: 3145 RVA: 0x000101AD File Offset: 0x0000E3AD
 	private void OnDestroy()
 	{
 		if (TutorialScript.instance == this)
@@ -117,9 +118,12 @@ public class TutorialScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000D19 RID: 3353
 	public static TutorialScript instance;
 
+	// Token: 0x04000D1A RID: 3354
 	public GameObject holder;
 
+	// Token: 0x04000D1B RID: 3355
 	private Coroutine tutorialCoroutine;
 }

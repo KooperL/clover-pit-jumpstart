@@ -5,15 +5,16 @@ using Panik;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000CD RID: 205
 public class MemoryPackDealUI : MonoBehaviour
 {
-	// Token: 0x06000971 RID: 2417 RVA: 0x0003E681 File Offset: 0x0003C881
+	// Token: 0x06000AD1 RID: 2769 RVA: 0x0000E9ED File Offset: 0x0000CBED
 	public static bool IsDealRunnning()
 	{
 		return !(MemoryPackDealUI.instance == null) && MemoryPackDealUI.instance.dealCoroutine != null;
 	}
 
-	// Token: 0x06000972 RID: 2418 RVA: 0x0003E6A0 File Offset: 0x0003C8A0
+	// Token: 0x06000AD2 RID: 2770 RVA: 0x00056714 File Offset: 0x00054914
 	public static void DealPropose()
 	{
 		if (MemoryPackDealUI.instance == null)
@@ -28,7 +29,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		MemoryPackDealUI.instance.dealCoroutine = MemoryPackDealUI.instance.StartCoroutine(MemoryPackDealUI.instance.DealCoroutine());
 	}
 
-	// Token: 0x06000973 RID: 2419 RVA: 0x0003E6F6 File Offset: 0x0003C8F6
+	// Token: 0x06000AD3 RID: 2771 RVA: 0x0000EA0B File Offset: 0x0000CC0B
 	private IEnumerator DealCoroutine()
 	{
 		float transitionSpeed = (float)Data.settings.transitionSpeed;
@@ -42,7 +43,6 @@ public class MemoryPackDealUI : MonoBehaviour
 			timer -= Tick.Time;
 			yield return null;
 		}
-		RunModifierScript.TriggerAnimation_IfEquipped(RunModifierScript.Identifier.extraPacks);
 		while (PowerupTriggerAnimController.HasAnimations())
 		{
 			yield return null;
@@ -99,76 +99,141 @@ public class MemoryPackDealUI : MonoBehaviour
 				this.packParticles.SetActive(false);
 				this.backTargetColor = MemoryPackDealUI.C_BLACK_TRASPARENT;
 				this.packAnimator.Play("Closed");
-				this.packHolder.SetActive(true);
-				Sound.Play("SoundPackEnterView", 1f, 1f);
-				Sound.Play("SoundPackFlicker", 1f, 1f);
-				FlashScreen.SpawnCamera(Color.black, 0.5f, 1f, CameraUiGlobal.instance.myCamera, 100f);
-				this.packBounceScr.SetBounceScale(0.1f);
-				while (scale < 0.95f)
-				{
-					scale = Mathf.Lerp(scale, 1f, Tick.Time * 20f);
-					this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
-					yield return null;
-				}
-				scale = 1f;
-				this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
-				FlashScreen.SpawnCamera(Color.black, 0.5f, 1f, CameraUiGlobal.instance.myCamera, 100f);
-				while (DialogueScript.IsEnabled())
-				{
-					yield return null;
-				}
-				timer = 0.5f;
-				while (timer > 0f)
-				{
-					timer -= Tick.Time;
-					yield return null;
-				}
-				while (!Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true))
-				{
-					yield return null;
-				}
-				this.packAnimator.Play("Opened");
 				if (packsOfferN >= 3)
 				{
-					this.packAnimator.speed = 2f;
+					this.packCenterer.localScale = global::UnityEngine.Vector3.one;
+					this.packHolder.transform.localPosition = global::UnityEngine.Vector3.zero;
+					this.Pack_ShowCards();
 				}
-				timer = 3f;
-				while (!this.showCards && timer > 0f)
+				else
 				{
-					timer -= Tick.Time;
-					yield return null;
+					this.packHolder.SetActive(true);
+					Sound.Play("SoundPackEnterView", 1f, 1f);
+					Sound.Play("SoundPackFlicker", 1f, 1f);
+					FlashScreen.SpawnCamera(Color.black, 0.5f, 1f, CameraUiGlobal.instance.myCamera, 100f);
+					this.packBounceScr.SetBounceScale(0.1f);
+					while (scale < 0.95f)
+					{
+						scale = Mathf.Lerp(scale, 1f, Tick.Time * 20f);
+						this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
+						yield return null;
+					}
+					scale = 1f;
+					this.packCenterer.localScale = global::UnityEngine.Vector3.one * scale * 500f;
+					FlashScreen.SpawnCamera(Color.black, 0.5f, 1f, CameraUiGlobal.instance.myCamera, 100f);
+					while (DialogueScript.IsEnabled())
+					{
+						yield return null;
+					}
+					timer = 0.5f;
+					while (timer > 0f)
+					{
+						timer -= Tick.Time;
+						yield return null;
+					}
+					while (!Controls.ActionButton_PressedGet(0, Controls.InputAction.menuSelect, true))
+					{
+						yield return null;
+					}
+					this.packAnimator.Play("Opened");
+					timer = 3f;
+					while (!this.showCards && timer > 0f)
+					{
+						timer -= Tick.Time;
+						yield return null;
+					}
 				}
 				this.packParticles.SetActive(true);
 				PlatformAPI.AchievementUnlock_FullGame(PlatformAPI.AchievementFullGame.ANewHobby);
-				CardScript card0 = CardScript.PoolSpawn(RunModifierScript.CardGetFromPack(), 500f, this.cardsHolder);
-				CardScript card = CardScript.PoolSpawn(RunModifierScript.CardGetFromPack(), 500f, this.cardsHolder);
-				CardScript card2 = CardScript.PoolSpawn(RunModifierScript.CardGetFromPack(), 500f, this.cardsHolder);
-				card0.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
-				card.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
-				card2.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
-				card0.rectTransform.SetLocalZ(0f);
-				card.rectTransform.SetLocalZ(0f);
-				card2.rectTransform.SetLocalZ(0f);
-				Data.game.RunModifier_OwnedCount_Set(card0.identifier, Data.game.RunModifier_OwnedCount_Get(card0.identifier) + 1);
-				Data.game.RunModifier_OwnedCount_Set(card.identifier, Data.game.RunModifier_OwnedCount_Get(card.identifier) + 1);
-				Data.game.RunModifier_OwnedCount_Set(card2.identifier, Data.game.RunModifier_OwnedCount_Get(card2.identifier) + 1);
-				Data.game.RunModifier_UnlockedTimes_Set(card0.identifier, Data.game.RunModifier_UnlockedTimes_Get(card0.identifier) + 1);
-				Data.game.RunModifier_UnlockedTimes_Set(card.identifier, Data.game.RunModifier_UnlockedTimes_Get(card.identifier) + 1);
-				Data.game.RunModifier_UnlockedTimes_Set(card2.identifier, Data.game.RunModifier_UnlockedTimes_Get(card2.identifier) + 1);
-				CardScript cardScript = card0;
-				if (cardScript != null)
+				RunModifierScript.Identifier identifier = RunModifierScript.CardGetFromPack();
+				RunModifierScript.Identifier identifier2 = RunModifierScript.CardGetFromPack();
+				RunModifierScript.Identifier identifier3 = RunModifierScript.CardGetFromPack();
+				CardScript card0 = null;
+				CardScript card = null;
+				CardScript card2 = null;
+				if (identifier != RunModifierScript.Identifier.undefined)
 				{
-					cardScript.TextUpdate();
+					card0 = CardScript.PoolSpawn(identifier, 500f, this.cardsHolder);
 				}
-				CardScript cardScript2 = card;
-				if (cardScript2 != null)
+				if (identifier2 != RunModifierScript.Identifier.undefined)
 				{
-					cardScript2.TextUpdate();
+					card = CardScript.PoolSpawn(identifier2, 500f, this.cardsHolder);
 				}
-				CardScript cardScript3 = card2;
-				if (cardScript3 != null)
+				if (identifier3 != RunModifierScript.Identifier.undefined)
 				{
-					cardScript3.TextUpdate();
+					card2 = CardScript.PoolSpawn(identifier3, 500f, this.cardsHolder);
+				}
+				if (card0 != null)
+				{
+					card0.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
+				}
+				if (card != null)
+				{
+					card.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
+				}
+				if (card2 != null)
+				{
+					card2.rectTransform.anchoredPosition = global::UnityEngine.Vector2.zero;
+				}
+				if (card0 != null)
+				{
+					card0.rectTransform.SetLocalZ(0f);
+				}
+				if (card != null)
+				{
+					card.rectTransform.SetLocalZ(0f);
+				}
+				if (card2 != null)
+				{
+					card2.rectTransform.SetLocalZ(0f);
+				}
+				if (card0 != null)
+				{
+					Data.game.RunModifier_OwnedCount_Set(card0.identifier, Data.game.RunModifier_OwnedCount_Get(card0.identifier) + 1);
+				}
+				if (card != null)
+				{
+					Data.game.RunModifier_OwnedCount_Set(card.identifier, Data.game.RunModifier_OwnedCount_Get(card.identifier) + 1);
+				}
+				if (card2 != null)
+				{
+					Data.game.RunModifier_OwnedCount_Set(card2.identifier, Data.game.RunModifier_OwnedCount_Get(card2.identifier) + 1);
+				}
+				if (card0 != null)
+				{
+					Data.game.RunModifier_UnlockedTimes_Set(card0.identifier, Data.game.RunModifier_UnlockedTimes_Get(card0.identifier) + 1);
+				}
+				if (card != null)
+				{
+					Data.game.RunModifier_UnlockedTimes_Set(card.identifier, Data.game.RunModifier_UnlockedTimes_Get(card.identifier) + 1);
+				}
+				if (card2 != null)
+				{
+					Data.game.RunModifier_UnlockedTimes_Set(card2.identifier, Data.game.RunModifier_UnlockedTimes_Get(card2.identifier) + 1);
+				}
+				if (card0 != null)
+				{
+					CardScript cardScript = card0;
+					if (cardScript != null)
+					{
+						cardScript.TextUpdate();
+					}
+				}
+				if (card != null)
+				{
+					CardScript cardScript2 = card;
+					if (cardScript2 != null)
+					{
+						cardScript2.TextUpdate();
+					}
+				}
+				if (card2 != null)
+				{
+					CardScript cardScript3 = card2;
+					if (cardScript3 != null)
+					{
+						cardScript3.TextUpdate();
+					}
 				}
 				if (this.coroutineCardsMoveAround != null)
 				{
@@ -387,8 +452,8 @@ public class MemoryPackDealUI : MonoBehaviour
 			int num2 = 20;
 			for (int i = 0; i < num2; i++)
 			{
-				RunModifierScript.Identifier identifier = (RunModifierScript.Identifier)i;
-				if (identifier != RunModifierScript.Identifier.defaultModifier && Data.game.RunModifier_UnlockedTimes_Get(identifier) <= 0)
+				RunModifierScript.Identifier identifier4 = (RunModifierScript.Identifier)i;
+				if (identifier4 != RunModifierScript.Identifier.defaultModifier && Data.game.RunModifier_UnlockedTimes_Get(identifier4) <= 0)
 				{
 					flag6 = false;
 					break;
@@ -419,19 +484,19 @@ public class MemoryPackDealUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000974 RID: 2420 RVA: 0x0003E705 File Offset: 0x0003C905
+	// Token: 0x06000AD4 RID: 2772 RVA: 0x0000EA1A File Offset: 0x0000CC1A
 	private void PacksOffer_OnYes()
 	{
 		this._skipDeadlineDealAnswer = true;
 	}
 
-	// Token: 0x06000975 RID: 2421 RVA: 0x0003E70E File Offset: 0x0003C90E
+	// Token: 0x06000AD5 RID: 2773 RVA: 0x0000EA23 File Offset: 0x0000CC23
 	private void PacksOffer_OnNo()
 	{
 		this._skipDeadlineDealAnswer = false;
 	}
 
-	// Token: 0x06000976 RID: 2422 RVA: 0x0003E717 File Offset: 0x0003C917
+	// Token: 0x06000AD6 RID: 2774 RVA: 0x0000EA2C File Offset: 0x0000CC2C
 	public void Pack_Hide()
 	{
 		if (this.coroutineHidePack == null)
@@ -440,7 +505,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000977 RID: 2423 RVA: 0x0003E72E File Offset: 0x0003C92E
+	// Token: 0x06000AD7 RID: 2775 RVA: 0x0000EA43 File Offset: 0x0000CC43
 	private IEnumerator HidePackCoroutine()
 	{
 		this.packParticles.SetActive(false);
@@ -456,13 +521,13 @@ public class MemoryPackDealUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000978 RID: 2424 RVA: 0x0003E73D File Offset: 0x0003C93D
+	// Token: 0x06000AD8 RID: 2776 RVA: 0x0000EA52 File Offset: 0x0000CC52
 	public void Pack_ShowCards()
 	{
 		this.showCards = true;
 	}
 
-	// Token: 0x06000979 RID: 2425 RVA: 0x0003E746 File Offset: 0x0003C946
+	// Token: 0x06000AD9 RID: 2777 RVA: 0x0000EA5B File Offset: 0x0000CC5B
 	private IEnumerator CardsMoveAroundCoroutine(CardScript c0, CardScript c1, CardScript c2)
 	{
 		float lerpSpeed = 0f;
@@ -520,13 +585,13 @@ public class MemoryPackDealUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600097A RID: 2426 RVA: 0x0003E76A File Offset: 0x0003C96A
+	// Token: 0x06000ADA RID: 2778 RVA: 0x0000EA7F File Offset: 0x0000CC7F
 	private void Awake()
 	{
 		MemoryPackDealUI.instance = this;
 	}
 
-	// Token: 0x0600097B RID: 2427 RVA: 0x0003E772 File Offset: 0x0003C972
+	// Token: 0x06000ADB RID: 2779 RVA: 0x0000EA87 File Offset: 0x0000CC87
 	private void Start()
 	{
 		this.holder.SetActive(false);
@@ -535,7 +600,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		this.backImage.color = this.backTargetColor;
 	}
 
-	// Token: 0x0600097C RID: 2428 RVA: 0x0003E7A9 File Offset: 0x0003C9A9
+	// Token: 0x06000ADC RID: 2780 RVA: 0x0000EABE File Offset: 0x0000CCBE
 	private void OnDestroy()
 	{
 		if (MemoryPackDealUI.instance == this)
@@ -544,7 +609,7 @@ public class MemoryPackDealUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600097D RID: 2429 RVA: 0x0003E7C0 File Offset: 0x0003C9C0
+	// Token: 0x06000ADD RID: 2781 RVA: 0x0005676C File Offset: 0x0005496C
 	private void Update()
 	{
 		if (!this.holder.activeSelf)
@@ -563,49 +628,72 @@ public class MemoryPackDealUI : MonoBehaviour
 		this.backImage.color = Color.Lerp(this.backImage.color, this.backTargetColor, Tick.Time * 10f);
 	}
 
+	// Token: 0x04000B08 RID: 2824
 	public static MemoryPackDealUI instance;
 
+	// Token: 0x04000B09 RID: 2825
 	public const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000B0A RID: 2826
 	private const float PACK_SCALE_MULT = 500f;
 
+	// Token: 0x04000B0B RID: 2827
 	private const float CARD_X_DIST = 212f;
 
+	// Token: 0x04000B0C RID: 2828
 	private const float CARD_SIZE_MULT = 500f;
 
+	// Token: 0x04000B0D RID: 2829
 	private static Color C_INVISIBLE = new Color(0f, 0f, 0f, 0f);
 
+	// Token: 0x04000B0E RID: 2830
 	private static Color C_BLACK_TRASPARENT = new Color(0f, 0f, 0f, 0.5f);
 
+	// Token: 0x04000B0F RID: 2831
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000B10 RID: 2832
 	public GameObject holder;
 
+	// Token: 0x04000B11 RID: 2833
 	public CanvasScaler canvasScaler;
 
+	// Token: 0x04000B12 RID: 2834
 	public Image backImage;
 
+	// Token: 0x04000B13 RID: 2835
 	public GameObject packHolder;
 
+	// Token: 0x04000B14 RID: 2836
 	public Transform packCenterer;
 
+	// Token: 0x04000B15 RID: 2837
 	public BounceScript packBounceScr;
 
+	// Token: 0x04000B16 RID: 2838
 	public Animator packAnimator;
 
+	// Token: 0x04000B17 RID: 2839
 	public GameObject packParticles;
 
+	// Token: 0x04000B18 RID: 2840
 	public Transform cardsHolder;
 
+	// Token: 0x04000B19 RID: 2841
 	private Coroutine dealCoroutine;
 
+	// Token: 0x04000B1A RID: 2842
 	private bool _skipDeadlineDealAnswer;
 
+	// Token: 0x04000B1B RID: 2843
 	private Color backTargetColor = MemoryPackDealUI.C_INVISIBLE;
 
+	// Token: 0x04000B1C RID: 2844
 	private Coroutine coroutineHidePack;
 
+	// Token: 0x04000B1D RID: 2845
 	private bool showCards;
 
+	// Token: 0x04000B1E RID: 2846
 	private Coroutine coroutineCardsMoveAround;
 }

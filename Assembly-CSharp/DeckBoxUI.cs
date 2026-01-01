@@ -7,21 +7,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000C9 RID: 201
 public class DeckBoxUI : MonoBehaviour
 {
-	// Token: 0x0600095C RID: 2396 RVA: 0x0003DC22 File Offset: 0x0003BE22
+	// Token: 0x06000AB0 RID: 2736 RVA: 0x0000E874 File Offset: 0x0000CA74
 	public static bool IsEnabled()
 	{
 		return !(DeckBoxUI.instance == null) && DeckBoxUI.instance.holder.activeSelf;
 	}
 
-	// Token: 0x0600095D RID: 2397 RVA: 0x0003DC42 File Offset: 0x0003BE42
+	// Token: 0x06000AB1 RID: 2737 RVA: 0x0000E894 File Offset: 0x0000CA94
 	public static bool IsPickingCard(bool considerEnabledState)
 	{
 		return !(DeckBoxUI.instance == null) && DeckBoxUI.IsEnabled() && DeckBoxUI.instance.uiKindOpenedTo == DeckBoxUI.UiKind.pickCardForTheRun;
 	}
 
-	// Token: 0x0600095E RID: 2398 RVA: 0x0003DC6C File Offset: 0x0003BE6C
+	// Token: 0x06000AB2 RID: 2738 RVA: 0x00055154 File Offset: 0x00053354
 	public static void Open(DeckBoxUI.UiKind uiKind)
 	{
 		if (DeckBoxUI.instance == null)
@@ -37,11 +38,11 @@ public class DeckBoxUI : MonoBehaviour
 		CameraController.SetPosition(CameraController.PositionKind.DeckBox, false, (uiKind == DeckBoxUI.UiKind.pickCardForTheRun) ? 0f : 1f);
 		DeckBoxUI.instance.holder.SetActive(true);
 		DeckBoxUI.instance._TextUpdate(uiKind);
-		Sound.Play3D("SoundDeckBoxOpen", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundDeckBoxOpen", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		DeckBoxUI.instance.uiCoroutine = DeckBoxUI.instance.StartCoroutine(DeckBoxUI.instance.UiCoroutine(uiKind));
 	}
 
-	// Token: 0x0600095F RID: 2399 RVA: 0x0003DD2C File Offset: 0x0003BF2C
+	// Token: 0x06000AB3 RID: 2739 RVA: 0x00055214 File Offset: 0x00053414
 	public static void Close()
 	{
 		if (DeckBoxUI.instance == null)
@@ -53,7 +54,7 @@ public class DeckBoxUI : MonoBehaviour
 			DeckBoxUI.instance.StopCoroutine(DeckBoxUI.instance.uiCoroutine);
 		}
 		DeckBoxUI.instance.holder.SetActive(false);
-		Sound.Play3D("SoundDeckBoxClose", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, 1);
+		Sound.Play3D("SoundDeckBoxClose", DeckBoxUI.instance.transform.position, 20f, 1f, 1f, AudioRolloffMode.Linear);
 		if (DeckBoxUI.instance.backupCameraPosition != CameraController.PositionKind.Undefined)
 		{
 			CameraController.SetPosition(DeckBoxUI.instance.backupCameraPosition, false, 1f);
@@ -61,7 +62,7 @@ public class DeckBoxUI : MonoBehaviour
 		GoldenToiletStickerScript.RefreshVisualsStatic();
 	}
 
-	// Token: 0x06000960 RID: 2400 RVA: 0x0003DDC9 File Offset: 0x0003BFC9
+	// Token: 0x06000AB4 RID: 2740 RVA: 0x0000E8BB File Offset: 0x0000CABB
 	private IEnumerator UiCoroutine(DeckBoxUI.UiKind uiKind)
 	{
 		int cardsCount = 20;
@@ -312,7 +313,7 @@ public class DeckBoxUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000961 RID: 2401 RVA: 0x0003DDE0 File Offset: 0x0003BFE0
+	// Token: 0x06000AB5 RID: 2741 RVA: 0x000552B4 File Offset: 0x000534B4
 	private bool Select(DeckBoxUI.UiKind uiKind, RectTransform hoveredRect)
 	{
 		bool flag = false;
@@ -357,11 +358,11 @@ public class DeckBoxUI : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x06000962 RID: 2402 RVA: 0x0003DED0 File Offset: 0x0003C0D0
+	// Token: 0x06000AB6 RID: 2742 RVA: 0x000553A4 File Offset: 0x000535A4
 	private bool PickCard()
 	{
 		CardScript cardScript = this._cardsList[this.cardNavigationIndex];
-		bool flag = cardScript.identifier == RunModifierScript.Identifier.defaultModifier || Data.game.RunModifier_OwnedCount_Get(cardScript.identifier) > 0;
+		bool flag = Data.game.DesiredFoilLevelGet(cardScript.identifier) >= 2 || Data.game.RunModifier_FoilLevel_Get(cardScript.identifier) >= 2 || cardScript.identifier == RunModifierScript.Identifier.defaultModifier || Data.game.RunModifier_OwnedCount_Get(cardScript.identifier) > 0;
 		if (cardScript != null && !cardScript.IsFaceDown() && flag)
 		{
 			GameplayData.RunModifier_SetCurrent(cardScript.identifier, true);
@@ -374,7 +375,7 @@ public class DeckBoxUI : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000963 RID: 2403 RVA: 0x0003DF94 File Offset: 0x0003C194
+	// Token: 0x06000AB7 RID: 2743 RVA: 0x00055498 File Offset: 0x00053698
 	private void OpenDifficultySelectionMenu()
 	{
 		ScreenMenuScript.OptionEvent[] array = new ScreenMenuScript.OptionEvent[3];
@@ -397,7 +398,7 @@ public class DeckBoxUI : MonoBehaviour
 		ScreenMenuScript.instance.BackAlphaSet(0.75f);
 	}
 
-	// Token: 0x06000964 RID: 2404 RVA: 0x0003E088 File Offset: 0x0003C288
+	// Token: 0x06000AB8 RID: 2744 RVA: 0x0005558C File Offset: 0x0005378C
 	private void SelectionMenu_PickNormal()
 	{
 		CardScript cardScript = this._cardsList[this.cardNavigationIndex];
@@ -408,7 +409,7 @@ public class DeckBoxUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000965 RID: 2405 RVA: 0x0003E0C8 File Offset: 0x0003C2C8
+	// Token: 0x06000AB9 RID: 2745 RVA: 0x000555CC File Offset: 0x000537CC
 	private void SelectionMenu_PickHardcore()
 	{
 		CardScript cardScript = this._cardsList[this.cardNavigationIndex];
@@ -420,14 +421,14 @@ public class DeckBoxUI : MonoBehaviour
 		DeckBoxScript.CandlesStateUpdate(false);
 	}
 
-	// Token: 0x06000966 RID: 2406 RVA: 0x0003E10D File Offset: 0x0003C30D
+	// Token: 0x06000ABA RID: 2746 RVA: 0x0000E8D1 File Offset: 0x0000CAD1
 	private void SelectionMenu_Back()
 	{
 		Sound.Play_Unpausable("SoundCardChange", 1f, 1f);
 		this.menuSelection_WaitFrame = true;
 	}
 
-	// Token: 0x06000967 RID: 2407 RVA: 0x0003E12C File Offset: 0x0003C32C
+	// Token: 0x06000ABB RID: 2747 RVA: 0x00055614 File Offset: 0x00053814
 	private void _TextUpdate(DeckBoxUI.UiKind uiKind)
 	{
 		if (uiKind != DeckBoxUI.UiKind.pickCardForTheRun)
@@ -459,7 +460,7 @@ public class DeckBoxUI : MonoBehaviour
 		this.textCompletedCards.text = this._sb.ToString();
 	}
 
-	// Token: 0x06000968 RID: 2408 RVA: 0x0003E284 File Offset: 0x0003C484
+	// Token: 0x06000ABC RID: 2748 RVA: 0x0000E8EF File Offset: 0x0000CAEF
 	private IEnumerator FlashInstructionsText()
 	{
 		float timer = 2f;
@@ -472,7 +473,7 @@ public class DeckBoxUI : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000969 RID: 2409 RVA: 0x0003E293 File Offset: 0x0003C493
+	// Token: 0x06000ABD RID: 2749 RVA: 0x0000E8FE File Offset: 0x0000CAFE
 	public static void ForceClose_Death()
 	{
 		if (DeckBoxUI.instance == null)
@@ -482,13 +483,13 @@ public class DeckBoxUI : MonoBehaviour
 		DeckBoxUI.instance.forceClose_Death = true;
 	}
 
-	// Token: 0x0600096A RID: 2410 RVA: 0x0003E2AE File Offset: 0x0003C4AE
+	// Token: 0x06000ABE RID: 2750 RVA: 0x0000E919 File Offset: 0x0000CB19
 	public static bool IsForceClosing()
 	{
 		return !(DeckBoxUI.instance == null) && DeckBoxUI.instance.forceClose_Death;
 	}
 
-	// Token: 0x0600096B RID: 2411 RVA: 0x0003E2CC File Offset: 0x0003C4CC
+	// Token: 0x06000ABF RID: 2751 RVA: 0x0005576C File Offset: 0x0005396C
 	private void Awake()
 	{
 		DeckBoxUI.instance = this;
@@ -499,7 +500,7 @@ public class DeckBoxUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600096C RID: 2412 RVA: 0x0003E323 File Offset: 0x0003C523
+	// Token: 0x06000AC0 RID: 2752 RVA: 0x0000E934 File Offset: 0x0000CB34
 	private void OnDestroy()
 	{
 		if (DeckBoxUI.instance == this)
@@ -508,13 +509,13 @@ public class DeckBoxUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600096D RID: 2413 RVA: 0x0003E338 File Offset: 0x0003C538
+	// Token: 0x06000AC1 RID: 2753 RVA: 0x0000E949 File Offset: 0x0000CB49
 	private void Start()
 	{
 		DeckBoxUI.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x0600096E RID: 2414 RVA: 0x0003E34C File Offset: 0x0003C54C
+	// Token: 0x06000AC2 RID: 2754 RVA: 0x000557C4 File Offset: 0x000539C4
 	private void Update()
 	{
 		bool flag = DeckBoxUI.IsEnabled();
@@ -590,73 +591,108 @@ public class DeckBoxUI : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000AD5 RID: 2773
 	public static DeckBoxUI instance;
 
+	// Token: 0x04000AD6 RID: 2774
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000AD7 RID: 2775
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000AD8 RID: 2776
 	private static Color C_DARK_GRAY = new Color(0.55f, 0.55f, 0.55f, 1f);
 
+	// Token: 0x04000AD9 RID: 2777
 	private const float CARDS_SCALE = 300f;
 
+	// Token: 0x04000ADA RID: 2778
 	private const float CARDS_SCALE_INSPECTED = 450f;
 
+	// Token: 0x04000ADB RID: 2779
 	private const float CARDS_SPACING = 128f;
 
+	// Token: 0x04000ADC RID: 2780
 	private const float CARDS_Y_DEFAULT = 44f;
 
+	// Token: 0x04000ADD RID: 2781
 	public GameObject holder;
 
+	// Token: 0x04000ADE RID: 2782
 	public CanvasScaler canvasScaler;
 
+	// Token: 0x04000ADF RID: 2783
 	public Image[] imagesToShake;
 
+	// Token: 0x04000AE0 RID: 2784
 	private Vector2[] imagesStartPositions;
 
+	// Token: 0x04000AE1 RID: 2785
 	public RectTransform cardsHolder;
 
+	// Token: 0x04000AE2 RID: 2786
 	public RectTransform button_Left;
 
+	// Token: 0x04000AE3 RID: 2787
 	public RectTransform button_Action;
 
+	// Token: 0x04000AE4 RID: 2788
 	public RectTransform button_Right;
 
+	// Token: 0x04000AE5 RID: 2789
 	public Image buttonLeftCursor;
 
+	// Token: 0x04000AE6 RID: 2790
 	public Image buttonActionCursor;
 
+	// Token: 0x04000AE7 RID: 2791
 	public Image buttonRightCursor;
 
+	// Token: 0x04000AE8 RID: 2792
 	public TextMeshProUGUI textInstructions;
 
+	// Token: 0x04000AE9 RID: 2793
 	public TextMeshProUGUI textActionLabel;
 
+	// Token: 0x04000AEA RID: 2794
 	public TextMeshProUGUI textCompletedCards;
 
+	// Token: 0x04000AEB RID: 2795
 	private DeckBoxUI.UiKind uiKindOpenedTo;
 
+	// Token: 0x04000AEC RID: 2796
 	private Coroutine uiCoroutine;
 
+	// Token: 0x04000AED RID: 2797
 	private List<CardScript> _cardsList = new List<CardScript>();
 
+	// Token: 0x04000AEE RID: 2798
 	private CameraController.PositionKind backupCameraPosition = CameraController.PositionKind.Undefined;
 
+	// Token: 0x04000AEF RID: 2799
 	private int cardNavigationIndex;
 
+	// Token: 0x04000AF0 RID: 2800
 	private bool menuSelection_ExitTime;
 
+	// Token: 0x04000AF1 RID: 2801
 	private bool menuSelection_WaitFrame;
 
+	// Token: 0x04000AF2 RID: 2802
 	private StringBuilder _sb = new StringBuilder();
 
+	// Token: 0x04000AF3 RID: 2803
 	private Coroutine coroutineFlashInstructionsText;
 
+	// Token: 0x04000AF4 RID: 2804
 	private bool forceClose_Death;
 
+	// Token: 0x020000CA RID: 202
 	public enum UiKind
 	{
+		// Token: 0x04000AF6 RID: 2806
 		pickCardForTheRun,
+		// Token: 0x04000AF7 RID: 2807
 		seeCollection
 	}
 }

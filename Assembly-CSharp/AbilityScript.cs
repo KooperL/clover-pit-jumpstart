@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using Panik;
 using UnityEngine;
 
+// Token: 0x02000044 RID: 68
 public class AbilityScript
 {
-	// Token: 0x060003C1 RID: 961 RVA: 0x00019FCF File Offset: 0x000181CF
+	// Token: 0x06000427 RID: 1063 RVA: 0x00008F3F File Offset: 0x0000713F
 	public AbilityScript.Identifier IdentifierGet()
 	{
 		return this.identifier;
 	}
 
-	// Token: 0x060003C2 RID: 962 RVA: 0x00019FD7 File Offset: 0x000181D7
+	// Token: 0x06000428 RID: 1064 RVA: 0x00008F47 File Offset: 0x00007147
 	public AbilityScript.Category CategoryGet()
 	{
 		return this.category;
 	}
 
-	// Token: 0x060003C3 RID: 963 RVA: 0x00019FDF File Offset: 0x000181DF
+	// Token: 0x06000429 RID: 1065 RVA: 0x00008F4F File Offset: 0x0000714F
 	public AbilityScript.Archetype ArchetypeGet()
 	{
 		return this.archetype;
 	}
 
-	// Token: 0x060003C4 RID: 964 RVA: 0x00019FE7 File Offset: 0x000181E7
+	// Token: 0x0600042A RID: 1066 RVA: 0x00008F57 File Offset: 0x00007157
 	public AbilityScript.Rarity RarityGet()
 	{
 		return this.rarity;
 	}
 
-	// Token: 0x060003C5 RID: 965 RVA: 0x00019FF0 File Offset: 0x000181F0
+	// Token: 0x0600042B RID: 1067 RVA: 0x0002D6E8 File Offset: 0x0002B8E8
 	public bool RarityRerollEvaluate()
 	{
 		float num;
@@ -57,7 +58,7 @@ public class AbilityScript
 		return R.Rng_Phone.Value < num;
 	}
 
-	// Token: 0x060003C6 RID: 966 RVA: 0x0001A06A File Offset: 0x0001826A
+	// Token: 0x0600042C RID: 1068 RVA: 0x00008F5F File Offset: 0x0000715F
 	public static AbilityScript AbilityGet(AbilityScript.Identifier identifier)
 	{
 		if (!AbilityScript.dict_All.ContainsKey(identifier))
@@ -68,20 +69,20 @@ public class AbilityScript
 		return AbilityScript.dict_All[identifier];
 	}
 
-	// Token: 0x060003C7 RID: 967 RVA: 0x0001A090 File Offset: 0x00018290
+	// Token: 0x0600042D RID: 1069 RVA: 0x00008F85 File Offset: 0x00007185
 	public string NameGetTranslated()
 	{
 		return Translation.Get(this.nameKey);
 	}
 
-	// Token: 0x060003C8 RID: 968 RVA: 0x0001A09D File Offset: 0x0001829D
+	// Token: 0x0600042E RID: 1070 RVA: 0x00008F92 File Offset: 0x00007192
 	public string DescriptionGetTranslated()
 	{
 		Strings.SetTemporaryFlag_Sanitize666And999(1);
 		return Strings.Sanitize(Strings.SantizationKind.powerupKeywords, Translation.Get(this.descriptionKey), this._GetAbilitySanitizationSubKind());
 	}
 
-	// Token: 0x060003C9 RID: 969 RVA: 0x0001A0BC File Offset: 0x000182BC
+	// Token: 0x0600042F RID: 1071 RVA: 0x00008FB1 File Offset: 0x000071B1
 	public int RepliesGetCount()
 	{
 		if (this.repliesKeys == null)
@@ -91,7 +92,7 @@ public class AbilityScript
 		return this.repliesKeys.Length;
 	}
 
-	// Token: 0x060003CA RID: 970 RVA: 0x0001A0D0 File Offset: 0x000182D0
+	// Token: 0x06000430 RID: 1072 RVA: 0x00008FC5 File Offset: 0x000071C5
 	public string ReplyGet(int index)
 	{
 		if (this.repliesKeys == null)
@@ -105,7 +106,7 @@ public class AbilityScript
 		return Translation.Get(this.repliesKeys[index]);
 	}
 
-	// Token: 0x060003CB RID: 971 RVA: 0x0001A0FA File Offset: 0x000182FA
+	// Token: 0x06000431 RID: 1073 RVA: 0x00008FEF File Offset: 0x000071EF
 	public string ReplyGetRandom()
 	{
 		if (this.repliesKeys == null)
@@ -119,37 +120,37 @@ public class AbilityScript
 		return Translation.Get(this.repliesKeys[global::UnityEngine.Random.Range(0, this.repliesKeys.Length)]);
 	}
 
-	// Token: 0x060003CC RID: 972 RVA: 0x0001A12B File Offset: 0x0001832B
+	// Token: 0x06000432 RID: 1074 RVA: 0x00009020 File Offset: 0x00007220
 	public static string NameGetTranslated(AbilityScript.Identifier identifier)
 	{
 		return AbilityScript.AbilityGet(identifier).NameGetTranslated();
 	}
 
-	// Token: 0x060003CD RID: 973 RVA: 0x0001A138 File Offset: 0x00018338
+	// Token: 0x06000433 RID: 1075 RVA: 0x0000902D File Offset: 0x0000722D
 	public static string NameGetKey(AbilityScript.Identifier identifier)
 	{
 		return AbilityScript.AbilityGet(identifier).nameKey;
 	}
 
-	// Token: 0x060003CE RID: 974 RVA: 0x0001A145 File Offset: 0x00018345
+	// Token: 0x06000434 RID: 1076 RVA: 0x0000903A File Offset: 0x0000723A
 	public static string DescriptionGetTranslated(AbilityScript.Identifier identifier)
 	{
 		return AbilityScript.AbilityGet(identifier).DescriptionGetTranslated();
 	}
 
-	// Token: 0x060003CF RID: 975 RVA: 0x0001A152 File Offset: 0x00018352
+	// Token: 0x06000435 RID: 1077 RVA: 0x00009047 File Offset: 0x00007247
 	public static string ReplyGet(AbilityScript.Identifier identifier, int index)
 	{
 		return AbilityScript.AbilityGet(identifier).ReplyGet(index);
 	}
 
-	// Token: 0x060003D0 RID: 976 RVA: 0x0001A160 File Offset: 0x00018360
+	// Token: 0x06000436 RID: 1078 RVA: 0x00009055 File Offset: 0x00007255
 	public static string ReplyGetRandom(AbilityScript.Identifier identifier)
 	{
 		return AbilityScript.AbilityGet(identifier).ReplyGetRandom();
 	}
 
-	// Token: 0x060003D1 RID: 977 RVA: 0x0001A170 File Offset: 0x00018370
+	// Token: 0x06000437 RID: 1079 RVA: 0x0002D764 File Offset: 0x0002B964
 	private Strings.SanitizationSubKind _GetAbilitySanitizationSubKind()
 	{
 		AbilityScript.Identifier identifier = this.identifier;
@@ -164,25 +165,25 @@ public class AbilityScript
 		return Strings.SanitizationSubKind.powerup_ShowAllSymbolsAndPatternsValues;
 	}
 
-	// Token: 0x060003D2 RID: 978 RVA: 0x0001A19D File Offset: 0x0001839D
+	// Token: 0x06000438 RID: 1080 RVA: 0x00009062 File Offset: 0x00007262
 	public Sprite SpriteGet()
 	{
 		return this.mySprite;
 	}
 
-	// Token: 0x060003D3 RID: 979 RVA: 0x0001A1A5 File Offset: 0x000183A5
+	// Token: 0x06000439 RID: 1081 RVA: 0x0000906A File Offset: 0x0000726A
 	public static Sprite SpriteGet(AbilityScript.Identifier identifier)
 	{
 		return AbilityScript.AbilityGet(identifier).SpriteGet();
 	}
 
-	// Token: 0x060003D4 RID: 980 RVA: 0x0001A1B2 File Offset: 0x000183B2
+	// Token: 0x0600043A RID: 1082 RVA: 0x00009077 File Offset: 0x00007277
 	public static Color ColorGet(AbilityScript.Identifier identifier)
 	{
 		return AbilityScript.AbilityGet(identifier).ColorGet();
 	}
 
-	// Token: 0x060003D5 RID: 981 RVA: 0x0001A1C0 File Offset: 0x000183C0
+	// Token: 0x0600043B RID: 1083 RVA: 0x0002D794 File Offset: 0x0002B994
 	public Color ColorGet()
 	{
 		switch (this.category)
@@ -199,7 +200,7 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x060003D6 RID: 982 RVA: 0x0001A220 File Offset: 0x00018420
+	// Token: 0x0600043C RID: 1084 RVA: 0x0002D7F4 File Offset: 0x0002B9F4
 	public void Pick()
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -264,7 +265,7 @@ public class AbilityScript
 		game.UnlockSteps_Barathrum = unlockSteps_Barathrum + 1;
 	}
 
-	// Token: 0x060003D7 RID: 983 RVA: 0x0001A3A4 File Offset: 0x000185A4
+	// Token: 0x0600043D RID: 1085 RVA: 0x0002D978 File Offset: 0x0002BB78
 	public static void Pick(AbilityScript.Identifier identifier)
 	{
 		if (!AbilityScript.dict_All.ContainsKey(identifier))
@@ -280,7 +281,7 @@ public class AbilityScript
 		AbilityScript.dict_All[identifier].Pick();
 	}
 
-	// Token: 0x060003D8 RID: 984 RVA: 0x0001A3F4 File Offset: 0x000185F4
+	// Token: 0x0600043E RID: 1086 RVA: 0x0002D9C8 File Offset: 0x0002BBC8
 	public bool CanBePicked()
 	{
 		if (this.maxPickupTimes >= 0 && this.pickedTimes >= this.maxPickupTimes)
@@ -329,7 +330,7 @@ public class AbilityScript
 		return !PowerupScript.IsEquipped_Quick(PowerupScript.Identifier.Hole_Cross) || this.identifier != GameplayData.PowerupHoleCross_AbilityGet();
 	}
 
-	// Token: 0x060003D9 RID: 985 RVA: 0x0001A4BC File Offset: 0x000186BC
+	// Token: 0x0600043F RID: 1087 RVA: 0x0002DA90 File Offset: 0x0002BC90
 	public static bool CanBePicked(AbilityScript.Identifier identifier)
 	{
 		if (!AbilityScript.dict_All.ContainsKey(identifier))
@@ -345,13 +346,13 @@ public class AbilityScript
 		return AbilityScript.dict_All[identifier].CanBePicked();
 	}
 
-	// Token: 0x060003DA RID: 986 RVA: 0x0001A50B File Offset: 0x0001870B
+	// Token: 0x06000440 RID: 1088 RVA: 0x00009084 File Offset: 0x00007284
 	public bool IsLastPickAvailable()
 	{
 		return this.maxPickupTimes - this.pickedTimes == 1;
 	}
 
-	// Token: 0x060003DB RID: 987 RVA: 0x0001A520 File Offset: 0x00018720
+	// Token: 0x06000441 RID: 1089 RVA: 0x0002DAE0 File Offset: 0x0002BCE0
 	public static PowerupScript GetRandomCharmToModify_OnTableOrSlot()
 	{
 		if (PowerupScript.list_EquippedNormal.Count == 0 && PowerupScript.list_EquippedSkeleton.Count == 0)
@@ -399,7 +400,7 @@ public class AbilityScript
 		return null;
 	}
 
-	// Token: 0x060003DC RID: 988 RVA: 0x0001A634 File Offset: 0x00018834
+	// Token: 0x06000442 RID: 1090 RVA: 0x0002DBF4 File Offset: 0x0002BDF4
 	public static PowerupScript GetRandomCharmToModify_InDrawers()
 	{
 		bool flag = true;
@@ -443,7 +444,7 @@ public class AbilityScript
 		return null;
 	}
 
-	// Token: 0x060003DD RID: 989 RVA: 0x0001A6E4 File Offset: 0x000188E4
+	// Token: 0x06000443 RID: 1091 RVA: 0x0002DCA4 File Offset: 0x0002BEA4
 	public static void ApplyDeviousModifierToRandomCharmOnTable()
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -453,37 +454,37 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x060003DE RID: 990 RVA: 0x0001A70D File Offset: 0x0001890D
+	// Token: 0x06000444 RID: 1092 RVA: 0x00009099 File Offset: 0x00007299
 	private static void AFunc_OnPick_ExtraSpace(AbilityScript ability)
 	{
 		GameplayData.MaxEquippablePowerupsAdd(1);
 	}
 
-	// Token: 0x060003DF RID: 991 RVA: 0x0001A715 File Offset: 0x00018915
+	// Token: 0x06000445 RID: 1093 RVA: 0x000090A1 File Offset: 0x000072A1
 	private static void AFunc_OnPick_InterestsUp(AbilityScript ability)
 	{
 		GameplayData.InterestRateAdd(5f);
 	}
 
-	// Token: 0x060003E0 RID: 992 RVA: 0x0001A721 File Offset: 0x00018921
+	// Token: 0x06000446 RID: 1094 RVA: 0x000090AD File Offset: 0x000072AD
 	private static void AFunc_OnPick_JackpotDouble(AbilityScript ability)
 	{
 		GameplayData.Pattern_ValueExtra_Add(PatternScript.Kind.jackpot, GameplayData.Pattern_ValueOverall_Get(PatternScript.Kind.jackpot, false));
 	}
 
-	// Token: 0x060003E1 RID: 993 RVA: 0x0001A730 File Offset: 0x00018930
+	// Token: 0x06000447 RID: 1095 RVA: 0x000090BC File Offset: 0x000072BC
 	private static void AFunc_OnPick_TicketsPlus5(AbilityScript ability)
 	{
 		GameplayData.CloverTicketsAdd(5L, true);
 	}
 
-	// Token: 0x060003E2 RID: 994 RVA: 0x0001A73A File Offset: 0x0001893A
+	// Token: 0x06000448 RID: 1096 RVA: 0x000090C6 File Offset: 0x000072C6
 	private static void AFunc_OnPick_Discount2(AbilityScript ability)
 	{
 		GameplayData.StoreTemporaryDiscountAdd(2L, true);
 	}
 
-	// Token: 0x060003E3 RID: 995 RVA: 0x0001A744 File Offset: 0x00018944
+	// Token: 0x06000449 RID: 1097 RVA: 0x0002DCD0 File Offset: 0x0002BED0
 	private static void AFunc_OnPick_AddModifierRandomCharm_CloverKind(AbilityScript ability)
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -494,7 +495,7 @@ public class AbilityScript
 		GameplayData.Powerup_Modifier_Set(randomCharmToModify_OnTableOrSlot.identifier, PowerupScript.Modifier.cloverTicket, true);
 	}
 
-	// Token: 0x060003E4 RID: 996 RVA: 0x0001A770 File Offset: 0x00018970
+	// Token: 0x0600044A RID: 1098 RVA: 0x0002DCFC File Offset: 0x0002BEFC
 	private static void AFunc_OnPick_AddModifierRandomCharm_SymbolsMult(AbilityScript ability)
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -505,7 +506,7 @@ public class AbilityScript
 		GameplayData.Powerup_Modifier_Set(randomCharmToModify_OnTableOrSlot.identifier, PowerupScript.Modifier.symbolMultiplier, true);
 	}
 
-	// Token: 0x060003E5 RID: 997 RVA: 0x0001A79C File Offset: 0x0001899C
+	// Token: 0x0600044B RID: 1099 RVA: 0x0002DD28 File Offset: 0x0002BF28
 	private static void AFunc_OnPick_AddModifierRandomCharm_PatternsMult(AbilityScript ability)
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -516,7 +517,7 @@ public class AbilityScript
 		GameplayData.Powerup_Modifier_Set(randomCharmToModify_OnTableOrSlot.identifier, PowerupScript.Modifier.patternMultiplier, true);
 	}
 
-	// Token: 0x060003E6 RID: 998 RVA: 0x0001A7C8 File Offset: 0x000189C8
+	// Token: 0x0600044C RID: 1100 RVA: 0x0002DD54 File Offset: 0x0002BF54
 	private static void AFunc_OnPick_AddModifierRandomCharm_Obsessive(AbilityScript ability)
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -527,7 +528,7 @@ public class AbilityScript
 		GameplayData.Powerup_Modifier_Set(randomCharmToModify_OnTableOrSlot.identifier, PowerupScript.Modifier.obsessive, true);
 	}
 
-	// Token: 0x060003E7 RID: 999 RVA: 0x0001A7F4 File Offset: 0x000189F4
+	// Token: 0x0600044D RID: 1101 RVA: 0x0002DD80 File Offset: 0x0002BF80
 	private static void AFunc_OnPick_AddModifierRandomCharm_Gambler(AbilityScript ability)
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -538,7 +539,7 @@ public class AbilityScript
 		GameplayData.Powerup_Modifier_Set(randomCharmToModify_OnTableOrSlot.identifier, PowerupScript.Modifier.gambler, true);
 	}
 
-	// Token: 0x060003E8 RID: 1000 RVA: 0x0001A820 File Offset: 0x00018A20
+	// Token: 0x0600044E RID: 1102 RVA: 0x0002DDAC File Offset: 0x0002BFAC
 	private static void AFunc_OnPick_AddModifierRandomCharm_Speculative(AbilityScript ability)
 	{
 		PowerupScript randomCharmToModify_OnTableOrSlot = AbilityScript.GetRandomCharmToModify_OnTableOrSlot();
@@ -549,82 +550,82 @@ public class AbilityScript
 		GameplayData.Powerup_Modifier_Set(randomCharmToModify_OnTableOrSlot.identifier, PowerupScript.Modifier.speculative, true);
 	}
 
-	// Token: 0x060003E9 RID: 1001 RVA: 0x0001A84A File Offset: 0x00018A4A
+	// Token: 0x0600044F RID: 1103 RVA: 0x000090D0 File Offset: 0x000072D0
 	private static void AFunc_OnPick_RechargeRedButtonPowerups(AbilityScript ability)
 	{
 		GameplayData.Powerup_ButtonChargesUsed_ResetAll(true);
 	}
 
-	// Token: 0x060003EA RID: 1002 RVA: 0x0001A853 File Offset: 0x00018A53
+	// Token: 0x06000450 RID: 1104 RVA: 0x000090D9 File Offset: 0x000072D9
 	private static void AFunc_OnPick_SymbolLemonChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.lemon, 0.8f);
 	}
 
-	// Token: 0x060003EB RID: 1003 RVA: 0x0001A860 File Offset: 0x00018A60
+	// Token: 0x06000451 RID: 1105 RVA: 0x000090E6 File Offset: 0x000072E6
 	private static void AFunc_OnPick_SymbolCherryChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.cherry, 0.8f);
 	}
 
-	// Token: 0x060003EC RID: 1004 RVA: 0x0001A86D File Offset: 0x00018A6D
+	// Token: 0x06000452 RID: 1106 RVA: 0x000090F3 File Offset: 0x000072F3
 	private static void AFunc_OnPick_SymbolCloverChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.clover, 0.8f);
 	}
 
-	// Token: 0x060003ED RID: 1005 RVA: 0x0001A87A File Offset: 0x00018A7A
+	// Token: 0x06000453 RID: 1107 RVA: 0x00009100 File Offset: 0x00007300
 	private static void AFunc_OnPick_SymbolBellChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.bell, 0.8f);
 	}
 
-	// Token: 0x060003EE RID: 1006 RVA: 0x0001A887 File Offset: 0x00018A87
+	// Token: 0x06000454 RID: 1108 RVA: 0x0000910D File Offset: 0x0000730D
 	private static void AFunc_OnPick_SymbolDiamondChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.diamond, 0.8f);
 	}
 
-	// Token: 0x060003EF RID: 1007 RVA: 0x0001A894 File Offset: 0x00018A94
+	// Token: 0x06000455 RID: 1109 RVA: 0x0000911A File Offset: 0x0000731A
 	private static void AFunc_OnPick_SymbolCoinsChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.coins, 0.8f);
 	}
 
-	// Token: 0x060003F0 RID: 1008 RVA: 0x0001A8A1 File Offset: 0x00018AA1
+	// Token: 0x06000456 RID: 1110 RVA: 0x00009127 File Offset: 0x00007327
 	private static void AFunc_OnPick_SymbolSevenChanceUp(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.seven, 0.8f);
 	}
 
-	// Token: 0x060003F1 RID: 1009 RVA: 0x0001A8AE File Offset: 0x00018AAE
+	// Token: 0x06000457 RID: 1111 RVA: 0x00009134 File Offset: 0x00007334
 	private static void AFunc_OnPick_SymbolsValue_LemonAndCherry(AbilityScript ability)
 	{
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.lemon, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.lemon));
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.cherry, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.cherry));
 	}
 
-	// Token: 0x060003F2 RID: 1010 RVA: 0x0001A8C8 File Offset: 0x00018AC8
+	// Token: 0x06000458 RID: 1112 RVA: 0x0000914E File Offset: 0x0000734E
 	private static void AFunc_OnPick_SymbolsValue_CloverAndBell(AbilityScript ability)
 	{
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.clover, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.clover));
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.bell, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.bell));
 	}
 
-	// Token: 0x060003F3 RID: 1011 RVA: 0x0001A8E2 File Offset: 0x00018AE2
+	// Token: 0x06000459 RID: 1113 RVA: 0x00009168 File Offset: 0x00007368
 	private static void AFunc_OnPick_SymbolsValue_DiamondAndCoins(AbilityScript ability)
 	{
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.diamond, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.diamond));
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.coins, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.coins));
 	}
 
-	// Token: 0x060003F4 RID: 1012 RVA: 0x0001A8FC File Offset: 0x00018AFC
+	// Token: 0x0600045A RID: 1114 RVA: 0x00009182 File Offset: 0x00007382
 	private static void AFunc_OnPick_SymbolsValue_Seven(AbilityScript ability)
 	{
 		GameplayData.Symbol_CoinsValueExtra_Add(SymbolScript.Kind.seven, GameplayData.Symbol_CoinsOverallValue_Get(SymbolScript.Kind.seven) * 2);
 	}
 
-	// Token: 0x060003F5 RID: 1013 RVA: 0x0001A918 File Offset: 0x00018B18
+	// Token: 0x0600045B RID: 1115 RVA: 0x0002DDD8 File Offset: 0x0002BFD8
 	public static void AFunc_OnPick_PatternsValue_3OrLessElements(AbilityScript ability)
 	{
 		List<PatternScript.Kind> list = GameplayData.PatternsAvailable_GetAll();
@@ -638,7 +639,7 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x060003F6 RID: 1014 RVA: 0x0001A95C File Offset: 0x00018B5C
+	// Token: 0x0600045C RID: 1116 RVA: 0x0002DE1C File Offset: 0x0002C01C
 	public static void AFunc_OnPick_PatternsValue_4OrMoreElements(AbilityScript ability)
 	{
 		List<PatternScript.Kind> list = GameplayData.PatternsAvailable_GetAll();
@@ -652,7 +653,7 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x060003F7 RID: 1015 RVA: 0x0001A9A0 File Offset: 0x00018BA0
+	// Token: 0x0600045D RID: 1117 RVA: 0x0002DE60 File Offset: 0x0002C060
 	public static void AFunc_OnPick_EvilGeneric_SpawnSkeletonPiece(AbilityScript ability)
 	{
 		List<PowerupScript.Identifier> list = PowerupScript._SkeletonPiecesSpawnable_GetListReference(true);
@@ -694,14 +695,14 @@ public class AbilityScript
 		PowerupScript.PutInDrawer(list[0], false, num);
 	}
 
-	// Token: 0x060003F8 RID: 1016 RVA: 0x0001AA6B File Offset: 0x00018C6B
+	// Token: 0x0600045E RID: 1118 RVA: 0x0000919B File Offset: 0x0000739B
 	private static void AFunc_OnPick_EvilGeneric_DoubleCloversButMoney0(AbilityScript ability)
 	{
 		GameplayData.CloverTicketsAdd(GameplayData.CloverTicketsGet(), true);
 		GameplayData.CoinsSet(0);
 	}
 
-	// Token: 0x060003F9 RID: 1017 RVA: 0x0001AA84 File Offset: 0x00018C84
+	// Token: 0x0600045F RID: 1119 RVA: 0x0002DF2C File Offset: 0x0002C12C
 	private static void AFunc_OnPick_EvilGeneric_ShinyObjects(AbilityScript ability)
 	{
 		for (int i = 0; i < StoreCapsuleScript.storePowerups.Length; i++)
@@ -718,7 +719,7 @@ public class AbilityScript
 		StoreCapsuleScript.RefreshCostTextAll();
 	}
 
-	// Token: 0x060003FA RID: 1018 RVA: 0x0001AAF0 File Offset: 0x00018CF0
+	// Token: 0x06000460 RID: 1120 RVA: 0x0002DF98 File Offset: 0x0002C198
 	private static void AFunc_OnPick_EvilGeneric_2FreeItemsTicketsZero(AbilityScript ability)
 	{
 		AbilityScript._2fiTk0_StorePowerups.Clear();
@@ -758,7 +759,7 @@ public class AbilityScript
 		GameplayData.CloverTicketsSet(0L);
 	}
 
-	// Token: 0x060003FB RID: 1019 RVA: 0x0001AC34 File Offset: 0x00018E34
+	// Token: 0x06000461 RID: 1121 RVA: 0x0002E0DC File Offset: 0x0002C2DC
 	private static void AFunc_OnPick_EvilGeneric_TakeOtherAbilitiesThenDeviousMod(AbilityScript ability)
 	{
 		GameplayData instance = GameplayData.Instance;
@@ -777,14 +778,14 @@ public class AbilityScript
 		AbilityScript.ApplyDeviousModifierToRandomCharmOnTable();
 	}
 
-	// Token: 0x060003FC RID: 1020 RVA: 0x0001ACAF File Offset: 0x00018EAF
+	// Token: 0x06000462 RID: 1122 RVA: 0x000091B3 File Offset: 0x000073B3
 	private static void AFunc_OnPick_EvilGeneric_DoubleCoinsTicketsZero(AbilityScript ability)
 	{
 		GameplayData.CoinsAdd(GameplayData.CoinsGet(), true);
 		GameplayData.CloverTicketsSet(0L);
 	}
 
-	// Token: 0x060003FD RID: 1021 RVA: 0x0001ACC3 File Offset: 0x00018EC3
+	// Token: 0x06000463 RID: 1123 RVA: 0x000091C7 File Offset: 0x000073C7
 	public static void AFunc_OnPick_EvilHalvenChances_LemonsAndCherries(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.lemon, -(GameplayData.Symbol_Chance_Get(SymbolScript.Kind.lemon, false, false) / 2f));
@@ -792,14 +793,14 @@ public class AbilityScript
 		AbilityScript.ApplyDeviousModifierToRandomCharmOnTable();
 	}
 
-	// Token: 0x060003FE RID: 1022 RVA: 0x0001ACF4 File Offset: 0x00018EF4
+	// Token: 0x06000464 RID: 1124 RVA: 0x000091F8 File Offset: 0x000073F8
 	public static void AFunc_OnPick_EvilHalvenChances_CloversAndBells(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.clover, -(GameplayData.Symbol_Chance_Get(SymbolScript.Kind.clover, false, false) / 2f));
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.bell, -(GameplayData.Symbol_Chance_Get(SymbolScript.Kind.bell, false, false) / 2f));
 	}
 
-	// Token: 0x060003FF RID: 1023 RVA: 0x0001AD20 File Offset: 0x00018F20
+	// Token: 0x06000465 RID: 1125 RVA: 0x0002E158 File Offset: 0x0002C358
 	public static void AFunc_OnPick_EvilHalvenChances_DiamondCoinsAndSeven(AbilityScript ability)
 	{
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.diamond, -(GameplayData.Symbol_Chance_Get(SymbolScript.Kind.diamond, false, false) / 2f));
@@ -807,19 +808,19 @@ public class AbilityScript
 		GameplayData.Symbol_Chance_Add(SymbolScript.Kind.seven, -(GameplayData.Symbol_Chance_Get(SymbolScript.Kind.seven, false, false) / 2f));
 	}
 
-	// Token: 0x06000400 RID: 1024 RVA: 0x0001AD6C File Offset: 0x00018F6C
+	// Token: 0x06000466 RID: 1126 RVA: 0x00009224 File Offset: 0x00007424
 	private static void AFunc_OnPick_HolyGeneric_SymbolsMultiplier3(AbilityScript ability)
 	{
 		GameplayData.AllSymbolsMultiplierAdd(3);
 	}
 
-	// Token: 0x06000401 RID: 1025 RVA: 0x0001AD79 File Offset: 0x00018F79
+	// Token: 0x06000467 RID: 1127 RVA: 0x00009231 File Offset: 0x00007431
 	private static void AFunc_OnPick_HolyGeneric_PatternsMultiplier1(AbilityScript ability)
 	{
 		GameplayData.AllPatternsMultiplierAdd(1);
 	}
 
-	// Token: 0x06000402 RID: 1026 RVA: 0x0001AD88 File Offset: 0x00018F88
+	// Token: 0x06000468 RID: 1128 RVA: 0x0002E1A4 File Offset: 0x0002C3A4
 	private static void AFunc_OnPick_HolyGeneric_ReduceCharmsChargesNeeded(AbilityScript ability)
 	{
 		List<PowerupScript> list = RedButtonScript.RegisteredPowerupsGet();
@@ -836,7 +837,7 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x06000403 RID: 1027 RVA: 0x0001ADFC File Offset: 0x00018FFC
+	// Token: 0x06000469 RID: 1129 RVA: 0x0002E218 File Offset: 0x0002C418
 	private static void AFunc_OnPick_HolyGeneric_ModifyAllStoreCharmsMake1Free(AbilityScript ability)
 	{
 		for (int i = 0; i < StoreCapsuleScript.storePowerups.Length; i++)
@@ -862,13 +863,13 @@ public class AbilityScript
 		GameplayData.StoreTemporaryDiscountPerSlotSet_PerPowerup(AbilityScript._ModifyAllStoreCharmsMake1Free_StorePowerups[num2].identifier, 9999L, true);
 	}
 
-	// Token: 0x06000404 RID: 1028 RVA: 0x0001AEC9 File Offset: 0x000190C9
+	// Token: 0x0600046A RID: 1130 RVA: 0x0000923E File Offset: 0x0000743E
 	private static void AFunc_OnPick_HolyGeneric_PatternsRepetitionIncrease(AbilityScript ability)
 	{
 		GameplayData.AbilityHoly_PatternsRepetitions++;
 	}
 
-	// Token: 0x06000405 RID: 1029 RVA: 0x0001AED8 File Offset: 0x000190D8
+	// Token: 0x0600046B RID: 1131 RVA: 0x0002E2E8 File Offset: 0x0002C4E8
 	private static void AFunc_OnPick_SpawnSacredCharm(AbilityScript ability)
 	{
 		PowerupScript powerupScript = PowerupScript.SacredCharm_GetRandom(true, true);
@@ -886,7 +887,7 @@ public class AbilityScript
 		PlatformAPI.AchievementUnlock_FullGame(PlatformAPI.AchievementFullGame.DoNotBeAfraid);
 	}
 
-	// Token: 0x06000406 RID: 1030 RVA: 0x0001AF44 File Offset: 0x00019144
+	// Token: 0x0600046C RID: 1132 RVA: 0x0002E354 File Offset: 0x0002C554
 	public static void AFunc_OnPick_HolyPatternsValue_3OrLessElements(AbilityScript ability)
 	{
 		List<PatternScript.Kind> list = GameplayData.PatternsAvailable_GetAll();
@@ -900,7 +901,7 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x06000407 RID: 1031 RVA: 0x0001AF88 File Offset: 0x00019188
+	// Token: 0x0600046D RID: 1133 RVA: 0x0002E398 File Offset: 0x0002C598
 	public static void AFunc_OnPick_HolyPatternsValue_4OrMoreElements(AbilityScript ability)
 	{
 		List<PatternScript.Kind> list = GameplayData.PatternsAvailable_GetAll();
@@ -914,7 +915,7 @@ public class AbilityScript
 		}
 	}
 
-	// Token: 0x06000408 RID: 1032 RVA: 0x0001AFCC File Offset: 0x000191CC
+	// Token: 0x0600046E RID: 1134 RVA: 0x0002E3DC File Offset: 0x0002C5DC
 	private void Initialize(AbilityScript.Identifier identifier, AbilityScript.Category category, AbilityScript.Archetype archetype, AbilityScript.Rarity rarity, string nameKey, string descrKey, string[] replies, string spriteName, string soundName, int maxPickupTimes, AbilityScript.AbilityCallback onAbilityPick)
 	{
 		this.identifier = identifier;
@@ -940,7 +941,7 @@ public class AbilityScript
 		AbilityScript.dict_ListsByCategory[category].Add(this);
 	}
 
-	// Token: 0x06000409 RID: 1033 RVA: 0x0001B074 File Offset: 0x00019274
+	// Token: 0x0600046F RID: 1135 RVA: 0x0002E484 File Offset: 0x0002C684
 	public static void InitializeAll(bool isNewGame)
 	{
 		AbilityScript.list_All.Clear();
@@ -1017,128 +1018,217 @@ public class AbilityScript
 		}
 	}
 
+	// Token: 0x040003AE RID: 942
 	public static List<AbilityScript> list_All = new List<AbilityScript>();
 
+	// Token: 0x040003AF RID: 943
 	public static Dictionary<AbilityScript.Identifier, AbilityScript> dict_All = new Dictionary<AbilityScript.Identifier, AbilityScript>();
 
+	// Token: 0x040003B0 RID: 944
 	public static Dictionary<AbilityScript.Category, List<AbilityScript>> dict_ListsByCategory = new Dictionary<AbilityScript.Category, List<AbilityScript>>();
 
+	// Token: 0x040003B1 RID: 945
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040003B2 RID: 946
 	private const int MAX_PICKUP_TIMES_INFINITE = -1;
 
+	// Token: 0x040003B3 RID: 947
 	private static Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x040003B4 RID: 948
 	private AbilityScript.Identifier identifier;
 
+	// Token: 0x040003B5 RID: 949
 	private AbilityScript.Category category;
 
+	// Token: 0x040003B6 RID: 950
 	private AbilityScript.Archetype archetype;
 
+	// Token: 0x040003B7 RID: 951
 	private AbilityScript.Rarity rarity;
 
+	// Token: 0x040003B8 RID: 952
 	private string nameKey;
 
+	// Token: 0x040003B9 RID: 953
 	private string descriptionKey;
 
+	// Token: 0x040003BA RID: 954
 	private string[] repliesKeys;
 
+	// Token: 0x040003BB RID: 955
 	private Sprite mySprite;
 
+	// Token: 0x040003BC RID: 956
 	private AudioClip sound;
 
+	// Token: 0x040003BD RID: 957
 	private int maxPickupTimes = -1;
 
+	// Token: 0x040003BE RID: 958
 	private int pickedTimes;
 
+	// Token: 0x040003BF RID: 959
 	public AbilityScript.AbilityCallback OnAbilityPick;
 
+	// Token: 0x040003C0 RID: 960
 	public AbilityScript.AbilityCallback OnAbilityPick_Static;
 
+	// Token: 0x040003C1 RID: 961
 	private static List<PowerupScript> _2fiTk0_StorePowerups = new List<PowerupScript>();
 
+	// Token: 0x040003C2 RID: 962
 	private static List<PowerupScript> _ModifyAllStoreCharmsMake1Free_StorePowerups = new List<PowerupScript>();
 
+	// Token: 0x040003C3 RID: 963
 	private static List<AbilityScript> _tempInstList = new List<AbilityScript>();
 
+	// Token: 0x02000045 RID: 69
 	public enum Identifier
 	{
+		// Token: 0x040003C5 RID: 965
 		undefined = -1,
+		// Token: 0x040003C6 RID: 966
 		extraSpace,
+		// Token: 0x040003C7 RID: 967
 		interestsUp,
+		// Token: 0x040003C8 RID: 968
 		jackpotIncreaseBase,
+		// Token: 0x040003C9 RID: 969
 		ticketsPlus5,
+		// Token: 0x040003CA RID: 970
 		discount1,
+		// Token: 0x040003CB RID: 971
 		rndCharmMod_Clover,
+		// Token: 0x040003CC RID: 972
 		rndCharmMod_SymbMult,
+		// Token: 0x040003CD RID: 973
 		rndCharmMod_PatMult,
+		// Token: 0x040003CE RID: 974
 		rndCharmMod_Obsessive,
+		// Token: 0x040003CF RID: 975
 		rndCharmMod_Gambler,
+		// Token: 0x040003D0 RID: 976
 		rndCharmMod_Speculative,
+		// Token: 0x040003D1 RID: 977
 		rechargeRedButtonPowerups,
+		// Token: 0x040003D2 RID: 978
 		symbolChances_Lemon,
+		// Token: 0x040003D3 RID: 979
 		symbolChances_Cherry,
+		// Token: 0x040003D4 RID: 980
 		symbolChances_Clover,
+		// Token: 0x040003D5 RID: 981
 		symbolChances_Bell,
+		// Token: 0x040003D6 RID: 982
 		symbolChances_Diamond,
+		// Token: 0x040003D7 RID: 983
 		symbolChances_Coins,
+		// Token: 0x040003D8 RID: 984
 		symbolChances_Seven,
+		// Token: 0x040003D9 RID: 985
 		symbolsValue_LemonAndCherry,
+		// Token: 0x040003DA RID: 986
 		symbolsValue_CloverAndBell,
+		// Token: 0x040003DB RID: 987
 		symbolsValue_DiamondAndCoins,
+		// Token: 0x040003DC RID: 988
 		symbolsValue_Seven,
+		// Token: 0x040003DD RID: 989
 		patternsValue_3LessElements,
+		// Token: 0x040003DE RID: 990
 		patternsValue_4MoreElements,
+		// Token: 0x040003DF RID: 991
 		evilGeneric_SpawnSkeletonPiece,
+		// Token: 0x040003E0 RID: 992
 		evilGeneric_DoubleCloversButMoney0,
+		// Token: 0x040003E1 RID: 993
 		evilGeneric_More666,
+		// Token: 0x040003E2 RID: 994
 		evilGeneric_ShinyObjects,
+		// Token: 0x040003E3 RID: 995
 		evilGeneric_2FreeItemsTicketsZero,
+		// Token: 0x040003E4 RID: 996
 		evilGeneric_TakeOtherAbilitiesButDeviousMod,
+		// Token: 0x040003E5 RID: 997
 		evilGeneric_DoubleCoinsTicketsZero,
+		// Token: 0x040003E6 RID: 998
 		evilHalvenChances_LemonAndCherry,
+		// Token: 0x040003E7 RID: 999
 		evilHalvenChances_CloverAndBell,
+		// Token: 0x040003E8 RID: 1000
 		evilHalvenChances_DiamondCoinsAndSeven,
+		// Token: 0x040003E9 RID: 1001
 		holyGeneric_MultiplierSymbols_1,
+		// Token: 0x040003EA RID: 1002
 		holyGeneric_MultiplierPatterns_1,
+		// Token: 0x040003EB RID: 1003
 		holyGeneric_ReduceChargesNeeded_ForRedButtonCharms,
+		// Token: 0x040003EC RID: 1004
 		holyGeneric_ModifyStoreCharms_Make1Free,
+		// Token: 0x040003ED RID: 1005
 		holyGeneric_PatternsRepetitionIncrase,
+		// Token: 0x040003EE RID: 1006
 		holyGeneric_SpawnSacredCharm,
+		// Token: 0x040003EF RID: 1007
 		holyPatternsValue_3LessElements,
+		// Token: 0x040003F0 RID: 1008
 		holyPatternsValue_4MoreElements,
+		// Token: 0x040003F1 RID: 1009
 		count
 	}
 
+	// Token: 0x02000046 RID: 70
 	public enum Category
 	{
+		// Token: 0x040003F3 RID: 1011
 		undefined = -1,
+		// Token: 0x040003F4 RID: 1012
 		normal,
+		// Token: 0x040003F5 RID: 1013
 		evil,
+		// Token: 0x040003F6 RID: 1014
 		good,
+		// Token: 0x040003F7 RID: 1015
 		count
 	}
 
+	// Token: 0x02000047 RID: 71
 	public enum Archetype
 	{
+		// Token: 0x040003F9 RID: 1017
 		normal,
+		// Token: 0x040003FA RID: 1018
 		symbolChances,
+		// Token: 0x040003FB RID: 1019
 		symbolsValue,
+		// Token: 0x040003FC RID: 1020
 		patternsValue,
+		// Token: 0x040003FD RID: 1021
 		count
 	}
 
+	// Token: 0x02000048 RID: 72
 	public enum Rarity
 	{
+		// Token: 0x040003FF RID: 1023
 		undefined = -1,
+		// Token: 0x04000400 RID: 1024
 		common,
+		// Token: 0x04000401 RID: 1025
 		uncommon,
+		// Token: 0x04000402 RID: 1026
 		rare,
+		// Token: 0x04000403 RID: 1027
 		ultraRare,
+		// Token: 0x04000404 RID: 1028
 		legendary,
+		// Token: 0x04000405 RID: 1029
 		count
 	}
 
-	// (Invoke) Token: 0x06001131 RID: 4401
+	// Token: 0x02000049 RID: 73
+	// (Invoke) Token: 0x06000473 RID: 1139
 	public delegate void AbilityCallback(AbilityScript ability);
 }

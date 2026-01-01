@@ -7,21 +7,22 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+// Token: 0x020000B5 RID: 181
 public class GeneralUiScript : MonoBehaviour
 {
-	// Token: 0x060008AA RID: 2218 RVA: 0x00038EE2 File Offset: 0x000370E2
+	// Token: 0x060009D5 RID: 2517 RVA: 0x0000DBF8 File Offset: 0x0000BDF8
 	public static bool IsEnabled()
 	{
 		return GeneralUiScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008AB RID: 2219 RVA: 0x00038EF3 File Offset: 0x000370F3
+	// Token: 0x060009D6 RID: 2518 RVA: 0x0000DC09 File Offset: 0x0000BE09
 	public static void ForceEnabled()
 	{
 		GeneralUiScript.instance.holder.SetActive(true);
 	}
 
-	// Token: 0x060008AC RID: 2220 RVA: 0x00038F05 File Offset: 0x00037105
+	// Token: 0x060009D7 RID: 2519 RVA: 0x0000DC1B File Offset: 0x0000BE1B
 	private void Initialize()
 	{
 		this.titleScreenRectTransform = this.titleScreenHolder.GetComponent<RectTransform>();
@@ -29,25 +30,25 @@ public class GeneralUiScript : MonoBehaviour
 		this.fadeImage.color = this.fadeImageColor;
 	}
 
-	// Token: 0x060008AD RID: 2221 RVA: 0x00038F30 File Offset: 0x00037130
+	// Token: 0x060009D8 RID: 2520 RVA: 0x0000DC46 File Offset: 0x0000BE46
 	public bool HasFadedIn()
 	{
 		return this.fadedIn;
 	}
 
-	// Token: 0x060008AE RID: 2222 RVA: 0x00038F38 File Offset: 0x00037138
+	// Token: 0x060009D9 RID: 2521 RVA: 0x0000DC4E File Offset: 0x0000BE4E
 	public bool IsShowingTitleScreen()
 	{
 		return this.titleScreenShowing;
 	}
 
-	// Token: 0x060008AF RID: 2223 RVA: 0x00038F40 File Offset: 0x00037140
+	// Token: 0x060009DA RID: 2522 RVA: 0x0000DC56 File Offset: 0x0000BE56
 	public static void ComingFromVictoryFlag_Set(bool value)
 	{
 		GeneralUiScript.comingFromVictory = value;
 	}
 
-	// Token: 0x060008B0 RID: 2224 RVA: 0x00038F48 File Offset: 0x00037148
+	// Token: 0x060009DB RID: 2523 RVA: 0x0000DC5E File Offset: 0x0000BE5E
 	private IEnumerator IntroAndTitleScreen_Coroutine()
 	{
 		bool hasOldSession = GameplayData.NewGameIntroFinished_Get();
@@ -258,14 +259,14 @@ public class GeneralUiScript : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060008B1 RID: 2225 RVA: 0x00038F57 File Offset: 0x00037157
+	// Token: 0x060009DC RID: 2524 RVA: 0x0000DC6D File Offset: 0x0000BE6D
 	private void _IntroMenuNewGame()
 	{
 		GeneralUiScript.requestedNewSessionReset = true;
 		ScreenMenuScript.Close(false);
 	}
 
-	// Token: 0x060008B2 RID: 2226 RVA: 0x00038F65 File Offset: 0x00037165
+	// Token: 0x060009DD RID: 2525 RVA: 0x0000DC7B File Offset: 0x0000BE7B
 	private void _IntroMenuContinue()
 	{
 		VirtualCursors.CursorDesiredVisibilitySet(0, false);
@@ -280,7 +281,7 @@ public class GeneralUiScript : MonoBehaviour
 		ScreenMenuScript.Close(false);
 	}
 
-	// Token: 0x060008B3 RID: 2227 RVA: 0x00038F92 File Offset: 0x00037192
+	// Token: 0x060009DE RID: 2526 RVA: 0x0000DCA8 File Offset: 0x0000BEA8
 	private void _IntroMenuNewSeededGame()
 	{
 		if (!GameplayMaster.CanInputSeed())
@@ -292,7 +293,7 @@ public class GeneralUiScript : MonoBehaviour
 		ScreenMenuScript.Close(false);
 	}
 
-	// Token: 0x060008B4 RID: 2228 RVA: 0x00038FBE File Offset: 0x000371BE
+	// Token: 0x060009DF RID: 2527 RVA: 0x0000DCD4 File Offset: 0x0000BED4
 	public void FadeIntro()
 	{
 		this.titleScreenHolder.SetActive(false);
@@ -300,7 +301,7 @@ public class GeneralUiScript : MonoBehaviour
 		base.StartCoroutine(this.IntroAndTitleScreen_Coroutine());
 	}
 
-	// Token: 0x060008B5 RID: 2229 RVA: 0x00038FE0 File Offset: 0x000371E0
+	// Token: 0x060009E0 RID: 2528 RVA: 0x0004FEDC File Offset: 0x0004E0DC
 	private void TranslateText(Controls.InputActionMap map)
 	{
 		if (Master.IsDemo)
@@ -327,7 +328,7 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008B6 RID: 2230 RVA: 0x000390B0 File Offset: 0x000372B0
+	// Token: 0x060009E1 RID: 2529 RVA: 0x0000DCF6 File Offset: 0x0000BEF6
 	public static void CoinUiForceShow(float time = 3f)
 	{
 		if (GeneralUiScript.instance == null)
@@ -337,7 +338,7 @@ public class GeneralUiScript : MonoBehaviour
 		GeneralUiScript.instance.coinsScreenKeepTimer = time;
 	}
 
-	// Token: 0x060008B7 RID: 2231 RVA: 0x000390CB File Offset: 0x000372CB
+	// Token: 0x060009E2 RID: 2530 RVA: 0x0000DD11 File Offset: 0x0000BF11
 	public static void CoinsTextForceUpdate()
 	{
 		if (GeneralUiScript.instance == null)
@@ -351,7 +352,7 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008B8 RID: 2232 RVA: 0x00039106 File Offset: 0x00037306
+	// Token: 0x060009E3 RID: 2531 RVA: 0x0000DD4C File Offset: 0x0000BF4C
 	public static void CoinsTextInstantUpdate()
 	{
 		if (GeneralUiScript.instance == null)
@@ -362,7 +363,7 @@ public class GeneralUiScript : MonoBehaviour
 		GeneralUiScript.CoinsTextForceUpdate();
 	}
 
-	// Token: 0x060008B9 RID: 2233 RVA: 0x00039126 File Offset: 0x00037326
+	// Token: 0x060009E4 RID: 2532 RVA: 0x0000DCF6 File Offset: 0x0000BEF6
 	public static void TicketsForceShow(float time = 3f)
 	{
 		if (GeneralUiScript.instance == null)
@@ -372,7 +373,7 @@ public class GeneralUiScript : MonoBehaviour
 		GeneralUiScript.instance.coinsScreenKeepTimer = time;
 	}
 
-	// Token: 0x060008BA RID: 2234 RVA: 0x00039141 File Offset: 0x00037341
+	// Token: 0x060009E5 RID: 2533 RVA: 0x0000DD6C File Offset: 0x0000BF6C
 	public static void TicketsTextForceUpdate()
 	{
 		if (GeneralUiScript.instance == null)
@@ -386,7 +387,7 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008BB RID: 2235 RVA: 0x0003917C File Offset: 0x0003737C
+	// Token: 0x060009E6 RID: 2534 RVA: 0x0004FFAC File Offset: 0x0004E1AC
 	private void VersionTextRefresh()
 	{
 		this.textGameVersion.text = GeneralUiScript.GameVersionString_Get();
@@ -404,20 +405,20 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008BC RID: 2236 RVA: 0x000391E6 File Offset: 0x000373E6
+	// Token: 0x060009E7 RID: 2535 RVA: 0x0000DDA7 File Offset: 0x0000BFA7
 	public static string GameVersionString_Get()
 	{
 		return (Master.IsDemo ? "Demo " : "") + "v" + Application.version;
 	}
 
-	// Token: 0x060008BD RID: 2237 RVA: 0x0003920A File Offset: 0x0003740A
+	// Token: 0x060009E8 RID: 2536 RVA: 0x0000DDCB File Offset: 0x0000BFCB
 	private void Awake()
 	{
 		GeneralUiScript.instance = this;
 		this.Initialize();
 	}
 
-	// Token: 0x060008BE RID: 2238 RVA: 0x00039218 File Offset: 0x00037418
+	// Token: 0x060009E9 RID: 2537 RVA: 0x00050018 File Offset: 0x0004E218
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
@@ -428,7 +429,7 @@ public class GeneralUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.VersionTextRefresh));
 	}
 
-	// Token: 0x060008BF RID: 2239 RVA: 0x00039290 File Offset: 0x00037490
+	// Token: 0x060009EA RID: 2538 RVA: 0x00050090 File Offset: 0x0004E290
 	private void OnDestroy()
 	{
 		Controls.onPromptsUpdateRequest = (Controls.MapCallback)Delegate.Remove(Controls.onPromptsUpdateRequest, new Controls.MapCallback(this.TranslateText));
@@ -439,7 +440,7 @@ public class GeneralUiScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.VersionTextRefresh));
 	}
 
-	// Token: 0x060008C0 RID: 2240 RVA: 0x000392F0 File Offset: 0x000374F0
+	// Token: 0x060009EB RID: 2539 RVA: 0x000500F0 File Offset: 0x0004E2F0
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -757,103 +758,153 @@ public class GeneralUiScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040009EB RID: 2539
 	public static GeneralUiScript instance;
 
+	// Token: 0x040009EC RID: 2540
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040009ED RID: 2541
 	private const float TITLE_SCREEN_FADE_IN_SPEED = 1f;
 
+	// Token: 0x040009EE RID: 2542
 	private const float TITLE_SCREEN_FADE_OUT_SPEED = 1f;
 
+	// Token: 0x040009EF RID: 2543
 	private const float FADE_IN_SPEED = 0.5f;
 
+	// Token: 0x040009F0 RID: 2544
 	private const float COINS_SCREEN_KEEP_TIME = 3f;
 
+	// Token: 0x040009F1 RID: 2545
 	private const float COINS_UPDATE_TIMER_RESET = 0.05f;
 
+	// Token: 0x040009F2 RID: 2546
 	private const float COINS_UPDATE_TIMER_RESET_LONG = 0.1f;
 
+	// Token: 0x040009F3 RID: 2547
 	private global::UnityEngine.Vector2 COINS_HOLDER_DEFAULT_POSITION = new global::UnityEngine.Vector2(10f, -10f);
 
+	// Token: 0x040009F4 RID: 2548
 	private global::UnityEngine.Vector2 COINS_TEXT_OFFSET = new global::UnityEngine.Vector2(20f, -13f);
 
+	// Token: 0x040009F5 RID: 2549
 	private const float TICKETS_SCREEN_KEEP_TIME = 3f;
 
+	// Token: 0x040009F6 RID: 2550
 	private const float TICKETS_UPDATE_TIMER_RESET = 0.05f;
 
+	// Token: 0x040009F7 RID: 2551
 	private global::UnityEngine.Vector2 TICKETS_HOLDER_DEFAULT_POSITION = new global::UnityEngine.Vector2(-10f, -10f);
 
+	// Token: 0x040009F8 RID: 2552
 	private global::UnityEngine.Vector2 TICKETS_TEXT_OFFSET = new global::UnityEngine.Vector2(-18f, -13f);
 
+	// Token: 0x040009F9 RID: 2553
 	private Controls.PlayerExt player;
 
+	// Token: 0x040009FA RID: 2554
 	public GameObject holder;
 
+	// Token: 0x040009FB RID: 2555
 	public Image fadeImage;
 
+	// Token: 0x040009FC RID: 2556
 	public GameObject developerLetterHolder;
 
+	// Token: 0x040009FD RID: 2557
 	public RectTransform developerLetterShifter;
 
+	// Token: 0x040009FE RID: 2558
 	public TextMeshProUGUI developerLetterText;
 
+	// Token: 0x040009FF RID: 2559
 	public TextMeshProUGUI developerLetterPrompt;
 
+	// Token: 0x04000A00 RID: 2560
 	public GameObject titleScreenHolder;
 
+	// Token: 0x04000A01 RID: 2561
 	private RectTransform titleScreenRectTransform;
 
+	// Token: 0x04000A02 RID: 2562
 	public TextMeshProUGUI textTitleStart;
 
+	// Token: 0x04000A03 RID: 2563
 	public RectTransform coinsHolder;
 
+	// Token: 0x04000A04 RID: 2564
 	public TextMeshProUGUI textCoin;
 
+	// Token: 0x04000A05 RID: 2565
 	public Image coinsTextBackImage;
 
+	// Token: 0x04000A06 RID: 2566
 	public RectTransform ticketsHolder;
 
+	// Token: 0x04000A07 RID: 2567
 	public TextMeshProUGUI textTickets;
 
+	// Token: 0x04000A08 RID: 2568
 	public Image ticketsTextBackImage;
 
+	// Token: 0x04000A09 RID: 2569
 	public RectTransform gameVersionHolder;
 
+	// Token: 0x04000A0A RID: 2570
 	public TextMeshProUGUI textGameVersion;
 
+	// Token: 0x04000A0B RID: 2571
 	private bool fadedIn;
 
+	// Token: 0x04000A0C RID: 2572
 	private bool titleScreenShowing;
 
+	// Token: 0x04000A0D RID: 2573
 	private static bool requestedNewSessionReset;
 
+	// Token: 0x04000A0E RID: 2574
 	private Color fadeImageColor = new Color(0f, 0f, 0f, 1f);
 
+	// Token: 0x04000A0F RID: 2575
 	private static bool comingFromVictory;
 
+	// Token: 0x04000A10 RID: 2576
 	private bool gotoSeedInputMenu;
 
+	// Token: 0x04000A11 RID: 2577
 	private BigInteger coinsOld = 0;
 
+	// Token: 0x04000A12 RID: 2578
 	private int spinsLeftOld;
 
+	// Token: 0x04000A13 RID: 2579
 	private float coinsAddTimer;
 
+	// Token: 0x04000A14 RID: 2580
 	private bool coinsUpdateAgain;
 
+	// Token: 0x04000A15 RID: 2581
 	private global::UnityEngine.Vector2 coinsTextOffset = global::UnityEngine.Vector2.zero;
 
+	// Token: 0x04000A16 RID: 2582
 	private float coinsScreenKeepTimer;
 
+	// Token: 0x04000A17 RID: 2583
 	private bool coinsInstantUpdate;
 
+	// Token: 0x04000A18 RID: 2584
 	private long ticketsOld;
 
+	// Token: 0x04000A19 RID: 2585
 	private float ticketsAddTimer;
 
+	// Token: 0x04000A1A RID: 2586
 	private bool ticketsUpdateAgain;
 
+	// Token: 0x04000A1B RID: 2587
 	private global::UnityEngine.Vector2 ticketsTextOffset = global::UnityEngine.Vector2.zero;
 
+	// Token: 0x04000A1C RID: 2588
 	private float ticketsScreenKeepTimer;
 }

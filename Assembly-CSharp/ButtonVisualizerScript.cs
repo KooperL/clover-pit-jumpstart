@@ -3,9 +3,10 @@ using Panik;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x020000A8 RID: 168
 public class ButtonVisualizerScript : MonoBehaviour
 {
-	// Token: 0x06000844 RID: 2116 RVA: 0x00035F3C File Offset: 0x0003413C
+	// Token: 0x06000967 RID: 2407 RVA: 0x0000D667 File Offset: 0x0000B867
 	public void Press()
 	{
 		if (this.runningAnimation)
@@ -15,7 +16,7 @@ public class ButtonVisualizerScript : MonoBehaviour
 		this.AnimationReset(true);
 	}
 
-	// Token: 0x06000845 RID: 2117 RVA: 0x00035F4E File Offset: 0x0003414E
+	// Token: 0x06000968 RID: 2408 RVA: 0x0000D679 File Offset: 0x0000B879
 	private void AnimationReset(bool runningState)
 	{
 		this.runningAnimation = runningState;
@@ -23,14 +24,14 @@ public class ButtonVisualizerScript : MonoBehaviour
 		this.animTimer = 0f;
 	}
 
-	// Token: 0x06000846 RID: 2118 RVA: 0x00035F6D File Offset: 0x0003416D
+	// Token: 0x06000969 RID: 2409 RVA: 0x0000D698 File Offset: 0x0000B898
 	private void Reset()
 	{
 		this.myElement = base.GetComponentInParent<DiegeticMenuElement>();
 		this.myButtonTransform = base.transform;
 	}
 
-	// Token: 0x06000847 RID: 2119 RVA: 0x00035F88 File Offset: 0x00034188
+	// Token: 0x0600096A RID: 2410 RVA: 0x0004D4B8 File Offset: 0x0004B6B8
 	private void Awake()
 	{
 		this.myElement = base.GetComponentInParent<DiegeticMenuElement>();
@@ -44,7 +45,7 @@ public class ButtonVisualizerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000848 RID: 2120 RVA: 0x00036018 File Offset: 0x00034218
+	// Token: 0x0600096B RID: 2411 RVA: 0x0004D548 File Offset: 0x0004B748
 	private void Update()
 	{
 		if (!Tick.IsGameRunning)
@@ -68,7 +69,7 @@ public class ButtonVisualizerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000849 RID: 2121 RVA: 0x000360EC File Offset: 0x000342EC
+	// Token: 0x0600096C RID: 2412 RVA: 0x0004D61C File Offset: 0x0004B81C
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
@@ -76,25 +77,36 @@ public class ButtonVisualizerScript : MonoBehaviour
 		Gizmos.DrawWireSphere(this.myButtonTransform.position + this.targetLocalPosOffset, 0.1f);
 	}
 
+	// Token: 0x0400095A RID: 2394
 	public const float ANIM_SPEED = 8f;
 
+	// Token: 0x0400095B RID: 2395
 	public DiegeticMenuElement myElement;
 
+	// Token: 0x0400095C RID: 2396
 	public Transform myButtonTransform;
 
+	// Token: 0x0400095D RID: 2397
 	private Vector3 buttonStartingLocalPosition;
 
+	// Token: 0x0400095E RID: 2398
 	private Vector3 buttonStartingLocalEuler;
 
+	// Token: 0x0400095F RID: 2399
 	public Vector3 targetLocalPosOffset;
 
+	// Token: 0x04000960 RID: 2400
 	public Vector3 targetLocalEuler;
 
+	// Token: 0x04000961 RID: 2401
 	private bool runningAnimation;
 
+	// Token: 0x04000962 RID: 2402
 	private float animTimer;
 
+	// Token: 0x04000963 RID: 2403
 	private float animDirection;
 
+	// Token: 0x04000964 RID: 2404
 	public bool selfDetect = true;
 }

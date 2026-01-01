@@ -5,27 +5,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Token: 0x020000BC RID: 188
 public class LoadingScreenNotifications : MonoBehaviour
 {
-	// Token: 0x060008E2 RID: 2274 RVA: 0x0003A9C8 File Offset: 0x00038BC8
+	// Token: 0x06000A19 RID: 2585 RVA: 0x0000E036 File Offset: 0x0000C236
 	public static bool IsEnabled()
 	{
 		return !(LoadingScreenNotifications.instance == null) && LoadingScreenNotifications.instance.notifHolder.activeSelf;
 	}
 
-	// Token: 0x060008E3 RID: 2275 RVA: 0x0003A9E8 File Offset: 0x00038BE8
+	// Token: 0x06000A1A RID: 2586 RVA: 0x0000E056 File Offset: 0x0000C256
 	public static bool LoadingShouldWait()
 	{
 		return !(LoadingScreenNotifications.instance == null) && (LoadingScreenNotifications.notifKeysQueue.Count > 0 || LoadingScreenNotifications.IsEnabled());
 	}
 
-	// Token: 0x060008E4 RID: 2276 RVA: 0x0003AA0D File Offset: 0x00038C0D
+	// Token: 0x06000A1B RID: 2587 RVA: 0x0000E056 File Offset: 0x0000C256
 	public static bool HasNotifications()
 	{
 		return !(LoadingScreenNotifications.instance == null) && (LoadingScreenNotifications.notifKeysQueue.Count > 0 || LoadingScreenNotifications.IsEnabled());
 	}
 
-	// Token: 0x060008E5 RID: 2277 RVA: 0x0003AA32 File Offset: 0x00038C32
+	// Token: 0x06000A1C RID: 2588 RVA: 0x0000E07B File Offset: 0x0000C27B
 	public static void SetNotification(string translationKey)
 	{
 		if (LoadingScreenNotifications.instance == null)
@@ -35,7 +36,7 @@ public class LoadingScreenNotifications : MonoBehaviour
 		LoadingScreenNotifications.notifKeysQueue.Add(translationKey);
 	}
 
-	// Token: 0x060008E6 RID: 2278 RVA: 0x0003AA4D File Offset: 0x00038C4D
+	// Token: 0x06000A1D RID: 2589 RVA: 0x0000E096 File Offset: 0x0000C296
 	public static void ClearNotifications()
 	{
 		if (LoadingScreenNotifications.instance == null)
@@ -49,7 +50,7 @@ public class LoadingScreenNotifications : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008E7 RID: 2279 RVA: 0x0003AA80 File Offset: 0x00038C80
+	// Token: 0x06000A1E RID: 2590 RVA: 0x00051DA8 File Offset: 0x0004FFA8
 	private void NotificationShow()
 	{
 		this.notifHolder.SetActive(true);
@@ -61,19 +62,19 @@ public class LoadingScreenNotifications : MonoBehaviour
 		Sound.Play("SoundMenuPopUp", 1f, 1f);
 	}
 
-	// Token: 0x060008E8 RID: 2280 RVA: 0x0003AAFE File Offset: 0x00038CFE
+	// Token: 0x06000A1F RID: 2591 RVA: 0x0000E0C7 File Offset: 0x0000C2C7
 	private void Awake()
 	{
 		LoadingScreenNotifications.instance = this;
 	}
 
-	// Token: 0x060008E9 RID: 2281 RVA: 0x0003AB06 File Offset: 0x00038D06
+	// Token: 0x06000A20 RID: 2592 RVA: 0x0000E0CF File Offset: 0x0000C2CF
 	private void Start()
 	{
 		this.notifHolder.SetActive(false);
 	}
 
-	// Token: 0x060008EA RID: 2282 RVA: 0x0003AB14 File Offset: 0x00038D14
+	// Token: 0x06000A21 RID: 2593 RVA: 0x0000E0DD File Offset: 0x0000C2DD
 	private void OnDestroy()
 	{
 		if (LoadingScreenNotifications.instance == this)
@@ -82,7 +83,7 @@ public class LoadingScreenNotifications : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008EB RID: 2283 RVA: 0x0003AB2C File Offset: 0x00038D2C
+	// Token: 0x06000A22 RID: 2594 RVA: 0x00051E28 File Offset: 0x00050028
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -117,21 +118,30 @@ public class LoadingScreenNotifications : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000A4A RID: 2634
 	public static LoadingScreenNotifications instance;
 
+	// Token: 0x04000A4B RID: 2635
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000A4C RID: 2636
 	private const float NOTIFICATIONS_TIMER = 5f;
 
+	// Token: 0x04000A4D RID: 2637
 	private const float NOTIFICATIONS_DELAY = 0.5f;
 
+	// Token: 0x04000A4E RID: 2638
 	public GameObject notifHolder;
 
+	// Token: 0x04000A4F RID: 2639
 	public TextMeshProUGUI notifText;
 
+	// Token: 0x04000A50 RID: 2640
 	private float inputDelay;
 
+	// Token: 0x04000A51 RID: 2641
 	private float maxNotificationTimer = 5f;
 
+	// Token: 0x04000A52 RID: 2642
 	private static List<string> notifKeysQueue = new List<string>();
 }

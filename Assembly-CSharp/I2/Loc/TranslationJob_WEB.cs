@@ -8,9 +8,10 @@ using UnityEngine.Networking;
 
 namespace I2.Loc
 {
+	// Token: 0x020001A1 RID: 417
 	public class TranslationJob_WEB : TranslationJob_WWW
 	{
-		// Token: 0x06000E7A RID: 3706 RVA: 0x0005CBFA File Offset: 0x0005ADFA
+		// Token: 0x06001226 RID: 4646 RVA: 0x00014A74 File Offset: 0x00012C74
 		public TranslationJob_WEB(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
 		{
 			this._requests = requests;
@@ -19,7 +20,7 @@ namespace I2.Loc
 			this.ExecuteNextBatch();
 		}
 
-		// Token: 0x06000E7B RID: 3707 RVA: 0x0005CC1C File Offset: 0x0005AE1C
+		// Token: 0x06001227 RID: 4647 RVA: 0x0007B2FC File Offset: 0x000794FC
 		private void FindAllQueries()
 		{
 			this.mQueries = new List<KeyValuePair<string, string>>();
@@ -33,7 +34,7 @@ namespace I2.Loc
 			this.mQueries.Sort((KeyValuePair<string, string> a, KeyValuePair<string, string> b) => a.Value.CompareTo(b.Value));
 		}
 
-		// Token: 0x06000E7C RID: 3708 RVA: 0x0005CCF4 File Offset: 0x0005AEF4
+		// Token: 0x06001228 RID: 4648 RVA: 0x0007B3D4 File Offset: 0x000795D4
 		private void ExecuteNextBatch()
 		{
 			if (this.mQueries.Count == 0)
@@ -75,7 +76,7 @@ namespace I2.Loc
 			I2Utils.SendWebRequest(this.www);
 		}
 
-		// Token: 0x06000E7D RID: 3709 RVA: 0x0005CE20 File Offset: 0x0005B020
+		// Token: 0x06001229 RID: 4649 RVA: 0x0007B500 File Offset: 0x00079700
 		public override TranslationJob.eJobState GetState()
 		{
 			if (this.www != null && this.www.isDone)
@@ -91,7 +92,7 @@ namespace I2.Loc
 			return this.mJobState;
 		}
 
-		// Token: 0x06000E7E RID: 3710 RVA: 0x0005CE8C File Offset: 0x0005B08C
+		// Token: 0x0600122A RID: 4650 RVA: 0x0007B56C File Offset: 0x0007976C
 		public void ProcessResult(byte[] bytes, string errorMsg)
 		{
 			if (string.IsNullOrEmpty(errorMsg))
@@ -111,7 +112,7 @@ namespace I2.Loc
 			this.mErrorMessage = errorMsg;
 		}
 
-		// Token: 0x06000E7F RID: 3711 RVA: 0x0005CEF4 File Offset: 0x0005B0F4
+		// Token: 0x0600122B RID: 4651 RVA: 0x0007B5D4 File Offset: 0x000797D4
 		private string ParseTranslationResult(string html, string OriginalText)
 		{
 			string text2;
@@ -145,18 +146,25 @@ namespace I2.Loc
 			return text2;
 		}
 
+		// Token: 0x040012DA RID: 4826
 		private Dictionary<string, TranslationQuery> _requests;
 
+		// Token: 0x040012DB RID: 4827
 		private GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
 
+		// Token: 0x040012DC RID: 4828
 		public string mErrorMessage;
 
+		// Token: 0x040012DD RID: 4829
 		private string mCurrentBatch_ToLanguageCode;
 
+		// Token: 0x040012DE RID: 4830
 		private string mCurrentBatch_FromLanguageCode;
 
+		// Token: 0x040012DF RID: 4831
 		private List<string> mCurrentBatch_Text;
 
+		// Token: 0x040012E0 RID: 4832
 		private List<KeyValuePair<string, string>> mQueries;
 	}
 }

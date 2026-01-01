@@ -4,9 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x020000A3 RID: 163
 public class ToyPhoneScript : MonoBehaviour
 {
-	// Token: 0x06000831 RID: 2097 RVA: 0x0003593C File Offset: 0x00033B3C
+	// Token: 0x0600094E RID: 2382 RVA: 0x0004CCA8 File Offset: 0x0004AEA8
 	public void MenuConnectionUpdate(ToyPhoneScript.MenuConnectionKind menuConnectionKind)
 	{
 		if (!this.meshHolder.activeSelf)
@@ -44,7 +45,7 @@ public class ToyPhoneScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000832 RID: 2098 RVA: 0x00035AB4 File Offset: 0x00033CB4
+	// Token: 0x0600094F RID: 2383 RVA: 0x0004CE20 File Offset: 0x0004B020
 	public void UpdateLabelText()
 	{
 		if (ToyPhoneUIScript.IsEnabled())
@@ -64,13 +65,13 @@ public class ToyPhoneScript : MonoBehaviour
 		this.labelText.text = Translation.Get("TOY_PHONE_LABEL");
 	}
 
-	// Token: 0x06000833 RID: 2099 RVA: 0x00035B33 File Offset: 0x00033D33
+	// Token: 0x06000950 RID: 2384 RVA: 0x0000D543 File Offset: 0x0000B743
 	private void Awake()
 	{
 		ToyPhoneScript.instance = this;
 	}
 
-	// Token: 0x06000834 RID: 2100 RVA: 0x00035B3B File Offset: 0x00033D3B
+	// Token: 0x06000951 RID: 2385 RVA: 0x0000D54B File Offset: 0x0000B74B
 	private void OnDestroy()
 	{
 		if (ToyPhoneScript.instance == this)
@@ -80,14 +81,14 @@ public class ToyPhoneScript : MonoBehaviour
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Remove(Translation.OnLanguageChanged, new UnityAction(this.UpdateLabelText));
 	}
 
-	// Token: 0x06000835 RID: 2101 RVA: 0x00035B70 File Offset: 0x00033D70
+	// Token: 0x06000952 RID: 2386 RVA: 0x0000D580 File Offset: 0x0000B780
 	private void Start()
 	{
 		this.UpdateLabelText();
 		Translation.OnLanguageChanged = (UnityAction)Delegate.Combine(Translation.OnLanguageChanged, new UnityAction(this.UpdateLabelText));
 	}
 
-	// Token: 0x06000836 RID: 2102 RVA: 0x00035B98 File Offset: 0x00033D98
+	// Token: 0x06000953 RID: 2387 RVA: 0x0004CEA0 File Offset: 0x0004B0A0
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -115,22 +116,32 @@ public class ToyPhoneScript : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000937 RID: 2359
 	public static ToyPhoneScript instance;
 
+	// Token: 0x04000938 RID: 2360
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000939 RID: 2361
 	public DiegeticMenuElement myDiegeticMenuElement;
 
+	// Token: 0x0400093A RID: 2362
 	public GameObject meshHolder;
 
+	// Token: 0x0400093B RID: 2363
 	public TextMeshPro labelText;
 
+	// Token: 0x0400093C RID: 2364
 	private bool labelTextShowsPages;
 
+	// Token: 0x020000A4 RID: 164
 	public enum MenuConnectionKind
 	{
+		// Token: 0x0400093E RID: 2366
 		undefined,
+		// Token: 0x0400093F RID: 2367
 		freeRoamMenu,
+		// Token: 0x04000940 RID: 2368
 		slotMenu
 	}
 }

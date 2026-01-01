@@ -1,122 +1,89 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.CompilerServices;
 using Panik;
 
+// Token: 0x02000028 RID: 40
 public class PlatformAPI_Noone : PlatformAPI
 {
-	// Token: 0x0600034E RID: 846 RVA: 0x000153F8 File Offset: 0x000135F8
-	protected override UniTask<bool> _InitializationBeing()
+	// Token: 0x06000396 RID: 918 RVA: 0x000287A4 File Offset: 0x000269A4
+	protected override async UniTask<bool> _InitializationBeing()
 	{
-		PlatformAPI_Noone.<_InitializationBeing>d__0 <_InitializationBeing>d__;
-		<_InitializationBeing>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<_InitializationBeing>d__.<>1__state = -1;
-		<_InitializationBeing>d__.<>t__builder.Start<PlatformAPI_Noone.<_InitializationBeing>d__0>(ref <_InitializationBeing>d__);
-		return <_InitializationBeing>d__.<>t__builder.Task;
+		return 1;
 	}
 
-	// Token: 0x0600034F RID: 847 RVA: 0x00015434 File Offset: 0x00013634
-	protected override UniTask<bool> _InitializationFinalize()
+	// Token: 0x06000397 RID: 919 RVA: 0x000287E0 File Offset: 0x000269E0
+	protected override async UniTask<bool> _InitializationFinalize()
 	{
-		PlatformAPI_Noone.<_InitializationFinalize>d__1 <_InitializationFinalize>d__;
-		<_InitializationFinalize>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<_InitializationFinalize>d__.<>1__state = -1;
-		<_InitializationFinalize>d__.<>t__builder.Start<PlatformAPI_Noone.<_InitializationFinalize>d__1>(ref <_InitializationFinalize>d__);
-		return <_InitializationFinalize>d__.<>t__builder.Task;
+		return 1;
 	}
 
-	// Token: 0x06000350 RID: 848 RVA: 0x0001546F File Offset: 0x0001366F
+	// Token: 0x06000398 RID: 920 RVA: 0x00008ADE File Offset: 0x00006CDE
 	public override bool IsUsable()
 	{
 		return PlatformAPI.IsInitialized();
 	}
 
-	// Token: 0x06000351 RID: 849 RVA: 0x00015476 File Offset: 0x00013676
+	// Token: 0x06000399 RID: 921 RVA: 0x00008AE5 File Offset: 0x00006CE5
 	public override bool SupportsOnlineFunctionalities()
 	{
 		return false;
 	}
 
-	// Token: 0x06000352 RID: 850 RVA: 0x00015479 File Offset: 0x00013679
+	// Token: 0x0600039A RID: 922 RVA: 0x00008AE8 File Offset: 0x00006CE8
 	public override bool IsOnline()
 	{
 		PlatformAPI.IsInitialized();
 		return false;
 	}
 
-	// Token: 0x06000353 RID: 851 RVA: 0x00015482 File Offset: 0x00013682
+	// Token: 0x0600039B RID: 923 RVA: 0x00008AE5 File Offset: 0x00006CE5
 	public override bool SupportsOnlineAchievements()
 	{
 		return false;
 	}
 
-	// Token: 0x06000354 RID: 852 RVA: 0x00015488 File Offset: 0x00013688
-	protected override UniTask<bool> AchievementIsUnlocked_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
+	// Token: 0x0600039C RID: 924 RVA: 0x0002881C File Offset: 0x00026A1C
+	protected override async UniTask<bool> AchievementIsUnlocked_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
 	{
-		PlatformAPI_Noone.<AchievementIsUnlocked_Online_Demo>d__6 <AchievementIsUnlocked_Online_Demo>d__;
-		<AchievementIsUnlocked_Online_Demo>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementIsUnlocked_Online_Demo>d__.<>4__this = this;
-		<AchievementIsUnlocked_Online_Demo>d__.<>1__state = -1;
-		<AchievementIsUnlocked_Online_Demo>d__.<>t__builder.Start<PlatformAPI_Noone.<AchievementIsUnlocked_Online_Demo>d__6>(ref <AchievementIsUnlocked_Online_Demo>d__);
-		return <AchievementIsUnlocked_Online_Demo>d__.<>t__builder.Task;
+		return this.SupportsOnlineAchievements();
 	}
 
-	// Token: 0x06000355 RID: 853 RVA: 0x000154CC File Offset: 0x000136CC
-	protected override UniTask<bool> AchievementIsUnlocked_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
+	// Token: 0x0600039D RID: 925 RVA: 0x00028860 File Offset: 0x00026A60
+	protected override async UniTask<bool> AchievementIsUnlocked_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
 	{
-		PlatformAPI_Noone.<AchievementIsUnlocked_Online_FullGame>d__7 <AchievementIsUnlocked_Online_FullGame>d__;
-		<AchievementIsUnlocked_Online_FullGame>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementIsUnlocked_Online_FullGame>d__.<>4__this = this;
-		<AchievementIsUnlocked_Online_FullGame>d__.<>1__state = -1;
-		<AchievementIsUnlocked_Online_FullGame>d__.<>t__builder.Start<PlatformAPI_Noone.<AchievementIsUnlocked_Online_FullGame>d__7>(ref <AchievementIsUnlocked_Online_FullGame>d__);
-		return <AchievementIsUnlocked_Online_FullGame>d__.<>t__builder.Task;
+		return this.SupportsOnlineAchievements();
 	}
 
-	// Token: 0x06000356 RID: 854 RVA: 0x00015510 File Offset: 0x00013710
-	protected override UniTask<bool> AchievementUnlock_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
+	// Token: 0x0600039E RID: 926 RVA: 0x000288A4 File Offset: 0x00026AA4
+	protected override async UniTask<bool> AchievementUnlock_Online_Demo(PlatformAPI.AchievementDemo achievement, float maxTimeout)
 	{
-		PlatformAPI_Noone.<AchievementUnlock_Online_Demo>d__8 <AchievementUnlock_Online_Demo>d__;
-		<AchievementUnlock_Online_Demo>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementUnlock_Online_Demo>d__.<>4__this = this;
-		<AchievementUnlock_Online_Demo>d__.<>1__state = -1;
-		<AchievementUnlock_Online_Demo>d__.<>t__builder.Start<PlatformAPI_Noone.<AchievementUnlock_Online_Demo>d__8>(ref <AchievementUnlock_Online_Demo>d__);
-		return <AchievementUnlock_Online_Demo>d__.<>t__builder.Task;
+		return this.SupportsOnlineAchievements();
 	}
 
-	// Token: 0x06000357 RID: 855 RVA: 0x00015554 File Offset: 0x00013754
-	protected override UniTask<bool> AchievementUnlock_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
+	// Token: 0x0600039F RID: 927 RVA: 0x000288E8 File Offset: 0x00026AE8
+	protected override async UniTask<bool> AchievementUnlock_Online_FullGame(PlatformAPI.AchievementFullGame achievement, float maxTimeout)
 	{
-		PlatformAPI_Noone.<AchievementUnlock_Online_FullGame>d__9 <AchievementUnlock_Online_FullGame>d__;
-		<AchievementUnlock_Online_FullGame>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementUnlock_Online_FullGame>d__.<>4__this = this;
-		<AchievementUnlock_Online_FullGame>d__.<>1__state = -1;
-		<AchievementUnlock_Online_FullGame>d__.<>t__builder.Start<PlatformAPI_Noone.<AchievementUnlock_Online_FullGame>d__9>(ref <AchievementUnlock_Online_FullGame>d__);
-		return <AchievementUnlock_Online_FullGame>d__.<>t__builder.Task;
+		return this.SupportsOnlineAchievements();
 	}
 
-	// Token: 0x06000358 RID: 856 RVA: 0x00015598 File Offset: 0x00013798
-	protected override UniTask<bool> AchievementsClearAll_Online(float maxTimeout)
+	// Token: 0x060003A0 RID: 928 RVA: 0x0002892C File Offset: 0x00026B2C
+	protected override async UniTask<bool> AchievementsClearAll_Online(float maxTimeout)
 	{
-		PlatformAPI_Noone.<AchievementsClearAll_Online>d__10 <AchievementsClearAll_Online>d__;
-		<AchievementsClearAll_Online>d__.<>t__builder = AsyncUniTaskMethodBuilder<bool>.Create();
-		<AchievementsClearAll_Online>d__.<>4__this = this;
-		<AchievementsClearAll_Online>d__.<>1__state = -1;
-		<AchievementsClearAll_Online>d__.<>t__builder.Start<PlatformAPI_Noone.<AchievementsClearAll_Online>d__10>(ref <AchievementsClearAll_Online>d__);
-		return <AchievementsClearAll_Online>d__.<>t__builder.Task;
+		return this.SupportsOnlineAchievements();
 	}
 
-	// Token: 0x06000359 RID: 857 RVA: 0x000155DB File Offset: 0x000137DB
+	// Token: 0x060003A1 RID: 929 RVA: 0x00008AF1 File Offset: 0x00006CF1
 	public override string GetUserID_String()
 	{
 		return "undefined";
 	}
 
-	// Token: 0x0600035A RID: 858 RVA: 0x000155E2 File Offset: 0x000137E2
+	// Token: 0x060003A2 RID: 930 RVA: 0x0000774E File Offset: 0x0000594E
 	public override void _Update()
 	{
 	}
 
-	// Token: 0x0600035B RID: 859 RVA: 0x000155E4 File Offset: 0x000137E4
+	// Token: 0x060003A3 RID: 931 RVA: 0x0000774E File Offset: 0x0000594E
 	public override void _OnClose()
 	{
 	}

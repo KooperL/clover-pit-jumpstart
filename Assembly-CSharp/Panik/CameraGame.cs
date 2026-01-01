@@ -5,9 +5,10 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Panik
 {
+	// Token: 0x02000117 RID: 279
 	public class CameraGame : MonoBehaviour
 	{
-		// Token: 0x06000B4D RID: 2893 RVA: 0x0004B9A2 File Offset: 0x00049BA2
+		// Token: 0x06000D31 RID: 3377 RVA: 0x00010BD3 File Offset: 0x0000EDD3
 		public int CameraIndex()
 		{
 			if (this._myIndex < 0)
@@ -17,7 +18,7 @@ namespace Panik
 			return this._myIndex;
 		}
 
-		// Token: 0x06000B4E RID: 2894 RVA: 0x0004B9C4 File Offset: 0x00049BC4
+		// Token: 0x06000D32 RID: 3378 RVA: 0x00010BF5 File Offset: 0x0000EDF5
 		public void UpdateRenderingTexture()
 		{
 			if (!Master.instance.RENDER_TO_TEXTURE)
@@ -28,7 +29,7 @@ namespace Panik
 			this.myCamera.targetTexture = RenderingMaster.renderTextureCurrent;
 		}
 
-		// Token: 0x06000B4F RID: 2895 RVA: 0x0004B9EF File Offset: 0x00049BEF
+		// Token: 0x06000D33 RID: 3379 RVA: 0x00010C20 File Offset: 0x0000EE20
 		public static void Shake(float magnitude)
 		{
 			if (!Data.settings.screenshakeEnabled)
@@ -38,44 +39,44 @@ namespace Panik
 			CameraGame.firstInstance.shakeMagnitude = Mathf.Max(magnitude, CameraGame.firstInstance.shakeMagnitude);
 		}
 
-		// Token: 0x06000B50 RID: 2896 RVA: 0x0004BA18 File Offset: 0x00049C18
+		// Token: 0x06000D34 RID: 3380 RVA: 0x00010C49 File Offset: 0x0000EE49
 		public static void ShakeDecaySpeedSet(float speed)
 		{
 			CameraGame.firstInstance.shakeMagnitudeDecaySpeed = speed;
 		}
 
-		// Token: 0x06000B51 RID: 2897 RVA: 0x0004BA25 File Offset: 0x00049C25
+		// Token: 0x06000D35 RID: 3381 RVA: 0x00010C56 File Offset: 0x0000EE56
 		public static float shakeGet()
 		{
 			return CameraGame.firstInstance.shakeMagnitude;
 		}
 
-		// Token: 0x06000B52 RID: 2898 RVA: 0x0004BA31 File Offset: 0x00049C31
+		// Token: 0x06000D36 RID: 3382 RVA: 0x00010C62 File Offset: 0x0000EE62
 		public static float ShakeDecaySpeedGet()
 		{
 			return CameraGame.firstInstance.shakeMagnitudeDecaySpeed;
 		}
 
-		// Token: 0x06000B53 RID: 2899 RVA: 0x0004BA3D File Offset: 0x00049C3D
+		// Token: 0x06000D37 RID: 3383 RVA: 0x00010C6E File Offset: 0x0000EE6E
 		public static bool ShakePausableGet()
 		{
 			return CameraGame.firstInstance.shakePausable;
 		}
 
-		// Token: 0x06000B54 RID: 2900 RVA: 0x0004BA49 File Offset: 0x00049C49
+		// Token: 0x06000D38 RID: 3384 RVA: 0x00010C7A File Offset: 0x0000EE7A
 		public static void ShakePausableSet(bool pausable)
 		{
 			CameraGame.firstInstance.shakePausable = pausable;
 		}
 
-		// Token: 0x06000B55 RID: 2901 RVA: 0x0004BA58 File Offset: 0x00049C58
+		// Token: 0x06000D39 RID: 3385 RVA: 0x000656EC File Offset: 0x000638EC
 		private void ScreenshakeUpdate()
 		{
 			this.shakeMagnitude = Mathf.Max(0f, this.shakeMagnitude - this.shakeMagnitudeDecaySpeed * Tick.Time);
 			base.transform.SetLocalZAngle(global::UnityEngine.Random.Range(-this.shakeMagnitude, this.shakeMagnitude));
 		}
 
-		// Token: 0x06000B56 RID: 2902 RVA: 0x0004BAA6 File Offset: 0x00049CA6
+		// Token: 0x06000D3A RID: 3386 RVA: 0x00010C87 File Offset: 0x0000EE87
 		public static void ChromaticAberrationIntensitySet(float intensity)
 		{
 			if (!Data.settings.chromaticAberrationEnabled)
@@ -86,25 +87,25 @@ namespace Panik
 			CameraGame.firstInstance.chromaticAberrationIntensity = Mathf.Max(intensity, CameraGame.firstInstance.chromaticAberrationIntensity);
 		}
 
-		// Token: 0x06000B57 RID: 2903 RVA: 0x0004BADE File Offset: 0x00049CDE
+		// Token: 0x06000D3B RID: 3387 RVA: 0x00010CBF File Offset: 0x0000EEBF
 		public static void ChromaticAberrationIntensityDecaySpeedSet(float speed)
 		{
 			CameraGame.firstInstance.chromaticAberrationIntensityDecaySpeed = speed;
 		}
 
-		// Token: 0x06000B58 RID: 2904 RVA: 0x0004BAEB File Offset: 0x00049CEB
+		// Token: 0x06000D3C RID: 3388 RVA: 0x00010CCC File Offset: 0x0000EECC
 		public static float ChromaticAberrationIntensityGet()
 		{
 			return CameraGame.firstInstance.chromaticAberrationIntensity;
 		}
 
-		// Token: 0x06000B59 RID: 2905 RVA: 0x0004BAF7 File Offset: 0x00049CF7
+		// Token: 0x06000D3D RID: 3389 RVA: 0x00010CD8 File Offset: 0x0000EED8
 		public static float ChromaticAberrationIntensityDecaySpeedGet()
 		{
 			return CameraGame.firstInstance.chromaticAberrationIntensityDecaySpeed;
 		}
 
-		// Token: 0x06000B5A RID: 2906 RVA: 0x0004BB03 File Offset: 0x00049D03
+		// Token: 0x06000D3E RID: 3390 RVA: 0x00010CE4 File Offset: 0x0000EEE4
 		public static void BloomIntensitySet(float intensity)
 		{
 			if (!Data.settings.bloomEnabled)
@@ -115,25 +116,25 @@ namespace Panik
 			CameraGame.firstInstance.bloomIntensity = Mathf.Max(intensity, CameraGame.firstInstance.bloomIntensity);
 		}
 
-		// Token: 0x06000B5B RID: 2907 RVA: 0x0004BB3B File Offset: 0x00049D3B
+		// Token: 0x06000D3F RID: 3391 RVA: 0x00010D1C File Offset: 0x0000EF1C
 		public static void BloomIntensityDecaySpeedSet(float speed)
 		{
 			CameraGame.firstInstance.bloomIntensityDecaySpeed = speed;
 		}
 
-		// Token: 0x06000B5C RID: 2908 RVA: 0x0004BB48 File Offset: 0x00049D48
+		// Token: 0x06000D40 RID: 3392 RVA: 0x00010D29 File Offset: 0x0000EF29
 		public static float BloomIntensityGet()
 		{
 			return CameraGame.firstInstance.bloomIntensity;
 		}
 
-		// Token: 0x06000B5D RID: 2909 RVA: 0x0004BB54 File Offset: 0x00049D54
+		// Token: 0x06000D41 RID: 3393 RVA: 0x00010D35 File Offset: 0x0000EF35
 		public static float BloomIntensityDecaySpeedGet()
 		{
 			return CameraGame.firstInstance.bloomIntensityDecaySpeed;
 		}
 
-		// Token: 0x06000B5E RID: 2910 RVA: 0x0004BB60 File Offset: 0x00049D60
+		// Token: 0x06000D42 RID: 3394 RVA: 0x0006573C File Offset: 0x0006393C
 		private void PostProcessingRoutine()
 		{
 			if (Data.settings.chromaticAberrationEnabled)
@@ -198,14 +199,14 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B5F RID: 2911 RVA: 0x0004BD40 File Offset: 0x00049F40
+		// Token: 0x06000D43 RID: 3395 RVA: 0x0006591C File Offset: 0x00063B1C
 		public void FieldOfViewDefaultUpdate()
 		{
 			int num = this.CameraIndex();
 			this.fieldOfViewDefault = Data.settings.FovGet(num);
 		}
 
-		// Token: 0x06000B60 RID: 2912 RVA: 0x0004BD65 File Offset: 0x00049F65
+		// Token: 0x06000D44 RID: 3396 RVA: 0x00010D41 File Offset: 0x0000EF41
 		private void FovExtraEntryEnsure(string tag)
 		{
 			if (!this.fovExtraEntries.ContainsKey(tag))
@@ -215,7 +216,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B61 RID: 2913 RVA: 0x0004BDA0 File Offset: 0x00049FA0
+		// Token: 0x06000D45 RID: 3397 RVA: 0x00065944 File Offset: 0x00063B44
 		private float _FovExtraCompute()
 		{
 			float num = 0f;
@@ -240,48 +241,48 @@ namespace Panik
 			return num3;
 		}
 
-		// Token: 0x06000B62 RID: 2914 RVA: 0x0004BEBC File Offset: 0x0004A0BC
+		// Token: 0x06000D46 RID: 3398 RVA: 0x00010D79 File Offset: 0x0000EF79
 		public static void FieldOfViewExtraSet(string tag, float extra)
 		{
 			CameraGame.firstInstance.FovExtraEntryEnsure(tag);
 			CameraGame.firstInstance.fovExtraEntries[tag].value = extra;
 		}
 
-		// Token: 0x06000B63 RID: 2915 RVA: 0x0004BEDF File Offset: 0x0004A0DF
+		// Token: 0x06000D47 RID: 3399 RVA: 0x00010D9C File Offset: 0x0000EF9C
 		public static void FieldOfViewExtraDecaySpeedSet(string tag, float speed)
 		{
 			CameraGame.firstInstance.FovExtraEntryEnsure(tag);
 			CameraGame.firstInstance.fovExtraEntries[tag].decaySpeed = speed;
 		}
 
-		// Token: 0x06000B64 RID: 2916 RVA: 0x0004BF02 File Offset: 0x0004A102
+		// Token: 0x06000D48 RID: 3400 RVA: 0x00010DBF File Offset: 0x0000EFBF
 		public static float FieldOfViewExtraGet()
 		{
 			return CameraGame.firstInstance.fovExtraTotal;
 		}
 
-		// Token: 0x06000B65 RID: 2917 RVA: 0x0004BF0E File Offset: 0x0004A10E
+		// Token: 0x06000D49 RID: 3401 RVA: 0x00010DCB File Offset: 0x0000EFCB
 		public static float FieldOfViewExtraDecaySpeedGet(string tag)
 		{
 			CameraGame.firstInstance.FovExtraEntryEnsure(tag);
 			return CameraGame.firstInstance.fovExtraEntries[tag].decaySpeed;
 		}
 
-		// Token: 0x06000B66 RID: 2918 RVA: 0x0004BF30 File Offset: 0x0004A130
+		// Token: 0x06000D4A RID: 3402 RVA: 0x00010DED File Offset: 0x0000EFED
 		public static bool FieldOfViewExtraPausableGet(string tag)
 		{
 			CameraGame.firstInstance.FovExtraEntryEnsure(tag);
 			return CameraGame.firstInstance.fovExtraEntries[tag].pausable;
 		}
 
-		// Token: 0x06000B67 RID: 2919 RVA: 0x0004BF52 File Offset: 0x0004A152
+		// Token: 0x06000D4B RID: 3403 RVA: 0x00010E0F File Offset: 0x0000F00F
 		public static void FieldOfViewExtraPausableSet(string tag, bool pausable)
 		{
 			CameraGame.firstInstance.FovExtraEntryEnsure(tag);
 			CameraGame.firstInstance.fovExtraEntries[tag].pausable = pausable;
 		}
 
-		// Token: 0x06000B68 RID: 2920 RVA: 0x0004BF78 File Offset: 0x0004A178
+		// Token: 0x06000D4C RID: 3404 RVA: 0x00065A60 File Offset: 0x00063C60
 		public void FieldOfViewUpdate()
 		{
 			for (int i = 0; i < this._fovExtraEntriesList.Count; i++)
@@ -302,7 +303,7 @@ namespace Panik
 			this.myCamera.fieldOfView = this.fieldOfViewDefault + CameraGame.FieldOfViewExtraGet();
 		}
 
-		// Token: 0x06000B69 RID: 2921 RVA: 0x0004C09C File Offset: 0x0004A29C
+		// Token: 0x06000D4D RID: 3405 RVA: 0x00065B84 File Offset: 0x00063D84
 		public void CullingMaskUpdate()
 		{
 			switch (this.CameraIndex())
@@ -338,12 +339,12 @@ namespace Panik
 			this.myCamera.cullingMask = num;
 		}
 
-		// Token: 0x06000B6A RID: 2922 RVA: 0x0004C161 File Offset: 0x0004A361
+		// Token: 0x06000D4E RID: 3406 RVA: 0x0000774E File Offset: 0x0000594E
 		public void _SplitScreenUpdate()
 		{
 		}
 
-		// Token: 0x06000B6B RID: 2923 RVA: 0x0004C164 File Offset: 0x0004A364
+		// Token: 0x06000D4F RID: 3407 RVA: 0x00065C4C File Offset: 0x00063E4C
 		public static void UpdatePSXEffectsToSettings_All()
 		{
 			foreach (CameraGame cameraGame in CameraGame.list)
@@ -352,7 +353,7 @@ namespace Panik
 			}
 		}
 
-		// Token: 0x06000B6C RID: 2924 RVA: 0x0004C1B4 File Offset: 0x0004A3B4
+		// Token: 0x06000D50 RID: 3408 RVA: 0x00065C9C File Offset: 0x00063E9C
 		private void UpdatePSXEffectsToSettings()
 		{
 			this.pSXEffects.vertexInaccuracy = (Data.settings.wobblyPolygons ? 64 : 0);
@@ -361,13 +362,13 @@ namespace Panik
 			this.pSXEffects.UpdateProperties();
 		}
 
-		// Token: 0x06000B6D RID: 2925 RVA: 0x0004C212 File Offset: 0x0004A412
+		// Token: 0x06000D51 RID: 3409 RVA: 0x00010E32 File Offset: 0x0000F032
 		public static void SetColorDepth(int depth0_24)
 		{
 			CameraGame.firstInstance.pSXEffects.colorDepth = depth0_24;
 		}
 
-		// Token: 0x06000B6E RID: 2926 RVA: 0x0004C224 File Offset: 0x0004A424
+		// Token: 0x06000D52 RID: 3410 RVA: 0x00065CFC File Offset: 0x00063EFC
 		private void Awake()
 		{
 			if (CameraGame.firstInstance == null)
@@ -384,7 +385,7 @@ namespace Panik
 			this.pSXEffects = base.GetComponent<PSXEffects>();
 		}
 
-		// Token: 0x06000B6F RID: 2927 RVA: 0x0004C2B7 File Offset: 0x0004A4B7
+		// Token: 0x06000D53 RID: 3411 RVA: 0x00010E44 File Offset: 0x0000F044
 		private void Start()
 		{
 			this.FieldOfViewDefaultUpdate();
@@ -400,7 +401,7 @@ namespace Panik
 			this.UpdatePSXEffectsToSettings();
 		}
 
-		// Token: 0x06000B70 RID: 2928 RVA: 0x0004C2F2 File Offset: 0x0004A4F2
+		// Token: 0x06000D54 RID: 3412 RVA: 0x00010E7F File Offset: 0x0000F07F
 		private void OnDestroy()
 		{
 			if (CameraGame.firstInstance == this)
@@ -410,7 +411,7 @@ namespace Panik
 			CameraGame.list.Remove(this);
 		}
 
-		// Token: 0x06000B71 RID: 2929 RVA: 0x0004C313 File Offset: 0x0004A513
+		// Token: 0x06000D55 RID: 3413 RVA: 0x00010EA0 File Offset: 0x0000F0A0
 		private void Update()
 		{
 			this._myIndex = -1;
@@ -430,63 +431,91 @@ namespace Panik
 			}
 		}
 
+		// Token: 0x04000DCE RID: 3534
 		public static CameraGame firstInstance = null;
 
+		// Token: 0x04000DCF RID: 3535
 		public static List<CameraGame> list = new List<CameraGame>();
 
+		// Token: 0x04000DD0 RID: 3536
 		private int _myIndex = -1;
 
+		// Token: 0x04000DD1 RID: 3537
 		[NonSerialized]
 		public Camera myCamera;
 
+		// Token: 0x04000DD2 RID: 3538
 		public AudioReverbFilter audioReverbFilter;
 
+		// Token: 0x04000DD3 RID: 3539
 		private PSXEffects pSXEffects;
 
+		// Token: 0x04000DD4 RID: 3540
 		private float shakeMagnitude;
 
+		// Token: 0x04000DD5 RID: 3541
 		private float shakeMagnitudeDecaySpeed = 8f;
 
+		// Token: 0x04000DD6 RID: 3542
 		private bool shakePausable = true;
 
+		// Token: 0x04000DD7 RID: 3543
 		private ChromaticAberration chromaticAberrationSetting;
 
+		// Token: 0x04000DD8 RID: 3544
 		private float chromaticAberrationIntensity;
 
+		// Token: 0x04000DD9 RID: 3545
 		private float chromaticAberrationIntensityDecaySpeed = 8f;
 
+		// Token: 0x04000DDA RID: 3546
 		private Bloom bloomSetting;
 
+		// Token: 0x04000DDB RID: 3547
 		private float bloomIntensity;
 
+		// Token: 0x04000DDC RID: 3548
 		private float bloomIntensityDecaySpeed = 8f;
 
+		// Token: 0x04000DDD RID: 3549
 		private MotionBlur motionBlurSetting;
 
+		// Token: 0x04000DDE RID: 3550
 		[NonSerialized]
 		public PostProcessVolume postProcessVolume;
 
+		// Token: 0x04000DDF RID: 3551
 		[NonSerialized]
 		public PostProcessProfile postProcessProfile;
 
+		// Token: 0x04000DE0 RID: 3552
 		private float fieldOfViewDefault = 60f;
 
+		// Token: 0x04000DE1 RID: 3553
 		private Dictionary<string, CameraGame.FovEntry> fovExtraEntries = new Dictionary<string, CameraGame.FovEntry>();
 
+		// Token: 0x04000DE2 RID: 3554
 		private List<CameraGame.FovEntry> _fovExtraEntriesList = new List<CameraGame.FovEntry>();
 
+		// Token: 0x04000DE3 RID: 3555
 		private float fovExtraTotal;
 
+		// Token: 0x04000DE4 RID: 3556
 		public bool cullOutMyLayer = true;
 
+		// Token: 0x04000DE5 RID: 3557
 		public bool cullOutUICameras = true;
 
+		// Token: 0x02000118 RID: 280
 		private class FovEntry
 		{
+			// Token: 0x04000DE6 RID: 3558
 			public float value;
 
+			// Token: 0x04000DE7 RID: 3559
 			public float decaySpeed = 1f;
 
+			// Token: 0x04000DE8 RID: 3560
 			public bool pausable = true;
 		}
 	}

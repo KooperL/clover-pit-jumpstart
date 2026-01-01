@@ -4,9 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000B9 RID: 185
 public class InspectorScript : MonoBehaviour
 {
-	// Token: 0x060008C5 RID: 2245 RVA: 0x00039E95 File Offset: 0x00038095
+	// Token: 0x060009FC RID: 2556 RVA: 0x0000DE44 File Offset: 0x0000C044
 	public static PowerupScript CurrentlyInspectedPowerupGet()
 	{
 		if (InspectorScript.instance == null)
@@ -16,13 +17,13 @@ public class InspectorScript : MonoBehaviour
 		return InspectorScript.instance.powerupInspected;
 	}
 
-	// Token: 0x060008C6 RID: 2246 RVA: 0x00039EB0 File Offset: 0x000380B0
+	// Token: 0x060009FD RID: 2557 RVA: 0x0000DE5F File Offset: 0x0000C05F
 	public static bool IsEnabled()
 	{
 		return !(InspectorScript.instance == null) && InspectorScript.instance.holder.activeSelf;
 	}
 
-	// Token: 0x060008C7 RID: 2247 RVA: 0x00039ED0 File Offset: 0x000380D0
+	// Token: 0x060009FE RID: 2558 RVA: 0x00051474 File Offset: 0x0004F674
 	public static void Open(string title, string description)
 	{
 		if (InspectorScript.IsEnabled())
@@ -41,14 +42,14 @@ public class InspectorScript : MonoBehaviour
 		InspectorScript.instance.textBackImage.rectTransform.sizeDelta = vector;
 	}
 
-	// Token: 0x060008C8 RID: 2248 RVA: 0x00039FAB File Offset: 0x000381AB
+	// Token: 0x060009FF RID: 2559 RVA: 0x0000DE7F File Offset: 0x0000C07F
 	public static void Open_AsPowerup(PowerupScript powerup)
 	{
 		InspectorScript.instance.powerupInspected = powerup;
 		InspectorScript.Open(powerup.NameGet(true, true), powerup.DescriptionGet(true, false, true, 5f));
 	}
 
-	// Token: 0x060008C9 RID: 2249 RVA: 0x00039FD3 File Offset: 0x000381D3
+	// Token: 0x06000A00 RID: 2560 RVA: 0x0000DEA7 File Offset: 0x0000C0A7
 	public static void Close()
 	{
 		if (!InspectorScript.IsEnabled())
@@ -59,7 +60,7 @@ public class InspectorScript : MonoBehaviour
 		InspectorScript.instance.holder.SetActive(false);
 	}
 
-	// Token: 0x060008CA RID: 2250 RVA: 0x00039FF8 File Offset: 0x000381F8
+	// Token: 0x06000A01 RID: 2561 RVA: 0x00051550 File Offset: 0x0004F750
 	private void StoreAutoEnableCheck()
 	{
 		bool flag = PromptGuideScript.IsEnabled();
@@ -201,19 +202,19 @@ public class InspectorScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008CB RID: 2251 RVA: 0x0003A2FC File Offset: 0x000384FC
+	// Token: 0x06000A02 RID: 2562 RVA: 0x0000DECC File Offset: 0x0000C0CC
 	private void Awake()
 	{
 		InspectorScript.instance = this;
 	}
 
-	// Token: 0x060008CC RID: 2252 RVA: 0x0003A304 File Offset: 0x00038504
+	// Token: 0x06000A03 RID: 2563 RVA: 0x0000DED4 File Offset: 0x0000C0D4
 	private void Start()
 	{
 		InspectorScript.Close();
 	}
 
-	// Token: 0x060008CD RID: 2253 RVA: 0x0003A30B File Offset: 0x0003850B
+	// Token: 0x06000A04 RID: 2564 RVA: 0x0000DEDB File Offset: 0x0000C0DB
 	private void OnDestroy()
 	{
 		if (InspectorScript.instance == this)
@@ -222,7 +223,7 @@ public class InspectorScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008CE RID: 2254 RVA: 0x0003A320 File Offset: 0x00038520
+	// Token: 0x06000A05 RID: 2565 RVA: 0x00051854 File Offset: 0x0004FA54
 	private void Update()
 	{
 		this.StoreAutoEnableCheck();
@@ -238,19 +239,27 @@ public class InspectorScript : MonoBehaviour
 		this.textBackImage.rectTransform.anchoredPosition = zero;
 	}
 
+	// Token: 0x04000A2E RID: 2606
 	public static InspectorScript instance;
 
+	// Token: 0x04000A2F RID: 2607
 	public GameObject holder;
 
+	// Token: 0x04000A30 RID: 2608
 	public Image textBackImage;
 
+	// Token: 0x04000A31 RID: 2609
 	public TextMeshProUGUI titleText;
 
+	// Token: 0x04000A32 RID: 2610
 	public TextMeshProUGUI descriptionText;
 
+	// Token: 0x04000A33 RID: 2611
 	private PowerupScript powerupInspected;
 
+	// Token: 0x04000A34 RID: 2612
 	private bool storeEnabledAutomatically;
 
+	// Token: 0x04000A35 RID: 2613
 	private PowerupScript.Identifier oldStorePowerup = PowerupScript.Identifier.undefined;
 }

@@ -4,9 +4,10 @@ using Panik;
 using TMPro;
 using UnityEngine;
 
+// Token: 0x020000A9 RID: 169
 public class CharmUiRenderer : MonoBehaviour
 {
-	// Token: 0x0600084B RID: 2123 RVA: 0x00036158 File Offset: 0x00034358
+	// Token: 0x0600096E RID: 2414 RVA: 0x0004D67C File Offset: 0x0004B87C
 	public static CharmUiRenderer PoolSpawn(PowerupScript.Identifier identifier, int targetLayer, Transform desiredParent, bool normalizeScale, float scaleMult, float bounceEntryForce, bool considerModifier, bool showDrawerImg, string textString, string textCounterString)
 	{
 		if (!CharmUiRenderer.dictionary.ContainsKey(identifier))
@@ -128,7 +129,7 @@ public class CharmUiRenderer : MonoBehaviour
 		return charmUiRenderer;
 	}
 
-	// Token: 0x0600084C RID: 2124 RVA: 0x00036604 File Offset: 0x00034804
+	// Token: 0x0600096F RID: 2415 RVA: 0x0004DB28 File Offset: 0x0004BD28
 	public static void PoolDestroy(CharmUiRenderer charmInstance)
 	{
 		if (charmInstance == null)
@@ -153,19 +154,19 @@ public class CharmUiRenderer : MonoBehaviour
 		charmInstance.gameObject.SetActive(false);
 	}
 
-	// Token: 0x0600084D RID: 2125 RVA: 0x000366B3 File Offset: 0x000348B3
+	// Token: 0x06000970 RID: 2416 RVA: 0x0000D6C1 File Offset: 0x0000B8C1
 	public PowerupScript.Identifier GetIdentifier()
 	{
 		return this.powerupIdentifier;
 	}
 
-	// Token: 0x0600084E RID: 2126 RVA: 0x000366BB File Offset: 0x000348BB
+	// Token: 0x06000971 RID: 2417 RVA: 0x0000D6C9 File Offset: 0x0000B8C9
 	public void Bounce(float force)
 	{
 		this.bounceScript.SetBounceScale(force);
 	}
 
-	// Token: 0x0600084F RID: 2127 RVA: 0x000366CC File Offset: 0x000348CC
+	// Token: 0x06000972 RID: 2418 RVA: 0x0004DBD8 File Offset: 0x0004BDD8
 	private void Update()
 	{
 		this.meshRotatorTr.AddLocalYAngle(Tick.Time * 180f);
@@ -187,31 +188,45 @@ public class CharmUiRenderer : MonoBehaviour
 		}
 	}
 
+	// Token: 0x04000965 RID: 2405
 	public static Dictionary<PowerupScript.Identifier, List<CharmUiRenderer>> dictionary = new Dictionary<PowerupScript.Identifier, List<CharmUiRenderer>>();
 
+	// Token: 0x04000966 RID: 2406
 	public static Dictionary<PowerupScript.Identifier, List<CharmUiRenderer>> dictionaryDisabled = new Dictionary<PowerupScript.Identifier, List<CharmUiRenderer>>();
 
+	// Token: 0x04000967 RID: 2407
 	public Transform meshRotatorTr;
 
+	// Token: 0x04000968 RID: 2408
 	public TextMeshProUGUI text;
 
+	// Token: 0x04000969 RID: 2409
 	public TextMeshProUGUI textCounter;
 
+	// Token: 0x0400096A RID: 2410
 	public BounceScript bounceScript;
 
+	// Token: 0x0400096B RID: 2411
 	private MeshRenderer myMeshRenderer;
 
+	// Token: 0x0400096C RID: 2412
 	private SkinnedMeshRenderer mySkinnedMeshRenderer;
 
+	// Token: 0x0400096D RID: 2413
 	public GameObject drawerIconObj;
 
+	// Token: 0x0400096E RID: 2414
 	private PowerupScript.Identifier powerupIdentifier;
 
+	// Token: 0x0400096F RID: 2415
 	private bool considerModifier;
 
+	// Token: 0x04000970 RID: 2416
 	private PowerupScript.Modifier powerupModifier;
 
+	// Token: 0x04000971 RID: 2417
 	private Material defaultMaterial;
 
+	// Token: 0x04000972 RID: 2418
 	private Material modifierMaterial;
 }

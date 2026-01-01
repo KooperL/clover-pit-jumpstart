@@ -5,9 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x02000010 RID: 16
 public class ConsolePrompt : MonoBehaviour
 {
-	// Token: 0x060000B7 RID: 183 RVA: 0x00007C84 File Offset: 0x00005E84
+	// Token: 0x060000C2 RID: 194 RVA: 0x0001B27C File Offset: 0x0001947C
 	public static bool ConsoleEnable()
 	{
 		ConsolePrompt.instance.autoCloseTimer = 0f;
@@ -21,19 +22,20 @@ public class ConsolePrompt : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x060000B8 RID: 184 RVA: 0x00007CCB File Offset: 0x00005ECB
+	// Token: 0x060000C3 RID: 195 RVA: 0x00007C6D File Offset: 0x00005E6D
 	public static void ConsoleDisable()
 	{
 		ConsolePrompt.instance._enabled = false;
 	}
 
-	// Token: 0x060000B9 RID: 185 RVA: 0x00007CD8 File Offset: 0x00005ED8
+	// Token: 0x060000C4 RID: 196 RVA: 0x00007C7A File Offset: 0x00005E7A
 	public static bool ConsoleIsEnabled()
 	{
 		return ConsolePrompt.instance._enabled;
 	}
 
-	// (get) Token: 0x060000BA RID: 186 RVA: 0x00007CE4 File Offset: 0x00005EE4
+	// Token: 0x17000006 RID: 6
+	// (get) Token: 0x060000C5 RID: 197 RVA: 0x00007C86 File Offset: 0x00005E86
 	public static bool CanAutoClose
 	{
 		get
@@ -42,7 +44,7 @@ public class ConsolePrompt : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000BB RID: 187 RVA: 0x00007CE8 File Offset: 0x00005EE8
+	// Token: 0x060000C6 RID: 198 RVA: 0x0001B2C4 File Offset: 0x000194C4
 	private void TryExecuteCommand()
 	{
 		if (this.inputString.Length == 0)
@@ -77,7 +79,7 @@ public class ConsolePrompt : MonoBehaviour
 		this.inputString = "";
 	}
 
-	// Token: 0x060000BC RID: 188 RVA: 0x00007E60 File Offset: 0x00006060
+	// Token: 0x060000C7 RID: 199 RVA: 0x0001B43C File Offset: 0x0001963C
 	private void CommandsGenerate()
 	{
 		new ConsolePrompt.Command(new string[] { "capture mode", "capture", "capture toggle", "toggle capture", "cattura", "modalità cattura", "social", "modalità social" }, "Toggles the capture mode", delegate
@@ -274,6 +276,12 @@ public class ConsolePrompt : MonoBehaviour
 			Data.settings.Apply(false, false);
 			this.outputStringList.Add("Camera Y inverted: " + Data.settings.ControlsInvertCameraYGet(0).ToString());
 		});
+		new ConsolePrompt.Command(new string[] { "reduce flashing", "flashing", "flash" }, "Toggles the setting to reduce flashing lights", delegate
+		{
+			Data.settings.flashingLightsReducedEnabled = !Data.settings.flashingLightsReducedEnabled;
+			Data.settings.Apply(false, false);
+			this.outputStringList.Add("Reduced falshing: " + Data.settings.flashingLightsReducedEnabled.ToString());
+		});
 		new ConsolePrompt.Command(new string[] { "is debug", "is debug build" }, "Displays if the game is a debug build", delegate
 		{
 			this.outputStringList.Add("Is debug build: " + Master.IsDebugBuild.ToString());
@@ -292,7 +300,7 @@ public class ConsolePrompt : MonoBehaviour
 		});
 	}
 
-	// Token: 0x060000BD RID: 189 RVA: 0x00008373 File Offset: 0x00006573
+	// Token: 0x060000C8 RID: 200 RVA: 0x00007C89 File Offset: 0x00005E89
 	public static void Log(string logText, string prefixText = "")
 	{
 		if (!ConsolePrompt.captureMode)
@@ -302,7 +310,7 @@ public class ConsolePrompt : MonoBehaviour
 		ConsolePrompt.instance.outputStringList.Add(prefixText + "<color=white>Log: </color> " + logText);
 	}
 
-	// Token: 0x060000BE RID: 190 RVA: 0x0000839D File Offset: 0x0000659D
+	// Token: 0x060000C9 RID: 201 RVA: 0x00007CB3 File Offset: 0x00005EB3
 	public static void LogWarning(string warningText, string prefixText = "")
 	{
 		if (!ConsolePrompt.captureMode)
@@ -312,7 +320,7 @@ public class ConsolePrompt : MonoBehaviour
 		ConsolePrompt.instance.outputStringList.Add(prefixText + "<color=yellow>Warning: </color> " + warningText);
 	}
 
-	// Token: 0x060000BF RID: 191 RVA: 0x000083C7 File Offset: 0x000065C7
+	// Token: 0x060000CA RID: 202 RVA: 0x00007CDD File Offset: 0x00005EDD
 	public static void LogError(string errorText, string prefixText = "", float extraTime = 0f)
 	{
 		if (!ConsolePrompt.captureMode)
@@ -323,7 +331,7 @@ public class ConsolePrompt : MonoBehaviour
 		ConsolePrompt.instance.autoCloseTimer -= extraTime;
 	}
 
-	// Token: 0x060000C0 RID: 192 RVA: 0x00008403 File Offset: 0x00006603
+	// Token: 0x060000CB RID: 203 RVA: 0x00007D19 File Offset: 0x00005F19
 	private void RegisterDebugInterception()
 	{
 		if (ConsolePrompt._registeredDebugInterception)
@@ -334,7 +342,7 @@ public class ConsolePrompt : MonoBehaviour
 		Application.logMessageReceived += this.OnDebugCallback;
 	}
 
-	// Token: 0x060000C1 RID: 193 RVA: 0x00008424 File Offset: 0x00006624
+	// Token: 0x060000CC RID: 204 RVA: 0x0001B984 File Offset: 0x00019B84
 	private void OnDebugCallback(string condition, string stackTrace, LogType type)
 	{
 		if (!this.interceptDebugLog)
@@ -375,7 +383,7 @@ public class ConsolePrompt : MonoBehaviour
 		ConsolePrompt.Log(condition + "\n", "");
 	}
 
-	// Token: 0x060000C2 RID: 194 RVA: 0x00008548 File Offset: 0x00006748
+	// Token: 0x060000CD RID: 205 RVA: 0x0001BAA8 File Offset: 0x00019CA8
 	private void Awake()
 	{
 		if (ConsolePrompt.instance != null)
@@ -397,7 +405,7 @@ public class ConsolePrompt : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000C3 RID: 195 RVA: 0x000085B4 File Offset: 0x000067B4
+	// Token: 0x060000CE RID: 206 RVA: 0x0001BB14 File Offset: 0x00019D14
 	private void Update()
 	{
 		bool flag = false;
@@ -529,63 +537,91 @@ public class ConsolePrompt : MonoBehaviour
 		}
 	}
 
+	// Token: 0x040000D6 RID: 214
 	public static ConsolePrompt instance;
 
+	// Token: 0x040000D7 RID: 215
 	public const KeyCode enableDisableKey = KeyCode.Tab;
 
+	// Token: 0x040000D8 RID: 216
 	public int LOG_INTERCEPTION_MAX_CHARACTERS = 512;
 
+	// Token: 0x040000D9 RID: 217
 	public const bool LOG_INTERCEPT_DISABLE_IF_NOT_DEBUG = true;
 
+	// Token: 0x040000DA RID: 218
 	public const bool LOG_INTERCEPT_ENABLE_STATE_DEFAULT = false;
 
+	// Token: 0x040000DB RID: 219
 	private const int PLAYER_INDEX = 0;
 
+	// Token: 0x040000DC RID: 220
 	public GameObject consoleHolder;
 
+	// Token: 0x040000DD RID: 221
 	public TextMeshProUGUI inputText;
 
+	// Token: 0x040000DE RID: 222
 	public TextMeshProUGUI outputText;
 
+	// Token: 0x040000DF RID: 223
 	public TextMeshProUGUI fpsText;
 
+	// Token: 0x040000E0 RID: 224
 	public static bool captureMode;
 
+	// Token: 0x040000E1 RID: 225
 	public static bool alarmAtTrapdoor;
 
+	// Token: 0x040000E2 RID: 226
 	private bool _enabled;
 
+	// Token: 0x040000E3 RID: 227
 	private string inputString = "";
 
+	// Token: 0x040000E4 RID: 228
 	private string inputStringOld = "";
 
+	// Token: 0x040000E5 RID: 229
 	private List<string> outputStringList = new List<string>(128);
 
+	// Token: 0x040000E6 RID: 230
 	private int outputCutStringsN;
 
+	// Token: 0x040000E7 RID: 231
 	private const string MESSAGE_LOG = "<color=white>Log: </color> ";
 
+	// Token: 0x040000E8 RID: 232
 	private const string MESSAGE_WARNING = "<color=yellow>Warning: </color> ";
 
+	// Token: 0x040000E9 RID: 233
 	private const string MESSAGE_ERROR = "<color=red>Error: </color> ";
 
+	// Token: 0x040000EA RID: 234
 	private float caretFlickerTimer;
 
+	// Token: 0x040000EB RID: 235
 	public const float AUTO_CLOSE_TIME = 10f;
 
+	// Token: 0x040000EC RID: 236
 	private float autoCloseTimer;
 
+	// Token: 0x040000ED RID: 237
 	private Dictionary<string, ConsolePrompt.Command> availableCommands = new Dictionary<string, ConsolePrompt.Command>();
 
+	// Token: 0x040000EE RID: 238
 	private int executionIndex = -1;
 
+	// Token: 0x040000EF RID: 239
 	private bool interceptDebugLog;
 
+	// Token: 0x040000F0 RID: 240
 	private static bool _registeredDebugInterception;
 
+	// Token: 0x02000011 RID: 17
 	private class Command
 	{
-		// Token: 0x060010D9 RID: 4313 RVA: 0x00067B10 File Offset: 0x00065D10
+		// Token: 0x060000E7 RID: 231 RVA: 0x0001C5FC File Offset: 0x0001A7FC
 		public Command(string[] allowedEntries, string description, UnityAction action)
 		{
 			this.allowedEntries = allowedEntries;
@@ -597,7 +633,7 @@ public class ConsolePrompt : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060010DA RID: 4314 RVA: 0x00067B5D File Offset: 0x00065D5D
+		// Token: 0x060000E8 RID: 232 RVA: 0x00007E65 File Offset: 0x00006065
 		public bool TryExecute()
 		{
 			if (this.action != null)
@@ -608,10 +644,13 @@ public class ConsolePrompt : MonoBehaviour
 			return false;
 		}
 
+		// Token: 0x040000F1 RID: 241
 		public string[] allowedEntries;
 
+		// Token: 0x040000F2 RID: 242
 		public string description;
 
+		// Token: 0x040000F3 RID: 243
 		public UnityAction action;
 	}
 }

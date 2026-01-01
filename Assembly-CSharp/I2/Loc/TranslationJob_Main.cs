@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace I2.Loc
 {
+	// Token: 0x0200019F RID: 415
 	public class TranslationJob_Main : TranslationJob
 	{
-		// Token: 0x06000E74 RID: 3700 RVA: 0x0005C936 File Offset: 0x0005AB36
+		// Token: 0x06001220 RID: 4640 RVA: 0x00014A1B File Offset: 0x00012C1B
 		public TranslationJob_Main(Dictionary<string, TranslationQuery> requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
 		{
 			this._requests = requests;
@@ -13,7 +14,7 @@ namespace I2.Loc
 			this.mPost = new TranslationJob_POST(requests, OnTranslationReady);
 		}
 
-		// Token: 0x06000E75 RID: 3701 RVA: 0x0005C95C File Offset: 0x0005AB5C
+		// Token: 0x06001221 RID: 4641 RVA: 0x0007B094 File Offset: 0x00079294
 		public override TranslationJob.eJobState GetState()
 		{
 			if (this.mWeb != null)
@@ -71,7 +72,7 @@ namespace I2.Loc
 			return this.mJobState;
 		}
 
-		// Token: 0x06000E76 RID: 3702 RVA: 0x0005CA9C File Offset: 0x0005AC9C
+		// Token: 0x06001222 RID: 4642 RVA: 0x00014A3E File Offset: 0x00012C3E
 		public override void Dispose()
 		{
 			if (this.mPost != null)
@@ -86,16 +87,22 @@ namespace I2.Loc
 			this.mGet = null;
 		}
 
+		// Token: 0x040012D2 RID: 4818
 		private TranslationJob_WEB mWeb;
 
+		// Token: 0x040012D3 RID: 4819
 		private TranslationJob_POST mPost;
 
+		// Token: 0x040012D4 RID: 4820
 		private TranslationJob_GET mGet;
 
+		// Token: 0x040012D5 RID: 4821
 		private Dictionary<string, TranslationQuery> _requests;
 
+		// Token: 0x040012D6 RID: 4822
 		private GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
 
+		// Token: 0x040012D7 RID: 4823
 		public string mErrorMessage;
 	}
 }

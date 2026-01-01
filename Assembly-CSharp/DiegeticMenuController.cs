@@ -5,9 +5,11 @@ using Panik;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Token: 0x020000B0 RID: 176
 public class DiegeticMenuController : MonoBehaviour
 {
-	// (get) Token: 0x06000878 RID: 2168 RVA: 0x000378F0 File Offset: 0x00035AF0
+	// Token: 0x17000069 RID: 105
+	// (get) Token: 0x0600099F RID: 2463 RVA: 0x0000D991 File Offset: 0x0000BB91
 	public static DiegeticMenuController ActiveMenu
 	{
 		get
@@ -20,13 +22,14 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000879 RID: 2169 RVA: 0x00037917 File Offset: 0x00035B17
+	// Token: 0x060009A0 RID: 2464 RVA: 0x0000D9B8 File Offset: 0x0000BBB8
 	public bool IsCurrentMenu()
 	{
 		return DiegeticMenuController.ActiveMenu == this;
 	}
 
-	// (get) Token: 0x0600087A RID: 2170 RVA: 0x00037924 File Offset: 0x00035B24
+	// Token: 0x1700006A RID: 106
+	// (get) Token: 0x060009A1 RID: 2465 RVA: 0x0004EB54 File Offset: 0x0004CD54
 	public static DiegeticMenuController MainMenu
 	{
 		get
@@ -42,7 +45,8 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// (get) Token: 0x0600087B RID: 2171 RVA: 0x00037980 File Offset: 0x00035B80
+	// Token: 0x1700006B RID: 107
+	// (get) Token: 0x060009A2 RID: 2466 RVA: 0x0004EBB0 File Offset: 0x0004CDB0
 	public static DiegeticMenuController SlotMenu
 	{
 		get
@@ -58,7 +62,8 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// (get) Token: 0x0600087C RID: 2172 RVA: 0x000379DC File Offset: 0x00035BDC
+	// Token: 0x1700006C RID: 108
+	// (get) Token: 0x060009A3 RID: 2467 RVA: 0x0004EC0C File Offset: 0x0004CE0C
 	public static DiegeticMenuController MainMenuMenu
 	{
 		get
@@ -74,26 +79,27 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600087D RID: 2173 RVA: 0x00037A38 File Offset: 0x00035C38
+	// Token: 0x060009A4 RID: 2468 RVA: 0x0000D9C5 File Offset: 0x0000BBC5
 	private void GetElements()
 	{
 		this.elements = base.GetComponentsInChildren<DiegeticMenuElement>().ToList<DiegeticMenuElement>();
 	}
 
-	// Token: 0x0600087E RID: 2174 RVA: 0x00037A4B File Offset: 0x00035C4B
+	// Token: 0x060009A5 RID: 2469 RVA: 0x0000D9D8 File Offset: 0x0000BBD8
 	public bool IsRunning()
 	{
 		return this._isRunning;
 	}
 
-	// Token: 0x0600087F RID: 2175 RVA: 0x00037A53 File Offset: 0x00035C53
+	// Token: 0x060009A6 RID: 2470 RVA: 0x0000D9E0 File Offset: 0x0000BBE0
 	public void SetDelay(float delay)
 	{
 		this.runningDelay = delay;
 	}
 
-	// (get) Token: 0x06000880 RID: 2176 RVA: 0x00037A5C File Offset: 0x00035C5C
-	// (set) Token: 0x06000881 RID: 2177 RVA: 0x00037A64 File Offset: 0x00035C64
+	// Token: 0x1700006D RID: 109
+	// (get) Token: 0x060009A7 RID: 2471 RVA: 0x0000D9E9 File Offset: 0x0000BBE9
+	// (set) Token: 0x060009A8 RID: 2472 RVA: 0x0000D9F1 File Offset: 0x0000BBF1
 	public DiegeticMenuElement HoveredElement
 	{
 		get
@@ -110,7 +116,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000882 RID: 2178 RVA: 0x00037A88 File Offset: 0x00035C88
+	// Token: 0x060009A9 RID: 2473 RVA: 0x0004EC68 File Offset: 0x0004CE68
 	public DiegeticMenuElement PickAStartingElement()
 	{
 		if (VirtualCursors.IsCursorVisible(0, true) || AimCrossScript.IsEnabled())
@@ -128,7 +134,7 @@ public class DiegeticMenuController : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06000883 RID: 2179 RVA: 0x00037AD8 File Offset: 0x00035CD8
+	// Token: 0x060009AA RID: 2474 RVA: 0x0004ECB8 File Offset: 0x0004CEB8
 	public void Back()
 	{
 		if (DiegeticMenuController.ActiveMenu != this)
@@ -163,7 +169,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000884 RID: 2180 RVA: 0x00037BB0 File Offset: 0x00035DB0
+	// Token: 0x060009AB RID: 2475 RVA: 0x0004ED90 File Offset: 0x0004CF90
 	public void OpenMe()
 	{
 		if (DiegeticMenuController.stack.Contains(this))
@@ -183,7 +189,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000885 RID: 2181 RVA: 0x00037C3D File Offset: 0x00035E3D
+	// Token: 0x060009AC RID: 2476 RVA: 0x0000DA14 File Offset: 0x0000BC14
 	public void NavigationDisable_SetReason(string reason)
 	{
 		if (!this._navigationDisabledReasons.Contains(reason))
@@ -192,7 +198,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000886 RID: 2182 RVA: 0x00037C59 File Offset: 0x00035E59
+	// Token: 0x060009AD RID: 2477 RVA: 0x0000DA30 File Offset: 0x0000BC30
 	public void NavigationDisable_RemoveReason(string reason)
 	{
 		if (this._navigationDisabledReasons.Contains(reason))
@@ -201,7 +207,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000887 RID: 2183 RVA: 0x00037C78 File Offset: 0x00035E78
+	// Token: 0x060009AE RID: 2478 RVA: 0x0004EE20 File Offset: 0x0004D020
 	public void RecalculateNavigationBetweenMyElements_XZ(float yAngOffset = 0f)
 	{
 		foreach (DiegeticMenuElement diegeticMenuElement in this.elements)
@@ -240,7 +246,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000888 RID: 2184 RVA: 0x00037E20 File Offset: 0x00036020
+	// Token: 0x060009AF RID: 2479 RVA: 0x0004EFC8 File Offset: 0x0004D1C8
 	private void _FindClosestElementInDir(DiegeticMenuElement currentElement, ref DiegeticMenuElement sideToAssign, float preferredAngle, float angDifMax, bool use180Max)
 	{
 		float num = float.MaxValue;
@@ -266,7 +272,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000889 RID: 2185 RVA: 0x00037F34 File Offset: 0x00036134
+	// Token: 0x060009B0 RID: 2480 RVA: 0x0000DA4D File Offset: 0x0000BC4D
 	private void Reset()
 	{
 		if (this.elements.Count == 0)
@@ -275,7 +281,7 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600088A RID: 2186 RVA: 0x00037F54 File Offset: 0x00036154
+	// Token: 0x060009B1 RID: 2481 RVA: 0x0004F0DC File Offset: 0x0004D2DC
 	private void Awake()
 	{
 		DiegeticMenuController.all.Add(this);
@@ -290,14 +296,14 @@ public class DiegeticMenuController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600088B RID: 2187 RVA: 0x00037FC8 File Offset: 0x000361C8
+	// Token: 0x060009B2 RID: 2482 RVA: 0x0000DA6D File Offset: 0x0000BC6D
 	private void OnDestroy()
 	{
 		DiegeticMenuController.all.Remove(this);
 		DiegeticMenuController.stack.Remove(this);
 	}
 
-	// Token: 0x0600088C RID: 2188 RVA: 0x00037FE4 File Offset: 0x000361E4
+	// Token: 0x060009B3 RID: 2483 RVA: 0x0004F150 File Offset: 0x0004D350
 	private void Update()
 	{
 		this._isRunning = true;
@@ -492,54 +498,79 @@ public class DiegeticMenuController : MonoBehaviour
 		onRunning.Invoke();
 	}
 
+	// Token: 0x040009A4 RID: 2468
 	public static List<DiegeticMenuController> all = new List<DiegeticMenuController>();
 
+	// Token: 0x040009A5 RID: 2469
 	public static List<DiegeticMenuController> stack = new List<DiegeticMenuController>();
 
+	// Token: 0x040009A6 RID: 2470
 	public List<DiegeticMenuElement> elements = new List<DiegeticMenuElement>();
 
+	// Token: 0x040009A7 RID: 2471
 	public bool _buttonField_GetElements;
 
+	// Token: 0x040009A8 RID: 2472
 	public DiegeticMenuElement firstElement;
 
+	// Token: 0x040009A9 RID: 2473
 	private bool _isRunning;
 
+	// Token: 0x040009AA RID: 2474
 	private float runningDelay;
 
+	// Token: 0x040009AB RID: 2475
 	public bool allowInteractAction = true;
 
+	// Token: 0x040009AC RID: 2476
 	public bool allowButtonsNavigation = true;
 
+	// Token: 0x040009AD RID: 2477
 	private bool goBackIfClickNothing;
 
+	// Token: 0x040009AE RID: 2478
 	public bool goBackWithButton = true;
 
+	// Token: 0x040009AF RID: 2479
 	public bool isMainMenu;
 
+	// Token: 0x040009B0 RID: 2480
 	public bool isSlotMenu;
 
+	// Token: 0x040009B1 RID: 2481
 	public bool isMainMenuMenu;
 
+	// Token: 0x040009B2 RID: 2482
 	public AudioClip soundOnBack;
 
+	// Token: 0x040009B3 RID: 2483
 	public bool rightMouseCanSelect;
 
+	// Token: 0x040009B4 RID: 2484
 	private DiegeticMenuElement _hoveredElement;
 
+	// Token: 0x040009B5 RID: 2485
 	private List<string> _navigationDisabledReasons = new List<string>();
 
+	// Token: 0x040009B6 RID: 2486
 	private Vector2 axisRawPrevious = Vector2.zero;
 
+	// Token: 0x040009B7 RID: 2487
 	public UnityEvent onSelect;
 
+	// Token: 0x040009B8 RID: 2488
 	public UnityEvent onBack;
 
+	// Token: 0x040009B9 RID: 2489
 	public UnityEvent OnOpen;
 
+	// Token: 0x040009BA RID: 2490
 	public UnityEvent OnRunning;
 
+	// Token: 0x040009BB RID: 2491
 	public DiegeticMenuController.CanRun OnCanRun;
 
-	// (Invoke) Token: 0x060011F0 RID: 4592
+	// Token: 0x020000B1 RID: 177
+	// (Invoke) Token: 0x060009B7 RID: 2487
 	public delegate bool CanRun();
 }

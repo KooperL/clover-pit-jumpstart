@@ -5,9 +5,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Token: 0x020000E8 RID: 232
 public class ScreenMenuScript : MonoBehaviour
 {
-	// (get) Token: 0x06000A01 RID: 2561 RVA: 0x000443A5 File Offset: 0x000425A5
+	// Token: 0x17000087 RID: 135
+	// (get) Token: 0x06000BA9 RID: 2985 RVA: 0x0000F933 File Offset: 0x0000DB33
 	private int OptionsCountMax
 	{
 		get
@@ -16,13 +18,13 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A02 RID: 2562 RVA: 0x000443AF File Offset: 0x000425AF
+	// Token: 0x06000BAA RID: 2986 RVA: 0x0000F93D File Offset: 0x0000DB3D
 	public static bool IsEnabled()
 	{
 		return ScreenMenuScript.instance.menuHolder.activeSelf;
 	}
 
-	// Token: 0x06000A03 RID: 2563 RVA: 0x000443C0 File Offset: 0x000425C0
+	// Token: 0x06000BAB RID: 2987 RVA: 0x0000F94E File Offset: 0x0000DB4E
 	public static void Close(bool initialSetup)
 	{
 		if (!ScreenMenuScript.instance.menuHolder.activeSelf)
@@ -32,7 +34,7 @@ public class ScreenMenuScript : MonoBehaviour
 		ScreenMenuScript.instance.menuHolder.SetActive(false);
 	}
 
-	// Token: 0x06000A04 RID: 2564 RVA: 0x000443E4 File Offset: 0x000425E4
+	// Token: 0x06000BAC RID: 2988 RVA: 0x0005DD14 File Offset: 0x0005BF14
 	public static void Open(bool resetCursor, bool closeOnSelect, int cancelOptionIndex, ScreenMenuScript.Positioning positioning, float extraOptionsSpacing, string title, string[] options, params ScreenMenuScript.OptionEvent[] optionEvents)
 	{
 		if (options.Length > ScreenMenuScript.instance.optionsTextArray.Length)
@@ -127,13 +129,13 @@ public class ScreenMenuScript : MonoBehaviour
 		ScreenMenuScript.instance.inputDelay = 0.5f;
 	}
 
-	// Token: 0x06000A05 RID: 2565 RVA: 0x00044729 File Offset: 0x00042929
+	// Token: 0x06000BAD RID: 2989 RVA: 0x0000F972 File Offset: 0x0000DB72
 	private static float GetOptionsSpacing(float extraSpacing)
 	{
 		return 27.5f + extraSpacing;
 	}
 
-	// Token: 0x06000A06 RID: 2566 RVA: 0x00044734 File Offset: 0x00042934
+	// Token: 0x06000BAE RID: 2990 RVA: 0x0005E05C File Offset: 0x0005C25C
 	public static void SetPositioning(ScreenMenuScript.Positioning positioning, Vector2 imageSize, bool resetCursor)
 	{
 		if (imageSize == Vector2.zero)
@@ -194,7 +196,7 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A07 RID: 2567 RVA: 0x000448FB File Offset: 0x00042AFB
+	// Token: 0x06000BAF RID: 2991 RVA: 0x0000F97B File Offset: 0x0000DB7B
 	public static void HideShadow()
 	{
 		if (ScreenMenuScript.instance == null)
@@ -204,7 +206,7 @@ public class ScreenMenuScript : MonoBehaviour
 		ScreenMenuScript.instance.backShadowImage.enabled = false;
 	}
 
-	// Token: 0x06000A08 RID: 2568 RVA: 0x0004491B File Offset: 0x00042B1B
+	// Token: 0x06000BB0 RID: 2992 RVA: 0x0000F99B File Offset: 0x0000DB9B
 	public static void HideWhenCameraIsMoving(bool instantHide)
 	{
 		if (ScreenMenuScript.instance == null)
@@ -218,7 +220,7 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A09 RID: 2569 RVA: 0x00044949 File Offset: 0x00042B49
+	// Token: 0x06000BB1 RID: 2993 RVA: 0x0000F9C9 File Offset: 0x0000DBC9
 	public static void AudioClipsSet(string onShowFromHidden, string onHover, string onSelect, string onBack)
 	{
 		ScreenMenuScript.instance.audio_OnShowFromHidden = onShowFromHidden;
@@ -227,13 +229,13 @@ public class ScreenMenuScript : MonoBehaviour
 		ScreenMenuScript.instance.audio_OnBack = onBack;
 	}
 
-	// Token: 0x06000A0A RID: 2570 RVA: 0x00044977 File Offset: 0x00042B77
+	// Token: 0x06000BB2 RID: 2994 RVA: 0x0000F9F7 File Offset: 0x0000DBF7
 	public static void AudioClipsReset()
 	{
 		ScreenMenuScript.AudioClipsSet(null, "SoundMenuSelectionChange", "SoundMenuSelect", "SoundMenuBack");
 	}
 
-	// Token: 0x06000A0B RID: 2571 RVA: 0x00044990 File Offset: 0x00042B90
+	// Token: 0x06000BB3 RID: 2995 RVA: 0x0005E224 File Offset: 0x0005C424
 	private void _SelectOption(int index)
 	{
 		ScreenMenuScript.OptionEvent optionEvent = this.optionEventsArray[index];
@@ -259,7 +261,7 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A0C RID: 2572 RVA: 0x00044A18 File Offset: 0x00042C18
+	// Token: 0x06000BB4 RID: 2996 RVA: 0x0005E2AC File Offset: 0x0005C4AC
 	public void BackAlphaSet(float a)
 	{
 		Color color = ScreenMenuScript.instance.backShadowImage.color;
@@ -267,7 +269,7 @@ public class ScreenMenuScript : MonoBehaviour
 		ScreenMenuScript.instance.backShadowImage.color = color;
 	}
 
-	// Token: 0x06000A0D RID: 2573 RVA: 0x00044A4D File Offset: 0x00042C4D
+	// Token: 0x06000BB5 RID: 2997 RVA: 0x0000FA0E File Offset: 0x0000DC0E
 	public static void ForceClose_Death()
 	{
 		if (ScreenMenuScript.instance == null)
@@ -282,21 +284,21 @@ public class ScreenMenuScript : MonoBehaviour
 		ScreenMenuScript.instance._SelectOption(ScreenMenuScript.instance.cancelOptionIndex);
 	}
 
-	// Token: 0x06000A0E RID: 2574 RVA: 0x00044A85 File Offset: 0x00042C85
+	// Token: 0x06000BB6 RID: 2998 RVA: 0x0000FA46 File Offset: 0x0000DC46
 	private void Awake()
 	{
 		ScreenMenuScript.instance = this;
 		this.canvasScaler = base.GetComponentInParent<CanvasScaler>();
 	}
 
-	// Token: 0x06000A0F RID: 2575 RVA: 0x00044A99 File Offset: 0x00042C99
+	// Token: 0x06000BB7 RID: 2999 RVA: 0x0000FA5A File Offset: 0x0000DC5A
 	private void Start()
 	{
 		this.player = Controls.GetPlayerByIndex(0);
 		ScreenMenuScript.Close(true);
 	}
 
-	// Token: 0x06000A10 RID: 2576 RVA: 0x00044AAD File Offset: 0x00042CAD
+	// Token: 0x06000BB8 RID: 3000 RVA: 0x0000FA6E File Offset: 0x0000DC6E
 	private void OnDestroy()
 	{
 		if (ScreenMenuScript.instance == this)
@@ -305,7 +307,7 @@ public class ScreenMenuScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A11 RID: 2577 RVA: 0x00044AC4 File Offset: 0x00042CC4
+	// Token: 0x06000BB9 RID: 3001 RVA: 0x0005E2E4 File Offset: 0x0005C4E4
 	private void Update()
 	{
 		if (!PlatformMaster.IsInitialized())
@@ -449,69 +451,103 @@ public class ScreenMenuScript : MonoBehaviour
 		this.backImage.rectTransform.anchoredPosition = zero;
 	}
 
+	// Token: 0x04000C48 RID: 3144
 	public static ScreenMenuScript instance;
 
+	// Token: 0x04000C49 RID: 3145
 	public const int PLAYER_INDEX = 0;
 
+	// Token: 0x04000C4A RID: 3146
 	public const float INPUT_DELAY = 0.5f;
 
+	// Token: 0x04000C4B RID: 3147
 	public const float SELECTED_ALPHA = 1f;
 
+	// Token: 0x04000C4C RID: 3148
 	public const float UNSELECTED_ALPHA = 0.25f;
 
+	// Token: 0x04000C4D RID: 3149
 	private Color C_ORANGE = new Color(1f, 0.5f, 0f, 1f);
 
+	// Token: 0x04000C4E RID: 3150
 	private CanvasScaler canvasScaler;
 
+	// Token: 0x04000C4F RID: 3151
 	private Controls.PlayerExt player;
 
+	// Token: 0x04000C50 RID: 3152
 	public GameObject menuHolder;
 
+	// Token: 0x04000C51 RID: 3153
 	public GameObject holderHider;
 
+	// Token: 0x04000C52 RID: 3154
 	public RectTransform positionShifter;
 
+	// Token: 0x04000C53 RID: 3155
 	public Image backShadowImage;
 
+	// Token: 0x04000C54 RID: 3156
 	public Image backImage;
 
+	// Token: 0x04000C55 RID: 3157
 	public TextMeshProUGUI titleText;
 
+	// Token: 0x04000C56 RID: 3158
 	public TextMeshProUGUI[] optionsTextArray;
 
+	// Token: 0x04000C57 RID: 3159
 	private int optionsCount = -1;
 
+	// Token: 0x04000C58 RID: 3160
 	private int optionsIndex = -1;
 
+	// Token: 0x04000C59 RID: 3161
 	private int optionsIndexOld = -1;
 
+	// Token: 0x04000C5A RID: 3162
 	private bool closeOnAnyOptionSelect;
 
+	// Token: 0x04000C5B RID: 3163
 	private float inputDelay;
 
+	// Token: 0x04000C5C RID: 3164
 	private int cancelOptionIndex = -1;
 
+	// Token: 0x04000C5D RID: 3165
 	private bool hideWhenCameraIsMoving;
 
+	// Token: 0x04000C5E RID: 3166
 	private string audio_OnShowFromHidden;
 
+	// Token: 0x04000C5F RID: 3167
 	private string audio_OnHover = "SoundMenuSelectionChange";
 
+	// Token: 0x04000C60 RID: 3168
 	private string audio_OnSelect = "SoundMenuSelect";
 
+	// Token: 0x04000C61 RID: 3169
 	private string audio_OnBack = "SoundMenuBack";
 
+	// Token: 0x04000C62 RID: 3170
 	public ScreenMenuScript.OptionEvent[] optionEventsArray;
 
+	// Token: 0x020000E9 RID: 233
 	public enum Positioning
 	{
+		// Token: 0x04000C64 RID: 3172
 		center,
+		// Token: 0x04000C65 RID: 3173
 		centerDownLittle,
+		// Token: 0x04000C66 RID: 3174
 		centerTopALittlle,
+		// Token: 0x04000C67 RID: 3175
 		down,
+		// Token: 0x04000C68 RID: 3176
 		downDown
 	}
 
-	// (Invoke) Token: 0x06001270 RID: 4720
+	// Token: 0x020000EA RID: 234
+	// (Invoke) Token: 0x06000BBC RID: 3004
 	public delegate void OptionEvent();
 }

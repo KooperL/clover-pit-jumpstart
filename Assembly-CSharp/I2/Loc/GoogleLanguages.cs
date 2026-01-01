@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x02000193 RID: 403
 	public static class GoogleLanguages
 	{
-		// Token: 0x06000E3F RID: 3647 RVA: 0x00057C5C File Offset: 0x00055E5C
+		// Token: 0x060011DB RID: 4571 RVA: 0x00076410 File Offset: 0x00074610
 		public static string GetLanguageCode(string Filter, bool ShowWarnings = false)
 		{
 			if (string.IsNullOrEmpty(Filter))
@@ -28,7 +29,7 @@ namespace I2.Loc
 			return string.Empty;
 		}
 
-		// Token: 0x06000E40 RID: 3648 RVA: 0x00057D08 File Offset: 0x00055F08
+		// Token: 0x060011DC RID: 4572 RVA: 0x000764BC File Offset: 0x000746BC
 		public static List<string> GetLanguagesForDropdown(string Filter, string CodesToExclude)
 		{
 			string[] array = Filter.ToLowerInvariant().Split(" /(),".ToCharArray());
@@ -56,7 +57,7 @@ namespace I2.Loc
 			return list;
 		}
 
-		// Token: 0x06000E41 RID: 3649 RVA: 0x00057E54 File Offset: 0x00056054
+		// Token: 0x060011DD RID: 4573 RVA: 0x00076608 File Offset: 0x00074808
 		private static bool LanguageMatchesFilter(string Language, string[] Filters)
 		{
 			Language = Language.ToLowerInvariant();
@@ -77,7 +78,7 @@ namespace I2.Loc
 			return true;
 		}
 
-		// Token: 0x06000E42 RID: 3650 RVA: 0x00057EB8 File Offset: 0x000560B8
+		// Token: 0x060011DE RID: 4574 RVA: 0x0007666C File Offset: 0x0007486C
 		public static string GetFormatedLanguageName(string Language)
 		{
 			string text = string.Empty;
@@ -99,7 +100,7 @@ namespace I2.Loc
 			return Language;
 		}
 
-		// Token: 0x06000E43 RID: 3651 RVA: 0x00057F30 File Offset: 0x00056130
+		// Token: 0x060011DF RID: 4575 RVA: 0x000766E4 File Offset: 0x000748E4
 		public static string GetCodedLanguage(string Language, string code)
 		{
 			string languageCode = GoogleLanguages.GetLanguageCode(Language, false);
@@ -110,7 +111,7 @@ namespace I2.Loc
 			return Language + " [" + code + "]";
 		}
 
-		// Token: 0x06000E44 RID: 3652 RVA: 0x00057F64 File Offset: 0x00056164
+		// Token: 0x060011E0 RID: 4576 RVA: 0x00076718 File Offset: 0x00074918
 		public static void UnPackCodeFromLanguageName(string CodedLanguage, out string Language, out string code)
 		{
 			if (string.IsNullOrEmpty(CodedLanguage))
@@ -130,7 +131,7 @@ namespace I2.Loc
 			code = CodedLanguage.Substring(num + 1, CodedLanguage.IndexOf("]", num, StringComparison.Ordinal) - num - 1);
 		}
 
-		// Token: 0x06000E45 RID: 3653 RVA: 0x00057FD4 File Offset: 0x000561D4
+		// Token: 0x060011E1 RID: 4577 RVA: 0x00076788 File Offset: 0x00074988
 		public static string GetGoogleLanguageCode(string InternationalCode)
 		{
 			foreach (KeyValuePair<string, GoogleLanguages.LanguageCodeDef> keyValuePair in GoogleLanguages.mLanguageDef)
@@ -147,7 +148,7 @@ namespace I2.Loc
 			return InternationalCode;
 		}
 
-		// Token: 0x06000E46 RID: 3654 RVA: 0x00058078 File Offset: 0x00056278
+		// Token: 0x060011E2 RID: 4578 RVA: 0x0007682C File Offset: 0x00074A2C
 		public static string GetLanguageName(string code, bool useParenthesesForRegion = false, bool allowDiscardRegion = true)
 		{
 			foreach (KeyValuePair<string, GoogleLanguages.LanguageCodeDef> keyValuePair in GoogleLanguages.mLanguageDef)
@@ -177,7 +178,7 @@ namespace I2.Loc
 			return null;
 		}
 
-		// Token: 0x06000E47 RID: 3655 RVA: 0x00058140 File Offset: 0x00056340
+		// Token: 0x060011E3 RID: 4579 RVA: 0x000768F4 File Offset: 0x00074AF4
 		public static List<string> GetAllInternationalCodes()
 		{
 			HashSet<string> hashSet = new HashSet<string>(StringComparer.Ordinal);
@@ -188,7 +189,7 @@ namespace I2.Loc
 			return new List<string>(hashSet);
 		}
 
-		// Token: 0x06000E48 RID: 3656 RVA: 0x000581B0 File Offset: 0x000563B0
+		// Token: 0x060011E4 RID: 4580 RVA: 0x00076964 File Offset: 0x00074B64
 		public static bool LanguageCode_HasJoinedWord(string languageCode)
 		{
 			foreach (KeyValuePair<string, GoogleLanguages.LanguageCodeDef> keyValuePair in GoogleLanguages.mLanguageDef)
@@ -201,7 +202,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000E49 RID: 3657 RVA: 0x00058238 File Offset: 0x00056438
+		// Token: 0x060011E5 RID: 4581 RVA: 0x000769EC File Offset: 0x00074BEC
 		private static int GetPluralRule(string langCode)
 		{
 			if (langCode.Length > 2)
@@ -219,7 +220,7 @@ namespace I2.Loc
 			return 0;
 		}
 
-		// Token: 0x06000E4A RID: 3658 RVA: 0x000582C4 File Offset: 0x000564C4
+		// Token: 0x060011E6 RID: 4582 RVA: 0x00076A78 File Offset: 0x00074C78
 		public static bool LanguageHasPluralType(string langCode, string pluralType)
 		{
 			if (pluralType == "Plural" || pluralType == "Zero" || pluralType == "One")
@@ -251,7 +252,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000E4B RID: 3659 RVA: 0x000583D8 File Offset: 0x000565D8
+		// Token: 0x060011E7 RID: 4583 RVA: 0x00076B8C File Offset: 0x00074D8C
 		public static ePluralType GetPluralType(string langCode, int n)
 		{
 			if (n == 0)
@@ -471,7 +472,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000E4C RID: 3660 RVA: 0x000586D4 File Offset: 0x000568D4
+		// Token: 0x060011E8 RID: 4584 RVA: 0x00076E88 File Offset: 0x00075088
 		public static int GetPluralTestNumber(string langCode, ePluralType pluralType)
 		{
 			switch (pluralType)
@@ -503,12 +504,13 @@ namespace I2.Loc
 			return 936;
 		}
 
-		// Token: 0x06000E4D RID: 3661 RVA: 0x00058730 File Offset: 0x00056930
+		// Token: 0x060011E9 RID: 4585 RVA: 0x000148F1 File Offset: 0x00012AF1
 		private static bool inRange(int amount, int min, int max)
 		{
 			return amount >= min && amount <= max;
 		}
 
+		// Token: 0x040012B5 RID: 4789
 		public static Dictionary<string, GoogleLanguages.LanguageCodeDef> mLanguageDef = new Dictionary<string, GoogleLanguages.LanguageCodeDef>(StringComparer.Ordinal)
 		{
 			{
@@ -2864,14 +2866,19 @@ namespace I2.Loc
 			}
 		};
 
+		// Token: 0x02000194 RID: 404
 		public struct LanguageCodeDef
 		{
+			// Token: 0x040012B6 RID: 4790
 			public string Code;
 
+			// Token: 0x040012B7 RID: 4791
 			public string GoogleCode;
 
+			// Token: 0x040012B8 RID: 4792
 			public bool HasJoinedWords;
 
+			// Token: 0x040012B9 RID: 4793
 			public int PluralRule;
 		}
 	}

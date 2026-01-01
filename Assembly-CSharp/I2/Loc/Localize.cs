@@ -7,11 +7,13 @@ using UnityEngine.Events;
 
 namespace I2.Loc
 {
+	// Token: 0x020001B2 RID: 434
 	[AddComponentMenu("I2/Localization/I2 Localize")]
 	public class Localize : MonoBehaviour
 	{
-		// (get) Token: 0x06000EF0 RID: 3824 RVA: 0x000600F0 File Offset: 0x0005E2F0
-		// (set) Token: 0x06000EF1 RID: 3825 RVA: 0x000600F8 File Offset: 0x0005E2F8
+		// Token: 0x17000151 RID: 337
+		// (get) Token: 0x060012B3 RID: 4787 RVA: 0x00014E6D File Offset: 0x0001306D
+		// (set) Token: 0x060012B4 RID: 4788 RVA: 0x00014E75 File Offset: 0x00013075
 		public string Term
 		{
 			get
@@ -24,8 +26,9 @@ namespace I2.Loc
 			}
 		}
 
-		// (get) Token: 0x06000EF2 RID: 3826 RVA: 0x00060101 File Offset: 0x0005E301
-		// (set) Token: 0x06000EF3 RID: 3827 RVA: 0x00060109 File Offset: 0x0005E309
+		// Token: 0x17000152 RID: 338
+		// (get) Token: 0x060012B5 RID: 4789 RVA: 0x00014E7E File Offset: 0x0001307E
+		// (set) Token: 0x060012B6 RID: 4790 RVA: 0x00014E86 File Offset: 0x00013086
 		public string SecondaryTerm
 		{
 			get
@@ -38,7 +41,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EF4 RID: 3828 RVA: 0x00060113 File Offset: 0x0005E313
+		// Token: 0x060012B7 RID: 4791 RVA: 0x00014E90 File Offset: 0x00013090
 		private void Awake()
 		{
 			this.UpdateAssetDictionary();
@@ -49,19 +52,19 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EF5 RID: 3829 RVA: 0x00060131 File Offset: 0x0005E331
+		// Token: 0x060012B8 RID: 4792 RVA: 0x00014EAE File Offset: 0x000130AE
 		private void OnEnable()
 		{
 			this.OnLocalize(false);
 		}
 
-		// Token: 0x06000EF6 RID: 3830 RVA: 0x0006013A File Offset: 0x0005E33A
+		// Token: 0x060012B9 RID: 4793 RVA: 0x00014EB7 File Offset: 0x000130B7
 		public bool HasCallback()
 		{
 			return this.LocalizeCallBack.HasCallback() || this.LocalizeEvent.GetPersistentEventCount() > 0;
 		}
 
-		// Token: 0x06000EF7 RID: 3831 RVA: 0x0006015C File Offset: 0x0005E35C
+		// Token: 0x060012BA RID: 4794 RVA: 0x0007E600 File Offset: 0x0007C800
 		public void OnLocalize(bool Force = false)
 		{
 			if (!Force && (!base.enabled || base.gameObject == null || !base.gameObject.activeInHierarchy))
@@ -180,7 +183,7 @@ namespace I2.Loc
 			Localize.CurrentLocalizeComponent = null;
 		}
 
-		// Token: 0x06000EF8 RID: 3832 RVA: 0x00060580 File Offset: 0x0005E780
+		// Token: 0x060012BB RID: 4795 RVA: 0x0007EA24 File Offset: 0x0007CC24
 		public bool FindTarget()
 		{
 			if (this.mLocalizeTarget != null && this.mLocalizeTarget.IsValid(this))
@@ -225,7 +228,7 @@ namespace I2.Loc
 			return false;
 		}
 
-		// Token: 0x06000EF9 RID: 3833 RVA: 0x000606D8 File Offset: 0x0005E8D8
+		// Token: 0x060012BC RID: 4796 RVA: 0x0007EB7C File Offset: 0x0007CD7C
 		public void GetFinalTerms(out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = string.Empty;
@@ -257,7 +260,7 @@ namespace I2.Loc
 			}
 		}
 
-		// Token: 0x06000EFA RID: 3834 RVA: 0x00060774 File Offset: 0x0005E974
+		// Token: 0x060012BD RID: 4797 RVA: 0x0007EC18 File Offset: 0x0007CE18
 		public string GetMainTargetsText()
 		{
 			string text = null;
@@ -273,14 +276,14 @@ namespace I2.Loc
 			return this.mTerm;
 		}
 
-		// Token: 0x06000EFB RID: 3835 RVA: 0x000607B5 File Offset: 0x0005E9B5
+		// Token: 0x060012BE RID: 4798 RVA: 0x00014ED6 File Offset: 0x000130D6
 		public void SetFinalTerms(string Main, string Secondary, out string primaryTerm, out string secondaryTerm, bool RemoveNonASCII)
 		{
 			primaryTerm = (RemoveNonASCII ? I2Utils.GetValidTermName(Main, false) : Main);
 			secondaryTerm = Secondary;
 		}
 
-		// Token: 0x06000EFC RID: 3836 RVA: 0x000607CC File Offset: 0x0005E9CC
+		// Token: 0x060012BF RID: 4799 RVA: 0x0007EC5C File Offset: 0x0007CE5C
 		public void SetTerm(string primary)
 		{
 			if (!string.IsNullOrEmpty(primary))
@@ -291,7 +294,7 @@ namespace I2.Loc
 			this.OnLocalize(true);
 		}
 
-		// Token: 0x06000EFD RID: 3837 RVA: 0x000607F8 File Offset: 0x0005E9F8
+		// Token: 0x060012C0 RID: 4800 RVA: 0x0007EC88 File Offset: 0x0007CE88
 		public void SetTerm(string primary, string secondary)
 		{
 			if (!string.IsNullOrEmpty(primary))
@@ -304,7 +307,7 @@ namespace I2.Loc
 			this.OnLocalize(true);
 		}
 
-		// Token: 0x06000EFE RID: 3838 RVA: 0x00060834 File Offset: 0x0005EA34
+		// Token: 0x060012C1 RID: 4801 RVA: 0x0007ECC4 File Offset: 0x0007CEC4
 		internal T GetSecondaryTranslatedObj<T>(ref string mainTranslation, ref string secondaryTranslation) where T : global::UnityEngine.Object
 		{
 			string text;
@@ -327,7 +330,7 @@ namespace I2.Loc
 			return t;
 		}
 
-		// Token: 0x06000EFF RID: 3839 RVA: 0x00060894 File Offset: 0x0005EA94
+		// Token: 0x060012C2 RID: 4802 RVA: 0x0007ED24 File Offset: 0x0007CF24
 		public void UpdateAssetDictionary()
 		{
 			this.TranslatedObjects.RemoveAll((global::UnityEngine.Object x) => x == null);
@@ -335,7 +338,7 @@ namespace I2.Loc
 				group o by o.name).ToDictionary((IGrouping<string, global::UnityEngine.Object> g) => g.Key, (IGrouping<string, global::UnityEngine.Object> g) => g.First<global::UnityEngine.Object>());
 		}
 
-		// Token: 0x06000F00 RID: 3840 RVA: 0x00060944 File Offset: 0x0005EB44
+		// Token: 0x060012C3 RID: 4803 RVA: 0x0007EDD4 File Offset: 0x0007CFD4
 		internal T GetObject<T>(string Translation) where T : global::UnityEngine.Object
 		{
 			if (string.IsNullOrEmpty(Translation))
@@ -345,13 +348,13 @@ namespace I2.Loc
 			return this.GetTranslatedObject<T>(Translation);
 		}
 
-		// Token: 0x06000F01 RID: 3841 RVA: 0x0006096A File Offset: 0x0005EB6A
+		// Token: 0x060012C4 RID: 4804 RVA: 0x00014EEC File Offset: 0x000130EC
 		private T GetTranslatedObject<T>(string Translation) where T : global::UnityEngine.Object
 		{
 			return this.FindTranslatedObject<T>(Translation);
 		}
 
-		// Token: 0x06000F02 RID: 3842 RVA: 0x00060974 File Offset: 0x0005EB74
+		// Token: 0x060012C5 RID: 4805 RVA: 0x0007EDFC File Offset: 0x0007CFFC
 		private void DeserializeTranslation(string translation, out string value, out string secondary)
 		{
 			if (!string.IsNullOrEmpty(translation) && translation.Length > 1 && translation[0] == '[')
@@ -368,7 +371,7 @@ namespace I2.Loc
 			secondary = string.Empty;
 		}
 
-		// Token: 0x06000F03 RID: 3843 RVA: 0x000609CC File Offset: 0x0005EBCC
+		// Token: 0x060012C6 RID: 4806 RVA: 0x0007EE54 File Offset: 0x0007D054
 		public T FindTranslatedObject<T>(string value) where T : global::UnityEngine.Object
 		{
 			if (string.IsNullOrEmpty(value))
@@ -395,13 +398,13 @@ namespace I2.Loc
 			return ResourceManager.pInstance.GetAsset<T>(value);
 		}
 
-		// Token: 0x06000F04 RID: 3844 RVA: 0x00060ABC File Offset: 0x0005ECBC
+		// Token: 0x060012C7 RID: 4807 RVA: 0x00014EF5 File Offset: 0x000130F5
 		public bool HasTranslatedObject(global::UnityEngine.Object Obj)
 		{
 			return this.TranslatedObjects.Contains(Obj) || ResourceManager.pInstance.HasAsset(Obj);
 		}
 
-		// Token: 0x06000F05 RID: 3845 RVA: 0x00060AD9 File Offset: 0x0005ECD9
+		// Token: 0x060012C8 RID: 4808 RVA: 0x00014F12 File Offset: 0x00013112
 		public void AddTranslatedObject(global::UnityEngine.Object Obj)
 		{
 			if (this.TranslatedObjects.Contains(Obj))
@@ -412,86 +415,124 @@ namespace I2.Loc
 			this.UpdateAssetDictionary();
 		}
 
-		// Token: 0x06000F06 RID: 3846 RVA: 0x00060AFC File Offset: 0x0005ECFC
+		// Token: 0x060012C9 RID: 4809 RVA: 0x00014F35 File Offset: 0x00013135
 		public void SetGlobalLanguage(string Language)
 		{
 			LocalizationManager.CurrentLanguage = Language;
 		}
 
+		// Token: 0x04001345 RID: 4933
 		public string mTerm = string.Empty;
 
+		// Token: 0x04001346 RID: 4934
 		public string mTermSecondary = string.Empty;
 
+		// Token: 0x04001347 RID: 4935
 		[NonSerialized]
 		public string FinalTerm;
 
+		// Token: 0x04001348 RID: 4936
 		[NonSerialized]
 		public string FinalSecondaryTerm;
 
+		// Token: 0x04001349 RID: 4937
 		public Localize.TermModification PrimaryTermModifier;
 
+		// Token: 0x0400134A RID: 4938
 		public Localize.TermModification SecondaryTermModifier;
 
+		// Token: 0x0400134B RID: 4939
 		public string TermPrefix;
 
+		// Token: 0x0400134C RID: 4940
 		public string TermSuffix;
 
+		// Token: 0x0400134D RID: 4941
 		public bool LocalizeOnAwake = true;
 
+		// Token: 0x0400134E RID: 4942
 		private string LastLocalizedLanguage;
 
+		// Token: 0x0400134F RID: 4943
 		public bool IgnoreRTL;
 
+		// Token: 0x04001350 RID: 4944
 		public int MaxCharactersInRTL;
 
+		// Token: 0x04001351 RID: 4945
 		public bool IgnoreNumbersInRTL = true;
 
+		// Token: 0x04001352 RID: 4946
 		public bool CorrectAlignmentForRTL = true;
 
+		// Token: 0x04001353 RID: 4947
 		public bool AddSpacesToJoinedLanguages;
 
+		// Token: 0x04001354 RID: 4948
 		public bool AllowLocalizedParameters = true;
 
+		// Token: 0x04001355 RID: 4949
 		public bool AllowParameters = true;
 
+		// Token: 0x04001356 RID: 4950
 		public List<global::UnityEngine.Object> TranslatedObjects = new List<global::UnityEngine.Object>();
 
+		// Token: 0x04001357 RID: 4951
 		[NonSerialized]
 		public Dictionary<string, global::UnityEngine.Object> mAssetDictionary = new Dictionary<string, global::UnityEngine.Object>(StringComparer.Ordinal);
 
+		// Token: 0x04001358 RID: 4952
 		public UnityEvent LocalizeEvent = new UnityEvent();
 
+		// Token: 0x04001359 RID: 4953
 		public static string MainTranslation;
 
+		// Token: 0x0400135A RID: 4954
 		public static string SecondaryTranslation;
 
+		// Token: 0x0400135B RID: 4955
 		public static string CallBackTerm;
 
+		// Token: 0x0400135C RID: 4956
 		public static string CallBackSecondaryTerm;
 
+		// Token: 0x0400135D RID: 4957
 		public static Localize CurrentLocalizeComponent;
 
+		// Token: 0x0400135E RID: 4958
 		public bool AlwaysForceLocalize;
 
+		// Token: 0x0400135F RID: 4959
 		[SerializeField]
 		public EventCallback LocalizeCallBack = new EventCallback();
 
+		// Token: 0x04001360 RID: 4960
 		public bool mGUI_ShowReferences;
 
+		// Token: 0x04001361 RID: 4961
 		public bool mGUI_ShowTems = true;
 
+		// Token: 0x04001362 RID: 4962
 		public bool mGUI_ShowCallback;
 
+		// Token: 0x04001363 RID: 4963
 		public ILocalizeTarget mLocalizeTarget;
 
+		// Token: 0x04001364 RID: 4964
 		public string mLocalizeTargetName;
 
+		// Token: 0x020001B3 RID: 435
 		public enum TermModification
 		{
+			// Token: 0x04001366 RID: 4966
 			DontModify,
+			// Token: 0x04001367 RID: 4967
 			ToUpper,
+			// Token: 0x04001368 RID: 4968
 			ToLower,
+			// Token: 0x04001369 RID: 4969
 			ToUpperFirst,
+			// Token: 0x0400136A RID: 4970
 			ToTitle
 		}
 	}

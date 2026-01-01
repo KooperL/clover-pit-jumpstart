@@ -3,27 +3,28 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x02000185 RID: 389
 	public class Example_ChangeLanguage : MonoBehaviour
 	{
-		// Token: 0x06000DFF RID: 3583 RVA: 0x00056C95 File Offset: 0x00054E95
+		// Token: 0x0600119B RID: 4507 RVA: 0x00014612 File Offset: 0x00012812
 		public void SetLanguage_English()
 		{
 			this.SetLanguage("English");
 		}
 
-		// Token: 0x06000E00 RID: 3584 RVA: 0x00056CA2 File Offset: 0x00054EA2
+		// Token: 0x0600119C RID: 4508 RVA: 0x0001461F File Offset: 0x0001281F
 		public void SetLanguage_French()
 		{
 			this.SetLanguage("French");
 		}
 
-		// Token: 0x06000E01 RID: 3585 RVA: 0x00056CAF File Offset: 0x00054EAF
+		// Token: 0x0600119D RID: 4509 RVA: 0x0001462C File Offset: 0x0001282C
 		public void SetLanguage_Spanish()
 		{
 			this.SetLanguage("Spanish");
 		}
 
-		// Token: 0x06000E02 RID: 3586 RVA: 0x00056CBC File Offset: 0x00054EBC
+		// Token: 0x0600119E RID: 4510 RVA: 0x00014639 File Offset: 0x00012839
 		public void SetLanguage(string LangName)
 		{
 			if (LocalizationManager.HasLanguage(LangName, true, true, true))

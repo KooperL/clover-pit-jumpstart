@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x020001C8 RID: 456
 	public class LocalizeTarget_TextMeshPro_UGUI : LocalizeTarget<TextMeshProUGUI>
 	{
-		// Token: 0x06000F79 RID: 3961 RVA: 0x00062BF3 File Offset: 0x00060DF3
+		// Token: 0x06001367 RID: 4967 RVA: 0x0001534F File Offset: 0x0001354F
 		static LocalizeTarget_TextMeshPro_UGUI()
 		{
 			LocalizeTarget_TextMeshPro_UGUI.AutoRegister();
 		}
 
-		// Token: 0x06000F7A RID: 3962 RVA: 0x00062BFA File Offset: 0x00060DFA
+		// Token: 0x06001368 RID: 4968 RVA: 0x00015356 File Offset: 0x00013556
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void AutoRegister()
 		{
@@ -23,44 +24,44 @@ namespace I2.Loc
 			});
 		}
 
-		// Token: 0x06000F7B RID: 3963 RVA: 0x00062C19 File Offset: 0x00060E19
+		// Token: 0x06001369 RID: 4969 RVA: 0x00008AE5 File Offset: 0x00006CE5
 		public override eTermType GetPrimaryTermType(Localize cmp)
 		{
 			return eTermType.Text;
 		}
 
-		// Token: 0x06000F7C RID: 3964 RVA: 0x00062C1C File Offset: 0x00060E1C
+		// Token: 0x0600136A RID: 4970 RVA: 0x00015375 File Offset: 0x00013575
 		public override eTermType GetSecondaryTermType(Localize cmp)
 		{
 			return eTermType.TextMeshPFont;
 		}
 
-		// Token: 0x06000F7D RID: 3965 RVA: 0x00062C20 File Offset: 0x00060E20
+		// Token: 0x0600136B RID: 4971 RVA: 0x00007C86 File Offset: 0x00005E86
 		public override bool CanUseSecondaryTerm()
 		{
 			return true;
 		}
 
-		// Token: 0x06000F7E RID: 3966 RVA: 0x00062C23 File Offset: 0x00060E23
+		// Token: 0x0600136C RID: 4972 RVA: 0x00007C86 File Offset: 0x00005E86
 		public override bool AllowMainTermToBeRTL()
 		{
 			return true;
 		}
 
-		// Token: 0x06000F7F RID: 3967 RVA: 0x00062C26 File Offset: 0x00060E26
+		// Token: 0x0600136D RID: 4973 RVA: 0x00008AE5 File Offset: 0x00006CE5
 		public override bool AllowSecondTermToBeRTL()
 		{
 			return false;
 		}
 
-		// Token: 0x06000F80 RID: 3968 RVA: 0x00062C2C File Offset: 0x00060E2C
+		// Token: 0x0600136E RID: 4974 RVA: 0x00080D70 File Offset: 0x0007EF70
 		public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
 		{
 			primaryTerm = (this.mTarget ? this.mTarget.text : null);
 			secondaryTerm = ((this.mTarget.font != null) ? this.mTarget.font.name : string.Empty);
 		}
 
-		// Token: 0x06000F81 RID: 3969 RVA: 0x00062C84 File Offset: 0x00060E84
+		// Token: 0x0600136F RID: 4975 RVA: 0x00080DC8 File Offset: 0x0007EFC8
 		public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
 		{
 			TMP_FontAsset tmp_FontAsset = cmp.GetSecondaryTranslatedObj<TMP_FontAsset>(ref mainTranslation, ref secondaryTranslation);
@@ -117,12 +118,16 @@ namespace I2.Loc
 			}
 		}
 
-		public TextAlignmentOptions mAlignment_RTL = 516;
+		// Token: 0x0400139A RID: 5018
+		public TextAlignmentOptions mAlignment_RTL = TextAlignmentOptions.Right;
 
-		public TextAlignmentOptions mAlignment_LTR = 513;
+		// Token: 0x0400139B RID: 5019
+		public TextAlignmentOptions mAlignment_LTR = TextAlignmentOptions.Left;
 
+		// Token: 0x0400139C RID: 5020
 		public bool mAlignmentWasRTL;
 
+		// Token: 0x0400139D RID: 5021
 		public bool mInitializeAlignment = true;
 	}
 }

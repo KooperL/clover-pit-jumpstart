@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace I2.Loc
 {
+	// Token: 0x02000186 RID: 390
 	public class Example_LocalizedString : MonoBehaviour
 	{
-		// Token: 0x06000E04 RID: 3588 RVA: 0x00056CD8 File Offset: 0x00054ED8
+		// Token: 0x060011A0 RID: 4512 RVA: 0x0007575C File Offset: 0x0007395C
 		public void Start()
 		{
 			Debug.Log(this._MyLocalizedString);
@@ -24,10 +25,13 @@ namespace I2.Loc
 			Debug.Log(localizedString2);
 		}
 
+		// Token: 0x0400129D RID: 4765
 		public LocalizedString _MyLocalizedString;
 
+		// Token: 0x0400129E RID: 4766
 		public string _NormalString;
 
+		// Token: 0x0400129F RID: 4767
 		[TermsPopup("")]
 		public string _StringWithTermPopup;
 	}
