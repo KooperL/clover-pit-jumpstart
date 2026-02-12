@@ -1,4 +1,7 @@
 # Cloverpit-jumpstart
+
+![thumbnail](https://kooperlingohr.com/_app/immutable/assets/clover-pit-jumpstart-thumbnail.DmkcbUgJ.png)
+
 Provides a subtle early-game jumpstart to early game progression in CloverPit. The extra clover tickets and free restock smooth out the opening turns, letting players establish momentum faster without disrupting overall balance or progression.
 
 # Modifications
